@@ -12,21 +12,49 @@ dockerfile = str(sys.argv[1])
 with open(dockerfile,'r') as infile:
 	data = infile.readlines()
 
+#Search for chmod or chown in Dockerfile
 chmod = 'RUN chmod'
 chown = 'RUN chown'
-#copy = 'COPY'
-#add = 'ADD'
 
 for line in data:
-	if chmod in line:
+	if chmod in line: #chmod found
 		line = line.strip('\n')
 		line = line.split(' ')
-#flags		s = line[1].split('-', 1)
+		#flags	TODO	s = line[1].split('-', 1)
+		#Chmod Rule
 		chmod_rule = '\tchmod ' + line[len(line)-2] + ' ' + line[len(line)-1] + ',\n'
-		profile.append(chmod_rule)	
 
-	if chown in line:
+		#Path permission rule - File access rule
+		chmod_permission = list(line[len(line)-2])
+		chmod_path = line[len(line)-1]
+		#chmod permissions calculate both for letters and numbers. ONLY FOR OWNER!
+		if chmod_permission[1] == 'u':
+			permissions = line[len(line)-2].split('+')
+		if chmod_permission[1] == '1':
+			permissions = 'x'
+		if chmod_permission[1] == '2':
+			permissions = 'w'
+		if chmod_permission[1] == '3':
+			permissions = 'wx'
+		if chmod_permission[1] == '4':
+			permissions = 'r'
+		if chmod_permission[1] == '5':
+			permissions = 'rx'
+		if chmod_permission[1] == '6':
+			permissions = 'rw'
+		if chmod_permission[1] == '7':
+			permissions = 'rwx'
+		chmod_path_rule = '\t' + chmod_path + ' ' + permissions + ',\n'
+
+		#Add rules to AppArmor profile
+		profile.append(chmod_rule)
+		profile.append(chmod_path_rule)
+
+	if chown in line: #chown found
+		#Add capability rule
 		profile.append('\tcapability chown,\n')
+
+		#Chown Rule needed as well
 		line = line.strip('\n')
 		line = line.split(' ')
 		path = line[len(line)-1]
@@ -38,6 +66,7 @@ for line in data:
 			chown_rule = '\tchown ' + path + ' to owner=' + owner + ' group=' + group + ',\n'
 		else:
 			chown_rule = '\tchown ' + path + ' to owner=' + owner + ',\n'
+		#Add chown rule
 		profile.append(chown_rule)
 
 #	if (copy or add) in line:
