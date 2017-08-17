@@ -2,15 +2,16 @@
 import io
 import sys
 
-profile = []
-profile.append('#include <tunables/global>\n\n')
-profile.append('profile new {\n')
+static_profile = []
+static_profile.append('#include <tunables/global>\n\n')
+static_profile.append('profile static_profile {\n')
 
 #Dockerfile
 dockerfile = str(sys.argv[1])
 
 with open(dockerfile,'r') as infile:
 	data = infile.readlines()
+	static_profile.append('\tfile,\n') #this rule is needed so that I can work with files (create files, dirs, copy, etc)
 
 #Search for chmod or chown in Dockerfile
 chmod = 'RUN chmod'
@@ -21,8 +22,10 @@ for line in data:
 		line = line.strip('\n')
 		line = line.split(' ')
 		#flags	TODO	s = line[1].split('-', 1)
-		#Chmod Rule
-		chmod_rule = '\tchmod ' + line[len(line)-2] + ' ' + line[len(line)-1] + ',\n'
+		#Chmod Rule - not supported 
+		#instead of this rule we add w permission to file so that it can be "chmod"ed...
+		#chmod_rule = '\tchmod ' + line[len(line)-2] + ' ' + line[len(line)-1] + ',\n'
+		chmod_rule = '\t' + line[len(line)-1] + ' w,\n'
 
 		#Path permission rule - File access rule
 		chmod_permission = list(line[len(line)-2])
@@ -31,43 +34,45 @@ for line in data:
 		if chmod_permission[1] == 'u':
 			permissions = line[len(line)-2].split('+')
 		if chmod_permission[1] == '1':
-			permissions = 'x'
+			permissions = 'ix'
 		if chmod_permission[1] == '2':
 			permissions = 'w'
 		if chmod_permission[1] == '3':
-			permissions = 'wx'
+			permissions = 'wix'
 		if chmod_permission[1] == '4':
 			permissions = 'r'
 		if chmod_permission[1] == '5':
-			permissions = 'rx'
+			permissions = 'rix'
 		if chmod_permission[1] == '6':
 			permissions = 'rw'
 		if chmod_permission[1] == '7':
-			permissions = 'rwx'
-		chmod_path_rule = '\t' + chmod_path + ' ' + permissions + ',\n'
+			permissions = 'rwix'
+		#Supported only for owner's permissions
+		chmod_path_rule = '\towner ' + chmod_path + ' ' + permissions + ',\n'
 
 		#Add rules to AppArmor profile
-		profile.append(chmod_rule)
-		profile.append(chmod_path_rule)
+		static_profile.append(chmod_rule)
+		static_profile.append(chmod_path_rule)
 
 	if chown in line: #chown found
 		#Add capability rule
-		profile.append('\tcapability chown,\n')
+		static_profile.append('\tcapability chown,\n')
 
+		#Not supported!
 		#Chown Rule needed as well
-		line = line.strip('\n')
-		line = line.split(' ')
-		path = line[len(line)-1]
-		owner_group = line[len(line)-2]
-		owner_group = owner_group.split(':')
-		owner = owner_group[0]
-		if len(owner_group) == 2:
-			group = owner_group[1]
-			chown_rule = '\tchown ' + path + ' to owner=' + owner + ' group=' + group + ',\n'
-		else:
-			chown_rule = '\tchown ' + path + ' to owner=' + owner + ',\n'
+		#line = line.strip('\n')
+		#line = line.split(' ')
+		#path = line[len(line)-1]
+		#owner_group = line[len(line)-2]
+		#owner_group = owner_group.split(':')
+		#owner = owner_group[0]
+		#if len(owner_group) == 2:
+		#	group = owner_group[1]
+		#	chown_rule = '\tchown ' + path + ' to owner=' + owner + ' group=' + group + ',\n'
+		#else:
+		#	chown_rule = '\tchown ' + path + ' to owner=' + owner + ',\n'
 		#Add chown rule
-		profile.append(chown_rule)
+		#static_profile.append(chown_rule)
 
 #	if (copy or add) in line:
 #		line = line.split(' ')
@@ -75,10 +80,10 @@ for line in data:
 #		dst = line[2]
 #		src = src + ' r,\n'
 #		dst = dst + ' w,\n'
-#		profile.append(src)
-#		profile.append(dst)
+#		static_profile.append(src)
+#		static_profile.append(dst)
 
-profile.append('\n')
+static_profile.append('\n')
 
 #DockerCompose - if it exists
 if (len(sys.argv) > 2):
@@ -98,7 +103,7 @@ if (len(sys.argv) > 2):
 	
 	for i in xrange(len(data)): #because we will need the next line
 		if network in data[i]:
-			profile.append('\tcapability net_bind_service,\n')
+			static_profile.append('\tcapability net_bind_service,\n')
 			z = i
 			while ('-' in data[z+1]): #checking for multiple ports (same with volumes, capabilities etc)
 				ports = data[z+1].strip()
@@ -110,9 +115,9 @@ if (len(sys.argv) > 2):
 				port_container = ports[1]
 
 				bind_rule = '\tnetwork bind ' + port_host + ' to ' + port_container + ',\n'
-				profile.append(bind_rule)
+				static_profile.append(bind_rule)
 				z = z+1
-			profile.append('\n')
+			static_profile.append('\n')
 		if mount in data[i]:
 			z = i
 			while ('-' in data[z+1]):
@@ -124,9 +129,9 @@ if (len(sys.argv) > 2):
 				src = src.strip('"')
 				mntpnt = src_mntpnt[1]
 				mount_rule = '\tmount ' + src + ' -> ' + mntpnt + ',\n'
-				profile.append(mount_rule)
+				static_profile.append(mount_rule)
 				z = z+1
-			profile.append('\n')
+			static_profile.append('\n')
 		if capability in data[i]:
 			z = i
 			while ('-' in data[z+1]):
@@ -136,13 +141,13 @@ if (len(sys.argv) > 2):
 				if x=='ALL':
 					for j in xrange(len(all_capabilities)):
 						cap = '\tcapability ' + all_capabilities[j] + ',\n'
-						profile.append(cap)
+						static_profile.append(cap)
 				else:
 					x = x.lower()
 					cap = '\tcapability ' + x + ',\n'
-					profile.append(cap)
+					static_profile.append(cap)
 				z = z+1
-			profile.append('\n')
+			static_profile.append('\n')
 		if capability_deny in data[i]:
 			z = i
 			while ('-' in data[z+1]):
@@ -152,17 +157,17 @@ if (len(sys.argv) > 2):
 				if x=='ALL':
 					for j in xrange(len(all_capabilities)):
 						cap = '\tdeny capability ' + all_capabilities[j] + ',\n'
-						profile.append(cap)
+						static_profile.append(cap)
 				else:
 					x = x.lower()
 					cap = '\tdeny capability ' + x + ',\n'
-					profile.append(cap)
+					static_profile.append(cap)
 				z = z+1
-			profile.append('\n')
+			static_profile.append('\n')
 		#if rlimit in line:
 			
 			
-profile.append('}\n')
-with open('profile', 'w') as outfile:
-	outfile.writelines( profile )
+static_profile.append('}\n')
+with open('static_profile', 'w') as outfile:
+	outfile.writelines( static_profile )
 
