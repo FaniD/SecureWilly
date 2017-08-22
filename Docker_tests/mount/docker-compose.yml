@@ -1,11 +1,12 @@
 version: "3"
 
 services:
-  foo:
-#    security_opt:
- #     - label=level:s0:c100,c200
-    build: .
+  mounty:
+    security_opt:
+      - apparmor:static_profile
+    build:
+      context: .
+      dockerfile: Dockerfile
 
     volumes:
-      - "/home/fanilicious/Diplomatiki/mount/data4mount:/mount_here"
-
+      - "/home/fanilicious/Diplomatiki/mount/data:/mount_here"
