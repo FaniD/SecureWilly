@@ -4,7 +4,7 @@ import sys
 
 static_profile = []
 static_profile.append('#include <tunables/global>\n\n')
-static_profile.append('profile static_profile {\n')
+static_profile.append('profile static_profile flags=(attach_disconnected,mediate_deleted) {\n')
 
 #Dockerfile
 dockerfile = str(sys.argv[1])
@@ -114,7 +114,8 @@ if (len(sys.argv) > 2):
 				port_host = port_host.strip('"')
 				port_container = ports[1]
 
-				bind_rule = '\tnetwork bind ' + port_host + ' to ' + port_container + ',\n'
+				#bind_rule = '\tnetwork bind ' + port_host + ' to ' + port_container + ',\n' NOT SUPPORTED
+				bind_rule = '\tnetwork,\n'
 				static_profile.append(bind_rule)
 				z = z+1
 			static_profile.append('\n')
