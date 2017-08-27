@@ -5,6 +5,5 @@ profile static_profile flags=(attach_disconnected,mediate_deleted) {
 	/hello w,
 	owner /hello r,
 	capability chown,
-`	set rlimit core <= 10M,
-	set rlimit nproc <= 5,
+	set rlimit nproc <= 5, 
 }

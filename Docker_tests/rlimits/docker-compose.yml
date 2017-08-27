@@ -7,11 +7,11 @@ services:
       dockerfile: Dockerfile
 
     security_opt:
-      - apparmor:unconfined
+      - apparmor:static_profile
 
     ulimits:
       # Single number or mapping with soft + hard limits
-      nproc: 1
+      nproc: 5
       nofile:
         soft: 20000
         hard: 40000
