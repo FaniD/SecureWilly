@@ -111,8 +111,6 @@ for line in data:
 		#Add capability rule if we want to allow chown command to be used in the container
 #?????not sure		static_profile.append('\tcapability chown,\n')
 
-                chown_line = '\t#Chown command\n' + chown_cap
-                static_profile.append(chown_line)
                 static_profile.append(file_rule)
                 static_profile.append(setuid_setgid_rule)
 
@@ -141,7 +139,7 @@ for line in data:
 #		static_profile.append(src)
 #		static_profile.append(dst)
 
-#static_profile.append('\n')
+
 
 #DockerCompose - if it exists
 if (len(sys.argv) > 2):
