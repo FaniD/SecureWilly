@@ -7,6 +7,7 @@ RUN apt-get -y update && apt-get install -y vim
 #Create file hello, create directory Heys 
 RUN echo "greetings" > hello
 RUN mkdir "Heys"
+RUN echo "abc" > test #by default r to everybody, w only to root
 
 #Create 2 users, userA with password A, userB with password B
 RUN useradd -m userA && echo "userA:A" | chpasswd
