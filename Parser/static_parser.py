@@ -159,6 +159,7 @@ if (len(sys.argv) > 2):
 	
 	for i in xrange(len(data)): #because we will need the next line
 		if network in data[i]:
+                        static_profile.append(file_rule)
 			static_profile.append('\tcapability net_bind_service,\n')
 			z = i
 			while ('-' in data[z+1]): #checking for multiple ports (same with volumes, capabilities etc)
