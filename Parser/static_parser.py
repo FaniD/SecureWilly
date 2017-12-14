@@ -24,13 +24,13 @@ with open(dockerfile,'r') as infile:
 #Rules
 
 #This rule is needed so that we can work with files (create files/directories, copy, etc)
-file_rule = '\t#This rule is needed so that I can work with files (create files/directories, copy, etc)\n\tfile,\n\n'
+file_rule = '\tfile,  #This rule is needed so that I can work with files (create files/directories, copy, etc)\n'
 
 #These rules are needed so that we can switch between users
-setuid_setgid_rule = '\t#Chown or User command\n\t#These rules are needed so that we can switch between users\n\tcapability setuid,\n\tcapability setgid,\n\n'
+setuid_setgid_rule = '\tcapability setuid,  #Needed to switch between users (chown or USER commands)\n\tcapability setgid,  #Needed to switch between users (chown or USER commands)\n'
 
 #Chown capability
-chown_cap = '\t#This capability is needed to use chown\n\tcapability chown,\n\n'
+chown_cap = '\tcapability chown,  #This capability is needed to use chown\n'
 
 #static_profile.append(file_rule)
 
@@ -149,7 +149,7 @@ if (len(sys.argv) > 2):
 	with open(dockercompose,'r') as infile:
 		data = infile.readlines()
 
-	data.append('')
+	#data.append('')
 	network = 'ports:'
 	mount = 'volumes:'
 	mount_ = 'volume_driver:'
@@ -160,7 +160,7 @@ if (len(sys.argv) > 2):
 	for i in xrange(len(data)): #because we will need the next line
 		if network in data[i]:
                         static_profile.append(file_rule)
-			static_profile.append('\tcapability net_bind_service,\n')
+			static_profile.append('\tcapability net_bind_service,  #This capability is needed to bind a socket to Internet domain privileged ports\n')
 			z = i
 			while ('-' in data[z+1]): #checking for multiple ports (same with volumes, capabilities etc)
 				ports = data[z+1].strip()
@@ -172,10 +172,8 @@ if (len(sys.argv) > 2):
 				port_container = ports[1]
 
 				#bind_rule = '\tnetwork bind ' + port_host + ' to ' + port_container + ',\n' NOT SUPPORTED
-				bind_rule = '\tnetwork,\n'
-				static_profile.append(bind_rule)
+				static_profile.append('\tnetwork,  #Grain access to networking - ports forwarding\n')
 				z = z+1
-			static_profile.append('\n')
 		if mount in data[i]:
 			z = i
 			while ('-' in data[z+1]):
