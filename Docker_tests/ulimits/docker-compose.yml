@@ -1,0 +1,20 @@
+version: "3"
+
+services:
+  ulim:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    security_opt:
+          - "apparmor:static_profile"
+    stdin_open: true
+    tty: true
+    ulimits:
+      # Single number or mapping with soft + hard limits
+      nproc: 
+        soft: 1
+        hard: 3
+      nofile:
+        soft: 20000
+        hard: 40000
+
