@@ -14,6 +14,6 @@ RUN mkdir /test_proc
 
 COPY ./test /test_proc/.
 WORKDIR /test_proc
-#CMD ["./test"]
-ENTRYPOINT /bin/bash
+CMD ["./test"]
+#ENTRYPOINT /bin/bash
 

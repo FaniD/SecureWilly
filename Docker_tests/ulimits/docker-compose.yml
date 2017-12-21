@@ -5,8 +5,10 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    stdin_open: true
-    tty: true
+#    stdin_open: true
+#    tty: true
+    security_opt:
+            - "apparmor:static_profile"
     ulimits:
       # Single number or mapping with soft + hard limits
       nproc: 
