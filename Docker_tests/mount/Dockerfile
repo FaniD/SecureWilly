@@ -1,7 +1,13 @@
-FROM fani/test_no0:latest
+FROM ubuntu:latest
 MAINTAINER Fani Dimou <fani.dimou92@gmail.com>
 
-RUN mkdir /mount_here
-#RUN chmod 777 /mount_here
-RUN mkdir /not_mount
+#Install vim
+RUN apt-get -y update && apt-get install -y vim
+
+##Create file hello, create directory Heys 
+RUN echo "greetings" > hello
+
+##Create userA with password A
+RUN useradd -m userA && echo "userA:A" | chpasswd
+
 ENTRYPOINT /bin/bash

@@ -3,10 +3,14 @@ version: "3"
 services:
   mounty:
     security_opt:
-      - apparmor:static_profile
+            - "apparmor:static_profile"
     build:
       context: .
       dockerfile: Dockerfile
 
+    stdin_open: true
+    tty: true
+
     volumes:
-      - "/home/fanilicious/Diplomatiki/mount/data:/mount_here"
+        - "/home/ubuntu/Security-on-Docker/Docker_tests/mount/data:/mount_here"
+

@@ -155,7 +155,7 @@ if (len(sys.argv) > 2):
 	mount_ = 'volume_driver:'
 	capability = 'cap_add:'
 	capability_deny = 'cap_drop:'
-#	rlimit = 'cgroup_parent'
+	ulimit = 'ulimits'
 	
 	for i in xrange(len(data)): #because we will need the next line
 		if network in data[i]:
@@ -220,7 +220,8 @@ if (len(sys.argv) > 2):
 					static_profile.append(cap)
 				z = z+1
 			static_profile.append('\n')
-		#if rlimit in line:
+		if ulimit in data[i]:
+                        
 			
 			
 #static_profile.append('}\n')

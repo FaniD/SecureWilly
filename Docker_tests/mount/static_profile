@@ -1,8 +1,7 @@
 #include <tunables/global>
 
 profile static_profile flags=(attach_disconnected,mediate_deleted) {
-	file,
 
-	mount /home/fanilicious/Diplomatiki/mount/data4mount -> /mount_here,
-	/mount_here w,
+	file,
+	mount /home/ubuntu/Security-on-Docker/Docker_tests/mount/data -> /mount_here,
 }
