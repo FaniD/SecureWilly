@@ -221,6 +221,18 @@ if (len(sys.argv) > 2):
 				z = z+1
 			static_profile.append('\n')
 		if ulimit in data[i]:
+                        z = i+1;
+                        my_ulimit = data[z].strip()
+                        my_ulimit = my_ulimit.strip(":")
+                        slimits = data[z+1].split(':')
+                        soft = slimits[1].strip()
+                        hlimits = data[z+2].split(':')
+                        hard = hlimits[1].strip()
+                        #TODO More than one ulimits
+                        #TODO Single value ulimit (this is hard limit)
+                        ulimit_rule = "\tset rlimit " + my_ulimit + " <= " + hard + "\n"
+                        static_profile.append(ulimit_rule)
+                        z = z+3
                         
 			
 			
