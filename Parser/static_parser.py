@@ -230,7 +230,7 @@ if (len(sys.argv) > 2):
                         hard = hlimits[1].strip()
                         #TODO More than one ulimits
                         #TODO Single value ulimit (this is hard limit)
-                        ulimit_rule = "\tset rlimit " + my_ulimit + " <= " + hard + "\n"
+                        ulimit_rule = "\tset rlimit " + my_ulimit + " <= " + hard + ",\n"
                         static_profile.append(ulimit_rule)
                         z = z+3
                         
