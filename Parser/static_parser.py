@@ -184,10 +184,10 @@ if (len(sys.argv) > 2):
 				src = src.strip()
 				src = src.strip('"')
 				mntpnt = src_mntpnt[1]
-				mount_rule = '\tmount ' + src + ' -> ' + mntpnt + ',\n'
+				mount_rule = '\tmount ' + src + ' -> ' + mntpnt + ', #Bind host volume to docker container volume\n'
 				static_profile.append(mount_rule)
 				z = z+1
-			static_profile.append('\n')
+                        static_profile.append(file_rule)
 		if capability in data[i]:
 			z = i
 			while ('-' in data[z+1]):
