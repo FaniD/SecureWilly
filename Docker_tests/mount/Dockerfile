@@ -4,10 +4,9 @@ MAINTAINER Fani Dimou <fani.dimou92@gmail.com>
 #Install vim
 RUN apt-get -y update && apt-get install -y vim
 
-##Create file hello, create directory Heys 
-RUN echo "greetings" > hello
+#Create a volume to do the bind
+RUN mkdir /mount_here
 
-##Create userA with password A
-RUN useradd -m userA && echo "userA:A" | chpasswd
-
-ENTRYPOINT /bin/bash
+#Run a script that creates a file into the binded volume, which should be seen to the host if bind is successful
+COPY create.sh /
+CMD ["./create.sh"]
