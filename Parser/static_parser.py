@@ -185,7 +185,7 @@ if (len(sys.argv) > 2):
 				src = src.strip('"')
 				mntpnt = src_mntpnt[1]
 				mount_rule = '\tmount ' + src + ' -> ' + mntpnt + ', #Bind host volume to docker container volume\n'
-                                cap_for_mount = '\tcapability sys_admin,  #Is needed for mount\n'
+                                cap_for_mount = '\tcapability dac_override,  #Is needed for mount\n'
 				static_profile.append(mount_rule)
                                 static_profile.append(cap_for_mount)
 				z = z+1
