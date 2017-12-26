@@ -1,9 +1,6 @@
 FROM ubuntu:latest
 MAINTAINER Fani Dimou <fani.dimou92@gmail.com>
 
-#Install vim
-RUN apt-get -y update && apt-get install -y vim
-
 #Create a volume to do the bind
 RUN mkdir /mount_here
 
