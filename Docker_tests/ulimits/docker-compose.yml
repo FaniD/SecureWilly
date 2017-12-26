@@ -13,8 +13,7 @@ services:
     security_opt:
          - "apparmor:static_profile"
 
-    ulimits:
-      # Single number or mapping with soft + hard limit
+    ulimits: # Single number or mapping with soft + hard limit
       nproc:
         soft: 1024
         hard: 1024
