@@ -37,11 +37,14 @@ chown_cap = '\tcapability chown,  #This capability is needed to use chown\n'
 #Search for chmod or chown in Dockerfile
 chmod = 'RUN chmod'
 chown = 'RUN chown'
-user = 'USER'
+user1 = 'USER'
+user2 = 'RUN useradd'
+copy = 'COPY'
+add = 'ADD'
 
 for line in data:
 
-        if user in line:
+        if user2 in line:
         #USER command is found so we consider that there must be given the permission to switch between users
         #There should be permission to switch only to this user but athough it is given in the documentation, this specification is not yet implemented:
         #setuid -> userA
@@ -109,7 +112,8 @@ for line in data:
         #Chown command found so we need file rule, setuid rule and sticky bits - if given
 
 		#Add capability rule if we want to allow chown command to be used in the container
-#?????not sure		static_profile.append('\tcapability chown,\n')
+                #Not needed. Do it only if it is asked
+                #static_profile.append('\tcapability chown,\n')
 
                 static_profile.append(file_rule)
                 static_profile.append(setuid_setgid_rule)
@@ -130,14 +134,9 @@ for line in data:
 		#Add chown rule
 		#static_profile.append(chown_rule)
 
-#	if (copy or add) in line:
-#		line = line.split(' ')
-#		src = line[1]
-#		dst = line[2]
-#		src = src + ' r,\n'
-#		dst = dst + ' w,\n'
-#		static_profile.append(src)
-#		static_profile.append(dst)
+	if (copy or add) in line:
+        #This means we are dealing with directories and files so we need file rule
+		static_profile.append(file_rule)
 
 
 
