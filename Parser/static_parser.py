@@ -195,9 +195,10 @@ if (len(sys.argv) > 2):
 				x = x.strip('-')
 				x = x.strip()
 				if x=='ALL':
-					for j in xrange(len(all_capabilities)):
-						cap = '\tcapability ' + all_capabilities[j] + ',\n'
-						static_profile.append(cap)
+					#for j in xrange(len(all_capabilities)):
+						#cap = '\tcapability ' + all_capabilities[j] + ',\n'
+                                        cap = '\tcapability, #Add all capabilities\n'
+					static_profile.append(cap)
 				else:
 					x = x.lower()
 					cap = '\tcapability ' + x + ',\n'
@@ -211,9 +212,10 @@ if (len(sys.argv) > 2):
 				x = x.strip('-')
 				x = x.strip()
 				if x=='ALL':
-					for j in xrange(len(all_capabilities)):
-						cap = '\tdeny capability ' + all_capabilities[j] + ',\n'
-						static_profile.append(cap)
+					#for j in xrange(len(all_capabilities)):
+						#cap = '\tdeny capability ' + all_capabilities[j] + ',\n'
+                                        cap = '\tdeny capability, #Drop all capabilities\n'
+					static_profile.append(cap)
 				else:
 					x = x.lower()
 					cap = '\tdeny capability ' + x + ',\n'
