@@ -38,7 +38,11 @@ chown_cap = '\tcapability chown,  #This capability is needed to use chown\n'
 chmod = 'RUN chmod'
 chown = 'RUN chown'
 user1 = 'USER'
+user1_names = []
+user1_counter = 0
 user2 = 'RUN useradd'
+user2_names = []
+user2_counter = 0
 copy = 'COPY'
 add = 'ADD'
 
@@ -48,7 +52,17 @@ for line in data:
         #USER command is found so we consider that there must be given the permission to switch between users
         #There should be permission to switch only to this user but athough it is given in the documentation, this specification is not yet implemented:
         #setuid -> userA
-                static_profile.append(setuid_setgid_rule)
+                #static_profile.append(setuid_setgid_rule)
+                line = line.strip('\n')
+                line = line.split(' ')
+                user2_counter+=1
+                user2_names.append(line[2])
+
+        if user1 in line:
+                line = line.strip('\n')
+                line = line.split(' ')
+                user1_counter+=1
+                user1_names.append(line[1])
 
 	if chmod in line:
         #Chmod found so we have to deal with files (file rule) and fix sticky bits and permissions
@@ -138,6 +152,17 @@ for line in data:
         #This means we are dealing with directories and files so we need file rule
 		static_profile.append(file_rule)
 
+if user1_counter>1:
+    static_profile.append(setuid_setgid_rule)
+if user2_counter==1:
+    if user1_counter==1:
+        if user1_names[0]!=user2_names[0]:
+            static_profile.append(setuid_setgid_rule)
+    else:
+        static_profile.append(setuid_setgid_rule)
+if user2_counter>1:
+    static_profile.append(setuid_setgid_rule)
+    
 
 
 #DockerCompose - if it exists
