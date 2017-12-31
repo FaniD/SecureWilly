@@ -10,8 +10,8 @@ RUN mkdir "Heys"
 RUN echo "abc" > test #by default r to everybody, w only to root
 
 #Create 2 users, userA with password A, userB with password B
-RUN useradd -m userA && echo "userA:A" | chpasswd
-RUN useradd -m userB && echo "userB:B" | chpasswd
+RUN useradd userA && echo "userA:A" | chpasswd
+RUN useradd userB && echo "userB:B" | chpasswd
 
 #Test 1
 #chown hello -> userA owner and permissions rwx only userA, everybody else only r permission
@@ -23,7 +23,7 @@ RUN chmod 744 /hello
 RUN chown userB:userB /Heys/
 RUN chmod 744 /Heys
 
-#USER userB
-#USER userA
+USER userB
+USER userA
 
 ENTRYPOINT /bin/bash
