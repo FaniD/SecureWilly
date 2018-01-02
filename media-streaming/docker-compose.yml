@@ -1,0 +1,27 @@
+version: '3'
+services:
+  streaming_dataset:
+          #    security_opt:
+          #     - "apparmor:dataset_profile"
+    build: ./dataset/Dockerfile
+    volumes:
+     - ./streaming_dataset:/videos
+  streaming_server:
+          #    security_opt:
+          #     - "apparmor:server_profile"
+    build: ./server/Dockerfile
+    links:
+     - streaming_dataset
+    volumes:
+     - streaming_dataset
+  streaming_client:
+          #    security_opt:
+          #     - "apparmor:client_profile"
+    build: ./client/Dockerfile
+    links:
+     - streaming_dataset
+    volumes:
+     - streaming_dataset
+     - "/:/output"
+volumes:
+  streaming_dataset:
