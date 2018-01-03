@@ -3,25 +3,25 @@ services:
   streaming_dataset:
           #    security_opt:
           #     - "apparmor:dataset_profile"
-    build: ./dataset/Dockerfile
+    image: cloudsuite/media-streaming:dataset
     volumes:
      - ./streaming_dataset:/videos
   streaming_server:
           #    security_opt:
           #     - "apparmor:server_profile"
-    build: ./server/Dockerfile
-    links:
-     - streaming_dataset
+    image: cloudsuite/media-streaming:server
+          #    links:
+          #     - streaming_dataset
     volumes:
-     - streaming_dataset
+     - streaming_dataset:/videos
   streaming_client:
           #    security_opt:
           #     - "apparmor:client_profile"
-    build: ./client/Dockerfile
-    links:
-     - streaming_dataset
+    image: cloudsuite/media-streaming:client
+          #    links:
+          #     - streaming_dataset
     volumes:
-     - streaming_dataset
+     - streaming_dataset:/videos
      - "/:/output"
 volumes:
   streaming_dataset:
