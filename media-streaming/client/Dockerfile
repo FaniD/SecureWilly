@@ -9,9 +9,9 @@ RUN apt-get update -y && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 COPY files /root/
-RUN set -x \
-    && chmod +x /root/docker-entrypoint.sh \
-    && mkdir -p /root/build \
+RUN set -x
+RUN chmod 111 /root/docker-entrypoint.sh
+RUN mkdir -p /root/build \
     && cd /root/build \
     && /root/videoperf/configure \
     && make \
