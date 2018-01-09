@@ -2,9 +2,10 @@
 
 profile server_profile flags=(attach_disconnected,mediate_deleted) {
 	network inet stream,
+	network inet6 stream,
 	file,  #This rule is needed so that I can work with files (create files/directories, copy, etc)
 	capability dac_override,
 	capability chown,
-	capability setuid,
-	capability setgid,
+	capability net_bind_service,
+	capability fsetid,
 }
