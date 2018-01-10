@@ -1,0 +1,21 @@
+Jan 10 02:59:56 docker-security8 kernel: [  762.781421] IPv6: ADDRCONF(NETDEV_UP): br-b3cf70b3d66b: link is not ready
+Jan 10 03:01:19 docker-security8 kernel: [  845.351432] device veth3ea8b92 entered promiscuous mode
+Jan 10 03:01:19 docker-security8 kernel: [  845.351580] IPv6: ADDRCONF(NETDEV_UP): veth3ea8b92: link is not ready
+Jan 10 03:01:20 docker-security8 kernel: [  846.052937] IPv6: ADDRCONF(NETDEV_CHANGE): veth3ea8b92: link becomes ready
+Jan 10 03:01:20 docker-security8 kernel: [  846.052989] br-b3cf70b3d66b: port 1(veth3ea8b92) entered forwarding state
+Jan 10 03:01:20 docker-security8 kernel: [  846.053000] br-b3cf70b3d66b: port 1(veth3ea8b92) entered forwarding state
+Jan 10 03:01:20 docker-security8 kernel: [  846.053023] IPv6: ADDRCONF(NETDEV_CHANGE): br-b3cf70b3d66b: link becomes ready
+Jan 10 03:01:20 docker-security8 kernel: [  846.723797] device vethee81846 entered promiscuous mode
+Jan 10 03:01:20 docker-security8 kernel: [  846.723950] IPv6: ADDRCONF(NETDEV_UP): vethee81846: link is not ready
+Jan 10 03:01:20 docker-security8 kernel: [  846.723958] br-b3cf70b3d66b: port 2(vethee81846) entered forwarding state
+Jan 10 03:01:20 docker-security8 kernel: [  846.723965] br-b3cf70b3d66b: port 2(vethee81846) entered forwarding state
+Jan 10 03:01:21 docker-security8 kernel: [  847.360524] br-b3cf70b3d66b: port 2(vethee81846) entered disabled state
+Jan 10 03:01:21 docker-security8 kernel: [  847.361047] IPv6: ADDRCONF(NETDEV_CHANGE): vethee81846: link becomes ready
+Jan 10 03:01:21 docker-security8 kernel: [  847.361108] br-b3cf70b3d66b: port 2(vethee81846) entered forwarding state
+Jan 10 03:01:21 docker-security8 kernel: [  847.361121] br-b3cf70b3d66b: port 2(vethee81846) entered forwarding state
+Jan 10 03:01:35 docker-security8 kernel: [  861.088086] br-b3cf70b3d66b: port 1(veth3ea8b92) entered forwarding state
+Jan 10 03:01:36 docker-security8 kernel: [  862.368059] br-b3cf70b3d66b: port 2(vethee81846) entered forwarding state
+Jan 10 03:12:25 docker-security8 kernel: [ 1511.309249] br-b3cf70b3d66b: port 2(vethee81846) entered disabled state
+Jan 10 03:12:25 docker-security8 kernel: [ 1511.405814] br-b3cf70b3d66b: port 2(vethee81846) entered disabled state
+Jan 10 03:12:25 docker-security8 kernel: [ 1511.406431] device vethee81846 left promiscuous mode
+Jan 10 03:12:25 docker-security8 kernel: [ 1511.406445] br-b3cf70b3d66b: port 2(vethee81846) entered disabled state
