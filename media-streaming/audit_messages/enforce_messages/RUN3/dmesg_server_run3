@@ -1,0 +1,3 @@
+[ 2073.661492] type=1400 audit(1515552715.020:28): apparmor="DENIED" operation="capable" profile="server_profile" pid=2632 comm="nginx" capability=7  capname="setuid"
+[ 2073.661766] type=1400 audit(1515552715.020:29): apparmor="DENIED" operation="capable" profile="server_profile" pid=2633 comm="nginx" capability=7  capname="setuid"
+[ 2073.662175] type=1400 audit(1515552715.020:30): apparmor="DENIED" operation="capable" profile="server_profile" pid=2634 comm="nginx" capability=7  capname="setuid"
