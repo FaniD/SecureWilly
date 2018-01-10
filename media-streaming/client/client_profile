@@ -1,7 +1,7 @@
 #include <tunables/global>
 
 profile client_profile flags=(attach_disconnected,mediate_deleted) {
-	network inet stream,
+	network inet stream, #Maybe inet6 is needed too
 	network inet dgram,
 	#Chmod command
 	owner /root/docker-entrypoint.sh ix,
