@@ -6,13 +6,13 @@ services:
       context: .
       dockerfile: Dockerfile
 
-    privileged: true
-    cap_add:
-      - SYS_ADMIN
+#    privileged: true
+#    cap_add:
+#      - SYS_ADMIN
 
     devices:
-      - "/dev/tmp0:/dev/tty0"
+      - "/dev/ttyS1:/dev/ttyS1"
 
 #    security_opt:
  #     - apparmor=static_profile
-    tty: true
+ #    tty: true
