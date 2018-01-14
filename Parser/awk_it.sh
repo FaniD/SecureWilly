@@ -17,7 +17,7 @@ for SERVICE in server client dataset; do
 	awk 'BEGIN {FS="=";} {gsub(/"/,"",$2); print $2;}' tmp_file >> awk_out/caps_${SERVICE}
 
 	#Network
-
+	#All net permissions
 	for NET in create accept bind connect listen read write send receive getsockname getpeername getsockopt setsockopt fcntl ioctl shutdown getpeersec; do
 		#kern logs
 		#Find lines that include keyword "create" for network - keep family and sock_type
