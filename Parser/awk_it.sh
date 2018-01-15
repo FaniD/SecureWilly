@@ -16,6 +16,9 @@ for SERVICE in server client dataset; do
 	#Strip lines with capability to keep just the capname of each
 	awk 'BEGIN {FS="=";} {gsub(/"/,"",$2); print $2;}' tmp_file >> awk_out/caps_${SERVICE}
 
+	#Remove duplicates
+	awk '!seen[$0]++' awk_out/caps_${SERVICE} > awk_out/rcaps_${SERVICE}
+
 	#Network
 	#All net permissions
 	for NET in create accept bind connect listen read write send receive getsockname getpeername getsockopt setsockopt fcntl ioctl shutdown getpeersec; do
@@ -35,13 +38,24 @@ for SERVICE in server client dataset; do
 		awk 'BEGIN {FS="=| ";} {gsub(/"/,"",$2); gsub(/"/,"",$4); print $2 ',' $4;}' tmp_file >> awk_out/net_${SERVICE}
 	done
 
+        #Remove duplicates
+	awk '!seen[$0]++' awk_out/net_${SERVICE} > awk_out/rnet_${SERVICE}
+
 	#File access rules
 	for OPERATION in create open delete rename read getattr getxattr write append trunc setattr setxattr chmod chown chgrp link snapshot lock mmap mprot exec change_profile onexec exectime; do
 		#mmap_r mmap_w mmap_x mprot_wx mprot_xw 
 		awk -v operation="$OPERATION" '/operation/ {for(i=1;i<=NF;i++) {{if($i ~ /name/) printf "%s", $i} {if($i ~ /requested_mask/) print "", $i}}}' ../media-streaming/audit_messages/complain_messages/new/kernlogs_${SERVICE} > tmp_file
 
 		awk 'BEGIN {FS="=| ";} {gsub(/"/,"",$2); gsub(/"/,"",$4); print $2 ',' $4;}' tmp_file >> awk_out/file_${SERVICE}
+
+#ADD DMESG HERE...
 	done
+
+	#Remove duplicates
+	awk '!seen[$0]++' awk_out/file_${SERVICE} > awk_out/rfile_${SERVICE}
 done
+
+#awk '!seen[$0]++' ----> OMIT DUPLICATES
+
 
 rm tmp_file
