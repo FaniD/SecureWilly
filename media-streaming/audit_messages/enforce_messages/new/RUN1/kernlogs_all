@@ -1,0 +1,33 @@
+Jan 16 21:55:33 docker-security8 kernel: [20236.001681] IPv6: ADDRCONF(NETDEV_UP): br-c9dc5c28474c: link is not ready
+Jan 16 21:55:54 docker-security8 kernel: [20257.182816] device veth0227828 entered promiscuous mode
+Jan 16 21:55:54 docker-security8 kernel: [20257.182950] IPv6: ADDRCONF(NETDEV_UP): veth0227828: link is not ready
+Jan 16 21:55:59 docker-security8 kernel: [20261.608958] IPv6: ADDRCONF(NETDEV_CHANGE): veth0227828: link becomes ready
+Jan 16 21:55:59 docker-security8 kernel: [20261.609045] br-c9dc5c28474c: port 1(veth0227828) entered forwarding state
+Jan 16 21:55:59 docker-security8 kernel: [20261.609075] br-c9dc5c28474c: port 1(veth0227828) entered forwarding state
+Jan 16 21:55:59 docker-security8 kernel: [20261.609095] IPv6: ADDRCONF(NETDEV_CHANGE): br-c9dc5c28474c: link becomes ready
+Jan 16 21:55:59 docker-security8 kernel: [20262.350730] type=1400 audit(1516139759.843:48): apparmor="AUDIT" operation="open" profile="server_profile" name="/etc/ld.so.cache" pid=9424 comm="nginx" requested_mask="r" fsuid=0 ouid=0
+Jan 16 21:55:59 docker-security8 kernel: [20262.350744] type=1400 audit(1516139759.843:49): apparmor="AUDIT" operation="open" profile="server_profile" name="/var/lib/docker/aufs/diff/918aed4c4258f59ad853dbf4158c51b8f92aaef7620d0634079565a7bed954d1/etc/ld.so.cache" pid=9424 comm="nginx" requested_mask="r" fsuid=0 ouid=0
+Jan 16 21:55:59 docker-security8 kernel: [20262.350754] type=1400 audit(1516139759.843:50): apparmor="AUDIT" operation="getattr" profile="server_profile" name="/etc/ld.so.cache" pid=9424 comm="nginx" requested_mask="r" fsuid=0 ouid=0
+Jan 16 21:55:59 docker-security8 kernel: [20262.350761] type=1400 audit(1516139759.843:51): apparmor="AUDIT" operation="getattr" profile="server_profile" name="/var/lib/docker/aufs/diff/918aed4c4258f59ad853dbf4158c51b8f92aaef7620d0634079565a7bed954d1/etc/ld.so.cache" pid=9424 comm="nginx" requested_mask="r" fsuid=0 ouid=0
+Jan 16 21:55:59 docker-security8 kernel: [20262.350847] type=1400 audit(1516139759.843:52): apparmor="AUDIT" operation="open" profile="server_profile" name="/lib/x86_64-linux-gnu/libpthread-2.19.so" pid=9424 comm="nginx" requested_mask="r" fsuid=0 ouid=0
+Jan 16 21:55:59 docker-security8 kernel: [20262.350860] type=1400 audit(1516139759.843:53): apparmor="AUDIT" operation="open" profile="server_profile" name="/var/lib/docker/aufs/diff/342ae56f02d4374ac0dc1f279c7f9841d36cbcf13bdb1cc6128a3339641f09e6/lib/x86_64-linux-gnu/libpthread-2.19.so" pid=9424 comm="nginx" requested_mask="r" fsuid=0 ouid=0
+Jan 16 21:55:59 docker-security8 kernel: [20262.350879] type=1400 audit(1516139759.843:54): apparmor="AUDIT" operation="getattr" profile="server_profile" name="/lib/x86_64-linux-gnu/libpthread-2.19.so" pid=9424 comm="nginx" requested_mask="r" fsuid=0 ouid=0
+Jan 16 21:55:59 docker-security8 kernel: [20262.350886] type=1400 audit(1516139759.843:55): apparmor="AUDIT" operation="getattr" profile="server_profile" name="/var/lib/docker/aufs/diff/342ae56f02d4374ac0dc1f279c7f9841d36cbcf13bdb1cc6128a3339641f09e6/lib/x86_64-linux-gnu/libpthread-2.19.so" pid=9424 comm="nginx" requested_mask="r" fsuid=0 ouid=0
+Jan 16 21:55:59 docker-security8 kernel: [20262.350907] type=1400 audit(1516139759.843:56): apparmor="AUDIT" operation="file_mmap" profile="server_profile" name="/lib/x86_64-linux-gnu/libpthread-2.19.so" pid=9424 comm="nginx" requested_mask="r" fsuid=0 ouid=0
+Jan 16 21:55:59 docker-security8 kernel: [20262.351017] type=1400 audit(1516139759.843:57): apparmor="AUDIT" operation="open" profile="server_profile" name="/lib/x86_64-linux-gnu/libcrypt-2.19.so" pid=9424 comm="nginx" requested_mask="r" fsuid=0 ouid=0
+Jan 16 21:56:01 docker-security8 kernel: [20264.184765] br-c9dc5c28474c: port 1(veth0227828) entered disabled state
+Jan 16 21:56:01 docker-security8 kernel: [20264.342600] br-c9dc5c28474c: port 1(veth0227828) entered disabled state
+Jan 16 21:56:01 docker-security8 kernel: [20264.343606] device veth0227828 left promiscuous mode
+Jan 16 21:56:01 docker-security8 kernel: [20264.343624] br-c9dc5c28474c: port 1(veth0227828) entered disabled state
+Jan 16 21:56:02 docker-security8 kernel: [20264.609023] device veth18fb7db entered promiscuous mode
+Jan 16 21:56:02 docker-security8 kernel: [20264.609216] IPv6: ADDRCONF(NETDEV_UP): veth18fb7db: link is not ready
+Jan 16 21:56:02 docker-security8 kernel: [20264.609225] br-c9dc5c28474c: port 1(veth18fb7db) entered forwarding state
+Jan 16 21:56:02 docker-security8 kernel: [20264.609233] br-c9dc5c28474c: port 1(veth18fb7db) entered forwarding state
+Jan 16 21:56:02 docker-security8 kernel: [20265.184431] br-c9dc5c28474c: port 1(veth18fb7db) entered disabled state
+Jan 16 21:56:02 docker-security8 kernel: [20265.241053] IPv6: ADDRCONF(NETDEV_CHANGE): veth18fb7db: link becomes ready
+Jan 16 21:56:02 docker-security8 kernel: [20265.241101] br-c9dc5c28474c: port 1(veth18fb7db) entered forwarding state
+Jan 16 21:56:02 docker-security8 kernel: [20265.241107] br-c9dc5c28474c: port 1(veth18fb7db) entered forwarding state
+Jan 16 21:56:03 docker-security8 kernel: [20266.190043] br-c9dc5c28474c: port 1(veth18fb7db) entered disabled state
+Jan 16 21:56:03 docker-security8 kernel: [20266.273747] br-c9dc5c28474c: port 1(veth18fb7db) entered disabled state
+Jan 16 21:56:03 docker-security8 kernel: [20266.274301] device veth18fb7db left promiscuous mode
+Jan 16 21:56:03 docker-security8 kernel: [20266.274310] br-c9dc5c28474c: port 1(veth18fb7db) entered disabled state
