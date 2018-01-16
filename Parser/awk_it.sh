@@ -66,4 +66,7 @@ for SERVICE in server client dataset; do
 	awk '!seen[$0]++' awk_out/file_${SERVICE} > awk_out/complainlogs_file_${SERVICE}
 done
 
+rm awk_out/caps*
+rm awk_out/net*
+rm awk_out/file*
 rm tmp_file
