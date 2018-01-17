@@ -1,0 +1,3 @@
+[37842.753035] type=1400 audit(1516157340.247:68264): apparmor="ALLOWED" operation="capable" profile="server_profile" pid=306 comm="nginx" capability=1  capname="dac_override"
+[37843.476536] type=1400 audit(1516157340.971:68265): apparmor="ALLOWED" operation="capable" profile="server_profile" pid=377 comm="nginx" capability=6  capname="setgid"
+[37843.476912] type=1400 audit(1516157340.971:68266): apparmor="ALLOWED" operation="capable" profile="server_profile" pid=377 comm="nginx" capability=7  capname="setuid"
