@@ -1,0 +1,2 @@
+[   15.042522] type=1400 audit(1515552448.327:14): apparmor="STATUS" operation="profile_load" profile="unconfined" name="client_profile" pid=1093 comm="apparmor_parser"
+[  746.629180] type=1400 audit(1515553180.649:18): apparmor="STATUS" operation="profile_replace" profile="unconfined" name="client_profile" pid=1874 comm="apparmor_parser"

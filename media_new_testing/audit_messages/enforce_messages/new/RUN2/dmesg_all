@@ -1,0 +1,29 @@
+[22716.735756] IPv6: ADDRCONF(NETDEV_UP): br-5c8d634d5d58: link is not ready
+[22734.658400] device vethd2fd909 entered promiscuous mode
+[22734.658539] IPv6: ADDRCONF(NETDEV_UP): vethd2fd909: link is not ready
+[22741.620651] IPv6: ADDRCONF(NETDEV_CHANGE): vethd2fd909: link becomes ready
+[22741.620715] br-5c8d634d5d58: port 1(vethd2fd909) entered forwarding state
+[22741.620729] br-5c8d634d5d58: port 1(vethd2fd909) entered forwarding state
+[22741.620744] IPv6: ADDRCONF(NETDEV_CHANGE): br-5c8d634d5d58: link becomes ready
+[22742.855655] type=1400 audit(1516142240.347:24204): apparmor="AUDIT" operation="open" profile="server_profile" name="/etc/ld.so.cache" pid=15694 comm="nginx" requested_mask="r" fsuid=0 ouid=0
+[22742.855674] type=1400 audit(1516142240.347:24205): apparmor="AUDIT" operation="open" profile="server_profile" name="/var/lib/docker/aufs/diff/918aed4c4258f59ad853dbf4158c51b8f92aaef7620d0634079565a7bed954d1/etc/ld.so.cache" pid=15694 comm="nginx" requested_mask="r" fsuid=0 ouid=0
+[22742.855689] type=1400 audit(1516142240.347:24206): apparmor="AUDIT" operation="getattr" profile="server_profile" name="/etc/ld.so.cache" pid=15694 comm="nginx" requested_mask="r" fsuid=0 ouid=0
+[22742.855700] type=1400 audit(1516142240.347:24207): apparmor="AUDIT" operation="getattr" profile="server_profile" name="/var/lib/docker/aufs/diff/918aed4c4258f59ad853dbf4158c51b8f92aaef7620d0634079565a7bed954d1/etc/ld.so.cache" pid=15694 comm="nginx" requested_mask="r" fsuid=0 ouid=0
+[22742.855884] type=1400 audit(1516142240.347:24208): apparmor="AUDIT" operation="open" profile="server_profile" name="/lib/x86_64-linux-gnu/libpthread-2.19.so" pid=15694 comm="nginx" requested_mask="r" fsuid=0 ouid=0
+[22742.855908] type=1400 audit(1516142240.347:24209): apparmor="AUDIT" operation="open" profile="server_profile" name="/var/lib/docker/aufs/diff/342ae56f02d4374ac0dc1f279c7f9841d36cbcf13bdb1cc6128a3339641f09e6/lib/x86_64-linux-gnu/libpthread-2.19.so" pid=15694 comm="nginx" requested_mask="r" fsuid=0 ouid=0
+[22742.855940] type=1400 audit(1516142240.347:24210): apparmor="AUDIT" operation="getattr" profile="server_profile" name="/lib/x86_64-linux-gnu/libpthread-2.19.so" pid=15694 comm="nginx" requested_mask="r" fsuid=0 ouid=0
+[22742.855951] type=1400 audit(1516142240.347:24211): apparmor="AUDIT" operation="getattr" profile="server_profile" name="/var/lib/docker/aufs/diff/342ae56f02d4374ac0dc1f279c7f9841d36cbcf13bdb1cc6128a3339641f09e6/lib/x86_64-linux-gnu/libpthread-2.19.so" pid=15694 comm="nginx" requested_mask="r" fsuid=0 ouid=0
+[22742.855965] type=1400 audit(1516142240.347:24212): apparmor="AUDIT" operation="file_mmap" profile="server_profile" name="/lib/x86_64-linux-gnu/libpthread-2.19.so" pid=15694 comm="nginx" requested_mask="r" fsuid=0 ouid=0
+[22742.888606] type=1400 audit(1516142240.383:24213): apparmor="AUDIT" operation="open" profile="server_profile" name="/lib/x86_64-linux-gnu/libcrypt-2.19.so" pid=15694 comm="nginx" requested_mask="r" fsuid=0 ouid=0
+[22743.348167] device veth2701f07 entered promiscuous mode
+[22743.348358] IPv6: ADDRCONF(NETDEV_UP): veth2701f07: link is not ready
+[22743.849857] br-5c8d634d5d58: port 1(vethd2fd909) entered disabled state
+[22743.850326] device vethd2fd909 left promiscuous mode
+[22743.850336] br-5c8d634d5d58: port 1(vethd2fd909) entered disabled state
+[22743.984852] IPv6: ADDRCONF(NETDEV_CHANGE): veth2701f07: link becomes ready
+[22743.984922] br-5c8d634d5d58: port 2(veth2701f07) entered forwarding state
+[22743.984929] br-5c8d634d5d58: port 2(veth2701f07) entered forwarding state
+[22745.513540] br-5c8d634d5d58: port 2(veth2701f07) entered disabled state
+[22745.583553] br-5c8d634d5d58: port 2(veth2701f07) entered disabled state
+[22745.586500] device veth2701f07 left promiscuous mode
+[22745.586558] br-5c8d634d5d58: port 2(veth2701f07) entered disabled state

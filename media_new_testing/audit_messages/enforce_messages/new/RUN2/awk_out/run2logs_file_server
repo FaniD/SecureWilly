@@ -1,0 +1,5 @@
+/etc/ld.so.cache r
+/var/lib/docker/aufs/diff/918aed4c4258f59ad853dbf4158c51b8f92aaef7620d0634079565a7bed954d1/etc/ld.so.cache r
+/lib/x86_64-linux-gnu/libpthread-2.19.so r
+/var/lib/docker/aufs/diff/342ae56f02d4374ac0dc1f279c7f9841d36cbcf13bdb1cc6128a3339641f09e6/lib/x86_64-linux-gnu/libpthread-2.19.so r
+/lib/x86_64-linux-gnu/libcrypt-2.19.so r

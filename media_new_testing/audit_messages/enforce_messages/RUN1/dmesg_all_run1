@@ -1,0 +1,31 @@
+[ 4988.263702] IPv6: ADDRCONF(NETDEV_UP): br-6bce1609be4e: link is not ready
+[ 5015.653221] device veth301d94c entered promiscuous mode
+[ 5015.653361] IPv6: ADDRCONF(NETDEV_UP): veth301d94c: link is not ready
+[ 5022.720823] IPv6: ADDRCONF(NETDEV_CHANGE): veth301d94c: link becomes ready
+[ 5022.720894] br-6bce1609be4e: port 1(veth301d94c) entered forwarding state
+[ 5022.720904] br-6bce1609be4e: port 1(veth301d94c) entered forwarding state
+[ 5022.720926] IPv6: ADDRCONF(NETDEV_CHANGE): br-6bce1609be4e: link becomes ready
+[ 5024.272719] type=1400 audit(1515551114.553:2629789): apparmor="DENIED" operation="create" profile="server_profile" pid=5328 comm="nginx" family="inet6" sock_type="stream" protocol=0
+[ 5024.272773] type=1400 audit(1515551114.553:2629790): apparmor="DENIED" operation="capable" profile="server_profile" pid=5328 comm="nginx" capability=4  capname="fsetid"
+[ 5027.745021] br-6bce1609be4e: port 1(veth301d94c) entered disabled state
+[ 5030.142138] br-6bce1609be4e: port 1(veth301d94c) entered disabled state
+[ 5030.142904] device veth301d94c left promiscuous mode
+[ 5030.142918] br-6bce1609be4e: port 1(veth301d94c) entered disabled state
+[ 5030.264802] device veth6a7270d entered promiscuous mode
+[ 5030.264987] IPv6: ADDRCONF(NETDEV_UP): veth6a7270d: link is not ready
+[ 5030.928790] IPv6: ADDRCONF(NETDEV_CHANGE): veth6a7270d: link becomes ready
+[ 5030.928854] br-6bce1609be4e: port 1(veth6a7270d) entered forwarding state
+[ 5030.928865] br-6bce1609be4e: port 1(veth6a7270d) entered forwarding state
+[ 5031.043998] type=1400 audit(1515551121.321:2629791): apparmor="DENIED" operation="create" profile="client_profile" pid=5550 comm="httperf" family="inet" sock_type="dgram" protocol=0
+[ 5031.044081] type=1400 audit(1515551121.325:2629792): apparmor="DENIED" operation="create" profile="client_profile" pid=5550 comm="httperf" family="inet" sock_type="dgram" protocol=0
+[ 5031.045402] type=1400 audit(1515551121.325:2629793): apparmor="DENIED" operation="create" profile="client_profile" pid=5554 comm="httperf" family="inet" sock_type="dgram" protocol=0
+[ 5031.045430] type=1400 audit(1515551121.325:2629795): apparmor="DENIED" operation="create" profile="client_profile" pid=5554 comm="httperf" family="inet" sock_type="dgram" protocol=0
+[ 5031.045449] type=1400 audit(1515551121.325:2629794): apparmor="DENIED" operation="create" profile="client_profile" pid=5552 comm="httperf" family="inet" sock_type="dgram" protocol=0
+[ 5031.045479] type=1400 audit(1515551121.325:2629796): apparmor="DENIED" operation="create" profile="client_profile" pid=5552 comm="httperf" family="inet" sock_type="dgram" protocol=0
+[ 5031.048082] type=1400 audit(1515551121.329:2629797): apparmor="DENIED" operation="create" profile="client_profile" pid=5553 comm="httperf" family="inet" sock_type="dgram" protocol=0
+[ 5031.048115] type=1400 audit(1515551121.329:2629798): apparmor="DENIED" operation="create" profile="client_profile" pid=5553 comm="httperf" family="inet" sock_type="dgram" protocol=0
+[ 5031.134359] type=1400 audit(1515551121.413:2629799): apparmor="DENIED" operation="create" profile="client_profile" pid=5613 comm="httperf" family="inet" sock_type="dgram" protocol=0
+[ 5031.134377] type=1400 audit(1515551121.413:2629800): apparmor="DENIED" operation="create" profile="client_profile" pid=5613 comm="httperf" family="inet" sock_type="dgram" protocol=0
+[ 5031.751004] br-6bce1609be4e: port 1(veth6a7270d) entered disabled state
+[ 5031.751730] device veth6a7270d left promiscuous mode
+[ 5031.751746] br-6bce1609be4e: port 1(veth6a7270d) entered disabled state

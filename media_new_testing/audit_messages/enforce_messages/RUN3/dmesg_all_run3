@@ -1,0 +1,21 @@
+[ 1915.509325] IPv6: ADDRCONF(NETDEV_UP): br-44d6c8a39533: link is not ready
+[ 2034.472309] device veth75f1a71 entered promiscuous mode
+[ 2034.472430] IPv6: ADDRCONF(NETDEV_UP): veth75f1a71: link is not ready
+[ 2035.984728] IPv6: ADDRCONF(NETDEV_CHANGE): veth75f1a71: link becomes ready
+[ 2035.984775] br-44d6c8a39533: port 1(veth75f1a71) entered forwarding state
+[ 2035.984782] br-44d6c8a39533: port 1(veth75f1a71) entered forwarding state
+[ 2035.984798] IPv6: ADDRCONF(NETDEV_CHANGE): br-44d6c8a39533: link becomes ready
+[ 2043.117677] device vethf40e545 entered promiscuous mode
+[ 2043.117827] IPv6: ADDRCONF(NETDEV_UP): vethf40e545: link is not ready
+[ 2051.036717] br-44d6c8a39533: port 1(veth75f1a71) entered forwarding state
+[ 2052.280536] IPv6: ADDRCONF(NETDEV_CHANGE): vethf40e545: link becomes ready
+[ 2052.280570] br-44d6c8a39533: port 2(vethf40e545) entered forwarding state
+[ 2052.280576] br-44d6c8a39533: port 2(vethf40e545) entered forwarding state
+[ 2067.292346] br-44d6c8a39533: port 2(vethf40e545) entered forwarding state
+[ 2073.661492] type=1400 audit(1515552715.020:28): apparmor="DENIED" operation="capable" profile="server_profile" pid=2632 comm="nginx" capability=7  capname="setuid"
+[ 2073.661766] type=1400 audit(1515552715.020:29): apparmor="DENIED" operation="capable" profile="server_profile" pid=2633 comm="nginx" capability=7  capname="setuid"
+[ 2073.662175] type=1400 audit(1515552715.020:30): apparmor="DENIED" operation="capable" profile="server_profile" pid=2634 comm="nginx" capability=7  capname="setuid"
+[ 2108.836725] br-44d6c8a39533: port 2(vethf40e545) entered disabled state
+[ 2108.992253] br-44d6c8a39533: port 2(vethf40e545) entered disabled state
+[ 2108.992870] device vethf40e545 left promiscuous mode
+[ 2108.992881] br-44d6c8a39533: port 2(vethf40e545) entered disabled state
