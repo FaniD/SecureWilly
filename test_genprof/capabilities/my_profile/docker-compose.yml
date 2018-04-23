@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  foo:
+    build: .
+    security_opt:
+      - "apparmor:static_profile"
+    cap_add:
+      - CHOWN
+
+    cap_drop:
+      - NET_ADMIN
+      - SYS_ADMIN
+
