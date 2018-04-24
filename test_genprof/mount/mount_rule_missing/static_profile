@@ -1,0 +1,13 @@
+#include <tunables/global>
+
+profile static_profile flags=(attach_disconnected,mediate_deleted) {
+
+	deny mount,
+	#Chmod command
+	owner /mount_here rwix,
+	/mount_here rwix,
+
+	capability setuid,  #Needed to switch between users (chown or USER commands)
+	capability setgid,  #Needed to switch between users (chown or USER commands)
+	file,  #This rule is needed so that I can work with files (create files/directories, copy, etc)
+}

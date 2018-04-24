@@ -9,5 +9,5 @@ services:
       dockerfile: Dockerfile
 
     volumes:
-       - "/home/ubuntu/Security-on-Docker/test_genprof/mount/my_profile/data:/mount_here"
+       - "/home/ubuntu/Security-on-Docker/test_genprof/mount/mount_rule_missing/data:/mount_here"
 
