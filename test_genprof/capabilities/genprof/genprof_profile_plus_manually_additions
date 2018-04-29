@@ -1,0 +1,31 @@
+# Last Modified: Sun Apr 29 17:42:46 2018
+#include <tunables/global>
+
+/home/ubuntu/Security-on-Docker/test_genprof/capabilities/genprof/chown_it.sh {
+  #include <abstractions/base>
+  #include <abstractions/bash>
+
+ #Added manually
+  file,
+  capability setuid,  #Needed to switch between users (chown or USER commands)
+  capability setgid,  #Needed to switch between users (chown or USER commands)
+  capability chown,
+ 
+ #Added by genprof
+  /bin/chown rix,
+  /bin/dash ix,
+  /bin/grep rix,
+  /dev/pts/0 r,
+  /etc/default/useradd r,
+  /etc/group r,
+  /etc/login.defs r,
+  /etc/nsswitch.conf r,
+  /etc/passwd r,
+  /home/*/Security-on-Docker/test_genprof/capabilities/genprof/ rw,
+  /home/*/Security-on-Docker/test_genprof/capabilities/genprof/hello w,
+  /home/ubuntu/Security-on-Docker/test_genprof/capabilities/genprof/chown_it.sh r,
+  /proc/filesystems r,
+  /proc/sys/kernel/ngroups_max r,
+  /usr/sbin/useradd rix,
+
+}

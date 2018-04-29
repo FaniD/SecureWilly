@@ -1,10 +1,10 @@
 #!/bin/sh
 
-useradd -m userA && echo "userA:A" | chpasswd
+useradd -m userb #Useradd is not permitted
 echo "greetings" > hello
 echo "ls -l to see /hello permissions"
-ls -l / | grep hello
-echo "Chown for UserA and file /hello"
-chown userA:userA ./hello
+ls -l ./ | grep hello
+echo "Chown for userA and file /hello"
+chown usera:usera ./hello #I used root and not userA because useradd was not permitted
 echo "Now ls -l to see if it worked"
-ls -l / | grep hello
+ls -l ./ | grep hello

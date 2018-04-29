@@ -1,0 +1,5 @@
+The profile made by genprof was not enough to run chown!
+I added capability chown and worked with sudo.
+Useradd works with my additions and sudo but cannot lock passwd (?) .
+
+So genprof cannot stand on its own, profile need some manual additions and several aa-genprof runs.

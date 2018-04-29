@@ -1,21 +1,26 @@
-# Last Modified: Sun Apr 29 14:48:30 2018
+# Last Modified: Sun Apr 29 20:56:03 2018
 #include <tunables/global>
 
 /home/ubuntu/Security-on-Docker/test_genprof/capabilities/genprof/chown_it.sh {
   #include <abstractions/base>
   #include <abstractions/bash>
+capability chown, #my addition to make chown run
 
-  / r,
   /bin/chown rix,
   /bin/dash ix,
   /bin/grep rix,
-  /dev/pts/0 r,
+  /dev/pts/2 r,
+  /etc/.pwd.lock w,
+  /etc/default/useradd r,
   /etc/group r,
+  /etc/login.defs r,
   /etc/nsswitch.conf r,
   /etc/passwd r,
+  /home/*/Security-on-Docker/test_genprof/capabilities/genprof/ r,
   /home/*/Security-on-Docker/test_genprof/capabilities/genprof/hello rw,
   /home/ubuntu/Security-on-Docker/test_genprof/capabilities/genprof/chown_it.sh r,
-  /usr/sbin/chpasswd rix,
+  /proc/filesystems r,
+  /proc/sys/kernel/ngroups_max r,
   /usr/sbin/useradd rix,
 
 }
