@@ -8,6 +8,8 @@
  #Added manually
   file,
   capability chown,
+  capability dac_read_search,
+  capability dac_override,
  #Added by genprof
   /etc/default/useradd r,
   /home/ubuntu/Security-on-Docker/test_genprof/capabilities/genprof/chown_it.sh rix,
