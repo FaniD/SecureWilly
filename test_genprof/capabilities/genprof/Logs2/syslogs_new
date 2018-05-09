@@ -1,0 +1,2 @@
+May  9 23:55:34 docker-security7 kernel: [280383.345808] type=1400 audit(1525910134.609:38): apparmor="ALLOWED" operation="capable" profile="/home/ubuntu/Security-on-Docker/test_genprof/capabilities/genprof/chown_it.sh" pid=2263 comm="chown_it.sh" capability=1  capname="dac_override"
+May  9 23:55:34 docker-security7 kernel: [280383.351015] type=1400 audit(1525910134.613:39): apparmor="ALLOWED" operation="capable" profile="/home/ubuntu/Security-on-Docker/test_genprof/capabilities/genprof/chown_it.sh" pid=2267 comm="chown" capability=0  capname="chown"
