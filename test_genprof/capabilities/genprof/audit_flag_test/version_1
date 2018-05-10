@@ -1,0 +1,7 @@
+# Last Modified: Sun Apr 29 21:16:50 2018
+#include <tunables/global>
+
+/home/ubuntu/Security-on-Docker/test_genprof/capabilities/genprof/chown_it.sh {
+  #include <abstractions/base>
+  #include <abstractions/bash>
+}
