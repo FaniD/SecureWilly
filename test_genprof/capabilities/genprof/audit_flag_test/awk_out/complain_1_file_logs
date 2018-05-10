@@ -1,0 +1,5 @@
+/etc/ld.so.cache r
+/lib/x86_64-linux-gnu/libc-2.19.so r
+/home/ubuntu/Security-on-Docker/test_genprof/capabilities/genprof/audit_flag_test/chown_it.sh r
+/usr/sbin/useradd r
+requested_mask 
