@@ -3,7 +3,7 @@
 #read PATH
 
 run_path="./Logs/"
-mode="testtestenforce_noaudit_2" #enforce
+mode="enforce_3" #enforce
 
 #for SERVICE in server client dataset; do
 #for N in 1 ... ${SERVICES} ; do
