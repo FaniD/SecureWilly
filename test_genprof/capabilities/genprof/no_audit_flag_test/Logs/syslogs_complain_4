@@ -1,0 +1,93 @@
+May 17 23:43:18 docker-security7 kernel: [970846.904859] type=1400 audit(1526600598.169:6911): apparmor="ALLOWED" operation="mknod" profile="/home/ubuntu/Security-on-Docker/test_genprof/capabilities/genprof/no_audit_flag_test/chown_it.sh" name="/home/ubuntu/Security-on-Docker/test_genprof/capabilities/genprof/no_audit_flag_test/hello" pid=9373 comm="chown_it.sh" requested_mask="c" denied_mask="c" fsuid=1000 ouid=1000
+May 17 23:43:18 docker-security7 kernel: [970846.904925] type=1400 audit(1526600598.169:6912): apparmor="ALLOWED" operation="open" profile="/home/ubuntu/Security-on-Docker/test_genprof/capabilities/genprof/no_audit_flag_test/chown_it.sh" name="/home/ubuntu/Security-on-Docker/test_genprof/capabilities/genprof/no_audit_flag_test/hello" pid=9373 comm="chown_it.sh" requested_mask="wc" denied_mask="wc" fsuid=1000 ouid=1000
+May 17 23:43:18 docker-security7 kernel: [970846.911178] type=1400 audit(1526600598.173:6913): apparmor="ALLOWED" operation="chown" profile="/home/ubuntu/Security-on-Docker/test_genprof/capabilities/genprof/no_audit_flag_test/chown_it.sh" name="/home/ubuntu/Security-on-Docker/test_genprof/capabilities/genprof/no_audit_flag_test/hello" pid=9377 comm="chown" requested_mask="w" denied_mask="w" fsuid=1000 ouid=1000
+May 17 23:44:01 docker-security7 dhclient: DHCPREQUEST of 192.168.5.182 on eth0 to 192.168.5.1 port 67 (xid=0x3ab946dd)
+May 17 23:44:01 docker-security7 dhclient: DHCPACK of 192.168.5.182 from 192.168.5.1
+May 17 23:44:01 docker-security7 dhclient: bound to 192.168.5.182 -- renewal in 47 seconds.
+May 17 23:44:48 docker-security7 dhclient: DHCPREQUEST of 192.168.5.182 on eth0 to 192.168.5.1 port 67 (xid=0x3ab946dd)
+May 17 23:44:48 docker-security7 dhclient: DHCPACK of 192.168.5.182 from 192.168.5.1
+May 17 23:44:48 docker-security7 dhclient: bound to 192.168.5.182 -- renewal in 51 seconds.
+May 17 23:45:39 docker-security7 dhclient: DHCPREQUEST of 192.168.5.182 on eth0 to 192.168.5.1 port 67 (xid=0x3ab946dd)
+May 17 23:45:39 docker-security7 dhclient: DHCPACK of 192.168.5.182 from 192.168.5.1
+May 17 23:45:39 docker-security7 dhclient: bound to 192.168.5.182 -- renewal in 55 seconds.
+May 17 23:46:34 docker-security7 dhclient: DHCPREQUEST of 192.168.5.182 on eth0 to 192.168.5.1 port 67 (xid=0x3ab946dd)
+May 17 23:46:34 docker-security7 dhclient: DHCPACK of 192.168.5.182 from 192.168.5.1
+May 17 23:46:34 docker-security7 dhclient: bound to 192.168.5.182 -- renewal in 43 seconds.
+May 17 23:47:17 docker-security7 dhclient: DHCPREQUEST of 192.168.5.182 on eth0 to 192.168.5.1 port 67 (xid=0x3ab946dd)
+May 17 23:47:17 docker-security7 dhclient: DHCPACK of 192.168.5.182 from 192.168.5.1
+May 17 23:47:17 docker-security7 dhclient: bound to 192.168.5.182 -- renewal in 46 seconds.
+May 17 23:48:03 docker-security7 dhclient: DHCPREQUEST of 192.168.5.182 on eth0 to 192.168.5.1 port 67 (xid=0x3ab946dd)
+May 17 23:48:03 docker-security7 dhclient: DHCPACK of 192.168.5.182 from 192.168.5.1
+May 17 23:48:03 docker-security7 dhclient: bound to 192.168.5.182 -- renewal in 51 seconds.
+May 17 23:48:54 docker-security7 dhclient: DHCPREQUEST of 192.168.5.182 on eth0 to 192.168.5.1 port 67 (xid=0x3ab946dd)
+May 17 23:48:54 docker-security7 dhclient: DHCPACK of 192.168.5.182 from 192.168.5.1
+May 17 23:48:54 docker-security7 dhclient: bound to 192.168.5.182 -- renewal in 45 seconds.
+May 17 23:49:39 docker-security7 dhclient: DHCPREQUEST of 192.168.5.182 on eth0 to 192.168.5.1 port 67 (xid=0x3ab946dd)
+May 17 23:49:39 docker-security7 dhclient: DHCPACK of 192.168.5.182 from 192.168.5.1
+May 17 23:49:39 docker-security7 dhclient: bound to 192.168.5.182 -- renewal in 52 seconds.
+May 17 23:50:31 docker-security7 dhclient: DHCPREQUEST of 192.168.5.182 on eth0 to 192.168.5.1 port 67 (xid=0x3ab946dd)
+May 17 23:50:31 docker-security7 dhclient: DHCPACK of 192.168.5.182 from 192.168.5.1
+May 17 23:50:31 docker-security7 dhclient: bound to 192.168.5.182 -- renewal in 47 seconds.
+May 17 23:51:18 docker-security7 dhclient: DHCPREQUEST of 192.168.5.182 on eth0 to 192.168.5.1 port 67 (xid=0x3ab946dd)
+May 17 23:51:18 docker-security7 dhclient: DHCPACK of 192.168.5.182 from 192.168.5.1
+May 17 23:51:18 docker-security7 dhclient: bound to 192.168.5.182 -- renewal in 56 seconds.
+May 17 23:52:14 docker-security7 dhclient: DHCPREQUEST of 192.168.5.182 on eth0 to 192.168.5.1 port 67 (xid=0x3ab946dd)
+May 17 23:52:14 docker-security7 dhclient: DHCPACK of 192.168.5.182 from 192.168.5.1
+May 17 23:52:14 docker-security7 dhclient: bound to 192.168.5.182 -- renewal in 54 seconds.
+May 17 23:53:08 docker-security7 dhclient: DHCPREQUEST of 192.168.5.182 on eth0 to 192.168.5.1 port 67 (xid=0x3ab946dd)
+May 17 23:53:08 docker-security7 dhclient: DHCPACK of 192.168.5.182 from 192.168.5.1
+May 17 23:53:08 docker-security7 dhclient: bound to 192.168.5.182 -- renewal in 44 seconds.
+May 17 23:53:52 docker-security7 dhclient: DHCPREQUEST of 192.168.5.182 on eth0 to 192.168.5.1 port 67 (xid=0x3ab946dd)
+May 17 23:53:52 docker-security7 dhclient: DHCPACK of 192.168.5.182 from 192.168.5.1
+May 17 23:53:52 docker-security7 dhclient: bound to 192.168.5.182 -- renewal in 42 seconds.
+May 17 23:54:34 docker-security7 dhclient: DHCPREQUEST of 192.168.5.182 on eth0 to 192.168.5.1 port 67 (xid=0x3ab946dd)
+May 17 23:54:34 docker-security7 dhclient: DHCPACK of 192.168.5.182 from 192.168.5.1
+May 17 23:54:34 docker-security7 dhclient: bound to 192.168.5.182 -- renewal in 50 seconds.
+May 17 23:55:24 docker-security7 dhclient: DHCPREQUEST of 192.168.5.182 on eth0 to 192.168.5.1 port 67 (xid=0x3ab946dd)
+May 17 23:55:24 docker-security7 dhclient: DHCPACK of 192.168.5.182 from 192.168.5.1
+May 17 23:55:24 docker-security7 dhclient: bound to 192.168.5.182 -- renewal in 41 seconds.
+May 17 23:56:05 docker-security7 dhclient: DHCPREQUEST of 192.168.5.182 on eth0 to 192.168.5.1 port 67 (xid=0x3ab946dd)
+May 17 23:56:05 docker-security7 dhclient: DHCPACK of 192.168.5.182 from 192.168.5.1
+May 17 23:56:05 docker-security7 dhclient: bound to 192.168.5.182 -- renewal in 52 seconds.
+May 17 23:56:57 docker-security7 dhclient: DHCPREQUEST of 192.168.5.182 on eth0 to 192.168.5.1 port 67 (xid=0x3ab946dd)
+May 17 23:56:57 docker-security7 dhclient: DHCPACK of 192.168.5.182 from 192.168.5.1
+May 17 23:56:57 docker-security7 dhclient: bound to 192.168.5.182 -- renewal in 44 seconds.
+May 17 23:57:41 docker-security7 dhclient: DHCPREQUEST of 192.168.5.182 on eth0 to 192.168.5.1 port 67 (xid=0x3ab946dd)
+May 17 23:57:41 docker-security7 dhclient: DHCPACK of 192.168.5.182 from 192.168.5.1
+May 17 23:57:41 docker-security7 dhclient: bound to 192.168.5.182 -- renewal in 43 seconds.
+May 17 23:58:24 docker-security7 dhclient: DHCPREQUEST of 192.168.5.182 on eth0 to 192.168.5.1 port 67 (xid=0x3ab946dd)
+May 17 23:58:24 docker-security7 dhclient: DHCPACK of 192.168.5.182 from 192.168.5.1
+May 17 23:58:24 docker-security7 dhclient: bound to 192.168.5.182 -- renewal in 48 seconds.
+May 17 23:59:12 docker-security7 dhclient: DHCPREQUEST of 192.168.5.182 on eth0 to 192.168.5.1 port 67 (xid=0x3ab946dd)
+May 17 23:59:12 docker-security7 dhclient: DHCPACK of 192.168.5.182 from 192.168.5.1
+May 17 23:59:12 docker-security7 dhclient: bound to 192.168.5.182 -- renewal in 47 seconds.
+May 17 23:59:59 docker-security7 dhclient: DHCPREQUEST of 192.168.5.182 on eth0 to 192.168.5.1 port 67 (xid=0x3ab946dd)
+May 17 23:59:59 docker-security7 dhclient: DHCPACK of 192.168.5.182 from 192.168.5.1
+May 17 23:59:59 docker-security7 dhclient: bound to 192.168.5.182 -- renewal in 55 seconds.
+May 18 00:00:54 docker-security7 dhclient: DHCPREQUEST of 192.168.5.182 on eth0 to 192.168.5.1 port 67 (xid=0x3ab946dd)
+May 18 00:00:54 docker-security7 dhclient: DHCPACK of 192.168.5.182 from 192.168.5.1
+May 18 00:00:54 docker-security7 dhclient: bound to 192.168.5.182 -- renewal in 42 seconds.
+May 18 00:01:36 docker-security7 dhclient: DHCPREQUEST of 192.168.5.182 on eth0 to 192.168.5.1 port 67 (xid=0x3ab946dd)
+May 18 00:01:36 docker-security7 dhclient: DHCPACK of 192.168.5.182 from 192.168.5.1
+May 18 00:01:36 docker-security7 dhclient: bound to 192.168.5.182 -- renewal in 50 seconds.
+May 18 00:02:26 docker-security7 dhclient: DHCPREQUEST of 192.168.5.182 on eth0 to 192.168.5.1 port 67 (xid=0x3ab946dd)
+May 18 00:02:26 docker-security7 dhclient: DHCPACK of 192.168.5.182 from 192.168.5.1
+May 18 00:02:26 docker-security7 dhclient: bound to 192.168.5.182 -- renewal in 45 seconds.
+May 18 00:03:11 docker-security7 dhclient: DHCPREQUEST of 192.168.5.182 on eth0 to 192.168.5.1 port 67 (xid=0x3ab946dd)
+May 18 00:03:11 docker-security7 dhclient: DHCPACK of 192.168.5.182 from 192.168.5.1
+May 18 00:03:11 docker-security7 dhclient: bound to 192.168.5.182 -- renewal in 50 seconds.
+May 18 00:04:01 docker-security7 dhclient: DHCPREQUEST of 192.168.5.182 on eth0 to 192.168.5.1 port 67 (xid=0x3ab946dd)
+May 18 00:04:01 docker-security7 dhclient: DHCPACK of 192.168.5.182 from 192.168.5.1
+May 18 00:04:01 docker-security7 dhclient: bound to 192.168.5.182 -- renewal in 50 seconds.
+May 18 00:04:51 docker-security7 dhclient: DHCPREQUEST of 192.168.5.182 on eth0 to 192.168.5.1 port 67 (xid=0x3ab946dd)
+May 18 00:04:51 docker-security7 dhclient: DHCPACK of 192.168.5.182 from 192.168.5.1
+May 18 00:04:51 docker-security7 dhclient: bound to 192.168.5.182 -- renewal in 50 seconds.
+May 18 00:05:41 docker-security7 dhclient: DHCPREQUEST of 192.168.5.182 on eth0 to 192.168.5.1 port 67 (xid=0x3ab946dd)
+May 18 00:05:41 docker-security7 dhclient: DHCPACK of 192.168.5.182 from 192.168.5.1
+May 18 00:05:41 docker-security7 dhclient: bound to 192.168.5.182 -- renewal in 47 seconds.
+May 18 00:06:28 docker-security7 dhclient: DHCPREQUEST of 192.168.5.182 on eth0 to 192.168.5.1 port 67 (xid=0x3ab946dd)
+May 18 00:06:28 docker-security7 dhclient: DHCPACK of 192.168.5.182 from 192.168.5.1
+May 18 00:06:28 docker-security7 dhclient: bound to 192.168.5.182 -- renewal in 48 seconds.
+May 18 00:07:16 docker-security7 dhclient: DHCPREQUEST of 192.168.5.182 on eth0 to 192.168.5.1 port 67 (xid=0x3ab946dd)
+May 18 00:07:16 docker-security7 dhclient: DHCPACK of 192.168.5.182 from 192.168.5.1
+May 18 00:07:16 docker-security7 dhclient: bound to 192.168.5.182 -- renewal in 45 seconds.

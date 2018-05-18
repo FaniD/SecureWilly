@@ -1,0 +1,11 @@
+# Last Modified: Sun Apr 29 21:16:50 2018
+#include <tunables/global>
+
+/home/ubuntu/Security-on-Docker/test_genprof/capabilities/genprof/no_audit_flag_test/chown_it.sh {
+  #include <abstractions/base>
+  #include <abstractions/bash>
+  /home/ubuntu/Security-on-Docker/test_genprof/capabilities/genprof/no_audit_flag_test/chown_it.sh r,
+  /etc/ld.so.cache r,
+  /lib/x86_64-linux-gnu/libselinux.so.1 mr,
+  /usr/lib/x86_64-linux-gnu/libsemanage.so.1 mr,
+}

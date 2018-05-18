@@ -1,5 +1,0 @@
-/usr/sbin/useradd x
-/home/ubuntu/Security-on-Docker/test_genprof/capabilities/genprof/audit_flag_test/hello c
-/bin/grep x
-/etc/nsswitch.conf r
-/etc/passwd r

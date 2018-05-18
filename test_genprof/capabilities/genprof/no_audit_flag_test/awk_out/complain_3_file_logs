@@ -1,0 +1,8 @@
+/etc/login.defs r
+/etc/default/useradd r
+/etc/group r
+/home/ubuntu/Security-on-Docker/test_genprof/capabilities/genprof/no_audit_flag_test/hello c
+/home/ubuntu/Security-on-Docker/test_genprof/capabilities/genprof/no_audit_flag_test/hello wc
+/home/ubuntu/Security-on-Docker/test_genprof/capabilities/genprof/no_audit_flag_test/ r
+requested_mask 
+/etc/ld.so.cache r

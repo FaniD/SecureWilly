@@ -1,0 +1,4 @@
+May 17 20:05:43 docker-security7 kernel: [957792.522653] type=1400 audit(1526587543.785:6674): apparmor="DENIED" operation="open" profile="/home/ubuntu/Security-on-Docker/test_genprof/capabilities/genprof/no_audit_flag_test/chown_it.sh" name="/home/ubuntu/Security-on-Docker/test_genprof/capabilities/genprof/no_audit_flag_test/chown_it.sh" pid=5000 comm="chown_it.sh" requested_mask="r" denied_mask="r" fsuid=1000 ouid=1000
+May 17 20:05:58 docker-security7 dhclient: DHCPREQUEST of 192.168.5.182 on eth0 to 192.168.5.1 port 67 (xid=0x3ab946dd)
+May 17 20:05:58 docker-security7 dhclient: DHCPACK of 192.168.5.182 from 192.168.5.1
+May 17 20:05:58 docker-security7 dhclient: bound to 192.168.5.182 -- renewal in 43 seconds.

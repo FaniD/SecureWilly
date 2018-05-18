@@ -1,0 +1,3 @@
+May 18 00:12:19 docker-security7 dhclient: DHCPREQUEST of 192.168.5.182 on eth0 to 192.168.5.1 port 67 (xid=0x3ab946dd)
+May 18 00:12:19 docker-security7 dhclient: DHCPACK of 192.168.5.182 from 192.168.5.1
+May 18 00:12:19 docker-security7 dhclient: bound to 192.168.5.182 -- renewal in 49 seconds.

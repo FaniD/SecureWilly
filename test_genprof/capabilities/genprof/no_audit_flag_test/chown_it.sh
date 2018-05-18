@@ -1,6 +1,6 @@
 #!/bin/sh
 
-useradd -m usertse #Useradd is not permitted
+useradd -m userse #Useradd is not permitted
 echo "greetings" > hello
 echo "ls -l to see /hello permissions"
 ls -l ./ | grep hello
