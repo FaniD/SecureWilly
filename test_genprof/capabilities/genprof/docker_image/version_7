@@ -1,0 +1,33 @@
+# Last Modified: Sun Apr 29 21:16:50 2018
+#include <tunables/global>
+
+/home/ubuntu/Security-on-Docker/test_genprof/capabilities/genprof/no_audit_flag_test/chown_it.sh {
+  #include <abstractions/base>
+  #include <abstractions/bash>
+  
+  #version 2 
+  /home/ubuntu/Security-on-Docker/test_genprof/capabilities/genprof/no_audit_flag_test/chown_it.sh r,
+  /etc/ld.so.cache r,
+  /lib/x86_64-linux-gnu/libselinux.so.1 mr,
+  /usr/lib/x86_64-linux-gnu/libsemanage.so.1 mr,
+
+  #version 3
+  /lib/x86_64-linux-gnu/libc-2.19.so r,
+  /usr/sbin/useradd ix,
+  /home/ubuntu/Security-on-Docker/test_genprof/capabilities/genprof/no_audit_flag_test/ rw, #r from version 4
+  /bin/grep ix,
+  /etc/nsswitch.conf r,
+  /etc/passwd r,  
+
+  #version 4
+  /etc/login.defs r,
+  /etc/default/useradd r,
+  /etc/group r,
+  /bin/chown ix,
+
+  #version 5 -> 6
+  /home/ubuntu/Security-on-Docker/test_genprof/capabilities/genprof/no_audit_flag_test/* w, #static hello turned into generic write access over this dir
+
+  #version 7
+  capability chown,
+}
