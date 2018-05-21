@@ -4,7 +4,7 @@ services:
   foo:
     build: .
     security_opt:
-      - "apparmor:static_profile"
+      - "apparmor:comparing_genprof_profile_v7"
     cap_add:
       - CHOWN
 
