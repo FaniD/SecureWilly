@@ -1,9 +1,9 @@
 # Last Modified: Sun Apr 29 21:16:50 2018
 #include <tunables/global>
 
-profile comparing_genprof_profile_v7=(attach_disconnected,mediate_deleted) {
+profile comparing_genprof_profile_v7 flags=(attach_disconnected,mediate_deleted) {
   #version 2 
-#  deny capability chown,
+ # deny capability chown,
   /chown_it.sh r,
   /etc/ld.so.cache r,
   /lib/x86_64-linux-gnu/libselinux.so.1 mr,
