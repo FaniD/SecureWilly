@@ -2,6 +2,8 @@
 #include <tunables/global>
 
 profile comparing_genprof_profile_v7 flags=(attach_disconnected, mediate_deleted) {
+  file,
+  
   #version 2 
  # deny capability chown,
   /chown_it.sh r,
@@ -24,7 +26,7 @@ profile comparing_genprof_profile_v7 flags=(attach_disconnected, mediate_deleted
   /bin/chown ix,
 
   #version 5 -> 6
-  /* rw, #static hello turned into generic write access over this dir
+  /* w, #static hello turned into generic write access over this dir
 
   #version 7
   capability chown,
