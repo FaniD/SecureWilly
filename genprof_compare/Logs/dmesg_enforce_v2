@@ -1,1 +1,0 @@
-[355883.588165] type=1400 audit(1525539310.536:803): apparmor="DENIED" operation="capable" profile="/home/ubuntu/Security-on-Docker/test_genprof/capabilities/genprof/chown_it.sh" pid=21173 comm="useradd" capability=0  capname="chown"
