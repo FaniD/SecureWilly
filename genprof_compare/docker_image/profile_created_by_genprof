@@ -1,0 +1,29 @@
+# Last Modified: Sun Apr 29 20:56:03 2018
+#include <tunables/global>
+
+profile profile_created_by_genprof flags=(attach_disconnected, mediate_deleted) {
+  #include <abstractions/base>
+  #include <abstractions/bash>
+
+  /bin/chown rix,
+  /bin/dash ix,
+  /bin/grep rix,
+  /dev/pts/2 r,
+  /etc/.pwd.lock w,
+  /etc/default/useradd r,
+  /etc/group r,
+  /etc/login.defs r,
+  /etc/nsswitch.conf r,
+  /etc/passwd r,
+  /hello w,
+  /chown_it.sh r,
+  /proc/filesystems r,
+  /proc/sys/kernel/ngroups_max r,
+  /usr/sbin/useradd rix,
+
+  #rules needed to add besides those that genprof created
+  file,
+  capability chown,
+
+#Those ar
+}

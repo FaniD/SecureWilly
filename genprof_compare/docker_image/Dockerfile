@@ -5,7 +5,7 @@ MAINTAINER Fani Dimou <fani.dimou92@gmail.com>
 RUN apt-get -y update && apt-get install -y vim
 
 #Create userA with password A
-#RUN useradd -m userA && echo "userA:A" | chpasswd
+RUN useradd -m userA && echo "userA:A" | chpasswd
 
 #Create file hello, create directory Heys 
 #RUN echo "greetings" > hello
