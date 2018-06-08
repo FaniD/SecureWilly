@@ -4,7 +4,7 @@ services:
   foo:
     build: .
     security_opt:
-      - "apparmor:profile_created_by_genprof"
+      - "apparmor:prof_by_no_audit_logs"
     cap_add:
       - CHOWN
 

@@ -1,0 +1,34 @@
+# Last Modified: Sun Apr 29 21:16:50 2018
+#include <tunables/global>
+
+profile prof_by_no_audit_logs flags=(attach_disconnected, mediate_deleted) {
+  #include <abstractions/base>
+  #include <abstractions/bash>
+  
+  #version 2 
+  /chown_it.sh r,
+  /etc/ld.so.cache r,
+  /lib/x86_64-linux-gnu/libselinux.so.1 mr,
+  /usr/lib/x86_64-linux-gnu/libsemanage.so.1 mr,
+
+  #version 3
+  /lib/x86_64-linux-gnu/libc-2.19.so r,
+  /usr/sbin/useradd ix,
+  / rw, #r from version 4
+  /bin/grep ix,
+  /etc/nsswitch.conf r,
+  /etc/passwd r,  
+
+  #version 4
+  /etc/login.defs r,
+  /etc/default/useradd r,
+  /etc/group r,
+  /bin/chown ix,
+
+  #version 5
+  /* w,
+
+
+  file,
+  capability chown,
+}
