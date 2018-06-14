@@ -1,15 +1,15 @@
 #!/bin/bash
 
-mkdir Logs
-
+read round
 #Save all logs in files
-sudo cat /var/log/kern.log > Logs/kernlogs_all
-chmod 777 Logs/kernlogs_all
-sudo dmesg > Logs/dmesg_all
+mkdir Logs/RUN${round}
+sudo cat /var/log/kern.log > Logs/RUN${round}/kernlogs_all
+chmod 777 Logs/RUN${round}/kernlogs_all
+sudo dmesg > Logs/RUN${round}/dmesg_all
 
 #Then separate them for each service/profile
-for SERVICE in server client dataset; do
-	cat Logs/kernlogs_all | grep "${SERVICE}" > Logs/kernlogs_${SERVICE}
-	cat Logs/dmesg_all | grep "${SERVICE}" > Logs/dmesg_${SERVICE}
+for SERVICE in server client; do
+	cat Logs/RUN${round}/kernlogs_all | grep "${SERVICE}" > Logs/RUN${round}/kernlogs_${SERVICE}
+	cat Logs/RUN${round}/dmesg_all | grep "${SERVICE}" > Logs/RUN${round}/dmesg_${SERVICE}
 done
 
