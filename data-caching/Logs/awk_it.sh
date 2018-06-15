@@ -31,7 +31,7 @@ for SERVICE in server client; do
 	#~~~Network~~~
 	
 	#All net permissions
-	for NET in create accept bind connect listen read write send receive getsockname getpeername getsockopt setsockopt fcntl ioctl shutdown getpeersec; do
+	for NET in create accept bind connect listen read write sendmsg recvmsg getsockname getpeername getsockopt setsockopt fcntl ioctl shutdown getpeersec; do
 		#kern logs
 		#Find lines that include keyword "create" for network - keep family and sock_type
 		#Omit protocol, apparmor network rule needs at least 2 parameters
@@ -58,19 +58,27 @@ for SERVICE in server client; do
 
 		#kernlogs
 		#Find lines that include keyword "operation" from the operations loop - keep name and requested_mask
-		awk -v operation="$OPERATION" '/operation/ {for(i=1;i<=NF;i++) {{if($i ~ /name/) printf "%s", $i} {if($i ~ /requested_mask/) print "", $i}}}' ${run_path}/kernlogs_${SERVICE} > tmp_file
+		#Beware! getsockname & getpeername are net operations but they include keyword name so we add /name=/ to keep them out of my file rules search
+		awk -v operation="$OPERATION" '/operation/ {for(i=1;i<=NF;i++) {{if($i ~ /name=/) printf "%s", $i} {if($i ~ /requested_mask/) print "", $i}}}' ${run_path}/kernlogs_${SERVICE} > tmp_file
 		#Strip lines with name and requested_mask to keep just the tag of each
 		awk 'BEGIN {FS="=| ";} {gsub(/"/,"",$2); gsub(/"/,"",$4); print $2 ',' $4;}' tmp_file >> ${run_path}/awk_out/file_${SERVICE}
 
 		#dmesg logs
 		#Find lines that include keyword "operation" from the operations loop - keep name and requested_mask
-		awk -v operation="$OPERATION" '/operation/ {for(i=1;i<=NF;i++) {{if($i ~ /name/) printf "%s", $i} {if($i ~ /requested_mask/) print "", $i}}}' ${run_path}/dmesg_${SERVICE} > tmp_file
+		awk -v operation="$OPERATION" '/operation/ {for(i=1;i<=NF;i++) {{if($i ~ /name=/) printf "%s", $i} {if($i ~ /requested_mask/) print "", $i}}}' ${run_path}/dmesg_${SERVICE} > tmp_file
 		#Strip lines with name and requested_mask to keep just the tag of each
 		awk 'BEGIN {FS="=| ";} {gsub(/"/,"",$2); gsub(/"/,"",$4); print $2 ',' $4;}' tmp_file >> ${run_path}/awk_out/file_${SERVICE}
 	done
 
 	#Remove duplicates
 	awk '!seen[$0]++' ${run_path}/awk_out/file_${SERVICE} > ${run_path}/awk_out/${mode}_logs_file_${SERVICE}
+
+	echo '#Capability\n' > ${run_path}/awk_out/${mode}_${SERVICE}
+	cat ${run_path}/awk_out/${mode}_logs_caps_${SERVICE} >> ${run_path}/awk_out/${mode}_${SERVICE}
+	echo '#Network\n' >> ${run_path}/awk_out/${mode}_${SERVICE}
+	cat ${run_path}/awk_out/${mode}_logs_net_${SERVICE} >> ${run_path}/awk_out/${mode}_${SERVICE}
+	echo '#File' >> ${run_path}/awk_out/${mode}_${SERVICE}
+	cat ${run_path}/awk_out/${mode}_logs_file_${SERVICE} >> ${run_path}/awk_out/${mode}_${SERVICE}
 done
 
 rm ${run_path}/awk_out/caps*

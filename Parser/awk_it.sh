@@ -2,10 +2,12 @@
 
 #read PATH
 
-run_path="../media-streaming/audit_messages/enforce_messages/new/RUN1/"
-mode="run1" #complain
+run_path="RUN1"
+mode="complain"
 
-for SERVICE in server client dataset; do
+mkdir ${run_path}/awk_out
+
+for SERVICE in server client; do
 #for N in 1 ... ${SERVICES} ; do
 
 	#~~~Capabilities~~~
@@ -14,39 +16,39 @@ for SERVICE in server client dataset; do
 	#Find lines that include keyword "capability"
 	awk '/capability/ {for(i=1;i<=NF;i++) {if($i ~ /capname/) print $i}}' ${run_path}/kernlogs_${SERVICE} > tmp_file
 	#Strip lines with capability to keep just the capname of each
-	awk 'BEGIN {FS="=";} {gsub(/"/,"",$2); print $2;}' tmp_file > awk_out/caps_${SERVICE}
+	awk 'BEGIN {FS="=";} {gsub(/"/,"",$2); print $2;}' tmp_file > ${run_path}/awk_out/caps_${SERVICE}
 
 	#dmesg logs
 	#Find lines that include keyword "capability"
 	awk '/capability/ {for(i=1;i<=NF;i++) {if($i ~ /capname/) print $i}}' ${run_path}/dmesg_${SERVICE} > tmp_file
 	#Strip lines with capability to keep just the capname of each
-	awk 'BEGIN {FS="=";} {gsub(/"/,"",$2); print $2;}' tmp_file >> awk_out/caps_${SERVICE}
+	awk 'BEGIN {FS="=";} {gsub(/"/,"",$2); print $2;}' tmp_file >> ${run_path}/awk_out/caps_${SERVICE}
 
 	#Remove duplicates
-	awk '!seen[$0]++' awk_out/caps_${SERVICE} > awk_out/${mode}logs_caps_${SERVICE}
+	awk '!seen[$0]++' ${run_path}/awk_out/caps_${SERVICE} > ${run_path}/awk_out/${mode}_logs_caps_${SERVICE}
 
 
 	#~~~Network~~~
 	
 	#All net permissions
-	for NET in create accept bind connect listen read write send receive getsockname getpeername getsockopt setsockopt fcntl ioctl shutdown getpeersec; do
+	for NET in create accept bind connect listen read write sendmsg recvmsg getsockname getpeername getsockopt setsockopt fcntl ioctl shutdown getpeersec; do
 		#kern logs
 		#Find lines that include keyword "create" for network - keep family and sock_type
 		#Omit protocol, apparmor network rule needs at least 2 parameters
 		awk -v net="$NET" '/net/ {for(i=1;i<=NF;i++) {{if($i ~ /family/) printf "%s", $i} {if($i ~ /sock_type/) print "", $i}}}' ${run_path}/kernlogs_${SERVICE} > tmp_file
 		#Strip lines with family and sock_type to keep just the tag of each
-		awk 'BEGIN {FS="=| ";} {gsub(/"/,"",$2); gsub(/"/,"",$4); print $2 ',' $4;}' tmp_file >> awk_out/net_${SERVICE}
+		awk 'BEGIN {FS="=| ";} {gsub(/"/,"",$2); gsub(/"/,"",$4); print $2 ',' $4;}' tmp_file >> ${run_path}/awk_out/net_${SERVICE}
 
 		#dmesg logs
 		#Find lines that include keyword "create" for network - keep family and sock_type
 		#Omit protocol, apparmor network rule needs at least 2 parameters
 		awk -v net="$NET" '/net/ {for(i=1;i<=NF;i++) {{if($i ~ /family/) printf "%s", $i} {if($i ~ /sock_type/) print "", $i}}}' ${run_path}/dmesg_${SERVICE} > tmp_file
 		#Strip lines with family and sock_type to keep just the tag of each
-		awk 'BEGIN {FS="=| ";} {gsub(/"/,"",$2); gsub(/"/,"",$4); print $2 ',' $4;}' tmp_file >> awk_out/net_${SERVICE}
+		awk 'BEGIN {FS="=| ";} {gsub(/"/,"",$2); gsub(/"/,"",$4); print $2 ',' $4;}' tmp_file >> ${run_path}/awk_out/net_${SERVICE}
 	done
 
         #Remove duplicates
-	awk '!seen[$0]++' awk_out/net_${SERVICE} > awk_out/${mode}logs_net_${SERVICE}
+	awk '!seen[$0]++' ${run_path}/awk_out/net_${SERVICE} > ${run_path}/awk_out/${mode}_logs_net_${SERVICE}
 
 
 	#~~~File access rules~~~
@@ -56,22 +58,30 @@ for SERVICE in server client dataset; do
 
 		#kernlogs
 		#Find lines that include keyword "operation" from the operations loop - keep name and requested_mask
-		awk -v operation="$OPERATION" '/operation/ {for(i=1;i<=NF;i++) {{if($i ~ /name/) printf "%s", $i} {if($i ~ /requested_mask/) print "", $i}}}' ${run_path}/kernlogs_${SERVICE} > tmp_file
+		#Beware! getsockname & getpeername are net operations but they include keyword name so we add /name=/ to keep them out of my file rules search
+		awk -v operation="$OPERATION" '/operation/ {for(i=1;i<=NF;i++) {{if($i ~ /name=/) printf "%s", $i} {if($i ~ /requested_mask/) print "", $i}}}' ${run_path}/kernlogs_${SERVICE} > tmp_file
 		#Strip lines with name and requested_mask to keep just the tag of each
-		awk 'BEGIN {FS="=| ";} {gsub(/"/,"",$2); gsub(/"/,"",$4); print $2 ',' $4;}' tmp_file >> awk_out/file_${SERVICE}
+		awk 'BEGIN {FS="=| ";} {gsub(/"/,"",$2); gsub(/"/,"",$4); print $2 ',' $4;}' tmp_file >> ${run_path}/awk_out/file_${SERVICE}
 
 		#dmesg logs
 		#Find lines that include keyword "operation" from the operations loop - keep name and requested_mask
-		awk -v operation="$OPERATION" '/operation/ {for(i=1;i<=NF;i++) {{if($i ~ /name/) printf "%s", $i} {if($i ~ /requested_mask/) print "", $i}}}' ${run_path}/dmesg_${SERVICE} > tmp_file
+		awk -v operation="$OPERATION" '/operation/ {for(i=1;i<=NF;i++) {{if($i ~ /name=/) printf "%s", $i} {if($i ~ /requested_mask/) print "", $i}}}' ${run_path}/dmesg_${SERVICE} > tmp_file
 		#Strip lines with name and requested_mask to keep just the tag of each
-		awk 'BEGIN {FS="=| ";} {gsub(/"/,"",$2); gsub(/"/,"",$4); print $2 ',' $4;}' tmp_file >> awk_out/file_${SERVICE}
+		awk 'BEGIN {FS="=| ";} {gsub(/"/,"",$2); gsub(/"/,"",$4); print $2 ',' $4;}' tmp_file >> ${run_path}/awk_out/file_${SERVICE}
 	done
 
 	#Remove duplicates
-	awk '!seen[$0]++' awk_out/file_${SERVICE} > awk_out/${mode}logs_file_${SERVICE}
+	awk '!seen[$0]++' ${run_path}/awk_out/file_${SERVICE} > ${run_path}/awk_out/${mode}_logs_file_${SERVICE}
+
+	echo '#Capability\n' > ${run_path}/awk_out/${mode}_${SERVICE}
+	cat ${run_path}/awk_out/${mode}_logs_caps_${SERVICE} >> ${run_path}/awk_out/${mode}_${SERVICE}
+	echo '#Network\n' >> ${run_path}/awk_out/${mode}_${SERVICE}
+	cat ${run_path}/awk_out/${mode}_logs_net_${SERVICE} >> ${run_path}/awk_out/${mode}_${SERVICE}
+	echo '#File' >> ${run_path}/awk_out/${mode}_${SERVICE}
+	cat ${run_path}/awk_out/${mode}_logs_file_${SERVICE} >> ${run_path}/awk_out/${mode}_${SERVICE}
 done
 
-rm awk_out/caps*
-rm awk_out/net*
-rm awk_out/file*
+rm ${run_path}/awk_out/caps*
+rm ${run_path}/awk_out/net*
+rm ${run_path}/awk_out/file*
 rm tmp_file
