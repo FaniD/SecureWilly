@@ -2,8 +2,8 @@
 
 #read PATH
 
-run_path="RUN2"
-mode="enforce"
+run_path="RUN3"
+mode="enforce_audit"
 
 mkdir ${run_path}/awk_out
 

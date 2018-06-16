@@ -1,0 +1,10 @@
+[  120.125436] type=1400 audit(1529106563.036:38): apparmor="ALLOWED" operation="create" profile="server_profile" pid=2524 comm="memcached" family="inet6" sock_type="stream" protocol=6
+[  120.125453] type=1400 audit(1529106563.036:39): apparmor="ALLOWED" operation="setsockopt" profile="server_profile" pid=2524 comm="memcached" family="inet6" sock_type="stream" protocol=6
+[  120.125461] type=1400 audit(1529106563.036:40): apparmor="ALLOWED" operation="setsockopt" profile="server_profile" pid=2524 comm="memcached" family="inet6" sock_type="stream" protocol=6
+[  120.125466] type=1400 audit(1529106563.036:41): apparmor="ALLOWED" operation="setsockopt" profile="server_profile" pid=2524 comm="memcached" family="inet6" sock_type="stream" protocol=6
+[  120.125471] type=1400 audit(1529106563.036:42): apparmor="ALLOWED" operation="setsockopt" profile="server_profile" pid=2524 comm="memcached" family="inet6" sock_type="stream" protocol=6
+[  120.125476] type=1400 audit(1529106563.036:43): apparmor="ALLOWED" operation="setsockopt" profile="server_profile" pid=2524 comm="memcached" family="inet6" sock_type="stream" protocol=6
+[  120.125482] type=1400 audit(1529106563.036:44): apparmor="ALLOWED" operation="bind" profile="server_profile" pid=2524 comm="memcached" family="inet6" sock_type="stream" protocol=6
+[  120.125489] type=1400 audit(1529106563.036:45): apparmor="ALLOWED" operation="listen" profile="server_profile" pid=2524 comm="memcached" lport=11211 family="inet6" sock_type="stream" protocol=6
+[  120.815869] type=1400 audit(1529106563.728:46): apparmor="ALLOWED" operation="create" profile="server_profile" pid=2524 comm="memcached" family="inet" sock_type="dgram" protocol=17
+[  120.815884] type=1400 audit(1529106563.728:47): apparmor="ALLOWED" operation="setsockopt" profile="server_profile" pid=2524 comm="memcached" family="inet" sock_type="dgram" protocol=17
