@@ -73,9 +73,9 @@ for SERVICE in server client; do
 	#Remove duplicates
 	awk '!seen[$0]++' ${run_path}/awk_out/file_${SERVICE} > ${run_path}/awk_out/${mode}_logs_file_${SERVICE}
 
-	echo '#Capability\n' > ${run_path}/awk_out/${mode}_${SERVICE}
+	echo '#Capability' > ${run_path}/awk_out/${mode}_${SERVICE}
 	cat ${run_path}/awk_out/${mode}_logs_caps_${SERVICE} >> ${run_path}/awk_out/${mode}_${SERVICE}
-	echo '#Network\n' >> ${run_path}/awk_out/${mode}_${SERVICE}
+	echo '#Network' >> ${run_path}/awk_out/${mode}_${SERVICE}
 	cat ${run_path}/awk_out/${mode}_logs_net_${SERVICE} >> ${run_path}/awk_out/${mode}_${SERVICE}
 	echo '#File' >> ${run_path}/awk_out/${mode}_${SERVICE}
 	cat ${run_path}/awk_out/${mode}_logs_file_${SERVICE} >> ${run_path}/awk_out/${mode}_${SERVICE}
