@@ -10,6 +10,7 @@ print 'Give name of service, version and mode\n'
 service = str(sys.argv[1])
 version = str(sys.argv[2]) #New version! number here
 mode = str(sys.argv[3]) #complain, enforce, complain_audit, enforce_audit
+new = 'profiles/' + service + '/version_' + version
 
 round_ = int(version)-1
 old_profile = 'profiles/' + service + '/version_' + str(round_)
@@ -89,13 +90,14 @@ new_profile = list(set(new_profile))
 
 #Add the base of the profile in the beginning
 #ADD BASE HERE LINE BY LINE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-static_profile.insert(0, '#include <tunables/global>\n\nprofile new_profile flags=(attach_disconnected,mediate_deleted) {\n\n')
+#new_profile.insert(0, '#include <tunables/global>\n\nprofile new_profile flags=(attach_disconnected,mediate_deleted) {\n\n')
+new_profile = base + new_profile
 
 #End of logs so close the bracket
 new_profile.append('}\n')
 
 
 #Output
-with open('static_profile', 'w') as outfile:
-	outfile.writelines( static_profile )
+with open('new_profile', 'w') as outfile:
+	outfile.writelines( new )
 
