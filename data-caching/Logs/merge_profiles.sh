@@ -1,7 +1,5 @@
 #!/bin/bash
 
-#read PATH
-
 run_path="RUN1"
 mode="complain"
 

@@ -4,8 +4,6 @@ profile client_profile flags=(audit, attach_disconnected,mediate_deleted) {
 	file,  #This rule is needed so that I can work with files (create files/directories, copy, etc)
 	network inet stream,
 	network inet dgram,
-
-	#audit logs
 	/usr/ r,
 	/var/lib/docker/aufs/diff/dc5c4e481c13e325e3cb68c6d3f399779f79e95666373cc9987688319f46eef8/usr/ r,
 	/usr/src/ r,
@@ -25,5 +23,4 @@ profile client_profile flags=(audit, attach_disconnected,mediate_deleted) {
 	/var/lib/docker/aufs/diff/dc5c4e481c13e325e3cb68c6d3f399779f79e95666373cc9987688319f46eef8/etc/ld.so.cache r,
 	/usr/lib/x86_64-linux-gnu/libevent-2.0.so.5.1.9 r,
 	/var/lib/docker/aufs/diff/27eb30bf02e9f219b6c94a9837c3b4050900caba78d443390d57044ce73b405c/usr/lib/x86_64-linux-gnu/libevent-2.0.so.5.1.9 r,
-
 }
