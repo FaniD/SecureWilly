@@ -34,11 +34,10 @@ closure = '}'
 base = []
 
 for line in data:
-
     if include in line:
         if not tunables in line:
             base.append(line)
-    if line.startswith(profile):
+    elif line.startswith(profile):
         base.append('#include <tunables/global>\n\n')
         base.append(line)
 
@@ -46,7 +45,9 @@ for line in data:
         #Add all the rules from here on
         #Except for the closure '}'
 
-    if not '}' in line: #This didn't work! Why?
+    elif '}' in line: #This didn't work! Why?
+        break
+    else:
         new_profile.append(line) 
 
 
@@ -57,30 +58,30 @@ with open(awk_caps,'r') as infile:
     data = infile.readlines()
 
 for line in data:
-    new_profile.append('capability ' + line + ',')
+    line = line.strip('\n')
+    new_profile.append('\tcapability ' + line + ',\n')
 
 #Network rules
 with open(awk_net,'r') as infile:
     data = infile.readlines()
 
 for line in data:
-    new_profile.append('network ' + line + ',')
+    line = line.strip('\n')
+    new_profile.append('\tnetwork ' + line + ',\n')
 
 #File rules
 with open(awk_caps,'r') as infile:
     data = infile.readlines()
 
 for line in data:
+    line = line.strip('\n')
     line = line.split(' ')
     permission = line[1]
     if line[1] == 'c': #There is no create permission in apparmor so we change it to write
         permission = 'w'
     if line[1] == 'x': #x must follow i,p,c,u so if there is none of these with x we give i permission
         permission = 'ix'
-    new_profile.append(line[0] + ' ' + permission + ',')
-
-#End of logs so close the bracket
-new_profile.append('}\n')
+    new_profile.append('\t' + line[0] + ' ' + permission + ',\n')
 
 
 #Delete duplicate rules by converting list to set. Convert back to list to keep the order of the beggining and ending of a profile
@@ -90,6 +91,10 @@ new_profile = list(set(new_profile))
 #Add the base of the profile in the beginning
 #new_profile.insert(0, '#include <tunables/global>\n\nprofile new_profile flags=(attach_disconnected,mediate_deleted) {\n\n')
 new_profile = base + new_profile
+#i = 0
+#for line in base:
+ #   new_profile.insert(i, line)
+  #  i=i+1
 
 #End of logs so close the bracket
 new_profile.append('}\n')
