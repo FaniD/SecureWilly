@@ -6,14 +6,14 @@ from collections import OrderedDict
 #This will be the output profile
 new_profile = []
 
-print 'Give name of service, version and mode\n'
 service = str(sys.argv[1])
-version = str(sys.argv[2]) #New version! number here
+version = str(sys.argv[2]) #Old version! The one that exists! (~number here~)
 mode = str(sys.argv[3]) #complain, enforce, complain_audit, enforce_audit
-new = 'profiles/' + service + '/version_' + version
 
-round_ = int(version)-1
-old_profile = 'profiles/' + service + '/version_' + str(round_)
+round_ = int(version)+1
+new = 'profiles/' + service + '/version_' + str(round_)
+
+old_profile = 'profiles/' + service + '/version_' + version
 awk_caps = 'Logs/RUN' + version +'/awk_out/' + mode + '_logs_caps_' + service
 awk_net = 'Logs/RUN' + version +'/awk_out/' + mode + '_logs_net_' + service
 awk_file = 'Logs/RUN' + version +'/awk_out/' + mode + '_logs_file_' + service
@@ -37,11 +37,10 @@ for line in data:
 
     if include in line:
         if not tunables in line:
-        base.append(line)
+            base.append(line)
     if line.startswith(profile):
         base.append('#include <tunables/global>\n\n')
         base.append(line)
-        base.append(file_rule)
 
         #Base is ready
         #Add all the rules from here on
@@ -76,7 +75,7 @@ for line in data:
     permission = line[1]
     if line[1] == 'c': #There is no create permission in apparmor so we change it to write
         permission = 'w'
-    if line[1] == 'x' #x must follow i,p,c,u so if there is none of these with x we give i permission
+    if line[1] == 'x': #x must follow i,p,c,u so if there is none of these with x we give i permission
         permission = 'ix'
     new_profile.append(line[0] + ' ' + permission + ',')
 
@@ -89,7 +88,6 @@ new_profile.append('}\n')
 new_profile = list(set(new_profile))
 
 #Add the base of the profile in the beginning
-#ADD BASE HERE LINE BY LINE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 #new_profile.insert(0, '#include <tunables/global>\n\nprofile new_profile flags=(attach_disconnected,mediate_deleted) {\n\n')
 new_profile = base + new_profile
 
@@ -98,6 +96,6 @@ new_profile.append('}\n')
 
 
 #Output
-with open('new_profile', 'w') as outfile:
-	outfile.writelines( new )
+with open(new, 'w') as outfile:
+	outfile.writelines( new_profile )
 
