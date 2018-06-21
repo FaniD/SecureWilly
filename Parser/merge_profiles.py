@@ -45,7 +45,7 @@ for line in data:
         #Add all the rules from here on
         #Except for the closure '}'
 
-    elif '}' in line: #This didn't work! Why?
+    elif '}' in line:
         break
     else:
         new_profile.append(line) 
