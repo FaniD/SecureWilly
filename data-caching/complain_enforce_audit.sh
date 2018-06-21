@@ -3,18 +3,22 @@
 read service
 read round
 
-wc -l profiles/${service}/version_round | awk '{print $1}' > f1
-echo "$((round - 1))" > round_previous 
+#Compare 2 profiles by number of lines
+#Beware: There are no empty lines, comments are added next to rules, no duplicate rules, include and profile names are added as the same lines to each profile. So profiles are either augmentations of previous profiles or the same.
+wc -l profiles/${service}/version_${round} | awk '{print $1}' > f1
+echo "$((${round} - 1))" > fr
+round_previous=$(head -n 1 fr)
+wc -l profiles/${service}/version_${round_previous} | awk '{print $1}' > f2
 
-#Save all logs in files
-#mkdir Logs/RUN${round}
-#sudo cat /var/log/kern.log > Logs/RUN${round}/kernlogs_all
-#chmod 777 Logs/RUN${round}/kernlogs_all
-#sudo dmesg > Logs/RUN${round}/dmesg_all
+wc_f1=$(head -n 1 f1)
+wc_f2=$(head -n 1 f2)
 
-#Then separate them for each service/profile
-#for SERVICE in server client; do
-#	cat Logs/RUN${round}/kernlogs_all | grep "${SERVICE}" > Logs/RUN${round}/kernlogs_${SERVICE}
-#	cat Logs/RUN${round}/dmesg_all | grep "${SERVICE}" > Logs/RUN${round}/dmesg_${SERVICE}
-done
+#If profiles are the same then go on to next step.
+if [ $wc_f1 == $wc_f2 ]
+then 
+	echo "Next step" > next_step #More code here when I decide how to include the script in the project...
+fi
 
+rm f1
+rm f2
+rm fr
