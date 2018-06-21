@@ -2,5 +2,4 @@
 
 profile client_profile flags=(attach_disconnected,mediate_deleted) {
 	file,  #This rule is needed so that I can work with files (create files/directories, copy, etc)
-
 }

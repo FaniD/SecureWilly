@@ -16,7 +16,9 @@ wc_f2=$(head -n 1 f2)
 #If profiles are the same then go on to next step.
 if [ $wc_f1 == $wc_f2 ]
 then 
-	echo "Next step" > next_step #More code here when I decide how to include the script in the project...
+	echo "1" > next_step #More code here when I decide how to include the script in the project...
+else
+	echo "0" > next_step
 fi
 
 rm f1
