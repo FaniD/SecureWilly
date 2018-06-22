@@ -1,0 +1,5 @@
+[521966.636064] type=1400 audit(1529628406.918:162647413): apparmor="DENIED" operation="signal" profile="server_profile" pid=1350 comm="docker-containe" requested_mask="receive" denied_mask="receive" signal=term peer="unconfined"
+[521968.638182] type=1400 audit(1529628408.922:162647414): apparmor="DENIED" operation="signal" profile="server_profile" pid=1941 comm="docker-containe" requested_mask="receive" denied_mask="receive" signal=kill peer="unconfined"
+[521975.625548] type=1400 audit(1529628415.910:162647415): apparmor="DENIED" operation="signal" profile="server_profile" pid=1350 comm="docker-containe" requested_mask="receive" denied_mask="receive" signal=term peer="unconfined"
+[521977.627408] type=1400 audit(1529628417.910:162647416): apparmor="DENIED" operation="signal" profile="server_profile" pid=1350 comm="docker-containe" requested_mask="receive" denied_mask="receive" signal=kill peer="unconfined"
+[521985.065387] type=1400 audit(1529628425.350:162647417): apparmor="DENIED" operation="signal" profile="server_profile" pid=1350 comm="docker-containe" requested_mask="receive" denied_mask="receive" signal=kill peer="unconfined"

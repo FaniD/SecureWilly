@@ -1,0 +1,6 @@
+#Capability\n
+#Network\n
+inet6 dgram
+inet stream
+#File
+requested_mask 

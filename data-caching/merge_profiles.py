@@ -39,13 +39,14 @@ for line in data:
             base.append(line)
     elif line.startswith(profile):
         base.append('#include <tunables/global>\n\n')
+        line = line.strip('\n')
         base.append(line)
 
         #Base is ready
         #Add all the rules from here on
         #Except for the closure '}'
 
-    elif '}' in line: #This didn't work! Why?
+    elif '}' in line:
         break
     else:
         new_profile.append(line) 

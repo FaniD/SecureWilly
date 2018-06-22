@@ -1,0 +1,34 @@
+Jun 22 00:12:36 docker-security8 kernel: [519916.116317] IPv6: ADDRCONF(NETDEV_UP): br-d2252d015f49: link is not ready
+Jun 22 00:12:43 docker-security8 kernel: [519923.239401] device veth1bd4b0b entered promiscuous mode
+Jun 22 00:12:43 docker-security8 kernel: [519923.239556] IPv6: ADDRCONF(NETDEV_UP): veth1bd4b0b: link is not ready
+Jun 22 00:12:44 docker-security8 kernel: [519924.001080] IPv6: ADDRCONF(NETDEV_CHANGE): veth1bd4b0b: link becomes ready
+Jun 22 00:12:44 docker-security8 kernel: [519924.001179] br-d2252d015f49: port 1(veth1bd4b0b) entered forwarding state
+Jun 22 00:12:44 docker-security8 kernel: [519924.001200] br-d2252d015f49: port 1(veth1bd4b0b) entered forwarding state
+Jun 22 00:12:44 docker-security8 kernel: [519924.001224] IPv6: ADDRCONF(NETDEV_CHANGE): br-d2252d015f49: link becomes ready
+Jun 22 00:12:44 docker-security8 kernel: [519924.104455] type=1400 audit(1529626364.390:162647370): apparmor="ALLOWED" operation="create" profile="server_profile" pid=26206 comm="memcached" family="inet6" sock_type="stream" protocol=6
+Jun 22 00:12:44 docker-security8 kernel: [519924.104471] type=1400 audit(1529626364.390:162647371): apparmor="ALLOWED" operation="setsockopt" profile="server_profile" pid=26206 comm="memcached" family="inet6" sock_type="stream" protocol=6
+Jun 22 00:12:44 docker-security8 kernel: [519924.104477] type=1400 audit(1529626364.390:162647372): apparmor="ALLOWED" operation="setsockopt" profile="server_profile" pid=26206 comm="memcached" family="inet6" sock_type="stream" protocol=6
+Jun 22 00:12:44 docker-security8 kernel: [519924.104482] type=1400 audit(1529626364.390:162647373): apparmor="ALLOWED" operation="setsockopt" profile="server_profile" pid=26206 comm="memcached" family="inet6" sock_type="stream" protocol=6
+Jun 22 00:12:44 docker-security8 kernel: [519924.104487] type=1400 audit(1529626364.390:162647374): apparmor="ALLOWED" operation="setsockopt" profile="server_profile" pid=26206 comm="memcached" family="inet6" sock_type="stream" protocol=6
+Jun 22 00:12:44 docker-security8 kernel: [519924.104492] type=1400 audit(1529626364.390:162647375): apparmor="ALLOWED" operation="setsockopt" profile="server_profile" pid=26206 comm="memcached" family="inet6" sock_type="stream" protocol=6
+Jun 22 00:12:44 docker-security8 kernel: [519924.104497] type=1400 audit(1529626364.390:162647376): apparmor="ALLOWED" operation="bind" profile="server_profile" pid=26206 comm="memcached" family="inet6" sock_type="stream" protocol=6
+Jun 22 00:12:44 docker-security8 kernel: [519924.104504] type=1400 audit(1529626364.390:162647377): apparmor="ALLOWED" operation="listen" profile="server_profile" pid=26206 comm="memcached" lport=11211 family="inet6" sock_type="stream" protocol=6
+Jun 22 00:12:44 docker-security8 kernel: [519924.104862] type=1400 audit(1529626364.390:162647378): apparmor="ALLOWED" operation="create" profile="server_profile" pid=26206 comm="memcached" family="inet" sock_type="dgram" protocol=17
+Jun 22 00:12:44 docker-security8 kernel: [519924.104877] type=1400 audit(1529626364.390:162647379): apparmor="ALLOWED" operation="setsockopt" profile="server_profile" pid=26206 comm="memcached" family="inet" sock_type="dgram" protocol=17
+Jun 22 00:12:44 docker-security8 kernel: [519924.435844] device veth4179ed9 entered promiscuous mode
+Jun 22 00:12:44 docker-security8 kernel: [519924.435963] IPv6: ADDRCONF(NETDEV_UP): veth4179ed9: link is not ready
+Jun 22 00:12:44 docker-security8 kernel: [519924.435969] br-d2252d015f49: port 2(veth4179ed9) entered forwarding state
+Jun 22 00:12:44 docker-security8 kernel: [519924.435992] br-d2252d015f49: port 2(veth4179ed9) entered forwarding state
+Jun 22 00:12:45 docker-security8 kernel: [519925.004974] IPv6: ADDRCONF(NETDEV_CHANGE): veth4179ed9: link becomes ready
+Jun 22 00:12:59 docker-security8 kernel: [519939.036095] br-d2252d015f49: port 1(veth1bd4b0b) entered forwarding state
+Jun 22 00:12:59 docker-security8 kernel: [519939.484095] br-d2252d015f49: port 2(veth4179ed9) entered forwarding state
+Jun 22 00:20:15 docker-security8 kernel: [520375.117108] br-d2252d015f49: port 2(veth4179ed9) entered disabled state
+Jun 22 00:20:15 docker-security8 kernel: [520375.231560] br-d2252d015f49: port 2(veth4179ed9) entered disabled state
+Jun 22 00:20:15 docker-security8 kernel: [520375.232451] device veth4179ed9 left promiscuous mode
+Jun 22 00:20:15 docker-security8 kernel: [520375.232481] br-d2252d015f49: port 2(veth4179ed9) entered disabled state
+Jun 22 00:20:17 docker-security8 kernel: [520377.125998] audit_printk_skb: 90 callbacks suppressed
+Jun 22 00:20:17 docker-security8 kernel: [520377.126005] type=1400 audit(1529626817.410:162647410): apparmor="ALLOWED" operation="signal" profile="server_profile" pid=1944 comm="docker-containe" requested_mask="receive" denied_mask="receive" signal=term peer="unconfined"
+Jun 22 00:20:17 docker-security8 kernel: [520377.548946] br-d2252d015f49: port 1(veth1bd4b0b) entered disabled state
+Jun 22 00:20:17 docker-security8 kernel: [520377.664524] br-d2252d015f49: port 1(veth1bd4b0b) entered disabled state
+Jun 22 00:20:17 docker-security8 kernel: [520377.665305] device veth1bd4b0b left promiscuous mode
+Jun 22 00:20:17 docker-security8 kernel: [520377.665320] br-d2252d015f49: port 1(veth1bd4b0b) entered disabled state

@@ -3,7 +3,7 @@
 #read PATH
 
 run_path="RUN3"
-mode="enforce_audit"
+mode="complain"
 
 mkdir ${run_path}/awk_out
 

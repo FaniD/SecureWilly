@@ -39,6 +39,7 @@ for line in data:
             base.append(line)
     elif line.startswith(profile):
         base.append('#include <tunables/global>\n\n')
+        line = line.strip('\n')
         base.append(line)
 
         #Base is ready
