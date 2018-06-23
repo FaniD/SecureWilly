@@ -1,0 +1,28 @@
+Jun 22 21:55:26 docker-security8 kernel: [75119.332714] IPv6: ADDRCONF(NETDEV_UP): br-a467a3e25ec6: link is not ready
+Jun 22 21:56:18 docker-security8 kernel: [75171.046708] device vethc12500e entered promiscuous mode
+Jun 22 21:56:18 docker-security8 kernel: [75171.046932] IPv6: ADDRCONF(NETDEV_UP): vethc12500e: link is not ready
+Jun 22 21:56:18 docker-security8 kernel: [75171.046947] br-a467a3e25ec6: port 1(vethc12500e) entered forwarding state
+Jun 22 21:56:18 docker-security8 kernel: [75171.046958] br-a467a3e25ec6: port 1(vethc12500e) entered forwarding state
+Jun 22 21:56:18 docker-security8 kernel: [75171.047793] br-a467a3e25ec6: port 1(vethc12500e) entered disabled state
+Jun 22 21:56:19 docker-security8 kernel: [75171.973013] IPv6: ADDRCONF(NETDEV_CHANGE): vethc12500e: link becomes ready
+Jun 22 21:56:19 docker-security8 kernel: [75171.973104] br-a467a3e25ec6: port 1(vethc12500e) entered forwarding state
+Jun 22 21:56:19 docker-security8 kernel: [75171.973121] br-a467a3e25ec6: port 1(vethc12500e) entered forwarding state
+Jun 22 21:56:19 docker-security8 kernel: [75171.973158] IPv6: ADDRCONF(NETDEV_CHANGE): br-a467a3e25ec6: link becomes ready
+Jun 22 21:56:20 docker-security8 kernel: [75173.020748] device veth0b77222 entered promiscuous mode
+Jun 22 21:56:20 docker-security8 kernel: [75173.020966] IPv6: ADDRCONF(NETDEV_UP): veth0b77222: link is not ready
+Jun 22 21:56:20 docker-security8 kernel: [75173.020973] br-a467a3e25ec6: port 2(veth0b77222) entered forwarding state
+Jun 22 21:56:20 docker-security8 kernel: [75173.020979] br-a467a3e25ec6: port 2(veth0b77222) entered forwarding state
+Jun 22 21:56:20 docker-security8 kernel: [75173.044448] br-a467a3e25ec6: port 2(veth0b77222) entered disabled state
+Jun 22 21:56:20 docker-security8 kernel: [75173.744855] IPv6: ADDRCONF(NETDEV_CHANGE): veth0b77222: link becomes ready
+Jun 22 21:56:20 docker-security8 kernel: [75173.744912] br-a467a3e25ec6: port 2(veth0b77222) entered forwarding state
+Jun 22 21:56:20 docker-security8 kernel: [75173.744922] br-a467a3e25ec6: port 2(veth0b77222) entered forwarding state
+Jun 22 21:56:34 docker-security8 kernel: [75187.004110] br-a467a3e25ec6: port 1(vethc12500e) entered forwarding state
+Jun 22 21:56:35 docker-security8 kernel: [75188.764110] br-a467a3e25ec6: port 2(veth0b77222) entered forwarding state
+Jun 22 22:07:06 docker-security8 kernel: [75819.168773] br-a467a3e25ec6: port 2(veth0b77222) entered disabled state
+Jun 22 22:07:06 docker-security8 kernel: [75819.341863] br-a467a3e25ec6: port 2(veth0b77222) entered disabled state
+Jun 22 22:07:06 docker-security8 kernel: [75819.342481] device veth0b77222 left promiscuous mode
+Jun 22 22:07:06 docker-security8 kernel: [75819.342491] br-a467a3e25ec6: port 2(veth0b77222) entered disabled state
+Jun 22 22:07:09 docker-security8 kernel: [75822.456759] type=1400 audit(1529705229.491:25): apparmor="DENIED" operation="signal" profile="server_profile" pid=1333 comm="docker-containe" requested_mask="receive" denied_mask="receive" signal=term peer="unconfined"
+Jun 22 22:07:11 docker-security8 kernel: [75824.458133] type=1400 audit(1529705231.495:26): apparmor="DENIED" operation="signal" profile="server_profile" pid=1945 comm="docker-containe" requested_mask="receive" denied_mask="receive" signal=kill peer="unconfined"
+Jun 22 22:07:41 docker-security8 kernel: [75854.103271] type=1400 audit(1529705261.135:27): apparmor="DENIED" operation="signal" profile="server_profile" pid=1333 comm="docker-containe" requested_mask="receive" denied_mask="receive" signal=term peer="unconfined"
+Jun 22 22:07:43 docker-security8 kernel: [75856.104968] type=1400 audit(1529705263.139:28): apparmor="DENIED" operation="signal" profile="server_profile" pid=20064 comm="docker-containe" requested_mask="receive" denied_mask="receive" signal=kill peer="unconfined"
