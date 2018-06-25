@@ -21,7 +21,7 @@ profile = 'profile'
 
 for line in data:
     if line.startswith(profile):
-        new_line = 'profile ' + service + '_profile flags=(audit, attach_disconnected,mediate_deleted) {\n'
+        new_line = 'profile ' + service + '_profile flags=(audit,attach_disconnected,mediate_deleted) {\n'
         new_profile.append(new_line)
     else:
         new_profile.append(line)

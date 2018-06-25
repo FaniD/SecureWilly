@@ -16,9 +16,7 @@ wc_f2=$(head -n 1 f2)
 #If profiles are the same then go on to next step.
 if [ $wc_f1 == $wc_f2 ]
 then 
-	echo "1" > next_step_${service} #More code here when I decide how to include the script in the project...
-else
-	echo "2" > next_step_${service}
+	echo "Next step" > next_step #More code here when I decide how to include the script in the project...
 fi
 
 rm f1
