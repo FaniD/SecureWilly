@@ -71,7 +71,7 @@ for line in data:
     new_profile.append('\tnetwork ' + line + ',\n')
 
 #File rules
-with open(awk_caps,'r') as infile:
+with open(awk_file,'r') as infile:
     data = infile.readlines()
 
 for line in data:

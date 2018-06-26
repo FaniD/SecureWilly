@@ -18,7 +18,7 @@ if [ $wc_f1 == $wc_f2 ]
 then 
 	echo "1" > next_step_${service} #More code here when I decide how to include the script in the project...
 else
-	echo "2" > next_step_${service}
+	echo "0" > next_step_${service}
 fi
 
 rm f1
