@@ -2,7 +2,7 @@
 
 #read PATH
 
-run_path="RUN10"
+run_path="RUN11"
 mode="enforce"
 
 mkdir ${run_path}/awk_out
@@ -26,6 +26,15 @@ for SERVICE in server client; do
 
 	#Remove duplicates
 	awk '!seen[$0]++' ${run_path}/awk_out/caps_${SERVICE} > ${run_path}/awk_out/${mode}_logs_caps_${SERVICE}
+
+
+	#~~~Signal~~~
+
+	#kern logs
+	#Find lines that include keyword "signal"
+	awk '/signal/ {for(i=1;i<=NF;i++) {{if($i ~ /requested_mask/) printf "%s", $i} {if($i ~ /signal=/) print "", $i} {if($i ~ /peer/) print "", $i}}}' ${run_path}/kernlogs_${SERVICE} > tmp_file
+	#To signal = den exei ""
+
 
 
 	#~~~Network~~~

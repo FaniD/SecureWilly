@@ -9,9 +9,9 @@
 /usr/src/memcached/memcached_client/docker_servers.txt r
 /var/lib/docker/aufs/diff/b0eff3719004f90665d8dbee9b2f419c1cfcd7bc9b85d64df1c02facc7ce628d/usr/src/memcached/memcached_client/docker_servers.txt r
 /usr/src/memcached/memcached_client/4913 c
-/var/lib/docker/aufs/diff/3284a32e890d112c16e6e86504cabbe8c2657ee9eef5c16b9c990255a1c0eebe/usr/src/memcached/memcached_client/4913 c
+/var/lib/docker/aufs/diff/2ce37fad5d27e784eb08fd84a4e8a1594ef28e908b2a9ac77f5d92155455c955/usr/src/memcached/memcached_client/4913 c
 /usr/src/memcached/memcached_client/4913 wc
-/var/lib/docker/aufs/diff/3284a32e890d112c16e6e86504cabbe8c2657ee9eef5c16b9c990255a1c0eebe/usr/src/memcached/memcached_client/4913 w
+/var/lib/docker/aufs/diff/2ce37fad5d27e784eb08fd84a4e8a1594ef28e908b2a9ac77f5d92155455c955/usr/src/memcached/memcached_client/4913 w
 /usr/src/memcached/memcached_client/loader x
 /etc/ld.so.cache r
 /var/lib/docker/aufs/diff/b0eff3719004f90665d8dbee9b2f419c1cfcd7bc9b85d64df1c02facc7ce628d/etc/ld.so.cache r
