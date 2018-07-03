@@ -11,6 +11,8 @@ profile server_profile flags=(audit, attach_disconnected,mediate_deleted) {
 	network inet6 stream,
 	/var/lib/docker/aufs/diff/2fcc8db0a30a331e8967b8cd76834fa7ed5ca672d934d0c11e38c8db28de68a5/usr/lib/x86_64-linux-gnu/libevent-2.0.so.5.1.9 r,
 	/usr/src/memcached/memcached_client/docker_servers.txt r,
+	requested_mask ,
 	network inet dgram,
+	signal (receive) set=(term) peer=unconfined,
 	/usr/lib/x86_64-linux-gnu/libevent-2.0.so.5.1.9 r,
 }

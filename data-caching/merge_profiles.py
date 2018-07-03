@@ -17,6 +17,7 @@ old_profile = 'profiles/' + service + '/version_' + version
 awk_caps = 'Logs/RUN' + version +'/awk_out/' + mode + '_logs_caps_' + service
 awk_net = 'Logs/RUN' + version +'/awk_out/' + mode + '_logs_net_' + service
 awk_file = 'Logs/RUN' + version +'/awk_out/' + mode + '_logs_file_' + service
+awk_sgn = 'Logs/RUN' + version +'/awk_out/' + mode + '_logs_sgn_' + service
 
 with open(old_profile,'r') as infile:
     data = infile.readlines()
@@ -84,6 +85,15 @@ for line in data:
         permission = 'ix'
     new_profile.append('\t' + line[0] + ' ' + permission + ',\n')
 
+#Signal rules
+with open(awk_sgn,'r') as infile:
+    data = infile.readlines()
+
+for line in data:
+    line = line.strip('\n')
+    line = line.split(' ') #Separate in requested_mask, set, peer
+    new_profile.append('\tsignal (' + line[0] + ') set=(' + line[1] + ') peer=' + line[2] + ',\n')
+
 
 #Delete duplicate rules by converting list to set. Convert back to list to keep the order of the beggining and ending of a profile
 #This is the way to delete duplicates, when we don't care about the order
@@ -94,7 +104,7 @@ new_profile = list(set(new_profile))
 no_gaps = []
 for line in new_profile:
     #Strip whitespace, should leave nothing if empty line was just "\n"
-    if 'requested_mask' in line: #If this is in logs then there is no rule for a certain operation so we omit it
+    if 'requested mask' in line: #If this is in logs then there is no rule for a certain operation so we omit it
         continue
     if not line.strip():
         continue
