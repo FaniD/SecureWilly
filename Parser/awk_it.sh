@@ -2,7 +2,7 @@
 
 #read PATH
 
-run_path="RUN1"
+run_path="RUN9"
 mode="complain"
 
 mkdir ${run_path}/awk_out
@@ -26,6 +26,26 @@ for SERVICE in server client; do
 
 	#Remove duplicates
 	awk '!seen[$0]++' ${run_path}/awk_out/caps_${SERVICE} > ${run_path}/awk_out/${mode}_logs_caps_${SERVICE}
+
+
+	#~~~Signal~~~
+
+	#kern logs
+	#Find lines that include keyword "signal"
+	awk '/signal/ {for(i=1;i<=NF;i++) {{if($i ~ /requested_mask/) printf "%s ", $i} {if($i ~ /signal=/) printf "%s", $i} {if($i ~ /peer/) print "", $i}}}' ${run_path}/kernlogs_${SERVICE} > tmp_file
+	#To signal = den exei ""
+	#Strip lines with requested_mask, signal and peer to keep just the tag of each
+        awk 'BEGIN {FS="=| ";} {gsub(/"/,"",$2); gsub(/"/,"",$6); print $2 ',' $4 ',' $6;}' tmp_file >> ${run_path}/awk_out/sgn_${SERVICE}
+
+	#dmesg logs
+        #Find lines that include keyword "signal"
+	awk '/signal/ {for(i=1;i<=NF;i++) {{if($i ~ /requested_mask/) printf "%s ", $i} {if($i ~ /signal=/) printf "%s", $i} {if($i ~ /peer/) print "", $i}}}' ${run_path}/dmesg_${SERVICE} > tmp_file
+	#To signal = den exei ""
+	#Strip lines with requested_mask, signal and peer to keep just the tag of each
+	awk 'BEGIN {FS="=| ";} {gsub(/"/,"",$2); gsub(/"/,"",$6); print $2 ',' $4 ',' $6;}' tmp_file >> ${run_path}/awk_out/sgn_${SERVICE}
+	
+	#Remove duplicates
+	awk '!seen[$0]++' ${run_path}/awk_out/sgn_${SERVICE} > ${run_path}/awk_out/${mode}_logs_sgn_${SERVICE}
 
 
 	#~~~Network~~~
@@ -73,15 +93,19 @@ for SERVICE in server client; do
 	#Remove duplicates
 	awk '!seen[$0]++' ${run_path}/awk_out/file_${SERVICE} > ${run_path}/awk_out/${mode}_logs_file_${SERVICE}
 
-	echo '#Capability' > ${run_path}/awk_out/${mode}_${SERVICE}
+	echo '#Capability\n' > ${run_path}/awk_out/${mode}_${SERVICE}
 	cat ${run_path}/awk_out/${mode}_logs_caps_${SERVICE} >> ${run_path}/awk_out/${mode}_${SERVICE}
-	echo '#Network' >> ${run_path}/awk_out/${mode}_${SERVICE}
+	echo '#Network\n' >> ${run_path}/awk_out/${mode}_${SERVICE}
 	cat ${run_path}/awk_out/${mode}_logs_net_${SERVICE} >> ${run_path}/awk_out/${mode}_${SERVICE}
 	echo '#File' >> ${run_path}/awk_out/${mode}_${SERVICE}
 	cat ${run_path}/awk_out/${mode}_logs_file_${SERVICE} >> ${run_path}/awk_out/${mode}_${SERVICE}
+	echo '#Signal' >> ${run_path}/awk_out/${mode}_${SERVICE}
+	cat ${run_path}/awk_out/${mode}_logs_sgn_${SERVICE} >> ${run_path}/awk_out/${mode}_${SERVICE}
+
 done
 
 rm ${run_path}/awk_out/caps*
 rm ${run_path}/awk_out/net*
 rm ${run_path}/awk_out/file*
+rm ${run_path}/awk_out/sgn*
 rm tmp_file

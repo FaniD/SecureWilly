@@ -10,3 +10,5 @@ inet stream
 /usr/src/memcached/memcached_client/docker_servers.txt r
 /var/lib/docker/aufs/diff/3c41bb46f5f4ddd31bac17a92ea6d591fc026a91a75a6c40c0e44fb5200cf31a/usr/src/memcached/memcached_client/docker_servers.txt r
 requested_mask 
+#Signal
+receive term unconfined
