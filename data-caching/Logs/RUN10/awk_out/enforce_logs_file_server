@@ -1,8 +1,0 @@
-/etc/ld.so.cache r
-/var/lib/docker/aufs/diff/86094bb263df46b64bc9a768bf05f508edada4dcea0c1b56a45a8fff1a09e39a/etc/ld.so.cache r
-/usr/lib/x86_64-linux-gnu/libevent-2.0.so.5.1.9 r
-/var/lib/docker/aufs/diff/ad6fd833f3e1c43bd1d599e7b951f91f0d9c3634eee93ba7b7583a690fed7c04/usr/lib/x86_64-linux-gnu/libevent-2.0.so.5.1.9 r
-/lib/x86_64-linux-gnu/libpthread-2.23.so r
-/usr/src/memcached/memcached_client/docker_servers.txt r
-/var/lib/docker/aufs/diff/b0eff3719004f90665d8dbee9b2f419c1cfcd7bc9b85d64df1c02facc7ce628d/usr/src/memcached/memcached_client/docker_servers.txt r
-requested_mask 
