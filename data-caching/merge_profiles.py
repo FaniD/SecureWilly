@@ -104,7 +104,7 @@ new_profile = list(set(new_profile))
 no_gaps = []
 for line in new_profile:
     #Strip whitespace, should leave nothing if empty line was just "\n"
-    if 'requested mask' in line: #If this is in logs then there is no rule for a certain operation so we omit it
+    if 'requested_mask' in line: #If this is in logs then there is no rule for a certain operation so we omit it
         continue
     if not line.strip():
         continue
