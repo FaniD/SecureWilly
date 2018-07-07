@@ -23,7 +23,7 @@ with open(new_logs,'r') as infile:
 for line_f1 in data_1:
     for line_f2 in data_2
         if line_f1 == line_f2:
-            #delete line from file 2
+            #Exact match. Delete line from file 2
         else:
             line_f1 = line_f1.strip('\n')
             line_f1 = line_f1.split('')
@@ -40,37 +40,47 @@ for line_f1 in data_1:
             len_f1 = len(path_f1)
             len_f2 = len(path_f2)
 
-            if len_f1 == len_f2 
-                #Maybe we are talking about the same path
+            if len_f1 == len_f2 :
+                if permission_f1 != permission_f2:
+                    continue
+
+                #So now maybe we are talking about the same path
                 match = []
                 i = 0
+                num_of_zeros = 0
+
                 for part_f1 in path_f1:
-                    
+                    if part_f1 == path_f2[i]:
+                        #Matching parts -> go to next one
+                        match.append('1')
+                    else:
+                        match.append('0')
+                        here_comes_the_instance = i
+                        num_of_zeros = num_of_zeros + 1
                     i = i+1
+
+                if num_of_zeros == 0:
+                    #Exact match path... This was not supposed to happen
+
+                else if num_of_zeros == 1:
+                    #Instance difference. Fix globbing syntax
+                    for i in range(0, here_comes_the_instance):
+                        new_rule = new_rule.append(path_f1[i] + '/')
+                    new_rule[here_comes_the_instance] = '*/'
+                    for i in range(here_comes_the_instance+1, len(path_f1)):
+                        new_rule = new_rule.append(path_f1[i] + '/')
+                    #Add new rule to next profile... (?)
+                else:
+                    #We are talking about different paths so go on
+                    continue
+
             else
                 #Certainly different paths
                 continue
 
-    if include in line:
-        if not tunables in line:
-            base.append(line)
-    elif line.startswith(profile):
-        base.append('#include <tunables/global>\n\n')
-#        line = line.strip('\n')
-        base.append(line)
-
-        #Base is ready
-        #Add all the rules from here on
-        #Except for the closure '}'
-
-    elif '}' in line:
-        break
-    else:
-        line = line.strip('\n')
-        new_profile.append(line + '\n') 
 
 
-#Now create rules from awk logs
+
 
 new_file_rules = []
 
