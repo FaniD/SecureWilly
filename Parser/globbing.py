@@ -37,7 +37,19 @@ for line_f1 in data_1:
             permission_f2 = line_f2[1]
             path_f2 = path_f2.split('/')
 
-            
+            len_f1 = len(path_f1)
+            len_f2 = len(path_f2)
+
+            if len_f1 == len_f2 
+                #Maybe we are talking about the same path
+                match = []
+                i = 0
+                for part_f1 in path_f1:
+                    
+                    i = i+1
+            else
+                #Certainly different paths
+                continue
 
     if include in line:
         if not tunables in line:
