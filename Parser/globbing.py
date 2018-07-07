@@ -23,6 +23,20 @@ with open(new_logs,'r') as infile:
 for line_f1 in data_1:
     for line_f2 in data_2
         if line_f1 == line_f2:
+            #delete line from file 2
+        else:
+            line_f1 = line_f1.strip('\n')
+            line_f1 = line_f1.split('')
+            path_f1 = line_f1[0]
+            permission_f1 = line_f1[1]
+            path_f1 = path_f1.split('/')
+
+            line_f2 = line_f2.strip('\n')
+            line_f2 = line_f2.split('')
+            path_f2 = line_f2[0]
+            permission_f2 = line_f2[1]
+            path_f2 = path_f2.split('/')
+
             
 
     if include in line:
