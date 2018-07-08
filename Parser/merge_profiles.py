@@ -52,6 +52,8 @@ for line in data:
 
 #Now create rules from awk logs
 
+new_file_rules = []
+
 #Capability rules
 with open(awk_caps,'r') as infile:
     data = infile.readlines()
@@ -73,6 +75,8 @@ with open(awk_file,'r') as infile:
     data = infile.readlines()
 
 for line in data:
+    if 'requested_mask' in line: #If this is in logs then there is no rule for a certain operation so we omit it
+        continue
     line = line.strip('\n')
     line = line.split(' ')
     permission = line[1]
@@ -84,6 +88,7 @@ for line in data:
     if line[1] == 'x': #x must follow i,p,c,u so if there is none of these with x we give i permission
         permission = 'ix'
     new_profile.append('\t' + line[0] + ' ' + permission + ',\n')
+    new_file_rules.append(line[0] + ' ' + permission + ',\n')
 
 #Signal rules
 with open(awk_sgn,'r') as infile:
@@ -104,7 +109,7 @@ new_profile = list(set(new_profile))
 no_gaps = []
 for line in new_profile:
     #Strip whitespace, should leave nothing if empty line was just "\n"
-    if 'requested mask' in line: #If this is in logs then there is no rule for a certain operation so we omit it
+    if 'requested_mask' in line: #If this is in logs then there is no rule for a certain operation so we omit it
         continue
     if not line.strip():
         continue
@@ -129,3 +134,5 @@ new_profile.append('}\n')
 with open(new_path, 'w') as outfile:
 	outfile.writelines( new_profile )
 
+with open('new_frules_' + service, 'w') as outfile:
+    outfile.writelines ( new_file_rules )
