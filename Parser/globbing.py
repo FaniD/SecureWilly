@@ -19,27 +19,22 @@ with open(old_logs,'r') as infile:
 with open(new_logs,'r') as infile:
     data_2 = infile.readlines()
 
-new_rule = []
+new_rules = []
 exact = 0
 
 #Loop for old logs line by line and compare to new logs with every line
-for line_f1 in data_1: #range(0, len(data_1)):
-    for line_f2 in data_2:#range(0, len(data_2)):
+for line_f1 in data_1:
+    for line_f2 in data_2:
         path_f1 = line_f1[0]
         permission_f1 = line_f1[1]
         path_f2 = line_f2[0]
         permission_f2 = line_f2[1]
 
-        if line_f1 == line_f2:
+        if path_f1 == path_f2:
             #Exact match. Delete line from file 2
             exact = exact + 1
         else:
-            path_f1 = line_f1[0]
-            permission_f1 = line_f1[1]
             path_f1 = path_f1.split('/')
-
-            path_f2 = line_f2[0]
-            permission_f2 = line_f2[1]
             path_f2 = path_f2.split('/')
 
             len_f1 = len(path_f1)
@@ -69,12 +64,15 @@ for line_f1 in data_1: #range(0, len(data_1)):
                     exact = exact + 1
                 elif num_of_zeros == 1:
                     #Instance difference. Fix globbing syntax
+                    new_rule=''
                     for i in range(0, here_comes_the_instance):
-                        new_rule = new_rule.append(path_f1[i] + '/')
-                    new_rule[here_comes_the_instance] = '*/'
-                    for i in range(here_comes_the_instance+1, len(path_f1)):
-                        new_rule = new_rule.append(path_f1[i] + '/')
+                        new_rule = new_rule + path_f1[i] + '/'
+                    new_rule = new_rule + '*/'
+                    for i in range(here_comes_the_instance+1, len(path_f1)-1):
+                        new_rule = new_rule + path_f1[i] + '/'
+                    new_rule = new_rule + path_f1[len(path_f1)]
                     #Add new rule to next profile... (?)
+                    new_rules.append(new_rule)
                 else:
                     #We are talking about different paths so go on
                     continue
@@ -85,4 +83,4 @@ for line_f1 in data_1: #range(0, len(data_1)):
 
 #Output
 with open('globbing_' + service, 'w') as outfile:
-    outfile.writelines ( new_rule )
+    outfile.writelines ( new_rules )
