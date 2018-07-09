@@ -5,12 +5,13 @@ from collections import OrderedDict
 
 service = str(sys.argv[1])
 new_run = str(sys.argv[2]) #version! The one that exists! (~number here~)
-mode = str(sys.argv[3]) #complain, enforce, complain_audit, enforce_audit
+mode_1 = str(sys.argv[3]) #complain, enforce, complain_audit, enforce_audit
+mode_2 = str(sys.argv[4])
 
 old_run = int(new_run)-1 #round
 
-old_logs = 'Logs/RUN' + str(old_run) + '/awk_out/' + mode + '_logs_file_' + service
-new_logs = 'Logs/RUN' + str(new_run) + '/awk_out/' + mode + '_logs_file_' + service
+old_logs = 'Logs/RUN' + str(old_run) + '/awk_out/' + mode_1 + '_logs_file_' + service
+new_logs = 'Logs/RUN' + str(new_run) + '/awk_out/' + mode_2 + '_logs_file_' + service
 
 #Open old file logs and new file logs
 with open(old_logs,'r') as infile:

@@ -2,8 +2,8 @@
 
 #read PATH
 
-run_path="RUN7"
-mode="complain"
+run_path="RUN9"
+mode="enforce"
 
 mkdir ${run_path}/awk_out
 
