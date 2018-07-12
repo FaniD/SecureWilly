@@ -1,7 +1,7 @@
 #!/bin/bash
 
-read service
-read round
+read number_of_services
+for read service
 
 #Compare 2 profiles by number of lines
 #Beware: There are no empty lines, comments are added next to rules, no duplicate rules, include and profile names are added as the same lines to each profile. So profiles are either augmentations of previous profiles or the same.
