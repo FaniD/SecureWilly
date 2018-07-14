@@ -25,6 +25,19 @@ while true; do
 	./8_logging_files.sh < $i
 	echo ${i} 'complain' | source /Logs/awk_it.sh
 	
-	python merge_profiles.py 
-
+	enforce_time=1
+	for SERVICE in server client; do  #FIX THIS -> GENERIC
+		python merge_profiles.py ${SERVICE} ${i} 'complain'
+		echo ${i}+1 | source complain_enforce_audit.sh
+		next_step=$(head -n 1 next_step_${SERVICE})
+		if [ $next_step == '0' ]
+		then
+			$enforce_time=0
+		fi
+	done
+	$i=$i+1
+	if [ $enforce_time==1 ]
+	then
+		break
+	fi	
 done
