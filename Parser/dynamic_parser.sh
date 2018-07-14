@@ -14,24 +14,17 @@ done
 i=1
 while true; do
 	./1_clear_containers.sh
-	for (( x=1; x<=${number_of_services}; x++ ))
-	do
-		echo ${i} ${i} | source 2_cp_to_apparmor.sh
-	done
-
+	echo ${i} ${i} | source 2_cp_to_apparmor.sh
 	./3_load_profiles.sh 
 	./4a_complain_mode.sh
 	./5_clear_logs.sh 
 	./6_net.sh
 	./7_run.sh
 	./9_closing.sh
-
-	for (( x=1; x<=${number_of_services}; x++ ))
-	do
-		echo ${i} ${i} | source 2_cp_to_apparmor.sh
-	done
+	echo ${i} | source 8_logging_files.sh
 	./8_logging_files.sh < $i
-	./Logs/awk_it.sh < $i 'complain'
+	echo ${i} 'complain' | source /Logs/awk_it.sh
 	
+	python merge_profiles.py 
 
 done

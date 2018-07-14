@@ -1,9 +1,9 @@
 #!/bin/bash
 
-#read PATH
+read version
+read mode
 
-run_path="RUN9"
-mode="complain"
+run_path="RUN${version}"
 
 mkdir ${run_path}/awk_out
 
