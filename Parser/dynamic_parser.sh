@@ -1,26 +1,37 @@
 #!/bin/bash
 
 read number_of_services
-for read service
+#read services
+for (( i=1; i<=${number_of_services}; i++ ))
+do
+	read service_${i}
+done 
 
-#Compare 2 profiles by number of lines
-#Beware: There are no empty lines, comments are added next to rules, no duplicate rules, include and profile names are added as the same lines to each profile. So profiles are either augmentations of previous profiles or the same.
-wc -l profiles/${service}/version_${round} | awk '{print $1}' > f1
-echo "$((${round} - 1))" > fr
-round_previous=$(head -n 1 fr)
-wc -l profiles/${service}/version_${round_previous} | awk '{print $1}' > f2
+#There is already a profile for each service by static_parser
 
-wc_f1=$(head -n 1 f1)
-wc_f2=$(head -n 1 f2)
+#For each RUN follow the steps
+#Starting with complain mode
+i=1
+while true; do
+	./1_clear_containers.sh
+	for (( x=1; x<=${number_of_services}; x++ ))
+	do
+		echo ${i} ${i} | source 2_cp_to_apparmor.sh
+	done
 
-#If profiles are the same then go on to next step.
-if [ $wc_f1 == $wc_f2 ]
-then 
-	echo "1" > next_step_${service} #More code here when I decide how to include the script in the project...
-else
-	echo "0" > next_step_${service}
-fi
+	./3_load_profiles.sh 
+	./4a_complain_mode.sh
+	./5_clear_logs.sh 
+	./6_net.sh
+	./7_run.sh
+	./9_closing.sh
 
-rm f1
-rm f2
-rm fr
+	for (( x=1; x<=${number_of_services}; x++ ))
+	do
+		echo ${i} ${i} | source 2_cp_to_apparmor.sh
+	done
+	./8_logging_files.sh < $i
+	./Logs/awk_it.sh < $i 'complain'
+	
+
+done
