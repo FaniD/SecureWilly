@@ -1,11 +1,11 @@
 #!/bin/bash
 
-read number_of_services
+#read number_of_services
 #read services
-for (( i=1; i<=${number_of_services}; i++ ))
-do
-	read service_${i}
-done 
+#for (( i=1; i<=${number_of_services}; i++ ))
+#do
+#	read service_${i}
+#done 
 
 #There is already a profile for each service by static_parser
 
@@ -14,7 +14,7 @@ done
 i=1
 while true; do
 	./1_clear_containers.sh
-	echo ${i} ${i} | source 2_cp_to_apparmor.sh
+	echo $i | source 2_cp_to_apparmor.sh
 	./3_load_profiles.sh 
 	./4a_complain_mode.sh
 	./5_clear_logs.sh 
@@ -23,7 +23,7 @@ while true; do
 	./9_closing.sh
 	echo ${i} | source 8_logging_files.sh
 	echo ${i} 'complain' | source Logs/awk_it.sh
-	
+	break
 	enforce_time=1
 	for SERVICE in server client; do  #FIX THIS -> GENERIC
 		python merge_profiles.py ${SERVICE} ${i} 'complain'
