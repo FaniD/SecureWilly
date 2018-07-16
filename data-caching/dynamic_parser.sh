@@ -21,8 +21,8 @@ while true; do
 	./6_net.sh
 	./7_run.sh
 	./9_closing.sh
-	echo ${i} | source 8_logging_files.sh
-	echo ${i} 'complain' | source Logs/awk_it.sh
+	echo $i | source 8_logging_files.sh
+	echo $i 'complain' | source Logs/awk_it.sh
 	break
 	enforce_time=1
 	for SERVICE in server client; do  #FIX THIS -> GENERIC
