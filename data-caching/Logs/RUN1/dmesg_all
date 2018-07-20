@@ -1,27 +1,30 @@
-[1299312.008748] IPv6: ADDRCONF(NETDEV_UP): br-b559e8bd2ec3: link is not ready
-[1299312.412775] device veth5ea9df4 entered promiscuous mode
-[1299312.412875] IPv6: ADDRCONF(NETDEV_UP): veth5ea9df4: link is not ready
-[1299312.412879] br-b559e8bd2ec3: port 1(veth5ea9df4) entered forwarding state
-[1299312.412887] br-b559e8bd2ec3: port 1(veth5ea9df4) entered forwarding state
-[1299312.413176] IPv6: ADDRCONF(NETDEV_CHANGE): br-b559e8bd2ec3: link becomes ready
-[1299312.920295] br-b559e8bd2ec3: port 1(veth5ea9df4) entered disabled state
-[1299312.920635] IPv6: ADDRCONF(NETDEV_CHANGE): veth5ea9df4: link becomes ready
-[1299312.920671] br-b559e8bd2ec3: port 1(veth5ea9df4) entered forwarding state
-[1299312.920678] br-b559e8bd2ec3: port 1(veth5ea9df4) entered forwarding state
-[1299313.007823] type=1400 audit(1531752214.856:3848085422): apparmor="ALLOWED" operation="create" profile="server_profile" pid=2585 comm="memcached" family="inet6" sock_type="dgram" protocol=0
-[1299313.007845] type=1400 audit(1531752214.856:3848085423): apparmor="ALLOWED" operation="connect" profile="server_profile" pid=2585 comm="memcached" family="inet6" sock_type="dgram" protocol=17
-[1299313.007885] type=1400 audit(1531752214.856:3848085424): apparmor="ALLOWED" operation="connect" profile="server_profile" pid=2585 comm="memcached" lport=38378 faddr=::1 fport=11211 family="inet6" sock_type="dgram" protocol=17
-[1299313.007893] type=1400 audit(1531752214.856:3848085425): apparmor="ALLOWED" operation="connect" profile="server_profile" pid=2585 comm="memcached" faddr=::1 family="inet6" sock_type="dgram" protocol=17
-[1299313.007917] type=1400 audit(1531752214.856:3848085426): apparmor="ALLOWED" operation="getsockname" profile="server_profile" pid=2585 comm="memcached" laddr=::ffff:127.0.0.1 lport=41765 faddr=::ffff:127.0.0.1 fport=11211 family="inet6" sock_type="dgram" protocol=17
-[1299313.344757] device veth450fef7 entered promiscuous mode
-[1299313.344917] IPv6: ADDRCONF(NETDEV_UP): veth450fef7: link is not ready
-[1299313.344923] br-b559e8bd2ec3: port 2(veth450fef7) entered forwarding state
-[1299313.344929] br-b559e8bd2ec3: port 2(veth450fef7) entered forwarding state
-[1299313.796443] IPv6: ADDRCONF(NETDEV_CHANGE): veth450fef7: link becomes ready
-[1299315.880447] br-b559e8bd2ec3: port 2(veth450fef7) entered disabled state
-[1299316.009755] br-b559e8bd2ec3: port 2(veth450fef7) entered disabled state
-[1299316.010191] device veth450fef7 left promiscuous mode
-[1299316.010200] br-b559e8bd2ec3: port 2(veth450fef7) entered disabled state
-[1299316.293361] br-b559e8bd2ec3: port 1(veth5ea9df4) entered disabled state
-[1299316.294775] device veth5ea9df4 left promiscuous mode
-[1299316.294783] br-b559e8bd2ec3: port 1(veth5ea9df4) entered disabled state
+[13768.849510] IPv6: ADDRCONF(NETDEV_UP): br-8ba052369ebd: link is not ready
+[13769.259539] device veth405b053 entered promiscuous mode
+[13769.259829] IPv6: ADDRCONF(NETDEV_UP): veth405b053: link is not ready
+[13769.259837] br-8ba052369ebd: port 1(veth405b053) entered forwarding state
+[13769.259850] br-8ba052369ebd: port 1(veth405b053) entered forwarding state
+[13769.259884] IPv6: ADDRCONF(NETDEV_CHANGE): br-8ba052369ebd: link becomes ready
+[13769.676451] br-8ba052369ebd: port 1(veth405b053) entered disabled state
+[13769.912800] IPv6: ADDRCONF(NETDEV_CHANGE): veth405b053: link becomes ready
+[13769.912854] br-8ba052369ebd: port 1(veth405b053) entered forwarding state
+[13769.912862] br-8ba052369ebd: port 1(veth405b053) entered forwarding state
+[13770.209670] type=1400 audit(1532124870.314:1356): apparmor="ALLOWED" operation="create" profile="server_profile" pid=17600 comm="memcached" family="inet6" sock_type="dgram" protocol=0
+[13770.209704] type=1400 audit(1532124870.314:1357): apparmor="ALLOWED" operation="connect" profile="server_profile" pid=17600 comm="memcached" family="inet6" sock_type="dgram" protocol=17
+[13770.209742] type=1400 audit(1532124870.314:1358): apparmor="ALLOWED" operation="connect" profile="server_profile" pid=17600 comm="memcached" lport=60648 faddr=::1 fport=11211 family="inet6" sock_type="dgram" protocol=17
+[13770.209762] type=1400 audit(1532124870.314:1359): apparmor="ALLOWED" operation="connect" profile="server_profile" pid=17600 comm="memcached" faddr=::1 family="inet6" sock_type="dgram" protocol=17
+[13770.209788] type=1400 audit(1532124870.314:1360): apparmor="ALLOWED" operation="getsockname" profile="server_profile" pid=17600 comm="memcached" laddr=::ffff:127.0.0.1 lport=53569 faddr=::ffff:127.0.0.1 fport=11211 family="inet6" sock_type="dgram" protocol=17
+[13770.209809] type=1400 audit(1532124870.314:1361): apparmor="ALLOWED" operation="create" profile="server_profile" pid=17600 comm="memcached" family="inet" sock_type="stream" protocol=6
+[13770.844253] device veth6b5c32f entered promiscuous mode
+[13770.844426] IPv6: ADDRCONF(NETDEV_UP): veth6b5c32f: link is not ready
+[13770.844435] br-8ba052369ebd: port 2(veth6b5c32f) entered forwarding state
+[13770.844442] br-8ba052369ebd: port 2(veth6b5c32f) entered forwarding state
+[13771.429604] IPv6: ADDRCONF(NETDEV_CHANGE): veth6b5c32f: link becomes ready
+[13775.562643] audit_printk_skb: 252 callbacks suppressed
+[13775.562648] type=1400 audit(1532124875.666:1446): apparmor="ALLOWED" operation="signal" profile="server_profile" pid=1346 comm="docker-containe" requested_mask="receive" denied_mask="receive" signal=term peer="unconfined"
+[13775.604524] br-8ba052369ebd: port 2(veth6b5c32f) entered disabled state
+[13775.693412] br-8ba052369ebd: port 2(veth6b5c32f) entered disabled state
+[13775.693920] device veth6b5c32f left promiscuous mode
+[13775.693929] br-8ba052369ebd: port 2(veth6b5c32f) entered disabled state
+[13775.942997] br-8ba052369ebd: port 1(veth405b053) entered disabled state
+[13775.943833] device veth405b053 left promiscuous mode
+[13775.943849] br-8ba052369ebd: port 1(veth405b053) entered disabled state

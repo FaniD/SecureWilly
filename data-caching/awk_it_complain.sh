@@ -1,9 +1,8 @@
 #!/bin/bash
 
 read version
-#read mode
 mode="complain"
-run_path="RUN${version}"
+run_path="Logs/RUN${version}"
 
 mkdir ${run_path}/awk_out
 

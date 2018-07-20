@@ -22,19 +22,19 @@ while true; do
 	./7_run.sh
 	./9_closing.sh
 	echo $i | source 8_logging_files.sh
-	echo $i 'complain' | source Logs/awk_it.sh
-	break
+	echo $i | source awk_it_complain.sh
 	enforce_time=1
 	for SERVICE in server client; do  #FIX THIS -> GENERIC
-		python merge_profiles.py ${SERVICE} ${i} 'complain'
-		echo ${SERVICE} ${i}+1 | source complain_enforce_audit.sh
+		python merge_profiles.py $SERVICE $i 'complain'
+		break
+		echo $SERVICE $i+1 | source complain_enforce_audit.sh
 		next_step=$(head -n 1 next_step_${SERVICE})
 		if [ $next_step == '0' ]
 		then
 			$enforce_time=0
 		fi
 	done
-	$i=$i+1
+	((i++))
 	if [ $enforce_time==1 ] #Then none of the services has 0 value so enforce time
 	then
 		break
