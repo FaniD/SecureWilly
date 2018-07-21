@@ -1,0 +1,24 @@
+Jul 21 20:18:33 docker-security8 kernel: [93213.243325] IPv6: ADDRCONF(NETDEV_UP): br-a26f92099550: link is not ready
+Jul 21 20:18:33 docker-security8 kernel: [93213.585155] device veth18db5aa entered promiscuous mode
+Jul 21 20:18:33 docker-security8 kernel: [93213.585341] IPv6: ADDRCONF(NETDEV_UP): veth18db5aa: link is not ready
+Jul 21 20:18:33 docker-security8 kernel: [93213.585349] br-a26f92099550: port 1(veth18db5aa) entered forwarding state
+Jul 21 20:18:33 docker-security8 kernel: [93213.585362] br-a26f92099550: port 1(veth18db5aa) entered forwarding state
+Jul 21 20:18:33 docker-security8 kernel: [93213.585386] IPv6: ADDRCONF(NETDEV_CHANGE): br-a26f92099550: link becomes ready
+Jul 21 20:18:34 docker-security8 kernel: [93214.060417] br-a26f92099550: port 1(veth18db5aa) entered disabled state
+Jul 21 20:18:35 docker-security8 kernel: [93214.976669] IPv6: ADDRCONF(NETDEV_CHANGE): veth18db5aa: link becomes ready
+Jul 21 20:18:35 docker-security8 kernel: [93214.976734] br-a26f92099550: port 1(veth18db5aa) entered forwarding state
+Jul 21 20:18:35 docker-security8 kernel: [93214.976741] br-a26f92099550: port 1(veth18db5aa) entered forwarding state
+Jul 21 20:18:37 docker-security8 kernel: [93217.373604] device veth4b05981 entered promiscuous mode
+Jul 21 20:18:37 docker-security8 kernel: [93217.373709] IPv6: ADDRCONF(NETDEV_UP): veth4b05981: link is not ready
+Jul 21 20:18:38 docker-security8 kernel: [93218.132607] IPv6: ADDRCONF(NETDEV_CHANGE): veth4b05981: link becomes ready
+Jul 21 20:18:38 docker-security8 kernel: [93218.132662] br-a26f92099550: port 2(veth4b05981) entered forwarding state
+Jul 21 20:18:38 docker-security8 kernel: [93218.132668] br-a26f92099550: port 2(veth4b05981) entered forwarding state
+Jul 21 20:18:50 docker-security8 kernel: [93229.980089] br-a26f92099550: port 1(veth18db5aa) entered forwarding state
+Jul 21 20:18:53 docker-security8 kernel: [93233.180154] br-a26f92099550: port 2(veth4b05981) entered forwarding state
+Jul 21 20:26:30 docker-security8 kernel: [93690.523686] br-a26f92099550: port 2(veth4b05981) entered disabled state
+Jul 21 20:26:30 docker-security8 kernel: [93690.652754] br-a26f92099550: port 2(veth4b05981) entered disabled state
+Jul 21 20:26:30 docker-security8 kernel: [93690.653393] device veth4b05981 left promiscuous mode
+Jul 21 20:26:30 docker-security8 kernel: [93690.653403] br-a26f92099550: port 2(veth4b05981) entered disabled state
+Jul 21 20:26:31 docker-security8 kernel: [93690.944517] br-a26f92099550: port 1(veth18db5aa) entered disabled state
+Jul 21 20:26:31 docker-security8 kernel: [93690.945312] device veth18db5aa left promiscuous mode
+Jul 21 20:26:31 docker-security8 kernel: [93690.945327] br-a26f92099550: port 1(veth18db5aa) entered disabled state

@@ -1,0 +1,6 @@
+[92678.595676] type=1400 audit(1532203778.698:447976968): apparmor="ALLOWED" operation="create" profile="server_profile" pid=1543 comm="memcached" family="inet" sock_type="dgram" protocol=17
+[92678.595696] type=1400 audit(1532203778.698:447976969): apparmor="ALLOWED" operation="setsockopt" profile="server_profile" pid=1543 comm="memcached" family="inet" sock_type="dgram" protocol=17
+[92678.595709] type=1400 audit(1532203778.698:447976970): apparmor="ALLOWED" operation="getsockopt" profile="server_profile" pid=1543 comm="memcached" family="inet" sock_type="dgram" protocol=17
+[92678.595718] type=1400 audit(1532203778.698:447976971): apparmor="ALLOWED" operation="setsockopt" profile="server_profile" pid=1543 comm="memcached" family="inet" sock_type="dgram" protocol=17
+[92678.595726] type=1400 audit(1532203778.698:447976972): apparmor="ALLOWED" operation="setsockopt" profile="server_profile" pid=1543 comm="memcached" family="inet" sock_type="dgram" protocol=17
+[92678.595734] type=1400 audit(1532203778.698:447976973): apparmor="ALLOWED" operation="setsockopt" profile="server_profile" pid=1543 comm="memcached" family="inet" sock_type="dgram" protocol=17

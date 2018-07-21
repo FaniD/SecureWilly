@@ -23,20 +23,30 @@ while true; do
 	./9_closing.sh
 	echo $i | source 8_logging_files.sh
 	echo $i | source awk_it_complain.sh
-	enforce_time=1
+#	enforce_time=1
+	x=${x:-$i}
+	((x++))
 	for SERVICE in server client; do  #FIX THIS -> GENERIC
 		python merge_profiles.py $SERVICE $i 'complain'
-		break
-		echo $SERVICE $i+1 | source complain_enforce_audit.sh
+	done
+	#echo $SERVICE $x | source complain_enforce_audit.sh
+	echo $x | source complain_enforce_audit.sh
+	enforce_time='1'
+	for SERVICE in server client; do
 		next_step=$(head -n 1 next_step_${SERVICE})
+		echo "Next step for ${SERVICE} is $next_step"
 		if [ $next_step == '0' ]
 		then
-			$enforce_time=0
+			enforce_time='0'
+#			echo "enforce time = ${enforce_time}"
 		fi
 	done
 	((i++))
-	if [ $enforce_time==1 ] #Then none of the services has 0 value so enforce time
+#	echo "enforce time = ${enforce_time}"
+	if [ $enforce_time == '1' ] #Then none of the services has 0 value so enforce time
 	then
+#		echo "Inside enforce time = ${enforce_time}"
+#		echo "Enters here?"
 		break
 	fi	
 done
