@@ -1,0 +1,26 @@
+Jul 22 21:03:44 docker-security8 kernel: [182324.248858] IPv6: ADDRCONF(NETDEV_UP): br-580f3d8112ed: link is not ready
+Jul 22 21:03:44 docker-security8 kernel: [182324.703385] device vethb873501 entered promiscuous mode
+Jul 22 21:03:44 docker-security8 kernel: [182324.703511] IPv6: ADDRCONF(NETDEV_UP): vethb873501: link is not ready
+Jul 22 21:03:44 docker-security8 kernel: [182324.703517] br-580f3d8112ed: port 1(vethb873501) entered forwarding state
+Jul 22 21:03:44 docker-security8 kernel: [182324.703528] br-580f3d8112ed: port 1(vethb873501) entered forwarding state
+Jul 22 21:03:44 docker-security8 kernel: [182324.703550] IPv6: ADDRCONF(NETDEV_CHANGE): br-580f3d8112ed: link becomes ready
+Jul 22 21:03:45 docker-security8 kernel: [182325.120169] br-580f3d8112ed: port 1(vethb873501) entered disabled state
+Jul 22 21:03:45 docker-security8 kernel: [182325.200688] IPv6: ADDRCONF(NETDEV_CHANGE): vethb873501: link becomes ready
+Jul 22 21:03:45 docker-security8 kernel: [182325.200779] br-580f3d8112ed: port 1(vethb873501) entered forwarding state
+Jul 22 21:03:45 docker-security8 kernel: [182325.200787] br-580f3d8112ed: port 1(vethb873501) entered forwarding state
+Jul 22 21:03:45 docker-security8 kernel: [182325.282029] type=1400 audit(1532293425.386:1044357724): apparmor="AUDIT" operation="open" profile="server_profile" name="/etc/ld.so.cache" pid=2367 comm="memcached" requested_mask="r" fsuid=999 ouid=0
+Jul 22 21:03:45 docker-security8 kernel: [182325.282041] type=1400 audit(1532293425.386:1044357725): apparmor="AUDIT" operation="open" profile="server_profile" name="/var/lib/docker/aufs/diff/86094bb263df46b64bc9a768bf05f508edada4dcea0c1b56a45a8fff1a09e39a/etc/ld.so.cache" pid=2367 comm="memcached" requested_mask="r" fsuid=999 ouid=0
+Jul 22 21:03:45 docker-security8 kernel: [182325.282049] type=1400 audit(1532293425.386:1044357726): apparmor="AUDIT" operation="getattr" profile="server_profile" name="/etc/ld.so.cache" pid=2367 comm="memcached" requested_mask="r" fsuid=999 ouid=0
+Jul 22 21:03:45 docker-security8 kernel: [182325.282054] type=1400 audit(1532293425.386:1044357727): apparmor="AUDIT" operation="getattr" profile="server_profile" name="/var/lib/docker/aufs/diff/86094bb263df46b64bc9a768bf05f508edada4dcea0c1b56a45a8fff1a09e39a/etc/ld.so.cache" pid=2367 comm="memcached" requested_mask="r" fsuid=999 ouid=0
+Jul 22 21:03:45 docker-security8 kernel: [182325.282127] type=1400 audit(1532293425.386:1044357728): apparmor="AUDIT" operation="open" profile="server_profile" name="/usr/lib/x86_64-linux-gnu/libevent-2.0.so.5.1.9" pid=2367 comm="memcached" requested_mask="r" fsuid=999 ouid=0
+Jul 22 21:03:45 docker-security8 kernel: [182325.525672] device veth281e9ad entered promiscuous mode
+Jul 22 21:03:45 docker-security8 kernel: [182325.525791] IPv6: ADDRCONF(NETDEV_UP): veth281e9ad: link is not ready
+Jul 22 21:03:45 docker-security8 kernel: [182325.525797] br-580f3d8112ed: port 2(veth281e9ad) entered forwarding state
+Jul 22 21:03:45 docker-security8 kernel: [182325.525801] br-580f3d8112ed: port 2(veth281e9ad) entered forwarding state
+Jul 22 21:03:46 docker-security8 kernel: [182326.008454] IPv6: ADDRCONF(NETDEV_CHANGE): veth281e9ad: link becomes ready
+Jul 22 21:03:46 docker-security8 kernel: [182326.324275] br-580f3d8112ed: port 2(veth281e9ad) entered disabled state
+Jul 22 21:03:46 docker-security8 kernel: [182326.324697] device veth281e9ad left promiscuous mode
+Jul 22 21:03:46 docker-security8 kernel: [182326.324705] br-580f3d8112ed: port 2(veth281e9ad) entered disabled state
+Jul 22 21:03:46 docker-security8 kernel: [182326.799670] br-580f3d8112ed: port 1(vethb873501) entered disabled state
+Jul 22 21:03:46 docker-security8 kernel: [182326.800322] device vethb873501 left promiscuous mode
+Jul 22 21:03:46 docker-security8 kernel: [182326.800330] br-580f3d8112ed: port 1(vethb873501) entered disabled state
