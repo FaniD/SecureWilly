@@ -1,2 +1,0 @@
-Jan 10 02:25:14 docker-security8 kernel: [ 5024.272719] type=1400 audit(1515551114.553:2629789): apparmor="DENIED" operation="create" profile="server_profile" pid=5328 comm="nginx" family="inet6" sock_type="stream" protocol=0
-Jan 10 02:25:14 docker-security8 kernel: [ 5024.272773] type=1400 audit(1515551114.553:2629790): apparmor="DENIED" operation="capable" profile="server_profile" pid=5328 comm="nginx" capability=4  capname="fsetid"
