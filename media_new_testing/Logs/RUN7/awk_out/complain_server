@@ -1,0 +1,6 @@
+#Capability\n
+#Network\n
+inet stream
+inet6 stream
+#File
+#Signal

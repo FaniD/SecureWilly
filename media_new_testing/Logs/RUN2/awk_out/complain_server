@@ -1,0 +1,12 @@
+#Capability\n
+dac_override
+chown
+net_bind_service
+#Network\n
+inet stream
+inet6 stream
+#File
+dac_overridecapname net_bind_service
+requested_mask 
+#Signal
+receive term unconfined
