@@ -1,0 +1,1 @@
+Jul 26 23:32:38 docker-security7 kernel: [350072.452270] type=1400 audit(1532647958.501:46874681): apparmor="ALLOWED" operation="capable" profile="server_profile" pid=8543 comm="nginx" capability=6  capname="setgid"

@@ -1,0 +1,89 @@
+[347957.986110] IPv6: ADDRCONF(NETDEV_UP): br-594fb555ab4d: link is not ready
+[347988.979418] device veth87e9089 entered promiscuous mode
+[347988.979595] IPv6: ADDRCONF(NETDEV_UP): veth87e9089: link is not ready
+[347998.000729] IPv6: ADDRCONF(NETDEV_CHANGE): veth87e9089: link becomes ready
+[347998.000816] br-594fb555ab4d: port 1(veth87e9089) entered forwarding state
+[347998.000829] br-594fb555ab4d: port 1(veth87e9089) entered forwarding state
+[347998.000855] IPv6: ADDRCONF(NETDEV_CHANGE): br-594fb555ab4d: link becomes ready
+[347999.609698] type=1400 audit(1532645885.657:46874580): apparmor="ALLOWED" operation="capable" profile="server_profile" pid=5169 comm="nginx" capability=10  capname="net_bind_service"
+[347999.610788] type=1400 audit(1532645885.657:46874581): apparmor="ALLOWED" operation="capable" profile="server_profile" pid=5234 comm="nginx" capability=6  capname="setgid"
+[347999.610981] type=1400 audit(1532645885.657:46874582): apparmor="ALLOWED" operation="capable" profile="server_profile" pid=5235 comm="nginx" capability=6  capname="setgid"
+[348009.323969] device vethf1297d2 entered promiscuous mode
+[348009.324250] IPv6: ADDRCONF(NETDEV_UP): vethf1297d2: link is not ready
+[348010.944830] IPv6: ADDRCONF(NETDEV_CHANGE): vethf1297d2: link becomes ready
+[348010.944883] br-594fb555ab4d: port 2(vethf1297d2) entered forwarding state
+[348010.944890] br-594fb555ab4d: port 2(vethf1297d2) entered forwarding state
+[348011.147143] type=1400 audit(1532645897.193:46874583): apparmor="ALLOWED" operation="create" profile="client_profile" pid=5365 comm="httperf" family="inet" sock_type="dgram" protocol=0
+[348011.147173] type=1400 audit(1532645897.193:46874584): apparmor="ALLOWED" operation="connect" profile="client_profile" pid=5365 comm="httperf" family="inet" sock_type="dgram" protocol=17
+[348011.147220] type=1400 audit(1532645897.193:46874585): apparmor="ALLOWED" operation="sendmsg" profile="client_profile" pid=5365 comm="httperf" laddr=127.0.0.1 lport=58491 faddr=127.0.0.11 fport=53 family="inet" sock_type="dgram" protocol=17
+[348011.148137] type=1400 audit(1532645897.197:46874586): apparmor="ALLOWED" operation="recvmsg" profile="client_profile" pid=5365 comm="httperf" laddr=127.0.0.1 lport=58491 faddr=127.0.0.11 fport=53 family="inet" sock_type="dgram" protocol=17
+[348011.148539] type=1400 audit(1532645897.197:46874587): apparmor="ALLOWED" operation="create" profile="client_profile" pid=5362 comm="httperf" family="inet" sock_type="dgram" protocol=0
+[348011.148572] type=1400 audit(1532645897.197:46874588): apparmor="ALLOWED" operation="connect" profile="client_profile" pid=5362 comm="httperf" family="inet" sock_type="dgram" protocol=17
+[348011.148612] type=1400 audit(1532645897.197:46874589): apparmor="ALLOWED" operation="sendmsg" profile="client_profile" pid=5362 comm="httperf" laddr=127.0.0.1 lport=51945 faddr=127.0.0.11 fport=53 family="inet" sock_type="dgram" protocol=17
+[348011.149245] type=1400 audit(1532645897.197:46874590): apparmor="ALLOWED" operation="create" profile="client_profile" pid=5364 comm="httperf" family="inet" sock_type="dgram" protocol=0
+[348011.149269] type=1400 audit(1532645897.197:46874591): apparmor="ALLOWED" operation="connect" profile="client_profile" pid=5364 comm="httperf" family="inet" sock_type="dgram" protocol=17
+[348011.149309] type=1400 audit(1532645897.197:46874592): apparmor="ALLOWED" operation="sendmsg" profile="client_profile" pid=5364 comm="httperf" laddr=127.0.0.1 lport=45441 faddr=127.0.0.11 fport=53 family="inet" sock_type="dgram" protocol=17
+[348013.020363] br-594fb555ab4d: port 1(veth87e9089) entered forwarding state
+[348025.948170] br-594fb555ab4d: port 2(vethf1297d2) entered forwarding state
+[348343.492289] audit_printk_skb: 18 callbacks suppressed
+[348343.492299] type=1400 audit(1532646229.541:46874600): apparmor="ALLOWED" operation="create" profile="client_profile" pid=5506 comm="httperf" family="inet" sock_type="dgram" protocol=0
+[348343.492311] type=1400 audit(1532646229.541:46874601): apparmor="ALLOWED" operation="connect" profile="client_profile" pid=5509 comm="httperf" family="inet" sock_type="dgram" protocol=17
+[348343.492322] type=1400 audit(1532646229.541:46874602): apparmor="ALLOWED" operation="connect" profile="client_profile" pid=5506 comm="httperf" family="inet" sock_type="dgram" protocol=17
+[348343.492366] type=1400 audit(1532646229.541:46874603): apparmor="ALLOWED" operation="sendmsg" profile="client_profile" pid=5506 comm="httperf" laddr=127.0.0.1 lport=38609 faddr=127.0.0.11 fport=53 family="inet" sock_type="dgram" protocol=17
+[348343.492367] type=1400 audit(1532646229.541:46874604): apparmor="ALLOWED" operation="sendmsg" profile="client_profile" pid=5509 comm="httperf" laddr=127.0.0.1 lport=38303 faddr=127.0.0.11 fport=53 family="inet" sock_type="dgram" protocol=17
+[348343.493107] type=1400 audit(1532646229.541:46874605): apparmor="ALLOWED" operation="create" profile="client_profile" pid=5508 comm="httperf" family="inet" sock_type="dgram" protocol=0
+[348343.493135] type=1400 audit(1532646229.541:46874606): apparmor="ALLOWED" operation="connect" profile="client_profile" pid=5508 comm="httperf" family="inet" sock_type="dgram" protocol=17
+[348343.493153] type=1400 audit(1532646229.541:46874607): apparmor="ALLOWED" operation="sendmsg" profile="client_profile" pid=5508 comm="httperf" laddr=127.0.0.1 lport=38304 faddr=127.0.0.11 fport=53 family="inet" sock_type="dgram" protocol=17
+[348343.493444] type=1400 audit(1532646229.541:46874608): apparmor="ALLOWED" operation="create" profile="client_profile" pid=5505 comm="httperf" family="inet" sock_type="dgram" protocol=0
+[348343.493486] type=1400 audit(1532646229.541:46874609): apparmor="ALLOWED" operation="connect" profile="client_profile" pid=5505 comm="httperf" family="inet" sock_type="dgram" protocol=17
+[348684.242847] audit_printk_skb: 15 callbacks suppressed
+[348684.242852] type=1400 audit(1532646570.289:46874615): apparmor="ALLOWED" operation="create" profile="client_profile" pid=5646 comm="httperf" family="inet" sock_type="dgram" protocol=0
+[348684.242875] type=1400 audit(1532646570.289:46874616): apparmor="ALLOWED" operation="connect" profile="client_profile" pid=5646 comm="httperf" family="inet" sock_type="dgram" protocol=17
+[348684.242912] type=1400 audit(1532646570.289:46874617): apparmor="ALLOWED" operation="sendmsg" profile="client_profile" pid=5646 comm="httperf" laddr=127.0.0.1 lport=40112 faddr=127.0.0.11 fport=53 family="inet" sock_type="dgram" protocol=17
+[348684.243077] type=1400 audit(1532646570.289:46874618): apparmor="ALLOWED" operation="create" profile="client_profile" pid=5648 comm="httperf" family="inet" sock_type="dgram" protocol=0
+[348684.243094] type=1400 audit(1532646570.289:46874619): apparmor="ALLOWED" operation="connect" profile="client_profile" pid=5648 comm="httperf" family="inet" sock_type="dgram" protocol=17
+[348684.243126] type=1400 audit(1532646570.289:46874620): apparmor="ALLOWED" operation="sendmsg" profile="client_profile" pid=5648 comm="httperf" laddr=127.0.0.1 lport=43575 faddr=127.0.0.11 fport=53 family="inet" sock_type="dgram" protocol=17
+[348684.243328] type=1400 audit(1532646570.289:46874621): apparmor="ALLOWED" operation="create" profile="client_profile" pid=5650 comm="httperf" family="inet" sock_type="dgram" protocol=0
+[348684.243358] type=1400 audit(1532646570.289:46874623): apparmor="ALLOWED" operation="connect" profile="client_profile" pid=5650 comm="httperf" family="inet" sock_type="dgram" protocol=17
+[348684.243360] type=1400 audit(1532646570.289:46874622): apparmor="ALLOWED" operation="create" profile="client_profile" pid=5649 comm="httperf" family="inet" sock_type="dgram" protocol=0
+[348684.243381] type=1400 audit(1532646570.289:46874624): apparmor="ALLOWED" operation="connect" profile="client_profile" pid=5649 comm="httperf" family="inet" sock_type="dgram" protocol=17
+[349014.569047] audit_printk_skb: 18 callbacks suppressed
+[349014.569056] type=1400 audit(1532646900.617:46874631): apparmor="ALLOWED" operation="create" profile="client_profile" pid=5787 comm="httperf" family="inet" sock_type="dgram" protocol=0
+[349014.569080] type=1400 audit(1532646900.617:46874632): apparmor="ALLOWED" operation="connect" profile="client_profile" pid=5787 comm="httperf" family="inet" sock_type="dgram" protocol=17
+[349014.569124] type=1400 audit(1532646900.617:46874633): apparmor="ALLOWED" operation="sendmsg" profile="client_profile" pid=5787 comm="httperf" laddr=127.0.0.1 lport=37274 faddr=127.0.0.11 fport=53 family="inet" sock_type="dgram" protocol=17
+[349014.569632] type=1400 audit(1532646900.617:46874634): apparmor="ALLOWED" operation="create" profile="client_profile" pid=5791 comm="httperf" family="inet" sock_type="dgram" protocol=0
+[349014.569666] type=1400 audit(1532646900.617:46874635): apparmor="ALLOWED" operation="connect" profile="client_profile" pid=5791 comm="httperf" family="inet" sock_type="dgram" protocol=17
+[349014.569703] type=1400 audit(1532646900.617:46874636): apparmor="ALLOWED" operation="sendmsg" profile="client_profile" pid=5791 comm="httperf" laddr=127.0.0.1 lport=33259 faddr=127.0.0.11 fport=53 family="inet" sock_type="dgram" protocol=17
+[349014.569913] type=1400 audit(1532646900.617:46874637): apparmor="ALLOWED" operation="recvmsg" profile="client_profile" pid=5787 comm="httperf" laddr=127.0.0.1 lport=37274 faddr=127.0.0.11 fport=53 family="inet" sock_type="dgram" protocol=17
+[349014.569947] type=1400 audit(1532646900.617:46874638): apparmor="ALLOWED" operation="recvmsg" profile="client_profile" pid=5791 comm="httperf" laddr=127.0.0.1 lport=33259 faddr=127.0.0.11 fport=53 family="inet" sock_type="dgram" protocol=17
+[349014.571996] type=1400 audit(1532646900.617:46874639): apparmor="ALLOWED" operation="create" profile="client_profile" pid=5789 comm="httperf" family="inet" sock_type="dgram" protocol=0
+[349014.572061] type=1400 audit(1532646900.621:46874640): apparmor="ALLOWED" operation="connect" profile="client_profile" pid=5789 comm="httperf" family="inet" sock_type="dgram" protocol=17
+[349345.151314] audit_printk_skb: 18 callbacks suppressed
+[349345.151320] type=1400 audit(1532647231.197:46874647): apparmor="ALLOWED" operation="create" profile="client_profile" pid=5931 comm="httperf" family="inet" sock_type="dgram" protocol=0
+[349345.151344] type=1400 audit(1532647231.197:46874648): apparmor="ALLOWED" operation="connect" profile="client_profile" pid=5931 comm="httperf" family="inet" sock_type="dgram" protocol=17
+[349345.151386] type=1400 audit(1532647231.197:46874649): apparmor="ALLOWED" operation="sendmsg" profile="client_profile" pid=5931 comm="httperf" laddr=127.0.0.1 lport=37472 faddr=127.0.0.11 fport=53 family="inet" sock_type="dgram" protocol=17
+[349345.151845] type=1400 audit(1532647231.197:46874650): apparmor="ALLOWED" operation="recvmsg" profile="client_profile" pid=5931 comm="httperf" laddr=127.0.0.1 lport=37472 faddr=127.0.0.11 fport=53 family="inet" sock_type="dgram" protocol=17
+[349345.153597] type=1400 audit(1532647231.201:46874651): apparmor="ALLOWED" operation="create" profile="client_profile" pid=5929 comm="httperf" family="inet" sock_type="dgram" protocol=0
+[349345.153624] type=1400 audit(1532647231.201:46874652): apparmor="ALLOWED" operation="connect" profile="client_profile" pid=5929 comm="httperf" family="inet" sock_type="dgram" protocol=17
+[349345.153653] type=1400 audit(1532647231.201:46874653): apparmor="ALLOWED" operation="sendmsg" profile="client_profile" pid=5929 comm="httperf" laddr=127.0.0.1 lport=56858 faddr=127.0.0.11 fport=53 family="inet" sock_type="dgram" protocol=17
+[349345.154581] type=1400 audit(1532647231.201:46874654): apparmor="ALLOWED" operation="recvmsg" profile="client_profile" pid=5929 comm="httperf" laddr=127.0.0.1 lport=56858 faddr=127.0.0.11 fport=53 family="inet" sock_type="dgram" protocol=17
+[349345.156120] type=1400 audit(1532647231.205:46874655): apparmor="ALLOWED" operation="create" profile="client_profile" pid=5934 comm="httperf" family="inet" sock_type="dgram" protocol=0
+[349345.156250] type=1400 audit(1532647231.205:46874656): apparmor="ALLOWED" operation="connect" profile="client_profile" pid=5934 comm="httperf" family="inet" sock_type="dgram" protocol=17
+[349685.517895] audit_printk_skb: 18 callbacks suppressed
+[349685.517901] type=1400 audit(1532647571.565:46874663): apparmor="ALLOWED" operation="create" profile="client_profile" pid=6076 comm="httperf" family="inet" sock_type="dgram" protocol=0
+[349685.517925] type=1400 audit(1532647571.565:46874664): apparmor="ALLOWED" operation="connect" profile="client_profile" pid=6076 comm="httperf" family="inet" sock_type="dgram" protocol=17
+[349685.517966] type=1400 audit(1532647571.565:46874665): apparmor="ALLOWED" operation="sendmsg" profile="client_profile" pid=6076 comm="httperf" laddr=127.0.0.1 lport=54143 faddr=127.0.0.11 fport=53 family="inet" sock_type="dgram" protocol=17
+[349685.518080] type=1400 audit(1532647571.565:46874666): apparmor="ALLOWED" operation="create" profile="client_profile" pid=6073 comm="httperf" family="inet" sock_type="dgram" protocol=0
+[349685.518105] type=1400 audit(1532647571.565:46874667): apparmor="ALLOWED" operation="connect" profile="client_profile" pid=6073 comm="httperf" family="inet" sock_type="dgram" protocol=17
+[349685.518129] type=1400 audit(1532647571.565:46874668): apparmor="ALLOWED" operation="sendmsg" profile="client_profile" pid=6073 comm="httperf" laddr=127.0.0.1 lport=37264 faddr=127.0.0.11 fport=53 family="inet" sock_type="dgram" protocol=17
+[349685.518928] type=1400 audit(1532647571.565:46874669): apparmor="ALLOWED" operation="recvmsg" profile="client_profile" pid=6073 comm="httperf" laddr=127.0.0.1 lport=37264 faddr=127.0.0.11 fport=53 family="inet" sock_type="dgram" protocol=17
+[349685.519521] type=1400 audit(1532647571.565:46874670): apparmor="ALLOWED" operation="recvmsg" profile="client_profile" pid=6076 comm="httperf" laddr=127.0.0.1 lport=54143 faddr=127.0.0.11 fport=53 family="inet" sock_type="dgram" protocol=17
+[349685.521623] type=1400 audit(1532647571.569:46874671): apparmor="ALLOWED" operation="create" profile="client_profile" pid=6075 comm="httperf" family="inet" sock_type="dgram" protocol=0
+[349685.521644] type=1400 audit(1532647571.569:46874672): apparmor="ALLOWED" operation="connect" profile="client_profile" pid=6075 comm="httperf" family="inet" sock_type="dgram" protocol=17
+[350017.399611] br-594fb555ab4d: port 2(vethf1297d2) entered disabled state
+[350017.797972] br-594fb555ab4d: port 2(vethf1297d2) entered disabled state
+[350017.798807] device vethf1297d2 left promiscuous mode
+[350017.798824] br-594fb555ab4d: port 2(vethf1297d2) entered disabled state
+[350017.956822] br-594fb555ab4d: port 1(veth87e9089) entered disabled state
+[350017.957627] device veth87e9089 left promiscuous mode
+[350017.957643] br-594fb555ab4d: port 1(veth87e9089) entered disabled state

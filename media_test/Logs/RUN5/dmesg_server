@@ -1,0 +1,1 @@
+[351509.544486] type=1400 audit(1532649395.593:46874687): apparmor="ALLOWED" operation="capable" profile="server_profile" pid=14110 comm="nginx" capability=6  capname="setgid"

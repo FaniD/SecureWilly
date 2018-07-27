@@ -1,0 +1,7 @@
+#Capability\n
+net_bind_service
+setgid
+#Network\n
+#File
+net_bind_servicecapname setgid
+#Signal

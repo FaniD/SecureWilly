@@ -1,0 +1,6 @@
+#Capability\n
+setgid
+#Network\n
+#File
+setgidcapname 
+#Signal
