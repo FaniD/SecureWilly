@@ -78,13 +78,13 @@ for SERVICE in dataset server client; do
 		#kernlogs
 		#Find lines that include keyword "operation" from the operations loop - keep name and requested_mask
 		#Beware! getsockname & getpeername are net operations but they include keyword name so we add /name=/ to keep them out of my file rules search
-		awk -v operation="$OPERATION" '/operation/ {for(i=1;i<=NF;i++) {{if($i ~ /name=/) printf "%s", $i} {if($i ~ /requested_mask/) print "", $i}}}' ${run_path}/kernlogs_${SERVICE} > tmp_file
+		awk -v operation="$OPERATION" '/operation/ {for(i=1;i<=NF;i++) {{if($i ~ /^name=/) printf "%s", $i} {if($i ~ /requested_mask/) print "", $i}}}' ${run_path}/kernlogs_${SERVICE} > tmp_file
 		#Strip lines with name and requested_mask to keep just the tag of each
 		awk 'BEGIN {FS="=| ";} {gsub(/"/,"",$2); gsub(/"/,"",$4); print $2 ',' $4;}' tmp_file >> ${run_path}/awk_out/file_${SERVICE}
 
 		#dmesg logs
 		#Find lines that include keyword "operation" from the operations loop - keep name and requested_mask
-		awk -v operation="$OPERATION" '/operation/ {for(i=1;i<=NF;i++) {{if($i ~ /name=/) printf "%s", $i} {if($i ~ /requested_mask/) print "", $i}}}' ${run_path}/dmesg_${SERVICE} > tmp_file
+		awk -v operation="$OPERATION" '/operation/ {for(i=1;i<=NF;i++) {{if($i ~ /^name=/) printf "%s", $i} {if($i ~ /requested_mask/) print "", $i}}}' ${run_path}/dmesg_${SERVICE} > tmp_file
 		#Strip lines with name and requested_mask to keep just the tag of each
 		awk 'BEGIN {FS="=| ";} {gsub(/"/,"",$2); gsub(/"/,"",$4); print $2 ',' $4;}' tmp_file >> ${run_path}/awk_out/file_${SERVICE}
 	done
