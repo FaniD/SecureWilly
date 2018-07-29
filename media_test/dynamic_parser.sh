@@ -155,3 +155,10 @@ while true; do
 	fi
 done
 
+#version_{i} is the last profile
+#Delete audit flag now
+for SERVICE in dataset server client; do  #FIX THIS -> GENERIC
+	python 13_delete_audit_flag.py $SERVICE $i
+done
+
+13_delete_audit_flag.py
