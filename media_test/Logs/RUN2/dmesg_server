@@ -1,3 +1,0 @@
-[347999.609698] type=1400 audit(1532645885.657:46874580): apparmor="ALLOWED" operation="capable" profile="server_profile" pid=5169 comm="nginx" capability=10  capname="net_bind_service"
-[347999.610788] type=1400 audit(1532645885.657:46874581): apparmor="ALLOWED" operation="capable" profile="server_profile" pid=5234 comm="nginx" capability=6  capname="setgid"
-[347999.610981] type=1400 audit(1532645885.657:46874582): apparmor="ALLOWED" operation="capable" profile="server_profile" pid=5235 comm="nginx" capability=6  capname="setgid"

@@ -1,0 +1,42 @@
+Jul 31 14:07:27 docker-security8 kernel: [177506.288304] IPv6: ADDRCONF(NETDEV_UP): br-0b5cb76aa0e4: link is not ready
+Jul 31 14:07:43 docker-security8 kernel: [177522.332665] device vethf68ad56 entered promiscuous mode
+Jul 31 14:07:43 docker-security8 kernel: [177522.332887] IPv6: ADDRCONF(NETDEV_UP): vethf68ad56: link is not ready
+Jul 31 14:07:48 docker-security8 kernel: [177527.216552] IPv6: ADDRCONF(NETDEV_CHANGE): vethf68ad56: link becomes ready
+Jul 31 14:07:48 docker-security8 kernel: [177527.216609] br-0b5cb76aa0e4: port 1(vethf68ad56) entered forwarding state
+Jul 31 14:07:48 docker-security8 kernel: [177527.216615] br-0b5cb76aa0e4: port 1(vethf68ad56) entered forwarding state
+Jul 31 14:07:48 docker-security8 kernel: [177527.216627] IPv6: ADDRCONF(NETDEV_CHANGE): br-0b5cb76aa0e4: link becomes ready
+Jul 31 14:07:49 docker-security8 kernel: [177527.915814] type=1400 audit(1533046069.102:2414923): apparmor="ALLOWED" operation="capable" profile="server_profile" pid=14321 comm="nginx" capability=6  capname="setgid"
+Jul 31 14:07:49 docker-security8 kernel: [177527.915999] type=1400 audit(1533046069.102:2414924): apparmor="ALLOWED" operation="capable" profile="server_profile" pid=14321 comm="nginx" capability=7  capname="setuid"
+Jul 31 14:07:52 docker-security8 kernel: [177531.275827] device veth52c4bba entered promiscuous mode
+Jul 31 14:07:52 docker-security8 kernel: [177531.275912] IPv6: ADDRCONF(NETDEV_UP): veth52c4bba: link is not ready
+Jul 31 14:07:52 docker-security8 kernel: [177531.768601] IPv6: ADDRCONF(NETDEV_CHANGE): veth52c4bba: link becomes ready
+Jul 31 14:07:52 docker-security8 kernel: [177531.768650] br-0b5cb76aa0e4: port 2(veth52c4bba) entered forwarding state
+Jul 31 14:07:52 docker-security8 kernel: [177531.768657] br-0b5cb76aa0e4: port 2(veth52c4bba) entered forwarding state
+Jul 31 14:07:53 docker-security8 kernel: [177531.887876] type=1400 audit(1533046073.074:2414925): apparmor="ALLOWED" operation="create" profile="client_profile" pid=14457 comm="httperf" family="inet" sock_type="dgram" protocol=0
+Jul 31 14:07:53 docker-security8 kernel: [177531.887879] type=1400 audit(1533046073.074:2414926): apparmor="ALLOWED" operation="create" profile="client_profile" pid=14458 comm="httperf" family="inet" sock_type="dgram" protocol=0
+Jul 31 14:07:53 docker-security8 kernel: [177531.887905] type=1400 audit(1533046073.074:2414927): apparmor="ALLOWED" operation="connect" profile="client_profile" pid=14458 comm="httperf" family="inet" sock_type="dgram" protocol=17
+Jul 31 14:07:53 docker-security8 kernel: [177531.887910] type=1400 audit(1533046073.074:2414928): apparmor="ALLOWED" operation="connect" profile="client_profile" pid=14457 comm="httperf" family="inet" sock_type="dgram" protocol=17
+Jul 31 14:07:53 docker-security8 kernel: [177531.887937] type=1400 audit(1533046073.074:2414929): apparmor="ALLOWED" operation="sendmsg" profile="client_profile" pid=14458 comm="httperf" laddr=127.0.0.1 lport=50771 faddr=127.0.0.11 fport=53 family="inet" sock_type="dgram" protocol=17
+Jul 31 14:07:53 docker-security8 kernel: [177531.887941] type=1400 audit(1533046073.074:2414930): apparmor="ALLOWED" operation="sendmsg" profile="client_profile" pid=14457 comm="httperf" laddr=127.0.0.1 lport=43432 faddr=127.0.0.11 fport=53 family="inet" sock_type="dgram" protocol=17
+Jul 31 14:07:53 docker-security8 kernel: [177531.888299] type=1400 audit(1533046073.078:2414931): apparmor="ALLOWED" operation="create" profile="client_profile" pid=14455 comm="httperf" family="inet" sock_type="dgram" protocol=0
+Jul 31 14:07:53 docker-security8 kernel: [177531.888323] type=1400 audit(1533046073.078:2414932): apparmor="ALLOWED" operation="connect" profile="client_profile" pid=14455 comm="httperf" family="inet" sock_type="dgram" protocol=17
+Jul 31 14:08:03 docker-security8 kernel: [177542.236075] br-0b5cb76aa0e4: port 1(vethf68ad56) entered forwarding state
+Jul 31 14:08:07 docker-security8 kernel: [177546.780073] br-0b5cb76aa0e4: port 2(veth52c4bba) entered forwarding state
+Jul 31 14:13:25 docker-security8 kernel: [177864.131697] audit_printk_skb: 24 callbacks suppressed
+Jul 31 14:13:25 docker-security8 kernel: [177864.131707] type=1400 audit(1533046405.318:2414941): apparmor="ALLOWED" operation="create" profile="client_profile" pid=14596 comm="httperf" family="inet" sock_type="dgram" protocol=0
+Jul 31 14:13:25 docker-security8 kernel: [177864.131738] type=1400 audit(1533046405.318:2414942): apparmor="ALLOWED" operation="connect" profile="client_profile" pid=14596 comm="httperf" family="inet" sock_type="dgram" protocol=17
+Jul 31 14:13:25 docker-security8 kernel: [177864.131761] type=1400 audit(1533046405.318:2414943): apparmor="ALLOWED" operation="create" profile="client_profile" pid=14599 comm="httperf" family="inet" sock_type="dgram" protocol=0
+Jul 31 14:13:25 docker-security8 kernel: [177864.131802] type=1400 audit(1533046405.318:2414944): apparmor="ALLOWED" operation="sendmsg" profile="client_profile" pid=14596 comm="httperf" laddr=127.0.0.1 lport=35137 faddr=127.0.0.11 fport=53 family="inet" sock_type="dgram" protocol=17
+Jul 31 14:13:25 docker-security8 kernel: [177864.131808] type=1400 audit(1533046405.318:2414945): apparmor="ALLOWED" operation="connect" profile="client_profile" pid=14599 comm="httperf" family="inet" sock_type="dgram" protocol=17
+Jul 31 14:13:25 docker-security8 kernel: [177864.131850] type=1400 audit(1533046405.318:2414946): apparmor="ALLOWED" operation="sendmsg" profile="client_profile" pid=14599 comm="httperf" laddr=127.0.0.1 lport=50712 faddr=127.0.0.11 fport=53 family="inet" sock_type="dgram" protocol=17
+Jul 31 14:13:25 docker-security8 kernel: [177864.132631] type=1400 audit(1533046405.322:2414947): apparmor="ALLOWED" operation="recvmsg" profile="client_profile" pid=14599 comm="httperf" laddr=127.0.0.1 lport=50712 faddr=127.0.0.11 fport=53 family="inet" sock_type="dgram" protocol=17
+Jul 31 14:13:25 docker-security8 kernel: [177864.132720] type=1400 audit(1533046405.322:2414948): apparmor="ALLOWED" operation="recvmsg" profile="client_profile" pid=14596 comm="httperf" laddr=127.0.0.1 lport=35137 faddr=127.0.0.11 fport=53 family="inet" sock_type="dgram" protocol=17
+Jul 31 14:13:25 docker-security8 kernel: [177864.133448] type=1400 audit(1533046405.322:2414949): apparmor="ALLOWED" operation="create" profile="client_profile" pid=14595 comm="httperf" family="inet" sock_type="dgram" protocol=0
+Jul 31 14:13:25 docker-security8 kernel: [177864.133480] type=1400 audit(1533046405.322:2414950): apparmor="ALLOWED" operation="connect" profile="client_profile" pid=14595 comm="httperf" family="inet" sock_type="dgram" protocol=17
+Jul 31 14:18:56 docker-security8 kernel: [178195.788676] br-0b5cb76aa0e4: port 2(veth52c4bba) entered disabled state
+Jul 31 14:18:57 docker-security8 kernel: [178195.896597] br-0b5cb76aa0e4: port 2(veth52c4bba) entered disabled state
+Jul 31 14:18:57 docker-security8 kernel: [178195.897273] device veth52c4bba left promiscuous mode
+Jul 31 14:18:57 docker-security8 kernel: [178195.897283] br-0b5cb76aa0e4: port 2(veth52c4bba) entered disabled state
+Jul 31 14:18:57 docker-security8 kernel: [178196.183297] br-0b5cb76aa0e4: port 1(vethf68ad56) entered disabled state
+Jul 31 14:18:57 docker-security8 kernel: [178196.183857] device vethf68ad56 left promiscuous mode
+Jul 31 14:18:57 docker-security8 kernel: [178196.183869] br-0b5cb76aa0e4: port 1(vethf68ad56) entered disabled state

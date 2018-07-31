@@ -1,5 +1,8 @@
 #!/bin/sh
-sudo cp profiles/dataset_profile /etc/apparmor.d/
-sudo cp profiles/server_profile /etc/apparmor.d/
-sudo cp profiles/client_profile /etc/apparmor.d/
-
+read version 
+sudo cp profiles/dataset/version_${version} /etc/apparmor.d/
+sudo mv /etc/apparmor.d/version_${version} /etc/apparmor.d/dataset_profile
+sudo cp profiles/server/version_${version} /etc/apparmor.d/
+sudo mv /etc/apparmor.d/version_${version} /etc/apparmor.d/server_profile
+sudo cp profiles/client/version_${version} /etc/apparmor.d/
+sudo mv /etc/apparmor.d/version_${version} /etc/apparmor.d/client_profile

@@ -1,0 +1,2 @@
+Jul 31 14:07:49 docker-security8 kernel: [177527.915814] type=1400 audit(1533046069.102:2414923): apparmor="ALLOWED" operation="capable" profile="server_profile" pid=14321 comm="nginx" capability=6  capname="setgid"
+Jul 31 14:07:49 docker-security8 kernel: [177527.915999] type=1400 audit(1533046069.102:2414924): apparmor="ALLOWED" operation="capable" profile="server_profile" pid=14321 comm="nginx" capability=7  capname="setuid"
