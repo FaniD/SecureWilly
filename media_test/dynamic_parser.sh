@@ -81,9 +81,11 @@ while true; do
 	fi
 done
 
+#Audit flag runs (complain & enforce) I need globbing.py otherwise we'll have an infinite loop because of every new instance
 
 y=${y:-$i}
-while true; do
+#while true; do
+
 	./1_clear_containers.sh
 	if [ $y == $i ] 
 	then
@@ -105,24 +107,24 @@ while true; do
 	for SERVICE in dataset server client; do  #FIX THIS -> GENERIC
 		python 11_merge_profiles.py $SERVICE $i 'complain'
 	done
-	echo $x | source 12_complain_enforce_audit.sh
-	audit_enforce_time='1'
-	for SERVICE in dataset server client; do
-		next_step=$(head -n 1 next_step_${SERVICE})
-		if [ $next_step == '0' ]
-		then
-			audit_enforce_time='0'
-		fi
-	done
+#	echo $x | source 12_complain_enforce_audit.sh
+#	audit_enforce_time='1'
+#	for SERVICE in dataset server client; do
+#		next_step=$(head -n 1 next_step_${SERVICE})
+#		if [ $next_step == '0' ]
+#		then
+#			audit_enforce_time='0'
+#		fi
+#	done
 	((i++))
-	if [ $audit_enforce_time == '1' ] #Then none of the services has 0 value so audit enforce time
-	then
-		break
-	fi
-done
+#	if [ $audit_enforce_time == '1' ] #Then none of the services has 0 value so audit enforce time
+#	then
+#		break
+#	fi
+#done
 
 
-while true; do
+#while true; do
 	./1_clear_containers.sh
 	echo $i | source 2_cp_to_apparmor.sh
         ./3_load_profiles.sh
@@ -138,27 +140,25 @@ while true; do
 	for SERVICE in dataset server client; do  #FIX THIS -> GENERIC
 		python 11_merge_profiles.py $SERVICE $i 'enforce'
         done
-	echo $x | source 12_complain_enforce_audit.sh
-	end_of_logs='1'
-	for SERVICE in dataset server client; do
-		next_step=$(head -n 1 next_step_${SERVICE})
-	        #echo "Next step for ${SERVICE} is $next_step"
-	        if [ $next_step == '0' ]
-	        then
-		        end_of_logs='0'
-		fi
-	done
+#	echo $x | source 12_complain_enforce_audit.sh
+#	end_of_logs='1'
+#	for SERVICE in dataset server client; do
+#		next_step=$(head -n 1 next_step_${SERVICE})
+#	        #echo "Next step for ${SERVICE} is $next_step"
+#	        if [ $next_step == '0' ]
+#	        then
+#		        end_of_logs='0'
+#		fi
+#	done
 	((i++))
-	if [ $end_of_logs == '1' ] #Then none of the services has 0 value so audit time
-	then
-	        break
-	fi
-done
+#	if [ $end_of_logs == '1' ] #Then none of the services has 0 value so audit time
+#	then
+#	        break
+#	fi
+#done
 
 #version_{i} is the last profile
 #Delete audit flag now
 for SERVICE in dataset server client; do  #FIX THIS -> GENERIC
 	python 13_delete_audit_flag.py $SERVICE $i
 done
-
-13_delete_audit_flag.py
