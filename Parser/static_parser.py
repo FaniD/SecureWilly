@@ -32,7 +32,11 @@ setuid_setgid_rule = '\tcapability setuid,  #Needed to switch between users (cho
 #Chown capability
 chown_cap = '\tcapability chown,  #This capability is needed to use chown\n'
 
-#static_profile.append(file_rule)
+#Docker rule is needed in every container
+docker_rule = '\t/var/lib/docker/* r,\n'
+
+static_profile.append(file_rule)
+static_profile.append(docker_rule) #Test test test*****
 
 #Search for chmod or chown in Dockerfile
 chmod = 'RUN chmod'

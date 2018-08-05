@@ -77,6 +77,12 @@ with open(awk_file,'r') as infile:
 for line in data:
     if 'requested_mask' in line: #If this is in logs then there is no rule for a certain operation so we omit it
         continue
+
+    #~~~Test /var/lib/docker
+    if '/var/lib/docker/' in line:
+        continue
+    #~~~
+
     line = line.strip('\n')
     line = line.split(' ')
     permission = line[1]
