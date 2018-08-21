@@ -1,0 +1,1 @@
+Aug 21 14:46:21 docker-security9 kernel: [ 4547.839800] type=1400 audit(1534862781.137:2267112): apparmor="ALLOWED" operation="capable" profile="server_profile" pid=6276 comm="nginx" capability=6  capname="setgid"

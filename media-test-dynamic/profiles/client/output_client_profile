@@ -1,0 +1,15 @@
+#include <tunables/global>
+
+profile client_profile flags=(attach_disconnected,mediate_deleted) {
+	/etc/ld.so.cache r,
+	/bin/grep r,
+	/lib/x86_64-linux-gnu/libpcre.so.3.13.1 r,
+	/var/lib/docker/* r,
+	/lib/x86_64-linux-gnu/libtinfo.so.5.9 r,
+	network inet stream,
+	/lib/x86_64-linux-gnu/libdl-2.19.so r,
+	file,  #This rule is needed so that I can work with files (create files/directories, copy, etc)
+	/usr/bin/dirname r,
+	/root/run/ r,
+	network inet dgram,
+}

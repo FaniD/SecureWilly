@@ -1,0 +1,4 @@
+/root/run/ r
+/var/lib/docker/aufs/diff/b78dddbd1bd2de5cf00183460512d736b08818c0ad92d6241ba4d54fedece968/bin/grep r
+/var/lib/docker/aufs/diff/0eb36328190a219175aabb3555910fce2eb1b6ea41deece53d8fca42fd093ea8/root/run/ r
+/bin/grep r

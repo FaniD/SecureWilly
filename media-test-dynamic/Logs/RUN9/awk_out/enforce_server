@@ -1,0 +1,27 @@
+#Capability\n
+#Network\n
+inet stream
+#File
+/etc/ld.so.cache r
+/var/lib/docker/aufs/diff/b0b3f02af8e62e043a15e26ad0b29b0f4bd37f9c218e4dc7eb0833b3d29ab378/etc/ld.so.cache r
+/lib/x86_64-linux-gnu/libpthread-2.19.so r
+/var/lib/docker/aufs/diff/b78dddbd1bd2de5cf00183460512d736b08818c0ad92d6241ba4d54fedece968/lib/x86_64-linux-gnu/libpthread-2.19.so r
+/lib/x86_64-linux-gnu/libcrypt-2.19.so r
+/lib/x86_64-linux-gnu/libm-2.19.so r
+/var/lib/docker/aufs/diff/b78dddbd1bd2de5cf00183460512d736b08818c0ad92d6241ba4d54fedece968/lib/x86_64-linux-gnu/libm-2.19.so r
+/lib/x86_64-linux-gnu/libgcrypt.so.11.8.2 r
+/var/lib/docker/aufs/diff/b78dddbd1bd2de5cf00183460512d736b08818c0ad92d6241ba4d54fedece968/lib/x86_64-linux-gnu/libgcrypt.so.11.8.2 r
+/videos/full-480p-00004.txt r
+/videos/full-720p-00007.txt r
+/var/log/nginx/access.log w
+/videos/full-720p-00001.txt r
+/videos/full-720p-00004.txt r
+/videos/full-720p-00003.txt r
+/videos/full-360p-00001.txt r
+/videos/full-480p-00001.txt r
+/videos/full-480p-00003.txt r
+/videos/full-360p-00003.txt r
+/var/lib/docker/aufs/diff/5af2b2e3abbecefec3c102be797943797102bcfbf70a4088d8c756ff9219b99d/var/log/nginx/access.log w
+/videos/full-360p-00004.txt r
+/videos/full-240p-00003.txt r
+#Signal
