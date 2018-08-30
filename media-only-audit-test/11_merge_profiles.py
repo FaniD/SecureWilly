@@ -91,6 +91,12 @@ for line in data:
             permission = line[1].replace("c","")
         else:
             permission = line[1].replace("c","w") #if permission is just c we change it to w
+    if 'd' in line[1]: #There is no delete permission in apparmor so we change it to write
+        if 'w' in line[1]: #if permission is wc we omit d
+            permission = line[1].replace("d","")
+        else:
+            permission = line[1].replace("d","w") #if permission is just d we change it to w
+
     if line[1] == 'x': #x must follow i,p,c,u so if there is none of these with x we give i permission
         permission = 'ix'
     new_profile.append('\t' + line[0] + ' ' + permission + ',\n')
