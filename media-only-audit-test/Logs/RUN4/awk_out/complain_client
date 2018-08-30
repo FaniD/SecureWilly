@@ -1,0 +1,9 @@
+#Capability\n
+#Network\n
+inet stream
+#File
+/root/run/ r
+/var/lib/docker/aufs/diff/c2e1fbd808bb15acb4297e903d5c2e7a0f61f3a7f9e888472cf462dbf7b8fb15/root/run/ r
+/bin/grep r
+/var/lib/docker/aufs/diff/bef961f53a4e7fb5d68d1d51cde40f580d413848222522255cafa147a6091e2a/bin/grep r
+#Signal
