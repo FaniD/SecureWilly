@@ -11,5 +11,6 @@ RUN chown userA:userA /mount_here
 
 #Run a script that creates a file into the binded volume, which should be seen to the host if bind is successful
 COPY create.sh /
-USER userA
+#USER userA
 CMD ["./create.sh"]
+ENTRYPOINT /bin/bash

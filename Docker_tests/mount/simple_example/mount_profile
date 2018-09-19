@@ -1,12 +1,14 @@
 #include <tunables/global>
 
-profile mount_profile flags=(attach_disconnected,mediate_deleted) {
+profile mount_profile flags=(audit,attach_disconnected,mediate_deleted) {
 
-	deny mount, # /home/ubuntu/Security-on-Docker/Docker_tests/mount/data -> /mount_here, #Bind host volume to docker container volume
+	mount, # /home/ubuntu/Security-on-Docker/Docker_tests/mount/data -> /mount_here, #Bind host volume to docker container volume
 	#Chmod command
 #	owner /mount_here rwix,
-#	/mount_here rwix,
-
+	/mount_here rwix,
+	capability sys_admin,
+	capability mknod,
+	capability setfcap,
 #	capability setuid,  #Needed to switch between users (chown or USER commands)
 #	capability setgid,  #Needed to switch between users (chown or USER commands)
 	file,  #This rule is needed so that I can work with files (create files/directories, copy, etc)
