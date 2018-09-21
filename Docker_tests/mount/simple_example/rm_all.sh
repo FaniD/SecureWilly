@@ -1,7 +1,9 @@
 #!/bin/sh
 
 rm df
+rm PID
 rm mountinfo
+rm restricted_area/*
 rm data/*
 
 # Delete all containers
