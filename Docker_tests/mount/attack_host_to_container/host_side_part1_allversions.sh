@@ -3,6 +3,7 @@
 #Layers in container's filesystem
 sudo ls /var/lib/docker/aufs/diff
 #Choose one and create a dir there
+echo "Please give layer's id:"
 read path
 sudo mkdir /var/lib/docker/aufs/diff/${path}/doot
 sudo touch /home/ubuntu/Security-on-Docker/Docker_tests/mount/simple_example/restricted_area/HellloFromTheOtherSide

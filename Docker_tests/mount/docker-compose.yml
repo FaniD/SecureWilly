@@ -1,9 +1,9 @@
-version: "3"
+version: "2.3"
 
 services:
   mounty:
     security_opt:
-       - "apparmor:static_profile"
+       - "apparmor:mount_profile"
     build:
       context: .
       dockerfile: Dockerfile
