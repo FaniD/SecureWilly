@@ -14,3 +14,5 @@ sudo nsenter --target ${container_pid} --mount --uts --ipc --net --pid -- mount 
 sudo nsenter --target ${container_pid} --mount --uts --ipc --net --pid -- mount -o bind /tmpmount/home/ubuntu/Security-on-Docker/Docker_tests/mount/attack_host_to_container/restricted_area /doot
 
 sudo nsenter --target ${container_pid} --mount --uts --ipc --net --pid -- umount /tmpmount
+
+sudo dmesg > logs_on_host

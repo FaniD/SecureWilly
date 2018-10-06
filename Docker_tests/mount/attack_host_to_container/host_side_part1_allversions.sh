@@ -1,5 +1,8 @@
 #!/bin/sh
 
+#Clear logs
+./clear_logs.sh
+
 #Layers in container's filesystem
 sudo ls /var/lib/docker/aufs/diff
 #Choose one and create a dir there
