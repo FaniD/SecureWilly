@@ -1,0 +1,5 @@
+/usr/bin/nsenter x
+/etc/ld.so.cache r
+/var/lib/docker/aufs/diff/296a343692f93bd8bfae351663ddb7271c3642c6613a1c869a8a06491d893734/etc/ld.so.cache r
+/lib/x86_64-linux-gnu/libselinux.so.1 r
+/var/lib/docker/aufs/diff/296a343692f93bd8bfae351663ddb7271c3642c6613a1c869a8a06491d893734/lib/x86_64-linux-gnu/libselinux.so.1 r
