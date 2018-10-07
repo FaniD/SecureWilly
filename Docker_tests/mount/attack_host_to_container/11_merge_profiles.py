@@ -9,10 +9,10 @@ new_profile = []
 new_path = 'new_mount_profile'
 
 old_profile = 'mount_profile'
-awk_caps = './awk_out/complain_logs_caps'
-awk_net = './awk_out/complain_logs_net'
-awk_file = './awk_out/complain_logs_file'
-awk_sgn = './awk_out/complain_logs_sgn'
+awk_caps = './awk_out/enforce_logs_caps'
+awk_net = './awk_out/enforce_logs_net'
+awk_file = './awk_out/enforce_logs_file'
+awk_sgn = './awk_out/enforce_logs_sgn'
 
 with open(old_profile,'r') as infile:
     data = infile.readlines()

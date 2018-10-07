@@ -25,7 +25,13 @@ docker build . -t mo
 #docker run --privileged --pid=host -t -i mo:latest
 
 #Version 7 run non privileged with --pid=host try to do nsenter
-#docker run --pid=host -t -i mo:latest
+#docker run --pid="host" -t -i mo:latest
 
 #Version 8 run privileged with --pid=host and profile
-docker run --security-opt "apparmor=mount_profile" --privileged --pid=host -t -i mo:latest
+#docker run --privileged --security-opt "apparmor=mount_profile" --pid=host -t -i mo:latest
+
+#Version 9
+#docker run --privileged --net=host --security-opt "apparmor=mount_profile" -v /:/media/host -t -i mo:latest
+
+#Version 10
+docker run  --cap-add=ALL --pid="host" --net="host" --ipc="host" --uts="host" -v /:/media/host -v /dev:/dev -v /run:/run --security-opt "apparmor=mount_profile" -t -i mo:latest

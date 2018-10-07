@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #read version
-mode="complain"
+mode="enforce"
 run_path="."
 
 mkdir ${run_path}/awk_out

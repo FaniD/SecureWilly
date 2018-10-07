@@ -1,0 +1,8 @@
+#Capability\n
+#Network\n
+#File
+/ r
+/var/lib/docker/aufs/diff/30bfa45b443fb16d8fe172e6b12832c0b709a7c2939d9a8537b6e485cf665aa3/ r
+/usr/bin/nsenter r
+/var/lib/docker/aufs/diff/76e1dc9cbd0209fb3b6839de8989edc4c696b73c570b86736c721100b9efa574/usr/bin/nsenter r
+#Signal
