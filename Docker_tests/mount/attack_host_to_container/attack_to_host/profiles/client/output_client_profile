@@ -1,19 +1,20 @@
 #include <tunables/global>
 
-profile mount_profile flags=(audit,attach_disconnected,mediate_deleted) {
-	capability sys_admin,
-	capability sys_ptrace,
-	capability sys_chroot,
-#	deny capability setgid,  #Needed to switch between users (chown or USER commands)
-#	mount, # /home/ubuntu/Security-on-Docker/Docker_tests/mount/data -> /mount_here, #Bind host volume to docker container volume
-#	/usr/bin/nsenter r,
-#	/lib/x86_64-linux-gnu/libselinux.so.1 r,
-#	/etc/ld.so.cache r,
-#	deny capability setuid,  #Needed to switch between users (chown or USER commands)
-	file,  #This rule is needed so that I can work with files (create files/directories, copy, etc)
-#	/ r,
-#	/usr/bin/nsenter ix,
+profile client_profile flags=(attach_disconnected,mediate_deleted) {
 #	/var/lib/docker/* r,
+	/etc/ld.so.cache r,
 #	/dev/* w,
-#	/proc/1/ns/mnt rwix,
+#	mount, # /home/ubuntu/Security-on-Docker/Docker_tests/mount/data -> /mount_here, #Bind host volume to docker container volume
+#	/etc/ld.so.cache r,
+	/lib/x86_64-linux-gnu/libselinux.so.1 r,
+#	deny capability setuid,  #Needed to switch between users (chown or USER commands)
+	capability sys_admin,
+#	/lib/x86_64-linux-gnu/libselinux.so.1 r,
+	file,  #This rule is needed so that I can work with files (create files/directories, copy, etc)
+	/proc/1/ns/mnt rwix,
+	capability sys_ptrace,
+#	/ r,
+#	deny capability setgid,  #Needed to switch between users (chown or USER commands)
+#	/usr/bin/nsenter ix,
+#	/usr/bin/nsenter r,
 }

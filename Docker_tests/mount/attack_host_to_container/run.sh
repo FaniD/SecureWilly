@@ -34,4 +34,7 @@ docker build . -t mo
 #docker run --privileged --net=host --security-opt "apparmor=mount_profile" -v /:/media/host -t -i mo:latest
 
 #Version 10
-docker run  --cap-add=ALL --pid="host" --net="host" --ipc="host" --uts="host" -v /:/media/host -v /dev:/dev -v /run:/run --security-opt "apparmor=mount_profile" -t -i mo:latest
+#docker run  --cap-add SYS_ADMIN --cap-add SYS_PTRACE --pid="host" --net="host" --ipc="host" --uts="host" -v /:/media/host -v /dev:/dev -v /run:/run -t -i mo:latest
+
+#Version 11
+docker run --cap-add SYS_ADMIN --cap-add SYS_PTRACE --cap-add SYS_CHROOT --pid="host" --security-opt "apparmor=mount_profile" -t -i mo:latest

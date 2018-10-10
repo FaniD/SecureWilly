@@ -1,0 +1,20 @@
+#include <tunables/global>
+
+profile client_profile flags=(audit,attach_disconnected,mediate_deleted) {
+#	/var/lib/docker/* r,
+	/etc/ld.so.cache r,
+#	/dev/* w,
+#	mount, # /home/ubuntu/Security-on-Docker/Docker_tests/mount/data -> /mount_here, #Bind host volume to docker container volume
+#	/etc/ld.so.cache r,
+	file,  #This rule is needed so that I can work with files (create files/directories, copy, etc)
+	/lib/x86_64-linux-gnu/libselinux.so.1 r,
+	capability sys_admin,
+	/proc/1/ns/mnt rwix,
+#	/lib/x86_64-linux-gnu/libselinux.so.1 r,
+#	deny capability setuid,  #Needed to switch between users (chown or USER commands)
+	capability sys_ptrace,
+#	/ r,
+#	deny capability setgid,  #Needed to switch between users (chown or USER commands)
+#	/usr/bin/nsenter ix,
+#	/usr/bin/nsenter r,
+}

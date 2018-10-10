@@ -1,0 +1,17 @@
+Oct  8 19:12:14 docker-security13 kernel: [ 7674.475327] device vetha86603c entered promiscuous mode
+Oct  8 19:12:14 docker-security13 kernel: [ 7674.475584] IPv6: ADDRCONF(NETDEV_UP): vetha86603c: link is not ready
+Oct  8 19:12:15 docker-security13 kernel: [ 7674.688794] IPv6: ADDRCONF(NETDEV_CHANGE): vetha86603c: link becomes ready
+Oct  8 19:12:15 docker-security13 kernel: [ 7674.688861] docker0: port 1(vetha86603c) entered forwarding state
+Oct  8 19:12:15 docker-security13 kernel: [ 7674.688869] docker0: port 1(vetha86603c) entered forwarding state
+Oct  8 19:12:15 docker-security13 kernel: [ 7674.744408] type=1400 audit(1539025935.080:5902): apparmor="AUDIT" operation="open" profile="client_profile" name="/etc/ld.so.cache" pid=10231 comm="nsenter" requested_mask="r" fsuid=0 ouid=0
+Oct  8 19:12:15 docker-security13 kernel: [ 7674.744458] type=1400 audit(1539025935.080:5903): apparmor="AUDIT" operation="open" profile="client_profile" name="/var/lib/docker/aufs/diff/1fc53278d62f94d7d7fbcc1b2edad4b3ae563291aa385ee253058ac31f46cbb0/etc/ld.so.cache" pid=10231 comm="nsenter" requested_mask="r" fsuid=0 ouid=0
+Oct  8 19:12:15 docker-security13 kernel: [ 7674.744474] type=1400 audit(1539025935.080:5904): apparmor="AUDIT" operation="getattr" profile="client_profile" name="/etc/ld.so.cache" pid=10231 comm="nsenter" requested_mask="r" fsuid=0 ouid=0
+Oct  8 19:12:15 docker-security13 kernel: [ 7674.744484] type=1400 audit(1539025935.080:5905): apparmor="AUDIT" operation="getattr" profile="client_profile" name="/var/lib/docker/aufs/diff/1fc53278d62f94d7d7fbcc1b2edad4b3ae563291aa385ee253058ac31f46cbb0/etc/ld.so.cache" pid=10231 comm="nsenter" requested_mask="r" fsuid=0 ouid=0
+Oct  8 19:12:15 docker-security13 kernel: [ 7674.744581] type=1400 audit(1539025935.080:5906): apparmor="AUDIT" operation="open" profile="client_profile" name="/lib/x86_64-linux-gnu/libselinux.so.1" pid=10231 comm="nsenter" requested_mask="r" fsuid=0 ouid=0
+Oct  8 19:12:15 docker-security13 kernel: [ 7674.744592] type=1400 audit(1539025935.080:5907): apparmor="AUDIT" operation="open" profile="client_profile" name="/var/lib/docker/aufs/diff/1fc53278d62f94d7d7fbcc1b2edad4b3ae563291aa385ee253058ac31f46cbb0/lib/x86_64-linux-gnu/libselinux.so.1" pid=10231 comm="nsenter" requested_mask="r" fsuid=0 ouid=0
+Oct  8 19:12:15 docker-security13 kernel: [ 7674.744625] type=1400 audit(1539025935.080:5908): apparmor="AUDIT" operation="getattr" profile="client_profile" name="/lib/x86_64-linux-gnu/libselinux.so.1" pid=10231 comm="nsenter" requested_mask="r" fsuid=0 ouid=0
+Oct  8 19:12:15 docker-security13 kernel: [ 7674.744634] type=1400 audit(1539025935.080:5909): apparmor="AUDIT" operation="getattr" profile="client_profile" name="/var/lib/docker/aufs/diff/1fc53278d62f94d7d7fbcc1b2edad4b3ae563291aa385ee253058ac31f46cbb0/lib/x86_64-linux-gnu/libselinux.so.1" pid=10231 comm="nsenter" requested_mask="r" fsuid=0 ouid=0
+Oct  8 19:12:16 docker-security13 kernel: [ 7676.504861] docker0: port 1(vetha86603c) entered disabled state
+Oct  8 19:12:16 docker-security13 kernel: [ 7676.511219] docker0: port 1(vetha86603c) entered disabled state
+Oct  8 19:12:16 docker-security13 kernel: [ 7676.511746] device vetha86603c left promiscuous mode
+Oct  8 19:12:16 docker-security13 kernel: [ 7676.511754] docker0: port 1(vetha86603c) entered disabled state
