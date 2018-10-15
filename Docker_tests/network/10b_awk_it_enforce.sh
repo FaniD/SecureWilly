@@ -13,9 +13,9 @@ for SERVICE in client; do
 
 	#kern logs
 	#Find lines that include keyword "capability"
-	awk '/capability/ {for(i=1;i<=NF;i++) {if($i ~ /capname/) print $i}}' ${run_path}/kernlogs_${SERVICE} > tmp_file
+#	awk '/capability/ {for(i=1;i<=NF;i++) {if($i ~ /capname/) print $i}}' ${run_path}/kernlogs_${SERVICE} > tmp_file
 	#Strip lines with capability to keep just the capname of each
-	awk 'BEGIN {FS="=";} {gsub(/"/,"",$2); print $2;}' tmp_file > ${run_path}/awk_out/caps_${SERVICE}
+#	awk 'BEGIN {FS="=";} {gsub(/"/,"",$2); print $2;}' tmp_file > ${run_path}/awk_out/caps_${SERVICE}
 
 	#dmesg logs
 	#Find lines that include keyword "capability"
@@ -31,10 +31,10 @@ for SERVICE in client; do
 
 	#kern logs
 	#Find lines that include keyword "signal"
-	awk '/signal/ {for(i=1;i<=NF;i++) {{if($i ~ /requested_mask/) printf "%s ", $i} {if($i ~ /signal=/) printf "%s", $i} {if($i ~ /peer/) print "", $i}}}' ${run_path}/kernlogs_${SERVICE} > tmp_file
+#	awk '/signal/ {for(i=1;i<=NF;i++) {{if($i ~ /requested_mask/) printf "%s ", $i} {if($i ~ /signal=/) printf "%s", $i} {if($i ~ /peer/) print "", $i}}}' ${run_path}/kernlogs_${SERVICE} > tmp_file
 	#To signal = den exei ""
 	#Strip lines with requested_mask, signal and peer to keep just the tag of each
-        awk 'BEGIN {FS="=| ";} {gsub(/"/,"",$2); gsub(/"/,"",$6); print $2 ',' $4 ',' $6;}' tmp_file >> ${run_path}/awk_out/sgn_${SERVICE}
+ #       awk 'BEGIN {FS="=| ";} {gsub(/"/,"",$2); gsub(/"/,"",$6); print $2 ',' $4 ',' $6;}' tmp_file >> ${run_path}/awk_out/sgn_${SERVICE}
 
 	#dmesg logs
         #Find lines that include keyword "signal"
@@ -54,9 +54,9 @@ for SERVICE in client; do
 		#kern logs
 		#Find lines that include keyword "create" for network - keep family and sock_type
 		#Omit protocol, apparmor network rule needs at least 2 parameters
-		awk -v net="$NET" '/net/ {for(i=1;i<=NF;i++) {{if($i ~ /family/) printf "%s", $i} {if($i ~ /sock_type/) print "", $i}}}' ${run_path}/kernlogs_${SERVICE} > tmp_file
+#		awk -v net="$NET" '/net/ {for(i=1;i<=NF;i++) {{if($i ~ /family/) printf "%s", $i} {if($i ~ /sock_type/) print "", $i}}}' ${run_path}/kernlogs_${SERVICE} > tmp_file
 		#Strip lines with family and sock_type to keep just the tag of each
-		awk 'BEGIN {FS="=| ";} {gsub(/"/,"",$2); gsub(/"/,"",$4); print $2 ',' $4;}' tmp_file >> ${run_path}/awk_out/net_${SERVICE}
+#		awk 'BEGIN {FS="=| ";} {gsub(/"/,"",$2); gsub(/"/,"",$4); print $2 ',' $4;}' tmp_file >> ${run_path}/awk_out/net_${SERVICE}
 
 		#dmesg logs
 		#Find lines that include keyword "create" for network - keep family and sock_type
@@ -78,9 +78,9 @@ for SERVICE in client; do
 		#kernlogs
 		#Find lines that include keyword "operation" from the operations loop - keep name and requested_mask
 		#Beware! getsockname & getpeername are net operations but they include keyword name so we add /name=/ to keep them out of my file rules search
-		awk -v operation="$OPERATION" '/operation/ {for(i=1;i<=NF;i++) {{if($i ~ /^name=/) printf "%s", $i} {if($i ~ /requested_mask/) print "", $i}}}' ${run_path}/kernlogs_${SERVICE} > tmp_file
+#		awk -v operation="$OPERATION" '/operation/ {for(i=1;i<=NF;i++) {{if($i ~ /^name=/) printf "%s", $i} {if($i ~ /requested_mask/) print "", $i}}}' ${run_path}/kernlogs_${SERVICE} > tmp_file
 		#Strip lines with name and requested_mask to keep just the tag of each
-		awk 'BEGIN {FS="=| ";} {gsub(/"/,"",$2); gsub(/"/,"",$4); print $2 ',' $4;}' tmp_file >> ${run_path}/awk_out/file_${SERVICE}
+#		awk 'BEGIN {FS="=| ";} {gsub(/"/,"",$2); gsub(/"/,"",$4); print $2 ',' $4;}' tmp_file >> ${run_path}/awk_out/file_${SERVICE}
 
 		#dmesg logs
 		#Find lines that include keyword "operation" from the operations loop - keep name and requested_mask
