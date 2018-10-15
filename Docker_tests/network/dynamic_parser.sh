@@ -2,17 +2,6 @@
 
 ./0_pull_images.sh
 
-#read number_of_services
-#read services
-#for (( i=1; i<=${number_of_services}; i++ ))
-#do
-#	read service_${i}
-#done 
-
-#There is already a profile for each service by static_parser
-
-#For each RUN follow the steps
-#Starting with complain mode
 i=1
 while true; do
 	./1_clear_containers.sh

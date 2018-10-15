@@ -15,4 +15,4 @@ docker build -t net_test .
 #docker run -it --rm --net=host --security-opt "apparmor=net_profile" net_test
 
 #Let's see what happens if we give net_admin capability:
-docker run -it --rm --net=host --security-opt "apparmor=net_profile" net_test
+docker run -it --rm --net=host --security-opt "apparmor=client_profile" net_test
