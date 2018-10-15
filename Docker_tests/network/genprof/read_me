@@ -1,0 +1,4 @@
+Trying to see if genprof will give me the same profile I got from my system.
+To do so we run aa-genprof with a script that runs the container and we allow everything it asks.
+The profile we got was quite similar except for some rules that are included because we ran a bash script, docker deamon etc which in my system are excluded since we aim only to container constraints.
+The main difference is that genprof does not give us rule file which is essential for the container to run.

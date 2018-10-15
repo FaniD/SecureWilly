@@ -1,0 +1,20 @@
+# vim:syntax=apparmor
+
+# This file contains basic permissions for Apache and every vHost
+
+  #include <abstractions/nameservice>
+
+  # Apache
+  network inet stream,
+  network inet6 stream,
+  # apache manual, error pages and icons
+  /usr/share/apache2/** r,
+
+  # changehat itself
+  @{PROC}/@{pid}/attr/current                        w,
+
+  # htaccess files - for what ever it is worth
+  /**/.htaccess            r,
+
+  /dev/urandom            r,
+
