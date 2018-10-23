@@ -3,7 +3,7 @@ version: "2.3"
 services:
   mounty:
     security_opt:
-       - "apparmor:static_profile"
+       - "apparmor:simple_mount"
     build:
       context: .
       dockerfile: Dockerfile
