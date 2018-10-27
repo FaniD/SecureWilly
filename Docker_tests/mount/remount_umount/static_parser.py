@@ -213,8 +213,8 @@ if (len(sys.argv) > 2):
 				src = src.strip('"')
 				mntpnt = src_mntpnt[1]
 				mount_rule = '\tmount ' + src + ' -> ' + mntpnt + ', #Bind host volume to docker container volume\n'
-                                umount_rule = '\tdeny umount ' + mntpnt + ', #Disallow anybody that wants to break this mountpoint\n'
-				remount_rule = '\tdeny remount '+ mntpnt + ', #Disallow anybody that wants to remount this mountpoint\n'
+                                umount_rule = '\tdeny umount ' + src + ' -> ' + mntpnt + ', #Disallow anybody that wants to break this mount\n'
+				remount_rule = '\tdeny remount ' + src + ' -> ' + mntpnt + ', #Disallow anybody that wants to remount this mount\n'
                                 static_profile.append(mount_rule)
                                 static_profile.append(umount_rule)
                                 static_profile.append(remount_rule)
