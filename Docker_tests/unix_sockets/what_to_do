@@ -1,0 +1,1 @@
+Run netstat -a -p --unix | grep docker.sock inside the containerA
