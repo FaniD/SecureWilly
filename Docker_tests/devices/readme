@@ -1,0 +1,4 @@
+Steps:
+1. Run ./dev.sh to make a dev listening - cat serial port
+2. Run in another terminal ./dev_new_terminal.sh and give input the number of ttyS that is listening from step 1 - echo to serial port
+3. A message should appear in the first terminal coming from the device of the second terminal
