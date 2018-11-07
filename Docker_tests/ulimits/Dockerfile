@@ -15,7 +15,7 @@ USER userA
 COPY test /test_proc/.
 WORKDIR /test_proc
 
-CMD ["./test"]
+#CMD ["./test"]
 
 #If I want to run interactive mode, 
 #the following command must be used instead of CMD
@@ -28,5 +28,5 @@ CMD ["./test"]
 #as they increase by fork by running command:
 #ps h -Lu userA | wc -l
 
-#ENTRYPOINT /bin/bash
+ENTRYPOINT /bin/bash
 
