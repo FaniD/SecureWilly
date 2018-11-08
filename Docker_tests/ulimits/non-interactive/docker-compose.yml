@@ -1,0 +1,19 @@
+version: "3"
+
+services:
+  ulim_n:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+  # These options have to be activated if I want to enter interactive mode in the container
+  #    stdin_open: true
+  # tty: true
+
+    security_opt:
+     - "apparmor:ulimitn_prof"
+
+    ulimits: # Single number or mapping with soft + hard limit
+      nproc:
+       soft: 1024
+       hard: 1024
