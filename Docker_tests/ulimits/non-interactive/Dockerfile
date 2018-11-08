@@ -5,11 +5,11 @@ MAINTAINER Fani Dimou <fani.dimou92@gmail.com>
 #RUN apt-get -y update && apt-get install -y vim
 
 #Create userA with password A
-#RUN useradd -m userA && echo "userA:A" | chpasswd
+RUN useradd -m userA && echo "userA:A" | chpasswd
 #RUN mkdir /test_proc
 
 #Run as userA
-#USER userA
+USER userA
 
 #Add exe file to test nproc
 #COPY test /test_proc/.
