@@ -1,7 +1,7 @@
 #include <tunables/global>
 
 profile ulimit_prof flags=(attach_disconnected,mediate_deleted) {
-
+	signal,
 	capability setuid,  #Needed to switch between users (chown or USER commands)
 	capability setgid,  #Needed to switch between users (chown or USER commands)
 	set rlimit nproc <= 1024,

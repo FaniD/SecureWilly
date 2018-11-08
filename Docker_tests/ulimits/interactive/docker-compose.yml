@@ -10,10 +10,10 @@ services:
     stdin_open: true
     tty: true
 
-#    security_opt:
-#     - "apparmor:ulimit_prof"
+    security_opt:
+     - "apparmor:ulimit_prof"
 
     ulimits: # Single number or mapping with soft + hard limit
       nproc:
-        soft: 1024
-        hard: 1024
+       soft: 1024
+       hard: 1024
