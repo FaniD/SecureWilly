@@ -1,7 +1,7 @@
 version: "3"
 
 services:
-  ulim:
+  ulim_ti:
     build:
       context: .
       dockerfile: Dockerfile
@@ -11,7 +11,7 @@ services:
     tty: true
 
     security_opt:
-     - "apparmor:ulimit_prof"
+     - "apparmor:ulimit_ti_profile"
 
     ulimits: # Single number or mapping with soft + hard limit
       nproc:

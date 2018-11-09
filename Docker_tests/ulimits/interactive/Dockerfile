@@ -1,20 +1,17 @@
 FROM ubuntu:latest
 MAINTAINER Fani Dimou <fani.dimou92@gmail.com>
 
-#Install vim
-#RUN apt-get -y update && apt-get install -y vim
-
 #Create userA with password A
-#RUN useradd -m userA && echo "userA:A" | chpasswd
-#RUN mkdir /test_proc
+RUN useradd -m userA && echo "userA:A" | chpasswd
+RUN mkdir /test_proc
 
 #Run as userA
-#USER userA
+USER userA
 
 #Add exe file to test nproc
-#COPY test /test_proc/.
-COPY test /
-#WORKDIR /test_proc
+COPY test /test_proc/
+COPY check_nproc.sh /test_proc
+WORKDIR /test_proc
 
 #CMD ["./test"]
 

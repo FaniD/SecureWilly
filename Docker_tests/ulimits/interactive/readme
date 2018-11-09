@@ -1,0 +1,11 @@
+Steps:
+0. Run script set_profile.sh
+1. Run script run.sh #terminal 1
+2. From another terminal run script new_terminal.sh #terminal 2
+3. #terminal 2: Run script check_nproc.sh
+4. #terminal 1: Run exec test
+
+It should stop at nproc < 512 due to AppArmor profile.
+
+It works when running as user.
+Not working when running as root -> root seems to increase hard limit automatically.

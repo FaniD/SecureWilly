@@ -15,7 +15,6 @@ USER userA
 #COPY test /test_proc/.
 COPY test /
 #WORKDIR /test_proc
-
 CMD ["./test"]
 
 #If I want to run interactive mode, 
