@@ -1,0 +1,9 @@
+[617035.995961] device veth88f47d3 entered promiscuous mode
+[617035.996139] IPv6: ADDRCONF(NETDEV_UP): veth88f47d3: link is not ready
+[617035.996146] docker0: port 1(veth88f47d3) entered forwarding state
+[617035.996156] docker0: port 1(veth88f47d3) entered forwarding state
+[617036.192861] IPv6: ADDRCONF(NETDEV_CHANGE): veth88f47d3: link becomes ready
+[617046.363310] docker0: port 1(veth88f47d3) entered disabled state
+[617046.398274] docker0: port 1(veth88f47d3) entered disabled state
+[617046.398759] device veth88f47d3 left promiscuous mode
+[617046.398770] docker0: port 1(veth88f47d3) entered disabled state

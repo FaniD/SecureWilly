@@ -1,0 +1,9 @@
+#include <tunables/global>
+
+profile server_profile flags=(audit,attach_disconnected,mediate_deleted) {
+	signal,
+	/var/lib/docker/* r,
+	network inet stream,
+	file,  #This rule is needed so that I can work with files (create files/directories, copy, etc)
+#	capability net_bind_service,  #This capability is needed to bind a socket to Internet domain privileged ports
+}

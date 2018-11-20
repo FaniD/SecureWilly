@@ -1,0 +1,36 @@
+Nov 20 00:58:36 docker-security13 kernel: [617024.225501] device veth62708a4 entered promiscuous mode
+Nov 20 00:58:36 docker-security13 kernel: [617024.225700] IPv6: ADDRCONF(NETDEV_UP): veth62708a4: link is not ready
+Nov 20 00:58:36 docker-security13 kernel: [617024.468647] IPv6: ADDRCONF(NETDEV_CHANGE): veth62708a4: link becomes ready
+Nov 20 00:58:36 docker-security13 kernel: [617024.468683] docker0: port 1(veth62708a4) entered forwarding state
+Nov 20 00:58:36 docker-security13 kernel: [617024.468689] docker0: port 1(veth62708a4) entered forwarding state
+Nov 20 00:58:36 docker-security13 kernel: [617024.527031] type=1400 audit(1542675516.880:40): apparmor="DENIED" operation="create" profile="server_profile" pid=25390 comm="nc" family="inet" sock_type="stream" protocol=6
+Nov 20 00:58:36 docker-security13 kernel: [617024.530179] type=1400 audit(1542675516.884:41): apparmor="DENIED" operation="create" profile="server_profile" pid=25392 comm="nc" family="inet" sock_type="stream" protocol=6
+Nov 20 00:58:36 docker-security13 kernel: [617024.532255] type=1400 audit(1542675516.888:42): apparmor="DENIED" operation="create" profile="server_profile" pid=25394 comm="nc" family="inet" sock_type="stream" protocol=6
+Nov 20 00:58:36 docker-security13 kernel: [617024.534476] type=1400 audit(1542675516.888:43): apparmor="DENIED" operation="create" profile="server_profile" pid=25396 comm="nc" family="inet" sock_type="stream" protocol=6
+Nov 20 00:58:36 docker-security13 kernel: [617024.536152] type=1400 audit(1542675516.892:44): apparmor="DENIED" operation="create" profile="server_profile" pid=25398 comm="nc" family="inet" sock_type="stream" protocol=6
+Nov 20 00:58:36 docker-security13 kernel: [617024.537601] type=1400 audit(1542675516.892:45): apparmor="DENIED" operation="create" profile="server_profile" pid=25400 comm="nc" family="inet" sock_type="stream" protocol=6
+Nov 20 00:58:36 docker-security13 kernel: [617024.539166] type=1400 audit(1542675516.892:46): apparmor="DENIED" operation="create" profile="server_profile" pid=25403 comm="nc" family="inet" sock_type="stream" protocol=6
+Nov 20 00:58:36 docker-security13 kernel: [617024.541032] type=1400 audit(1542675516.896:47): apparmor="DENIED" operation="create" profile="server_profile" pid=25406 comm="nc" family="inet" sock_type="stream" protocol=6
+Nov 20 00:58:36 docker-security13 kernel: [617024.542460] type=1400 audit(1542675516.896:48): apparmor="DENIED" operation="create" profile="server_profile" pid=25408 comm="nc" family="inet" sock_type="stream" protocol=6
+Nov 20 00:58:41 docker-security13 kernel: [617029.528844] audit_printk_skb: 10617 callbacks suppressed
+Nov 20 00:58:41 docker-security13 kernel: [617029.528850] type=1400 audit(1542675521.884:3588): apparmor="DENIED" operation="create" profile="server_profile" pid=32504 comm="nc" family="inet" sock_type="stream" protocol=6
+Nov 20 00:58:41 docker-security13 kernel: [617029.530154] type=1400 audit(1542675521.884:3589): apparmor="DENIED" operation="create" profile="server_profile" pid=32506 comm="nc" family="inet" sock_type="stream" protocol=6
+Nov 20 00:58:41 docker-security13 kernel: [617029.531455] type=1400 audit(1542675521.884:3590): apparmor="DENIED" operation="create" profile="server_profile" pid=32508 comm="nc" family="inet" sock_type="stream" protocol=6
+Nov 20 00:58:41 docker-security13 kernel: [617029.532967] type=1400 audit(1542675521.888:3591): apparmor="DENIED" operation="create" profile="server_profile" pid=32510 comm="nc" family="inet" sock_type="stream" protocol=6
+Nov 20 00:58:41 docker-security13 kernel: [617029.534278] type=1400 audit(1542675521.888:3592): apparmor="DENIED" operation="create" profile="server_profile" pid=32512 comm="nc" family="inet" sock_type="stream" protocol=6
+Nov 20 00:58:41 docker-security13 kernel: [617029.535762] type=1400 audit(1542675521.888:3593): apparmor="DENIED" operation="create" profile="server_profile" pid=32514 comm="nc" family="inet" sock_type="stream" protocol=6
+Nov 20 00:58:41 docker-security13 kernel: [617029.537316] type=1400 audit(1542675521.892:3594): apparmor="DENIED" operation="create" profile="server_profile" pid=32516 comm="nc" family="inet" sock_type="stream" protocol=6
+Nov 20 00:58:41 docker-security13 kernel: [617029.538701] type=1400 audit(1542675521.892:3595): apparmor="DENIED" operation="create" profile="server_profile" pid=32518 comm="nc" family="inet" sock_type="stream" protocol=6
+Nov 20 00:58:41 docker-security13 kernel: [617029.539999] type=1400 audit(1542675521.892:3596): apparmor="DENIED" operation="create" profile="server_profile" pid=32520 comm="nc" family="inet" sock_type="stream" protocol=6
+Nov 20 00:58:41 docker-security13 kernel: [617029.541420] type=1400 audit(1542675521.896:3597): apparmor="DENIED" operation="create" profile="server_profile" pid=32522 comm="nc" family="inet" sock_type="stream" protocol=6
+Nov 20 00:58:46 docker-security13 kernel: [617034.533020] audit_printk_skb: 10698 callbacks suppressed
+Nov 20 00:58:46 docker-security13 kernel: [617034.533026] type=1400 audit(1542675526.888:7164): apparmor="DENIED" operation="create" profile="server_profile" pid=7259 comm="nc" family="inet" sock_type="stream" protocol=6
+Nov 20 00:58:46 docker-security13 kernel: [617034.534536] type=1400 audit(1542675526.888:7165): apparmor="DENIED" operation="create" profile="server_profile" pid=7261 comm="nc" family="inet" sock_type="stream" protocol=6
+Nov 20 00:58:46 docker-security13 kernel: [617034.536217] type=1400 audit(1542675526.892:7166): apparmor="DENIED" operation="create" profile="server_profile" pid=7263 comm="nc" family="inet" sock_type="stream" protocol=6
+Nov 20 00:58:46 docker-security13 kernel: [617034.540715] type=1400 audit(1542675526.896:7167): apparmor="DENIED" operation="create" profile="server_profile" pid=7265 comm="nc" family="inet" sock_type="stream" protocol=6
+Nov 20 00:58:46 docker-security13 kernel: [617034.544626] type=1400 audit(1542675526.900:7168): apparmor="DENIED" operation="create" profile="server_profile" pid=7267 comm="nc" family="inet" sock_type="stream" protocol=6
+Nov 20 00:58:46 docker-security13 kernel: [617034.546144] type=1400 audit(1542675526.900:7169): apparmor="DENIED" operation="create" profile="server_profile" pid=7269 comm="nc" family="inet" sock_type="stream" protocol=6
+Nov 20 00:58:46 docker-security13 kernel: [617034.547626] type=1400 audit(1542675526.900:7170): apparmor="DENIED" operation="create" profile="server_profile" pid=7271 comm="nc" family="inet" sock_type="stream" protocol=6
+Nov 20 00:58:46 docker-security13 kernel: [617034.549213] type=1400 audit(1542675526.904:7171): apparmor="DENIED" operation="create" profile="server_profile" pid=7273 comm="nc" family="inet" sock_type="stream" protocol=6
+Nov 20 00:58:46 docker-security13 kernel: [617034.550879] type=1400 audit(1542675526.904:7172): apparmor="DENIED" operation="create" profile="server_profile" pid=7275 comm="nc" family="inet" sock_type="stream" protocol=6
+Nov 20 00:58:46 docker-security13 kernel: [617034.552480] type=1400 audit(1542675526.908:7173): apparmor="DENIED" operation="create" profile="server_profile" pid=7277 comm="nc" family="inet" sock_type="stream" protocol=6

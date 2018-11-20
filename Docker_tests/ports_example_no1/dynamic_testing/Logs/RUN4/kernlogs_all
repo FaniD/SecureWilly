@@ -1,0 +1,19 @@
+Nov 20 00:59:11 docker-security13 kernel: [617059.301249] device veth76d6897 entered promiscuous mode
+Nov 20 00:59:11 docker-security13 kernel: [617059.301419] IPv6: ADDRCONF(NETDEV_UP): veth76d6897: link is not ready
+Nov 20 00:59:11 docker-security13 kernel: [617059.301431] docker0: port 1(veth76d6897) entered forwarding state
+Nov 20 00:59:11 docker-security13 kernel: [617059.301455] docker0: port 1(veth76d6897) entered forwarding state
+Nov 20 00:59:11 docker-security13 kernel: [617059.536708] IPv6: ADDRCONF(NETDEV_CHANGE): veth76d6897: link becomes ready
+Nov 20 00:59:11 docker-security13 kernel: [617059.606967] type=1400 audit(1542675551.960:7269): apparmor="AUDIT" operation="open" profile="server_profile" name="/etc/ld.so.cache" pid=8541 comm="sh" requested_mask="r" fsuid=0 ouid=0
+Nov 20 00:59:11 docker-security13 kernel: [617059.606980] type=1400 audit(1542675551.960:7270): apparmor="AUDIT" operation="open" profile="server_profile" name="/var/lib/docker/aufs/diff/c76d2aa5e40d6ff36ad4404c24e0a7a0c7042387c4f16fb2466cc2f727e336d2/etc/ld.so.cache" pid=8541 comm="sh" requested_mask="r" fsuid=0 ouid=0
+Nov 20 00:59:11 docker-security13 kernel: [617059.606988] type=1400 audit(1542675551.960:7271): apparmor="AUDIT" operation="getattr" profile="server_profile" name="/etc/ld.so.cache" pid=8541 comm="sh" requested_mask="r" fsuid=0 ouid=0
+Nov 20 00:59:11 docker-security13 kernel: [617059.606995] type=1400 audit(1542675551.960:7272): apparmor="AUDIT" operation="getattr" profile="server_profile" name="/var/lib/docker/aufs/diff/c76d2aa5e40d6ff36ad4404c24e0a7a0c7042387c4f16fb2466cc2f727e336d2/etc/ld.so.cache" pid=8541 comm="sh" requested_mask="r" fsuid=0 ouid=0
+Nov 20 00:59:11 docker-security13 kernel: [617059.607054] type=1400 audit(1542675551.960:7273): apparmor="AUDIT" operation="open" profile="server_profile" name="/lib/x86_64-linux-gnu/libc-2.19.so" pid=8541 comm="sh" requested_mask="r" fsuid=0 ouid=0
+Nov 20 00:59:11 docker-security13 kernel: [617059.607062] type=1400 audit(1542675551.960:7274): apparmor="AUDIT" operation="open" profile="server_profile" name="/var/lib/docker/aufs/diff/c76d2aa5e40d6ff36ad4404c24e0a7a0c7042387c4f16fb2466cc2f727e336d2/lib/x86_64-linux-gnu/libc-2.19.so" pid=8541 comm="sh" requested_mask="r" fsuid=0 ouid=0
+Nov 20 00:59:11 docker-security13 kernel: [617059.607083] type=1400 audit(1542675551.960:7275): apparmor="AUDIT" operation="getattr" profile="server_profile" name="/lib/x86_64-linux-gnu/libc-2.19.so" pid=8541 comm="sh" requested_mask="r" fsuid=0 ouid=0
+Nov 20 00:59:11 docker-security13 kernel: [617059.607090] type=1400 audit(1542675551.960:7276): apparmor="AUDIT" operation="getattr" profile="server_profile" name="/var/lib/docker/aufs/diff/c76d2aa5e40d6ff36ad4404c24e0a7a0c7042387c4f16fb2466cc2f727e336d2/lib/x86_64-linux-gnu/libc-2.19.so" pid=8541 comm="sh" requested_mask="r" fsuid=0 ouid=0
+Nov 20 00:59:22 docker-security13 kernel: [617069.667172] audit_printk_skb: 177 callbacks suppressed
+Nov 20 00:59:22 docker-security13 kernel: [617069.667177] type=1400 audit(1542675562.020:7336): apparmor="AUDIT" operation="signal" profile="server_profile" pid=2041 comm="docker-containe" requested_mask="receive" signal=kill peer="unconfined"
+Nov 20 00:59:22 docker-security13 kernel: [617069.756637] docker0: port 1(veth76d6897) entered disabled state
+Nov 20 00:59:22 docker-security13 kernel: [617069.787475] docker0: port 1(veth76d6897) entered disabled state
+Nov 20 00:59:22 docker-security13 kernel: [617069.788171] device veth76d6897 left promiscuous mode
+Nov 20 00:59:22 docker-security13 kernel: [617069.788186] docker0: port 1(veth76d6897) entered disabled state

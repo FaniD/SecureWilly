@@ -20,19 +20,19 @@ while true; do
 	./3_load_profiles.sh 
 	./4a_complain_mode.sh
 	./5_clear_logs.sh 
-	./6_net.sh
+#	./6_net.sh
 	./7_run.sh
 	./8_closing.sh
 	echo $i | source 9_logging_files.sh
 	echo $i | source 10a_awk_it_complain.sh
 	x=${x:-$i}
 	((x++))
-	for SERVICE in client; do  #FIX THIS -> GENERIC
+	for SERVICE in server; do  #FIX THIS -> GENERIC
 		python 11_merge_profiles.py $SERVICE $i 'complain'
 	done
 	echo $x | source 12_complain_enforce_audit.sh
 	enforce_time='1'
-	for SERVICE in client; do
+	for SERVICE in server; do
 		next_step=$(head -n 1 next_step_${SERVICE})
 		#echo "Next step for ${SERVICE} is $next_step"
 		if [ $next_step == '0' ]
@@ -54,19 +54,19 @@ while true; do
 	./3_load_profiles.sh
 	./4b_enforce_mode.sh
 	./5_clear_logs.sh
-	./6_net.sh
+#	./6_net.sh
 	./7_run.sh
 	./8_closing.sh
 	echo $i | source 9_logging_files.sh
 	echo $i | source 10b_awk_it_enforce.sh
 	x=${x:-$i}
 	((x++))
-	for SERVICE in client; do  #FIX THIS -> GENERIC
+	for SERVICE in server; do  #FIX THIS -> GENERIC
 		python 11_merge_profiles.py $SERVICE $i 'enforce'
 	done
 	echo $x | source 12_complain_enforce_audit.sh
 	audit_time='1'
-	for SERVICE in client; do
+	for SERVICE in server; do
 		next_step=$(head -n 1 next_step_${SERVICE})
 		#echo "Next step for ${SERVICE} is $next_step"
 		if [ $next_step == '0' ]
@@ -89,7 +89,7 @@ y=${y:-$i}
 	./1_clear_containers.sh
 	if [ $y == $i ] 
 	then
-		for SERVICE in dataset server client; do  #FIX THIS -> GENERIC
+		for SERVICE in server; do  #FIX THIS -> GENERIC
 			python 2_pre_cp_audit_flag.py $SERVICE $i
 		done
 	fi
@@ -97,14 +97,14 @@ y=${y:-$i}
 	./3_load_profiles.sh
 	./4a_complain_mode.sh
 	./5_clear_logs.sh
-	./6_net.sh
+#	./6_net.sh
 	./7_run.sh
 	./8_closing.sh
 	echo $i | source 9_logging_files.sh
 	echo $i | source 10a_awk_it_complain.sh
 	x=${x:-$i}
 	((x++))
-	for SERVICE in client; do  #FIX THIS -> GENERIC
+	for SERVICE in server; do  #FIX THIS -> GENERIC
 		python 11_merge_profiles.py $SERVICE $i 'complain'
 	done
 #	echo $x | source 12_complain_enforce_audit.sh
@@ -130,14 +130,14 @@ y=${y:-$i}
         ./3_load_profiles.sh
 	./4b_enforce_mode.sh
 	./5_clear_logs.sh
-	./6_net.sh
+#	./6_net.sh
 	./7_run.sh
         ./8_closing.sh
 	echo $i | source 9_logging_files.sh
 	echo $i | source 10b_awk_it_enforce.sh
 	x=${x:-$i}
         ((x++))
-	for SERVICE in client; do  #FIX THIS -> GENERIC
+	for SERVICE in server; do  #FIX THIS -> GENERIC
 		python 11_merge_profiles.py $SERVICE $i 'enforce'
         done
 #	echo $x | source 12_complain_enforce_audit.sh
@@ -159,6 +159,6 @@ y=${y:-$i}
 
 #version_{i} is the last profile
 #Delete audit flag now
-for SERVICE in client; do  #FIX THIS -> GENERIC
+for SERVICE in server; do  #FIX THIS -> GENERIC
 	python 13_delete_audit_flag.py $SERVICE $i
 done
