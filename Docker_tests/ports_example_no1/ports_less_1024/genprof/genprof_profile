@@ -1,0 +1,14 @@
+# Last Modified: Wed Nov 21 01:28:38 2018
+#include <tunables/global>
+
+/home/ubuntu/Security-on-Docker/Docker_tests/ports_example_no1/ports_less_1024/genprof/run.sh {
+  #include <abstractions/apache2-common>
+  #include <abstractions/base>
+  #include <abstractions/bash>
+
+  /bin/dash ix,
+  /home/ubuntu/Security-on-Docker/Docker_tests/ports_example_no1/ports_less_1024/genprof/run.sh r,
+  /proc/sys/net/core/somaxconn r,
+  /usr/bin/docker r,
+
+}
