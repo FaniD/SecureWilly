@@ -2,11 +2,11 @@ version: '3'
 services:
   web:
     security_opt:
-     - "apparmor:static_profile"
+     - "apparmor:ports_2"
     build: .
     ports:
      - "5000:5000"
     volumes:
-     - "/home/ubuntu/ports_example_no2:/mountdir"
+     - "/home/ubuntu/Security-on-Docker/Docker_tests/ports_example_no2:/mountdir"
   redis:
     image: "redis:alpine"

@@ -1,0 +1,12 @@
+#include <tunables/global>
+
+profile ports_2 flags=(attach_disconnected,mediate_deleted) {
+
+	network,  #Grain access to networking - ports forwarding
+	mount /home/ubuntu/Security-on-Docker/Docker_tests/ports_example_no2 -> /mountdir, #Bind host volume to docker container volume
+	/var/lib/docker/* r,
+	file,  #This rule is needed so that I can work with files (create files/directories, copy, etc)
+	deny remount /mountdir, #Disallow anybody that wants to remount this mountpoint
+	deny umount /mountdir, #Disallow anybody that wants to break this mountpoint
+	capability net_bind_service,  #This capability is needed to bind a socket to Internet domain privileged ports
+}
