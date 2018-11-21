@@ -133,7 +133,7 @@ for line in data:
                 #Not needed. Do it only if it is asked
                 #static_profile.append('\tcapability chown,\n')
 
-                #static_profile.append(file_rule)
+                static_profile.append(file_rule)
                 static_profile.append(setuid_setgid_rule)
 
 		#Not supported!
@@ -154,7 +154,7 @@ for line in data:
 
 	if (copy or add) in line:
         #This means we are dealing with directories and files so we need file rule
-		#static_profile.append(file_rule)
+		static_profile.append(file_rule)
 
 if user1_counter>1:
     static_profile.append(setuid_setgid_rule)
