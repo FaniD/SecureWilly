@@ -187,8 +187,7 @@ if (len(sys.argv) > 2):
 	
 	for i in xrange(len(data)): #because we will need the next line
 		if network in data[i]:
-                        static_profile.append(file_rule)
-			static_profile.append('\tcapability net_bind_service,  #This capability is needed to bind a socket to Internet domain privileged ports\n')
+                        #static_profile.append(file_rule)
 			z = i
 			while ('-' in data[z+1]): #checking for multiple ports (same with volumes, capabilities etc)
 				ports = data[z+1].strip()
@@ -198,6 +197,9 @@ if (len(sys.argv) > 2):
 				port_host = port_host.strip()
 				port_host = port_host.strip('"')
 				port_container = ports[1]
+                                
+                                if int(port_container) < 1024: #In order for an app to bind to ports < 1024 capability net bind service is needed
+                                    static_profile.append('\tcapability net_bind_service,  #This capability is needed to bind a socket to Internet domain privileged ports\n')
 
 				#bind_rule = '\tnetwork bind ' + port_host + ' to ' + port_container + ',\n' NOT SUPPORTED
 				static_profile.append('\tnetwork,  #Grain access to networking - ports forwarding\n')
