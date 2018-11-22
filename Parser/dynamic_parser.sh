@@ -1,5 +1,16 @@
 #!/bin/bash
 
+#First of all a task that has to be done is aborting network rule if we're about to use dynamic analysis.
+#Network is added at static analysis but at that moment there we cannot be specific about the domain, type and protocol of networking.
+#So network rule is added plain in order to make a usable profile even if our analysis is not completed.
+#However, if we proceed to dynamic analysis, we have to abort network plain rule because we can now be specific about the networking.
+#It cannot be aborted by its own because there will be no duplicate rule. So we abort it manually, if it is already in our profile.
+
+for SERVICE in dataset server client; do  #FIX THIS -> GENERIC
+	python abort_network_rule.py $SERVICE
+done
+
+
 ./0_pull_images.sh
 
 #read number_of_services
