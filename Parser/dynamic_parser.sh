@@ -1,5 +1,8 @@
 #!/bin/bash
 
+#Clear old files and output directories and create new
+./ready_set_do.sh
+
 #First of all a task that has to be done is aborting network rule if we're about to use dynamic analysis.
 #Network is added at static analysis but at that moment there we cannot be specific about the domain, type and protocol of networking.
 #So network rule is added plain in order to make a usable profile even if our analysis is not completed.
