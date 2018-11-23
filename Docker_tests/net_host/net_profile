@@ -1,0 +1,8 @@
+#include <tunables/global> 
+
+profile net_profile flags=(attach_disconnected, mediate_deleted) {
+	file,
+	/var/lib/docker/* r,
+	network inet stream,
+	network inet6 dgram,
+}
