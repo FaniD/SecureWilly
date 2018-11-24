@@ -214,7 +214,19 @@ if (len(sys.argv) > 2):
 				src = src.strip()
 				src = src.strip('"')
 				mntpnt = src_mntpnt[1]
-				mount_rule = '\tmount ' + src + ' -> ' + mntpnt + ', #Bind host volume to docker container volume\n'
+
+                                #If there is a mount option:
+                                if len(src_mntpnt)==3:
+                                    option = src_mntpnt[2]
+                                    if 'ro' in option:
+                                        ro_rule = '\tdeny ' + mntpnt + ' w,\n'
+                                        static_profile.append(ro_rule)
+                                        mount_rule = '\tmount options=ro ' + src + ' -> ' + mntpnt + ', #Bind host volume to docker container volume\n'
+                                    else:
+                                        mount_rule = '\tmount ' + src + ' -> ' + mntpnt + ', #Bind host volume to docker container volume\n'
+                                else:
+				    mount_rule = '\tmount ' + src + ' -> ' + mntpnt + ', #Bind host volume to docker container volume\n'
+
                                 umount_rule = '\tdeny umount ' + mntpnt + ', #Disallow anybody that wants to break this mountpoint\n'
 				remount_rule = '\tdeny remount '+ mntpnt + ', #Disallow anybody that wants to remount this mountpoint\n'
                                 static_profile.append(mount_rule)
