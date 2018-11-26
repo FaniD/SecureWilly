@@ -1,0 +1,17 @@
+#include <tunables/global>
+
+profile missing_caps flags=(attach_disconnected,mediate_deleted) {
+
+#	capability setuid,  #Needed to switch between users (chown or USER commands)
+#	capability setgid,  #Needed to switch between users (chown or USER commands)
+	#Chmod command
+	owner /Heys rwix,
+	/Heys r,
+
+	#Chmod command
+	owner /hello rwix,
+	/hello r,
+
+	file,  #This rule is needed so that I can work with files (create files/directories, copy, etc)
+	/var/lib/docker/* r,
+}
