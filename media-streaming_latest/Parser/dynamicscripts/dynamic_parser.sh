@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #Change this with the services I have each time
-#Also do that in 2_cp, 3, 4a, 4b, 9, 10a, 10b, 12
+#Also do that in 2_cp, 3, 4a, 4b, 9, 10a, 10b, 12, metrics 
 service_list=(dataset server client)
 
 app_run_path=".."
@@ -12,7 +12,8 @@ dynamic_script_path="${parser_path}/dynamicscripts"
 mkdir ${app_run_path}/parser_output
 
 #If static analysis has been done, then we expect to see static profile in output directory. Count files in there to find out
-ls ${app_run_path}/parser_output/ -1 | wc -l > static_part
+ls ${app_run_path}/parser_output/ -1 | wc -l > s
+static_part=$(head -n 1 s)
 
 rm -r ${app_run_path}/parser_output/Logs
 mkdir ${app_run_path}/parser_output/Logs
@@ -21,15 +22,21 @@ rm -r ${app_run_path}/parser_output/profiles
 mkdir ${app_run_path}/parser_output/profiles
 
 for SERVICE in "${service_list[@]}"; do
-#	sudo rm /etc/apparmor.d/${SERVICE}_profile
-#	mkdir ${app_run_path}/parser_output/profiles/${SERVICE}
+	sudo rm /etc/apparmor.d/${SERVICE}_profile
+	mkdir ${app_run_path}/parser_output/profiles/${SERVICE}
 	#If static profile exists, otherwise make this a comment and create it a simple version_1
-#	if [ static_part > 0 ] then
+	if [ $static_part > 0 ]; then
 		cp ${app_run_path}/parser_output/${SERVICE}_static_profile ${app_run_path}/parser_output/profiles/${SERVICE}/version_1
-#	else
-#		./${dynamic_script_path}/create_version_1.sh
-#	fi
+	else
+		python ${dynamic_script_path}/create_version_1.py ${SERVICE}
+	fi
 done
+
+rm s
+
+#Debugging
+: <<'END'
+
 
 #First of all a task that has to be done is aborting network rule if we're about to use dynamic analysis.
 #Network is added at static analysis but at that moment there we cannot be specific about the domain, type and protocol of networking.
@@ -101,7 +108,7 @@ while true; do
 	echo $i | source ${dynamic_script_path}/10b_awk_it_enforce.sh
 	x=${x:-$i}
 	((x++))
-	for SERVICE in "${service_list[@]}"; do  #FIX THIS -> GENERIC
+	for SERVICE in "${service_list[@]}"; do 
 		python ${dynamic_script_path}/11_merge_profiles.py $SERVICE $i 'enforce'
 	done
 	echo $x | source ${dynamic_script_path}/12_complain_enforce_audit.sh
@@ -144,7 +151,7 @@ y=${y:-$i}
 	echo $i | source ${dynamic_script_path}/10a_awk_it_complain.sh
 	x=${x:-$i}
 	((x++))
-	for SERVICE in "${service_list[@]}"; do  #FIX THIS -> GENERIC
+	for SERVICE in "${service_list[@]}"; do 
 		python ${dynamic_script_path}/11_merge_profiles.py $SERVICE $i 'complain'
 	done
 #	echo $x | source 12_complain_enforce_audit.sh
@@ -177,7 +184,7 @@ y=${y:-$i}
 	echo $i | source ${dynamic_script_path}/10b_awk_it_enforce.sh
 	x=${x:-$i}
         ((x++))
-	for SERVICE in "${service_list[@]}"; do  #FIX THIS -> GENERIC
+	for SERVICE in "${service_list[@]}"; do 
 		python ${dynamic_script_path}/11_merge_profiles.py $SERVICE $i 'enforce'
         done
 #	echo $x | source 12_complain_enforce_audit.sh
@@ -199,6 +206,8 @@ y=${y:-$i}
 
 #version_{i} is the last profile
 #Delete audit flag now
-for SERVICE in "${service_list[@]}"; do  #FIX THIS -> GENERIC
+for SERVICE in "${service_list[@]}"; do
 	python ${dynamic_script_path}/13_delete_audit_flag.py $SERVICE $i
 done
+
+END
