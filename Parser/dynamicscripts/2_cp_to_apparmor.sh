@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 read version
 service_list=(dataset server client)
 for SERVICE in "${service_list[@]}"; do

@@ -21,14 +21,14 @@ rm -r ${app_run_path}/parser_output/profiles
 mkdir ${app_run_path}/parser_output/profiles
 
 for SERVICE in "${service_list[@]}"; do
-	sudo rm /etc/apparmor.d/${SERVICE}_profile
-	mkdir ${app_run_path}/parser_output/profiles/${SERVICE}
+#	sudo rm /etc/apparmor.d/${SERVICE}_profile
+#	mkdir ${app_run_path}/parser_output/profiles/${SERVICE}
 	#If static profile exists, otherwise make this a comment and create it a simple version_1
-	if [ static_part > 0 ] then
+#	if [ static_part > 0 ] then
 		cp ${app_run_path}/parser_output/${SERVICE}_static_profile ${app_run_path}/parser_output/profiles/${SERVICE}/version_1
-	else
-		./${dynamic_script_path}/create_version_1.sh
-	fi
+#	else
+#		./${dynamic_script_path}/create_version_1.sh
+#	fi
 done
 
 #First of all a task that has to be done is aborting network rule if we're about to use dynamic analysis.

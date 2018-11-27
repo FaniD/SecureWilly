@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #If profiles are in complain mode, turn them in enforce mode
 
 service_list=(dataset server client)
