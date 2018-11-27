@@ -4,7 +4,7 @@
 #Also do that in 2_cp, 3, 4a, 4b, 9, 10a, 10b, 12
 service_list=(dataset server client)
 
-app_run_path="."
+app_run_path=".."
 parser_path="${app_run_path}/Parser"
 dynamic_script_path="${parser_path}/dynamicscripts"
 

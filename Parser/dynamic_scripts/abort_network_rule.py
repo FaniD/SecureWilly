@@ -9,12 +9,12 @@ new_profile = []
 service = str(sys.argv[1])
 path = 'profiles/' + service + '/version_1'
 
-with open(old_profile,'r') as infile:
+with open(path,'r') as infile:
     data = infile.readlines()
 
 #If network rule is encountered do nothing, anything else must be included in new profile
 for line in data:
-    if not network in line:
+    if not 'network' in line:
         new_profile.append(line)
 
 #Output
