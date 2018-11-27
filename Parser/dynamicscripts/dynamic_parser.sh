@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #Change this with the services I have each time
-#Also do that in 2_cp, 3, 4a, 4b, 9, 10a, 10b, 12
+#Also do that in 2_cp, 3, 4a, 4b, 9, 10a, 10b, 12, metrics 
 service_list=(dataset server client)
 
 app_run_path=".."
@@ -101,7 +101,7 @@ while true; do
 	echo $i | source ${dynamic_script_path}/10b_awk_it_enforce.sh
 	x=${x:-$i}
 	((x++))
-	for SERVICE in "${service_list[@]}"; do  #FIX THIS -> GENERIC
+	for SERVICE in "${service_list[@]}"; do 
 		python ${dynamic_script_path}/11_merge_profiles.py $SERVICE $i 'enforce'
 	done
 	echo $x | source ${dynamic_script_path}/12_complain_enforce_audit.sh
@@ -144,7 +144,7 @@ y=${y:-$i}
 	echo $i | source ${dynamic_script_path}/10a_awk_it_complain.sh
 	x=${x:-$i}
 	((x++))
-	for SERVICE in "${service_list[@]}"; do  #FIX THIS -> GENERIC
+	for SERVICE in "${service_list[@]}"; do 
 		python ${dynamic_script_path}/11_merge_profiles.py $SERVICE $i 'complain'
 	done
 #	echo $x | source 12_complain_enforce_audit.sh
@@ -177,7 +177,7 @@ y=${y:-$i}
 	echo $i | source ${dynamic_script_path}/10b_awk_it_enforce.sh
 	x=${x:-$i}
         ((x++))
-	for SERVICE in "${service_list[@]}"; do  #FIX THIS -> GENERIC
+	for SERVICE in "${service_list[@]}"; do 
 		python ${dynamic_script_path}/11_merge_profiles.py $SERVICE $i 'enforce'
         done
 #	echo $x | source 12_complain_enforce_audit.sh
@@ -199,6 +199,6 @@ y=${y:-$i}
 
 #version_{i} is the last profile
 #Delete audit flag now
-for SERVICE in "${service_list[@]}"; do  #FIX THIS -> GENERIC
+for SERVICE in "${service_list[@]}"; do
 	python ${dynamic_script_path}/13_delete_audit_flag.py $SERVICE $i
 done
