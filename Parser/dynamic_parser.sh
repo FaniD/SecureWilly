@@ -9,7 +9,10 @@
 #However, if we proceed to dynamic analysis, we have to abort network plain rule because we can now be specific about the networking.
 #It cannot be aborted by its own because there will be no duplicate rule. So we abort it manually, if it is already in our profile.
 
-for SERVICE in dataset server client; do  #FIX THIS -> GENERIC
+#Change this with the services I have each time
+service_list=(dataset server client)
+
+for SERVICE in "${service_list[@]}"; do  #FIX THIS -> GENERIC
 	python abort_network_rule.py $SERVICE
 done
 
@@ -41,12 +44,12 @@ while true; do
 	echo $i | source 10a_awk_it_complain.sh
 	x=${x:-$i}
 	((x++))
-	for SERVICE in dataset server client; do  #FIX THIS -> GENERIC
+	for SERVICE in "${service_list[@]}"; do  #FIX THIS -> GENERIC
 		python 11_merge_profiles.py $SERVICE $i 'complain'
 	done
 	echo $x | source 12_complain_enforce_audit.sh
 	enforce_time='1'
-	for SERVICE in dataset server client; do
+	for SERVICE in "${service_list[@]}"; do
 		next_step=$(head -n 1 next_step_${SERVICE})
 		#echo "Next step for ${SERVICE} is $next_step"
 		if [ $next_step == '0' ]
@@ -75,12 +78,12 @@ while true; do
 	echo $i | source 10b_awk_it_enforce.sh
 	x=${x:-$i}
 	((x++))
-	for SERVICE in dataset server client; do  #FIX THIS -> GENERIC
+	for SERVICE in "${service_list[@]}"; do  #FIX THIS -> GENERIC
 		python 11_merge_profiles.py $SERVICE $i 'enforce'
 	done
 	echo $x | source 12_complain_enforce_audit.sh
 	audit_time='1'
-	for SERVICE in dataset server client; do
+	for SERVICE in "${service_list[@]}"; do
 		next_step=$(head -n 1 next_step_${SERVICE})
 		#echo "Next step for ${SERVICE} is $next_step"
 		if [ $next_step == '0' ]
@@ -103,7 +106,7 @@ y=${y:-$i}
 	./1_clear_containers.sh
 	if [ $y == $i ] 
 	then
-		for SERVICE in dataset server client; do  #FIX THIS -> GENERIC
+		for SERVICE in "${service_list[@]}"; do  #FIX THIS -> GENERIC
 			python 2_pre_cp_audit_flag.py $SERVICE $i
 		done
 	fi
@@ -118,12 +121,12 @@ y=${y:-$i}
 	echo $i | source 10a_awk_it_complain.sh
 	x=${x:-$i}
 	((x++))
-	for SERVICE in dataset server client; do  #FIX THIS -> GENERIC
+	for SERVICE in "${service_list[@]}"; do  #FIX THIS -> GENERIC
 		python 11_merge_profiles.py $SERVICE $i 'complain'
 	done
 #	echo $x | source 12_complain_enforce_audit.sh
 #	audit_enforce_time='1'
-#	for SERVICE in dataset server client; do
+#	for SERVICE in "${service_list[@]}"; do
 #		next_step=$(head -n 1 next_step_${SERVICE})
 #		if [ $next_step == '0' ]
 #		then
@@ -151,12 +154,12 @@ y=${y:-$i}
 	echo $i | source 10b_awk_it_enforce.sh
 	x=${x:-$i}
         ((x++))
-	for SERVICE in dataset server client; do  #FIX THIS -> GENERIC
+	for SERVICE in "${service_list[@]}"; do  #FIX THIS -> GENERIC
 		python 11_merge_profiles.py $SERVICE $i 'enforce'
         done
 #	echo $x | source 12_complain_enforce_audit.sh
 #	end_of_logs='1'
-#	for SERVICE in dataset server client; do
+#	for SERVICE in "${service_list[@]}"; do
 #		next_step=$(head -n 1 next_step_${SERVICE})
 #	        #echo "Next step for ${SERVICE} is $next_step"
 #	        if [ $next_step == '0' ]
@@ -173,6 +176,6 @@ y=${y:-$i}
 
 #version_{i} is the last profile
 #Delete audit flag now
-for SERVICE in dataset server client; do  #FIX THIS -> GENERIC
+for SERVICE in "${service_list[@]}"; do  #FIX THIS -> GENERIC
 	python 13_delete_audit_flag.py $SERVICE $i
 done

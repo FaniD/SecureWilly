@@ -10,7 +10,7 @@ service = str(sys.argv[1])
 version = str(sys.argv[2]) #New version
 mode = 'complain'
 
-new = 'profiles/' + service + '/version_' + version
+new = '../profiles/' + service + '/version_' + version
 
 with open(new,'r') as infile:
     data = infile.readlines()

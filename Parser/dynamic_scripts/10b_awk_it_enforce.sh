@@ -2,7 +2,7 @@
 
 read version
 mode="enforce"
-run_path="Logs/RUN${version}"
+run_path="../Logs/RUN${version}"
 
 mkdir ${run_path}/awk_out
 

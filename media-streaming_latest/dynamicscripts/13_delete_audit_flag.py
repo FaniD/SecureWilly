@@ -9,8 +9,8 @@ new_profile = []
 service = str(sys.argv[1])
 version = str(sys.argv[2]) #New version
 
-new = '../profiles/' + service + '/version_' + version
-out = '../profiles/' + service + '/output_' + service + '_profile'
+new = '../parser_output/profiles/' + service + '/version_' + version
+out = '../parser_output/profiles/' + service + '/output_' + service + '_profile'
 
 with open(new,'r') as infile:
     data = infile.readlines()
