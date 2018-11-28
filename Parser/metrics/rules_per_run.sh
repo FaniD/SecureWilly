@@ -3,8 +3,8 @@
 service_list=(dataset server client) 
 
 for SERVICE in "${service_list[@]}"; do
-	profile_path="./${SERVICE}"
-	#profile_path="../../parser_output/profiles/${SERVICE}"
+	#profile_path="./${SERVICE}"
+	profile_path="../../parser_output/profiles/${SERVICE}"
 
 	#Count how many runs there have been
 	ls ${profile_path} -1 | wc -l > num_of_runs
