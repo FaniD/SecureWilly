@@ -6,22 +6,75 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import numpy as np
 
-#service_list=(dataset server client)
+service_list = ["dataset","server","client"]
 
 #i=1
-#for SERVICE in "${service_list[@]}"; do
+#for SERVICE in service_list:
 rules_dataset = str(sys.argv[1])
 rules_client = str(sys.argv[2])
 rules_server = str(sys.argv[3])
-
 #i+=1
 #done
 
 #Fix this argv as needed
 num_of_runs = str(sys.argv[4])
 
-plt.plot(rules_dataset, 'r--', rules_client, 'bs', rules_server, 'g^')
-plt.show()
+#Create int lists from string arrays
+#Do for every service
+
+#Service 1
+with open(rules_dataset,'r') as infile:
+    data = infile.readlines()
+
+dataset=[]
+for line in data:
+    line = line.strip('\n')
+    dataset.append(line)
+
+#Service 2
+with open(rules_client,'r') as infile:
+    data = infile.readlines()
+client=[]
+for line in data:
+    line = line.strip('\n')
+    client.append(line)
+
+#Service 3
+with open(rules_server,'r') as infile:
+    data = infile.readlines()
+server=[]
+for line in data:
+    line = line.strip('\n')
+    server.append(line)
+
+
+fig, ax1 = plt.subplots()
+ax1.grid(True)
+ax1.set_xlabel("Runs")
+ax1.set_ylabel("Rules")
+line1 = ax1.plot(dataset, label="dataset", color="green", marker='x')
+
+ax2 = ax1.twinx()
+ax2.set_xlabel("Runs")
+ax2.set_ylabel("Rules")
+line2 = ax2.plot(client, label="client", color="red", marker='o')
+
+ax3 = ax1.twinx()
+ax3.set_xlabel("Runs")
+ax3.set_ylabel("Rules")
+line3 = ax3.plot(server, label="server", color="blue", marker='x')
+
+lns = line1 + line2 + line3
+labs = [l.get_label() for l in lns]
+
+#plt.plot(rules_dataset, 'r--', rules_client, 'bs', rules_server, 'g^')
+#plt.show()
+
+plt.title("Rules per run")
+lgd = plt.legend(lns, labs)
+lgd.draw_frame(False)
+plt.savefig("rules.png",bbox_inches="tight")
+
 
 """
 x_Axis = []
