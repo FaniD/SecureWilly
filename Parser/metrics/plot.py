@@ -67,6 +67,7 @@ for line in data:
 
 max_rules = []
 for i in range(services):
+    rules[i].sort()
     max_rules.append(rules[i][int(num_of_runs)-1])
 max_value = max(max_rules)
 
@@ -83,7 +84,8 @@ fig, ax1 = plt.subplots()
 ax1.grid(True)
 ax1.set_xlabel("Runs")
 ax1.set_ylabel("Rules")
-ax1.set_xticklabels(x_Axis, rotation=45)
+ax1.set_xticklabels(x_Axis)
+#ax1.set_yticklabels([0 1  2])
 #ax1.axis([0, int(num_of_runs), 0, max_value])
 #ax1.set_xlim(-0.5, len(x_Axis) - 0.5)
 #ax1.set_ylim(min(rules[0]) - 0.005, max(rules[3]) + 0.005)
