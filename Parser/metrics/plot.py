@@ -96,7 +96,8 @@ ax.set_xlabel("Runs")
 ax.set_ylabel(r"Rules")
 #ax.set_ylim(0,max_value)
 plt.show()
-
+plt.title("Rules per run")
+plt.savefig("rules.png",bbox_inches="tight")
 
 """
 #Non generic part
