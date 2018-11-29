@@ -64,22 +64,28 @@ for line in data:
     line = line.strip('\n')
     server.append(line)
 """
-
+x_Axis=[]
+for x in range(int(num_of_runs)):
+    x_Axis.append(x)
+    
 #Non generic part
 fig, ax1 = plt.subplots()
+xAx = np.arange(len(x_Axis))
 ax1.grid(True)
 ax1.set_xlabel("Runs")
 ax1.set_ylabel("Rules")
+ax1.set_xlim(-0.5, len(x_Axis) - 0.5)
+#ax1.set_ylim(min(rules[0]) - 0.005, max(rules[3]) + 0.005)
 line1 = ax1.plot(rules[0], label="dataset", color="green", marker='x')
 
 ax2 = ax1.twinx()
-ax2.set_xlabel("Runs")
-ax2.set_ylabel("Rules")
+#ax2.set_xlabel("Runs")
+#ax2.set_ylabel("Rules")
 line2 = ax2.plot(rules[1], label="client", color="red", marker='o')
 
 ax3 = ax1.twinx()
-ax3.set_xlabel("Runs")
-ax3.set_ylabel("Rules")
+#ax3.set_xlabel("Runs")
+#ax3.set_ylabel("Rules")
 line3 = ax3.plot(rules[2], label="server", color="blue", marker='x')
 
 lns = line1 + line2 + line3
@@ -95,16 +101,6 @@ plt.savefig("rules.png",bbox_inches="tight")
 
 
 """
-x_Axis = []
-y_Axis = []
-
-for line in sys.argv[1:]:
-
-
-fig, ax1 = plt.subplots()
-ax1.grid(True)
-ax1.set_xlabel("$Runs$")
-
 xAx = np.arange(len(x_Axis))
 ax1.xaxis.set_ticks(np.arange(0, len(x_Axis), 1))
 ax1.set_xticklabels(x_Axis, rotation=45)
