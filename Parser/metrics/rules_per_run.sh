@@ -22,7 +22,7 @@ for SERVICE in "${service_list[@]}"; do
 	rm fr
 done
 num_runs=$(head -n 1 num_of_runs)
-rm num_of_runs
+#rm num_of_runs
 
 #Do this manually depending on services
 python plot.py ${parser_output_path}/rules_dataset ${parser_output_path}/rules_client ${parser_output_path}/rules_server $num_runs

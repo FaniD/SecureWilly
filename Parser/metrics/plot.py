@@ -75,8 +75,21 @@ max_value = max(max_rules)
 x_Axis=[]
 for x in range(int(num_of_runs)):
     x_Axis.append(x)
-  
 
+fig = plt.figure()
+ax = fig.add_subplot(111)
+ax.plot(rules[0], label="dataset", color="green", marker='x')
+ax.plot(rules[1], label="client", color="red", marker='o')
+ax.plot(rules[2], label="server", color="blue", marker='x')
+
+ax.legend(loc=0)
+ax.grid()
+ax.set_xlabel("Runs")
+ax.set_ylabel(r"Rules")
+ax.set_ylim(0,max_value)
+plt.show()
+
+"""
 #Non generic part
 fig, ax1 = plt.subplots()
 #axAx = np.arange(len(x_Axis))
@@ -112,7 +125,7 @@ lgd = plt.legend(lns, labs)
 lgd.draw_frame(False)
 plt.savefig("rules.png",bbox_inches="tight")
 
-
+"""
 """
 xAx = np.arange(len(x_Axis))
 ax1.xaxis.set_ticks(np.arange(0, len(x_Axis), 1))
