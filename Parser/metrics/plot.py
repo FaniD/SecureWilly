@@ -68,10 +68,13 @@ for line in data:
 
 max_rules = []
 for i in range(services):
-    rules[i].sort()
+   #  rules[i] = rules[i].sort()
+    rules = sorted(rules,key=lambda l:l[1])
+    print(rules[i])
     max_rules.append(rules[i][int(num_of_runs)-1])
 max_value = max(max_rules)
-
+#rules[1] = rules[1].sort()
+#print(rules[1])
 
 x_Axis=[]
 for x in range(int(num_of_runs)):
@@ -98,6 +101,8 @@ ax.set_ylabel(r"Rules")
 plt.show()
 plt.title("Rules per run")
 plt.savefig("rules.png",bbox_inches="tight")
+
+
 
 """
 #Non generic part
