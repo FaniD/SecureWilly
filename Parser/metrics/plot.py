@@ -10,12 +10,13 @@ service_list = ["dataset","server","client"]
 services = len(service_list)
 num_of_runs = sys.argv[services+1]
 
-rules=[[None for _ in range(int(num_of_runs))] for _ in range(services)]
-
+#rules=[[None for _ in range(int(num_of_runs))] for _ in range(services)]
+rules=[]
 rules_services=[]
 i=1
 for SERVICE in service_list:
     rules_services.append(str(sys.argv[i]))
+    rules.append([])
     i+=1
 
 #rules_dataset = str(sys.argv[1])
@@ -73,8 +74,15 @@ max_value = max(max_rules)
 
 
 x_Axis=[]
-for x in range(int(num_of_runs)-1):
+for x in range(int(num_of_runs)):
     x_Axis.append(x)
+
+"""
+print("Num of runs:" + num_of_runs)
+print(x_Axis)
+print(rules[1])
+print(rules[2])
+"""
 
 fig = plt.figure()
 ax = fig.add_subplot(111)
@@ -86,8 +94,9 @@ ax.legend(loc=0)
 ax.grid()
 ax.set_xlabel("Runs")
 ax.set_ylabel(r"Rules")
-ax.set_ylim(0,max_value)
+#ax.set_ylim(0,max_value)
 plt.show()
+
 
 """
 #Non generic part
