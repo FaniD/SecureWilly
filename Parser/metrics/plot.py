@@ -73,14 +73,14 @@ max_value = max(max_rules)
 
 
 x_Axis=[]
-for x in range(int(num_of_runs)):
+for x in range(int(num_of_runs)-1):
     x_Axis.append(x)
 
 fig = plt.figure()
 ax = fig.add_subplot(111)
-ax.plot(rules[0], label="dataset", color="green", marker='x')
-ax.plot(rules[1], label="client", color="red", marker='o')
-ax.plot(rules[2], label="server", color="blue", marker='x')
+ax.plot(x_Axis, rules[0], label="dataset", color="green", marker='x')
+ax.plot(x_Axis, rules[1], label="client", color="red", marker='o')
+ax.plot(x_Axis, rules[2], label="server", color="blue", marker='x')
 
 ax.legend(loc=0)
 ax.grid()
