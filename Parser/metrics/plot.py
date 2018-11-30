@@ -50,7 +50,7 @@ for x in range(int(num_of_runs)):
 
 fig = plt.figure()
 ax = fig.add_subplot(111)
-ax.plot(x_Axis, rules[0], label="dataset", linewidth=2, color="green", marker='x')
+ax.plot(x_Axis, rules[0], label="dataset", linewidth=1, color="green", marker='x')
 ax.plot(x_Axis, rules[1], label="client", color="red", marker='x')
 ax.plot(x_Axis, rules[2], label="server", color="blue", marker='x')
 """
