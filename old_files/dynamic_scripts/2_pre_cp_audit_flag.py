@@ -8,9 +8,9 @@ new_profile = []
 
 service = str(sys.argv[1])
 version = str(sys.argv[2]) #New version
+mode = 'complain'
 
-new = '../parser_output/profiles/' + service + '/version_' + version
-out = '../parser_output/profiles/' + service + '/output_' + service + '_profile'
+new = '../profiles/' + service + '/version_' + version
 
 with open(new,'r') as infile:
     data = infile.readlines()
@@ -21,12 +21,14 @@ profile = 'profile'
 
 for line in data:
     if line.startswith(profile):
-        new_line = 'profile ' + service + '_profile flags=(attach_disconnected,mediate_deleted) {\n'
+        new_line = 'profile ' + service + '_profile flags=(audit,attach_disconnected,mediate_deleted) {\n'
         new_profile.append(new_line)
     else:
         new_profile.append(line)
 
+#new_profile.insert(0, '#include <tunables/global>\n\nprofile new_profile flags=(attach_disconnected,mediate_deleted) {\n\n')
+
 #Output
-with open(out, 'w') as outfile:
+with open(new, 'w') as outfile:
 	outfile.writelines( new_profile )
 

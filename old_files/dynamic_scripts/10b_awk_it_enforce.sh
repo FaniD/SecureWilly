@@ -1,13 +1,13 @@
 #!/bin/bash
 
 read version
-mode="complain"
-run_path="../parser_output/Logs/RUN${version}"
+mode="enforce"
+run_path="../Logs/RUN${version}"
 
 mkdir ${run_path}/awk_out
 
-service_list=(dataset server client) 
-for SERVICE in "${service_list[@]}"; do
+for SERVICE in dataset server client; do
+#for N in 1 ... ${SERVICES} ; do
 
 	#~~~Capabilities~~~
 

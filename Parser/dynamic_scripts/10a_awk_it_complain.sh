@@ -2,12 +2,12 @@
 
 read version
 mode="complain"
-run_path="../Logs/RUN${version}"
+run_path="../parser_output/Logs/RUN${version}"
 
 mkdir ${run_path}/awk_out
 
-for SERVICE in dataset server client; do
-#for N in 1 ... ${SERVICES} ; do
+service_list=(dataset server client) 
+for SERVICE in "${service_list[@]}"; do
 
 	#~~~Capabilities~~~
 

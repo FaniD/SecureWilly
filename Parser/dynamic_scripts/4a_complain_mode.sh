@@ -1,4 +1,6 @@
-#!/bin/sh
-sudo aa-complain /etc/apparmor.d/dataset_profile
-sudo aa-complain /etc/apparmor.d/server_profile
-sudo aa-complain /etc/apparmor.d/client_profile
+#!/bin/bash
+
+service_list=(dataset server client)
+for SERVICE in "${service_list[@]}"; do
+	sudo aa-complain /etc/apparmor.d/${SERVICE}_profile
+done

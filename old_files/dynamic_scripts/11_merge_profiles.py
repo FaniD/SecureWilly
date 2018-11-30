@@ -11,13 +11,13 @@ version = str(sys.argv[2]) #Old version! The one that exists! (~number here~)
 mode = str(sys.argv[3]) #complain, enforce, complain_audit, enforce_audit
 
 round_ = int(version)+1
-new_path = '../parser_output/profiles/' + service + '/version_' + str(round_)
+new_path = '../profiles/' + service + '/version_' + str(round_)
 
-old_profile = '../parser_output/profiles/' + service + '/version_' + version
-awk_caps = '../parser_output/Logs/RUN' + version +'/awk_out/' + mode + '_logs_caps_' + service
-awk_net = '../parser_output/Logs/RUN' + version +'/awk_out/' + mode + '_logs_net_' + service
-awk_file = '../parser_output/Logs/RUN' + version +'/awk_out/' + mode + '_logs_file_' + service
-awk_sgn = '../parser_output/Logs/RUN' + version +'/awk_out/' + mode + '_logs_sgn_' + service
+old_profile = '../profiles/' + service + '/version_' + version
+awk_caps = '../Logs/RUN' + version +'/awk_out/' + mode + '_logs_caps_' + service
+awk_net = '../Logs/RUN' + version +'/awk_out/' + mode + '_logs_net_' + service
+awk_file = '../Logs/RUN' + version +'/awk_out/' + mode + '_logs_file_' + service
+awk_sgn = '../Logs/RUN' + version +'/awk_out/' + mode + '_logs_sgn_' + service
 
 with open(old_profile,'r') as infile:
     data = infile.readlines()

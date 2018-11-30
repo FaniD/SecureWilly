@@ -2,14 +2,13 @@
 
 read round
 
-service_list=(dataset server client)
-for service in "${service_list[@]}"; do
+for service in dataset server client; do
 	#Compare 2 profiles by number of lines
 	#Beware: There are no empty lines, comments are added next to rules, no duplicate rules, include and profile names are added as the same lines to each profile. So profiles are either augmentations of previous profiles or the same.
-	wc -l ../parser_output/profiles/${service}/version_${round} | awk '{print $1}' > f1
+	wc -l profiles/${service}/version_${round} | awk '{print $1}' > f1
 	echo "$((${round} - 1))" > fr
 	round_previous=$(head -n 1 fr)
-	wc -l ../parser_output/profiles/${service}/version_${round_previous} | awk '{print $1}' > f2
+	wc -l profiles/${service}/version_${round_previous} | awk '{print $1}' > f2
 
 	wc_f1=$(head -n 1 f1)
 	wc_f2=$(head -n 1 f2)

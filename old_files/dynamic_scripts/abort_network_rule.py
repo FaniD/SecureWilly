@@ -7,7 +7,7 @@ from collections import OrderedDict
 new_profile = []
 
 service = str(sys.argv[1])
-path = '../parser_output/profiles/' + service + '/version_1'
+path = 'profiles/' + service + '/version_1'
 
 with open(path,'r') as infile:
     data = infile.readlines()
