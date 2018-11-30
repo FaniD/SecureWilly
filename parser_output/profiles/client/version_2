@@ -1,6 +1,7 @@
-fe
-f
-e
-f
-ef
-e
+#include <tunables/global>
+
+profile client_profile flags=(attach_disconnected,mediate_deleted) {
+	network inet stream,
+	file,  #This rule is needed so that I can work with files (create files/directories, copy, etc)
+	/var/lib/docker/* r,
+}
