@@ -30,11 +30,11 @@ num_of_runs = str(sys.argv[4])
 i=0
 #rules=[]
 for SERVICE in service_list:
-#    rules[i]=[]
     with open(rules_services[i],'r') as infile:
         data = infile.readlines()
     for line in data:
         line = line.strip('\n')
+        line = int(line)
         rules[i].append(line)
     i+=1
 
@@ -66,26 +66,16 @@ for line in data:
     server.append(line)
 """
 
+#rules = sorted(rules,key=lambda l:l[1])
 max_rules = []
 for i in range(services):
-   #  rules[i] = rules[i].sort()
-    rules = sorted(rules,key=lambda l:l[1])
-    print(rules[i])
+    rules[i] = sorted(rules[i])
     max_rules.append(rules[i][int(num_of_runs)-1])
 max_value = max(max_rules)
-#rules[1] = rules[1].sort()
-#print(rules[1])
 
 x_Axis=[]
 for x in range(int(num_of_runs)):
     x_Axis.append(x)
-
-"""
-print("Num of runs:" + num_of_runs)
-print(x_Axis)
-print(rules[1])
-print(rules[2])
-"""
 
 fig = plt.figure()
 ax = fig.add_subplot(111)
@@ -97,7 +87,7 @@ ax.legend(loc=0)
 ax.grid()
 ax.set_xlabel("Runs")
 ax.set_ylabel(r"Rules")
-#ax.set_ylim(0,max_value)
+ax.set_ylim(0,max_value)
 plt.show()
 plt.title("Rules per run")
 plt.savefig("rules.png",bbox_inches="tight")
