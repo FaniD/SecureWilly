@@ -94,7 +94,7 @@ ax = fig.add_subplot(111)
 ax.plot(x_Axis, capabilities, label="capabilities", color="r", marker='x')
 ax.plot(x_Axis, network, label="network", color="g", marker='x')
 ax.plot(x_Axis, signal, label="signal", color="m", marker='x')
-ax.plot(x_Axis, mount, label="mount", color="w", marker='x')
+ax.plot(x_Axis, mount, label="mount", color="k", marker='x')
 ax.plot(x_Axis, rlimit, label="rlimit", color="y", marker='x')
 ax.plot(x_Axis, file_rules, label="file", color="b", marker='x')
 
