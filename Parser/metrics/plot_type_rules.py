@@ -90,7 +90,7 @@ for x in range(int(num_of_runs)):
     x_Axis.append(x)
 
 fig = plt.figure()
-ax = fig.add_subplot(111)
+ax = fig.add_subplot(666)
 ax.plot(x_Axis, capabilities, label="capabilities", color="r", marker='x')
 ax.plot(x_Axis, network, label="network", color="g", marker='x')
 ax.plot(x_Axis, signal, label="signal", color="m", marker='x')
