@@ -85,7 +85,7 @@ for SERVICE in "${service_list[@]}"; do
 	rm ${parser_output_path}/signal_${SERVICE}
 	rm ${parser_output_path}/mount_${SERVICE}
 	rm ${parser_output_path}/rlimit_${SERVICE}
-#	rm ${parser_output_path}/file_rules_${SERVICE}
+	rm ${parser_output_path}/file_rules_${SERVICE}
 done
 
 rm f
