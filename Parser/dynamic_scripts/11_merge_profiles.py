@@ -52,8 +52,6 @@ for line in data:
 
 #Now create rules from awk logs
 
-new_file_rules = []
-
 #Capability rules
 with open(awk_caps,'r') as infile:
     data = infile.readlines()
@@ -94,7 +92,6 @@ for line in data:
     if line[1] == 'x': #x must follow i,p,c,u so if there is none of these with x we give i permission
         permission = 'ix'
     new_profile.append('\t' + line[0] + ' ' + permission + ',\n')
-    new_file_rules.append(line[0] + ' ' + permission + ',\n')
 
 #Signal rules
 with open(awk_sgn,'r') as infile:
@@ -127,18 +124,9 @@ for line in new_profile:
 #new_profile.insert(0, '#include <tunables/global>\n\nprofile new_profile flags=(attach_disconnected,mediate_deleted) {\n\n')
 new_profile = base + no_gaps
 
-#i = 0
-#for line in base:
- #   new_profile.insert(i, line)
-  #  i=i+1
-
 #End of logs so close the bracket
 new_profile.append('}\n')
-
 
 #Output
 with open(new_path, 'w') as outfile:
 	outfile.writelines( new_profile )
-
-with open('new_frules_' + service, 'w') as outfile:
-    outfile.writelines ( new_file_rules )

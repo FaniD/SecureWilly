@@ -202,4 +202,5 @@ y=${y:-$i}
 #Delete audit flag now
 for SERVICE in "${service_list[@]}"; do
 	python ${dynamic_script_path}/13_delete_audit_flag.py $SERVICE $i
+	rm next_step_${SERVICE}
 done
