@@ -39,12 +39,12 @@ done
 #It cannot be aborted by its own because there will be no duplicate rule. So we abort it manually, if it is already in our profile.
 
 for SERVICE in "${service_list[@]}"; do
-	python ${dynamic_script_path}/abort_network_rule.py $SERVICE
+	python ${dynamic_script_path}/0a_abort_network_rule.py $SERVICE
 done
 
 #Pull images if there are on dockerhub and not locally
 #~~~Needs manual changes
-./${dynamic_script_path}/0_pull_images.sh
+./${dynamic_script_path}/0b_pull_images.sh
 
 
 #For each RUN follow the steps
