@@ -1,6 +1,6 @@
 #!/bin/bash
 
-service_list=(server) 
+service_list=(dataset server client) 
 app_path="../.."
 parser_output_path="${app_path}/parser_output"
 
@@ -91,3 +91,4 @@ done
 rm f
 rm fr
 rm num_of_runs
+rm awk_counter
