@@ -1,42 +1,93 @@
 #!/bin/bash
 
-service_list=(dataset server client) 
+service_list=(server) 
 app_path="../.."
 parser_output_path="${app_path}/parser_output"
 
 for SERVICE in "${service_list[@]}"; do
 	profile_path="${parser_output_path}/profiles/${SERVICE}"
 
-	#Search per type
-
-	#Count per type
-
-	#Add to files
-
-
-	#Count how many runs there have been
+	#Count how many runs there have been (=how many profiles there are in profile dir)
 	ls ${profile_path} -1 | wc -l > num_of_runs
+	num_runs=$(head -n 1 num_of_runs)
 
-	previous=0
-	#Look inside directory and run for every version file
+	#Search per type
 	for run in ${profile_path}/*; do
-		#count lines
+		#count total lines of each profile
 		wc -l $run | awk '{print $1}' > f
-		f1=$(head -n 1 f)
+		total_r=$(head -n 1 f)
 		#Decrease by 4 which are the intro and closure of the profile, that shouldn't be included in rules
-		echo "$((${f1} - 4))" > fr
-		previous=$(head -n 1 fr)
-		echo $previous >> ${parser_output_path}/rules_${SERVICE}
+		echo "$((${total_r} - 4))" > fr
+		total_rules=$(head -n 1 fr)
+		
+		#We make sure that the keywords used are not names of files and are used in specific syntax either on their own or with allow or deny
+		#Awk counter gives null when no string matches so we change it to 0 when needed
+	
+		#Capability rules
+		awk '/\tcapability,|\tcapability | capability,| capability / {count++} END {print count}' ${run} > awk_counter
+		hd=$(head -n 1 awk_counter)
+		if [[ $hd == "" ]]; then
+			echo "0" >> ${parser_output_path}/capability_${SERVICE}
+		else	
+			cat awk_counter >> ${parser_output_path}/capability_${SERVICE}
+		fi
+		
+		#Network rules
+		awk '/\tnetwork,|\tnetwork | network,| network / {count++} END {print count}' ${run} > awk_counter
+		hd=$(head -n 1 awk_counter)
+		if [[ $hd == "" ]]; then
+			echo "0" >> ${parser_output_path}/network_${SERVICE}
+		else
+			cat awk_counter	>> ${parser_output_path}/network_${SERVICE}
+		fi
+
+		#Signal rules
+		awk '/\tsignal,|\tsignal | signal,| signal / {count++} END {print count}' ${run} > awk_counter
+		hd=$(head -n 1 awk_counter)
+		if [[ $hd == "" ]]; then
+			echo "0" >> ${parser_output_path}/signal_${SERVICE}
+		else
+			cat awk_counter >> ${parser_output_path}/signal_${SERVICE}
+		fi
+
+		#Mount rules
+		awk '/\tmount,|\tmount | mount,| mount |\tumount,|\tumount | umount,| umount |\tremount,|\tremount | remount,| remount / {count++} END {print count}' ${run} > awk_counter #also, remount & umount counted
+                hd=$(head -n 1 awk_counter)
+		if [[ $hd == "" ]]; then
+			echo "0" >> ${parser_output_path}/mount_${SERVICE}
+		else
+			cat awk_counter >> ${parser_output_path}/mount_${SERVICE}
+		fi
+
+		#Rlimit rules
+		awk '/\tset rlimit | set rlimit / {count++} END {print count}' ${run} > awk_counter
+		hd=$(head -n 1 awk_counter)
+                if [[ $hd == "" ]]; then
+			echo "0" >> ${parser_output_path}/rlimit_${SERVICE}
+		else
+			cat awk_counter >> ${parser_output_path}/rlimit_${SERVICE}
+		fi
+		
+		cap=$(tail -n 1 ${parser_output_path}/capability_${SERVICE})
+		net=$(tail -n 1 ${parser_output_path}/network_${SERVICE})
+		sgn=$(tail -n 1 ${parser_output_path}/signal_${SERVICE})
+		mnt=$(tail -n 1 ${parser_output_path}/mount_${SERVICE})
+		rlim=$(tail -n 1 ${parser_output_path}/rlimit_${SERVICE})
+
+		#Everything else belongs to file rules
+		echo "$(($total_rules - $cap - $net - $sgn - $mnt - $rlim))" >> ${parser_output_path}/file_rules_${SERVICE}
 	done
-	rm f
-	rm fr
+
+	#Plot per service
+	python plot_type_rules.py ${parser_output_path}/capability_${SERVICE} ${parser_output_path}/network_${SERVICE} ${parser_output_path}/signal_${SERVICE} ${parser_output_path}/mount_${SERVICE} ${parser_output_path}/rlimit_${SERVICE} ${parser_output_path}/file_rules_${SERVICE} $num_runs ${SERVICE}
+	rm ${parser_output_path}/capability_${SERVICE}
+	rm ${parser_output_path}/network_${SERVICE}
+	rm ${parser_output_path}/signal_${SERVICE}
+	rm ${parser_output_path}/mount_${SERVICE}
+	rm ${parser_output_path}/rlimit_${SERVICE}
+	rm ${parser_output_path}/file_rules_${SERVICE}
 done
-num_runs=$(head -n 1 num_of_runs)
+
+rm f
+rm fr
 rm num_of_runs
-
-#Do this manually depending on services
-python plot_rules_total.py ${parser_output_path}/rules_dataset ${parser_output_path}/rules_client ${parser_output_path}/rules_server $num_runs
-
-for SERVICE in "${service_list[@]}"; do
-	rm ${parser_output_path}/rules_${SERVICE}
-done

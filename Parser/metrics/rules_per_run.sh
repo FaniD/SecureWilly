@@ -17,7 +17,7 @@ for SERVICE in "${service_list[@]}"; do
 		wc -l $run | awk '{print $1}' > f
 		f1=$(head -n 1 f)
 		#Decrease by 4 which are the intro and closure of the profile, that shouldn't be included in rules
-		echo "$((${f1} - 4))" > fr
+		echo "$(($f1 - 4))" > fr
 		previous=$(head -n 1 fr)
 		echo $previous >> ${parser_output_path}/rules_${SERVICE}
 	done
