@@ -75,7 +75,7 @@ for SERVICE in "${service_list[@]}"; do
 		rlim=$(tail -n 1 ${parser_output_path}/rlimit_${SERVICE})
 
 		#Everything else belongs to file rules
-		echo "$(($total_rules - $cap - $net - $sgn - $mnt - $rlim))" >> ${parser_output_path}/file_rules_${SERVICE}
+		echo "$((${total_rules} - ${cap} - ${net} - ${sgn} - ${mnt} - ${rlim}))" >> ${parser_output_path}/file_rules_${SERVICE}
 	done
 
 	#Plot per service
