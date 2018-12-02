@@ -60,11 +60,11 @@ plt.title("Rules per run")
 plt.savefig("../../parser_output/rules.png",bbox_inches="tight")
 
 #Complain and enforce different colour
-"""
-a = np.rules[0]
-b = np.rules[1]
-c = np.rules[2]
-"""
+
+a = rules[0]
+b = rules[1]
+c = rules[2]
+
 """
 rr = colorConverter.to_rgba('r')
 bb = colorConverter.to_rgba('b')
@@ -72,7 +72,7 @@ colors = list()
 """
 fig = plt.figure()
 ax1 = fig.add_subplot(111)
-for x1, y1 in zip(x_Axis, rules[1]):
+for x1, y1 in zip(x_Axis, b):
     if x1<5:
         ax1.plot([x1,y1], 'b')
     else:
