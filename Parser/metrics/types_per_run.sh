@@ -73,18 +73,13 @@ for SERVICE in "${service_list[@]}"; do
 			cat awk_counter >> ${parser_output_path}/rlimit_${SERVICE}
 		fi
 		
-#		cap=$(tail -n 1 ${parser_output_path}/capability_${SERVICE})
-#		net=$(tail -n 1 ${parser_output_path}/network_${SERVICE})
-#		sgn=$(tail -n 1 ${parser_output_path}/signal_${SERVICE})
-#		mnt=$(tail -n 1 ${parser_output_path}/mount_${SERVICE})
-#		rlim=$(tail -n 1 ${parser_output_path}/rlimit_${SERVICE})
-
 		#Everything else belongs to file rules
 		echo "$((${total_rules} - ${cap} - ${net} - ${sgn} - ${mnt} - ${rlim}))" >> ${parser_output_path}/file_rules_${SERVICE}
 	done
 
 	#Plot per service
 	python plot_type_rules.py ${parser_output_path}/capability_${SERVICE} ${parser_output_path}/network_${SERVICE} ${parser_output_path}/signal_${SERVICE} ${parser_output_path}/mount_${SERVICE} ${parser_output_path}/rlimit_${SERVICE} ${parser_output_path}/file_rules_${SERVICE} $num_runs ${SERVICE}
+
 	rm ${parser_output_path}/capability_${SERVICE}
 	rm ${parser_output_path}/network_${SERVICE}
 	rm ${parser_output_path}/signal_${SERVICE}
