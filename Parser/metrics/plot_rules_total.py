@@ -61,29 +61,28 @@ plt.savefig("../../parser_output/rules.png",bbox_inches="tight")
 
 #Complain and enforce different colour
 
-a = rules[0]
-b = rules[1]
-c = rules[2]
-
-"""
-rr = colorConverter.to_rgba('r')
-bb = colorConverter.to_rgba('b')
-colors = list()
-"""
 fig = plt.figure()
 ax1 = fig.add_subplot(111)
-for x1 in x_Axis:
-    if x1<5:
-        ax1.plot(x_Axis, rules[1], label="client", color="blue", marker='x') 
-    else:
-        ax1.plot(x_Axis, rules[1], label="client", color="red", marker='x')
+a = []
+c = range(5)
+b = []
+d = range(5,12)
+for x1 in range(5):
+    a.append(rules[1][x1])
+for x1 in range(5,12):
+    b.append(rules[1][x1])
+
+ax1.plot(c, a, label="client", color="blue", marker='x') 
+ax1.plot(d, b, label="client", color="red", marker='x')
+
+
 ax1.grid()
 ax1.set_xlabel("Runs")
 ax1.set_ylabel(r"Rules")
 ax1.set_ylim(0,max_value+2)
 plt.show()
 plt.title("Rules per run")
-plt.savefig("../colored_line.png",bbox_inches="tight")
+plt.savefig("../../colored_line.png",bbox_inches="tight")
 
 """
 points = zip(x_Axis, rules[0])
