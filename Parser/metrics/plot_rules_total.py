@@ -5,6 +5,8 @@ import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import numpy as np
+from matplotlib.collections import LineCollection
+from matplotlib.colors import colorConverter
 
 service_list = ["dataset","server","client"]
 services = len(service_list)
@@ -55,3 +57,22 @@ ax.set_ylim(0,max_value+2)
 plt.show()
 plt.title("Rules per run")
 plt.savefig("../../parser_output/rules.png",bbox_inches="tight")
+
+#Complain and enforce different colour
+rr = colorConverter.to_rgba('r')
+bb = colorConverter.to_rgba('b')
+colors = list()
+for xx in x_Axis:
+    if xx<5:
+        colors.append(bb)
+    else:
+        colors.append(rr)
+
+points = zip(x_Axis, rules[0])
+segments = zip(points[:-1], points[1:])
+ax1 = fig.add_subplot(111)
+LC = LineCollection(segments, colors=colors)
+ax1.add_collection(LC)
+fig = plt.figure()
+plt.savefig('colored_line.png', dpi=70)
+plt.show()
