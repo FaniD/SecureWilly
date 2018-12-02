@@ -64,10 +64,10 @@ plt.savefig("../../parser_output/rules.png",bbox_inches="tight")
 fig = plt.figure()
 ax1 = fig.add_subplot(111)
 part_1 = []
-complain = range(5)
+complain = range(6)
 part_2 = []
 enforce = range(5,12)
-for x1 in range(5):
+for x1 in range(6):
     part_1.append(rules[1][x1])
 for x1 in range(5,12):
     part_2.append(rules[1][x1])
