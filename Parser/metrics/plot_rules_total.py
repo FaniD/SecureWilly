@@ -72,7 +72,8 @@ compl_rules = range(enforce+1)
 part_2a = []
 part_2b = []
 part_2c = []
-enf_rules = range(enforce,12)
+enf_rules = range(enforce,int(num_of_runs))
+
 for x1 in range(enforce+1):
     part_1a.append(rules[0][x1])
     part_1b.append(rules[1][x1])
@@ -81,6 +82,7 @@ for x1 in range(enforce,int(num_of_runs)):
     part_2a.append(rules[0][x1])
     part_2b.append(rules[1][x1])
     part_2c.append(rules[2][x1])
+
 ax1.plot(compl_rules, part_1a, label="dataset", color="blue", marker='x') 
 ax1.plot(enf_rules, part_2a, label="dataset", color="red", marker='x')
 
@@ -93,10 +95,14 @@ ax3.plot(compl_rules, part_1c, label="client", color="blue", marker='x')
 ax3.plot(enf_rules, part_2c, label="client", color="red", marker='x')
 
 ax1.grid()
-#ax1.set_xlabel("Runs")
-#ax1.set_ylabel(r"Rules")
+ax3.set_xlabel("Runs")
+ax1.set_ylabel(r"Rules")
+ax2.set_ylabel(r"Rules")
+ax3.set_ylabel(r"Rules")
 ax1.set_ylim(0,max_value+2)
+ax2.set_ylim(0,max_value+2)
+ax3.set_ylim(0,max_value+2)
 plt.show()
-plt.title("Rules per run")
+#plt.title("Rules per run")
 plt.savefig("../../parser_output/complain_enforce_rules.png",bbox_inches="tight")
 
