@@ -79,7 +79,7 @@ for x1, y1 in zip(x_Axis, rules[1]):
         ax1.plot([x1,y1], 'r')
 ax1.grid()
 plt.show()
-plt.savefig('colored_line.png', dpi=70)
+plt.savefig("colored_line.png",bbox_inches="tight")
 
 """
 points = zip(x_Axis, rules[0])
@@ -88,6 +88,3 @@ ax1 = fig.add_subplot(111)
 LC = LineCollection(segments, colors=colors)
 ax1.add_collection(LC)
 """
-fig = plt.figure()
-plt.savefig('colored_line.png', dpi=70)
-#plt.show()
