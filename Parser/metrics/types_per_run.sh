@@ -25,8 +25,9 @@ for SERVICE in "${service_list[@]}"; do
 	
 		#Capability rules
 		awk '/\tcapability,|\tcapability | capability,| capability / {count++} END {print count}' ${run} > awk_counter
-		hd=$(head -n 1 awk_counter)
+		cap=$(head -n 1 awk_counter)
 		if [[ $hd == "" ]]; then
+			cap=0
 			echo "0" >> ${parser_output_path}/capability_${SERVICE}
 		else	
 			cat awk_counter >> ${parser_output_path}/capability_${SERVICE}
@@ -34,8 +35,9 @@ for SERVICE in "${service_list[@]}"; do
 		
 		#Network rules
 		awk '/\tnetwork,|\tnetwork | network,| network / {count++} END {print count}' ${run} > awk_counter
-		hd=$(head -n 1 awk_counter)
+		net=$(head -n 1 awk_counter)
 		if [[ $hd == "" ]]; then
+			net=0
 			echo "0" >> ${parser_output_path}/network_${SERVICE}
 		else
 			cat awk_counter	>> ${parser_output_path}/network_${SERVICE}
@@ -43,8 +45,9 @@ for SERVICE in "${service_list[@]}"; do
 
 		#Signal rules
 		awk '/\tsignal,|\tsignal | signal,| signal / {count++} END {print count}' ${run} > awk_counter
-		hd=$(head -n 1 awk_counter)
+		sgn=$(head -n 1 awk_counter)
 		if [[ $hd == "" ]]; then
+			sgn=0
 			echo "0" >> ${parser_output_path}/signal_${SERVICE}
 		else
 			cat awk_counter >> ${parser_output_path}/signal_${SERVICE}
@@ -52,8 +55,9 @@ for SERVICE in "${service_list[@]}"; do
 
 		#Mount rules
 		awk '/\tmount,|\tmount | mount,| mount |\tumount,|\tumount | umount,| umount |\tremount,|\tremount | remount,| remount / {count++} END {print count}' ${run} > awk_counter #also, remount & umount counted
-                hd=$(head -n 1 awk_counter)
+                mnt=$(head -n 1 awk_counter)
 		if [[ $hd == "" ]]; then
+			mnt=0
 			echo "0" >> ${parser_output_path}/mount_${SERVICE}
 		else
 			cat awk_counter >> ${parser_output_path}/mount_${SERVICE}
@@ -61,18 +65,19 @@ for SERVICE in "${service_list[@]}"; do
 
 		#Rlimit rules
 		awk '/\tset rlimit | set rlimit / {count++} END {print count}' ${run} > awk_counter
-		hd=$(head -n 1 awk_counter)
+		rlim=$(head -n 1 awk_counter)
                 if [[ $hd == "" ]]; then
+			rlim=0
 			echo "0" >> ${parser_output_path}/rlimit_${SERVICE}
 		else
 			cat awk_counter >> ${parser_output_path}/rlimit_${SERVICE}
 		fi
 		
-		cap=$(tail -n 1 ${parser_output_path}/capability_${SERVICE})
-		net=$(tail -n 1 ${parser_output_path}/network_${SERVICE})
-		sgn=$(tail -n 1 ${parser_output_path}/signal_${SERVICE})
-		mnt=$(tail -n 1 ${parser_output_path}/mount_${SERVICE})
-		rlim=$(tail -n 1 ${parser_output_path}/rlimit_${SERVICE})
+#		cap=$(tail -n 1 ${parser_output_path}/capability_${SERVICE})
+#		net=$(tail -n 1 ${parser_output_path}/network_${SERVICE})
+#		sgn=$(tail -n 1 ${parser_output_path}/signal_${SERVICE})
+#		mnt=$(tail -n 1 ${parser_output_path}/mount_${SERVICE})
+#		rlim=$(tail -n 1 ${parser_output_path}/rlimit_${SERVICE})
 
 		#Everything else belongs to file rules
 		echo "$((${total_rules} - ${cap} - ${net} - ${sgn} - ${mnt} - ${rlim}))" >> ${parser_output_path}/file_rules_${SERVICE}
