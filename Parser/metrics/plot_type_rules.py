@@ -107,3 +107,105 @@ plt.show()
 plt.title("Type of rules per run")
 output = "../../parser_output/types_" + service + ".png"
 plt.savefig(output,bbox_inches="tight")
+
+enforce = 5 #Read this from bash script 
+
+fig = plt.figure()
+compl_rules = range(enforce+1)
+enf_rules = range(enforce,int(num_of_runs))
+
+#File rules
+ax1 = fig.add_subplot(321)
+part_1a = []
+part_2a = []
+for x1 in range(enforce+1):
+	part_1a.append(file_rules[x1])
+for x1 in range(enforce,int(num_of_runs)):
+	part_2a.append(file_rules[x1])
+ax1.plot(compl_rules, part_1a, label="file", color="b", marker='x')
+ax1.plot(enf_rules, part_2a, label="file", color="r", marker='x')
+ax1.grid()
+ax1.set_xlabel("Runs")
+ax1.set_ylabel(r"File rules")
+ax1.set_ylim(0,max_value+2)
+
+#Capabilities
+ax1 = fig.add_subplot(322)
+part_1b = []
+part_2b = []
+for x1 in range(enforce+1):
+        part_1b.append(capabilities[x1])
+for x1 in range(enforce,int(num_of_runs)):
+        part_2a.append(capabilities[x1])
+ax1.plot(compl_rules, part_1b, label="", color="b", marker='x')
+ax1.plot(enf_rules, part_2b, label="", color="r", marker='x')
+ax1.grid()
+ax1.set_xlabel("Runs")
+ax1.set_ylabel(r" rules")
+ax1.set_ylim(0,max_value+2)
+
+
+#Network
+ax2 = fig.add_subplot(323)                                             
+part_1b = []
+part_2b = []
+for x1 in range(enforce+1):                                            
+        part_1b.append(capabilities[x1])                               
+for x1 in range(enforce,int(num_of_runs)):                             
+        part_2a.append(capabilities[x1])                               
+ax2.plot(compl_rules, part_1b, label="network", color="b", marker='x')
+ax2.plot(enf_rules, part_2b, label="network", color="r", marker='x')
+ax2.grid()                                                             
+ax2.set_xlabel("Runs")
+ax2.set_ylabel(r"Network rules")
+ax2.set_ylim(0,max_value+2)
+
+#Mount
+ax3 = fig.add_subplot(324)                                             
+part_1c = []
+part_2c = []
+for x1 in range(enforce+1):                                            
+        part_1b.append(mount[x1])                               
+for x1 in range(enforce,int(num_of_runs)):                             
+        part_2a.append(mount[x1])                               
+ax3.plot(compl_rules, part_1c, label="mount", color="b", marker='x')
+ax3.plot(enf_rules, part_2c, label="mount", color="r", marker='x')
+ax3.grid()                                                             
+ax3.set_xlabel("Runs")
+ax3.set_ylabel(r"Mount rules")
+ax3.set_ylim(0,max_value+2)
+
+#Signal
+ax4 = fig.add_subplot(325)                                             
+part_1d = []
+part_2d = []
+for x1 in range(enforce+1):                                            
+        part_1b.append(signal[x1])                               
+for x1 in range(enforce,int(num_of_runs)):                             
+        part_2a.append(signal[x1])                               
+ax4.plot(compl_rules, part_1d, label="signal", color="b", marker='x')
+ax4.plot(enf_rules, part_2d, label="signal", color="r", marker='x')
+ax4.grid()                                                             
+ax4.set_xlabel("Runs")
+ax4.set_ylabel(r"Signal rules")
+ax4.set_ylim(0,max_value+2)
+
+#Rlimit
+ax5 = fig.add_subplot(326)                                             
+part_1e = []
+part_2e = []
+for x1 in range(enforce+1):                                            
+        part_1e.append(rlimit[x1])                               
+for x1 in range(enforce,int(num_of_runs)):                             
+        part_2e.append(rlimit[x1])                               
+ax5.plot(compl_rules, part_1e, label="rlimit", color="b", marker='x')
+ax5.plot(enf_rules, part_2e, label="rlimit", color="r", marker='x')
+ax5.grid()                                                             
+ax5.set_xlabel("Runs")
+ax5.set_ylabel(r"Rlimit rules")
+ax5.set_ylim(0,max_value+2)
+
+
+plt.show()
+output = "../../parser_output/complain_enforce_types_" + service + ".png"
+plt.savefig(output,bbox_inches="tight")
