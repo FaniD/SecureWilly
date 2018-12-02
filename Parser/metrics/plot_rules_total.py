@@ -39,9 +39,10 @@ for i in range(services):
     max_rules.append(rules[i][int(num_of_runs)-1])
 max_value = max(max_rules)
 
-x_Axis=[]
-for x in range(int(num_of_runs)):
-    x_Axis.append(x)
+#x_Axis=[]
+#for x in range(int(num_of_runs)):
+#    x_Axis.append(x)
+x_Axis = range(int(num_of_runs))
 
 fig = plt.figure()
 ax = fig.add_subplot(111)
@@ -59,20 +60,33 @@ plt.title("Rules per run")
 plt.savefig("../../parser_output/rules.png",bbox_inches="tight")
 
 #Complain and enforce different colour
+"""
+a = np.rules[0]
+b = np.rules[1]
+c = np.rules[2]
+"""
+"""
 rr = colorConverter.to_rgba('r')
 bb = colorConverter.to_rgba('b')
 colors = list()
-for xx in x_Axis:
-    if xx<5:
-        colors.append(bb)
+"""
+fig = plt.figure()
+for x1, y1 in zip(x_Axis, rules[1]):
+    if x1<5:
+        plt.plot([x1,y1], 'b')
     else:
-        colors.append(rr)
+        plt.plot([x1,y1], 'r')
+plt.savefig('colored_line.png', dpi=70)
+plt.show()
 
+
+"""
 points = zip(x_Axis, rules[0])
 segments = zip(points[:-1], points[1:])
 ax1 = fig.add_subplot(111)
 LC = LineCollection(segments, colors=colors)
 ax1.add_collection(LC)
+"""
 fig = plt.figure()
 plt.savefig('colored_line.png', dpi=70)
-plt.show()
+#plt.show()
