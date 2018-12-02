@@ -72,13 +72,17 @@ colors = list()
 """
 fig = plt.figure()
 ax1 = fig.add_subplot(111)
-for x1, y1 in zip(x_Axis, b):
+for x1 in x_Axis:
     if x1<5:
-        ax1.plot([y1, x1], 'b')
+        ax1.plot(x_Axis, rules[1], label="client", color="blue", marker='x') 
     else:
-        ax1.plot([y1, x1], 'r')
+        ax1.plot(x_Axis, rules[1], label="client", color="red", marker='x')
 ax1.grid()
+ax1.set_xlabel("Runs")
+ax1.set_ylabel(r"Rules")
+ax1.set_ylim(0,max_value+2)
 plt.show()
+plt.title("Rules per run")
 plt.savefig("colored_line.png",bbox_inches="tight")
 
 """
