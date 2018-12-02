@@ -71,14 +71,15 @@ bb = colorConverter.to_rgba('b')
 colors = list()
 """
 fig = plt.figure()
+ax1 = fig.add_subplot(111)
 for x1, y1 in zip(x_Axis, rules[1]):
     if x1<5:
-        plt.plot([x1,y1], 'b')
+        ax1.plot([x1,y1], 'b')
     else:
-        plt.plot([x1,y1], 'r')
-plt.savefig('colored_line.png', dpi=70)
+        ax1.plot([x1,y1], 'r')
+ax1.grid()
 plt.show()
-
+plt.savefig('colored_line.png', dpi=70)
 
 """
 points = zip(x_Axis, rules[0])
