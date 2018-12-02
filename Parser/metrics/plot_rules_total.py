@@ -83,7 +83,7 @@ ax1.set_ylabel(r"Rules")
 ax1.set_ylim(0,max_value+2)
 plt.show()
 plt.title("Rules per run")
-plt.savefig("colored_line.png",bbox_inches="tight")
+plt.savefig("../colored_line.png",bbox_inches="tight")
 
 """
 points = zip(x_Axis, rules[0])
