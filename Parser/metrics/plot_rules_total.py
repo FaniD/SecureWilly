@@ -74,9 +74,9 @@ fig = plt.figure()
 ax1 = fig.add_subplot(111)
 for x1, y1 in zip(x_Axis, b):
     if x1<5:
-        ax1.plot([x1,y1], 'b')
+        ax1.plot([y1, x1], 'b')
     else:
-        ax1.plot([x1,y1], 'r')
+        ax1.plot([y1, x1], 'r')
 ax1.grid()
 plt.show()
 plt.savefig("colored_line.png",bbox_inches="tight")
