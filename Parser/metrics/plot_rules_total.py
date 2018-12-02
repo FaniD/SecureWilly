@@ -63,17 +63,16 @@ plt.savefig("../../parser_output/rules.png",bbox_inches="tight")
 
 fig = plt.figure()
 ax1 = fig.add_subplot(111)
-a = []
-c = range(5)
-b = []
-d = range(5,12)
+part_1 = []
+complain = range(5)
+part_2 = []
+enforce = range(5,12)
 for x1 in range(5):
-    a.append(rules[1][x1])
+    part_1.append(rules[1][x1])
 for x1 in range(5,12):
-    b.append(rules[1][x1])
-
-ax1.plot(c, a, label="client", color="blue", marker='x') 
-ax1.plot(d, b, label="client", color="red", marker='x')
+    part_2.append(rules[1][x1])
+ax1.plot(complain, part_1, label="client", color="blue", marker='x') 
+ax1.plot(enforce, part_2, label="client", color="red", marker='x')
 
 
 ax1.grid()
@@ -82,12 +81,5 @@ ax1.set_ylabel(r"Rules")
 ax1.set_ylim(0,max_value+2)
 plt.show()
 plt.title("Rules per run")
-plt.savefig("../../colored_line.png",bbox_inches="tight")
+plt.savefig("../../parser_output/complain_enforce_rules.png",bbox_inches="tight")
 
-"""
-points = zip(x_Axis, rules[0])
-segments = zip(points[:-1], points[1:])
-ax1 = fig.add_subplot(111)
-LC = LineCollection(segments, colors=colors)
-ax1.add_collection(LC)
-"""
