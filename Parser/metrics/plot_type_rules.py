@@ -36,7 +36,7 @@ with open(net,'r') as infile:
         network.append(line)
 
 signal = []
-with open(net,'r') as infile:
+with open(sgn,'r') as infile:
     data = infile.readlines()
     for line in data:
         line = line.strip('\n')
@@ -91,14 +91,13 @@ for x in range(int(num_of_runs)):
 
 fig = plt.figure()
 ax = fig.add_subplot(111)
-
-#ax.plot(x_Axis, capabilities, label="capabilities", color="r", marker='x')
+ax.plot(x_Axis, capabilities, label="capabilities", color="r", marker='x')
 ax.plot(x_Axis, network, label="network", color="g", marker='x')
-"""ax.plot(x_Axis, signal, label="signal", color="m", marker='x')
+ax.plot(x_Axis, signal, label="signal", color="m", marker='x')
 ax.plot(x_Axis, mount, label="mount", color="k", marker='x')
 ax.plot(x_Axis, rlimit, label="rlimit", color="y", marker='x')
 ax.plot(x_Axis, file_rules, label="file", color="b", marker='x')
-"""
+
 ax.legend(loc=0)
 ax.grid()
 ax.set_xlabel("Runs")
