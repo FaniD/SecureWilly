@@ -64,7 +64,7 @@ plt.savefig("../../parser_output/rules.png",bbox_inches="tight")
 enforce = 5 #Read this from bash script
 
 fig = plt.figure()
-ax1 = fig.add_subplot(311)
+
 part_1a = []
 part_1b = []
 part_1c = []
@@ -83,6 +83,7 @@ for x1 in range(enforce,int(num_of_runs)):
     part_2b.append(rules[1][x1])
     part_2c.append(rules[2][x1])
 
+ax1 = fig.add_subplot(311)
 ax1.plot(compl_rules, part_1a, label="dataset", color="blue", marker='x') 
 ax1.plot(enf_rules, part_2a, label="dataset", color="red", marker='x')
 
@@ -95,6 +96,8 @@ ax3.plot(compl_rules, part_1c, label="client", color="blue", marker='x')
 ax3.plot(enf_rules, part_2c, label="client", color="red", marker='x')
 
 ax1.grid()
+ax2.grid()
+ax3.grid()
 ax3.set_xlabel("Runs")
 ax1.set_ylabel(r"Rules")
 ax2.set_ylabel(r"Rules")

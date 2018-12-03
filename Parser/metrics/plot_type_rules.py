@@ -144,15 +144,14 @@ ax1.set_xlabel("Runs")
 ax1.set_ylabel(r" rules")
 ax1.set_ylim(0,max_value+2)
 
-
 #Network
 ax2 = fig.add_subplot(323)                                             
 part_1c = []
 part_2c = []
 for x1 in range(enforce+1):                                            
-        part_1c.append(capabilities[x1])                               
+        part_1c.append(network[x1])                               
 for x1 in range(enforce,int(num_of_runs)):                             
-        part_2c.append(capabilities[x1])                               
+        part_2c.append(network[x1])                               
 ax2.plot(compl_rules, part_1c, label="network", color="b", marker='x')
 ax2.plot(enf_rules, part_2c, label="network", color="r", marker='x')
 ax2.grid()                                                             
