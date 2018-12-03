@@ -1,0 +1,13 @@
+version: "2.3"
+
+services:
+  mounty:
+    security_opt:
+       - "apparmor:ro_vol"
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    volumes:
+            - "/home/ubuntu/Security-on-Docker/Docker_tests/mount/ro_volumes/data:/mount_here:ro"
+
