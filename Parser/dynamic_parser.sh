@@ -9,6 +9,10 @@ parser_path="${app_run_path}/Parser"
 dynamic_script_path="${parser_path}/dynamic_scripts"
 
 #Clear old files and output directories and create new
+rm -r ${app_run_path}/parser_output/Logs
+rm -r ${app_run_path}/parser_output/profiles
+
+#If it does not exist
 mkdir ${app_run_path}/parser_output
 
 #If static analysis has been done, then we expect to see static profile in output directory. Count files in there to find out
@@ -16,10 +20,7 @@ ls ${app_run_path}/parser_output/ -1 | wc -l > s
 static_part=$(head -n 1 s)
 rm s
 
-rm -r ${app_run_path}/parser_output/Logs
 mkdir ${app_run_path}/parser_output/Logs
-
-rm -r ${app_run_path}/parser_output/profiles
 mkdir ${app_run_path}/parser_output/profiles
 
 for SERVICE in "${service_list[@]}"; do
