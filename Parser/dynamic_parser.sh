@@ -77,7 +77,7 @@ while true; do
 	for SERVICE in "${service_list[@]}"; do
 		next_step=$(head -n 1 next_step_${SERVICE})
 		#echo "Next step for ${SERVICE} is $next_step"
-		if [[ "$next_step" == "0" ]
+		if [[ "$next_step" == "0" ]]
 		then
 			enforce_time="0"
 		fi
