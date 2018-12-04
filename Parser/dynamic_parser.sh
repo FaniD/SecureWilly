@@ -14,6 +14,7 @@ mkdir ${app_run_path}/parser_output
 #If static analysis has been done, then we expect to see static profile in output directory. Count files in there to find out
 ls ${app_run_path}/parser_output/ -1 | wc -l > s
 static_part=$(head -n 1 s)
+rm s
 
 rm -r ${app_run_path}/parser_output/Logs
 mkdir ${app_run_path}/parser_output/Logs
@@ -25,7 +26,7 @@ for SERVICE in "${service_list[@]}"; do
 	sudo rm /etc/apparmor.d/${SERVICE}_profile
 	mkdir ${app_run_path}/parser_output/profiles/${SERVICE}
 	#If static profile exists, otherwise make this a comment and create it a simple version_1
-	if [ static_part > 0 ] then
+	if [[ "$static_part" > "0" ]]; then
 		cp ${app_run_path}/parser_output/${SERVICE}_static_profile ${app_run_path}/parser_output/profiles/${SERVICE}/version_1
 	else
 		python ${dynamic_script_path}/create_version_1.py ${SERVICE}
@@ -76,13 +77,13 @@ while true; do
 	for SERVICE in "${service_list[@]}"; do
 		next_step=$(head -n 1 next_step_${SERVICE})
 		#echo "Next step for ${SERVICE} is $next_step"
-		if [ $next_step == '0' ]
+		if [[ "$next_step" == "0" ]
 		then
-			enforce_time='0'
+			enforce_time="0"
 		fi
 	done
 	((i++))
-	if [ $enforce_time == '1' ] #Then none of the services has 0 value so enforce time
+	if [[ "$enforce_time" == "1" ]] #Then none of the services has 0 value so enforce time
 	then
 		#echo "Inside enforce time = ${enforce_time}"
 		break
@@ -106,17 +107,17 @@ while true; do
 		python ${dynamic_script_path}/11_merge_profiles.py $SERVICE $i 'enforce'
 	done
 	echo $x | source ${dynamic_script_path}/12_complain_enforce_audit.sh
-	audit_time='1'
+	audit_time="1"
 	for SERVICE in "${service_list[@]}"; do
 		next_step=$(head -n 1 next_step_${SERVICE})
 		#echo "Next step for ${SERVICE} is $next_step"
-		if [ $next_step == '0' ]
+		if [[ "$next_step" == "0" ]]
 		then
-			audit_time='0'
+			audit_time="0"
 		fi
 	done
 	((i++))
-	if [ $audit_time == '1' ] #Then none of the services has 0 value so audit time
+	if [[ "$audit_time" == "1" ]] #Then none of the services has 0 value so audit time
 	then
 		break
 	fi
@@ -128,9 +129,9 @@ y=${y:-$i}
 #while true; do
 
 	./${dynamic_script_path}/1_clear_containers.sh
-	if [ $y == $i ] 
+	if [[ "$y" == "$i" ]] 
 	then
-		for SERVICE in "${service_list[@]}"; do  #FIX THIS -> GENERIC
+		for SERVICE in "${service_list[@]}"; do  
 			python ${dynamic_script_path}/2_pre_cp_audit_flag.py $SERVICE $i
 		done
 	fi
@@ -149,16 +150,16 @@ y=${y:-$i}
 		python ${dynamic_script_path}/11_merge_profiles.py $SERVICE $i 'complain'
 	done
 #	echo $x | source 12_complain_enforce_audit.sh
-#	audit_enforce_time='1'
+#	audit_enforce_time="1"
 #	for SERVICE in "${service_list[@]}"; do
 #		next_step=$(head -n 1 next_step_${SERVICE})
-#		if [ $next_step == '0' ]
+#		if [ "$next_step" == "0" ]
 #		then
-#			audit_enforce_time='0'
+#			audit_enforce_time="0"
 #		fi
 #	done
 	((i++))
-#	if [ $audit_enforce_time == '1' ] #Then none of the services has 0 value so audit enforce time
+#	if [ "$audit_enforce_time" == "1" ] #Then none of the services has 0 value so audit enforce time
 #	then
 #		break
 #	fi
@@ -182,17 +183,17 @@ y=${y:-$i}
 		python ${dynamic_script_path}/11_merge_profiles.py $SERVICE $i 'enforce'
         done
 #	echo $x | source 12_complain_enforce_audit.sh
-#	end_of_logs='1'
+#	end_of_logs="1"
 #	for SERVICE in "${service_list[@]}"; do
 #		next_step=$(head -n 1 next_step_${SERVICE})
 #	        #echo "Next step for ${SERVICE} is $next_step"
-#	        if [ $next_step == '0' ]
+#	        if [ "$next_step" == "0" ]
 #	        then
-#		        end_of_logs='0'
+#		        end_of_logs="0"
 #		fi
 #	done
 	((i++))
-#	if [ $end_of_logs == '1' ] #Then none of the services has 0 value so audit time
+#	if [ "$end_of_logs" == "1" ] #Then none of the services has 0 value so audit time
 #	then
 #	        break
 #	fi
