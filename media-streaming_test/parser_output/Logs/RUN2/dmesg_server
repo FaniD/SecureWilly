@@ -1,2 +1,3 @@
-[90251.382749] type=1400 audit(1543942341.745:2042739): apparmor="ALLOWED" operation="capable" profile="server_profile" pid=27474 comm="nginx" capability=6  capname="setgid"
-[90251.382929] type=1400 audit(1543942341.745:2042740): apparmor="ALLOWED" operation="capable" profile="server_profile" pid=27474 comm="nginx" capability=7  capname="setuid"
+[104122.720365] type=1400 audit(1543956213.085:23051999): apparmor="ALLOWED" operation="capable" profile="server_profile" pid=11194 comm="nginx" capability=6  capname="setgid"
+[104122.720632] type=1400 audit(1543956213.085:23052000): apparmor="ALLOWED" operation="capable" profile="server_profile" pid=11195 comm="nginx" capability=6  capname="setgid"
+[104787.893183] type=1400 audit(1543956878.257:23052001): apparmor="ALLOWED" operation="signal" profile="server_profile" pid=1559 comm="docker-containe" requested_mask="receive" denied_mask="receive" signal=term peer="unconfined"

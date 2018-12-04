@@ -6,9 +6,8 @@ profile client_profile flags=(attach_disconnected,mediate_deleted) {
 	/lib/x86_64-linux-gnu/libtinfo.so.5.9 r,
 	/var/lib/docker/* r,
 	network inet stream,
-	/usr/bin/dirname r,
+	/lib/x86_64-linux-gnu/libdl-2.19.so r,
 	file,  #This rule is needed so that I can work with files (create files/directories, copy, etc)
-	/root/run/process_logs.sh ix,
 	/root/run/ r,
 	network inet dgram,
 }
