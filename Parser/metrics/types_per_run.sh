@@ -91,6 +91,7 @@ for SERVICE in "${service_list[@]}"; do
 done
 
 rm changes
+rm run*
 rm f
 rm fr
 rm num_of_runs
