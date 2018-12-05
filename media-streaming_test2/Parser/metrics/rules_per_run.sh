@@ -32,6 +32,9 @@ rm num_of_runs
 #Do this manually depending on services
 python plot_rules_total.py ${parser_output_path}/rules_dataset ${parser_output_path}/rules_client ${parser_output_path}/rules_server $num_runs
 
+rm changes
+rm run*
+
 for SERVICE in "${service_list[@]}"; do
 	rm ${parser_output_path}/rules_${SERVICE}
 done
