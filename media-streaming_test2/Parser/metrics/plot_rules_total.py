@@ -20,8 +20,6 @@ for SERVICE in service_list:
     rules.append([]) #initiate list of each row
     i+=1
 
-#changes = str(sys.argv[i])
-
 #Create int lists from string arrays
 #Reading per line and appending list
 i=0
@@ -110,16 +108,21 @@ ax1 = fig.add_subplot(311)
 ax1.plot(compl_rules, part_1a, label="dataset", color="blue", marker='x') 
 ax1.plot(enf_rules, part_2a, label="dataset", color="red", marker='x')
 ax1.plot(compl_audit, part_3a, label="dataset", color="green", marker='x')
-ax1.plot(enf_audit, part_4a, label="dataset", color="w", marker='x')
+ax1.plot(enf_audit, part_4a, label="dataset", color="darkmagenta", marker='x')
 
 ax2 = fig.add_subplot(312)
 ax2.plot(compl_rules, part_1b, label="server", color="blue", marker='x')
 ax2.plot(enf_rules, part_2b, label="server", color="red", marker='x')
+ax2.plot(compl_audit, part_3b, label="dataset", color="green", marker='x')
+ax2.plot(enf_audit, part_4b, label="dataset", color="darkmagenta", marker='x')
 
 ax3 = fig.add_subplot(313)
 ax3.plot(compl_rules, part_1c, label="client", color="blue", marker='x')
 ax3.plot(enf_rules, part_2c, label="client", color="red", marker='x')
+ax3.plot(compl_audit, part_3c, label="dataset", color="green", marker='x')
+ax3.plot(enf_audit, part_4c, label="dataset", color="darkmagenta", marker='x')
 
+ax1.legend(loc=0)
 ax1.grid()
 ax2.grid()
 ax3.grid()

@@ -155,7 +155,7 @@ while true; do
 		python ${dynamic_script_path}/11_merge_profiles.py $SERVICE $i 'complain'
 	done
 ####################
-	echo $x | source 12_complain_enforce_audit.sh
+	echo $x | source ${dynamic_script_path}/12_complain_enforce_audit.sh
 	audit_enforce_time="1"
 	for SERVICE in "${service_list[@]}"; do
 		next_step=$(head -n 1 next_step_${SERVICE})
@@ -192,7 +192,7 @@ while true; do
 		python ${dynamic_script_path}/11_merge_profiles.py $SERVICE $i 'enforce'
         done
 #######################
-	echo $x | source 12_complain_enforce_audit.sh
+	echo $x | source ${dynamic_script_path}/12_complain_enforce_audit.sh
 	end_of_logs="1"
 	for SERVICE in "${service_list[@]}"; do
 		next_step=$(head -n 1 next_step_${SERVICE})
