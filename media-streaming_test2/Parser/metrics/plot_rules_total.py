@@ -39,9 +39,6 @@ for i in range(services):
     max_rules.append(rules[i][int(num_of_runs)-1])
 max_value = max(max_rules)
 
-#x_Axis=[]
-#for x in range(int(num_of_runs)):
-#    x_Axis.append(x)
 x_Axis = range(int(num_of_runs))
 
 fig = plt.figure()
@@ -82,20 +79,20 @@ part_4a = []
 part_4b = []
 part_4c = []
 
-compl_rules = range(complain_enforce[0]+1) #enforce+1)
-enf_rules = range(complain_enforce[0],complain_enforce[1]+1) #int(num_of_runs))
+compl_rules = range(complain_enforce[0]+1)
+enf_rules = range(complain_enforce[0],complain_enforce[1]+1)
 compl_audit = range(complain_enforce[1],complain_enforce[2]+1)
 enf_audit = range(complain_enforce[2],int(num_of_runs))
 
-for x1 in range(complain_enforce[0]+1): #enforce+1):
+for x1 in range(complain_enforce[0]+1):
     part_1a.append(rules[0][x1])
     part_1b.append(rules[1][x1])
     part_1c.append(rules[2][x1])
-for x1 in range(complain_enforce[0], complain_enforce[1]+1): #int(num_of_runs)):
+for x1 in range(complain_enforce[0], complain_enforce[1]+1):
     part_2a.append(rules[0][x1])
     part_2b.append(rules[1][x1])
     part_2c.append(rules[2][x1])
-for x1 in range(complain_enforce[1], complain_enforce[2]+1): #int(num_of_runs)):
+for x1 in range(complain_enforce[1], complain_enforce[2]+1):
     part_3a.append(rules[0][x1])
     part_3b.append(rules[1][x1])
     part_3c.append(rules[2][x1])
