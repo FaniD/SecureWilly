@@ -205,7 +205,7 @@ done
 #######################
 	((i++))
 #######################
-#	if [ "$end_of_logs" == "1" ] #Then none of the services has 0 value so audit time
+#	if [[ "$end_of_logs" == "1" ]] #Then none of the services has 0 value so audit time
 #	then
 #	        break
 #	fi
