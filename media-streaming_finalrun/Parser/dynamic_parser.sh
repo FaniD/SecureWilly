@@ -124,7 +124,7 @@ while true; do
 	fi
 done
 
-#Audit flag runs (complain & enforce) I need globbing.py otherwise we'll have an infinite loop because of every new instance
+#Audit flag runs (complain & enforce)
 
 y=${y:-$i}
 #########################
@@ -133,9 +133,6 @@ while true; do
 	./${dynamic_script_path}/1_clear_containers.sh
 	if [ $y -eq $i ] 
 	then
-#######################
-		echo "mpainei pote edo?" > hmmm
-#######################
 		for SERVICE in "${service_list[@]}"; do  
 			python ${dynamic_script_path}/2_pre_cp_audit_flag.py $SERVICE $i
 		done
@@ -155,7 +152,7 @@ while true; do
 		python ${dynamic_script_path}/11_merge_profiles.py $SERVICE $i 'complain'
 	done
 ####################
-	echo $x | source 12_complain_enforce_audit.sh
+	echo $x | source ${dynamic_script_path}/12_complain_enforce_audit.sh
 	audit_enforce_time="1"
 	for SERVICE in "${service_list[@]}"; do
 		next_step=$(head -n 1 next_step_${SERVICE})
@@ -175,7 +172,7 @@ done
 ###################
 
 
-#while true; do
+while true; do
 	./${dynamic_script_path}/1_clear_containers.sh
 	echo $i | source ${dynamic_script_path}/2_cp_to_apparmor.sh
         ./${dynamic_script_path}/3_load_profiles.sh
@@ -192,24 +189,24 @@ done
 		python ${dynamic_script_path}/11_merge_profiles.py $SERVICE $i 'enforce'
         done
 #######################
-#	echo $x | source 12_complain_enforce_audit.sh
-#	end_of_logs="1"
-#	for SERVICE in "${service_list[@]}"; do
-#		next_step=$(head -n 1 next_step_${SERVICE})
-#	        #echo "Next step for ${SERVICE} is $next_step"
-#	        if [[ "$next_step" == "0" ]]
-#	        then
-#		        end_of_logs="0"
-#		fi
-#	done
+	echo $x | source ${dynamic_script_path}/12_complain_enforce_audit.sh
+	end_of_logs="1"
+	for SERVICE in "${service_list[@]}"; do
+		next_step=$(head -n 1 next_step_${SERVICE})
+	        #echo "Next step for ${SERVICE} is $next_step"
+	        if [[ "$next_step" == "0" ]]
+	        then
+		        end_of_logs="0"
+		fi
+	done
 #######################
 	((i++))
 #######################
-#	if [[ "$end_of_logs" == "1" ]] #Then none of the services has 0 value so audit time
-#	then
-#	        break
-#	fi
-#done
+	if [[ "$end_of_logs" == "1" ]] #Then none of the services has 0 value so audit time
+	then
+	        break
+	fi
+done
 ######################
 
 #version_{i} is the last profile

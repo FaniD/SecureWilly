@@ -1,0 +1,24 @@
+Dec  5 18:47:40 docker-security15 kernel: [183569.964418] IPv6: ADDRCONF(NETDEV_UP): br-5d541a680ae4: link is not ready
+Dec  5 18:48:15 docker-security15 kernel: [183605.247563] device veth2518f2f entered promiscuous mode
+Dec  5 18:48:15 docker-security15 kernel: [183605.247759] IPv6: ADDRCONF(NETDEV_UP): veth2518f2f: link is not ready
+Dec  5 18:48:32 docker-security15 kernel: [183622.409445] IPv6: ADDRCONF(NETDEV_CHANGE): veth2518f2f: link becomes ready
+Dec  5 18:48:32 docker-security15 kernel: [183622.409527] br-5d541a680ae4: port 1(veth2518f2f) entered forwarding state
+Dec  5 18:48:32 docker-security15 kernel: [183622.409543] br-5d541a680ae4: port 1(veth2518f2f) entered forwarding state
+Dec  5 18:48:32 docker-security15 kernel: [183622.409561] IPv6: ADDRCONF(NETDEV_CHANGE): br-5d541a680ae4: link becomes ready
+Dec  5 18:48:33 docker-security15 kernel: [183623.109168] type=1400 audit(1544035713.473:49873586): apparmor="ALLOWED" operation="capable" profile="server_profile" pid=12199 comm="nginx" capability=10  capname="net_bind_service"
+Dec  5 18:48:33 docker-security15 kernel: [183623.110087] type=1400 audit(1544035713.473:49873587): apparmor="ALLOWED" operation="capable" profile="server_profile" pid=12281 comm="nginx" capability=7  capname="setuid"
+Dec  5 18:48:33 docker-security15 kernel: [183623.110306] type=1400 audit(1544035713.473:49873588): apparmor="ALLOWED" operation="capable" profile="server_profile" pid=12282 comm="nginx" capability=7  capname="setuid"
+Dec  5 18:48:34 docker-security15 kernel: [183623.860739] device vethb45da5d entered promiscuous mode
+Dec  5 18:48:34 docker-security15 kernel: [183623.860977] IPv6: ADDRCONF(NETDEV_UP): vethb45da5d: link is not ready
+Dec  5 18:48:35 docker-security15 kernel: [183624.760715] IPv6: ADDRCONF(NETDEV_CHANGE): vethb45da5d: link becomes ready
+Dec  5 18:48:35 docker-security15 kernel: [183624.760765] br-5d541a680ae4: port 2(vethb45da5d) entered forwarding state
+Dec  5 18:48:35 docker-security15 kernel: [183624.760772] br-5d541a680ae4: port 2(vethb45da5d) entered forwarding state
+Dec  5 18:48:47 docker-security15 kernel: [183637.436178] br-5d541a680ae4: port 1(veth2518f2f) entered forwarding state
+Dec  5 18:48:50 docker-security15 kernel: [183639.772434] br-5d541a680ae4: port 2(vethb45da5d) entered forwarding state
+Dec  5 18:59:39 docker-security15 kernel: [184289.402706] br-5d541a680ae4: port 2(vethb45da5d) entered disabled state
+Dec  5 18:59:40 docker-security15 kernel: [184289.812795] br-5d541a680ae4: port 2(vethb45da5d) entered disabled state
+Dec  5 18:59:40 docker-security15 kernel: [184289.813563] device vethb45da5d left promiscuous mode
+Dec  5 18:59:40 docker-security15 kernel: [184289.813577] br-5d541a680ae4: port 2(vethb45da5d) entered disabled state
+Dec  5 18:59:40 docker-security15 kernel: [184289.868229] br-5d541a680ae4: port 1(veth2518f2f) entered disabled state
+Dec  5 18:59:40 docker-security15 kernel: [184289.868877] device veth2518f2f left promiscuous mode
+Dec  5 18:59:40 docker-security15 kernel: [184289.868888] br-5d541a680ae4: port 1(veth2518f2f) entered disabled state

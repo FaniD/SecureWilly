@@ -1,0 +1,24 @@
+[182853.163226] IPv6: ADDRCONF(NETDEV_UP): br-d7717ad9155d: link is not ready
+[182885.615166] device veth3ee96d4 entered promiscuous mode
+[182885.615412] IPv6: ADDRCONF(NETDEV_UP): veth3ee96d4: link is not ready
+[182893.548713] IPv6: ADDRCONF(NETDEV_CHANGE): veth3ee96d4: link becomes ready
+[182893.548796] br-d7717ad9155d: port 1(veth3ee96d4) entered forwarding state
+[182893.548809] br-d7717ad9155d: port 1(veth3ee96d4) entered forwarding state
+[182893.548836] IPv6: ADDRCONF(NETDEV_CHANGE): br-d7717ad9155d: link becomes ready
+[182895.123659] type=1400 audit(1544034985.485:49873577): apparmor="ALLOWED" operation="capable" profile="server_profile" pid=9369 comm="nginx" capability=0  capname="chown"
+[182895.125745] type=1400 audit(1544034985.489:49873578): apparmor="ALLOWED" operation="capable" profile="server_profile" pid=9434 comm="nginx" capability=6  capname="setgid"
+[182895.126823] type=1400 audit(1544034985.489:49873579): apparmor="ALLOWED" operation="capable" profile="server_profile" pid=9436 comm="nginx" capability=6  capname="setgid"
+[182899.625179] device vethb058d2b entered promiscuous mode
+[182899.625303] IPv6: ADDRCONF(NETDEV_UP): vethb058d2b: link is not ready
+[182900.576884] IPv6: ADDRCONF(NETDEV_CHANGE): vethb058d2b: link becomes ready
+[182900.576945] br-d7717ad9155d: port 2(vethb058d2b) entered forwarding state
+[182900.576951] br-d7717ad9155d: port 2(vethb058d2b) entered forwarding state
+[182908.572105] br-d7717ad9155d: port 1(veth3ee96d4) entered forwarding state
+[182915.612082] br-d7717ad9155d: port 2(vethb058d2b) entered forwarding state
+[183565.104752] br-d7717ad9155d: port 2(vethb058d2b) entered disabled state
+[183565.448942] br-d7717ad9155d: port 2(vethb058d2b) entered disabled state
+[183565.450064] device vethb058d2b left promiscuous mode
+[183565.450077] br-d7717ad9155d: port 2(vethb058d2b) entered disabled state
+[183565.517530] br-d7717ad9155d: port 1(veth3ee96d4) entered disabled state
+[183565.518502] device veth3ee96d4 left promiscuous mode
+[183565.518513] br-d7717ad9155d: port 1(veth3ee96d4) entered disabled state

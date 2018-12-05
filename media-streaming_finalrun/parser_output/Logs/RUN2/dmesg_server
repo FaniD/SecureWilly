@@ -1,0 +1,3 @@
+[182895.123659] type=1400 audit(1544034985.485:49873577): apparmor="ALLOWED" operation="capable" profile="server_profile" pid=9369 comm="nginx" capability=0  capname="chown"
+[182895.125745] type=1400 audit(1544034985.489:49873578): apparmor="ALLOWED" operation="capable" profile="server_profile" pid=9434 comm="nginx" capability=6  capname="setgid"
+[182895.126823] type=1400 audit(1544034985.489:49873579): apparmor="ALLOWED" operation="capable" profile="server_profile" pid=9436 comm="nginx" capability=6  capname="setgid"

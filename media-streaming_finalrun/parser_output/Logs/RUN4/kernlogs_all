@@ -1,0 +1,21 @@
+Dec  5 18:59:45 docker-security15 kernel: [184294.809221] IPv6: ADDRCONF(NETDEV_UP): br-83dcfe825fa1: link is not ready
+Dec  5 19:00:16 docker-security15 kernel: [184326.389514] device veth4e3aa32 entered promiscuous mode
+Dec  5 19:00:16 docker-security15 kernel: [184326.389645] IPv6: ADDRCONF(NETDEV_UP): veth4e3aa32: link is not ready
+Dec  5 19:00:27 docker-security15 kernel: [184337.056804] IPv6: ADDRCONF(NETDEV_CHANGE): veth4e3aa32: link becomes ready
+Dec  5 19:00:27 docker-security15 kernel: [184337.056865] br-83dcfe825fa1: port 1(veth4e3aa32) entered forwarding state
+Dec  5 19:00:27 docker-security15 kernel: [184337.056878] br-83dcfe825fa1: port 1(veth4e3aa32) entered forwarding state
+Dec  5 19:00:27 docker-security15 kernel: [184337.056896] IPv6: ADDRCONF(NETDEV_CHANGE): br-83dcfe825fa1: link becomes ready
+Dec  5 19:00:38 docker-security15 kernel: [184348.594089] device vethcda7cbb entered promiscuous mode
+Dec  5 19:00:38 docker-security15 kernel: [184348.594243] IPv6: ADDRCONF(NETDEV_UP): vethcda7cbb: link is not ready
+Dec  5 19:00:39 docker-security15 kernel: [184349.556986] IPv6: ADDRCONF(NETDEV_CHANGE): vethcda7cbb: link becomes ready
+Dec  5 19:00:39 docker-security15 kernel: [184349.557066] br-83dcfe825fa1: port 2(vethcda7cbb) entered forwarding state
+Dec  5 19:00:39 docker-security15 kernel: [184349.557076] br-83dcfe825fa1: port 2(vethcda7cbb) entered forwarding state
+Dec  5 19:00:42 docker-security15 kernel: [184352.092394] br-83dcfe825fa1: port 1(veth4e3aa32) entered forwarding state
+Dec  5 19:00:54 docker-security15 kernel: [184364.572044] br-83dcfe825fa1: port 2(vethcda7cbb) entered forwarding state
+Dec  5 19:33:56 docker-security15 kernel: [186346.619545] br-83dcfe825fa1: port 2(vethcda7cbb) entered disabled state
+Dec  5 19:33:57 docker-security15 kernel: [186347.034660] br-83dcfe825fa1: port 1(veth4e3aa32) entered disabled state
+Dec  5 19:33:57 docker-security15 kernel: [186347.035350] device veth4e3aa32 left promiscuous mode
+Dec  5 19:33:57 docker-security15 kernel: [186347.035359] br-83dcfe825fa1: port 1(veth4e3aa32) entered disabled state
+Dec  5 19:33:57 docker-security15 kernel: [186347.091941] br-83dcfe825fa1: port 2(vethcda7cbb) entered disabled state
+Dec  5 19:33:57 docker-security15 kernel: [186347.092708] device vethcda7cbb left promiscuous mode
+Dec  5 19:33:57 docker-security15 kernel: [186347.092719] br-83dcfe825fa1: port 2(vethcda7cbb) entered disabled state
