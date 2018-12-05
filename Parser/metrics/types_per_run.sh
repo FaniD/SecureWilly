@@ -4,10 +4,9 @@ service_list=(dataset server client)
 app_path="../.."
 parser_output_path="${app_path}/parser_output"
 
-#./complain_enforce_audit.sh
+./complain_enforce_audit.sh
 
 for SERVICE in "${service_list[@]}"; do
-	./complain_enforce_audit.sh
 	profile_path="${parser_output_path}/profiles/${SERVICE}"
 
 	#Count how many runs there have been (=how many profiles there are in profile dir)

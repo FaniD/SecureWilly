@@ -207,7 +207,7 @@ ax2.plot(compl_audit, part_3b, label="capabilities", color="g", marker='x')
 ax2.plot(enf_audit, part_4b, label="capabilities", color="darkmagenta", marker='x')
 ax2.grid()
 ax2.set_xlabel("Runs")
-ax2.set_ylabel(r" rules")
+ax2.set_ylabel(r"Capability rules")
 ax2.set_ylim(0,max_value+2)
 
 #Network
