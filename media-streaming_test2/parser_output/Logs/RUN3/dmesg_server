@@ -1,0 +1,2 @@
+[124813.020092] type=1400 audit(1543976903.385:29863713): apparmor="ALLOWED" operation="capable" profile="server_profile" pid=2156 comm="nginx" capability=7  capname="setuid"
+[124813.021016] type=1400 audit(1543976903.385:29863714): apparmor="ALLOWED" operation="capable" profile="server_profile" pid=2157 comm="nginx" capability=7  capname="setuid"

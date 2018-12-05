@@ -1,0 +1,45 @@
+[124037.937782] IPv6: ADDRCONF(NETDEV_UP): br-73d5871cc011: link is not ready
+[124075.129488] device vethbdff403 entered promiscuous mode
+[124075.129700] IPv6: ADDRCONF(NETDEV_UP): vethbdff403: link is not ready
+[124088.008784] IPv6: ADDRCONF(NETDEV_CHANGE): vethbdff403: link becomes ready
+[124088.008858] br-73d5871cc011: port 1(vethbdff403) entered forwarding state
+[124088.008873] br-73d5871cc011: port 1(vethbdff403) entered forwarding state
+[124088.008890] IPv6: ADDRCONF(NETDEV_CHANGE): br-73d5871cc011: link becomes ready
+[124100.559838] device veth6c42229 entered promiscuous mode
+[124100.560087] IPv6: ADDRCONF(NETDEV_UP): veth6c42229: link is not ready
+[124100.650263] type=1400 audit(1543976191.013:29863671): apparmor="ALLOWED" operation="capable" profile="server_profile" pid=32083 comm="nginx" capability=6  capname="setgid"
+[124100.650853] type=1400 audit(1543976191.013:29863672): apparmor="ALLOWED" operation="capable" profile="server_profile" pid=32085 comm="nginx" capability=6  capname="setgid"
+[124100.651492] type=1400 audit(1543976191.013:29863673): apparmor="ALLOWED" operation="capable" profile="server_profile" pid=32086 comm="nginx" capability=6  capname="setgid"
+[124101.408763] IPv6: ADDRCONF(NETDEV_CHANGE): veth6c42229: link becomes ready
+[124101.408803] br-73d5871cc011: port 2(veth6c42229) entered forwarding state
+[124101.408810] br-73d5871cc011: port 2(veth6c42229) entered forwarding state
+[124101.872747] type=1400 audit(1543976192.237:29863674): apparmor="ALLOWED" operation="create" profile="client_profile" pid=32184 comm="httperf" family="inet" sock_type="dgram" protocol=0
+[124101.872753] audit: audit_lost=29849686 audit_rate_limit=0 audit_backlog_limit=64
+[124101.872757] audit: printk limit exceeded
+[124101.872757] 
+[124101.872761] type=1400 audit(1543976192.237:29863676): apparmor="ALLOWED" operation="create" profile="client_profile" pid=32186 comm="httperf" family="inet" sock_type="dgram" protocol=0
+[124101.872785] type=1400 audit(1543976192.237:29863677): apparmor="ALLOWED" operation="connect" profile="client_profile" pid=32188 comm="httperf" family="inet" sock_type="dgram" protocol=17
+[124101.872786] type=1400 audit(1543976192.237:29863678): apparmor="ALLOWED" operation="connect" profile="client_profile" pid=32186 comm="httperf" family="inet" sock_type="dgram" protocol=17
+[124101.876139] type=1400 audit(1543976192.241:29863679): apparmor="ALLOWED" operation="sendmsg" profile="client_profile" pid=32188 comm="httperf" laddr=127.0.0.1 lport=54535 faddr=127.0.0.11 fport=53 family="inet" sock_type="dgram" protocol=17
+[124103.036049] br-73d5871cc011: port 1(vethbdff403) entered forwarding state
+[124116.444383] br-73d5871cc011: port 2(veth6c42229) entered forwarding state
+[124434.233041] audit_printk_skb: 30 callbacks suppressed
+[124434.233052] type=1400 audit(1543976524.597:29863690): apparmor="ALLOWED" operation="create" profile="client_profile" pid=32329 comm="httperf" family="inet" sock_type="dgram" protocol=0
+[124434.233095] type=1400 audit(1543976524.597:29863691): apparmor="ALLOWED" operation="connect" profile="client_profile" pid=32329 comm="httperf" family="inet" sock_type="dgram" protocol=17
+[124434.233149] type=1400 audit(1543976524.597:29863692): apparmor="ALLOWED" operation="sendmsg" profile="client_profile" pid=32329 comm="httperf" laddr=127.0.0.1 lport=46627 faddr=127.0.0.11 fport=53 family="inet" sock_type="dgram" protocol=17
+[124434.233826] type=1400 audit(1543976524.597:29863693): apparmor="ALLOWED" operation="create" profile="client_profile" pid=32331 comm="httperf" family="inet" sock_type="dgram" protocol=0
+[124434.233857] type=1400 audit(1543976524.597:29863694): apparmor="ALLOWED" operation="connect" profile="client_profile" pid=32331 comm="httperf" family="inet" sock_type="dgram" protocol=17
+[124434.233886] type=1400 audit(1543976524.597:29863695): apparmor="ALLOWED" operation="sendmsg" profile="client_profile" pid=32331 comm="httperf" laddr=127.0.0.1 lport=57776 faddr=127.0.0.11 fport=53 family="inet" sock_type="dgram" protocol=17
+[124434.233978] type=1400 audit(1543976524.597:29863696): apparmor="ALLOWED" operation="recvmsg" profile="client_profile" pid=32329 comm="httperf" laddr=127.0.0.1 lport=46627 faddr=127.0.0.11 fport=53 family="inet" sock_type="dgram" protocol=17
+[124434.234462] type=1400 audit(1543976524.597:29863697): apparmor="ALLOWED" operation="recvmsg" profile="client_profile" pid=32331 comm="httperf" laddr=127.0.0.1 lport=57776 faddr=127.0.0.11 fport=53 family="inet" sock_type="dgram" protocol=17
+[124434.236236] type=1400 audit(1543976524.601:29863698): apparmor="ALLOWED" operation="create" profile="client_profile" pid=32333 comm="httperf" family="inet" sock_type="dgram" protocol=0
+[124434.236309] type=1400 audit(1543976524.601:29863699): apparmor="ALLOWED" operation="connect" profile="client_profile" pid=32333 comm="httperf" family="inet" sock_type="dgram" protocol=17
+[124766.109398] audit_printk_skb: 18 callbacks suppressed
+[124766.109405] type=1400 audit(1543976856.473:29863706): apparmor="ALLOWED" operation="signal" profile="server_profile" pid=1559 comm="docker-containe" requested_mask="receive" denied_mask="receive" signal=term peer="unconfined"
+[124766.320955] br-73d5871cc011: port 2(veth6c42229) entered disabled state
+[124766.475142] br-73d5871cc011: port 2(veth6c42229) entered disabled state
+[124766.475860] device veth6c42229 left promiscuous mode
+[124766.475869] br-73d5871cc011: port 2(veth6c42229) entered disabled state
+[124766.890264] br-73d5871cc011: port 1(vethbdff403) entered disabled state
+[124766.890990] device vethbdff403 left promiscuous mode
+[124766.891001] br-73d5871cc011: port 1(vethbdff403) entered disabled state

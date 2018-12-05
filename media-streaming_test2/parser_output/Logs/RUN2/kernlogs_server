@@ -1,0 +1,4 @@
+Dec  5 02:16:31 docker-security15 kernel: [124100.650263] type=1400 audit(1543976191.013:29863671): apparmor="ALLOWED" operation="capable" profile="server_profile" pid=32083 comm="nginx" capability=6  capname="setgid"
+Dec  5 02:16:31 docker-security15 kernel: [124100.650853] type=1400 audit(1543976191.013:29863672): apparmor="ALLOWED" operation="capable" profile="server_profile" pid=32085 comm="nginx" capability=6  capname="setgid"
+Dec  5 02:16:31 docker-security15 kernel: [124100.651492] type=1400 audit(1543976191.013:29863673): apparmor="ALLOWED" operation="capable" profile="server_profile" pid=32086 comm="nginx" capability=6  capname="setgid"
+Dec  5 02:27:36 docker-security15 kernel: [124766.109405] type=1400 audit(1543976856.473:29863706): apparmor="ALLOWED" operation="signal" profile="server_profile" pid=1559 comm="docker-containe" requested_mask="receive" denied_mask="receive" signal=term peer="unconfined"
