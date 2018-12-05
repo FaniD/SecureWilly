@@ -122,7 +122,7 @@ ax3.plot(enf_rules, part_2c, label="enforce", color="red", marker='x')
 ax3.plot(compl_audit, part_3c, label="complain audit", color="green", marker='x')
 ax3.plot(enf_audit, part_4c, label="enforce audit", color="darkmagenta", marker='x')
 
-ax1.legend(loc=1)
+ax1.legend(loc=1,prop={'size': 2})
 ax1.grid()
 ax2.grid()
 ax3.grid()
