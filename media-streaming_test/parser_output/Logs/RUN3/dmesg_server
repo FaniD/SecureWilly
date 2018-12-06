@@ -1,3 +1,0 @@
-[104850.701340] type=1400 audit(1543956941.065:23052008): apparmor="ALLOWED" operation="capable" profile="server_profile" pid=13529 comm="nginx" capability=7  capname="setuid"
-[104850.701869] type=1400 audit(1543956941.065:23052009): apparmor="ALLOWED" operation="capable" profile="server_profile" pid=13531 comm="nginx" capability=7  capname="setuid"
-[104850.702104] type=1400 audit(1543956941.065:23052010): apparmor="ALLOWED" operation="capable" profile="server_profile" pid=13530 comm="nginx" capability=7  capname="setuid"

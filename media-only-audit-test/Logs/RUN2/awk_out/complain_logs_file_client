@@ -1,9 +1,0 @@
-/root/run/ r
-/var/lib/docker/aufs/diff/c2e1fbd808bb15acb4297e903d5c2e7a0f61f3a7f9e888472cf462dbf7b8fb15/root/run/ r
-/usr/bin/dirname r
-/var/lib/docker/aufs/diff/bef961f53a4e7fb5d68d1d51cde40f580d413848222522255cafa147a6091e2a/usr/bin/dirname r
-/root/run/process_logs.sh x
-/etc/ld.so.cache r
-/var/lib/docker/aufs/diff/24a2b499e80a485c4fb3cb39ee1d65ba19d8886c245a9e09d840144d9ed06ef5/etc/ld.so.cache r
-/lib/x86_64-linux-gnu/libtinfo.so.5.9 r
-/var/lib/docker/aufs/diff/bef961f53a4e7fb5d68d1d51cde40f580d413848222522255cafa147a6091e2a/lib/x86_64-linux-gnu/libtinfo.so.5.9 r

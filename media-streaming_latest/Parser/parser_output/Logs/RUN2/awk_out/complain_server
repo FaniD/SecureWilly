@@ -1,6 +1,0 @@
-#Capability\n
-setgid
-setuid
-#Network\n
-#File
-#Signal
