@@ -1,0 +1,24 @@
+[200538.140622] IPv6: ADDRCONF(NETDEV_UP): br-129500fffe79: link is not ready
+[200569.349534] device vethad44ac6 entered promiscuous mode
+[200569.349698] IPv6: ADDRCONF(NETDEV_UP): vethad44ac6: link is not ready
+[200580.180923] IPv6: ADDRCONF(NETDEV_CHANGE): vethad44ac6: link becomes ready
+[200580.180981] br-129500fffe79: port 1(vethad44ac6) entered forwarding state
+[200580.180989] br-129500fffe79: port 1(vethad44ac6) entered forwarding state
+[200580.181006] IPv6: ADDRCONF(NETDEV_CHANGE): br-129500fffe79: link becomes ready
+[200582.273184] type=1400 audit(1544052672.637:73945092): apparmor="ALLOWED" operation="capable" profile="server_profile" pid=19093 comm="nginx" capability=10  capname="net_bind_service"
+[200582.274854] type=1400 audit(1544052672.637:73945093): apparmor="ALLOWED" operation="capable" profile="server_profile" pid=19154 comm="nginx" capability=7  capname="setuid"
+[200582.275272] type=1400 audit(1544052672.637:73945094): apparmor="ALLOWED" operation="capable" profile="server_profile" pid=19156 comm="nginx" capability=7  capname="setuid"
+[200590.888446] device veth8339441 entered promiscuous mode
+[200590.888646] IPv6: ADDRCONF(NETDEV_UP): veth8339441: link is not ready
+[200591.800740] IPv6: ADDRCONF(NETDEV_CHANGE): veth8339441: link becomes ready
+[200591.800791] br-129500fffe79: port 2(veth8339441) entered forwarding state
+[200591.800796] br-129500fffe79: port 2(veth8339441) entered forwarding state
+[200595.228119] br-129500fffe79: port 1(vethad44ac6) entered forwarding state
+[200606.812091] br-129500fffe79: port 2(veth8339441) entered forwarding state
+[202588.441655] br-129500fffe79: port 2(veth8339441) entered disabled state
+[202588.773777] br-129500fffe79: port 2(veth8339441) entered disabled state
+[202588.774602] device veth8339441 left promiscuous mode
+[202588.774615] br-129500fffe79: port 2(veth8339441) entered disabled state
+[202588.831050] br-129500fffe79: port 1(vethad44ac6) entered disabled state
+[202588.831629] device vethad44ac6 left promiscuous mode
+[202588.831637] br-129500fffe79: port 1(vethad44ac6) entered disabled state

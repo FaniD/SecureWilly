@@ -1,0 +1,4 @@
+[198534.702154] type=1400 audit(1544050625.065:73944986): apparmor="ALLOWED" operation="capable" profile="server_profile" pid=15134 comm="nginx" capability=0  capname="chown"
+[198534.703992] type=1400 audit(1544050625.065:73944987): apparmor="ALLOWED" operation="capable" profile="server_profile" pid=15213 comm="nginx" capability=6  capname="setgid"
+[198534.704281] type=1400 audit(1544050625.069:73944988): apparmor="ALLOWED" operation="capable" profile="server_profile" pid=15214 comm="nginx" capability=6  capname="setgid"
+[200532.815422] type=1400 audit(1544052623.177:73945085): apparmor="ALLOWED" operation="signal" profile="server_profile" pid=1553 comm="docker-containe" requested_mask="receive" denied_mask="receive" signal=term peer="unconfined"
