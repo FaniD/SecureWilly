@@ -21,5 +21,6 @@ profile golden_profile flags=(audit,attach_disconnected,mediate_deleted) {
 	link data -> /mount_here,
 	mount,
 	capability sys_chroot,
-	ptrace,
+	ptrace (read,trace),
+	deny ptrace (readby, tracedby) peer=unconfined,
 }
