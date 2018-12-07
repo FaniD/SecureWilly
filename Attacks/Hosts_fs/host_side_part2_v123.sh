@@ -1,6 +1,6 @@
 #!/bin/bash
 
-attack="/home/ubuntu/Security-on-Docker/Attacks/Hosts_fs"
+attack="home/ubuntu/Security-on-Docker/Attacks/Hosts_fs"
 echo "Please give container's id:"
 read container_id
 docker inspect --format {{.State.Pid}} ${container_id} > PID
