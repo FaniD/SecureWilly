@@ -1,12 +1,9 @@
 #include <tunables/global>
 
 profile mount_profile flags=(audit,attach_disconnected,mediate_deleted) {
-#	capability sys_admin,
-#	capability sys_ptrace,
-#	capability sys_chroot,
-	capability mknod,
-	ptrace (readby, tracedby),
-#	deny ptrace (readby, tracedby),
+	capability sys_admin,
+	capability sys_ptrace,
+	capability sys_chroot,
 #	deny capability setgid,  #Needed to switch between users (chown or USER commands)
 #	mount, # /home/ubuntu/Security-on-Docker/Docker_tests/mount/data -> /mount_here, #Bind host volume to docker container volume
 #	/usr/bin/nsenter r,

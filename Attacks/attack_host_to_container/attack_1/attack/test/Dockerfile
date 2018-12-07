@@ -10,7 +10,7 @@ MAINTAINER Fani Dimou <fani.dimou92@gmail.com>
 #RUN chown userA:userA /mount_here
 
 #Run a script that creates a file into the binded volume, which should be seen to the host if bind is successful
-COPY for_container.sh /
+COPY create.sh /
 #USER userA
-CMD ["./for_container.sh"]
+CMD ["./create.sh"]
 ENTRYPOINT /bin/bash
