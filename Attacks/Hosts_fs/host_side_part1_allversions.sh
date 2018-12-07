@@ -5,6 +5,9 @@ attack="/home/ubuntu/Security-on-Docker/Attacks/Hosts_fs"
 #Clear logs
 ./clear_logs.sh
 
+#Clear all docker filesystems/images/network etc
+docker system prune -a
+
 #Layers in container's filesystem
 sudo ls /var/lib/docker/aufs/diff
 #Choose one and create a dir there
