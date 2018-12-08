@@ -10,8 +10,8 @@ read layer
 
 mkdir /var/lib/docker/aufs/diff/${layer}/doot
 
-mkdir ${attack}/restricted_area
-touch ${attack}/restricted_area/HellloFromTheOtherSide
+#mkdir ${attack}/restricted_area
+#touch ${attack}/restricted_area/HellloFromTheOtherSide
 
 #Then mount a host directory to doot
 mount -o bind ${attack}/restricted_area /var/lib/docker/aufs/diff/${layer}/doot

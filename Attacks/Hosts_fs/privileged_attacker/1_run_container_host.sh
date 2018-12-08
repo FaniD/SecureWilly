@@ -5,5 +5,5 @@
 
 #Build and run docker image
 docker build attacked_container/ -t attack_vol3
-docker run --security-opt "apparmor=attacked_container_profile" -t -i attack_vol3:latest
+docker run --cap-add MKNOD --security-opt "apparmor=attacked_container_profile" -t -i attack_vol3:latest
 
