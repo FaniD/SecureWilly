@@ -6,7 +6,8 @@ profile attacker2_profile flags=(audit,attach_disconnected,mediate_deleted) {
 	capability sys_ptrace,
 	pivot_root,
 	mount,
-	capability sys_chroot,
+	capability,
+#	capability sys_chroot,
 	ptrace, # (read,trace),
 #	deny ptrace (readby, tracedby) peer=unconfined,
 }
