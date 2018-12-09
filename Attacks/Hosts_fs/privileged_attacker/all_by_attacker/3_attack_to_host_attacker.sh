@@ -11,8 +11,8 @@ read layer
 #####sudo or not sudo
 mkdir /var/lib/docker/aufs/diff/${layer}/doot
 
-#mkdir ${attack}/restricted_area
-#touch ${attack}/restricted_area/HellloFromTheOtherSide
+mkdir ${attack}/restricted_area
+touch ${attack}/restricted_area/HellloFromTheOtherSide
 
 ######sudo or not sudo
 #Then mount a host directory to doot
