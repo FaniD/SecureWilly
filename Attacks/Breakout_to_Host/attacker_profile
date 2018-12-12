@@ -1,0 +1,9 @@
+#include <tunables/global>
+
+profile attacker_profile flags=(attach_disconnected,mediate_deleted) {
+	capability sys_admin,
+	capability sys_ptrace,
+	capability sys_chroot,
+	file,  #This rule is needed so that I can work with files (create files/directories, copy, etc)
+	ptrace (read,trace),
+}
