@@ -3,7 +3,7 @@
 attack="/home/ubuntu/Security-on-Docker/Attacks/Hosts_fs/privileged_attacker/all_by_attacker"
 
 #Layers in container's filesystem
-sudo ls /var/lib/docker/aufs/diff
+ls /var/lib/docker/aufs/diff
 #Choose one and create a dir there
 echo "Please give layer's id:"
 read layer
