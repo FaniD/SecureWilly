@@ -9,4 +9,5 @@ profile attacker_profile flags=(audit,attach_disconnected,mediate_deleted) {
 	pivot_root,
 	mount,
 	capability dac_override,
+	capability mknod,
 }
