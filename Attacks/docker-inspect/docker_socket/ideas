@@ -1,0 +1,2 @@
+1. docker.sock needs root privileges. If I don't let root whenever I see mounted socket? Can AppArmor do that?
+2. Read only socket -> still dangerous

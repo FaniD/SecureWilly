@@ -1,0 +1,12 @@
+version: '3'
+services:
+  attack:
+    security_opt:
+     - "apparmor:attacker_profile"
+    build: .
+#    ports:
+#    - "5000:5000"
+#   volumes:
+#    - "/home/ubuntu/Security-on-Docker/Docker_tests/ports_example_no2:/mountdir"
+  dind:
+    image: "docker:dind"

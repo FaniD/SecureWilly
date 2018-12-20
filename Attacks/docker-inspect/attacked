@@ -1,6 +1,6 @@
 #include <tunables/global>
 
-profile ro_vol flags=(attach_disconnected,mediate_deleted) {
+profile attacked flags=(attach_disconnected,mediate_deleted) {
 
 	mount options=ro /home/ubuntu/Security-on-Docker/Docker_tests/mount/ro_volumes/data -> /mount_here, #Bind host volume to docker container volume
 #	/mount_here rwix,

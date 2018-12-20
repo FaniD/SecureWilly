@@ -1,15 +1,13 @@
 #include <tunables/global>
 
-profile socket_attacker flags=(attach_disconnected,mediate_deleted) {
+profile inspect_attacker flags=(attach_disconnected,mediate_deleted) {
 	file, #This rule is needed so that I can work with files (create files/directories, copy, etc)
-	deny /var/run/docker.sock rw,
-#	deny mount /var/run/docker.sock -> /var/run/docker.sock,
+
 	#Allow attack to Host
-#	capability sys_admin,
-#	capability sys_ptrace,
-#	capability sys_chroot,
-#	ptrace (read,trace),
-	deny capability,
+	capability sys_admin,
+	capability sys_ptrace,
+	capability sys_chroot,
+	ptrace (read,trace),
 
 	#Forbid attack to Host
 #	deny capability sys_admin,
