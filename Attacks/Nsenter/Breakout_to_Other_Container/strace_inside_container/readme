@@ -1,0 +1,1 @@
+Trying to figure out if strace works when I have deny ptrace in apparmor profile. Strace ls blocks forever... Why?

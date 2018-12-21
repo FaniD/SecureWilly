@@ -1,6 +1,6 @@
 #!/bin/bash
 
-attack="home/ubuntu/Security-on-Docker/Attacks/Hosts_fs/privileged_attacker/all_by_attacker"
+attack="home/ubuntu/Security-on-Docker/Attacks/Hosts_fs/non-privileged_attacker/all_by_attacker"
 #echo "Please give container's id:"
 #read container_id
 docker ps | grep attack_vol3 > dockerps

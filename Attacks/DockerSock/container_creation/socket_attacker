@@ -1,0 +1,14 @@
+#include <tunables/global>
+
+profile socket_attacker flags=(attach_disconnected,mediate_deleted) {
+	file, #This rule is needed so that I can work with files (create files/directories, copy, etc)
+	#Allow attack to Host
+	signal,
+	capability setuid,
+	capability setgid,
+	/home/* w,
+	unix,
+	#Forbid attack to Host
+#	deny capability setuid,
+#	deny capability setgid,
+}

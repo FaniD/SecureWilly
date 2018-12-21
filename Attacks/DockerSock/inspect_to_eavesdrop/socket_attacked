@@ -1,0 +1,8 @@
+#include <tunables/global>
+
+profile socket_attacked flags=(attach_disconnected,mediate_deleted) {
+
+	file,  #This rule is needed so that I can work with files (create files/directories, copy, etc)
+	/var/lib/docker/* r,
+	ptrace (readby, tracedby),
+}
