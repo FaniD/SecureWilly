@@ -1,0 +1,17 @@
+This example can be used to create containers, stop running containers, mount host's filesystem and write (create or delete host's files) even if docker.sock is mounted as readonly.
+
+0. ./set_profile.sh
+1. ./1_run.sh from host
+2. /2.sh from host
+
+Inside the attacker's container:
+3. cd Attack
+4. su userB (password B)
+5. su userA (password A)
+6. ./attack1.sh
+7. cat after_socat & copy output
+8. ./attack2.sh
+9. paste
+10. ls
+11. cd host_fs
+12. (You are inside host's filesystem) ls / touch new file / rm file / cat /etc/passwd
