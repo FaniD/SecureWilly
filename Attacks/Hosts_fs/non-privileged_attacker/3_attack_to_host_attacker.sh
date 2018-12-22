@@ -1,6 +1,6 @@
 #!/bin/sh
 
-attack="/home/ubuntu/Security-on-Docker/Attacks/Hosts_fs/non-privileged_attacker/all_by_attacker"
+attack="/home/ubuntu/Security-on-Docker/Attacks/Hosts_fs/non-privileged_attacker"
 
 #Layers in container's filesystem
 ls /var/lib/docker/aufs/diff
