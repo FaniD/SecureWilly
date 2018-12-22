@@ -3,12 +3,12 @@
 attack="/home/ubuntu/Security-on-Docker/Attacks/Hosts_fs/non-privileged_attacker"
 
 #Layers in container's filesystem
-ls /var/lib/docker/aufs/diff
+ls /var/lib/docker/aufs/diff | grep -v removing | grep -v init
 #Choose one and create a dir there
 echo "Please give layer's id:"
 read layer
 
-#####sudo or not sudo
+#####Must be in the sudoers to do this
 mkdir /var/lib/docker/aufs/diff/${layer}/doot
 
 mkdir ${attack}/restricted_area
