@@ -3,7 +3,7 @@
 attack="home/ubuntu/Security-on-Docker/Attacks/Hosts_fs/non-privileged_attacker"
 #echo "Please give container's id:"
 #read container_id
-docker ps | grep attack_vol3 > dockerps
+docker ps | grep attacked_nsenter > dockerps
 cut -d' ' -f1 dockerps > containerid
 container_id=$(cat containerid)
 docker inspect --format {{.State.Pid}} ${container_id} > PID

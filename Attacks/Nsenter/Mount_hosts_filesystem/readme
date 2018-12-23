@@ -1,0 +1,9 @@
+In this example, an attacker mount's host's filesystem to a running container.
+Steps:
+0. Host: ./0_set_profile.sh
+1. Host: ./1_run_container_host.sh
+2. Host: ./2_run_attacker_host.sh
+3. Attacker's container: cd /home/ubuntu/Security-on-Docker/Attacks/Nsenter/Mount_hosts_filesystem
+4. Attacker's container: ./3_attack_to_host_attacker.sh
+5. Attacker's container: ./4_attack_to_container_attacker.sh
+6. Attacked container: ls doot
