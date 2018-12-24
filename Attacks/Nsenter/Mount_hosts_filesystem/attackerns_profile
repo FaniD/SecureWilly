@@ -2,12 +2,12 @@
 
 profile attackerns_profile flags=(audit,attach_disconnected,mediate_deleted) {
         file,  #This rule is needed so that I can work with files (create files/directories, copy, etc)
-        capability sys_chroot,
-        capability sys_admin,
-        ptrace (read,trace),
-	capability sys_ptrace,
-	mount,
-	umount,
-	capability dac_override,
-	capability mknod,
+        capability sys_chroot, #needed for nsenter
+        capability sys_admin, #needed for nsenter
+        ptrace (read,trace), #needed for nsenter to ptrace pid
+	capability sys_ptrace, #needed for nsenter to ptrace pid
+	mount, #needed for attack to host (script 3) to do the mount bind
+	umount, #Needed for part 4 (script 7)
+	capability dac_override, #needed for attack to host (script 3)
+	capability mknod, #needed for part 1 (script 4)
 }
