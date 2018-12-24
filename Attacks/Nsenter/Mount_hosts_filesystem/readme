@@ -4,9 +4,12 @@ Steps:
 1. Host: ./1_run_container_host.sh
 2. Host: ./2_run_attacker_host.sh
 3. Attacker's container: cd /home/ubuntu/Security-on-Docker/Attacks/Nsenter/Mount_hosts_filesystem
-4. Attacker's container: ./3_attack_to_host_attacker.sh
-5. Attacker's container: ./4_attack_part1_attacker.sh
-6. Host: ./5_attack_part2_host.sh
-7. Attacker's container: ./6_attack_part3_attacker.sh
-8. Host: ./7_attack_part4_host.sh
+4. Attacker's container: ./3_attack_to_host.sh
+5. Attacker's container: ./4_attack_to_container_part1_mount.sh
+6. Attacker's container: ./5_attack_to_container_part2_device.sh
+7. Attacker's container: ./6_attack_to_container_part3_mount.sh
+8. Attacker's container: ./7_attack_to_container_part4_device.sh
 9. Attacked container: ls doot
+
+or Just run ./attack_alltogether.sh at step 5, omit the others and go to step 9
+
