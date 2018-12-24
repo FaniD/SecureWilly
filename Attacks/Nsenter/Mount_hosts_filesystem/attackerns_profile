@@ -1,15 +1,13 @@
 #include <tunables/global>
 
 profile attackerns_profile flags=(audit,attach_disconnected,mediate_deleted) {
-        capability sys_admin,
         file,  #This rule is needed so that I can work with files (create files/directories, copy, etc)
         capability sys_chroot,
-#	capability setgid,
-#	capability setuid,
+        capability sys_admin,
         ptrace (read,trace),
 	capability sys_ptrace,
-	pivot_root,
 	mount,
+	umount,
 	capability dac_override,
 	capability mknod,
 }

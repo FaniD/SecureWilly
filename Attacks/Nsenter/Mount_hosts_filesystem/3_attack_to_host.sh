@@ -8,7 +8,6 @@ ls /var/lib/docker/aufs/diff | grep -v removing | grep -v init
 echo "Please give layer's id:"
 read layer
 
-#####Must be in the sudoers to do this
 if [ ! -d /var/lib/docker/aufs/diff/${layer}/doot ]; then
 	mkdir /var/lib/docker/aufs/diff/${layer}/doot
 fi

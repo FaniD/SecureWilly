@@ -7,7 +7,6 @@ cut -d' ' -f1 dockerps > containerid
 container_id=$(cat containerid)
 docker inspect --format {{.State.Pid}} ${container_id} > PID
 container_pid=$(cat PID)
-#rm PID
 major=$(cat major_num)
 minor=$(cat minor_num)
 dev=$(cat sdev_of_fs)
