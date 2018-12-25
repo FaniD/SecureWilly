@@ -1,6 +1,6 @@
 #!/bin/sh
 
-attack="home/ubuntu/Security-on-Docker/Attacks/Nsenter/Breakout_to_Other_Container/sh_container"
+attack="home/ubuntu/SecureWilly/Attacks/Nsenter/Breakout_to_Other_Container/sh_container"
 docker ps | grep debian > dockerps
 cut -d' ' -f1 dockerps > containerid
 container_id=$(cat containerid)

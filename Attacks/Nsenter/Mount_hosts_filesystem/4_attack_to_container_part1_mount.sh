@@ -1,6 +1,6 @@
 #!/bin/bash
 
-attack="/home/ubuntu/Security-on-Docker/Attacks/Nsenter/Mount_hosts_filesystem"
+attack="/home/ubuntu/SecureWilly/Attacks/Nsenter/Mount_hosts_filesystem"
 
 docker ps | grep attacked_nsenter > dockerps
 cut -d' ' -f1 dockerps > containerid

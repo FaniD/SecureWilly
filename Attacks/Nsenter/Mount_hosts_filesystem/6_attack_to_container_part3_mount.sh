@@ -1,6 +1,6 @@
 #!/bin/bash
 
-attack="/home/ubuntu/Security-on-Docker/Attacks/Nsenter/Mount_hosts_filesystem"
+attack="/home/ubuntu/SecureWilly/Attacks/Nsenter/Mount_hosts_filesystem"
 
 container_pid=$(cat PID)
 

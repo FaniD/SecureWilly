@@ -1,10 +1,11 @@
 #!/bin/bash
 
-attack="/home/ubuntu/Security-on-Docker/Attacks/Nsenter/Mount_hosts_filesystem"
+attack="/home/ubuntu/SecureWilly/Attacks/Nsenter/Mount_hosts_filesystem"
 
 container_pid=$(cat PID)
 
 nsenter --target ${container_pid} --mount --pid -- umount /tmpmount
+nsenter --target ${container_pid} --mount --pid -- umount /doot
 
 rm PID
 rm dockerps

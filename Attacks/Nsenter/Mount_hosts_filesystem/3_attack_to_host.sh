@@ -1,6 +1,6 @@
 #!/bin/sh
 
-attack="/home/ubuntu/Security-on-Docker/Attacks/Nsenter/Mount_hosts_filesystem"
+attack="/home/ubuntu/SecureWilly/Attacks/Nsenter/Mount_hosts_filesystem"
 
 #Layers in container's filesystem
 ls /var/lib/docker/aufs/diff | grep -v removing | grep -v init
