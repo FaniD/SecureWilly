@@ -1,0 +1,8 @@
+In this example, a non privileged user at host's machine does not have write access to /etc/ directory. When he runs a container as root with mounting volume to /etc/ he gains write access to /etc and can touch a file from container while from host he couldn't. 
+
+1. Host: ./set_profile.sh
+2. Host: ./ubuntu_user_1.sh
+3. Host: ./run_attacker.sh
+4. Container: ./attack.sh
+5. Host: ./ubuntu_user_2.sh
+ + ll /etc/ to see that root owns the new file, not some random user from container
