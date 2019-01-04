@@ -1,0 +1,4 @@
+If User Namespaces are not enabled, then root in the container is the same root as in host. Check this by following the steps below:
+
+1. Host: Start a container running top - ./start.sh
+2. Host: Take a look at the processes running top on the host - ./check_host.sh
