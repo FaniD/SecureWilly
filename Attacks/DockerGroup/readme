@@ -1,0 +1,6 @@
+This example shows how an attacker who is a member of docker group can become root on host and commit privileged actions - attacks. Here the attacker creates a file in root's /etc/ directory just to show that he has write access everywhere.
+
+1. ./1_run_attacker.sh: Start the container
+2. ./2_attack.sh: Commit the attack whatever this is... Here just create a file in host's /etc/
+3. ll /etc/ | grep Hello --> Check file's ownership
+4. ./clear.sh: Delete file in /etc/
