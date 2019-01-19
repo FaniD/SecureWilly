@@ -4,5 +4,5 @@ This example shows how an attacker who is a member of docker group can become ro
 2. ./2_attack_inside_the_container.sh: Change /bin/sh's ownership and permissions. Since it is mounted, the changes are done directly to the host
 3. ./3_run_shell.sh: Run ./sh in /bin/ to get in a shell on host. The attacker will get in it as root because of +s permission.
 4. ./4_attack_inside_shell.sh: Commit the attack whatever this is... Here just create a file in host's /etc/
-5. ll /etc/ | grep Hello --> Check file's ownership
+5. ./5_ll_on_host.sh: ll /etc/ | grep Hello --> Check file's ownership
 6. ./clear.sh: Delete file in /etc/
