@@ -1,0 +1,5 @@
+This example can be used to create a super-privileged container from a regular container.
+
+0. ./set_profile.sh
+1. ./1_run.sh from host
+2. ./spc.sh from inside the container
