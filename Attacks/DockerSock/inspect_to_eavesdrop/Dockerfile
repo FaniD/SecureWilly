@@ -4,7 +4,7 @@ MAINTAINER Fani Dimou <fani.dimou92@gmail.com>
 #Install Docker
 RUN apt-get update && apt-get install docker.io -y
 
-#Add two new users and fix passwords
+#Add a non-root user and fix password
 RUN useradd userA && echo "userA:A" | chpasswd
 
 #Create a directory belonging to userA
