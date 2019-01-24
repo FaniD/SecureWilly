@@ -5,7 +5,7 @@ profile socket_attacker flags=(attach_disconnected,mediate_deleted) {
 	#Allow attack to Host
 	signal,
 	capability setuid,
-	capability setgid,
+#	capability setgid,
 	#Forbid attack to Host
 #	deny capability setuid,
 #	deny capability setgid,

@@ -6,7 +6,6 @@ RUN apt-get update && apt-get install docker.io -y
 
 #Add two new users and fix passwords
 RUN useradd userA && echo "userA:A" | chpasswd
-RUN useradd userB && echo "userB:B" | chpasswd
 
 #Create a directory belonging to userA
 #fix the permissions and copy the attack script in there
