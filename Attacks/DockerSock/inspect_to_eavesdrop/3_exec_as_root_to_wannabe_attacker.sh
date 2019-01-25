@@ -1,8 +1,8 @@
 #!/bin/sh
 
-#List the running containers and find the one we want to attack
+#List the running containers and find the one that belongs to the attacker
 docker ps | grep attacker > dockerps
-#Keed the docker id
+#Keed the container id
 cut -d' ' -f1 dockerps > containerid
 container_id=$(cat containerid)
 
