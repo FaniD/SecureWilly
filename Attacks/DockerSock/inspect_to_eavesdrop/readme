@@ -1,1 +1,7 @@
 This example shows how an attacker can listen to an environment variable which may be a password and then use it to exec in our service and use that password
+
+1. Host: ./set_profile.sh
+2. Host: ./1_run_container_with_secret_env_var.sh - run the container which is going to be attacked
+3. Host: ./2_run_attacker_wannabe.sh - run the attacker's container
+4. Host: ./3_exec_as_root_to_wannabe_attacker.sh - the attacker enters the attacker container as root and adds the non root user to the docker group
+5. Attacker: ./4_attack.sh - commit the attack
