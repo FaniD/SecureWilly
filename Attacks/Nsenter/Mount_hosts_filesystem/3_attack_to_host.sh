@@ -26,6 +26,11 @@ mount -o bind ${attack}/restricted_area /var/lib/docker/aufs/diff/${layer}/doot
 #Find mountpoint and of directory restricted area and special device that needs to be created
 df ${attack}/restricted_area | grep / > fs_of_restricted_area #We use grep / to omit first line with titles of columns
 cut -d' ' -f1 fs_of_restricted_area > sdev_of_fs
+sdev_fs=$(cat sdev_of_fs)
+ls -l ${sdev_fs} > sdev_of_fs
+awk '{ print $NF }' sdev_of_fs > sdev_of_fs
+cut -d'/' -f3 sdev_of_fs > sdev_of_fs
+
 cut -d' ' -f13 fs_of_restricted_area > mntpoint_of_fs
 mnt_of_fs=$(cat mntpoint_of_fs)
 rm fs_of_restricted_area

