@@ -27,11 +27,13 @@ mount -o bind ${attack}/restricted_area /var/lib/docker/aufs/diff/${layer}/doot
 df ${attack}/restricted_area | grep / > fs_of_restricted_area #We use grep / to omit first line with titles of columns
 cut -d' ' -f1 fs_of_restricted_area > sdev_of_fs
 sdev_fs=$(cat sdev_of_fs)
-ls -l ${sdev_fs} > sdev_of_fs
-awk '{ print $NF }' sdev_of_fs > sdev_of_fs
-cut -d'/' -f3 sdev_of_fs > sdev_of_fs
+ls -l ${sdev_fs} > sdev_of_fs1
+awk '{ print $NF }' sdev_of_fs1 > sdev_of_fs2
+cut -d'/' -f3 sdev_of_fs2 > sdev_of_fs3
+mv sdev_of_fs3 sdev_of_fs
 
-cut -d' ' -f13 fs_of_restricted_area > mntpoint_of_fs
+#cut -d' ' -f13 fs_of_restricted_area > mntpoint_of_fs
+cut -d' ' -f8 fs_of_restricted_area > mntpoint_of_fs
 mnt_of_fs=$(cat mntpoint_of_fs)
 rm fs_of_restricted_area
 cat /proc/self/mountinfo > mountinfo

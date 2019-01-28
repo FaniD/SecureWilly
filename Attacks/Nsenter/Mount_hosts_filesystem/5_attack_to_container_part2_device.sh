@@ -3,6 +3,6 @@
 attack="/home/ubuntu/SecureWilly/Attacks/Nsenter/Mount_hosts_filesystem"
 
 container_pid=$(cat PID)
-dev=$(cat sdev_of_fs)
+dev="/dev/$(cat sdev_of_fs)"
 
 nsenter --target ${container_pid} --mount --pid -- mount ${dev} /tmpmount

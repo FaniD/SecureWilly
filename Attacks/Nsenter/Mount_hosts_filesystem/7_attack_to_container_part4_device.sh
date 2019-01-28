@@ -12,4 +12,4 @@ rm dockerps
 rm containerid
 rm major_num
 rm minor_num
-rm sdev_of_fs
+rm sdev_of_fs*
