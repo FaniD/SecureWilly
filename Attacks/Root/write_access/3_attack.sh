@@ -1,5 +1,5 @@
 #!/bin/sh
 
-echo "Attacker tries to write in /etc directory"
+echo "====== touch /etc/HelloFromTheOtherSide ======"
 touch /etc/HelloFromTheOtherSide
 
