@@ -28,15 +28,20 @@ file_rule = '\tfile,  #This rule is needed so that I can work with files (create
 
 #These rules are needed so that we can switch between users
 setuid_setgid_rule = '\tcapability setuid,  #Needed to switch between users (chown or USER commands)\n\tcapability setgid,  #Needed to switch between users (chown or USER commands)\n'
+deny_setuid_setgid_rule = '\tdeny capability setuid,  #Deny capability to create new login session\n\tdeny capability setgid,  #Deny capability to create new login session\n'
 
 #Chown capability
 chown_cap = '\tcapability chown,  #This capability is needed to use chown\n'
 
 #Docker rule is needed in every container
-docker_rule = '\t/var/lib/docker/* r,\n'
+docker_rule = '\t/var/lib/docker/* r, #Access to layers of filesystem\n'
+
+#Deny ptrace rule to confront container breakouts
+deny_ptrace_rule = '\tdeny ptrace (readby, tracedby), #Confront container breakout attacks\n'
 
 static_profile.append(file_rule)
-static_profile.append(docker_rule) #Test test test*****
+static_profile.append(docker_rule)
+static_profile.append(deny_ptrace_rule)
 
 #Search for chmod or chown in Dockerfile
 chmod = 'RUN chmod'
@@ -233,6 +238,18 @@ if (len(sys.argv) > 2):
                                 static_profile.append(umount_rule)
                                 static_profile.append(remount_rule)
 				z = z+1
+                        #If docker.sock is mounted in one of the following ways, deny capabilities setuid and setgid so the user won't be able to start a new login session
+                        if src=='/':
+                            static_profile.append(deny_setuid_setgid_rule)
+                        else:
+                            if (src.endswith('/'):
+                                    src = src.rstrip('/')
+                            if src=='/var':
+                                static_profile.append(deny_setuid_setgid_rule)
+                            if src=='/var/run':
+                                static_profile.append(deny_setuid_setgid_rule)
+                            if src=='/var/run/docker.sock':
+                                static_profile.append(deny_setuid_setgid_rule)
                         static_profile.append(file_rule)
 		if capability in data[i]:
 			z = i
