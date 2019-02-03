@@ -13,7 +13,7 @@ base.append('#include <tunables/global>\n\n')
 base.append('profile ' + service + '_profile flags=(attach_disconnected,mediate_deleted) {\n')
 base.append('\tfile,  #This rule is needed so that I can work with files (create files/directories, copy, etc)\n')
 base.append('\t/var/lib/docker/* r,\n}\n')
-base.append('\tdeny ptrace (readby, tracedby),\n)
+base.append('\tdeny ptrace (readby, tracedby),\n')
 
 #Output
 with open(new_path, 'w') as outfile:
