@@ -1,0 +1,21 @@
+Feb  3 19:19:23 docker-security41 kernel: [20653.694026] IPv6: ADDRCONF(NETDEV_UP): br-60c878cf080c: link is not ready
+Feb  3 19:23:23 docker-security41 kernel: [20894.522048] device vethea708c9 entered promiscuous mode
+Feb  3 19:23:23 docker-security41 kernel: [20894.522210] IPv6: ADDRCONF(NETDEV_UP): vethea708c9: link is not ready
+Feb  3 19:23:25 docker-security41 kernel: [20895.632749] IPv6: ADDRCONF(NETDEV_CHANGE): vethea708c9: link becomes ready
+Feb  3 19:23:25 docker-security41 kernel: [20895.632813] br-60c878cf080c: port 1(vethea708c9) entered forwarding state
+Feb  3 19:23:25 docker-security41 kernel: [20895.632821] br-60c878cf080c: port 1(vethea708c9) entered forwarding state
+Feb  3 19:23:25 docker-security41 kernel: [20895.632836] IPv6: ADDRCONF(NETDEV_CHANGE): br-60c878cf080c: link becomes ready
+Feb  3 19:23:26 docker-security41 kernel: [20897.066684] device veth753a485 entered promiscuous mode
+Feb  3 19:23:26 docker-security41 kernel: [20897.066843] IPv6: ADDRCONF(NETDEV_UP): veth753a485: link is not ready
+Feb  3 19:23:27 docker-security41 kernel: [20898.272779] IPv6: ADDRCONF(NETDEV_CHANGE): veth753a485: link becomes ready
+Feb  3 19:23:27 docker-security41 kernel: [20898.272819] br-60c878cf080c: port 2(veth753a485) entered forwarding state
+Feb  3 19:23:27 docker-security41 kernel: [20898.272826] br-60c878cf080c: port 2(veth753a485) entered forwarding state
+Feb  3 19:23:40 docker-security41 kernel: [20910.684093] br-60c878cf080c: port 1(vethea708c9) entered forwarding state
+Feb  3 19:23:42 docker-security41 kernel: [20913.308120] br-60c878cf080c: port 2(veth753a485) entered forwarding state
+Feb  3 19:34:58 docker-security41 kernel: [21588.788587] br-60c878cf080c: port 2(veth753a485) entered disabled state
+Feb  3 19:34:58 docker-security41 kernel: [21589.088819] br-60c878cf080c: port 1(vethea708c9) entered disabled state
+Feb  3 19:34:58 docker-security41 kernel: [21589.089544] device vethea708c9 left promiscuous mode
+Feb  3 19:34:58 docker-security41 kernel: [21589.089556] br-60c878cf080c: port 1(vethea708c9) entered disabled state
+Feb  3 19:34:58 docker-security41 kernel: [21589.134876] br-60c878cf080c: port 2(veth753a485) entered disabled state
+Feb  3 19:34:58 docker-security41 kernel: [21589.135673] device veth753a485 left promiscuous mode
+Feb  3 19:34:58 docker-security41 kernel: [21589.135686] br-60c878cf080c: port 2(veth753a485) entered disabled state

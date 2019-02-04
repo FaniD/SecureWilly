@@ -1,0 +1,8 @@
+#Capability\n
+setgid
+setuid
+#Network\n
+#File
+requested_mask 
+#Signal
+receive term unconfined
