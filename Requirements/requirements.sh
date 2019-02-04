@@ -10,10 +10,13 @@ sudo chmod +x /usr/local/bin/docker-compose
 
 #Apparmor & apparmor utils
 sudo apt-get install apparmor
+
 sudo apt-get install apparmor-utils
 
 #Install python
 sudo apt-get install python
+
+sudo apt-get install python-matplotlib
 
 #Install nsenter with a trick
 docker run --name nsenter -it ubuntu:14.04 bash
