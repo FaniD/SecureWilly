@@ -4,8 +4,8 @@
 
 #Prepare client
 cd /usr/src/memcached/memcached_client/
-vim docker_servers.txt
-dc-server, 11211
+rm docker_servers.txt
+echo "dc-server, 11211" > docker_servers.txt
 
 #Create datashet
 ./loader -a ../twitter_dataset/twitter_dataset_unscaled -o ../twitter_dataset/twitter_dataset_30x -s docker_servers.txt -w 4 -S 30 -D 4096 -j -T 1
