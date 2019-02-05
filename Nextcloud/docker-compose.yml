@@ -12,10 +12,10 @@ services:
         volumes:
                 - db:/var/lib/mysql
         environment:
-                - MYSQL_ROOT_PASSWORD=fani
-                - MYSQL_PASSWORD=dimou
+                - MYSQL_ROOT_PASSWORD=secret
+                - MYSQL_PASSWORD=secret
                 - MYSQL_DATABASE=nextcloud
-                - MYSQL_USER=nextcloud
+                - MYSQL_USER=willy
      app:
         image: nextcloud
         ports:
@@ -24,4 +24,10 @@ services:
                 - db
         volumes:
                 - nextcloud:/var/www/html
+                - ./data:/var/www/html/data
+        environment:
+                - NEXTCLOUD_ADMIN_USER=willy
+                - NEXTCLOUD_ADMIN_PASSWORD=secret
+                - NEXTCLOUD_TABLE_PREFIX=nc_
+                - NEXTCLOUD_DATA_DIR=/var/www/html/data
         restart: always
