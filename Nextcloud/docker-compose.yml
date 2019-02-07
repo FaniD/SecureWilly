@@ -6,7 +6,7 @@ volumes:
 
 services:
      db:
-        image: mariadb
+        image: mariadb:10
         command: --transaction-isolation=READ-COMMITTED --binlog-format=ROW
         restart: always
         volumes:
@@ -15,9 +15,10 @@ services:
                 - MYSQL_ROOT_PASSWORD=secret
                 - MYSQL_PASSWORD=secret
                 - MYSQL_DATABASE=nextcloud
-                - MYSQL_USER=willy
+                - MYSQL_USER=fanilicious
      app:
-        image: nextcloud
+        image: nextcloud:latest
+        container_name: nextcloud_securewilly
         ports:
                 - 8080:80
         links:
@@ -25,8 +26,9 @@ services:
         volumes:
                 - nextcloud:/var/www/html
                 - ./data:/var/www/html/data
+               
         environment:
-                - NEXTCLOUD_ADMIN_USER=willy
+                - NEXTCLOUD_ADMIN_USER=fanilicious
                 - NEXTCLOUD_ADMIN_PASSWORD=secret
                 - NEXTCLOUD_TABLE_PREFIX=nc_
                 - NEXTCLOUD_DATA_DIR=/var/www/html/data
