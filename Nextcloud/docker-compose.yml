@@ -19,13 +19,15 @@ services:
      app:
         image: nextcloud:latest
         container_name: nextcloud_securewilly
+        security_opt:
+                - "apparmor:nextcloud_profile"
         ports:
                 - 8080:80
         links:
                 - db
         volumes:
                 - nextcloud:/var/www/html
-                - ./data:/var/www/html/data
+                - /home/ubuntu/SecureWilly/Nextcloud/data:/var/www/html/data
                
         environment:
                 - NEXTCLOUD_ADMIN_USER=willy
