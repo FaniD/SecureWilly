@@ -12,7 +12,7 @@ do
 	docker exec -u www-data -ti nextcloud_securewilly php occ status > answer
 	answer=$(cat answer | grep 'Nextcloud is not installed')
 done
-
+rm answer
 #Configure nextcloud
 docker exec -u www-data -ti nextcloud_securewilly php occ maintenance:install --database "mysql" --database-name "nextcloud" --database-host "db" --database-user "willy" --database-pass "secret" --admin-user "willy" --admin-pass "secret"
 
