@@ -1,0 +1,10 @@
+#Capability\n
+chown
+fowner
+dac_override
+#Network\n
+inet6 dgram
+#File
+requested_mask 
+#Signal
+receive exists unconfined

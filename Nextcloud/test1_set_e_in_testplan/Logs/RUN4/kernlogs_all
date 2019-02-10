@@ -1,0 +1,20 @@
+Feb 10 11:38:00 docker-security44 kernel: [ 1031.093798] device veth5d4ed96 entered promiscuous mode
+Feb 10 11:38:00 docker-security44 kernel: [ 1031.093900] IPv6: ADDRCONF(NETDEV_UP): veth5d4ed96: link is not ready
+Feb 10 11:38:00 docker-security44 kernel: [ 1031.093907] br-481e9659de0d: port 1(veth5d4ed96) entered forwarding state
+Feb 10 11:38:00 docker-security44 kernel: [ 1031.093914] br-481e9659de0d: port 1(veth5d4ed96) entered forwarding state
+Feb 10 11:38:00 docker-security44 kernel: [ 1031.094410] br-481e9659de0d: port 1(veth5d4ed96) entered disabled state
+Feb 10 11:38:00 docker-security44 kernel: [ 1031.312625] IPv6: ADDRCONF(NETDEV_CHANGE): veth5d4ed96: link becomes ready
+Feb 10 11:38:00 docker-security44 kernel: [ 1031.312654] br-481e9659de0d: port 1(veth5d4ed96) entered forwarding state
+Feb 10 11:38:00 docker-security44 kernel: [ 1031.312659] br-481e9659de0d: port 1(veth5d4ed96) entered forwarding state
+Feb 10 11:38:01 docker-security44 kernel: [ 1031.700382] device veth1d8fdc0 entered promiscuous mode
+Feb 10 11:38:01 docker-security44 kernel: [ 1031.700504] IPv6: ADDRCONF(NETDEV_UP): veth1d8fdc0: link is not ready
+Feb 10 11:38:01 docker-security44 kernel: [ 1031.700509] br-481e9659de0d: port 2(veth1d8fdc0) entered forwarding state
+Feb 10 11:38:01 docker-security44 kernel: [ 1031.700513] br-481e9659de0d: port 2(veth1d8fdc0) entered forwarding state
+Feb 10 11:38:01 docker-security44 kernel: [ 1032.020523] IPv6: ADDRCONF(NETDEV_CHANGE): veth1d8fdc0: link becomes ready
+Feb 10 11:38:01 docker-security44 kernel: [ 1032.369504] type=1400 audit(1549798681.745:76): apparmor="DENIED" operation="capable" profile="nextcloud_profile" pid=4319 comm="apache2" capability=10  capname="net_bind_service"
+Feb 10 11:38:01 docker-security44 kernel: [ 1032.503010] br-481e9659de0d: port 2(veth1d8fdc0) entered disabled state
+Feb 10 11:38:01 docker-security44 kernel: [ 1032.503500] device veth1d8fdc0 left promiscuous mode
+Feb 10 11:38:01 docker-security44 kernel: [ 1032.503507] br-481e9659de0d: port 2(veth1d8fdc0) entered disabled state
+Feb 10 11:38:02 docker-security44 kernel: [ 1032.707445] br-481e9659de0d: port 1(veth5d4ed96) entered disabled state
+Feb 10 11:38:02 docker-security44 kernel: [ 1032.708066] device veth5d4ed96 left promiscuous mode
+Feb 10 11:38:02 docker-security44 kernel: [ 1032.708081] br-481e9659de0d: port 1(veth5d4ed96) entered disabled state

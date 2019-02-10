@@ -1,0 +1,3 @@
+send hup nextcloud_profile
+receive hup nextcloud_profile
+receive kill unconfined

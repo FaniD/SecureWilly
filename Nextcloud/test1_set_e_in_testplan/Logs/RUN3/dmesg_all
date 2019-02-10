@@ -1,0 +1,22 @@
+[ 1027.368348] device veth638739a entered promiscuous mode
+[ 1027.368462] IPv6: ADDRCONF(NETDEV_UP): veth638739a: link is not ready
+[ 1027.596793] IPv6: ADDRCONF(NETDEV_CHANGE): veth638739a: link becomes ready
+[ 1027.596851] br-481e9659de0d: port 1(veth638739a) entered forwarding state
+[ 1027.596858] br-481e9659de0d: port 1(veth638739a) entered forwarding state
+[ 1027.862198] device veth09fa1ca entered promiscuous mode
+[ 1027.862298] IPv6: ADDRCONF(NETDEV_UP): veth09fa1ca: link is not ready
+[ 1027.862302] br-481e9659de0d: port 2(veth09fa1ca) entered forwarding state
+[ 1027.862306] br-481e9659de0d: port 2(veth09fa1ca) entered forwarding state
+[ 1028.148646] IPv6: ADDRCONF(NETDEV_CHANGE): veth09fa1ca: link becomes ready
+[ 1028.424145] type=1400 audit(1549798677.801:68): apparmor="DENIED" operation="signal" profile="nextcloud_profile" pid=3757 comm="php" requested_mask="send" denied_mask="send" signal=hup peer="nextcloud_profile"
+[ 1028.424155] type=1400 audit(1549798677.801:69): apparmor="DENIED" operation="signal" profile="nextcloud_profile" pid=3757 comm="php" requested_mask="receive" denied_mask="receive" signal=hup peer="nextcloud_profile"
+[ 1028.453712] type=1400 audit(1549798677.829:70): apparmor="DENIED" operation="create" profile="nextcloud_profile" pid=3619 comm="apache2" family="inet6" sock_type="stream" protocol=0
+[ 1028.453722] type=1400 audit(1549798677.829:71): apparmor="DENIED" operation="create" profile="nextcloud_profile" pid=3619 comm="apache2" family="inet" sock_type="stream" protocol=0
+[ 1028.454823] type=1400 audit(1549798677.829:72): apparmor="DENIED" operation="create" profile="nextcloud_profile" pid=3619 comm="apache2" family="inet" sock_type="stream" protocol=0
+[ 1028.481312] type=1400 audit(1549798677.857:73): apparmor="DENIED" operation="signal" profile="nextcloud_profile" pid=5466 comm="docker-containe" requested_mask="receive" denied_mask="receive" signal=kill peer="unconfined"
+[ 1028.636394] br-481e9659de0d: port 2(veth09fa1ca) entered disabled state
+[ 1028.637148] device veth09fa1ca left promiscuous mode
+[ 1028.637158] br-481e9659de0d: port 2(veth09fa1ca) entered disabled state
+[ 1028.874405] br-481e9659de0d: port 1(veth638739a) entered disabled state
+[ 1028.875020] device veth638739a left promiscuous mode
+[ 1028.875030] br-481e9659de0d: port 1(veth638739a) entered disabled state

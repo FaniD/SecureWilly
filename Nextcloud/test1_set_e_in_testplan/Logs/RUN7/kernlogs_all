@@ -1,0 +1,16 @@
+Feb 10 11:38:12 docker-security44 kernel: [ 1042.882626] device veth6df5337 entered promiscuous mode
+Feb 10 11:38:12 docker-security44 kernel: [ 1042.882745] IPv6: ADDRCONF(NETDEV_UP): veth6df5337: link is not ready
+Feb 10 11:38:12 docker-security44 kernel: [ 1043.120642] IPv6: ADDRCONF(NETDEV_CHANGE): veth6df5337: link becomes ready
+Feb 10 11:38:12 docker-security44 kernel: [ 1043.120709] br-481e9659de0d: port 1(veth6df5337) entered forwarding state
+Feb 10 11:38:12 docker-security44 kernel: [ 1043.120718] br-481e9659de0d: port 1(veth6df5337) entered forwarding state
+Feb 10 11:38:12 docker-security44 kernel: [ 1043.408408] device veth50431a7 entered promiscuous mode
+Feb 10 11:38:12 docker-security44 kernel: [ 1043.408494] IPv6: ADDRCONF(NETDEV_UP): veth50431a7: link is not ready
+Feb 10 11:38:12 docker-security44 kernel: [ 1043.408498] br-481e9659de0d: port 2(veth50431a7) entered forwarding state
+Feb 10 11:38:12 docker-security44 kernel: [ 1043.408502] br-481e9659de0d: port 2(veth50431a7) entered forwarding state
+Feb 10 11:38:13 docker-security44 kernel: [ 1043.680832] IPv6: ADDRCONF(NETDEV_CHANGE): veth50431a7: link becomes ready
+Feb 10 11:38:13 docker-security44 kernel: [ 1044.116541] br-481e9659de0d: port 2(veth50431a7) entered disabled state
+Feb 10 11:38:13 docker-security44 kernel: [ 1044.117220] device veth50431a7 left promiscuous mode
+Feb 10 11:38:13 docker-security44 kernel: [ 1044.117231] br-481e9659de0d: port 2(veth50431a7) entered disabled state
+Feb 10 11:38:13 docker-security44 kernel: [ 1044.375936] br-481e9659de0d: port 1(veth6df5337) entered disabled state
+Feb 10 11:38:13 docker-security44 kernel: [ 1044.376733] device veth6df5337 left promiscuous mode
+Feb 10 11:38:13 docker-security44 kernel: [ 1044.376748] br-481e9659de0d: port 1(veth6df5337) entered disabled state

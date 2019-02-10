@@ -1,0 +1,1 @@
+Feb 10 11:38:01 docker-security44 kernel: [ 1032.369504] type=1400 audit(1549798681.745:76): apparmor="DENIED" operation="capable" profile="nextcloud_profile" pid=4319 comm="apache2" capability=10  capname="net_bind_service"

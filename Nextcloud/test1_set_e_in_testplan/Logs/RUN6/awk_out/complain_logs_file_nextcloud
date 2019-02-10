@@ -1,0 +1,5 @@
+/etc/ld.so.cache r
+/var/lib/docker/aufs/diff/cfc059bdfccdec858f8a8d37166da7369301af3345dcd1881fdff1668f0444d7/etc/ld.so.cache r
+/lib/x86_64-linux-gnu/libc-2.24.so r
+/var/lib/docker/aufs/diff/372e57cb06386738748844a476b32ec855c673f7ddf9805f48ff3f185dab651e/lib/x86_64-linux-gnu/libc-2.24.so r
+/entrypoint.sh r

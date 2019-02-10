@@ -1,0 +1,10 @@
+#Capability\n
+#Network\n
+inet6 stream
+inet stream
+#File
+requested_mask 
+#Signal
+send hup nextcloud_profile
+receive hup nextcloud_profile
+receive kill unconfined
