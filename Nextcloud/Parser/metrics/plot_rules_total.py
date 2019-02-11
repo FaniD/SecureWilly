@@ -91,7 +91,7 @@ ax1.plot(enf_audit, part_4a, label="enforce audit", color="darkmagenta", marker=
 
 ax1.legend(loc=1,prop={'size': 12})
 ax1.grid()
-ax3.set_xlabel("Runs")
+ax1.set_xlabel("Runs")
 ax1.set_ylabel(r"Nextcloud rules")
 ax1.set_ylim(0,max_value+2)
 plt.show()
