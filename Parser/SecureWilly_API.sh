@@ -42,17 +42,40 @@ fi
 rm empty_file
 
 #Dynamic part requirements
-#An den exeis docker compose rota
-echo "Give number of services that need a profile for your project:"
+echo "Give the number of services that need a profile for your project:"
 read num_of_services
 echo "Give the name of each service (one per line):"
-read servicei
-service_list="(ser1 ser2)"
-#read services and sed every script that needs them
-#define if network needed
+x=0
+x_str=${x}
+service_list="("
+while [[ "$num_of_services" != $x_str ]] ; do
+	read service
+	service_list+=${service}
+	service_list+=" "
+	((x++))
+	x_str=${x}
+done
+service_list+=")"
+#We have the service list ready
+#Sed every script that needs them
+
+
+#Define if network needed
 echo "Do you need a network for your images?"
-echo "If yes, specify name, if no, type N:"
+echo "If yes, specify network's name, if no, type N:"
+read net
+#Fix 6_net.sh
+
 #define run - testplan.sh
 echo "In the next lines please give a testplan that you want to execute inside the container. Give a command per line, including the docker run commands or docker-compose commands with which you will start your container/containers."
 echo "Type Done when you're finished"
+echo "Remember, you are the one who knows how your program works. The commands will be executed in a script, so take all the actions needed to make it work."
 #loop until Done
+commands="_"
+testplan="#!/bin/bash\n\n"
+while [[ "$commands" != "Done" ]] ; do
+	read commands
+	testplan+=${commands}
+	testplan+=\n
+done
+echo "$testplan" > run.sh
