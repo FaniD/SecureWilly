@@ -37,7 +37,9 @@ else
 		python static_parser.py ${dockerfile_path} ${yml_path}
 	else
 		python static_parser.py empty_file ${yml_path}
+	fi
 fi
+rm empty_file
 
 #Dynamic part requirements
 #An den exeis docker compose rota

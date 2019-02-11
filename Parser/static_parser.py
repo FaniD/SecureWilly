@@ -238,18 +238,18 @@ if (len(sys.argv) > 2):
                                 static_profile.append(umount_rule)
                                 static_profile.append(remount_rule)
 				z = z+1
-                        #If docker.sock is mounted in one of the following ways, deny capabilities setuid and setgid so the user won't be able to start a new login session
-                        if src=='/':
-                            static_profile.append(deny_setuid_setgid_rule)
-                        else:
-                            if (src.endswith('/'):
-                                    src = src.rstrip('/')
-                            if src=='/var':
-                                static_profile.append(deny_setuid_setgid_rule)
-                            if src=='/var/run':
-                                static_profile.append(deny_setuid_setgid_rule)
-                            if src=='/var/run/docker.sock':
-                                static_profile.append(deny_setuid_setgid_rule)
+                            #If docker.sock is mounted in one of the following ways, deny capabilities setuid and setgid so the user won't be able to start a new login session
+                                if src=='/':
+                                    static_profile.append(deny_setuid_setgid_rule)
+                                else:
+                                    if (src.endswith('/')):
+                                        src = src.rstrip('/')
+                                    if src=='/var':
+                                        static_profile.append(deny_setuid_setgid_rule)
+                                    if src=='/var/run':
+                                        static_profile.append(deny_setuid_setgid_rule)
+                                    if src=='/var/run/docker.sock':
+                                        static_profile.append(deny_setuid_setgid_rule)
                         static_profile.append(file_rule)
 		if capability in data[i]:
 			z = i
