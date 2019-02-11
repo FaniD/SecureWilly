@@ -1,7 +1,9 @@
 #!/bin/sh
 
+sudo rm -r /home/ubuntu/SecureWilly/Nextcloud/data
+mkdir /home/ubuntu/SecureWilly/Nextcloud/data
+sudo chown www-data:www-data /home/ubuntu/SecureWilly/Nextcloud/data
+
 docker-compose up -d
-#sudo touch /var/lib/docker/volumes/nextcloud_nextcloud/_data/notInitialized
-#sudo rsync -r /var/lib/docker/volumes/nextcloud_nextcloud/_data container:nextcloud_securewilly
-#sudo rm -f /var/lib/docker/volumes/nextcloud_nextcloud/_data/notInitialized
+sleep 30
 ./testplan.sh

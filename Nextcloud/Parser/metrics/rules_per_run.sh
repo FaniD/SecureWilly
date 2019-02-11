@@ -1,6 +1,6 @@
 #!/bin/bash
 
-service_list=(dataset server client) 
+service_list=(nextcloud) 
 app_path="../.."
 parser_output_path="${app_path}/parser_output"
 
@@ -30,7 +30,7 @@ rm num_of_runs
 ./complain_enforce_audit.sh
 
 #Do this manually depending on services
-python plot_rules_total.py ${parser_output_path}/rules_dataset ${parser_output_path}/rules_client ${parser_output_path}/rules_server $num_runs
+python plot_rules_total.py ${parser_output_path}/rules_nextcloud $num_runs
 
 rm changes
 rm run*

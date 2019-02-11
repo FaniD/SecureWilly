@@ -1,0 +1,26 @@
+[45964.990216] device vethe3764c4 entered promiscuous mode
+[45964.990361] IPv6: ADDRCONF(NETDEV_UP): vethe3764c4: link is not ready
+[45964.990366] br-481e9659de0d: port 1(vethe3764c4) entered forwarding state
+[45964.990373] br-481e9659de0d: port 1(vethe3764c4) entered forwarding state
+[45964.990836] br-481e9659de0d: port 1(vethe3764c4) entered disabled state
+[45965.260979] IPv6: ADDRCONF(NETDEV_CHANGE): vethe3764c4: link becomes ready
+[45965.261046] br-481e9659de0d: port 1(vethe3764c4) entered forwarding state
+[45965.261055] br-481e9659de0d: port 1(vethe3764c4) entered forwarding state
+[45965.488492] device veth9d802dd entered promiscuous mode
+[45965.488599] IPv6: ADDRCONF(NETDEV_UP): veth9d802dd: link is not ready
+[45965.488605] br-481e9659de0d: port 2(veth9d802dd) entered forwarding state
+[45965.488609] br-481e9659de0d: port 2(veth9d802dd) entered forwarding state
+[45965.808681] IPv6: ADDRCONF(NETDEV_CHANGE): veth9d802dd: link becomes ready
+[45969.081790] audit_printk_skb: 15 callbacks suppressed
+[45969.081805] type=1400 audit(1549843618.457:2086030): apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=13688 comm="apache2" capability=10  capname="net_bind_service"
+[45969.152141] type=1400 audit(1549843618.529:2086031): apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=13912 comm="apache2" capability=6  capname="setgid"
+[45980.316115] br-481e9659de0d: port 1(vethe3764c4) entered forwarding state
+[45980.508261] br-481e9659de0d: port 2(veth9d802dd) entered forwarding state
+[46008.661284] type=1400 audit(1549843658.037:2086032): apparmor="ALLOWED" operation="signal" profile="nextcloud_profile" pid=26782 comm="docker-containe" requested_mask="receive" denied_mask="receive" signal=kill peer="unconfined"
+[46008.790113] br-481e9659de0d: port 2(veth9d802dd) entered disabled state
+[46008.826085] br-481e9659de0d: port 2(veth9d802dd) entered disabled state
+[46008.826985] device veth9d802dd left promiscuous mode
+[46008.826993] br-481e9659de0d: port 2(veth9d802dd) entered disabled state
+[46009.139718] br-481e9659de0d: port 1(vethe3764c4) entered disabled state
+[46009.142176] device vethe3764c4 left promiscuous mode
+[46009.142187] br-481e9659de0d: port 1(vethe3764c4) entered disabled state

@@ -1,12 +1,8 @@
 #!/bin/sh
 
-sudo rm -r /home/ubuntu/SecureWilly/Nextcloud/data
-mkdir /home/ubuntu/SecureWilly/Nextcloud/data
-sudo chown www-data:www-data /home/ubuntu/SecureWilly/Nextcloud/data
-
 docker exec -u www-data -ti nextcloud_securewilly php occ status > answer
 answer=$(cat answer | grep 'Nextcloud is not installed')
-while [[ "$answer" == ""]]
+while [ -z "$answer" ]
 do
 	rm answer
 	docker exec -u www-data -ti nextcloud_securewilly php occ status > answer

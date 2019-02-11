@@ -1,6 +1,6 @@
 #!/bin/bash
 
-service_list=(dataset server client) 
+service_list=(nextcloud) 
 app_path="../.."
 parser_output_path="${app_path}/parser_output"
 

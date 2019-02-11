@@ -1,0 +1,3 @@
+inet6 dgram
+inet6 stream
+inet stream
