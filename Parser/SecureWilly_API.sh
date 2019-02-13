@@ -94,20 +94,16 @@ echo "Remember, you are the one who knows how your program works. The commands w
 
 while true; do
 	#loop until Done
-	commands="_"
-#	testplan="#!/bin/bash\n\n"
+	read commands
 	echo "#!/bin/bash" > run.sh
 	echo " " >> run.sh
 	while [[ "$commands" != "Done" ]] ; do
-		read commands
-#		testplan+=${commands}
-#		testplan+=\n
 		echo "${commands}" >> run.sh
+		read commands
 	done
 	echo ""
 	echo "The script that will be used as a test plan for your project is given below:"
 	echo ""
-#	echo "$testplan" > run.sh
 	cat run.sh
 	echo ""
 	echo "Is the script corresponding to your test plan? [Y/N]"
