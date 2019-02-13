@@ -1,2 +1,7 @@
 #!/bin/sh
-docker network create streaming_network
+
+#If network is needed, is determined in API
+net=false
+if $net ; then
+	docker network create streaming_network
+fi

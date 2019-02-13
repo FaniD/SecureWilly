@@ -59,6 +59,7 @@ while [[ "$num_of_services" != $x_str ]] ; do
 	x_str=${x}
 done
 service_list+=")"
+
 #We have the service list ready
 #Sed every script that needs them
 file_list=(2_cp_to_apparmor.sh*6s 3_load_profiles.sh*4s 4a_complain_mode.sh*4s 4b_enforce_mode.sh*4s 9_logging_files.sh*14s 10a_awk_it_complain.sh*10s 10b_awk_it_enforce.sh*10s 12_complain_enforce_audit.sh*5s)
@@ -70,10 +71,14 @@ done
 echo ""
 
 #Define if network needed
-echo "Do you need a network for your images?"
+echo "Do you need to create a docker network for your images?"
 echo "If yes, specify network's name, if no, type N:"
 read net
 #Fix 6_net.sh
+if [[ "$net" != "N" ]]; then
+	sed -i "4s/net=.*/net=true/" dynamic_scripts/6_net.sh
+	sed -i "6s/create .*/create ${net}/" dynamic_scripts/6_net.sh
+fi
 echo ""
 
 #define run - testplan.sh
