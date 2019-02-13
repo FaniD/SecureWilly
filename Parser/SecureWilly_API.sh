@@ -74,10 +74,14 @@ echo ""
 echo "Do you need to create a docker network for your images?"
 echo "If yes, specify network's name, if no, type N:"
 read net
-#Fix 6_net.sh
+#Fix 6_net.sh & 1_clear_containers.sh
 if [[ "$net" != "N" ]]; then
 	sed -i "4s/net=.*/net=true/" dynamic_scripts/6_net.sh
 	sed -i "6s/create .*/create ${net}/" dynamic_scripts/6_net.sh
+
+	sed -i "3s/net=.*/net=true/" dynamic_scripts/1_clear_containers.sh
+	sed -i "6s/rm .*/rm ${net}/" dynamic_scripts/1_clear_containers.sh
+
 fi
 echo ""
 
