@@ -1,8 +1,8 @@
 #!/bin/bash
 
 read round
-
-service_list=(dataset server client)
+#This script determines if dynamic parser is ready to move on to the next mode either enforce or complain
+service_list=(service)
 for service in "${service_list[@]}"; do
 	#Compare 2 profiles by number of lines
 	#Beware: There are no empty lines, comments are added next to rules, no duplicate rules, include and profile names are added as the same lines to each profile. So profiles are either augmentations of previous profiles or the same.

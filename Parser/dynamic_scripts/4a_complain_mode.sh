@@ -1,6 +1,7 @@
 #!/bin/bash
 
-service_list=(dataset server client)
+#Set the profile of each service to complain mode
+service_list=(service)
 for SERVICE in "${service_list[@]}"; do
 	sudo aa-complain /etc/apparmor.d/${SERVICE}_profile
 done

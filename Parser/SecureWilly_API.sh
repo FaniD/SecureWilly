@@ -23,6 +23,7 @@ if [[ "$dockerfile_path" != "N" ]]; then
 	#Wait for docker-compose and then do static analysis
 	static=true
 fi
+echo ""
 
 #Docker-Compose
 echo "Is there a docker-compose.yml to provide?"
@@ -40,10 +41,12 @@ else
 	fi
 fi
 rm empty_file
+echo ""
 
 #Dynamic part requirements
 echo "Give the number of services that need a profile for your project:"
 read num_of_services
+echo ""
 echo "Give the name of each service (one per line):"
 x=0
 x_str=${x}
@@ -58,24 +61,49 @@ done
 service_list+=")"
 #We have the service list ready
 #Sed every script that needs them
-
+file_list=(2_cp_to_apparmor.sh*6s 3_load_profiles.sh*4s 4a_complain_mode.sh*4s 4b_enforce_mode.sh*4s 9_logging_files.sh*14s 10a_awk_it_complain.sh*10s 10b_awk_it_enforce.sh*10s 12_complain_enforce_audit.sh*5s)
+for ${f_i} in "${file_list[@]}"; do
+	file_i=$(cut -d'*' -f1 ${f_i})
+	line=$(cut -d'*' -f2 ${f_i})
+	sed -e -i "${line}/service_list=(.*/service_list=${service_list}/" ${file_i}
+done
+echo ""
 
 #Define if network needed
 echo "Do you need a network for your images?"
 echo "If yes, specify network's name, if no, type N:"
 read net
 #Fix 6_net.sh
+echo ""
 
 #define run - testplan.sh
 echo "In the next lines please give a testplan that you want to execute inside the container. Give a command per line, including the docker run commands or docker-compose commands with which you will start your container/containers."
 echo "Type Done when you're finished"
 echo "Remember, you are the one who knows how your program works. The commands will be executed in a script, so take all the actions needed to make it work."
-#loop until Done
-commands="_"
-testplan="#!/bin/bash\n\n"
-while [[ "$commands" != "Done" ]] ; do
-	read commands
-	testplan+=${commands}
-	testplan+=\n
+
+while true; do
+	#loop until Done
+	commands="_"
+	testplan="#!/bin/bash\n\n"
+	while [[ "$commands" != "Done" ]] ; do
+		read commands
+		testplan+=${commands}
+		testplan+=\n
+	done
+	echo ""
+	echo "The script that will be used as a test plan for your project is given below:"
+	echo ""
+	echo "$testplan" > run.sh
+	cat run.sh
+	echo ""
+	echo "Is the script corresponding to your test plan? [Y/N]"
+	read ready
+	if [[ "$ready" == "N" ]]; then
+		echo "Please give again the commands you want to execute inside the container. Give a command per line, including the docker run commands or docker-compose commands with which you will start your container/containers."
+		echo "Type Done when you're finished"
+		echo "Remember, you are the one who knows how your program works. The commands will be executed in a script, so take all the actions needed to make it work."
+	else
+		break
+	fi
 done
-echo "$testplan" > run.sh
+echo ""
