@@ -62,10 +62,10 @@ service_list+=")"
 #We have the service list ready
 #Sed every script that needs them
 file_list=(2_cp_to_apparmor.sh*6s 3_load_profiles.sh*4s 4a_complain_mode.sh*4s 4b_enforce_mode.sh*4s 9_logging_files.sh*14s 10a_awk_it_complain.sh*10s 10b_awk_it_enforce.sh*10s 12_complain_enforce_audit.sh*5s)
-for f_i in "${file_list[@]}"; do
-	file_i=$(cut -d'*' -f1 ${f_i})
-	line=$(cut -d'*' -f2 ${f_i})
-	sed -e -i "${line}/service_list=(.*/service_list=${service_list}/" dynamic_scripts/${file_i}
+for f_i in  "${file_list[@]}"; do
+	file_i=$(echo $f_i | cut -d'*' -f1)
+	line=$(echo $f_i | cut -d'*' -f2)
+	sed -i "${line}/service_list=(.*/service_list=${service_list}/" dynamic_scripts/${file_i}
 done
 echo ""
 
