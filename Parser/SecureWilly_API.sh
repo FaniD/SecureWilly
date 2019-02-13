@@ -62,6 +62,7 @@ service_list+=")"
 
 #We have the service list ready
 #Sed every script that needs them
+sed -i "5s/service_list=(.*/service_list=${service_list}/" dynamic_parser.sh
 file_list=(2_cp_to_apparmor.sh*6s 3_load_profiles.sh*4s 4a_complain_mode.sh*4s 4b_enforce_mode.sh*4s 9_logging_files.sh*14s 10a_awk_it_complain.sh*10s 10b_awk_it_enforce.sh*10s 12_complain_enforce_audit.sh*5s)
 for f_i in  "${file_list[@]}"; do
 	file_i=$(echo $f_i | cut -d'*' -f1)
