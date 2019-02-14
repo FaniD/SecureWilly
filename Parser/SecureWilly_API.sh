@@ -118,3 +118,5 @@ while true; do
 	fi
 done
 echo ""
+mv run.sh dynamic_scripts/7_run.sh
+
