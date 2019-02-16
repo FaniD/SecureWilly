@@ -14,8 +14,8 @@ echo "SecureWily"
 echo "Copyright (c) 2019 Fani Dimou <fani.dimou92@gmail.com>"
 echo ""
 
-#Static Part requirements
-#Dockerfile
+#~~~~~~~~~~~~Static Part requirements~~~~~~~~~~~~~~
+#~~~Dockerfile~~~
 echo "Is there a Dockerfile to provide?"
 echo "If yes, give the full path to Dockerfile (<path_to_dockerfile>/Dockerfile), if no, type N:"
 read dockerfile_path
@@ -25,7 +25,7 @@ if [[ "$dockerfile_path" != "N" ]]; then
 fi
 echo ""
 
-#Docker-Compose
+#~~~Docker-Compose~~~
 echo "Is there a docker-compose.yml to provide?"
 echo "If yes, give the full path to docker-compose.yml (<path_to_yml>/docker-compose.yml), if no, type N:"
 read yml_path
@@ -43,18 +43,28 @@ fi
 rm empty_file
 echo ""
 
-#Dynamic part requirements
+#~~~Dynamic part requirements~~~
 echo "Give the number of services that need a profile for your project:"
 read num_of_services
 echo ""
-echo "Give the name of each service (one per line):"
+echo "Give the name of each service."
+echo "If you provided a docker-compose.yml make sure that you give the same names of services you used inside the yml file."
+echo "Give one name per line:"
 x=0
 x_str=${x}
 service_list="("
+services=""
 while [[ "$num_of_services" != $x_str ]] ; do
 	read service
+
+	#services string will be used to create an array of the services in this script
+	services+=${service}
+	services+=","
+
+	#service_list will be used as a string by sed to insert the services in dynamic_scripts
 	service_list+=${service}
 	service_list+=" "
+
 	((x++))
 	x_str=${x}
 done
@@ -62,6 +72,7 @@ service_list+=")"
 
 #We have the service list ready
 #Sed every script that needs them
+#Dynamic parser seds alone because of its different path
 sed -i "5s/service_list=(.*/service_list=${service_list}/" dynamic_parser.sh
 file_list=(2_cp_to_apparmor.sh*6s 3_load_profiles.sh*4s 4a_complain_mode.sh*4s 4b_enforce_mode.sh*4s 8_logging_files.sh*14s 10a_awk_it_complain.sh*10s 10b_awk_it_enforce.sh*10s 12_complain_enforce_audit.sh*5s)
 for f_i in  "${file_list[@]}"; do
@@ -88,8 +99,12 @@ echo ""
 
 #define run - testplan.sh
 echo "In the next lines please give a testplan that you want to execute inside the container."
-echo "Give a command per line, including the docker run commands or docker-compose commands with which you will start and stop your container(s)."
-echo "Type Done when you're finished"
+echo "Make sure you follow the next rules:"
+echo "1. Give a command per line"
+echo "2. Include the docker run commands or docker-compose commands with which you will start and stop your container(s)."
+echo "3. Use the --name flag to run your containers and name them after the name of service you mentioned before (do this in docker-compose.yml too)."
+echo "4. Do NOT use flag --security-opt to run your containers."
+echo "5. Type Done when you're finished."
 echo "Remember, you are the one who knows how your program works. The commands will be executed in a script, so take all the actions needed to make it work."
 
 while true; do
@@ -120,3 +135,10 @@ done
 echo ""
 mv run.sh dynamic_scripts/7_run.sh
 
+IFS=',' read -r -a array <<< "$services"
+if [[ "$yml_path" == "N" ]]; then
+#If docker-compose does not exist, make sure to fix the script so that it includes security-opt flag
+	for service_i in "${array[@]}"; do
+		sed -i "/docker run/ s/${service_i}/${service_i} --security-opt "apparmor=${service_i}_profile"/" dynamic_scripts/7_run.sh
+	done
+fi
