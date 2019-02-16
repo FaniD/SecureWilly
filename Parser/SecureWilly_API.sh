@@ -102,7 +102,7 @@ echo "In the next lines please give a testplan that you want to execute inside t
 echo "Make sure you follow the next rules:"
 echo "1. Give a command per line"
 echo "2. Include the docker run commands or docker-compose commands with which you will start and stop your container(s)."
-echo "3. Use the --name flag to run your containers and name them after the name of service you mentioned before (do this in docker-compose.yml too)."
+echo "3. Use the --name flag to run your containers and name them after the name of service you mentioned before."
 echo "4. Do NOT use flag --security-opt to run your containers."
 echo "5. Type Done when you're finished."
 echo "Remember, you are the one who knows how your program works. The commands will be executed in a script, so take all the actions needed to make it work."
@@ -125,8 +125,12 @@ while true; do
 	read ready
 	if [[ "$ready" == "N" ]]; then
 		echo "Please give again the commands you want to execute inside the container."
-		echo "Give a command per line, including the docker run commands or docker-compose commands with which you will start and stop your container(s)."
-		echo "Type Done when you're finished"
+		echo "Make sure you follow the next rules:"
+		echo "1. Give a command per line"
+		echo "2. Include the docker run commands or docker-compose commands with which you will start and stop your container(s)."
+		echo "3. Use the --name flag to run your containers and name them after the name of service you mentioned before."
+		echo "4. Do NOT use flag --security-opt to run your containers."
+		echo "5. Type Done when you're finished."
 		echo "Remember, you are the one who knows how your program works. The commands will be executed in a script, so take all the actions needed to make it work."
 	else
 		break
@@ -140,5 +144,18 @@ if [[ "$yml_path" == "N" ]]; then
 #If docker-compose does not exist, make sure to fix the script so that it includes security-opt flag
 	for service_i in "${array[@]}"; do
 		sed -i "/docker run/ s/${service_i}/${service_i} --security-opt "apparmor=${service_i}_profile"/" dynamic_scripts/7_run.sh
+	done
+else
+	#Find lines of each service block so that mini service docker-compose files are created
+	num_start=""
+	for service_i in "${array[@]}"; do
+		grep -n ${service_i} ${yml} > number_of_service
+		num_start+=$(cut -d':' -f1 number_of_service)
+		num_start+=","
+	done
+
+	IFS=',' read -r -a array_ <<< "$num_start"
+	for i in "${array_[@]}"; do
+		echo "${i}_"
 	done
 fi
