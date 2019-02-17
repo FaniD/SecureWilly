@@ -150,14 +150,16 @@ else
 	service_start=$(awk '/services/ {print NR}' ${yml_path})
 	num_start=""
 	for service_i in "${array[@]}"; do
-	       num_start+=$(awk "${service_start}<=NR && /${service_i}/ {print NR}" ${yml_path} | head -n 1)
+	       num_start+=$(awk "${service_start}<=NR && /${service_i}:/ {print NR}" ${yml_path} | head -n 1)
 	       num_start+=","
 	done
 
 	IFS=',' read -r -a array_ <<< "$num_start"
+	y=0
 	for i in "${array_[@]}"; do
-		x=${x:-$i}
-	#	sed -i "${i}i security" ${yml_path}
-	#	sed -i "${i}s/${service_i}/${service_i} --security-opt "apparmor=${service_i}_profile"/" dyn
+		x=$(expr $i + 1)
+		sed -i "${x}i \ security_opt: apparmor:${array[${y}]}_profile" ${yml_path}
+		((y++))
+		echo "${y}"
 	done
 fi
