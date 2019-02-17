@@ -164,10 +164,10 @@ else
 		var1="$(< ${yml_path} sed -n "${x}s/ *//p")"
 		indx=$(awk -v p="$var1" 'index($0,p) {s=$0; m=0; while((n=index(s, p))>0) {m+=n; printf "%s ", m; s=substr(s, n+1) } print ""}' ${yml_path})
 
-		echo "Index of image ${indx}. Prepei na nai 9"
-#		sed -i "${x}i security_opt: apparmor:${array[${z}]}_profile" ${yml_path}
+		#sed -i "${x}i security_opt: apparmor:${array[${z}]}_profile" ${yml_path}
+		sed -i "${x}i \ " ${yml_path}
+		sed -i "${x}s/^\(.\{${indx}\}\)/\1security_opt: apparmor:${array[${z}]}_profile/" ${yml_path}
 		((y++))
 		((z++))
-		echo "Meta to ++ ${y}"
 	done
 fi
