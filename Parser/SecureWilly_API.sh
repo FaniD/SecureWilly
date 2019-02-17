@@ -147,15 +147,21 @@ if [[ "$yml_path" == "N" ]]; then
 	done
 else
 	#Find lines of each service block so that mini service docker-compose files are created
-	num_start=""
-	for service_i in "${array[@]}"; do
-		grep -n ${service_i} ${yml} > number_of_service
-		num_start+=$(cut -d':' -f1 number_of_service)
-		num_start+=","
+	service_start=$(awk '/services/ {print NR}' ${yml_path})
+       num_start=""
+       for service_i in "${array[@]}"; do
+	       num_start+=$(awk "${service_start}<=NR && /mariadb/ {print NR}" ${yml_path} | head -n 1)
+	       num_start+=","
 	done
+#	num_start=""
+#	for service_i in "${array[@]}"; do
+#		grep -n ${service_i} ${yml} > number_of_service
+#		num_start+=$(cut -d':' -f1 number_of_service)
+#		num_start+=","
+#	done
 
-	IFS=',' read -r -a array_ <<< "$num_start"
-	for i in "${array_[@]}"; do
-		echo "${i}_"
-	done
+	#IFS=',' read -r -a array_ <<< "$num_start"
+	#for i in "${array_[@]}"; do
+	#	echo "${i}_"
+	#done
 fi
