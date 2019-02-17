@@ -150,16 +150,25 @@ else
 	service_start=$(awk '/services/ {print NR}' ${yml_path})
 	num_start=""
 	for service_i in "${array[@]}"; do
-	       num_start+=$(awk "${service_start}<=NR && /${service_i}:/ {print NR}" ${yml_path} | head -n 1)
+	       num_start+=$(awk "${service_start}<NR && /${service_i}:/ {print NR}" ${yml_path} | head -n 1)
 	       num_start+=","
 	done
+	echo "Arxi twn services: ${num_start}"
 
 	IFS=',' read -r -a array_ <<< "$num_start"
-	y=0
+	y=1
+	z=0
 	for i in "${array_[@]}"; do
-		x=$(expr $i + 1)
-		sed -i "${x}i \ security_opt: apparmor:${array[${y}]}_profile" ${yml_path}
+		x=$(expr $i + $y)
+		echo "Next line at ${x}"
+		#String of the next line of each service
+		var1="$(< ${yml_path} sed -n "${x}s/ *//p")"
+		echo "${var1}"
+#		indx=$(awk -v s=${var1} '{print index($1,s)}')
+#		echo "Index of image ${indx}. Prepei na nai 9"
+		sed -i "${x}i security_opt: apparmor:${array[${z}]}_profile" ${yml_path}
 		((y++))
-		echo "${y}"
+		((z++))
+		echo "Meta to ++ ${y}"
 	done
 fi
