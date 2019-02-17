@@ -47,7 +47,7 @@ echo ""
 echo "Give the number of services that need a profile for your project:"
 read num_of_services
 echo ""
-echo "Give the name of each service."
+echo "Give the name of each service - make sure the names are not used for other purpose like named volumes, network etc"
 echo "If you provided a docker-compose.yml make sure that you give the same names of services you used inside the yml file."
 echo "Give one name per line:"
 x=0
@@ -148,20 +148,16 @@ if [[ "$yml_path" == "N" ]]; then
 else
 	#Find lines of each service block so that mini service docker-compose files are created
 	service_start=$(awk '/services/ {print NR}' ${yml_path})
-       num_start=""
-       for service_i in "${array[@]}"; do
-	       num_start+=$(awk "${service_start}<=NR && /mariadb/ {print NR}" ${yml_path} | head -n 1)
+	num_start=""
+	for service_i in "${array[@]}"; do
+	       num_start+=$(awk "${service_start}<=NR && /${service_i}/ {print NR}" ${yml_path} | head -n 1)
 	       num_start+=","
 	done
-#	num_start=""
-#	for service_i in "${array[@]}"; do
-#		grep -n ${service_i} ${yml} > number_of_service
-#		num_start+=$(cut -d':' -f1 number_of_service)
-#		num_start+=","
-#	done
 
-	#IFS=',' read -r -a array_ <<< "$num_start"
-	#for i in "${array_[@]}"; do
-	#	echo "${i}_"
-	#done
+	IFS=',' read -r -a array_ <<< "$num_start"
+	for i in "${array_[@]}"; do
+		x=${x:-$i}
+	#	sed -i "${i}i security" ${yml_path}
+	#	sed -i "${i}s/${service_i}/${service_i} --security-opt "apparmor=${service_i}_profile"/" dyn
+	done
 fi
