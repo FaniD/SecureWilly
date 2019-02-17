@@ -160,13 +160,12 @@ else
 	z=0
 	for i in "${array_[@]}"; do
 		x=$(expr $i + $y)
-		echo "Next line at ${x}"
 		#String of the next line of each service
 		var1="$(< ${yml_path} sed -n "${x}s/ *//p")"
-		echo "${var1}"
-#		indx=$(awk -v s=${var1} '{print index($1,s)}')
-#		echo "Index of image ${indx}. Prepei na nai 9"
-		sed -i "${x}i security_opt: apparmor:${array[${z}]}_profile" ${yml_path}
+		indx=$(awk -v p="$var1" 'index($0,p) {s=$0; m=0; while((n=index(s, p))>0) {m+=n; printf "%s ", m; s=substr(s, n+1) } print ""}' ${yml_path})
+
+		echo "Index of image ${indx}. Prepei na nai 9"
+#		sed -i "${x}i security_opt: apparmor:${array[${z}]}_profile" ${yml_path}
 		((y++))
 		((z++))
 		echo "Meta to ++ ${y}"
