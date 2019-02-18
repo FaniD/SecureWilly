@@ -141,11 +141,13 @@ mv run.sh dynamic_scripts/7_run.sh
 
 IFS=',' read -r -a array <<< "$services"
 if [[ "$yml_path" == "N" ]]; then
-#If docker-compose does not exist, make sure to fix the script so that it includes security-opt flag
+#If docker-compose does not exist, make sure to fix the script so that it includes security-opt flag and create mini docker compose files for each service
 	for service_i in "${array[@]}"; do
 		sed -i "/docker run/ s/${service_i}/${service_i} --security-opt "apparmor=${service_i}_profile"/" dynamic_scripts/7_run.sh
 	done
 else
+#If docker-compose.yml exists, add security-opt and create mini docker compose files for each service
+
 	#Find lines of each service block so that mini service docker-compose files are created
 	service_start=$(awk '/services/ {print NR}' ${yml_path})
 	num_start=""
@@ -153,20 +155,26 @@ else
 	       num_start+=$(awk "${service_start}<NR && /${service_i}:/ {print NR}" ${yml_path} | head -n 1)
 	       num_start+=","
 	done
-	echo "Arxi twn services: ${num_start}"
 
 	IFS=',' read -r -a array_ <<< "$num_start"
-	y=1
-	z=0
+	y=1 #Count the lines that are added
+	z=0 #Count loops
 	for i in "${array_[@]}"; do
+		#x will show where to add the new line
 		x=$(expr $i + $y)
+
 		#String of the next line of each service
 		var1="$(< ${yml_path} sed -n "${x}s/ *//p")"
+		
+		#Index of non whitespace string of next line 
 		indx=$(awk -v p="$var1" 'index($0,p) {s=$0; m=0; while((n=index(s, p))>0) {m+=n; printf "%s ", m; s=substr(s, n+1) } print ""}' ${yml_path})
 
-		#sed -i "${x}i security_opt: apparmor:${array[${z}]}_profile" ${yml_path}
-		sed -i "${x}i \ " ${yml_path}
-		sed -i "${x}s/^\(.\{${indx}\}\)/\1security_opt: apparmor:${array[${z}]}_profile/" ${yml_path}
+		#Duplicate the after service name next line
+		sed -i "${x}s/\([^.]*\)/&\n\1/" ${yml_path}
+
+		#Write the new line on this line so that the syntax stays the same
+		sed -i "${x}s/${var1}/security_opt: apparmor:${array[${z}]}_profile/" ${yml_path}
+
 		((y++))
 		((z++))
 	done
