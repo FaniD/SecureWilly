@@ -171,24 +171,28 @@ else
 		#Index of non whitespace string of next line 
 		indx=$(awk -v p="$var1" 'index($0,p) {s=$0; m=0; while((n=index(s, p))>0) {m+=n; printf "%s ", m; s=substr(s, n+1) } print ""}' ${yml_path})
 
+		xx=${xx:-$x}    
+		((xx++))
 		#Duplicate the after service name next line
+		sed -i "${x}s/\([^.]*\)/&\n\1/" ${yml_path}
 		sed -i "${x}s/\([^.]*\)/&\n\1/" ${yml_path}
 
 		#Security-opt
 		#Write the new line on this line so that the syntax stays the same
-		sed -i "${x}s/${var1}/security_opt: apparmor:${array[${z}]}_profile/" ${yml_path}
+		sed -i "${x}s/${var1}/security_opt:/" ${yml_path}
+		sed -i "${xx}s/${var1}/  - \"apparmor:${array[${z}]}_profile\"/" ${yml_path}
 
 		#Mini docker-compose files
-		yy=$(echo "${y}")
-		if [[ "$yy" == $num_of_services ]]; then
-			echo "Mpike me ${yy} kai ${num_of_services}"
-			sed -e "1,${i}d" ${yml_path} > ${array[${z}]}_yml
+		lp=${lp:-$z}    
+		((lp++))
+		loops=$(echo "${lp}")
+		if [[ "$loops" == $num_of_services ]]; then
+			sed -e "1,${x}d" ${yml_path} > ${array[${z}]}_yml
 		else
-#			sed -n "1,${i}d" ${yml_path} > ${array[${z}]}_yml
-			zz=${zz:-$z}
-			((zz++))
-			sed -n "${array_[${z}]},${array_[${zz}]}p" ${yml_path} > ${array[${z}]}_yml
+			ns=$(expr ${array_[${lp}]} + 2)
+			sed -n "${x},${ns}p" ${yml_path} > ${array[${z}]}_yml
 		fi
+		((y++))
 		((y++))
 		((z++))
 	done
