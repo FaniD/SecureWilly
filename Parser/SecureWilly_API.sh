@@ -180,14 +180,14 @@ else
 
 		#Mini docker-compose files
 		yy=$(echo "${y}")
-		if [[ "$yy" == $num_of_services ]]
-			echo "Mpike?"
-			sed -e "0,${i}d" ${yml_path} > ${array[${z}]}_yml
+		if [[ "$yy" == $num_of_services ]]; then
+			echo "Mpike me ${yy} kai ${num_of_services}"
+			sed -e "1,${i}d" ${yml_path} > ${array[${z}]}_yml
 		else
-			sed -e "0,${i}d" ${yml_path} > ${array[${z}]}_yml
+#			sed -n "1,${i}d" ${yml_path} > ${array[${z}]}_yml
 			zz=${zz:-$z}
 			((zz++))
-			sed -e "${array_[${zz}]},${yml_lines}d" ${yml_path} >> ${array[${z}]}_yml
+			sed -n "${array_[${z}]},${array_[${zz}]}p" ${yml_path} > ${array[${z}]}_yml
 		fi
 		((y++))
 		((z++))
