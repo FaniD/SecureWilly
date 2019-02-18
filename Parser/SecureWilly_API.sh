@@ -48,7 +48,7 @@ echo "Give the number of services that need a profile for your project:"
 read num_of_services
 echo ""
 echo "Give the name of each service - make sure the names are not used for other purpose like named volumes, network etc"
-echo "If you provided a docker-compose.yml make sure that you give the same names of services you used inside the yml file."
+echo "If you provided a docker-compose.yml make sure that you give the same names of services you used inside the yml file and with the same order as they are in it."
 echo "Give one name per line:"
 x=0
 x_str=${x}
@@ -161,18 +161,18 @@ else
 	IFS=',' read -r -a array_ <<< "$num_start"
 	y=1 #Count the lines that are added
 	z=0 #Count loops
+	x=1
 	for i in "${array_[@]}"; do
+		start_old=${start_position}
 		#x will show where to add the new line
 		x=$(expr $i + $y)
-
+		
 		#String of the next line of each service
 		var1="$(< ${yml_path} sed -n "${x}s/ *//p")"
 		
 		#Index of non whitespace string of next line 
 		#indx=$(awk -v p="$var1" 'index($0,p) {s=$0; m=0; while((n=index(s, p))>0) {m+=n; printf "%s ", m; s=substr(s, n+1) } print ""}' ${yml_path})
 
-#		xx=${xx:-$x}    
-#		((xx++))
 		xx=$(expr $x + 1)
 		#Duplicate the after service name next line
 		sed -i "${x}s/\([^.]*\)/&\n\1/" ${yml_path}
@@ -184,17 +184,22 @@ else
 		sed -i "${xx}s/${var1}/  - \"apparmor:${array[${z}]}_profile\"/" ${yml_path}
 
 		#Mini docker-compose files
-#		lp=${lp:-$z}    
 		lp=$(expr $z + 1)
-		loops=$(echo "${lp}")
+		loops=$(echo "$lp")
+		previous_z=$(expr $z - 1)
+		start_position=$(expr $x - 1)
+		start_minus=$(expr $start_position - 1)
 		if [[ "$loops" == $num_of_services ]]; then
-			sed -e "1,${x}d" ${yml_path} > ${array[${z}]}_yml
-		else #needs fixing
-			ns=$(expr ${array_[${lp}]} + 2)
-			sed -n "${x},${ns}p" ${yml_path} > ${array[${z}]}_yml
+			#Last service's docker-compose.yml
+			sed -e "1,${start_minus}d" ${yml_path} > ${array[${z}]}_yml
+			#Previous service's docker-compose.yml
+			sed -n "${start_old},${start_minus}p" ${yml_path} > ${array[${previous_z}]}_yml
+		elif [[ "$loops" != "1" ]]; then
+			#Previous service's docker-compose.yml
+			sed -n "${start_old},${start_minus}p" ${yml_path} > ${array[${previous_z}]}_yml
 		fi
-		y=$(expr $y + 2*${lp})
-#		((y++))
+		lpp=$(expr $lp \* 2)
+		y=$(expr $y + $lpp)
 		((z++))
 	done
 fi
