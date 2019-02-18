@@ -148,6 +148,8 @@ if [[ "$yml_path" == "N" ]]; then
 else
 #If docker-compose.yml exists, add security-opt and create mini docker compose files for each service
 
+	yml_lines=$(wc -l ${yml_path} | cut -d' ' -f1)
+
 	#Find lines of each service block so that mini service docker-compose files are created
 	service_start=$(awk '/services/ {print NR}' ${yml_path})
 	num_start=""
@@ -172,9 +174,21 @@ else
 		#Duplicate the after service name next line
 		sed -i "${x}s/\([^.]*\)/&\n\1/" ${yml_path}
 
+		#Security-opt
 		#Write the new line on this line so that the syntax stays the same
 		sed -i "${x}s/${var1}/security_opt: apparmor:${array[${z}]}_profile/" ${yml_path}
 
+		#Mini docker-compose files
+		yy=$(echo "${y}")
+		if [[ "$yy" == $num_of_services ]]
+			echo "Mpike?"
+			sed -e "0,${i}d" ${yml_path} > ${array[${z}]}_yml
+		else
+			sed -e "0,${i}d" ${yml_path} > ${array[${z}]}_yml
+			zz=${zz:-$z}
+			((zz++))
+			sed -e "${array_[${zz}]},${yml_lines}d" ${yml_path} >> ${array[${z}]}_yml
+		fi
 		((y++))
 		((z++))
 	done
