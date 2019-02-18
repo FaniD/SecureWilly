@@ -169,10 +169,11 @@ else
 		var1="$(< ${yml_path} sed -n "${x}s/ *//p")"
 		
 		#Index of non whitespace string of next line 
-		indx=$(awk -v p="$var1" 'index($0,p) {s=$0; m=0; while((n=index(s, p))>0) {m+=n; printf "%s ", m; s=substr(s, n+1) } print ""}' ${yml_path})
+		#indx=$(awk -v p="$var1" 'index($0,p) {s=$0; m=0; while((n=index(s, p))>0) {m+=n; printf "%s ", m; s=substr(s, n+1) } print ""}' ${yml_path})
 
-		xx=${xx:-$x}    
-		((xx++))
+#		xx=${xx:-$x}    
+#		((xx++))
+		xx=$(expr $x + 1)
 		#Duplicate the after service name next line
 		sed -i "${x}s/\([^.]*\)/&\n\1/" ${yml_path}
 		sed -i "${x}s/\([^.]*\)/&\n\1/" ${yml_path}
@@ -183,17 +184,17 @@ else
 		sed -i "${xx}s/${var1}/  - \"apparmor:${array[${z}]}_profile\"/" ${yml_path}
 
 		#Mini docker-compose files
-		lp=${lp:-$z}    
-		((lp++))
+#		lp=${lp:-$z}    
+		lp=$(expr $z + 1)
 		loops=$(echo "${lp}")
 		if [[ "$loops" == $num_of_services ]]; then
 			sed -e "1,${x}d" ${yml_path} > ${array[${z}]}_yml
-		else
+		else #needs fixing
 			ns=$(expr ${array_[${lp}]} + 2)
 			sed -n "${x},${ns}p" ${yml_path} > ${array[${z}]}_yml
 		fi
-		((y++))
-		((y++))
+		y=$(expr $y + 2*${lp})
+#		((y++))
 		((z++))
 	done
 fi
