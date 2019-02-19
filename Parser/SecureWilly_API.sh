@@ -47,9 +47,11 @@ echo ""
 echo "Give the number of services that need a profile for your project:"
 read num_of_services
 echo ""
-echo "Give the name of each service - make sure the names are not used for other purpose like named volumes, network etc"
-echo "If you provided a docker-compose.yml make sure that you give the same names of services you used inside the yml file and with the same order as they are in it."
-echo "Give one name per line:"
+echo "Give the name of each service following the next rules:"
+echo "1. The names should not be used for other purposes like named volumes, network etc"
+echo "2. If you provided a docker-compose.yml, make sure that you give the same names of services you used inside the yml file and with the same order as they are in it."
+echo "3. If you didn't provide a docker-compose.yml, the service name should be the same with the image you mention in the docker run command."
+echo "4. Give one name per line."
 x=0
 x_str=${x}
 service_list="("
@@ -124,9 +126,10 @@ while true; do
 	echo "Is the script corresponding to your test plan? [Y/N]"
 	read ready
 	if [[ "$ready" == "N" ]]; then
+		rm run.sh
 		echo "Please give again the commands you want to execute inside the container."
 		echo "Make sure you follow the next rules:"
-		echo "1. Give a command per line"
+		echo "1. Give a command per line."
 		echo "2. Include the docker run commands or docker-compose commands with which you will start and stop your container(s)."
 		echo "3. Use the --name flag to run your containers and name them after the name of service you mentioned before."
 		echo "4. Do NOT use flag --security-opt to run your containers."
@@ -147,13 +150,86 @@ if [[ "$yml_path" == "N" ]]; then
 		sed -i "/docker run/ s/${service_i}/${service_i} --security-opt "apparmor=${service_i}_profile"/" dynamic_scripts/7_run.sh
 
 		#Convert flags into docker-compose files
-		#-v net="$NET" {for(i=1;i<=NF;i++) {if($i ~ /capname/) print $i}}
-		#ports=$(awk "/docker run/ && /${service_i}/ {for(i=1;i<=NF;i++) {if($i ~ /p/) print $i}}" ${yml_path})
-		#awk -v ser="$service_i" '/ser/ {for(i=1;i<=NF;i++) {if($i ~ /-p/) print $i}}' dynamic_scripts/7_run.sh > tmp
-		#awk -v ser="$service_i" '/docker run/ {for(i=1;i<=NF;i++) {if($i ~ /p/) print $i}}' dynamic_scripts/7_run.sh
-		#		sed "/docker run.*${service_i}/ s/-p/ports/g" dynamic_scripts/7_run.sh > a
-		grep -E "docker run.*${service_i}" dynamic_scripts/7_run.sh > ${service}_run
-		awk '/$-p$/ {for(i=1;i<=NF;i++) {if($i ~ /-p/) print $i}}' ${service}_run
+
+		#Separate docker run commands for each service
+		grep -E "docker run.*${service_i}" dynamic_scripts/7_run.sh > ${service_i}_run
+
+		#Find ports
+		awk '/ -p / {for(i=1;i<=NF;i++) {if($i ~ /-p/) print $(i+1)}}' ${service_i}_run > ${service_i}_ports
+		sed -i 's/"//g' ${service_i}_ports
+
+		#Find volumes
+		awk '/ -v / {for(i=1;i<=NF;i++) {if($i ~ /-v/) print $(i+1)}}' ${service_i}_run > ${service_i}_volumes
+		sed -i 's/"//g' ${service_i}_volumes
+
+		#Find capabilities added
+		awk '/ --cap-add / {for(i=1;i<=NF;i++) {if($i ~ /--cap-add/) print $(i+1)}}' ${service_i}_run > ${service_i}_capadds
+		sed -i 's/"//g' ${service_i}_capadds
+
+		#Find capabilities dropped
+		awk '/ --cap-drop / {for(i=1;i<=NF;i++) {if($i ~ /--cap-drop/) print $(i+1)}}' ${service_i}_run > ${service_i}_capdrops
+		sed -i 's/"//g' ${service_i}_capdrops
+
+		#Find ulimit
+		awk '/ --ulimit / {for(i=1;i<=NF;i++) {if($i ~ /--ulimit/) print $(i+1)}}' ${service_i}_run > ${service_i}_ulimits
+		sed -i 's/"//g' ${service_i}_ulimits
+
+		#Start creating mini docker-compose.yml
+		echo "${service_i}:" > ${service_i}_yml
+	
+		#Ports
+		wc_ports=$(wc -l ${service_i}_ports | cut -d' ' -f1)
+		if [[ "$wc_ports" != "0" ]]; then
+			echo " ports:" >> ${service_i}_yml
+			sed -i 's/.*/  - "&"/g' ${service_i}_ports
+			cat ${service_i}_ports >> ${service_i}_yml
+		fi
+		rm ${service_i}_ports
+
+		#Volumes
+                wc_volumes=$(wc -l ${service_i}_volumes | cut -d' ' -f1)
+		if [[ "$wc_volumes" != "0" ]]; then
+			echo " volumes:" >> ${service_i}_yml
+			sed -i 's/.*/  - "&"/g' ${service_i}_volumes
+			cat ${service_i}_volumes >> ${service_i}_yml
+		fi
+		rm ${service_i}_volumes
+
+		#Cap_add
+                wc_capadds=$(wc -l ${service_i}_capadds | cut -d' ' -f1)
+		if [[ "$wc_capadds" != "0" ]]; then
+			echo " cap_add:" >> ${service_i}_yml
+			sed -i 's/.*/  - &/g' ${service_i}_capadds
+			cat ${service_i}_capadds >> ${service_i}_yml
+		fi
+		rm ${service_i}_capadds
+
+                #Cap_drop
+		wc_capdrops=$(wc -l ${service_i}_capdrops | cut -d' ' -f1)
+		if [[ "$wc_capdrops" != "0" ]]; then
+			echo " cap_drop:" >> ${service_i}_yml
+			sed -i 's/.*/  - &/g' ${service_i}_capdrops
+			cat ${service_i}_capdrops >> ${service_i}_yml
+		fi
+		rm ${service_i}_capdrops
+
+		#Ulimits
+                wc_ulimits=$(wc -l ${service_i}_ulimits | cut -d' ' -f1)
+		if [[ "$wc_ulimits" != "0" ]]; then
+			echo " ulimits:" >> ${service_i}_yml
+			cut -d'=' -f1 ${service_i}_ulimits > name_ul
+			cut -d'=' -f2 ${service_i}_ulimits > soft_hard
+			cut -d':' -f1 soft_hard > soft_ul
+			cut -d':' -f2 soft_hard > hard_ul
+                        sed 's/.*/  &:/g' name_ul >> ${service_i}_yml
+			sed 's/.*/   soft:&/g' soft_ul >> ${service_i}_yml
+			sed 's/.*/   hard:&/g' hard_ul >> ${service_i}_yml
+		fi
+		rm name_ul
+		rm soft_hard
+		rm soft_ul
+		rm hard_ul
+                rm ${service_i}_ulimits
 	done
 else
 #If docker-compose.yml exists, add security-opt and create mini docker compose files for each service
