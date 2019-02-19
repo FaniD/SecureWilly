@@ -143,7 +143,17 @@ IFS=',' read -r -a array <<< "$services"
 if [[ "$yml_path" == "N" ]]; then
 #If docker-compose does not exist, make sure to fix the script so that it includes security-opt flag and create mini docker compose files for each service
 	for service_i in "${array[@]}"; do
+		#Add security-opt flag
 		sed -i "/docker run/ s/${service_i}/${service_i} --security-opt "apparmor=${service_i}_profile"/" dynamic_scripts/7_run.sh
+
+		#Convert flags into docker-compose files
+		#-v net="$NET" {for(i=1;i<=NF;i++) {if($i ~ /capname/) print $i}}
+		#ports=$(awk "/docker run/ && /${service_i}/ {for(i=1;i<=NF;i++) {if($i ~ /p/) print $i}}" ${yml_path})
+		#awk -v ser="$service_i" '/ser/ {for(i=1;i<=NF;i++) {if($i ~ /-p/) print $i}}' dynamic_scripts/7_run.sh > tmp
+		#awk -v ser="$service_i" '/docker run/ {for(i=1;i<=NF;i++) {if($i ~ /p/) print $i}}' dynamic_scripts/7_run.sh
+		#		sed "/docker run.*${service_i}/ s/-p/ports/g" dynamic_scripts/7_run.sh > a
+		grep -E "docker run.*${service_i}" dynamic_scripts/7_run.sh > ${service}_run
+		awk '/$-p$/ {for(i=1;i<=NF;i++) {if($i ~ /-p/) print $i}}' ${service}_run
 	done
 else
 #If docker-compose.yml exists, add security-opt and create mini docker compose files for each service
