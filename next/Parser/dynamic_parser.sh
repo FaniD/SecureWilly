@@ -2,7 +2,7 @@
 
 #Change this with the services I have each time
 #Also do that in 2_cp, 3, 4a, 4b, 9, 10a, 10b, 12, metrics 
-service_list=(db app )
+service_list=(db app)
 
 app_run_path=".."
 parser_path="${app_run_path}/Parser"
@@ -52,7 +52,6 @@ done
 #Starting with complain mode
 i=1
 while true; do
-	./${dynamic_script_path}/1_clear_containers.sh
 	echo $i | source ${dynamic_script_path}/2_cp_to_apparmor.sh
 	./${dynamic_script_path}/3_load_profiles.sh 
 	./${dynamic_script_path}/4a_complain_mode.sh
@@ -63,6 +62,7 @@ while true; do
 
 	./${dynamic_script_path}/7_run.sh
 	echo $i | source ${dynamic_script_path}/8_logging_files.sh
+	./${dynamic_script_path}/9_clear_containers.sh
 	echo $i | source ${dynamic_script_path}/10a_awk_it_complain.sh
 	x=${x:-$i}
 	((x++))
@@ -88,7 +88,6 @@ while true; do
 done
 
 while true; do
-	./${dynamic_script_path}/1_clear_containers.sh
 	echo $i | source ${dynamic_script_path}/2_cp_to_apparmor.sh
 	./${dynamic_script_path}/3_load_profiles.sh
 	./${dynamic_script_path}/4b_enforce_mode.sh
@@ -96,6 +95,7 @@ while true; do
 	./${dynamic_script_path}/6_net.sh
 	./${dynamic_script_path}/7_run.sh
 	echo $i | source ${dynamic_script_path}/8_logging_files.sh
+	./${dynamic_script_path}/9_clear_containers.sh
 	echo $i | source ${dynamic_script_path}/10b_awk_it_enforce.sh
 	x=${x:-$i}
 	((x++))
@@ -125,7 +125,6 @@ y=${y:-$i}
 #########################
 while true; do
 #########################
-	./${dynamic_script_path}/1_clear_containers.sh
 	if [ $y -eq $i ] 
 	then
 		for SERVICE in "${service_list[@]}"; do  
@@ -139,6 +138,7 @@ while true; do
 	./${dynamic_script_path}/6_net.sh
 	./${dynamic_script_path}/7_run.sh
 	echo $i | source ${dynamic_script_path}/8_logging_files.sh
+	./${dynamic_script_path}/9_clear_containers.sh
 	echo $i | source ${dynamic_script_path}/10a_awk_it_complain.sh
 	x=${x:-$i}
 	((x++))
@@ -167,7 +167,6 @@ done
 
 
 while true; do
-	./${dynamic_script_path}/1_clear_containers.sh
 	echo $i | source ${dynamic_script_path}/2_cp_to_apparmor.sh
         ./${dynamic_script_path}/3_load_profiles.sh
 	./${dynamic_script_path}/4b_enforce_mode.sh
@@ -175,6 +174,7 @@ while true; do
 	./${dynamic_script_path}/6_net.sh
 	./${dynamic_script_path}/7_run.sh
 	echo $i | source ${dynamic_script_path}/8_logging_files.sh
+	./${dynamic_script_path}/9_clear_containers.sh
 	echo $i | source ${dynamic_script_path}/10b_awk_it_enforce.sh
 	x=${x:-$i}
         ((x++))
