@@ -44,19 +44,22 @@ x=0
 x_str=${x}
 service_list="("
 services=""
-while [[ "$num_of_services" != $x_str ]] ; do
+while true; do
 	read service
 
 	#services string will be used to create an array of the services in this script
 	services+=${service}
-	services+=","
 
 	#service_list will be used as a string by sed to insert the services in dynamic_scripts
 	service_list+=${service}
-	service_list+=" "
 
 	((x++))
 	x_str=${x}
+	if [[ "$num_of_services" == $x_str ]] ; then
+		break
+	fi
+	service_list+=" "
+	services+=","
 done
 service_list+=")"
 
@@ -298,6 +301,6 @@ done
 rm empty_file
 
 #Dynamic_parser
-./dynamic_parser.sh
+#./dynamic_parser.sh
 
 echo "Profiles produced for all services are located in parser_output directory."
