@@ -292,7 +292,6 @@ for service_i in "${array[@]}"; do
 	echo "" >> ${service_i}_yml
 	python static_parser.py ${dockerfile_path} ${service_i}_yml
 	sed -i "3s/static_profile/${service_i}_profile/" static_profile
-	mkdir ${app_run_path}/parser_output/profiles/${service_i}
 	mv static_profile ${app_run_path}/parser_output/${service_i}_profile
 done
 
