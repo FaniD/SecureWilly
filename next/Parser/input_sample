@@ -1,5 +1,5 @@
 N
-Y
+/home/ubuntu/SecureWilly/next/docker-compose.yml
 2
 db
 app
@@ -30,4 +30,3 @@ sudo touch /home/ubuntu/SecureWilly/next/data/willy/files/HelloFromTheOtherSide
 docker exec -u www-data -ti nextcloud_securewilly php occ files:scan --all
 Done
 Y
-
