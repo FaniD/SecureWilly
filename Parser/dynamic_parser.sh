@@ -2,7 +2,7 @@
 
 #Change this with the services I have each time
 #Also do that in 2_cp, 3, 4a, 4b, 9, 10a, 10b, 12, metrics 
-service_list=(db test )
+service_list=(db app )
 
 app_run_path=".."
 parser_path="${app_run_path}/Parser"
@@ -28,7 +28,7 @@ for SERVICE in "${service_list[@]}"; do
 	mkdir ${app_run_path}/parser_output/profiles/${SERVICE}
 	#If static profile exists, otherwise make this a comment and create it a simple version_1
 	if [[ "$static_part" > "0" ]]; then
-		mv ${app_run_path}/parser_output/${SERVICE}__profile ${app_run_path}/parser_output/profiles/${SERVICE}/version_1
+		mv ${app_run_path}/parser_output/${SERVICE}_profile ${app_run_path}/parser_output/profiles/${SERVICE}/version_1
 	else
 		python ${dynamic_script_path}/create_version_1.py ${SERVICE}
 	fi

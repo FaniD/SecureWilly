@@ -298,6 +298,6 @@ done
 rm empty_file
 
 #Dynamic_parser
-./dynamic_parses.sh
+./dynamic_parser.sh
 
 echo "Profiles produced for all services are located in parser_output directory."
