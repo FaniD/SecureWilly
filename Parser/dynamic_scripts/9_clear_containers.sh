@@ -5,7 +5,12 @@ net=true
 if $net ; then
 	docker network rm docker
 fi
-docker container rm streaming_dataset
-docker container rm streaming_server
-docker container rm streaming_client
+
+service_list=(db test )
+for SERVICE in "${service_list[@]}"; do
+	docker container rm ${SERVICE} #streaming_dataset
+done
+	
+#docker container rm streaming_server
+#docker container rm streaming_client
 
