@@ -1,0 +1,14 @@
+N
+N
+2
+db
+test
+N
+docker run test -p 4:6
+docker run db -v a:a
+docker run db -p 4:4 -p 5:5
+docker run test --ulimit nofile=1024:1024
+docker run test -p 80:80 -v a:b --cap-add SYS_CHROOT --cap-drop CHOWN 
+Done
+Y
+

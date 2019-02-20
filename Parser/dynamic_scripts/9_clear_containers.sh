@@ -1,9 +1,9 @@
 #!/bin/sh
 
-net=false
+net=true
 #delete network
 if $net ; then
-	docker network rm streaming_network
+	docker network rm docker
 fi
 docker container rm streaming_dataset
 docker container rm streaming_server

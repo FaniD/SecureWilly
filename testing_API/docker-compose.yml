@@ -1,0 +1,43 @@
+version: '3'
+
+volumes:
+     nextcloud_volume:
+     db_volume:
+
+services:
+     db:
+        image: mariadb:10
+        command: --transaction-isolation=READ-COMMITTED --binlog-format=ROW
+        restart: always
+        volumes:
+                - db_volume:/var/lib/mysql
+        environment:
+                - MYSQL_ROOT_PASSWORD=secret
+                - MYSQL_PASSWORD=secret
+                - MYSQL_DATABASE=nextcloud_volume
+                - MYSQL_USER=willy
+     nextcloud:
+        image: nextcloud:latest
+        container_name: nextcloud
+        security_opt:
+                - "apparmor:nextcloud_profile"
+        ports:
+                - 8080:80
+        links:
+                - db
+        volumes:
+                - nextcloud_volume:/var/www/html
+                - /home/ubuntu/SecureWilly/Nextcloud/data:/var/www/html/data
+        ulimits:
+                nproc:
+                   soft: 1024
+                   hard: 1024
+                nofile:
+                   soft: 1024
+                   hard: 1024       
+        environment:
+                - NEXTCLOUD_ADMIN_USER=willy
+                - NEXTCLOUD_ADMIN_PASSWORD=secret
+                - NEXTCLOUD_TABLE_PREFIX=nc_
+                - NEXTCLOUD_DATA_DIR=/var/www/html/data
+        restart: always
