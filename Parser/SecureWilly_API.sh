@@ -253,7 +253,6 @@ else
 		
 		#Index of non whitespace string of next line 
 		#indx=$(awk -v p="$var1" 'index($0,p) {s=$0; m=0; while((n=index(s, p))>0) {m+=n; printf "%s ", m; s=substr(s, n+1) } print ""}' ${yml_path})
-
 		xx=$(expr $x + 1)
 		#Duplicate the after service name next line
 		sed -i "${x}s/\([^.]*\)/&\n\1/" ${yml_path}
@@ -270,11 +269,14 @@ else
 		previous_z=$(expr $z - 1)
 		start_position=$(expr $x - 1)
 		start_minus=$(expr $start_position - 1)
+		echo "3 edo skaeo"
 		if [[ "$loops" == $num_of_services ]]; then
 			#Last service's docker-compose.yml
 			sed -e "1,${start_minus}d" ${yml_path} > ${array[${z}]}_yml
 			#Previous service's docker-compose.yml
-			sed -n "${start_old},${start_minus}p" ${yml_path} > ${array[${previous_z}]}_yml
+			if [[ "$num_of_services" != "1" ]]; then 
+				sed -n "${start_old},${start_minus}p" ${yml_path} > ${array[${previous_z}]}_yml
+			fi
 		elif [[ "$loops" != "1" ]]; then
 			#Previous service's docker-compose.yml
 			sed -n "${start_old},${start_minus}p" ${yml_path} > ${array[${previous_z}]}_yml
@@ -297,17 +299,16 @@ for service_i in "${array[@]}"; do
 
 	#Count volumes if exist and fix 11_merge.py
 	python find_vols.py ${service_i}_yml
-#	vol_str=$(cat if_vols)
-	vol_str=$(cut -d'%' -f1 if_vols)
-	num_vols=$(cut -d'%' -f2 if_vols)
+	vol_str=$(cut -d'%' -f1 if_vol)
+	num_vols=$(cut -d'%' -f2 if_vol)
 	#	num_vols=$(tail -n 1 service_volumes)
 	if [[ "$num_vols" == "0" ]]; then
 		sed -i "83s/.*/#&/" dynamic_scripts/11_merge_profiles.py
 	else
-		sed -i "83s/#/" "/" dynamic_scripts/11_merge_profiles.py
+		sed -i "83s/#/ /" dynamic_scripts/11_merge_profiles.py
 		#For every volume copy lines 82, 83 and put the right volume in it
 		#Duplicate the after service name next line
-		num_v_lp=1
+	#	num_v_lp=1
 		#Fix the first n-1 volumes
 #		while [[ "$num_v_lp" != "$num_vols" ]]; do
 		sed -i "83s/if /${vol_str}/" dynamic_scripts/11_merge_profiles.py
@@ -316,7 +317,7 @@ for service_i in "${array[@]}"; do
 		#Add the nth volume
 #		sed -i "" dynamic_scripts/11_merge_profiles.py
 	fi
-	rm service_volumes
+	rm if_vol
 	python static_parser.py ${dockerfile_path} ${service_i}_yml
 	sed -i "3s/static_profile/${service_i}_profile/" static_profile
 	mv static_profile ${app_run_path}/parser_output/${service_i}_profile
