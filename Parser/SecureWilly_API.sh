@@ -300,12 +300,10 @@ for service_i in "${array[@]}"; do
 	python find_vols.py ${service_i}_yml
 	vol_str=$(cut -d'%' -f1 if_vol)
 	num_vols=$(cut -d'%' -f2 if_vol)
-	#	num_vols=$(tail -n 1 service_volumes)
 	if [[ "$num_vols" == "0" ]]; then
 		sed -i "83s/.*/#&/" dynamic_scripts/11_merge_profiles.py
 	else
 		sed -i "83s/#/ /" dynamic_scripts/11_merge_profiles.py
-		echo "${vol_str}"
 		sed -i "83s|if |if ${vol_str}|" dynamic_scripts/11_merge_profiles.py
 	fi
 	rm if_vol
