@@ -220,9 +220,6 @@ if (len(sys.argv) > 2):
 				src = src.strip('"')
 				mntpnt = src_mntpnt[1]
 
-                                if (mntpnt.endswith('/')):
-                                    mntpnt = mntpnt.rstrip('/')
-
                                 #If there is a mount option:
                                 if len(src_mntpnt)==3:
                                     option = src_mntpnt[2]
@@ -230,20 +227,16 @@ if (len(sys.argv) > 2):
                                         ro_rule = '\tdeny ' + mntpnt + ' w,\n'
                                         static_profile.append(ro_rule)
                                         mount_rule = '\tmount options=ro ' + src + ' -> ' + mntpnt + ', #Bind host volume to docker container volume\n'
-                                        file_mnt_rule = '\t' + mntpnt + '\* r,\n'
                                     else:
                                         mount_rule = '\tmount ' + src + ' -> ' + mntpnt + ', #Bind host volume to docker container volume\n'
-                                        file_mnt_rule = '\t' + mntpnt + '\* rw,\n'
                                 else:
 				    mount_rule = '\tmount ' + src + ' -> ' + mntpnt + ', #Bind host volume to docker container volume\n'
-                                    file_mnt_rule = '\t' + mntpnt + '\* rw,\n'
 
                                 umount_rule = '\tdeny umount ' + mntpnt + ', #Disallow anybody that wants to break this mountpoint\n'
 				remount_rule = '\tdeny remount '+ mntpnt + ', #Disallow anybody that wants to remount this mountpoint\n'
                                 static_profile.append(mount_rule)
                                 static_profile.append(umount_rule)
                                 static_profile.append(remount_rule)
-                                static_profile.append(file_mnt_rule)
 				z = z+1
                             #If docker.sock is mounted in one of the following ways, deny capabilities setuid and setgid so the user won't be able to start a new login session
                                 if src=='/':

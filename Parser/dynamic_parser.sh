@@ -2,7 +2,7 @@
 
 #Change this with the services I have each time
 #Also do that in 2_cp, 3, 4a, 4b, 9, 10a, 10b, 12, metrics 
-service_list=(db app)
+service_list=(nextcloud)
 
 app_run_path=".."
 parser_path="${app_run_path}/Parser"
@@ -207,5 +207,5 @@ done
 for SERVICE in "${service_list[@]}"; do
 	python ${dynamic_script_path}/13_delete_audit_flag.py $SERVICE $i
 	rm next_step_${SERVICE}
-	cp ${app_run_path}/parser_output/profiles/${SERVICE}/output_${SERVICE}_profile ${app_run_path}/parser_output/${SERVICE}_profile
+	cp ${app_run_path}/parser_output/profiles/output_${SERVICE}_profile ${app_run_path}/parser_output/${SERVICE}_profile
 done

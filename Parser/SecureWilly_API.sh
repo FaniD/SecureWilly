@@ -269,7 +269,6 @@ else
 		previous_z=$(expr $z - 1)
 		start_position=$(expr $x - 1)
 		start_minus=$(expr $start_position - 1)
-		echo "3 edo skaeo"
 		if [[ "$loops" == $num_of_services ]]; then
 			#Last service's docker-compose.yml
 			sed -e "1,${start_minus}d" ${yml_path} > ${array[${z}]}_yml
@@ -306,16 +305,8 @@ for service_i in "${array[@]}"; do
 		sed -i "83s/.*/#&/" dynamic_scripts/11_merge_profiles.py
 	else
 		sed -i "83s/#/ /" dynamic_scripts/11_merge_profiles.py
-		#For every volume copy lines 82, 83 and put the right volume in it
-		#Duplicate the after service name next line
-	#	num_v_lp=1
-		#Fix the first n-1 volumes
-#		while [[ "$num_v_lp" != "$num_vols" ]]; do
-		sed -i "83s/if /${vol_str}/" dynamic_scripts/11_merge_profiles.py
-#			num_v_lp=$(expr $num_v_lp + 1)
-#		done
-		#Add the nth volume
-#		sed -i "" dynamic_scripts/11_merge_profiles.py
+		echo "${vol_str}"
+		sed -i "83s|if |if ${vol_str}|" dynamic_scripts/11_merge_profiles.py
 	fi
 	rm if_vol
 	python static_parser.py ${dockerfile_path} ${service_i}_yml
