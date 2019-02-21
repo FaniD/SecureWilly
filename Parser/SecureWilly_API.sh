@@ -304,7 +304,7 @@ for service_i in "${array[@]}"; do
 		sed -i "83s/.*/#&/" dynamic_scripts/11_merge_profiles.py
 	else
 		sed -i "83s/#/ /" dynamic_scripts/11_merge_profiles.py
-		sed -i "83s|if |if ${vol_str}|" dynamic_scripts/11_merge_profiles.py
+		sed -i "83s|if .*|if ${vol_str}|" dynamic_scripts/11_merge_profiles.py
 	fi
 	rm if_vol
 	python static_parser.py ${dockerfile_path} ${service_i}_yml
@@ -316,6 +316,6 @@ rm empty_file
 
 sudo chmod +x dynamic_scripts/7_run.sh
 #Dynamic_parser
-#./dynamic_parser.sh
+./dynamic_parser.sh
 
 echo "Profiles produced for all services are located in parser_output directory."
