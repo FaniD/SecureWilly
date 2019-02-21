@@ -299,7 +299,9 @@ done
 
 rm empty_file
 
+sudo chmod +x dynamic_scripts/7_run.sh
+
 #Dynamic_parser
-#./dynamic_parser.sh
+./dynamic_parser.sh
 
 echo "Profiles produced for all services are located in parser_output directory."
