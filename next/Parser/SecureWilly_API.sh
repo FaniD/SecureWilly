@@ -38,7 +38,7 @@ echo ""
 echo "Give the name of each service following the next rules:"
 echo "1. The names should not be used for other purposes like named volumes, network etc"
 echo "2. If you provided a docker-compose.yml, make sure that you give the same names of services you used inside the yml file and with the same order as they are in it."
-echo "3. If you didn't provide a docker-compose.yml, the service name should be the same with the image you mention in the docker run command."
+echo "3. Names of services should be identical to the names of the corresponding images and containers. Make sure to name your containers either in docker-container using container_name or in the testplan commands with flag --name."
 echo "4. Give one name per line."
 x=0
 x_str=${x}

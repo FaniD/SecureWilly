@@ -2,7 +2,7 @@
         security_opt:
           - "apparmor:app_profile"
         image: nextcloud:latest
-        container_name: nextcloud_securewilly
+        container_name: app
         ports:
                 - 8080:80
         links:

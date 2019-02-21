@@ -38,7 +38,7 @@ echo ""
 echo "Give the name of each service following the next rules:"
 echo "1. The names should not be used for other purposes like named volumes, network etc"
 echo "2. If you provided a docker-compose.yml, make sure that you give the same names of services you used inside the yml file and with the same order as they are in it."
-echo "3. If you didn't provide a docker-compose.yml, the service name should be the same with the image you mention in the docker run command."
+echo "3. Names of services should be identical to the names of the corresponding images and containers. Make sure to name your containers either in docker-container using container_name or in the testplan commands with flag --name."
 echo "4. Give one name per line."
 x=0
 x_str=${x}
@@ -67,7 +67,7 @@ service_list+=")"
 #Sed every script that needs them
 #Dynamic parser seds alone because of its different path
 sed -i "5s/service_list=(.*/service_list=${service_list}/" dynamic_parser.sh
-file_list=(2_cp_to_apparmor.sh*6s 3_load_profiles.sh*4s 4a_complain_mode.sh*4s 4b_enforce_mode.sh*4s 8_logging_files.sh*15s 10a_awk_it_complain.sh*10s 10b_awk_it_enforce.sh*10s 12_complain_enforce_audit.sh*5s)
+file_list=(2_cp_to_apparmor.sh*6s 3_load_profiles.sh*4s 4a_complain_mode.sh*4s 4b_enforce_mode.sh*4s 8_logging_files.sh*15s 9_clear_containers.sh*9s 10a_awk_it_complain.sh*10s 10b_awk_it_enforce.sh*10s 12_complain_enforce_audit.sh*5s)
 for f_i in  "${file_list[@]}"; do
 	file_i=$(echo $f_i | cut -d'*' -f1)
 	line=$(echo $f_i | cut -d'*' -f2)
@@ -86,7 +86,6 @@ if [[ "$net" != "N" ]]; then
 
 	sed -i "3s/net=.*/net=true/" dynamic_scripts/9_clear_containers.sh
 	sed -i "6s/rm .*/rm ${net}/" dynamic_scripts/9_clear_containers.sh
-
 fi
 echo ""
 
