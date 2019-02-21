@@ -227,8 +227,12 @@ if (len(sys.argv) > 2):
                                         ro_rule = '\tdeny ' + mntpnt + ' w,\n'
                                         static_profile.append(ro_rule)
                                         mount_rule = '\tmount options=ro ' + src + ' -> ' + mntpnt + ', #Bind host volume to docker container volume\n'
+                                        if (mntpnt.endswith('/')):
+                                                mntpnt = mntpnt.rstrip('/')
+                                        file_mnt_rule = '\tmntpnt\* r,\n'
                                     else:
                                         mount_rule = '\tmount ' + src + ' -> ' + mntpnt + ', #Bind host volume to docker container volume\n'
+                                        file_mnt_rule = '\tmntpnt\* rw,\n'
                                 else:
 				    mount_rule = '\tmount ' + src + ' -> ' + mntpnt + ', #Bind host volume to docker container volume\n'
 
@@ -237,6 +241,7 @@ if (len(sys.argv) > 2):
                                 static_profile.append(mount_rule)
                                 static_profile.append(umount_rule)
                                 static_profile.append(remount_rule)
+                                static_profile.append(file_mnt_rule)
 				z = z+1
                             #If docker.sock is mounted in one of the following ways, deny capabilities setuid and setgid so the user won't be able to start a new login session
                                 if src=='/':
