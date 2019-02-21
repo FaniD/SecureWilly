@@ -79,10 +79,11 @@ for line in data:
     if not line.startswith('/'):
         continue
 
-    #~~~Test /var/lib/docker
+#Volumes here
+    if ( line.startswith('volume_str') ): continue
+
     if '/var/lib/docker/' in line:
         continue
-    #~~~
 
     line = line.strip('\n')
     line = line.split(' ')

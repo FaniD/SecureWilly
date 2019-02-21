@@ -294,6 +294,29 @@ mkdir ${app_run_path}/parser_output
 
 for service_i in "${array[@]}"; do
 	echo "" >> ${service_i}_yml
+
+	#Count volumes if exist and fix 11_merge.py
+	python find_vols.py ${service_i}_yml
+#	vol_str=$(cat if_vols)
+	vol_str=$(cut -d'%' -f1 if_vols)
+	num_vols=$(cut -d'%' -f2 if_vols)
+	#	num_vols=$(tail -n 1 service_volumes)
+	if [[ "$num_vols" == "0" ]]; then
+		sed -i "83s/.*/#&/" dynamic_scripts/11_merge_profiles.py
+	else
+		sed -i "83s/#/" "/" dynamic_scripts/11_merge_profiles.py
+		#For every volume copy lines 82, 83 and put the right volume in it
+		#Duplicate the after service name next line
+		num_v_lp=1
+		#Fix the first n-1 volumes
+#		while [[ "$num_v_lp" != "$num_vols" ]]; do
+		sed -i "83s/if /${vol_str}/" dynamic_scripts/11_merge_profiles.py
+#			num_v_lp=$(expr $num_v_lp + 1)
+#		done
+		#Add the nth volume
+#		sed -i "" dynamic_scripts/11_merge_profiles.py
+	fi
+	rm service_volumes
 	python static_parser.py ${dockerfile_path} ${service_i}_yml
 	sed -i "3s/static_profile/${service_i}_profile/" static_profile
 	mv static_profile ${app_run_path}/parser_output/${service_i}_profile
@@ -303,6 +326,6 @@ rm empty_file
 
 sudo chmod +x dynamic_scripts/7_run.sh
 #Dynamic_parser
-./dynamic_parser.sh
+#./dynamic_parser.sh
 
 echo "Profiles produced for all services are located in parser_output directory."
