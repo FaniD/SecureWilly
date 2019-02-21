@@ -207,5 +207,5 @@ done
 for SERVICE in "${service_list[@]}"; do
 	python ${dynamic_script_path}/13_delete_audit_flag.py $SERVICE $i
 	rm next_step_${SERVICE}
-	cp ${app_run_path}/parser_output/profiles/output_${SERVICE}_profile ${app_run_path}/parser_output/${SERVICE}_profile
+	cp ${app_run_path}/parser_output/profiles/${SERVICE}/output_${SERVICE}_profile ${app_run_path}/parser_output/${SERVICE}_profile
 done
