@@ -1,0 +1,34 @@
+N
+/home/ubuntu/SecureWilly/next_only/docker-compose.yml
+1
+nextcloud
+N
+sudo rm -r /home/ubuntu/SecureWilly/next_only/data
+mkdir /home/ubuntu/SecureWilly/next_only/data
+sudo chown www-data:www-data /home/ubuntu/SecureWilly/next_only/data
+
+docker-compose up -d
+sleep 60
+
+docker exec -u www-data nextcloud php occ status > answer
+answer=$(cat answer | grep 'Nextcloud is not installed')
+while [ -z "$answer" ]
+do
+        rm answer
+        docker exec -u www-data nextcloud php occ status > answer
+        answer=$(cat answer | grep 'Nextcloud is not installed')
+done
+rm answer
+#Configure nextcloud
+docker exec -u www-data nextcloud php occ maintenance:install --database "mysql" --database-name "nextcloud_" --database-host "db" --database-user "willy" --database-pass "secret" --admin-user "willy" --admin-pass "secret"
+
+#Create a file in local data directory
+sudo touch /home/ubuntu/SecureWilly/next_only/data/willy/files/HelloFromTheOtherSide
+
+#Use occ files:scan to make it visible to the web interface
+docker exec -u www-data nextcloud php occ files:scan --all
+
+docker kill nextcloud
+docker kill db
+Done
+Y
