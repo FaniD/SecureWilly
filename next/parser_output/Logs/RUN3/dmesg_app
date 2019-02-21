@@ -1,0 +1,1 @@
+[ 2579.654647] type=1400 audit(1550719022.999:161649): apparmor="ALLOWED" operation="capable" profile="app_profile" pid=4898 comm="apache2" capability=4  capname="fsetid"

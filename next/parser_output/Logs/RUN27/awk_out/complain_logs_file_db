@@ -1,0 +1,11 @@
+/etc/ld.so.cache r
+/var/lib/docker/aufs/diff/6f0776bfc9786718348aa024dd44b74d4cec8fe86566da1db8b23d631da1652b/etc/ld.so.cache r
+/lib/x86_64-linux-gnu/libtinfo.so.5.9 r
+/var/lib/docker/aufs/diff/203f403f0fa7e4dd314d6d0dbdad76f9fe0b715b7ffdb0ea287f65a3e6af73eb/lib/x86_64-linux-gnu/libtinfo.so.5.9 r
+/lib/x86_64-linux-gnu/libdl-2.27.so r
+/usr/share/zoneinfo/Arctic/Longyearbyen r
+/var/lib/docker/aufs/diff/0d226058bb26f4d41029771e1f1d87c28a1cfb7e324f41c1c7a86b02e29d366b/usr/share/zoneinfo/Arctic/Longyearbyen r
+/usr/share/zoneinfo/Atlantic/Madeira r
+/var/lib/docker/aufs/diff/0d226058bb26f4d41029771e1f1d87c28a1cfb7e324f41c1c7a86b02e29d366b/usr/share/zoneinfo/Atlantic/Madeira r
+/usr/share/zoneinfo/Iceland r
+/var/lib/docker/aufs/diff/0d226058bb26f4d41029771e1f1d87c28a1cfb7e324f41c1c7a86b02e29d366b/usr/share/zoneinfo/Iceland r

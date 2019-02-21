@@ -1,0 +1,37 @@
+#include <tunables/global>
+
+profile db_profile flags=(audit,attach_disconnected,mediate_deleted) {
+	network inet6 dgram,
+	/usr/share/zoneinfo/Portugal r,
+	/lib/x86_64-linux-gnu/libtinfo.so.5.9 r,
+	/tmp/#sql_1_0.MAD r,
+	signal (receive) set=(usr1) peer=db_profile,
+	network inet6 stream,
+	/etc/ld.so.cache r,
+	/usr/ r,
+	/tmp/#sql_1_0.MAI r,
+	/tmp/#sql_1_0.MAD d,
+	/usr/share/zoneinfo/America/Whitehorse r,
+	mount db_ -> /var/lib/mysql, #Bind host volume to docker container volume
+	signal (send) set=(usr1) peer=db_profile,
+	/var/lib/docker/* r, #Access to layers of filesystem
+	/usr/share/zoneinfo/GB r,
+	capability setgid,
+	/tmp/#sql_1_0.MAI d,
+	capability dac_override,
+	/usr/share/zoneinfo/Europe/Belgrade r,
+	/usr/share/zoneinfo/posix/Chile/ r,
+	file,  #This rule is needed so that I can work with files (create files/directories, copy, etc)
+	network inet dgram,
+	capability setuid,
+	deny ptrace (readby, tracedby), #Confront container breakout attacks
+	/lib/x86_64-linux-gnu/libdl-2.27.so r,
+	/var/ r,
+	/usr/share/zoneinfo/America/Regina r,
+	signal (receive) set=(term) peer=db_profile,
+	/usr/share/zoneinfo/UTC r,
+	signal (receive) set=(kill) peer=unconfined,
+	deny remount /var/lib/mysql, #Disallow anybody that wants to remount this mountpoint
+	deny umount /var/lib/mysql, #Disallow anybody that wants to break this mountpoint
+	signal (send) set=(term) peer=db_profile,
+}

@@ -1,0 +1,31 @@
+#Capability\n
+#Network\n
+inet6 stream
+inet stream
+#File
+/etc/ld.so.cache r
+/var/lib/docker/aufs/diff/6f0776bfc9786718348aa024dd44b74d4cec8fe86566da1db8b23d631da1652b/etc/ld.so.cache r
+/lib/x86_64-linux-gnu/libtinfo.so.5.9 r
+/var/lib/docker/aufs/diff/203f403f0fa7e4dd314d6d0dbdad76f9fe0b715b7ffdb0ea287f65a3e6af73eb/lib/x86_64-linux-gnu/libtinfo.so.5.9 r
+/lib/x86_64-linux-gnu/libdl-2.27.so r
+/usr/share/zoneinfo/Asia/Brunei r
+/var/lib/docker/aufs/diff/0d226058bb26f4d41029771e1f1d87c28a1cfb7e324f41c1c7a86b02e29d366b/usr/share/zoneinfo/Asia/Brunei r
+/usr/share/zoneinfo/Asia/Calcutta r
+/var/lib/docker/aufs/diff/0d226058bb26f4d41029771e1f1d87c28a1cfb7e324f41c1c7a86b02e29d366b/usr/share/zoneinfo/Asia/Calcutta r
+/usr/share/zoneinfo/Asia/Chita r
+/var/lib/docker/aufs/diff/0d226058bb26f4d41029771e1f1d87c28a1cfb7e324f41c1c7a86b02e29d366b/usr/share/zoneinfo/Asia/Chita r
+requested_mask 
+/var/lib/docker/aufs/diff/8e8d849f877bdaa56b9f3915d7c1ba2ff2544e670cea46ad05a94a7de2e5eb4a/etc/ld.so.cache r
+/lib/x86_64-linux-gnu/libcrypt-2.24.so r
+/var/lib/docker/aufs/diff/597ec46e7341e204f80a6731889087aec93297658e2c1fb834394ad5b2972b1d/lib/x86_64-linux-gnu/libcrypt-2.24.so r
+/var/lib/docker/aufs/diff/03405a79188564b9ef69e020e8b2923bc8811beaea083d3744894e3dbdca7853/tmp/#sql_1_0.MAD rw
+/tmp/#sql_1_0.MAI r
+/var/lib/docker/aufs/diff/03405a79188564b9ef69e020e8b2923bc8811beaea083d3744894e3dbdca7853/tmp/#sql_1_0.MAI r
+/tmp/#sql_1_0.MAI d
+/var/lib/docker/aufs/diff/03405a79188564b9ef69e020e8b2923bc8811beaea083d3744894e3dbdca7853/tmp/#sql_1_0.MAI d
+/tmp/#sql_1_0.MAD r
+/var/lib/docker/aufs/diff/03405a79188564b9ef69e020e8b2923bc8811beaea083d3744894e3dbdca7853/tmp/#sql_1_0.MAD r
+/tmp/#sql_1_0.MAD d
+/var/lib/docker/aufs/diff/03405a79188564b9ef69e020e8b2923bc8811beaea083d3744894e3dbdca7853/tmp/#sql_1_0.MAD d
+#Signal
+receive exists unconfined

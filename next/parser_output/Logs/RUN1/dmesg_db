@@ -1,0 +1,23 @@
+[ 2476.129775] type=1400 audit(1550718919.475:41): apparmor="ALLOWED" operation="capable" profile="db_profile" pid=2256 comm="mysqld" capability=1  capname="dac_override"
+[ 2476.130010] type=1400 audit(1550718919.475:42): apparmor="ALLOWED" operation="create" profile="db_profile" pid=2256 comm="mysqld" family="inet" sock_type="dgram" protocol=0
+[ 2476.290047] type=1400 audit(1550718919.635:43): apparmor="ALLOWED" operation="capable" profile="db_profile" pid=2263 comm="mysqld" capability=1  capname="dac_override"
+[ 2476.290341] type=1400 audit(1550718919.635:44): apparmor="ALLOWED" operation="create" profile="db_profile" pid=2263 comm="mysqld" family="inet" sock_type="dgram" protocol=0
+[ 2476.315171] type=1400 audit(1550718919.659:45): apparmor="ALLOWED" operation="capable" profile="db_profile" pid=2185 comm="gosu" capability=6  capname="setgid"
+[ 2476.315182] type=1400 audit(1550718919.659:46): apparmor="ALLOWED" operation="capable" profile="db_profile" pid=2185 comm="gosu" capability=7  capname="setuid"
+[ 2476.457543] type=1400 audit(1550718919.803:47): apparmor="ALLOWED" operation="create" profile="db_profile" pid=2340 comm="mysqld" family="inet" sock_type="dgram" protocol=0
+[ 2482.639298] type=1400 audit(1550718925.983:109): apparmor="ALLOWED" operation="signal" profile="db_profile" pid=2185 comm="docker-entrypoi" requested_mask="send" denied_mask="send" signal=term peer="db_profile"
+[ 2482.639304] type=1400 audit(1550718925.983:110): apparmor="ALLOWED" operation="signal" profile="db_profile" pid=2185 comm="docker-entrypoi" requested_mask="receive" denied_mask="receive" signal=term peer="db_profile"
+[ 2482.640447] type=1400 audit(1550718925.987:111): apparmor="ALLOWED" operation="signal" profile="db_profile" pid=2552 comm="mysqld" requested_mask="send" denied_mask="send" signal=usr1 peer="db_profile"
+[ 2482.640453] type=1400 audit(1550718925.987:112): apparmor="ALLOWED" operation="signal" profile="db_profile" pid=2552 comm="mysqld" requested_mask="receive" denied_mask="receive" signal=usr1 peer="db_profile"
+[ 2484.276824] type=1400 audit(1550718927.623:113): apparmor="ALLOWED" operation="signal" profile="db_profile" pid=2477 comm="mysqld" requested_mask="send" denied_mask="send" signal=term peer="db_profile"
+[ 2484.276839] type=1400 audit(1550718927.623:114): apparmor="ALLOWED" operation="signal" profile="db_profile" pid=2477 comm="mysqld" requested_mask="receive" denied_mask="receive" signal=term peer="db_profile"
+[ 2484.417611] type=1400 audit(1550718927.763:115): apparmor="ALLOWED" operation="create" profile="db_profile" pid=2185 comm="mysqld" family="inet" sock_type="dgram" protocol=0
+[ 2484.620776] type=1400 audit(1550718927.967:116): apparmor="ALLOWED" operation="create" profile="db_profile" pid=2185 comm="mysqld" family="inet6" sock_type="dgram" protocol=0
+[ 2484.620821] type=1400 audit(1550718927.967:117): apparmor="ALLOWED" operation="connect" profile="db_profile" pid=2185 comm="mysqld" family="inet6" sock_type="dgram" protocol=17
+[ 2484.620897] type=1400 audit(1550718927.967:118): apparmor="ALLOWED" operation="connect" profile="db_profile" pid=2185 comm="mysqld" lport=41081 faddr=::1 fport=3306 family="inet6" sock_type="dgram" protocol=17
+[ 2511.616554] type=1400 audit(1550718954.963:46653): apparmor="ALLOWED" operation="sendmsg" profile="db_profile" pid=2664 comm="mysqld" laddr=::ffff:172.19.0.2 lport=3306 faddr=::ffff:172.19.0.3 fport=34624 family="inet6" sock_type="stream" protocol=6
+[ 2511.616638] type=1400 audit(1550718954.963:46654): apparmor="ALLOWED" operation="recvmsg" profile="db_profile" pid=2664 comm="mysqld" laddr=::ffff:172.19.0.2 lport=3306 faddr=::ffff:172.19.0.3 fport=34624 family="inet6" sock_type="stream" protocol=6
+[ 2516.620169] type=1400 audit(1550718959.967:97319): apparmor="ALLOWED" operation="recvmsg" profile="db_profile" pid=2664 comm="mysqld" laddr=::ffff:172.19.0.2 lport=3306 faddr=::ffff:172.19.0.3 fport=34624 family="inet6" sock_type="stream" protocol=6
+[ 2516.620177] type=1400 audit(1550718959.967:97320): apparmor="ALLOWED" operation="recvmsg" profile="db_profile" pid=2664 comm="mysqld" laddr=::ffff:172.19.0.2 lport=3306 faddr=::ffff:172.19.0.3 fport=34624 family="inet6" sock_type="stream" protocol=6
+[ 2516.620417] type=1400 audit(1550718959.967:97321): apparmor="ALLOWED" operation="sendmsg" profile="db_profile" pid=2664 comm="mysqld" laddr=::ffff:172.19.0.2 lport=3306 faddr=::ffff:172.19.0.3 fport=34624 family="inet6" sock_type="stream" protocol=6
+[ 2521.815840] type=1400 audit(1550718965.159:161629): apparmor="ALLOWED" operation="signal" profile="db_profile" pid=26501 comm="docker-containe" requested_mask="receive" denied_mask="receive" signal=kill peer="unconfined"

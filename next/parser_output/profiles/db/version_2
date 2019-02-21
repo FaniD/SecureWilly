@@ -1,10 +1,21 @@
 #include <tunables/global>
 
 profile db_profile flags=(attach_disconnected,mediate_deleted) {
+	capability dac_override,
+	capability setgid,
+	network inet6 dgram,
+	network inet dgram,
+	signal (receive) set=(term) peer=db_profile,
+	signal (receive) set=(usr1) peer=db_profile,
 	mount db_ -> /var/lib/mysql, #Bind host volume to docker container volume
+	signal (send) set=(usr1) peer=db_profile,
 	/var/lib/docker/* r, #Access to layers of filesystem
+	network inet6 stream,
+	signal (receive) set=(kill) peer=unconfined,
 	deny remount /var/lib/mysql, #Disallow anybody that wants to remount this mountpoint
 	deny ptrace (readby, tracedby), #Confront container breakout attacks
 	deny umount /var/lib/mysql, #Disallow anybody that wants to break this mountpoint
+	capability setuid,
+	signal (send) set=(term) peer=db_profile,
 	file,  #This rule is needed so that I can work with files (create files/directories, copy, etc)
 }

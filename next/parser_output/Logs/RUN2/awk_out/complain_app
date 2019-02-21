@@ -1,4 +1,7 @@
 #Capability\n
 #Network\n
 #File
+requested_mask 
 #Signal
+send usr2 app_profile
+receive usr2 app_profile

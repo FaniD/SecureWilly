@@ -1,0 +1,78 @@
+[ 3771.378881] IPv6: ADDRCONF(NETDEV_UP): br-0d563c5222b3: link is not ready
+[ 3772.113397] device veth12fe086 entered promiscuous mode
+[ 3772.113540] IPv6: ADDRCONF(NETDEV_UP): veth12fe086: link is not ready
+[ 3772.113547] br-112afd9f7529: port 1(veth12fe086) entered forwarding state
+[ 3772.113557] br-112afd9f7529: port 1(veth12fe086) entered forwarding state
+[ 3772.280152] br-112afd9f7529: port 1(veth12fe086) entered disabled state
+[ 3772.356823] IPv6: ADDRCONF(NETDEV_CHANGE): veth12fe086: link becomes ready
+[ 3772.356915] br-112afd9f7529: port 1(veth12fe086) entered forwarding state
+[ 3772.356923] br-112afd9f7529: port 1(veth12fe086) entered forwarding state
+[ 3772.413314] audit_printk_skb: 286846 callbacks suppressed
+[ 3772.413319] type=1400 audit(1550720215.759:11532159): apparmor="AUDIT" operation="open" profile="db_profile" name="/etc/ld.so.cache" pid=3018 comm="docker-entrypoi" requested_mask="r" fsuid=0 ouid=0
+[ 3772.413329] type=1400 audit(1550720215.759:11532160): apparmor="AUDIT" operation="open" profile="db_profile" name="/var/lib/docker/aufs/diff/6f0776bfc9786718348aa024dd44b74d4cec8fe86566da1db8b23d631da1652b/etc/ld.so.cache" pid=3018 comm="docker-entrypoi" requested_mask="r" fsuid=0 ouid=0
+[ 3772.413337] type=1400 audit(1550720215.759:11532161): apparmor="AUDIT" operation="getattr" profile="db_profile" name="/etc/ld.so.cache" pid=3018 comm="docker-entrypoi" requested_mask="r" fsuid=0 ouid=0
+[ 3772.413343] type=1400 audit(1550720215.759:11532162): apparmor="AUDIT" operation="getattr" profile="db_profile" name="/var/lib/docker/aufs/diff/6f0776bfc9786718348aa024dd44b74d4cec8fe86566da1db8b23d631da1652b/etc/ld.so.cache" pid=3018 comm="docker-entrypoi" requested_mask="r" fsuid=0 ouid=0
+[ 3772.413392] type=1400 audit(1550720215.759:11532163): apparmor="AUDIT" operation="open" profile="db_profile" name="/lib/x86_64-linux-gnu/libtinfo.so.5.9" pid=3018 comm="docker-entrypoi" requested_mask="r" fsuid=0 ouid=0
+[ 3772.413400] type=1400 audit(1550720215.759:11532164): apparmor="AUDIT" operation="open" profile="db_profile" name="/var/lib/docker/aufs/diff/203f403f0fa7e4dd314d6d0dbdad76f9fe0b715b7ffdb0ea287f65a3e6af73eb/lib/x86_64-linux-gnu/libtinfo.so.5.9" pid=3018 comm="docker-entrypoi" requested_mask="r" fsuid=0 ouid=0
+[ 3772.413413] type=1400 audit(1550720215.759:11532165): apparmor="AUDIT" operation="getattr" profile="db_profile" name="/lib/x86_64-linux-gnu/libtinfo.so.5.9" pid=3018 comm="docker-entrypoi" requested_mask="r" fsuid=0 ouid=0
+[ 3772.413419] type=1400 audit(1550720215.759:11532166): apparmor="AUDIT" operation="getattr" profile="db_profile" name="/var/lib/docker/aufs/diff/203f403f0fa7e4dd314d6d0dbdad76f9fe0b715b7ffdb0ea287f65a3e6af73eb/lib/x86_64-linux-gnu/libtinfo.so.5.9" pid=3018 comm="docker-entrypoi" requested_mask="r" fsuid=0 ouid=0
+[ 3772.413432] type=1400 audit(1550720215.759:11532167): apparmor="AUDIT" operation="file_mmap" profile="db_profile" name="/lib/x86_64-linux-gnu/libtinfo.so.5.9" pid=3018 comm="docker-entrypoi" requested_mask="r" fsuid=0 ouid=0
+[ 3772.413506] type=1400 audit(1550720215.759:11532168): apparmor="AUDIT" operation="open" profile="db_profile" name="/lib/x86_64-linux-gnu/libdl-2.27.so" pid=3018 comm="docker-entrypoi" requested_mask="r" fsuid=0 ouid=0
+[ 3772.600510] device veth2ec4e87 entered promiscuous mode
+[ 3772.600642] IPv6: ADDRCONF(NETDEV_UP): veth2ec4e87: link is not ready
+[ 3772.600647] br-112afd9f7529: port 2(veth2ec4e87) entered forwarding state
+[ 3772.600652] br-112afd9f7529: port 2(veth2ec4e87) entered forwarding state
+[ 3772.924874] IPv6: ADDRCONF(NETDEV_CHANGE): veth2ec4e87: link becomes ready
+[ 3777.416762] audit_printk_skb: 709282 callbacks suppressed
+[ 3777.416769] type=1400 audit(1550720220.763:11769217): apparmor="AUDIT" operation="open" profile="db_profile" name="/usr/share/zoneinfo/Arctic/Longyearbyen" pid=3365 comm="mysql_tzinfo_to" requested_mask="r" fsuid=999 ouid=0
+[ 3777.416778] type=1400 audit(1550720220.763:11769218): apparmor="AUDIT" operation="open" profile="db_profile" name="/var/lib/docker/aufs/diff/0d226058bb26f4d41029771e1f1d87c28a1cfb7e324f41c1c7a86b02e29d366b/usr/share/zoneinfo/Arctic/Longyearbyen" pid=3365 comm="mysql_tzinfo_to" requested_mask="r" fsuid=999 ouid=0
+[ 3777.416788] type=1400 audit(1550720220.763:11769219): apparmor="AUDIT" operation="getattr" profile="db_profile" name="/usr/share/zoneinfo/Arctic/Longyearbyen" pid=3365 comm="mysql_tzinfo_to" requested_mask="r" fsuid=999 ouid=0
+[ 3777.416813] type=1400 audit(1550720220.763:11769220): apparmor="AUDIT" operation="getattr" profile="db_profile" name="/var/lib/docker/aufs/diff/0d226058bb26f4d41029771e1f1d87c28a1cfb7e324f41c1c7a86b02e29d366b/usr/share/zoneinfo/Arctic/Longyearbyen" pid=3365 comm="mysql_tzinfo_to" requested_mask="r" fsuid=999 ouid=0
+[ 3777.417777] type=1400 audit(1550720220.763:11769221): apparmor="AUDIT" operation="open" profile="db_profile" name="/usr/share/zoneinfo/Atlantic/Madeira" pid=3365 comm="mysql_tzinfo_to" requested_mask="r" fsuid=999 ouid=0
+[ 3777.417786] type=1400 audit(1550720220.763:11769222): apparmor="AUDIT" operation="open" profile="db_profile" name="/var/lib/docker/aufs/diff/0d226058bb26f4d41029771e1f1d87c28a1cfb7e324f41c1c7a86b02e29d366b/usr/share/zoneinfo/Atlantic/Madeira" pid=3365 comm="mysql_tzinfo_to" requested_mask="r" fsuid=999 ouid=0
+[ 3777.417795] type=1400 audit(1550720220.763:11769223): apparmor="AUDIT" operation="getattr" profile="db_profile" name="/usr/share/zoneinfo/Atlantic/Madeira" pid=3365 comm="mysql_tzinfo_to" requested_mask="r" fsuid=999 ouid=0
+[ 3777.417801] type=1400 audit(1550720220.763:11769224): apparmor="AUDIT" operation="getattr" profile="db_profile" name="/var/lib/docker/aufs/diff/0d226058bb26f4d41029771e1f1d87c28a1cfb7e324f41c1c7a86b02e29d366b/usr/share/zoneinfo/Atlantic/Madeira" pid=3365 comm="mysql_tzinfo_to" requested_mask="r" fsuid=999 ouid=0
+[ 3777.420261] type=1400 audit(1550720220.767:11769225): apparmor="AUDIT" operation="open" profile="db_profile" name="/usr/share/zoneinfo/Iceland" pid=3365 comm="mysql_tzinfo_to" requested_mask="r" fsuid=999 ouid=0
+[ 3777.420270] type=1400 audit(1550720220.767:11769226): apparmor="AUDIT" operation="open" profile="db_profile" name="/var/lib/docker/aufs/diff/0d226058bb26f4d41029771e1f1d87c28a1cfb7e324f41c1c7a86b02e29d366b/usr/share/zoneinfo/Iceland" pid=3365 comm="mysql_tzinfo_to" requested_mask="r" fsuid=999 ouid=0
+[ 3787.388396] br-112afd9f7529: port 1(veth12fe086) entered forwarding state
+[ 3787.612230] br-112afd9f7529: port 2(veth2ec4e87) entered forwarding state
+[ 3803.242351] audit_printk_skb: 19659 callbacks suppressed
+[ 3803.242359] type=1400 audit(1550720246.587:11775780): apparmor="AUDIT" operation="signal" profile="app_profile" pid=3431 comm="docker-runc" requested_mask="receive" signal=exists peer="unconfined"
+[ 3803.242568] type=1400 audit(1550720246.587:11775781): apparmor="AUDIT" operation="signal" profile="app_profile" pid=3431 comm="docker-runc" requested_mask="receive" signal=exists peer="unconfined"
+[ 3803.247307] type=1400 audit(1550720246.591:11775782): apparmor="AUDIT" operation="signal" profile="app_profile" pid=3434 comm="docker-runc" requested_mask="receive" signal=exists peer="unconfined"
+[ 3803.259255] type=1400 audit(1550720246.603:11775783): apparmor="AUDIT" operation="open" profile="app_profile" name="/etc/ld.so.cache" pid=3439 comm="php" requested_mask="r" fsuid=33 ouid=0
+[ 3803.259270] type=1400 audit(1550720246.603:11775784): apparmor="AUDIT" operation="open" profile="app_profile" name="/var/lib/docker/aufs/diff/8e8d849f877bdaa56b9f3915d7c1ba2ff2544e670cea46ad05a94a7de2e5eb4a/etc/ld.so.cache" pid=3439 comm="php" requested_mask="r" fsuid=33 ouid=0
+[ 3803.259278] type=1400 audit(1550720246.603:11775785): apparmor="AUDIT" operation="getattr" profile="app_profile" name="/etc/ld.so.cache" pid=3439 comm="php" requested_mask="r" fsuid=33 ouid=0
+[ 3803.259284] type=1400 audit(1550720246.603:11775786): apparmor="AUDIT" operation="getattr" profile="app_profile" name="/var/lib/docker/aufs/diff/8e8d849f877bdaa56b9f3915d7c1ba2ff2544e670cea46ad05a94a7de2e5eb4a/etc/ld.so.cache" pid=3439 comm="php" requested_mask="r" fsuid=33 ouid=0
+[ 3803.259318] type=1400 audit(1550720246.603:11775787): apparmor="AUDIT" operation="open" profile="app_profile" name="/lib/x86_64-linux-gnu/libcrypt-2.24.so" pid=3439 comm="php" requested_mask="r" fsuid=33 ouid=0
+[ 3803.259334] type=1400 audit(1550720246.603:11775788): apparmor="AUDIT" operation="open" profile="app_profile" name="/var/lib/docker/aufs/diff/597ec46e7341e204f80a6731889087aec93297658e2c1fb834394ad5b2972b1d/lib/x86_64-linux-gnu/libcrypt-2.24.so" pid=3439 comm="php" requested_mask="r" fsuid=33 ouid=0
+[ 3803.259351] type=1400 audit(1550720246.603:11775789): apparmor="AUDIT" operation="getattr" profile="app_profile" name="/lib/x86_64-linux-gnu/libcrypt-2.24.so" pid=3439 comm="php" requested_mask="r" fsuid=33 ouid=0
+[ 3808.244084] audit_printk_skb: 291603 callbacks suppressed
+[ 3808.244091] type=1400 audit(1550720251.591:11872991): apparmor="AUDIT" operation="sendmsg" profile="app_profile" pid=3482 comm="php" laddr=172.19.0.3 lport=34754 faddr=172.19.0.2 fport=3306 family="inet" sock_type="stream" protocol=6
+[ 3808.244133] type=1400 audit(1550720251.591:11872992): apparmor="AUDIT" operation="recvmsg" profile="db_profile" pid=3493 comm="mysqld" laddr=::ffff:172.19.0.2 lport=3306 faddr=::ffff:172.19.0.3 fport=34754 family="inet6" sock_type="stream" protocol=6
+[ 3808.244144] type=1400 audit(1550720251.591:11872993): apparmor="AUDIT" operation="recvmsg" profile="db_profile" pid=3493 comm="mysqld" laddr=::ffff:172.19.0.2 lport=3306 faddr=::ffff:172.19.0.3 fport=34754 family="inet6" sock_type="stream" protocol=6
+[ 3808.244340] type=1400 audit(1550720251.591:11872994): apparmor="AUDIT" operation="sendmsg" profile="db_profile" pid=3493 comm="mysqld" laddr=::ffff:172.19.0.2 lport=3306 faddr=::ffff:172.19.0.3 fport=34754 family="inet6" sock_type="stream" protocol=6
+[ 3808.244391] type=1400 audit(1550720251.591:11872995): apparmor="AUDIT" operation="recvmsg" profile="db_profile" pid=3493 comm="mysqld" laddr=::ffff:172.19.0.2 lport=3306 faddr=::ffff:172.19.0.3 fport=34754 family="inet6" sock_type="stream" protocol=6
+[ 3808.244433] type=1400 audit(1550720251.591:11872996): apparmor="AUDIT" operation="recvmsg" profile="app_profile" pid=3482 comm="php" laddr=172.19.0.3 lport=34754 faddr=172.19.0.2 fport=3306 family="inet" sock_type="stream" protocol=6
+[ 3808.244457] type=1400 audit(1550720251.591:11872997): apparmor="AUDIT" operation="recvmsg" profile="app_profile" pid=3482 comm="php" laddr=172.19.0.3 lport=34754 faddr=172.19.0.2 fport=3306 family="inet" sock_type="stream" protocol=6
+[ 3808.244472] type=1400 audit(1550720251.591:11872998): apparmor="AUDIT" operation="recvmsg" profile="app_profile" pid=3482 comm="php" laddr=172.19.0.3 lport=34754 faddr=172.19.0.2 fport=3306 family="inet" sock_type="stream" protocol=6
+[ 3808.244486] type=1400 audit(1550720251.591:11872999): apparmor="AUDIT" operation="recvmsg" profile="app_profile" pid=3482 comm="php" laddr=172.19.0.3 lport=34754 faddr=172.19.0.2 fport=3306 family="inet" sock_type="stream" protocol=6
+[ 3808.244495] type=1400 audit(1550720251.591:11873000): apparmor="AUDIT" operation="recvmsg" profile="app_profile" pid=3482 comm="php" laddr=172.19.0.3 lport=34754 faddr=172.19.0.2 fport=3306 family="inet" sock_type="stream" protocol=6
+[ 3813.248121] audit_printk_skb: 394278 callbacks suppressed
+[ 3813.248125] type=1400 audit(1550720256.595:12004427): apparmor="AUDIT" operation="sendmsg" profile="db_profile" pid=3493 comm="mysqld" laddr=::ffff:172.19.0.2 lport=3306 faddr=::ffff:172.19.0.3 fport=34754 family="inet6" sock_type="stream" protocol=6
+[ 3813.248168] type=1400 audit(1550720256.595:12004428): apparmor="AUDIT" operation="recvmsg" profile="app_profile" pid=3482 comm="php" laddr=172.19.0.3 lport=34754 faddr=172.19.0.2 fport=3306 family="inet" sock_type="stream" protocol=6
+[ 3813.248180] type=1400 audit(1550720256.595:12004429): apparmor="AUDIT" operation="recvmsg" profile="app_profile" pid=3482 comm="php" laddr=172.19.0.3 lport=34754 faddr=172.19.0.2 fport=3306 family="inet" sock_type="stream" protocol=6
+[ 3813.248188] type=1400 audit(1550720256.595:12004430): apparmor="AUDIT" operation="recvmsg" profile="app_profile" pid=3482 comm="php" laddr=172.19.0.3 lport=34754 faddr=172.19.0.2 fport=3306 family="inet" sock_type="stream" protocol=6
+[ 3813.248204] type=1400 audit(1550720256.595:12004431): apparmor="AUDIT" operation="recvmsg" profile="app_profile" pid=3482 comm="php" laddr=172.19.0.3 lport=34754 faddr=172.19.0.2 fport=3306 family="inet" sock_type="stream" protocol=6
+[ 3813.248213] type=1400 audit(1550720256.595:12004432): apparmor="AUDIT" operation="recvmsg" profile="app_profile" pid=3482 comm="php" laddr=172.19.0.3 lport=34754 faddr=172.19.0.2 fport=3306 family="inet" sock_type="stream" protocol=6
+[ 3813.248220] type=1400 audit(1550720256.595:12004433): apparmor="AUDIT" operation="recvmsg" profile="app_profile" pid=3482 comm="php" laddr=172.19.0.3 lport=34754 faddr=172.19.0.2 fport=3306 family="inet" sock_type="stream" protocol=6
+[ 3813.248227] type=1400 audit(1550720256.595:12004434): apparmor="AUDIT" operation="recvmsg" profile="app_profile" pid=3482 comm="php" laddr=172.19.0.3 lport=34754 faddr=172.19.0.2 fport=3306 family="inet" sock_type="stream" protocol=6
+[ 3813.248238] type=1400 audit(1550720256.595:12004435): apparmor="AUDIT" operation="recvmsg" profile="app_profile" pid=3482 comm="php" laddr=172.19.0.3 lport=34754 faddr=172.19.0.2 fport=3306 family="inet" sock_type="stream" protocol=6
+[ 3813.248322] type=1400 audit(1550720256.595:12004436): apparmor="AUDIT" operation="sendmsg" profile="app_profile" pid=3482 comm="php" laddr=172.19.0.3 lport=34754 faddr=172.19.0.2 fport=3306 family="inet" sock_type="stream" protocol=6
+[ 3816.802730] br-112afd9f7529: port 2(veth2ec4e87) entered disabled state
+[ 3816.862588] br-112afd9f7529: port 2(veth2ec4e87) entered disabled state
+[ 3816.863239] device veth2ec4e87 left promiscuous mode
+[ 3816.863251] br-112afd9f7529: port 2(veth2ec4e87) entered disabled state
+[ 3817.145174] br-112afd9f7529: port 1(veth12fe086) entered disabled state
+[ 3817.145725] device veth12fe086 left promiscuous mode
+[ 3817.145741] br-112afd9f7529: port 1(veth12fe086) entered disabled state
