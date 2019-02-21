@@ -230,13 +230,13 @@ if (len(sys.argv) > 2):
                                         ro_rule = '\tdeny ' + mntpnt + ' w,\n'
                                         static_profile.append(ro_rule)
                                         mount_rule = '\tmount options=ro ' + src + ' -> ' + mntpnt + ', #Bind host volume to docker container volume\n'
-                                        file_mnt_rule = '\t' + mntpnt + '\* r,\n'
+                                        file_mnt_rule = '\t' + mntpnt + '/* r,\n'
                                     else:
                                         mount_rule = '\tmount ' + src + ' -> ' + mntpnt + ', #Bind host volume to docker container volume\n'
-                                        file_mnt_rule = '\t' + mntpnt + '\* rw,\n'
+                                        file_mnt_rule = '\t' + mntpnt + '/* rw,\n'
                                 else:
 				    mount_rule = '\tmount ' + src + ' -> ' + mntpnt + ', #Bind host volume to docker container volume\n'
-                                    file_mnt_rule = '\t' + mntpnt + '\* rw,\n'
+                                    file_mnt_rule = '\t' + mntpnt + '/* rw,\n'
 
                                 umount_rule = '\tdeny umount ' + mntpnt + ', #Disallow anybody that wants to break this mountpoint\n'
 				remount_rule = '\tdeny remount '+ mntpnt + ', #Disallow anybody that wants to remount this mountpoint\n'
