@@ -78,7 +78,7 @@ rm a
 #Dynamic parser seds alone because of its different path
 sed -i "5s,service_list=(.*,service_list=${service_list_noslash}," dynamic_parser.sh
 file_list=(2_cp_to_apparmor.sh*6s 3_load_profiles.sh*4s 4a_complain_mode.sh*4s 4b_enforce_mode.sh*4s 8_logging_files.sh*15s 10a_awk_it_complain.sh*10s 10b_awk_it_enforce.sh*10s 12_complain_enforce_audit.sh*5s)
-sed -i "9s,service_list=(.*,service_list=${service_list}," dynamic_scripts/9_clear_containers.sh
+#sed -i "9s,service_list=(.*,service_list=${service_list}," dynamic_scripts/9_clear_containers.sh
 for f_i in  "${file_list[@]}"; do
 	file_i=$(echo $f_i | cut -d'*' -f1)
 	line=$(echo $f_i | cut -d'*' -f2) #line var includes s for sed
