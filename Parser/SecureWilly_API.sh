@@ -153,7 +153,7 @@ if [[ "$yml_path" == "N" ]]; then
 	yml_count=0
 	for service_i in "${array[@]}"; do
 		#Add security-opt flag
-		sed -i "/docker run/ s,${service_i},${service_i} --security-opt "apparmor=${array_noslash[${yml_count}]}_profile"," dynamic_scripts/7_run.sh
+		sed -i "/docker run/ s,${service_i},${service_i} --security-opt \"apparmor=${array_noslash[${yml_count}]}_profile\"," dynamic_scripts/7_run.sh
 
 		#Convert flags into docker-compose files
 

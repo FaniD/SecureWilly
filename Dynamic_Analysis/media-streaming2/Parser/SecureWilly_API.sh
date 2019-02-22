@@ -153,7 +153,7 @@ if [[ "$yml_path" == "N" ]]; then
 	yml_count=0
 	for service_i in "${array[@]}"; do
 		#Add security-opt flag
-		sed -i "/docker run/ s,${service_i},${service_i} --security-opt "apparmor=${array_noslash[${yml_count}]}_profile"," dynamic_scripts/7_run.sh
+		sed -i "/docker run/ s,${service_i},${service_i} --security-opt \"apparmor=${array_noslash[${yml_count}]}_profile\"," dynamic_scripts/7_run.sh
 
 		#Convert flags into docker-compose files
 
@@ -332,6 +332,6 @@ rm empty_file
 
 sudo chmod +x dynamic_scripts/7_run.sh
 #Dynamic_parser
-./dynamic_parser.sh
+#./dynamic_parser.sh
 
 echo "Profiles produced for all services are located in parser_output directory."
