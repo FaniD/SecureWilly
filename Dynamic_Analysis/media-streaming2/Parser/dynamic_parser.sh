@@ -71,16 +71,15 @@ while true; do
 		vol_str=$(cut -d'%' -f1 if_vol_${SERVICE})
 		num_vols=$(cut -d'%' -f2 if_vol_${SERVICE})
 		if [[ "$num_vols" == "0" ]]; then
-			sed -i "83s/#/ /" ${dynamic_script_path}/11_merge_profiles.py
-			sed -i "83s/.*/#&/" ${dynamic_script_path}/11_merge_profiles.py
-			sed -i "84s/#/ /" ${dynamic_script_path}/11_merge_profiles.py
-			sed -i "84s/.*/#&/" ${dynamic_script_path}/11_merge_profiles.py
+			python ${dynamic_script_path}/11_merge_profiles.py $SERVICE $i 'complain'
 		else
 			sed -i "83s/#/ /" ${dynamic_script_path}/11_merge_profiles.py
 			sed -i "83s|if .*|if ${vol_str}|" ${dynamic_script_path}/11_merge_profiles.py
 			sed -i "84s/#/ /" ${dynamic_script_path}/11_merge_profiles.py
+			python ${dynamic_script_path}/11_merge_profiles.py $SERVICE $i 'complain'
+			sed -i "83s| if|#if|" ${dynamic_script_path}/11_merge_profiles.py
+			sed -i "84s| c|#c|" ${dynamic_script_path}/11_merge_profiles.py
 		fi
-		python ${dynamic_script_path}/11_merge_profiles.py $SERVICE $i 'complain'
 		((lp_count++))
 	done
 	echo $x | source ${dynamic_script_path}/12_complain_enforce_audit.sh
@@ -117,17 +116,16 @@ while true; do
 	for SERVICE in "${service_list[@]}"; do 
 		vol_str=$(cut -d'%' -f1 if_vol_${SERVICE})
 		num_vols=$(cut -d'%' -f2 if_vol_${SERVICE})
-		if [[ "$num_vols" == "0" ]]; then
-			sed -i "83s/#/ /" ${dynamic_script_path}/11_merge_profiles.py
-			sed -i "83s/.*/#&/" ${dynamic_script_path}/11_merge_profiles.py
-			sed -i "84s/#/ /" ${dynamic_script_path}/11_merge_profiles.py
-			sed -i "84s/.*/#&/" ${dynamic_script_path}/11_merge_profiles.py
+		if [[ "$num_vols" != "0" ]]; then
+			python ${dynamic_script_path}/11_merge_profiles.py $SERVICE $i 'enforce'
 		else
 			sed -i "83s/#/ /" ${dynamic_script_path}/11_merge_profiles.py
 			sed -i "83s|if .*|if ${vol_str}|" ${dynamic_script_path}/11_merge_profiles.py
 			sed -i "84s/#/ /" ${dynamic_script_path}/11_merge_profiles.py
+			python ${dynamic_script_path}/11_merge_profiles.py $SERVICE $i 'enforce'
+			sed -i "83s| if|#if|" ${dynamic_script_path}/11_merge_profiles.py
+		        sed -i "84s| c|#c|" ${dynamic_script_path}/11_merge_profiles.py
 		fi
-		python ${dynamic_script_path}/11_merge_profiles.py $SERVICE $i 'enforce'
 		((lp_count++))
 	done
 	echo $x | source ${dynamic_script_path}/12_complain_enforce_audit.sh
@@ -175,16 +173,15 @@ while true; do
 		vol_str=$(cut -d'%' -f1 if_vol_${SERVICE})
 		num_vols=$(cut -d'%' -f2 if_vol_${SERVICE})
 		if [[ "$num_vols" == "0" ]]; then
-			sed -i "83s/#/ /" ${dynamic_script_path}/11_merge_profiles.py
-			sed -i "83s/.*/#&/" ${dynamic_script_path}/11_merge_profiles.py
-			sed -i "84s/#/ /" ${dynamic_script_path}/11_merge_profiles.py
-			sed -i "84s/.*/#&/" ${dynamic_script_path}/11_merge_profiles.py
+			python ${dynamic_script_path}/11_merge_profiles.py $SERVICE $i 'complain'
 		else
 			sed -i "83s/#/ /" ${dynamic_script_path}/11_merge_profiles.py
 			sed -i "83s|if .*|if ${vol_str}|" ${dynamic_script_path}/11_merge_profiles.py
 			sed -i "84s/#/ /" ${dynamic_script_path}/11_merge_profiles.py
+			python ${dynamic_script_path}/11_merge_profiles.py $SERVICE $i 'complain'
+			sed -i "83s| if|#if|" ${dynamic_script_path}/11_merge_profiles.py
+			sed -i "84s| c|#c|" ${dynamic_script_path}/11_merge_profiles.py
 		fi
-		python ${dynamic_script_path}/11_merge_profiles.py $SERVICE $i 'complain'
 		((lp_count++))
 	done
 ####################
@@ -225,17 +222,16 @@ while true; do
 		vol_str=$(cut -d'%' -f1 if_vol_${SERVICE})
 		num_vols=$(cut -d'%' -f2 if_vol_${SERVICE})
 		if [[ "$num_vols" == "0" ]]; then
-			sed -i "83s/#/ /" ${dynamic_script_path}/11_merge_profiles.py
-			sed -i "83s/.*/#&/" ${dynamic_script_path}/11_merge_profiles.py
-			sed -i "84s/#/ /" ${dynamic_script_path}/11_merge_profiles.py
-			sed -i "84s/.*/#&/" ${dynamic_script_path}/11_merge_profiles.py
+			python ${dynamic_script_path}/11_merge_profiles.py $SERVICE $i 'enforce'
 		else
 		        sed -i "83s/#/ /" ${dynamic_script_path}/11_merge_profiles.py
 		        sed -i "83s|if .*|if ${vol_str}|" ${dynamic_script_path}/11_merge_profiles.py
 			sed -i "84s/#/ /" ${dynamic_script_path}/11_merge_profiles.py
+			python ${dynamic_script_path}/11_merge_profiles.py $SERVICE $i 'enforce'
+			sed -i "83s| if|#if|" ${dynamic_script_path}/11_merge_profiles.py
+			sed -i "84s| c|#c|" ${dynamic_script_path}/11_merge_profiles.py
 		fi
 		rm if_vol_${lp_count}
-		python ${dynamic_script_path}/11_merge_profiles.py $SERVICE $i 'enforce'
 		((lp_count++))
         done
 #######################

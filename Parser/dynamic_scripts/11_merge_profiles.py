@@ -80,8 +80,8 @@ for line in data:
         continue
 
 #Volumes here
-#   if '' in line:
-#       continue
+   #if abc
+       #continue
 
     if '/var/lib/docker/' in line:
         continue
