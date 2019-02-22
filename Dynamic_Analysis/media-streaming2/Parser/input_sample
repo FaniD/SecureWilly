@@ -1,0 +1,14 @@
+N
+N
+2
+cloudsuite/media-streaming:server
+cloudsuite/media-streaming:client
+streaming-network
+docker network create streaming_network
+docker create --name cloudsuite/media-streaming:dataset cloudsuite/media-streaming:dataset
+docker run -d --name cloudsuite/media-streaming:server --volumes-from streaming_dataset --net streaming_network cloudsuite/media-streaming:server
+docker run -t --name cloudsuite/media-streaming:client -v /output:/output --volumes-from streaming_dataset --net streaming_network cloudsuite/media-streaming:client streaming_server
+
+docker stop cloudsuite/media-streaming:server
+Done
+Y
