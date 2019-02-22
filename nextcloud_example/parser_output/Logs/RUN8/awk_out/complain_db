@@ -1,0 +1,22 @@
+#Capability\n
+#Network\n
+inet6 stream
+#File
+/etc/ld.so.cache r
+/var/lib/docker/aufs/diff/c93fe217b4d9be2a1682d8f8d63b6cea73f1c4367a71a660cfcf0c86804a3573/etc/ld.so.cache r
+/lib/x86_64-linux-gnu/libtinfo.so.5.9 r
+/var/lib/docker/aufs/diff/355e65d8d3b5ff91219ab678bd433873ea9bf90c9b23819a12d01f2ca2b5bc32/lib/x86_64-linux-gnu/libtinfo.so.5.9 r
+/var/lib/mysql/mysql/gtid_slave_pos.ibd r
+/var/lib/mysql/mysql/innodb_index_stats.ibd r
+/var/lib/mysql/mysql/innodb_table_stats.ibd r
+/var/lib/mysql/mysql/transaction_registry.ibd r
+/var/lib/mysql/ibtmp1 c
+/var/lib/mysql/ibtmp1 rwc
+/tmp/#sql_1_0.MAD r
+/var/lib/docker/aufs/diff/c3e7f147012e9dfa8b31b0e2b08bbfea6d51bc85c4a8095acb51095340270b87/tmp/#sql_1_0.MAD r
+/tmp/#sql_1_0.MAD d
+/var/lib/docker/aufs/diff/c3e7f147012e9dfa8b31b0e2b08bbfea6d51bc85c4a8095acb51095340270b87/tmp/#sql_1_0.MAD d
+/var/lib/mysql/nextcloud_/#sql-1_a.frm rwd
+/var/lib/mysql/nextcloud_/oc_calendarsubscriptions.frm wc
+/var/lib/mysql/nextcloud_/oc_calendarsubscriptions.frm r
+#Signal

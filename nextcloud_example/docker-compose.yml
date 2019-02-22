@@ -6,6 +6,8 @@ volumes:
 
 services:
      db:
+        security_opt:
+          - "apparmor:db_profile"
         container_name: db
         image: mariadb:10
         command: --transaction-isolation=READ-COMMITTED --binlog-format=ROW
@@ -18,6 +20,8 @@ services:
                 - MYSQL_DATABASE=nextcloud_
                 - MYSQL_USER=willy
      nextcloud:
+        security_opt:
+          - "apparmor:nextcloud_profile"
         image: nextcloud
         container_name: nextcloud
         ports:

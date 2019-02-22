@@ -1,0 +1,11 @@
+[26852.366634] type=1400 audit(1550810788.440:3697815): apparmor="ALLOWED" operation="capable" profile="db_profile" pid=32465 comm="gosu" capability=6  capname="setgid"
+[26854.927985] type=1400 audit(1550810791.000:3697820): apparmor="ALLOWED" operation="signal" profile="db_profile" pid=32689 comm="mysqld" requested_mask="send" denied_mask="send" signal=term peer="db_profile"
+[26858.307920] type=1400 audit(1550810794.380:3697824): apparmor="ALLOWED" operation="signal" profile="db_profile" pid=32465 comm="docker-entrypoi" requested_mask="send" denied_mask="send" signal=term peer="db_profile"
+[26858.307929] type=1400 audit(1550810794.380:3697825): apparmor="ALLOWED" operation="signal" profile="db_profile" pid=32465 comm="docker-entrypoi" requested_mask="receive" denied_mask="receive" signal=term peer="db_profile"
+[26858.311905] type=1400 audit(1550810794.384:3697826): apparmor="ALLOWED" operation="signal" profile="db_profile" pid=334 comm="mysqld" requested_mask="send" denied_mask="send" signal=usr1 peer="db_profile"
+[26858.311914] type=1400 audit(1550810794.384:3697827): apparmor="ALLOWED" operation="signal" profile="db_profile" pid=334 comm="mysqld" requested_mask="receive" denied_mask="receive" signal=usr1 peer="db_profile"
+[26859.179287] type=1400 audit(1550810795.252:3697828): apparmor="ALLOWED" operation="signal" profile="db_profile" pid=32727 comm="mysqld" requested_mask="send" denied_mask="send" signal=term peer="db_profile"
+[26859.179299] type=1400 audit(1550810795.252:3697829): apparmor="ALLOWED" operation="signal" profile="db_profile" pid=32727 comm="mysqld" requested_mask="receive" denied_mask="receive" signal=term peer="db_profile"
+[26859.488930] type=1400 audit(1550810795.564:3697830): apparmor="ALLOWED" operation="create" profile="db_profile" pid=32465 comm="mysqld" family="inet6" sock_type="dgram" protocol=0
+[26859.488989] type=1400 audit(1550810795.564:3697831): apparmor="ALLOWED" operation="connect" profile="db_profile" pid=32465 comm="mysqld" family="inet6" sock_type="dgram" protocol=17
+[26925.954080] type=1400 audit(1550810862.028:3697836): apparmor="ALLOWED" operation="signal" profile="db_profile" pid=26139 comm="docker-containe" requested_mask="receive" denied_mask="receive" signal=kill peer="unconfined"

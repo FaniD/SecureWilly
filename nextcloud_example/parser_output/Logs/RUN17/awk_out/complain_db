@@ -1,0 +1,23 @@
+#Capability\n
+#Network\n
+inet6 stream
+#File
+/etc/ld.so.cache r
+/var/lib/docker/aufs/diff/c93fe217b4d9be2a1682d8f8d63b6cea73f1c4367a71a660cfcf0c86804a3573/etc/ld.so.cache r
+/lib/x86_64-linux-gnu/libtinfo.so.5.9 r
+/var/lib/docker/aufs/diff/355e65d8d3b5ff91219ab678bd433873ea9bf90c9b23819a12d01f2ca2b5bc32/lib/x86_64-linux-gnu/libtinfo.so.5.9 r
+/usr/share/zoneinfo/UTC r
+/var/lib/docker/aufs/diff/95efe71cae361ae2839f6c9dbb9b4a16ed9caec917e5be093f6e96eb6797e020/usr/share/zoneinfo/UTC r
+/usr/ r
+/var/lib/docker/aufs/diff/825b21efc47bfe94df0f5059998752b796d614bb5e5551bd3d71cc69ea37bb71/usr/ r
+/var/ r
+/var/lib/docker/aufs/diff/c93fe217b4d9be2a1682d8f8d63b6cea73f1c4367a71a660cfcf0c86804a3573/var/ r
+/tmp/#sql_1_0.MAD r
+/var/lib/docker/aufs/diff/26d54b815b8e859c1e30a3068577c924a026cc8afe8fa436bc32fbc4a0d3f340/tmp/#sql_1_0.MAD r
+/tmp/#sql_1_0.MAD rw
+/var/lib/docker/aufs/diff/26d54b815b8e859c1e30a3068577c924a026cc8afe8fa436bc32fbc4a0d3f340/tmp/#sql_1_0.MAD rw
+/tmp/#sql_1_0.MAI r
+/var/lib/docker/aufs/diff/26d54b815b8e859c1e30a3068577c924a026cc8afe8fa436bc32fbc4a0d3f340/tmp/#sql_1_0.MAI r
+/tmp/#sql_1_0.MAI d
+/var/lib/docker/aufs/diff/26d54b815b8e859c1e30a3068577c924a026cc8afe8fa436bc32fbc4a0d3f340/tmp/#sql_1_0.MAI d
+#Signal

@@ -1,0 +1,39 @@
+Feb 22 04:46:27 docker-security47 kernel: [26851.687641] device vetheea832d entered promiscuous mode
+Feb 22 04:46:27 docker-security47 kernel: [26851.687803] IPv6: ADDRCONF(NETDEV_UP): vetheea832d: link is not ready
+Feb 22 04:46:28 docker-security47 kernel: [26851.936510] IPv6: ADDRCONF(NETDEV_CHANGE): vetheea832d: link becomes ready
+Feb 22 04:46:28 docker-security47 kernel: [26851.936556] br-4063ee0b93e3: port 1(vetheea832d) entered forwarding state
+Feb 22 04:46:28 docker-security47 kernel: [26851.936564] br-4063ee0b93e3: port 1(vetheea832d) entered forwarding state
+Feb 22 04:46:28 docker-security47 kernel: [26852.238420] device veth7560653 entered promiscuous mode
+Feb 22 04:46:28 docker-security47 kernel: [26852.238526] IPv6: ADDRCONF(NETDEV_UP): veth7560653: link is not ready
+Feb 22 04:46:28 docker-security47 kernel: [26852.238531] br-4063ee0b93e3: port 2(veth7560653) entered forwarding state
+Feb 22 04:46:28 docker-security47 kernel: [26852.238535] br-4063ee0b93e3: port 2(veth7560653) entered forwarding state
+Feb 22 04:46:28 docker-security47 kernel: [26852.366634] type=1400 audit(1550810788.440:3697815): apparmor="ALLOWED" operation="capable" profile="db_profile" pid=32465 comm="gosu" capability=6  capname="setgid"
+Feb 22 04:46:28 docker-security47 kernel: [26852.513021] IPv6: ADDRCONF(NETDEV_CHANGE): veth7560653: link becomes ready
+Feb 22 04:46:28 docker-security47 kernel: [26852.689818] type=1400 audit(1550810788.764:3697816): apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=32656 comm="rsync" capability=0  capname="chown"
+Feb 22 04:46:28 docker-security47 kernel: [26852.689824] type=1400 audit(1550810788.764:3697817): apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=32655 comm="rsync" capability=0  capname="chown"
+Feb 22 04:46:28 docker-security47 kernel: [26852.721373] type=1400 audit(1550810788.796:3697818): apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=32655 comm="rsync" capability=1  capname="dac_override"
+Feb 22 04:46:28 docker-security47 kernel: [26852.850931] type=1400 audit(1550810788.924:3697819): apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=32656 comm="rsync" capability=0  capname="chown"
+Feb 22 04:46:31 docker-security47 kernel: [26854.927985] type=1400 audit(1550810791.000:3697820): apparmor="ALLOWED" operation="signal" profile="db_profile" pid=32689 comm="mysqld" requested_mask="send" denied_mask="send" signal=term peer="db_profile"
+Feb 22 04:46:32 docker-security47 kernel: [26856.004460] audit_printk_skb: 3 callbacks suppressed
+Feb 22 04:46:32 docker-security47 kernel: [26856.004466] type=1400 audit(1550810792.080:3697822): apparmor="ALLOWED" operation="create" profile="nextcloud_profile" pid=32573 comm="apache2" family="inet6" sock_type="stream" protocol=0
+Feb 22 04:46:32 docker-security47 kernel: [26856.004491] type=1400 audit(1550810792.080:3697823): apparmor="ALLOWED" operation="setsockopt" profile="nextcloud_profile" pid=32573 comm="apache2" family="inet6" sock_type="stream" protocol=6
+Feb 22 04:46:34 docker-security47 kernel: [26858.307920] type=1400 audit(1550810794.380:3697824): apparmor="ALLOWED" operation="signal" profile="db_profile" pid=32465 comm="docker-entrypoi" requested_mask="send" denied_mask="send" signal=term peer="db_profile"
+Feb 22 04:46:34 docker-security47 kernel: [26858.307929] type=1400 audit(1550810794.380:3697825): apparmor="ALLOWED" operation="signal" profile="db_profile" pid=32465 comm="docker-entrypoi" requested_mask="receive" denied_mask="receive" signal=term peer="db_profile"
+Feb 22 04:46:34 docker-security47 kernel: [26858.311905] type=1400 audit(1550810794.384:3697826): apparmor="ALLOWED" operation="signal" profile="db_profile" pid=334 comm="mysqld" requested_mask="send" denied_mask="send" signal=usr1 peer="db_profile"
+Feb 22 04:46:34 docker-security47 kernel: [26858.311914] type=1400 audit(1550810794.384:3697827): apparmor="ALLOWED" operation="signal" profile="db_profile" pid=334 comm="mysqld" requested_mask="receive" denied_mask="receive" signal=usr1 peer="db_profile"
+Feb 22 04:46:35 docker-security47 kernel: [26859.179287] type=1400 audit(1550810795.252:3697828): apparmor="ALLOWED" operation="signal" profile="db_profile" pid=32727 comm="mysqld" requested_mask="send" denied_mask="send" signal=term peer="db_profile"
+Feb 22 04:46:35 docker-security47 kernel: [26859.179299] type=1400 audit(1550810795.252:3697829): apparmor="ALLOWED" operation="signal" profile="db_profile" pid=32727 comm="mysqld" requested_mask="receive" denied_mask="receive" signal=term peer="db_profile"
+Feb 22 04:46:35 docker-security47 kernel: [26859.488930] type=1400 audit(1550810795.564:3697830): apparmor="ALLOWED" operation="create" profile="db_profile" pid=32465 comm="mysqld" family="inet6" sock_type="dgram" protocol=0
+Feb 22 04:46:35 docker-security47 kernel: [26859.488989] type=1400 audit(1550810795.564:3697831): apparmor="ALLOWED" operation="connect" profile="db_profile" pid=32465 comm="mysqld" family="inet6" sock_type="dgram" protocol=17
+Feb 22 04:46:43 docker-security47 kernel: [26866.972137] br-4063ee0b93e3: port 1(vetheea832d) entered forwarding state
+Feb 22 04:46:43 docker-security47 kernel: [26867.292126] br-4063ee0b93e3: port 2(veth7560653) entered forwarding state
+Feb 22 04:47:41 docker-security47 kernel: [26925.574310] audit_printk_skb: 9 callbacks suppressed
+Feb 22 04:47:41 docker-security47 kernel: [26925.574322] type=1400 audit(1550810861.648:3697835): apparmor="ALLOWED" operation="signal" profile="nextcloud_profile" pid=26139 comm="docker-containe" requested_mask="receive" denied_mask="receive" signal=kill peer="unconfined"
+Feb 22 04:47:41 docker-security47 kernel: [26925.709154] br-4063ee0b93e3: port 2(veth7560653) entered disabled state
+Feb 22 04:47:41 docker-security47 kernel: [26925.753161] br-4063ee0b93e3: port 2(veth7560653) entered disabled state
+Feb 22 04:47:41 docker-security47 kernel: [26925.753935] device veth7560653 left promiscuous mode
+Feb 22 04:47:41 docker-security47 kernel: [26925.753947] br-4063ee0b93e3: port 2(veth7560653) entered disabled state
+Feb 22 04:47:42 docker-security47 kernel: [26925.954080] type=1400 audit(1550810862.028:3697836): apparmor="ALLOWED" operation="signal" profile="db_profile" pid=26139 comm="docker-containe" requested_mask="receive" denied_mask="receive" signal=kill peer="unconfined"
+Feb 22 04:47:42 docker-security47 kernel: [26926.084214] br-4063ee0b93e3: port 1(vetheea832d) entered disabled state
+Feb 22 04:47:42 docker-security47 kernel: [26926.084722] device vetheea832d left promiscuous mode
+Feb 22 04:47:42 docker-security47 kernel: [26926.084734] br-4063ee0b93e3: port 1(vetheea832d) entered disabled state

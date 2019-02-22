@@ -1,0 +1,2 @@
+Feb 22 04:49:09 docker-security47 kernel: [27012.969083] type=1400 audit(1550810949.044:3697850): apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=2524 comm="apache2" capability=4  capname="fsetid"
+Feb 22 04:49:09 docker-security47 kernel: [27012.970540] type=1400 audit(1550810949.044:3697851): apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=2738 comm="apache2" capability=6  capname="setgid"
