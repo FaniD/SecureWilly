@@ -1,0 +1,1 @@
+( line.startswith('/output') ): continue%1
