@@ -67,6 +67,7 @@ sed -i "s,/,,g" a
 service_list_noslash=$(cat a)
 echo "${services}" > a
 sed -i "s,/,,g" a 
+sed -i "s,:,,g" a
 services_noslash=$(cat a)
 rm a
 
