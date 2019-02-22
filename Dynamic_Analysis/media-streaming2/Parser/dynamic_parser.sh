@@ -116,7 +116,7 @@ while true; do
 	for SERVICE in "${service_list[@]}"; do 
 		vol_str=$(cut -d'%' -f1 if_vol_${SERVICE})
 		num_vols=$(cut -d'%' -f2 if_vol_${SERVICE})
-		if [[ "$num_vols" != "0" ]]; then
+		if [[ "$num_vols" == "0" ]]; then
 			python ${dynamic_script_path}/11_merge_profiles.py $SERVICE $i 'enforce'
 		else
 			sed -i "83s/#/ /" ${dynamic_script_path}/11_merge_profiles.py
