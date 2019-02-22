@@ -1,7 +1,8 @@
 #!/bin/bash
  
-docker run test --security-opt apparmor=test_profile -p 4:6
-docker run db --security-opt apparmor=db_profile -v a:a
-docker run db --security-opt apparmor=db_profile -p 4:4 -p 5:5
-docker run test --security-opt apparmor=test_profile --ulimit nofile=1024:1024
-docker run test --security-opt apparmor=test_profile -p 80:80 -v a:b --cap-add SYS_CHROOT --cap-drop CHOWN
+docker network create streaming_network
+docker create --name cloudsuite/media-streaming:dataset cloudsuite/media-streaming:dataset
+docker run -d --name cloudsuite/media-streaming:server --security-opt apparmor=cloudsuitemedia-streaming:server_profile --volumes-from streaming_dataset --net streaming_network cloudsuite/media-streaming:server
+docker run -t --name cloudsuite/media-streaming:client --security-opt apparmor=cloudsuitemedia-streaming:client_profile -v /output:/output --volumes-from streaming_dataset --net streaming_network cloudsuite/media-streaming:client streaming_server
+
+docker stop cloudsuite/media-streaming:server

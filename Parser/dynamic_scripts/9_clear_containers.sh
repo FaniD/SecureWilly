@@ -3,10 +3,10 @@
 net=true
 #delete network
 if $net ; then
-	docker network rm docker
+	docker network rm streaming-network
 fi
 
-service_list=(db test )
+service_list=(cloudsuite/media-streaming:server cloudsuite/media-streaming:client)
 for SERVICE in "${service_list[@]}"; do
 	docker container rm ${SERVICE} #streaming_dataset
 done

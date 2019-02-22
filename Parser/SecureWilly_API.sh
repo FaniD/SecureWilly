@@ -62,16 +62,24 @@ while true; do
 	services+=","
 done
 service_list+=")"
+echo "${service_list}" > a
+sed "s,/,,g" a > service_list_noslash
+service_list_noslash=$(cat service_list_noslash)
+echo "${services}" > a
+sed "s,/,,g" a > services_noslash
+services_noslash=$(cat services_noslash)
+rm a
 
 #We have the service list ready
 #Sed every script that needs them
 #Dynamic parser seds alone because of its different path
-sed -i "5s/service_list=(.*/service_list=${service_list}/" dynamic_parser.sh
-file_list=(2_cp_to_apparmor.sh*6s 3_load_profiles.sh*4s 4a_complain_mode.sh*4s 4b_enforce_mode.sh*4s 8_logging_files.sh*15s 9_clear_containers.sh*9s 10a_awk_it_complain.sh*10s 10b_awk_it_enforce.sh*10s 12_complain_enforce_audit.sh*5s)
+sed -i "5s,service_list=(.*,service_list=${service_list_noslash}," dynamic_parser.sh
+file_list=(2_cp_to_apparmor.sh*6s 3_load_profiles.sh*4s 4a_complain_mode.sh*4s 4b_enforce_mode.sh*4s 8_logging_files.sh*15s 10a_awk_it_complain.sh*10s 10b_awk_it_enforce.sh*10s 12_complain_enforce_audit.sh*5s)
+sed -i "9,service_list=(.*,service_list=${service_list}," 9_clear_containers.sh
 for f_i in  "${file_list[@]}"; do
 	file_i=$(echo $f_i | cut -d'*' -f1)
 	line=$(echo $f_i | cut -d'*' -f2)
-	sed -i "${line}/service_list=(.*/service_list=${service_list}/" dynamic_scripts/${file_i}
+	sed -i "${line},service_list=(.*,service_list=${service_list_noslash}," dynamic_scripts/${file_i}
 done
 echo ""
 
@@ -134,97 +142,101 @@ done
 echo ""
 mv run.sh dynamic_scripts/7_run.sh
 
+yml_count=0
 IFS=',' read -r -a array <<< "$services"
+IFS=',' read -r -a array_noslash <<<"$services_noslash"
 if [[ "$yml_path" == "N" ]]; then
 #If docker-compose does not exist, make sure to fix the script so that it includes security-opt flag and create mini docker compose files for each service
+	yml_count=0
 	for service_i in "${array[@]}"; do
 		#Add security-opt flag
-		sed -i "/docker run/ s/${service_i}/${service_i} --security-opt "apparmor=${service_i}_profile"/" dynamic_scripts/7_run.sh
+		sed -i "/docker run/ s,${service_i},${service_i} --security-opt "apparmor=${array_noslash[${yml_count}]}_profile"," dynamic_scripts/7_run.sh
 
 		#Convert flags into docker-compose files
 
 		#Separate docker run commands for each service
-		grep -E "docker run.*${service_i}" dynamic_scripts/7_run.sh > ${service_i}_run
+		grep -E "docker run.*${service_i}" dynamic_scripts/7_run.sh > run
 
 		#Find ports
-		awk '/ -p / {for(i=1;i<=NF;i++) {if($i ~ /-p/) print $(i+1)}}' ${service_i}_run > ${service_i}_ports
-		sed -i 's/"//g' ${service_i}_ports
+		awk '/ -p / {for(i=1;i<=NF;i++) {if($i ~ /-p/) print $(i+1)}}' run > ports
+		sed -i 's,",,g' ports
 
 		#Find volumes
-		awk '/ -v / {for(i=1;i<=NF;i++) {if($i ~ /-v/) print $(i+1)}}' ${service_i}_run > ${service_i}_volumes
-		sed -i 's/"//g' ${service_i}_volumes
+		awk '/ -v / {for(i=1;i<=NF;i++) {if($i ~ /-v/) print $(i+1)}}' run > volumes
+		sed -i 's,",,g' volumes
 
 		#Find capabilities added
-		awk '/ --cap-add / {for(i=1;i<=NF;i++) {if($i ~ /--cap-add/) print $(i+1)}}' ${service_i}_run > ${service_i}_capadds
-		sed -i 's/"//g' ${service_i}_capadds
+		awk '/ --cap-add / {for(i=1;i<=NF;i++) {if($i ~ /--cap-add/) print $(i+1)}}' run > capadds
+		sed -i 's,",,g' capadds
 
 		#Find capabilities dropped
-		awk '/ --cap-drop / {for(i=1;i<=NF;i++) {if($i ~ /--cap-drop/) print $(i+1)}}' ${service_i}_run > ${service_i}_capdrops
-		sed -i 's/"//g' ${service_i}_capdrops
+		awk '/ --cap-drop / {for(i=1;i<=NF;i++) {if($i ~ /--cap-drop/) print $(i+1)}}' run > capdrops
+		sed -i 's,",,g' capdrops
 
 		#Find ulimit
-		awk '/ --ulimit / {for(i=1;i<=NF;i++) {if($i ~ /--ulimit/) print $(i+1)}}' ${service_i}_run > ${service_i}_ulimits
-		sed -i 's/"//g' ${service_i}_ulimits
+		awk '/ --ulimit / {for(i=1;i<=NF;i++) {if($i ~ /--ulimit/) print $(i+1)}}' run > ulimits
+		sed -i 's,",,g' ulimits
 
-		rm ${service_i}_run
+		rm run
 
 		#Start creating mini docker-compose.yml
-		echo "${service_i}:" > ${service_i}_yml
+		echo "${service_i}:" > ${array_noslash[${yml_count}]}_yml
 	
 		#Ports
-		wc_ports=$(wc -l ${service_i}_ports | cut -d' ' -f1)
+		wc_ports=$(wc -l ports | cut -d' ' -f1)
 		if [[ "$wc_ports" != "0" ]]; then
-			echo " ports:" >> ${service_i}_yml
-			sed -i 's/.*/  - "&"/g' ${service_i}_ports
-			cat ${service_i}_ports >> ${service_i}_yml
+			echo " ports:" >> ${array_noslash[${yml_count}]}_yml
+			sed -i 's,.*,  - "&",g' ports
+			cat ports >> ${array_noslash[${yml_count}]}_yml
 		fi
-		rm ${service_i}_ports
+		rm ports
 		
 
 		#Volumes
-                wc_volumes=$(wc -l ${service_i}_volumes | cut -d' ' -f1)
+                wc_volumes=$(wc -l volumes | cut -d' ' -f1)
 		if [[ "$wc_volumes" != "0" ]]; then
-			echo " volumes:" >> ${service_i}_yml
-			sed -i 's/.*/  - "&"/g' ${service_i}_volumes
-			cat ${service_i}_volumes >> ${service_i}_yml
+			echo " volumes:" >> ${array_noslash[${yml_count}]}_yml
+			sed -i 's,.*,  - "&",g' volumes
+			cat volumes >> ${array_noslash[${yml_count}]}_yml
 		fi
-		rm ${service_i}_volumes
+		rm volumes
 
 		#Cap_add
-                wc_capadds=$(wc -l ${service_i}_capadds | cut -d' ' -f1)
+                wc_capadds=$(wc -l capadds | cut -d' ' -f1)
 		if [[ "$wc_capadds" != "0" ]]; then
-			echo " cap_add:" >> ${service_i}_yml
-			sed -i 's/.*/  - &/g' ${service_i}_capadds
-			cat ${service_i}_capadds >> ${service_i}_yml
+			echo " cap_add:" >> ${array_noslash[${yml_count}]}_yml
+			sed -i 's,.*,  - &,g' capadds
+			cat capadds >> ${array_noslash[${yml_count}]}_yml
 		fi
-		rm ${service_i}_capadds
+		rm capadds
 
                 #Cap_drop
-		wc_capdrops=$(wc -l ${service_i}_capdrops | cut -d' ' -f1)
+		wc_capdrops=$(wc -l capdrops | cut -d' ' -f1)
 		if [[ "$wc_capdrops" != "0" ]]; then
-			echo " cap_drop:" >> ${service_i}_yml
-			sed -i 's/.*/  - &/g' ${service_i}_capdrops
-			cat ${service_i}_capdrops >> ${service_i}_yml
+			echo " cap_drop:" >> ${array_noslash[${yml_count}]}_yml
+			sed -i 's,.*,  - &,g' capdrops
+			cat capdrops >> ${array_noslash[${yml_count}]}_yml
 		fi
-		rm ${service_i}_capdrops
+		rm capdrops
 
 		#Ulimits
-                wc_ulimits=$(wc -l ${service_i}_ulimits | cut -d' ' -f1)
+                wc_ulimits=$(wc -l ulimits | cut -d' ' -f1)
 		if [[ "$wc_ulimits" != "0" ]]; then
-			echo " ulimits:" >> ${service_i}_yml
-			cut -d'=' -f1 ${service_i}_ulimits > name_ul
-			cut -d'=' -f2 ${service_i}_ulimits > soft_hard
+			echo " ulimits:" >> ${array_noslash[${yml_count}]}_yml
+			cut -d'=' -f1 ulimits > name_ul
+			cut -d'=' -f2 ulimits > soft_hard
 			cut -d':' -f1 soft_hard > soft_ul
 			cut -d':' -f2 soft_hard > hard_ul
-                        sed 's/.*/  &:/g' name_ul >> ${service_i}_yml
-			sed 's/.*/   soft:&/g' soft_ul >> ${service_i}_yml
-			sed 's/.*/   hard:&/g' hard_ul >> ${service_i}_yml
+                        sed 's,.*,  &:,g' name_ul >> ${array_noslash[${yml_count}]}_yml
+			sed 's,.*,   soft:&,g' soft_ul >> ${array_noslash[${yml_count}]}_yml
+			sed 's,.*,   hard:&,g' hard_ul >> ${array_noslash[${yml_count}]}_yml
 			rm name_ul
 			rm soft_hard
 			rm soft_ul
 			rm hard_ul
 		fi
-                rm ${service_i}_ulimits
+                rm ulimits
+		((yml_count++))
 	done
 else
 #If docker-compose.yml exists, add security-opt and create mini docker compose files for each service
@@ -271,14 +283,14 @@ else
 		start_minus=$(expr $start_position - 1)
 		if [[ "$loops" == $num_of_services ]]; then
 			#Last service's docker-compose.yml
-			sed -e "1,${start_minus}d" ${yml_path} > ${array[${z}]}_yml
+			sed -e "1,${start_minus}d" ${yml_path} > ${array_noslash[${z}]}_yml #${array[${z}]}_yml
 			#Previous service's docker-compose.yml
 			if [[ "$num_of_services" != "1" ]]; then 
-				sed -n "${start_old},${start_minus}p" ${yml_path} > ${array[${previous_z}]}_yml
+				sed -n "${start_old},${start_minus}p" ${yml_path} > ${array_noslash[${previous_z}]}_yml #${array[${previous_z}]}_yml
 			fi
 		elif [[ "$loops" != "1" ]]; then
 			#Previous service's docker-compose.yml
-			sed -n "${start_old},${start_minus}p" ${yml_path} > ${array[${previous_z}]}_yml
+			sed -n "${start_old},${start_minus}p" ${yml_path} > ${array_noslash[${previous_z}]}_yml #${array[${previous_z}]}_yml
 		fi
 		lpp=$(expr $lp \* 2)
 		y=$(expr $y + $lpp)
@@ -296,15 +308,18 @@ mkdir ${app_run_path}/parser_output
 current_dir=$(pwd | sed "s,/*[^/]\+/*$,," |  sed 's#.*/##' | sed 's/_//g' | sed "s/.*/\"&\"/")
 sed -i "s/current_dir = .*/current_dir = ${current_dir}/" static_parser.py
 
+yml_count=0
 for service_i in "${array[@]}"; do
-	echo "" >> ${service_i}_yml
+	echo "" >> ${array_noslash[${yml_count}]}_yml
 
 	#Count volumes if exist and fix 11_merge.py
-	python find_vols.py ${service_i}_yml
-	mv if_vol if_vol_${service_i}
-	python static_parser.py ${dockerfile_path} ${service_i}_yml
-	sed -i "3s/static_profile/${service_i}_profile/" static_profile
-	mv static_profile ${app_run_path}/parser_output/${service_i}_profile
+	echo ${array_noslash[${yml_count}]}
+	python find_vols.py ${array_noslash[${yml_count}]}_yml
+	mv if_vol if_vol_${array_noslash[${yml_count}]}
+	python static_parser.py ${dockerfile_path} ${array_noslash[${yml_count}]}_yml
+	sed -i "3s,static_profile,${array_noslash[${yml_count}]}_profile," static_profile
+	mv static_profile ${app_run_path}/parser_output/${array_noslash[${yml_count}]}_profile
+	((yml_count++))
 done
 
 rm empty_file
