@@ -34,7 +34,7 @@ with open(yml,'r') as infile:
                                 if_vol.append(mntpnt + "') ")
 				z = z+1
 			        x = x+1
-        if_vol.append("): continue")
+        if_vol.append("):")
         if_vol.append("%" + str(x))
 #Output
 with open('if_vol', 'w') as outfile:
