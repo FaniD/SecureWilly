@@ -67,6 +67,15 @@ while true; do
 	x=${x:-$i}
 	((x++))
 	for SERVICE in "${service_list[@]}"; do
+		vol_str=$(cut -d'%' -f1 if_vol_${SERVICE})
+		num_vols=$(cut -d'%' -f2 if_vol_${SERVICE})
+		if [[ "$num_vols" == "0" ]]; then
+			sed -i "83s/.*/#&/" ${dynamic_script_path}/11_merge_profiles.py
+		else
+			sed -i "83s/#/ /" ${dynamic_script_path}/11_merge_profiles.py
+			sed -i "83s|if .*|if ${vol_str}|" ${dynamic_script_path}/11_merge_profiles.py
+		fi
+#		rm if_vol_${SERVICE}
 		python ${dynamic_script_path}/11_merge_profiles.py $SERVICE $i 'complain'
 	done
 	echo $x | source ${dynamic_script_path}/12_complain_enforce_audit.sh
@@ -100,6 +109,14 @@ while true; do
 	x=${x:-$i}
 	((x++))
 	for SERVICE in "${service_list[@]}"; do 
+		vol_str=$(cut -d'%' -f1 if_vol_${SERVICE})
+		num_vols=$(cut -d'%' -f2 if_vol_${SERVICE})
+		if [[ "$num_vols" == "0" ]]; then
+			sed -i "83s/.*/#&/" ${dynamic_script_path}/11_merge_profiles.py
+		else
+			sed -i "83s/#/ /" ${dynamic_script_path}/11_merge_profiles.py
+			sed -i "83s|if .*|if ${vol_str}|" ${dynamic_script_path}/11_merge_profiles.py
+		fi
 		python ${dynamic_script_path}/11_merge_profiles.py $SERVICE $i 'enforce'
 	done
 	echo $x | source ${dynamic_script_path}/12_complain_enforce_audit.sh
@@ -142,7 +159,15 @@ while true; do
 	echo $i | source ${dynamic_script_path}/10a_awk_it_complain.sh
 	x=${x:-$i}
 	((x++))
-	for SERVICE in "${service_list[@]}"; do 
+	for SERVICE in "${service_list[@]}"; do
+		vol_str=$(cut -d'%' -f1 if_vol_${SERVICE})
+		num_vols=$(cut -d'%' -f2 if_vol_${SERVICE})
+		if [[ "$num_vols" == "0" ]]; then
+			sed -i "83s/.*/#&/" ${dynamic_script_path}/11_merge_profiles.py
+		else
+			sed -i "83s/#/ /" ${dynamic_script_path}/11_merge_profiles.py
+			sed -i "83s|if .*|if ${vol_str}|" ${dynamic_script_path}/11_merge_profiles.py
+		fi
 		python ${dynamic_script_path}/11_merge_profiles.py $SERVICE $i 'complain'
 	done
 ####################
@@ -178,7 +203,16 @@ while true; do
 	echo $i | source ${dynamic_script_path}/10b_awk_it_enforce.sh
 	x=${x:-$i}
         ((x++))
-	for SERVICE in "${service_list[@]}"; do 
+	for SERVICE in "${service_list[@]}"; do
+		vol_str=$(cut -d'%' -f1 if_vol_${SERVICE})
+		num_vols=$(cut -d'%' -f2 if_vol_${SERVICE})
+		if [[ "$num_vols" == "0" ]]; then
+			sed -i "83s/.*/#&/" ${dynamic_script_path}/11_merge_profiles.py
+		else
+		        sed -i "83s/#/ /" ${dynamic_script_path}/11_merge_profiles.py
+		        sed -i "83s|if .*|if ${vol_str}|" ${dynamic_script_path}/11_merge_profiles.py
+		fi
+		rm if_vol_${SERVICE}
 		python ${dynamic_script_path}/11_merge_profiles.py $SERVICE $i 'enforce'
         done
 #######################

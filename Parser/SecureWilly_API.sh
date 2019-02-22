@@ -298,6 +298,7 @@ for service_i in "${array[@]}"; do
 
 	#Count volumes if exist and fix 11_merge.py
 	python find_vols.py ${service_i}_yml
+	mv if_vol if_vol_${service_i}
 	vol_str=$(cut -d'%' -f1 if_vol)
 	num_vols=$(cut -d'%' -f2 if_vol)
 	if [[ "$num_vols" == "0" ]]; then
@@ -306,7 +307,6 @@ for service_i in "${array[@]}"; do
 		sed -i "83s/#/ /" dynamic_scripts/11_merge_profiles.py
 		sed -i "83s|if .*|if ${vol_str}|" dynamic_scripts/11_merge_profiles.py
 	fi
-	rm if_vol
 	python static_parser.py ${dockerfile_path} ${service_i}_yml
 	sed -i "3s/static_profile/${service_i}_profile/" static_profile
 	mv static_profile ${app_run_path}/parser_output/${service_i}_profile
