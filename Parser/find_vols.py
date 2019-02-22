@@ -4,7 +4,6 @@ import sys
 from collections import OrderedDict
 
 if_vol = []
-#service_volumes = []
 
 #mini yml file
 yml = str(sys.argv[1])
@@ -30,15 +29,12 @@ with open(yml,'r') as infile:
                                 if (mntpnt.endswith('/')):
                                     mntpnt = mntpnt.rstrip('/')
                               
-               #                 service_volumes.append(mntpnt + '\n')
-                                
                                 if (x>0):
-                                    if_vol.append("or linestartswith('")
+                                    if_vol.append("or line.startswith('")
                                 if_vol.append(mntpnt + "') ")
 				z = z+1
 			        x = x+1
-              #  service_volumes.append(x + '\n')
-                if_vol.append("): continue")
+        if_vol.append("): continue")
         if_vol.append("%" + str(x))
 #Output
 with open('if_vol', 'w') as outfile:
