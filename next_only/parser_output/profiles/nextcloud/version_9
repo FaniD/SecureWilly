@@ -1,0 +1,37 @@
+#include <tunables/global>
+
+profile nextcloud_profile flags=(audit,attach_disconnected,mediate_deleted) {
+	network inet6 dgram,
+	capability fsetid,
+	capability chown,
+	/usr/src/nextcloud/core/doc/admin/_static/img/social/googleplus.svg r,
+	/usr/src/nextcloud/core/doc/admin/_images/smb.png r,
+	signal (receive) set=(exists) peer=unconfined,
+	/etc/ld.so.cache r,
+	/usr/src/nextcloud/core/doc/admin/_static/img/social/facebook.svg r,
+	network inet stream,
+	/var/www/html/* rw,
+	/var/lib/docker/* r, #Access to layers of filesystem
+	network inet6 stream,
+	capability fowner,
+	capability setgid,
+	/lib/x86_64-linux-gnu/libc-2.24.so r,
+	signal (receive) set=(usr2) peer=nextcloud_profile,
+	capability dac_override,
+	deny umount /var/www/html, #Disallow anybody that wants to break this mountpoint
+	signal (send) set=(usr2) peer=nextcloud_profile,
+	/usr/src/nextcloud/core/doc/admin/_static/img/social/googleplus.png r,
+	/var/www/html/data/* rw,
+	file,  #This rule is needed so that I can work with files (create files/directories, copy, etc)
+	mount /home/ubuntu/SecureWilly/next_only/data -> /var/www/html/data, #Bind host volume to docker container volume
+	deny remount /var/www/html/data, #Disallow anybody that wants to remount this mountpoint
+	network inet dgram,
+	capability setuid,
+	deny remount /var/www/html, #Disallow anybody that wants to remount this mountpoint
+	deny ptrace (readby, tracedby), #Confront container breakout attacks
+	/lib/x86_64-linux-gnu/libcrypt-2.24.so r,
+	mount nextcloud_ -> /var/www/html, #Bind host volume to docker container volume
+	signal (receive) set=(kill) peer=unconfined,
+	deny umount /var/www/html/data, #Disallow anybody that wants to break this mountpoint
+	capability net_bind_service,  #This capability is needed to bind a socket to Internet domain privileged ports
+}

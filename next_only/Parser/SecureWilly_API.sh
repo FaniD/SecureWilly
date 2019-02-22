@@ -293,20 +293,15 @@ fi
 
 mkdir ${app_run_path}/parser_output
 
+current_dir=$(pwd | sed "s,/*[^/]\+/*$,," |  sed 's#.*/##' | sed 's/_//g' | sed "s/.*/\"&\"/")
+sed -i "s/current_dir = .*/current_dir = ${current_dir}/" static_parser.py
+
 for service_i in "${array[@]}"; do
 	echo "" >> ${service_i}_yml
 
 	#Count volumes if exist and fix 11_merge.py
 	python find_vols.py ${service_i}_yml
-	vol_str=$(cut -d'%' -f1 if_vol)
-	num_vols=$(cut -d'%' -f2 if_vol)
-	if [[ "$num_vols" == "0" ]]; then
-		sed -i "83s/.*/#&/" dynamic_scripts/11_merge_profiles.py
-	else
-		sed -i "83s/#/ /" dynamic_scripts/11_merge_profiles.py
-		sed -i "83s|if |if ${vol_str}|" dynamic_scripts/11_merge_profiles.py
-	fi
-	rm if_vol
+	mv if_vol if_vol_${service_i}
 	python static_parser.py ${dockerfile_path} ${service_i}_yml
 	sed -i "3s/static_profile/${service_i}_profile/" static_profile
 	mv static_profile ${app_run_path}/parser_output/${service_i}_profile
@@ -316,6 +311,6 @@ rm empty_file
 
 sudo chmod +x dynamic_scripts/7_run.sh
 #Dynamic_parser
-./dynamic_parser.sh
+#./dynamic_parser.sh
 
 echo "Profiles produced for all services are located in parser_output directory."

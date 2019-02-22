@@ -1,0 +1,20 @@
+[11116.078222] device veth5a48fda entered promiscuous mode
+[11116.078360] IPv6: ADDRCONF(NETDEV_UP): veth5a48fda: link is not ready
+[11116.348526] IPv6: ADDRCONF(NETDEV_CHANGE): veth5a48fda: link becomes ready
+[11116.348584] br-0265872566e0: port 1(veth5a48fda) entered forwarding state
+[11116.348592] br-0265872566e0: port 1(veth5a48fda) entered forwarding state
+[11116.709766] device vethc249739 entered promiscuous mode
+[11116.709947] IPv6: ADDRCONF(NETDEV_UP): vethc249739: link is not ready
+[11116.709954] br-0265872566e0: port 2(vethc249739) entered forwarding state
+[11116.709960] br-0265872566e0: port 2(vethc249739) entered forwarding state
+[11116.988510] IPv6: ADDRCONF(NETDEV_CHANGE): vethc249739: link becomes ready
+[11120.589892] type=1400 audit(1550795056.664:1470400): apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=16991 comm="apache2" capability=7  capname="setuid"
+[11131.356317] br-0265872566e0: port 1(veth5a48fda) entered forwarding state
+[11131.740142] br-0265872566e0: port 2(vethc249739) entered forwarding state
+[11190.193743] br-0265872566e0: port 2(vethc249739) entered disabled state
+[11190.240500] br-0265872566e0: port 2(vethc249739) entered disabled state
+[11190.241007] device vethc249739 left promiscuous mode
+[11190.241017] br-0265872566e0: port 2(vethc249739) entered disabled state
+[11190.544635] br-0265872566e0: port 1(veth5a48fda) entered disabled state
+[11190.545366] device veth5a48fda left promiscuous mode
+[11190.545378] br-0265872566e0: port 1(veth5a48fda) entered disabled state

@@ -30,7 +30,7 @@ with open(yml,'r') as infile:
                                     mntpnt = mntpnt.rstrip('/')
                               
                                 if (x>0):
-                                    if_vol.append("or linestartswith('")
+                                    if_vol.append("or line.startswith('")
                                 if_vol.append(mntpnt + "') ")
 				z = z+1
 			        x = x+1

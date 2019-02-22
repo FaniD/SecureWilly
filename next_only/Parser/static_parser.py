@@ -3,6 +3,8 @@ import io
 import sys
 from collections import OrderedDict
 
+current_dir = "nextonly"
+
 #Function used to delete duplicates from a list - profile rules in our case
 def ordered_set(in_list):
     out_list = []
@@ -222,6 +224,11 @@ if (len(sys.argv) > 2):
 
                                 if (mntpnt.endswith('/')):
                                     mntpnt = mntpnt.rstrip('/')
+
+                                #If source does not start with / then it is not a path but a named volume
+                                #So we change it into the real host path
+                                if (not src.startswith('/')):
+                                    src="/var/lib/docker/volumes/" + current_dir + "_" + src + "/_data"
 
                                 #If there is a mount option:
                                 if len(src_mntpnt)==3:
