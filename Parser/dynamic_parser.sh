@@ -2,7 +2,7 @@
 
 #Change this with the services I have each time
 #Also do that in 2_cp, 3, 4a, 4b, 9, 10a, 10b, 12, metrics 
-service_list=(cloudsuitemedia-streamingserver cloudsuitemedia-streamingclient)
+service_list=(db nextcloud)
 
 app_run_path=".."
 parser_path="${app_run_path}/Parser"
@@ -68,7 +68,7 @@ while true; do
 	((x++))
 	lp_count=0
 	for SERVICE in "${service_list[@]}"; do
-		if [[ "$i" = "1" ]]; then
+		if [[ "$i" == "1" ]]; then
 			if_net=$(wc -l ${app_run_path}/parser_output/Logs/RUN1/awk_out/complain_logs_net_${SERVICE} | cut -d' ' -f1)
 			if [[ "$if_net" != "0" ]]; then
 				#If there are already rules by the testplan then abort network static rule, as it will get more specific on ports eitheir inet or inet6 etc
