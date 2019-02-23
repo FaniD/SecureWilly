@@ -3,8 +3,6 @@ import io
 import sys
 from collections import OrderedDict
 
-current_dir = "media-streaming2"
-
 #Function used to delete duplicates from a list - profile rules in our case
 def ordered_set(in_list):
     out_list = []
@@ -222,14 +220,6 @@ if (len(sys.argv) > 2):
 				src = src.strip('"')
 				mntpnt = src_mntpnt[1]
 
-                                if (mntpnt.endswith('/')):
-                                    mntpnt = mntpnt.rstrip('/')
-
-                                #If source does not start with / then it is not a path but a named volume
-                                #So we change it into the real host path
-                                if (not src.startswith('/')):
-                                    src="/var/lib/docker/volumes/" + current_dir + "_" + src + "/_data"
-
                                 #If there is a mount option:
                                 if len(src_mntpnt)==3:
                                     option = src_mntpnt[2]
@@ -237,33 +227,29 @@ if (len(sys.argv) > 2):
                                         ro_rule = '\tdeny ' + mntpnt + ' w,\n'
                                         static_profile.append(ro_rule)
                                         mount_rule = '\tmount options=ro ' + src + ' -> ' + mntpnt + ', #Bind host volume to docker container volume\n'
-                                        file_mnt_rule = '\t' + mntpnt + '/* r,\n'
                                     else:
                                         mount_rule = '\tmount ' + src + ' -> ' + mntpnt + ', #Bind host volume to docker container volume\n'
-                                        file_mnt_rule = '\t' + mntpnt + '/* rw,\n'
                                 else:
 				    mount_rule = '\tmount ' + src + ' -> ' + mntpnt + ', #Bind host volume to docker container volume\n'
-                                    file_mnt_rule = '\t' + mntpnt + '/* rw,\n'
 
                                 umount_rule = '\tdeny umount ' + mntpnt + ', #Disallow anybody that wants to break this mountpoint\n'
 				remount_rule = '\tdeny remount '+ mntpnt + ', #Disallow anybody that wants to remount this mountpoint\n'
                                 static_profile.append(mount_rule)
                                 static_profile.append(umount_rule)
                                 static_profile.append(remount_rule)
-                                static_profile.append(file_mnt_rule)
 				z = z+1
-                            #If docker.sock is mounted in one of the following ways, deny capabilities setuid and setgid so the user won't be able to start a new login session
-                                if src=='/':
-                                    static_profile.append(deny_setuid_setgid_rule)
-                                else:
-                                    if (src.endswith('/')):
-                                        src = src.rstrip('/')
-                                    if src=='/var':
-                                        static_profile.append(deny_setuid_setgid_rule)
-                                    if src=='/var/run':
-                                        static_profile.append(deny_setuid_setgid_rule)
-                                    if src=='/var/run/docker.sock':
-                                        static_profile.append(deny_setuid_setgid_rule)
+                        #If docker.sock is mounted in one of the following ways, deny capabilities setuid and setgid so the user won't be able to start a new login session
+                        if src=='/':
+                            static_profile.append(deny_setuid_setgid_rule)
+                        else:
+                            if (src.endswith('/'):
+                                    src = src.rstrip('/')
+                            if src=='/var':
+                                static_profile.append(deny_setuid_setgid_rule)
+                            if src=='/var/run':
+                                static_profile.append(deny_setuid_setgid_rule)
+                            if src=='/var/run/docker.sock':
+                                static_profile.append(deny_setuid_setgid_rule)
                         static_profile.append(file_rule)
 		if capability in data[i]:
 			z = i
