@@ -1,0 +1,4 @@
+cloudsuite/data-caching:client:
+ volumes:
+  - "/home/ubuntu/SecureWilly/Dynamic_Analysis/data-caching/scripts:/scripts"
+
