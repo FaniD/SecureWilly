@@ -1,0 +1,3 @@
+Feb 23 04:02:18 docker-security59 kernel: [20682.143819] type=1400 audit(1550894538.958:22845424): apparmor="ALLOWED" operation="capable" profile="cloudsuitemedia-streamingserver_profile" pid=7567 comm="nginx" capability=7  capname="setuid"
+Feb 23 04:02:18 docker-security59 kernel: [20682.143988] type=1400 audit(1550894538.958:22845425): apparmor="ALLOWED" operation="capable" profile="cloudsuitemedia-streamingserver_profile" pid=7569 comm="nginx" capability=7  capname="setuid"
+Feb 23 04:02:18 docker-security59 kernel: [20682.144382] type=1400 audit(1550894538.962:22845426): apparmor="ALLOWED" operation="capable" profile="cloudsuitemedia-streamingserver_profile" pid=7568 comm="nginx" capability=7  capname="setuid"

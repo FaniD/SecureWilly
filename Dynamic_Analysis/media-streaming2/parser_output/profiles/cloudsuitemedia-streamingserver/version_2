@@ -1,0 +1,10 @@
+#include <tunables/global>
+
+profile cloudsuitemedia-streamingserver_profile flags=(attach_disconnected,mediate_deleted) {
+	capability dac_override,
+	network inet stream,
+	/var/lib/docker/* r, #Access to layers of filesystem
+	network inet6 stream,
+	deny ptrace (readby, tracedby), #Confront container breakout attacks
+	file,  #This rule is needed so that I can work with files (create files/directories, copy, etc)
+}

@@ -1,0 +1,35 @@
+
+Total: connections 470 requests 7973 replies 7973 test-duration 330.380 s
+Number of connected connections is currently = 0
+
+Connection rate: 1.4 conn/s (702.9 ms/conn, <=470 concurrent connections)
+Connected connection rate: 1.4 conn/s (702.9 ms/conn, <=470 concurrent connected connections)
+Connection time [ms]: min 30010.8 avg 129757.6 max 320692.4 median 99999.5 stddev 101223.0
+Connection time [ms]: connect 0.1
+Connection length [replies/conn]: 16.964
+
+Response time (no timeouts) [ms]: 0.0
+Response time (only timeouts) [ms]: 0.0
+Response time (all) [ms]: 129757.6
+Request rate: 24.1 req/s (41.4 ms/req)
+Request size [B]: 139.0
+
+Overall reply rate: 24.1 replies/sec
+Reply rate [replies/s]: min 9.2 avg 24.2 max 188.4 stddev 32.0 (66 samples)
+Reply time [ms]: response 1.8 transfer 4.6
+Reply size [B]: header 294.0 content 3007142.0 footer 0.0 (total 3007436.0)
+Reply status: 1xx=0 2xx=7973 3xx=0 4xx=0 5xx=0
+
+CPU time [s]: user 1.82 system 29.49 (user 0.5% system 8.9% total 9.5%)
+Net I/O: 70880.2 KB/s (580.7*10^6 bps)
+
+Errors: total 0 client-timo 0 socket-timo 0 connrefused 0 connreset 0
+Errors: fd-unavail 0 addrunavail 0 ftab-full 0 addrinuse 0 other 0
+Unconnected timeouts 0 connected timeouts 0 total (0) client_timeouts 0
+
+
+Session rate [sess/s]: min 0.00 avg 1.42 max 9.80 stddev 3.37 (470/470)
+Session: avg 1.00 connections/session
+Session lifetime [s]: 129.8
+Session failtime [s]: 0.0
+Session length histogram: 0 0 0 0 0 0 0 95 0 0 92 0 0 0 0 95 0 95 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 93
