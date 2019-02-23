@@ -335,7 +335,9 @@ else
 	while IFS= read -r line ; do lines_secopt+="$line,"; done <<< "$lines_security"
 	IFS=',' read -r -a lines_ar <<< "$lines_secopt"
 	line=0
+	line_=0
 	for service_i in "${array_noslash[@]}"; do
+		line_=$(expr ${lines_ar[${line}]} + ${line})
 		#I search every mini yml to see if container name exists
 		awk '/container_name:/ {for(i=1;i<=NF;i++) {if($i ~ /container_name:/) print $(i+1)}}' ${service_i}_yml > name
 		wc_name=$(wc -l name | cut -d' ' -f1)
@@ -345,9 +347,9 @@ else
 		if [[ "$wc_name" == "0" ]]; then
 		        containers+="${service_i}"
 			#Duplicate the security opt line
-			sed -i "${lines_ar[${line}]}s/\([^.]*\)/&\n\1/" ${yml_path}
+			sed -i "${line_}s/\([^.]*\)/&\n\1/" ${yml_path}
 			#Write the new line on this line so that the syntax stays the same
-			sed -i "${lines_ar[${line}]}s/security.*/container_name: ${service_i}/" ${yml_path}
+			sed -i "${line_}s/security.*/container_name: ${service_i}/" ${yml_path}
 		else
 			containers+=$(cat name)
 		fi
