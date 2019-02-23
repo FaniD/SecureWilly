@@ -1,5 +1,8 @@
-#!/bin/sh
+#!/bin/bash
+ 
+#docker network create streaming_network
+docker create --name streaming_dataset cloudsuite/media-streaming:dataset
+docker run -d --name streaming_server --volumes-from streaming_dataset --net streaming_network --security-opt "apparmor=cloudsuitemedia-streamingserver_profile" cloudsuite/media-streaming:server
+docker run -t --name streaming_client -v /output:/output --volumes-from streaming_dataset --net streaming_network --security-opt "apparmor=cloudsuitemedia-streamingclient_profile" cloudsuite/media-streaming:client streaming_server
 
-docker create --security-opt "apparmor=dataset_profile" --name streaming_dataset cloudsuite/media-streaming:dataset
-docker run -d --security-opt "apparmor=server_profile" --name streaming_server --volumes-from streaming_dataset --net streaming_network cloudsuite/media-streaming:server
-docker run --security-opt "apparmor=client_profile" -t --name=streaming_client -v /output:/output --volumes-from streaming_dataset --net streaming_network cloudsuite/media-streaming:client streaming_server
+docker stop streaming_server

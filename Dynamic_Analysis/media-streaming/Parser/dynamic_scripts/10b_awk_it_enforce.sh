@@ -6,7 +6,8 @@ run_path="../parser_output/Logs/RUN${version}"
 
 mkdir ${run_path}/awk_out
 
-service_list=(dataset server client)
+#For each service, separate logs into different categories
+service_list=(cloudsuitemedia-streamingserver cloudsuitemedia-streamingclient)
 for SERVICE in "${service_list[@]}"; do
 
 	#~~~Capabilities~~~

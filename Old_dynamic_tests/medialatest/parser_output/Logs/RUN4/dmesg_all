@@ -1,0 +1,21 @@
+[20653.694026] IPv6: ADDRCONF(NETDEV_UP): br-60c878cf080c: link is not ready
+[20894.522048] device vethea708c9 entered promiscuous mode
+[20894.522210] IPv6: ADDRCONF(NETDEV_UP): vethea708c9: link is not ready
+[20895.632749] IPv6: ADDRCONF(NETDEV_CHANGE): vethea708c9: link becomes ready
+[20895.632813] br-60c878cf080c: port 1(vethea708c9) entered forwarding state
+[20895.632821] br-60c878cf080c: port 1(vethea708c9) entered forwarding state
+[20895.632836] IPv6: ADDRCONF(NETDEV_CHANGE): br-60c878cf080c: link becomes ready
+[20897.066684] device veth753a485 entered promiscuous mode
+[20897.066843] IPv6: ADDRCONF(NETDEV_UP): veth753a485: link is not ready
+[20898.272779] IPv6: ADDRCONF(NETDEV_CHANGE): veth753a485: link becomes ready
+[20898.272819] br-60c878cf080c: port 2(veth753a485) entered forwarding state
+[20898.272826] br-60c878cf080c: port 2(veth753a485) entered forwarding state
+[20910.684093] br-60c878cf080c: port 1(vethea708c9) entered forwarding state
+[20913.308120] br-60c878cf080c: port 2(veth753a485) entered forwarding state
+[21588.788587] br-60c878cf080c: port 2(veth753a485) entered disabled state
+[21589.088819] br-60c878cf080c: port 1(vethea708c9) entered disabled state
+[21589.089544] device vethea708c9 left promiscuous mode
+[21589.089556] br-60c878cf080c: port 1(vethea708c9) entered disabled state
+[21589.134876] br-60c878cf080c: port 2(veth753a485) entered disabled state
+[21589.135673] device veth753a485 left promiscuous mode
+[21589.135686] br-60c878cf080c: port 2(veth753a485) entered disabled state

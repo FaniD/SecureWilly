@@ -2,7 +2,7 @@
 
 #Change this with the services I have each time
 #Also do that in 2_cp, 3, 4a, 4b, 9, 10a, 10b, 12, metrics 
-service_list=(dataset server client)
+service_list=(cloudsuitemedia-streamingserver cloudsuitemedia-streamingclient)
 
 app_run_path=".."
 parser_path="${app_run_path}/Parser"
@@ -28,7 +28,7 @@ for SERVICE in "${service_list[@]}"; do
 	mkdir ${app_run_path}/parser_output/profiles/${SERVICE}
 	#If static profile exists, otherwise make this a comment and create it a simple version_1
 	if [[ "$static_part" > "0" ]]; then
-		cp ${app_run_path}/parser_output/${SERVICE}_static_profile ${app_run_path}/parser_output/profiles/${SERVICE}/version_1
+		mv ${app_run_path}/parser_output/${SERVICE}_profile ${app_run_path}/parser_output/profiles/${SERVICE}/version_1
 	else
 		python ${dynamic_script_path}/create_version_1.py ${SERVICE}
 	fi
@@ -41,20 +41,17 @@ done
 #It cannot be aborted by its own because there will be no duplicate rule. So we abort it manually, if it is already in our profile.
 
 for SERVICE in "${service_list[@]}"; do
-	python ${dynamic_script_path}/0a_abort_network_rule.py $SERVICE
+	python ${dynamic_script_path}/1_abort_network_rule.py $SERVICE
 done
 
 #Pull images if there are on dockerhub and not locally
-#~~~Needs manual changes
-./${dynamic_script_path}/0b_pull_images.sh
+#./${dynamic_script_path}/0b_pull_images.sh
 
 
 #For each RUN follow the steps
 #Starting with complain mode
 i=1
 while true; do
-	#1. Needs manual changes
-	./${dynamic_script_path}/1_clear_containers.sh
 	echo $i | source ${dynamic_script_path}/2_cp_to_apparmor.sh
 	./${dynamic_script_path}/3_load_profiles.sh 
 	./${dynamic_script_path}/4a_complain_mode.sh
@@ -63,15 +60,27 @@ while true; do
 	#6. Ommit if there is no network to create
 	./${dynamic_script_path}/6_net.sh
 
-	#7 & 8 Needs manual changes
 	./${dynamic_script_path}/7_run.sh
-	./${dynamic_script_path}/8_closing.sh
-	echo $i | source ${dynamic_script_path}/9_logging_files.sh
+	echo $i | source ${dynamic_script_path}/8_logging_files.sh
+	./${dynamic_script_path}/9_clear_containers.sh
 	echo $i | source ${dynamic_script_path}/10a_awk_it_complain.sh
 	x=${x:-$i}
 	((x++))
+	lp_count=0
 	for SERVICE in "${service_list[@]}"; do
-		python ${dynamic_script_path}/11_merge_profiles.py $SERVICE $i 'complain'
+		vol_str=$(cut -d'%' -f1 if_vol_${SERVICE})
+		num_vols=$(cut -d'%' -f2 if_vol_${SERVICE})
+		if [[ "$num_vols" == "0" ]]; then
+			python ${dynamic_script_path}/11_merge_profiles.py $SERVICE $i 'complain'
+		else
+			sed -i "83s/#/ /" ${dynamic_script_path}/11_merge_profiles.py
+			sed -i "83s|if .*|if ${vol_str}|" ${dynamic_script_path}/11_merge_profiles.py
+			sed -i "84s/#/ /" ${dynamic_script_path}/11_merge_profiles.py
+			python ${dynamic_script_path}/11_merge_profiles.py $SERVICE $i 'complain'
+			sed -i "83s| if|#if|" ${dynamic_script_path}/11_merge_profiles.py
+			sed -i "84s| c|#c|" ${dynamic_script_path}/11_merge_profiles.py
+		fi
+		((lp_count++))
 	done
 	echo $x | source ${dynamic_script_path}/12_complain_enforce_audit.sh
 	enforce_time='1'
@@ -83,29 +92,42 @@ while true; do
 			enforce_time="0"
 		fi
 	done
+	cp -r /output ${app_run_path}/parser_output/output_run_${i}
 	((i++))
 	if [[ "$enforce_time" == "1" ]] #Then none of the services has 0 value so enforce time
 	then
 		#echo "Inside enforce time = ${enforce_time}"
 		break
-	fi	
+	fi
 done
 
 while true; do
-	./${dynamic_script_path}/1_clear_containers.sh
 	echo $i | source ${dynamic_script_path}/2_cp_to_apparmor.sh
 	./${dynamic_script_path}/3_load_profiles.sh
 	./${dynamic_script_path}/4b_enforce_mode.sh
 	./${dynamic_script_path}/5_clear_logs.sh
 	./${dynamic_script_path}/6_net.sh
 	./${dynamic_script_path}/7_run.sh
-	./${dynamic_script_path}/8_closing.sh
-	echo $i | source ${dynamic_script_path}/9_logging_files.sh
+	echo $i | source ${dynamic_script_path}/8_logging_files.sh
+	./${dynamic_script_path}/9_clear_containers.sh
 	echo $i | source ${dynamic_script_path}/10b_awk_it_enforce.sh
 	x=${x:-$i}
 	((x++))
+	lp_count=0
 	for SERVICE in "${service_list[@]}"; do 
-		python ${dynamic_script_path}/11_merge_profiles.py $SERVICE $i 'enforce'
+		vol_str=$(cut -d'%' -f1 if_vol_${SERVICE})
+		num_vols=$(cut -d'%' -f2 if_vol_${SERVICE})
+		if [[ "$num_vols" == "0" ]]; then
+			python ${dynamic_script_path}/11_merge_profiles.py $SERVICE $i 'enforce'
+		else
+			sed -i "83s/#/ /" ${dynamic_script_path}/11_merge_profiles.py
+			sed -i "83s|if .*|if ${vol_str}|" ${dynamic_script_path}/11_merge_profiles.py
+			sed -i "84s/#/ /" ${dynamic_script_path}/11_merge_profiles.py
+			python ${dynamic_script_path}/11_merge_profiles.py $SERVICE $i 'enforce'
+			sed -i "83s| if|#if|" ${dynamic_script_path}/11_merge_profiles.py
+		        sed -i "84s| c|#c|" ${dynamic_script_path}/11_merge_profiles.py
+		fi
+		((lp_count++))
 	done
 	echo $x | source ${dynamic_script_path}/12_complain_enforce_audit.sh
 	audit_time="1"
@@ -117,6 +139,7 @@ while true; do
 			audit_time="0"
 		fi
 	done
+	cp -r /output ${app_run_path}/parser_output/output_run_${i}
 	((i++))
 	if [[ "$audit_time" == "1" ]] #Then none of the services has 0 value so audit time
 	then
@@ -130,7 +153,6 @@ y=${y:-$i}
 #########################
 while true; do
 #########################
-	./${dynamic_script_path}/1_clear_containers.sh
 	if [ $y -eq $i ] 
 	then
 		for SERVICE in "${service_list[@]}"; do  
@@ -143,13 +165,26 @@ while true; do
 	./${dynamic_script_path}/5_clear_logs.sh
 	./${dynamic_script_path}/6_net.sh
 	./${dynamic_script_path}/7_run.sh
-	./${dynamic_script_path}/8_closing.sh
-	echo $i | source ${dynamic_script_path}/9_logging_files.sh
+	echo $i | source ${dynamic_script_path}/8_logging_files.sh
+	./${dynamic_script_path}/9_clear_containers.sh
 	echo $i | source ${dynamic_script_path}/10a_awk_it_complain.sh
 	x=${x:-$i}
 	((x++))
-	for SERVICE in "${service_list[@]}"; do 
-		python ${dynamic_script_path}/11_merge_profiles.py $SERVICE $i 'complain'
+	lp_count=0
+	for SERVICE in "${service_list[@]}"; do
+		vol_str=$(cut -d'%' -f1 if_vol_${SERVICE})
+		num_vols=$(cut -d'%' -f2 if_vol_${SERVICE})
+		if [[ "$num_vols" == "0" ]]; then
+			python ${dynamic_script_path}/11_merge_profiles.py $SERVICE $i 'complain'
+		else
+			sed -i "83s/#/ /" ${dynamic_script_path}/11_merge_profiles.py
+			sed -i "83s|if .*|if ${vol_str}|" ${dynamic_script_path}/11_merge_profiles.py
+			sed -i "84s/#/ /" ${dynamic_script_path}/11_merge_profiles.py
+			python ${dynamic_script_path}/11_merge_profiles.py $SERVICE $i 'complain'
+			sed -i "83s| if|#if|" ${dynamic_script_path}/11_merge_profiles.py
+			sed -i "84s| c|#c|" ${dynamic_script_path}/11_merge_profiles.py
+		fi
+		((lp_count++))
 	done
 ####################
 	echo $x | source ${dynamic_script_path}/12_complain_enforce_audit.sh
@@ -162,6 +197,7 @@ while true; do
 		fi
 	done
 ###################
+	cp -r /output ${app_run_path}/parser_output/output_run_${i}
 	((i++))
 ###################
 	if [[ "$audit_enforce_time" == "1" ]] #Then none of the services has 0 value so audit enforce time
@@ -173,20 +209,32 @@ done
 
 
 while true; do
-	./${dynamic_script_path}/1_clear_containers.sh
 	echo $i | source ${dynamic_script_path}/2_cp_to_apparmor.sh
         ./${dynamic_script_path}/3_load_profiles.sh
 	./${dynamic_script_path}/4b_enforce_mode.sh
 	./${dynamic_script_path}/5_clear_logs.sh
 	./${dynamic_script_path}/6_net.sh
 	./${dynamic_script_path}/7_run.sh
-        ./${dynamic_script_path}/8_closing.sh
-	echo $i | source ${dynamic_script_path}/9_logging_files.sh
+	echo $i | source ${dynamic_script_path}/8_logging_files.sh
+	./${dynamic_script_path}/9_clear_containers.sh
 	echo $i | source ${dynamic_script_path}/10b_awk_it_enforce.sh
 	x=${x:-$i}
         ((x++))
-	for SERVICE in "${service_list[@]}"; do 
-		python ${dynamic_script_path}/11_merge_profiles.py $SERVICE $i 'enforce'
+	lp_count=0
+	for SERVICE in "${service_list[@]}"; do
+		vol_str=$(cut -d'%' -f1 if_vol_${SERVICE})
+		num_vols=$(cut -d'%' -f2 if_vol_${SERVICE})
+		if [[ "$num_vols" == "0" ]]; then
+			python ${dynamic_script_path}/11_merge_profiles.py $SERVICE $i 'enforce'
+		else
+		        sed -i "83s/#/ /" ${dynamic_script_path}/11_merge_profiles.py
+		        sed -i "83s|if .*|if ${vol_str}|" ${dynamic_script_path}/11_merge_profiles.py
+			sed -i "84s/#/ /" ${dynamic_script_path}/11_merge_profiles.py
+			python ${dynamic_script_path}/11_merge_profiles.py $SERVICE $i 'enforce'
+			sed -i "83s| if|#if|" ${dynamic_script_path}/11_merge_profiles.py
+			sed -i "84s| c|#c|" ${dynamic_script_path}/11_merge_profiles.py
+		fi
+		((lp_count++))
         done
 #######################
 	echo $x | source ${dynamic_script_path}/12_complain_enforce_audit.sh
@@ -200,6 +248,7 @@ while true; do
 		fi
 	done
 #######################
+	cp -r /output ${app_run_path}/parser_output/output_run_${i}
 	((i++))
 #######################
 	if [[ "$end_of_logs" == "1" ]] #Then none of the services has 0 value so audit time
@@ -214,4 +263,5 @@ done
 for SERVICE in "${service_list[@]}"; do
 	python ${dynamic_script_path}/13_delete_audit_flag.py $SERVICE $i
 	rm next_step_${SERVICE}
+	cp ${app_run_path}/parser_output/profiles/${SERVICE}/output_${SERVICE}_profile ${app_run_path}/parser_output/${SERVICE}_profile
 done
