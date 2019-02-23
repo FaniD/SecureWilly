@@ -157,6 +157,7 @@ done
 echo ""
 mv run.sh dynamic_scripts/7_run.sh
 
+containers="("
 if [[ "$yml_path" == "N" ]]; then
 #If docker-compose does not exist, make sure to fix the script so that it includes security-opt flag and create mini docker compose files for each service
 	yml_count=0
@@ -172,8 +173,16 @@ if [[ "$yml_path" == "N" ]]; then
 		grep -E "docker create.*${service_i}" dynamic_scripts/7_run.sh >> run
 
 		#Does the docker run and create have named containers?
-		awk '/ --name / {for(i=1;i<=NF;i++) {if($i ~ /-p/) print $(i+1)}}' run > container_${array_noslash[${yml_count}]}
-
+		awk '/ --name / {for(i=1;i<=NF;i++) {if($i ~ /-p/) print $(i+1)}}' run > name
+		wc_name=$(wc -l name | cut -d' ' -f1)
+		if [[ "$yml_count" != 0 ]]; then
+			containers+=" "
+		fi
+		if [[ "$wc_name" == "0" ]]; then
+			containers+="container_${array_noslash[${yml_count}]}"
+		else
+			containers+=$(cat name)
+		fi
 
 		#Find ports
 		awk '/ -p / {for(i=1;i<=NF;i++) {if($i ~ /-p/) print $(i+1)}}' run > ports
@@ -258,6 +267,7 @@ if [[ "$yml_path" == "N" ]]; then
                 rm ulimits
 		((yml_count++))
 	done
+	containers+=")"
 else
 #If docker-compose.yml exists, add security-opt and create mini docker compose files for each service
 
@@ -352,7 +362,7 @@ rm empty_file
 
 sudo chmod +x dynamic_scripts/7_run.sh
 #Dynamic_parser
-./dynamic_parser.sh
+#./dynamic_parser.sh
 
 for service_i in "${array_noslash[@]}"; do
 	rm if_vol_${service_i}
