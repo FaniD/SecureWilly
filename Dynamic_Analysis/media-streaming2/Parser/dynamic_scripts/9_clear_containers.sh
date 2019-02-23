@@ -3,7 +3,7 @@
 net=true
 #delete network
 if $net ; then
-	docker network rm streaming-network
+	docker network rm streaming_network
 fi
 
 #service_list=(cloudsuite/media-streaming:server cloudsuite/media-streaming:client)

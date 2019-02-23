@@ -92,12 +92,13 @@ while true; do
 			enforce_time="0"
 		fi
 	done
+	cp -r /output ${app_run_path}/parser_output/output_run_${i}
 	((i++))
 	if [[ "$enforce_time" == "1" ]] #Then none of the services has 0 value so enforce time
 	then
 		#echo "Inside enforce time = ${enforce_time}"
 		break
-	fi	
+	fi
 done
 
 while true; do
@@ -138,6 +139,7 @@ while true; do
 			audit_time="0"
 		fi
 	done
+	cp -r /output ${app_run_path}/parser_output/output_run_${i}
 	((i++))
 	if [[ "$audit_time" == "1" ]] #Then none of the services has 0 value so audit time
 	then
@@ -195,6 +197,7 @@ while true; do
 		fi
 	done
 ###################
+	cp -r /output ${app_run_path}/parser_output/output_run_${i}
 	((i++))
 ###################
 	if [[ "$audit_enforce_time" == "1" ]] #Then none of the services has 0 value so audit enforce time
@@ -245,6 +248,7 @@ while true; do
 		fi
 	done
 #######################
+	cp -r /output ${app_run_path}/parser_output/output_run_${i}
 	((i++))
 #######################
 	if [[ "$end_of_logs" == "1" ]] #Then none of the services has 0 value so audit time
