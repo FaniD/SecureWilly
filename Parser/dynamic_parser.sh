@@ -40,9 +40,9 @@ done
 #However, if we proceed to dynamic analysis, we have to abort network plain rule because we can now be specific about the networking.
 #It cannot be aborted by its own because there will be no duplicate rule. So we abort it manually, if it is already in our profile.
 
-for SERVICE in "${service_list[@]}"; do
-	python ${dynamic_script_path}/1_abort_network_rule.py $SERVICE
-done
+#for SERVICE in "${service_list[@]}"; do
+#	python ${dynamic_script_path}/1_abort_network_rule.py $SERVICE
+#done
 
 #Pull images if there are on dockerhub and not locally
 #./${dynamic_script_path}/0b_pull_images.sh
@@ -68,6 +68,13 @@ while true; do
 	((x++))
 	lp_count=0
 	for SERVICE in "${service_list[@]}"; do
+		if [[ "$i" = "1" ]]; then
+			if_net=$(wc -l ${app_run_path}/parser_output/Logs/RUN1/awk_out/complain_logs_net_${SERVICE} | cut -d' ' -f1)
+			if [[ "$if_net" != "0" ]]; then
+				#If there are already rules by the testplan then abort network static rule, as it will get more specific on ports eitheir inet or inet6 etc
+				python ${dynamic_script_path}/1_abort_network_rule.py $SERVICE
+			fi
+		fi
 		vol_str=$(cut -d'%' -f1 if_vol_${SERVICE})
 		num_vols=$(cut -d'%' -f2 if_vol_${SERVICE})
 		if [[ "$num_vols" == "0" ]]; then
