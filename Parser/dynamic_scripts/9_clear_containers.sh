@@ -1,27 +1,27 @@
 #!/bin/sh
 
-net=true
+net=false
 #delete network
 if $net ; then
-	docker network rm streaming-network
+	docker network rm streaming_network
 fi
 
-#service_list=(cloudsuite/media-streaming:server cloudsuite/media-streaming:client)
-#for SERVICE in "${service_list[@]}"; do
-#	docker container rm ${SERVICE} #streaming_dataset
-#done
+container_list=(db container_nextcloud)
+for cont in "${container_list[@]}"; do
+	docker container rm ${cont}
+done
 	
-#docker container rm streaming_server
-#docker container rm streaming_client
-
 set -e
 
 # Cleanup
-echo "Clean containers"
-docker container prune -f
+#echo "Clean containers"
+#docker container prune -f
 
-echo "Docker-compose clean volumes"
-docker-compose rm -vf
+yml=true
+if $yml ; then
+	echo "Docker-compose clean volumes"
+	docker-compose rm -vf
+fi
 
 echo "Prune volumes"
 docker volume prune -f

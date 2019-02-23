@@ -83,6 +83,10 @@ echo ""
 echo "Is there a docker-compose.yml to provide?"
 echo "If yes, give the full path to docker-compose.yml (<path_to_yml>/docker-compose.yml), if no, type N:"
 read yml_path
+sed -i "20s/yml=.*/yml=false/" dynamic_scripts/9_clear_containers.sh
+if [[ "$yml" != "N" ]]; then
+	sed -i "20s/yml=.*/yml=true/" dynamic_scripts/9_clear_containers.sh
+fi
 echo ""
 
 #We have the service list ready
@@ -90,7 +94,6 @@ echo ""
 #Dynamic parser seds alone because of its different path
 sed -i "5s,service_list=(.*,service_list=${service_list_noslash}," dynamic_parser.sh
 file_list=(2_cp_to_apparmor.sh*6s 3_load_profiles.sh*4s 4a_complain_mode.sh*4s 4b_enforce_mode.sh*4s 8_logging_files.sh*15s 10a_awk_it_complain.sh*10s 10b_awk_it_enforce.sh*10s 12_complain_enforce_audit.sh*5s)
-#sed -i "9s,service_list=(.*,service_list=${service_list}," dynamic_scripts/9_clear_containers.sh
 for f_i in  "${file_list[@]}"; do
 	file_i=$(echo $f_i | cut -d'*' -f1)
 	line=$(echo $f_i | cut -d'*' -f2) #line var includes s for sed
@@ -119,7 +122,7 @@ echo "In the next lines please give a testplan that you want to execute inside t
 echo "Make sure you follow the next rules:"
 echo "1. Give a command per line"
 echo "2. Include the docker run commands or docker-compose commands with which you will start and stop your container(s)."
-echo "3. If no docker-compose is used, it is wise to use the --name flag to run your containers. If you do not do that, all your docker containers will be lost."
+echo "3. If no docker-compose is used, it is wise to use the --name flag to run your containers. If you do not do that, SecureWilly will name your containers after the corresponding service name."
 echo "4. Do NOT use flag --security-opt to run your containers."
 echo "5. Type Done when you're finished."
 echo "Remember, you are the one who knows how your program works. The commands will be executed in a script, so take all the actions needed to make it work."
@@ -146,7 +149,7 @@ while true; do
 		echo "Make sure you follow the next rules:"
 		echo "1. Give a command per line."
 		echo "2. Include the docker run commands or docker-compose commands with which you will start and stop your container(s)."
-		echo "3. If no docker-compose is used, it is wise to use the --name flag to run your containers. If you do not do that, all your docker containers will be lost."
+		echo "3. If no docker-compose is used, it is wise to use the --name flag to run your containers. If you do not do that, SecureWilly will name your containers after the corresponding service name."
 		echo "4. Do NOT use flag --security-opt to run your containers."
 		echo "5. Type Done when you're finished."
 		echo "Remember, you are the one who knows how your program works. The commands will be executed in a script, so take all the actions needed to make it work."
@@ -179,9 +182,9 @@ if [[ "$yml_path" == "N" ]]; then
 			containers+=" "
 		fi
 		if [[ "$wc_name" == "0" ]]; then
-			containers+="container_${array_noslash[${yml_count}]}"
-			sed -i "/docker create/ s,${service_i},--name container_${array_noslash[${yml_count}]} ${service_i}," dynamic_scripts/7_run.sh
-			sed -i "/docker run/ s,${service_i},--name container_${array_noslash[${yml_count}]} ${service_i}," dynamic_scripts/7_run.sh
+			containers+="${array_noslash[${yml_count}]}"
+			sed -i "/docker create/ s,${service_i},--name ${array_noslash[${yml_count}]} ${service_i}," dynamic_scripts/7_run.sh
+			sed -i "/docker run/ s,${service_i},--name ${array_noslash[${yml_count}]} ${service_i}," dynamic_scripts/7_run.sh
 		else
 			containers+=$(cat name)
 		fi
@@ -296,8 +299,6 @@ else
 		#String of the next line of each service
 		var1="$(< ${yml_path} sed -n "${x}s/ *//p")"
 		
-		#Index of non whitespace string of next line 
-		#indx=$(awk -v p="$var1" 'index($0,p) {s=$0; m=0; while((n=index(s, p))>0) {m+=n; printf "%s ", m; s=substr(s, n+1) } print ""}' ${yml_path})
 		xx=$(expr $x + 1)
 		#Duplicate the after service name next line
 		sed -i "${x}s/\([^.]*\)/&\n\1/" ${yml_path}
@@ -331,7 +332,8 @@ else
 	done
 	
 	lines_security=$(awk '/security_opt:/ {print NR}' ${yml_path})
-	IFS='\n' read -r -a lines_secopt <<< "$lines_security"
+	while IFS= read -r line ; do lines_secopt+="$line,"; done <<< "$lines_security"
+	IFS=',' read -r -a lines_ar <<< "$lines_secopt"
 	line=0
 	for service_i in "${array_noslash[@]}"; do
 		#I search every mini yml to see if container name exists
@@ -341,12 +343,11 @@ else
 			containers+=" "
 		fi
 		if [[ "$wc_name" == "0" ]]; then
-		        containers+="container_${array_noslash[${yml_count}]}"
-
+		        containers+="${service_i}"
 			#Duplicate the security opt line
-			sed -i "${lines_secopt[${line}]}s/\([^.]*\)/&\n\1/" ${yml_path}
+			sed -i "${lines_ar[${line}]}s/\([^.]*\)/&\n\1/" ${yml_path}
 			#Write the new line on this line so that the syntax stays the same
-			sed -i "${lines_secopt[${line}]}s/security.*/container_name: ${service_i}/" ${yml_path}
+			sed -i "${lines_ar[${line}]}s/security.*/container_name: ${service_i}/" ${yml_path}
 		else
 			containers+=$(cat name)
 		fi
@@ -356,6 +357,9 @@ else
 	containers+=")"
 	echo "${containers}"
 fi
+
+#Fix 9_clear_containers.sh to rm the selected containers
+sed -i "9s,container_list=(.*,container_list=${containers}," dynamic_scripts/9_clear_containers.sh
 
 mkdir ${app_run_path}/parser_output
 
