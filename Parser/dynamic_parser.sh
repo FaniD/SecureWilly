@@ -217,7 +217,7 @@ while true; do
 	echo $i | source ${dynamic_script_path}/10b_awk_it_enforce.sh
 	x=${x:-$i}
         ((x++))
-	lp_count++
+	lp_count=0
 	for SERVICE in "${service_list[@]}"; do
 		vol_str=$(cut -d'%' -f1 if_vol_${SERVICE})
 		num_vols=$(cut -d'%' -f2 if_vol_${SERVICE})
@@ -231,7 +231,6 @@ while true; do
 			sed -i "83s| if|#if|" ${dynamic_script_path}/11_merge_profiles.py
 			sed -i "84s| c|#c|" ${dynamic_script_path}/11_merge_profiles.py
 		fi
-		rm if_vol_${lp_count}
 		((lp_count++))
         done
 #######################
