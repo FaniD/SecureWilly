@@ -1,0 +1,4 @@
+cloudsuite/media-streaming:dataset:
+ volumes:
+  - "/output:/output"
+
