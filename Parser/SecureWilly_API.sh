@@ -7,7 +7,6 @@ app_run_path=".."
 parser_path="${app_run_path}/Parser"
 dynamic_script_path="${parser_path}/dynamic_scripts"
 
-static=false
 touch empty_file
 
 echo "SecureWily"
@@ -15,30 +14,17 @@ echo "Copyright (c) 2019 Fani Dimou <fani.dimou92@gmail.com>"
 echo ""
 
 #~~~~~~~~~~~~Static Part requirements~~~~~~~~~~~~~~
-#~~~Dockerfile~~~
-echo "Is there a Dockerfile to provide?"
-echo "If yes, give the full path to Dockerfile (<path_to_dockerfile>/Dockerfile), if no, type N:"
-read dockerfile_path
-if [[ "$dockerfile_path" != "N" ]]; then
-	#Wait for docker-compose and then do static analysis
-	static=true
-fi
-echo ""
-
-#~~~Docker-Compose~~~
-echo "Is there a docker-compose.yml to provide?"
-echo "If yes, give the full path to docker-compose.yml (<path_to_yml>/docker-compose.yml), if no, type N:"
-read yml_path
-echo ""
 
 #~~~Dynamic part requirements~~~
 echo "Give the number of services that need a profile for your project:"
+echo "A service is defined by a docker image, either it is built by Dockerfile or uses an existing image, with or without docker-compose file."
 read num_of_services
 echo ""
 echo "Give the name of each service following the next rules:"
 echo "1. The names should not be used for other purposes like named volumes, network etc"
-echo "2. If you provided a docker-compose.yml, make sure that you give the same names of services you used inside the yml file and with the same order as they are in it."
-echo "3. Names of services should be identical to the names of the corresponding images and containers. Make sure to name your containers either in docker-container using container_name or in the testplan commands with flag --name."
+echo "2. If you use a docker-compose.yml, make sure that you give the same names of services you used inside the yml file and with the same order as they are in it."
+echo "3. Names of services should be identical to the names of the corresponding images."
+echo "   Do not worry about special characters, just give the exact same name of the image and let SecureWilly worry about it." # Make sure to name your containers either in docker-container using container_name or in the testplan commands with flag --name."
 echo "4. Give one name per line."
 x=0
 x_str=${x}
@@ -72,6 +58,32 @@ sed -i "s,/,,g" a
 sed -i "s,:,,g" a
 services_noslash=$(cat a)
 rm a
+
+#Services in arrays
+IFS=',' read -r -a array <<< "$services"
+IFS=',' read -r -a array_noslash <<<"$services_noslash"
+
+#~~~Dockerfile~~~
+dcrf=0
+for service_i in "${array[@]}"; do 
+	echo "Is there a Dockerfile to provide for image ${service_i}?"
+	echo "If yes, give the full path to Dockerfile (<path_to_dockerfile>/Dockerfile), if no, type N:"
+	read dockerfile_path
+	if [[ "$dockerfile_path" != "N" ]]; then
+		#Wait for docker-compose and then do static analysis
+		touch ${array_noslash[${dcrf}]}_dockerfile_path
+	else
+		cp ${dockerfile_path} ${array_noslash[${dcrf}]}_dockerfile_path
+	fi
+	((dcrf++))
+done
+echo ""
+
+#~~~Docker-Compose~~~
+echo "Is there a docker-compose.yml to provide?"
+echo "If yes, give the full path to docker-compose.yml (<path_to_yml>/docker-compose.yml), if no, type N:"
+read yml_path
+echo ""
 
 #We have the service list ready
 #Sed every script that needs them
@@ -107,7 +119,7 @@ echo "In the next lines please give a testplan that you want to execute inside t
 echo "Make sure you follow the next rules:"
 echo "1. Give a command per line"
 echo "2. Include the docker run commands or docker-compose commands with which you will start and stop your container(s)."
-echo "3. Use the --name flag to run your containers and name them after the name of service you mentioned before."
+echo "3. If no docker-compose is used, it is wise to use the --name flag to run your containers. If you do not do that, all your docker containers will be lost."
 echo "4. Do NOT use flag --security-opt to run your containers."
 echo "5. Type Done when you're finished."
 echo "Remember, you are the one who knows how your program works. The commands will be executed in a script, so take all the actions needed to make it work."
@@ -134,7 +146,7 @@ while true; do
 		echo "Make sure you follow the next rules:"
 		echo "1. Give a command per line."
 		echo "2. Include the docker run commands or docker-compose commands with which you will start and stop your container(s)."
-		echo "3. Use the --name flag to run your containers and name them after the name of service you mentioned before."
+		echo "3. If no docker-compose is used, it is wise to use the --name flag to run your containers. If you do not do that, all your docker containers will be lost."
 		echo "4. Do NOT use flag --security-opt to run your containers."
 		echo "5. Type Done when you're finished."
 		echo "Remember, you are the one who knows how your program works. The commands will be executed in a script, so take all the actions needed to make it work."
@@ -145,20 +157,23 @@ done
 echo ""
 mv run.sh dynamic_scripts/7_run.sh
 
-yml_count=0
-IFS=',' read -r -a array <<< "$services"
-IFS=',' read -r -a array_noslash <<<"$services_noslash"
 if [[ "$yml_path" == "N" ]]; then
 #If docker-compose does not exist, make sure to fix the script so that it includes security-opt flag and create mini docker compose files for each service
 	yml_count=0
 	for service_i in "${array[@]}"; do
 		#Add security-opt flag
+		sed -i "/docker create/ s,${service_i},--security-opt \"apparmor=${array_noslash[${yml_count}]}_profile\" ${service_i}," dynamic_scripts/7_run.sh
 		sed -i "/docker run/ s,${service_i},--security-opt \"apparmor=${array_noslash[${yml_count}]}_profile\" ${service_i}," dynamic_scripts/7_run.sh
 
 		#Convert flags into docker-compose files
 
 		#Separate docker run commands for each service
 		grep -E "docker run.*${service_i}" dynamic_scripts/7_run.sh > run
+		grep -E "docker create.*${service_i}" dynamic_scripts/7_run.sh >> run
+
+		#Does the docker run and create have named containers?
+		awk '/ --name / {for(i=1;i<=NF;i++) {if($i ~ /-p/) print $(i+1)}}' run > container_${array_noslash[${yml_count}]}
+
 
 		#Find ports
 		awk '/ -p / {for(i=1;i<=NF;i++) {if($i ~ /-p/) print $(i+1)}}' run > ports
@@ -303,11 +318,6 @@ else
 	done
 fi
 
-#Run static_parser.py
-if [ "$static" = false ] ; then
-	dockerfile_path="empty_file"
-fi
-
 mkdir ${app_run_path}/parser_output
 
 current_dir=$(pwd | sed "s,/*[^/]\+/*$,," |  sed 's#.*/##' | sed 's/_//g' | sed "s/.*/\"&\"/")
@@ -320,11 +330,21 @@ for service_i in "${array[@]}"; do
 	#Count volumes if exist and fix 11_merge.py
 	echo ${array_noslash[${yml_count}]}
 	python find_vols.py ${array_noslash[${yml_count}]}_yml
+	
+	#This file is needed in dynamic_analysis
 	mv if_vol if_vol_${array_noslash[${yml_count}]}
-	python static_parser.py ${dockerfile_path} ${array_noslash[${yml_count}]}_yml
+
+	#Run static parser
+	python static_parser.py ${array_noslash[${yml_count}]}_dockerfile_path ${array_noslash[${yml_count}]}_yml
+
+	#Fix profile's name
 	sed -i "3s,static_profile,${array_noslash[${yml_count}]}_profile," static_profile
 	mv static_profile ${app_run_path}/parser_output/${array_noslash[${yml_count}]}_profile
+
+	#Keep yml files in parser output as it may come in handy for the user
 	mv ${array_noslash[${yml_count}]}_yml ${app_run_path}/parser_output/${array_noslash[${yml_count}]}_yml
+	#Delete dockerfiles as the user already has them
+	rm ${array_noslash[${yml_count}]}_dockerfile_path
 	((yml_count++))
 done
 

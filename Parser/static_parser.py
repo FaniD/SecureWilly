@@ -3,7 +3,7 @@ import io
 import sys
 from collections import OrderedDict
 
-current_dir = "media-streaming2"
+current_dir = "media-streaming2" #This var changes from inside SecureWilly_API.sh
 
 #Function used to delete duplicates from a list - profile rules in our case
 def ordered_set(in_list):
