@@ -75,8 +75,9 @@ while true; do
 				#If there are already rules by the testplan then abort network static rule, as it will get more specific on ports eitheir inet or inet6 etc
 				python ${dynamic_script_path}/1_abort_network_rule.py $SERVICE
 			fi
-				abort_net=false
 		fi
+		abort_net=false
+		
 		vol_str=$(cut -d'%' -f1 if_vol_${SERVICE})
 		num_vols=$(cut -d'%' -f2 if_vol_${SERVICE})
 		if [[ "$num_vols" == "0" ]]; then
