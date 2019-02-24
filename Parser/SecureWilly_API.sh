@@ -93,7 +93,7 @@ echo "Tip: If you intend to use docker exec later, make sure you include contain
 echo "If yes, give the full path to docker-compose.yml (<path_to_yml>/docker-compose.yml), if no, type N:"
 read yml_path
 sed -i "20s/yml=.*/yml=false/" dynamic_scripts/9_clear_containers.sh
-if [[ "$yml" != "N" ]]; then
+if [[ "$yml_path" != "N" ]]; then
 	#Fix script
 	sed -i "20s/yml=.*/yml=true/" dynamic_scripts/9_clear_containers.sh
 
