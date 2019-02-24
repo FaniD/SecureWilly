@@ -89,6 +89,7 @@ echo ""
 
 #~~~Docker-Compose~~~
 echo "Is there a docker-compose.yml to provide?"
+echo "Tip: If you intend to use docker exec later, make sure you include container_name inside the yml file for each service."
 echo "If yes, give the full path to docker-compose.yml (<path_to_yml>/docker-compose.yml), if no, type N:"
 read yml_path
 sed -i "20s/yml=.*/yml=false/" dynamic_scripts/9_clear_containers.sh
