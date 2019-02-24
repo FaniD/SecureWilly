@@ -3,26 +3,26 @@
 net=false
 #delete network
 if $net ; then
-	docker network rm docker
+	docker network rm streaming_network
 fi
 
-service_list=(db nextcloud)
-for SERVICE in "${service_list[@]}"; do
-	docker container rm ${SERVICE} #streaming_dataset
+container_list=(db nextcloud)
+for cont in "${container_list[@]}"; do
+	docker container rm ${cont}
 done
-docker rm db
 	
-#docker container rm streaming_server
-#docker container rm streaming_client
-
 set -e
 
 # Cleanup
-echo "Clean containers"
-docker container prune -f
+#echo "Clean containers"
+#docker container prune -f
 
-echo "Docker-compose clean volumes"
-docker-compose rm -vf
+yml=true
+if $yml ; then
+	echo "Docker-compose clean volumes"
+	docker-compose rm -vf
+fi
 
 echo "Prune volumes"
 docker volume prune -f
+

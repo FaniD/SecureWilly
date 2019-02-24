@@ -80,8 +80,7 @@ for line in data:
         continue
 
 #Volumes here
-   #if ( line.startswith('/var/www/html') or line.startswith('/var/www/html/data') ):
-       #continue
+    if ( line.startswith('/var/www/html') or line.startswith('/var/www/html/data') ): continue
 
     if '/var/lib/docker/' in line:
         continue

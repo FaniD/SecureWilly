@@ -76,15 +76,10 @@ for line in data:
     if 'requested_mask' in line: #If this is in logs then there is no rule for a certain operation so we omit it
         continue
 
-    if not line.startswith('/'):
-        continue
-
-#Volumes here
-   #if ( line.startswith('/var/www/html') or line.startswith('/var/www/html/data') ):
-       #continue
-
+    #~~~Test /var/lib/docker
     if '/var/lib/docker/' in line:
         continue
+    #~~~
 
     line = line.strip('\n')
     line = line.split(' ')
@@ -94,11 +89,6 @@ for line in data:
             permission = line[1].replace("c","")
         else:
             permission = line[1].replace("c","w") #if permission is just c we change it to w
-    if 'd' in line[1]: #There is no delete permission in apparmor so we change it to write
-        if 'w' in line[1]: #if permission is wc we omit c
-            permission = line[1].replace("d","")
-        else:
-            permission = line[1].replace("d","w") #if permission is just c we change it to w
     if line[1] == 'x': #x must follow i,p,c,u so if there is none of these with x we give i permission
         permission = 'ix'
     new_profile.append('\t' + line[0] + ' ' + permission + ',\n')

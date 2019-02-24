@@ -40,9 +40,9 @@ done
 #However, if we proceed to dynamic analysis, we have to abort network plain rule because we can now be specific about the networking.
 #It cannot be aborted by its own because there will be no duplicate rule. So we abort it manually, if it is already in our profile.
 
-#for SERVICE in "${service_list[@]}"; do
-#	python ${dynamic_script_path}/1_abort_network_rule.py $SERVICE
-#done
+for SERVICE in "${service_list[@]}"; do
+	python ${dynamic_script_path}/1_abort_network_rule.py $SERVICE
+done
 
 #Pull images if there are on dockerhub and not locally
 #./${dynamic_script_path}/0b_pull_images.sh
@@ -51,7 +51,6 @@ done
 #For each RUN follow the steps
 #Starting with complain mode
 i=1
-abort_net=true
 while true; do
 	echo $i | source ${dynamic_script_path}/2_cp_to_apparmor.sh
 	./${dynamic_script_path}/3_load_profiles.sh 
@@ -67,29 +66,17 @@ while true; do
 	echo $i | source ${dynamic_script_path}/10a_awk_it_complain.sh
 	x=${x:-$i}
 	((x++))
-	lp_count=0
 	for SERVICE in "${service_list[@]}"; do
-		if $abort_net ; then
-			if_net=$(wc -l ${app_run_path}/parser_output/Logs/RUN1/awk_out/complain_logs_net_${SERVICE} | cut -d' ' -f1)
-			if [[ "$if_net" != "0" ]]; then
-				#If there are already rules by the testplan then abort network static rule, as it will get more specific on ports eitheir inet or inet6 etc
-				python ${dynamic_script_path}/1_abort_network_rule.py $SERVICE
-			fi
-		fi
-		abort_net=false
 		vol_str=$(cut -d'%' -f1 if_vol_${SERVICE})
 		num_vols=$(cut -d'%' -f2 if_vol_${SERVICE})
 		if [[ "$num_vols" == "0" ]]; then
-			python ${dynamic_script_path}/11_merge_profiles.py $SERVICE $i 'complain'
+			sed -i "83s/.*/#&/" ${dynamic_script_path}/11_merge_profiles.py
 		else
 			sed -i "83s/#/ /" ${dynamic_script_path}/11_merge_profiles.py
 			sed -i "83s|if .*|if ${vol_str}|" ${dynamic_script_path}/11_merge_profiles.py
-			sed -i "84s/#/ /" ${dynamic_script_path}/11_merge_profiles.py
-			python ${dynamic_script_path}/11_merge_profiles.py $SERVICE $i 'complain'
-			sed -i "83s| if|#if|" ${dynamic_script_path}/11_merge_profiles.py
-			sed -i "84s| c|#c|" ${dynamic_script_path}/11_merge_profiles.py
 		fi
-		((lp_count++))
+#		rm if_vol_${SERVICE}
+		python ${dynamic_script_path}/11_merge_profiles.py $SERVICE $i 'complain'
 	done
 	echo $x | source ${dynamic_script_path}/12_complain_enforce_audit.sh
 	enforce_time='1'
@@ -121,21 +108,16 @@ while true; do
 	echo $i | source ${dynamic_script_path}/10b_awk_it_enforce.sh
 	x=${x:-$i}
 	((x++))
-	lp_count=0
 	for SERVICE in "${service_list[@]}"; do 
 		vol_str=$(cut -d'%' -f1 if_vol_${SERVICE})
 		num_vols=$(cut -d'%' -f2 if_vol_${SERVICE})
 		if [[ "$num_vols" == "0" ]]; then
-			python ${dynamic_script_path}/11_merge_profiles.py $SERVICE $i 'enforce'
+			sed -i "83s/.*/#&/" ${dynamic_script_path}/11_merge_profiles.py
 		else
 			sed -i "83s/#/ /" ${dynamic_script_path}/11_merge_profiles.py
 			sed -i "83s|if .*|if ${vol_str}|" ${dynamic_script_path}/11_merge_profiles.py
-			sed -i "84s/#/ /" ${dynamic_script_path}/11_merge_profiles.py
-			python ${dynamic_script_path}/11_merge_profiles.py $SERVICE $i 'enforce'
-			sed -i "83s| if|#if|" ${dynamic_script_path}/11_merge_profiles.py
-		        sed -i "84s| c|#c|" ${dynamic_script_path}/11_merge_profiles.py
 		fi
-		((lp_count++))
+		python ${dynamic_script_path}/11_merge_profiles.py $SERVICE $i 'enforce'
 	done
 	echo $x | source ${dynamic_script_path}/12_complain_enforce_audit.sh
 	audit_time="1"
@@ -177,21 +159,16 @@ while true; do
 	echo $i | source ${dynamic_script_path}/10a_awk_it_complain.sh
 	x=${x:-$i}
 	((x++))
-	lp_count=0
 	for SERVICE in "${service_list[@]}"; do
 		vol_str=$(cut -d'%' -f1 if_vol_${SERVICE})
 		num_vols=$(cut -d'%' -f2 if_vol_${SERVICE})
 		if [[ "$num_vols" == "0" ]]; then
-			python ${dynamic_script_path}/11_merge_profiles.py $SERVICE $i 'complain'
+			sed -i "83s/.*/#&/" ${dynamic_script_path}/11_merge_profiles.py
 		else
 			sed -i "83s/#/ /" ${dynamic_script_path}/11_merge_profiles.py
 			sed -i "83s|if .*|if ${vol_str}|" ${dynamic_script_path}/11_merge_profiles.py
-			sed -i "84s/#/ /" ${dynamic_script_path}/11_merge_profiles.py
-			python ${dynamic_script_path}/11_merge_profiles.py $SERVICE $i 'complain'
-			sed -i "83s| if|#if|" ${dynamic_script_path}/11_merge_profiles.py
-			sed -i "84s| c|#c|" ${dynamic_script_path}/11_merge_profiles.py
 		fi
-		((lp_count++))
+		python ${dynamic_script_path}/11_merge_profiles.py $SERVICE $i 'complain'
 	done
 ####################
 	echo $x | source ${dynamic_script_path}/12_complain_enforce_audit.sh
@@ -226,21 +203,17 @@ while true; do
 	echo $i | source ${dynamic_script_path}/10b_awk_it_enforce.sh
 	x=${x:-$i}
         ((x++))
-	lp_count=0
 	for SERVICE in "${service_list[@]}"; do
 		vol_str=$(cut -d'%' -f1 if_vol_${SERVICE})
 		num_vols=$(cut -d'%' -f2 if_vol_${SERVICE})
 		if [[ "$num_vols" == "0" ]]; then
-			python ${dynamic_script_path}/11_merge_profiles.py $SERVICE $i 'enforce'
+			sed -i "83s/.*/#&/" ${dynamic_script_path}/11_merge_profiles.py
 		else
 		        sed -i "83s/#/ /" ${dynamic_script_path}/11_merge_profiles.py
 		        sed -i "83s|if .*|if ${vol_str}|" ${dynamic_script_path}/11_merge_profiles.py
-			sed -i "84s/#/ /" ${dynamic_script_path}/11_merge_profiles.py
-			python ${dynamic_script_path}/11_merge_profiles.py $SERVICE $i 'enforce'
-			sed -i "83s| if|#if|" ${dynamic_script_path}/11_merge_profiles.py
-			sed -i "84s| c|#c|" ${dynamic_script_path}/11_merge_profiles.py
 		fi
-		((lp_count++))
+		rm if_vol_${SERVICE}
+		python ${dynamic_script_path}/11_merge_profiles.py $SERVICE $i 'enforce'
         done
 #######################
 	echo $x | source ${dynamic_script_path}/12_complain_enforce_audit.sh

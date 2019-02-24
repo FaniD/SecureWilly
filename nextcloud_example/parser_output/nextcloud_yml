@@ -1,26 +1,4 @@
-version: '3'
-
-volumes:
-     nextcloud_:
-     db_:
-
-services:
-     db:
-        container_name: db
-        security_opt:
-          - "apparmor:db_profile"
-        image: mariadb:10
-        command: --transaction-isolation=READ-COMMITTED --binlog-format=ROW
-        restart: always
-        volumes:
-                - db_:/var/lib/mysql
-        environment:
-                - MYSQL_ROOT_PASSWORD=secret
-                - MYSQL_PASSWORD=secret
-                - MYSQL_DATABASE=nextcloud_
-                - MYSQL_USER=willy
      nextcloud:
-        container_name: nextcloud
         security_opt:
           - "apparmor:nextcloud_profile"
         image: nextcloud
@@ -38,3 +16,4 @@ services:
                 - NEXTCLOUD_TABLE_PREFIX=nc_
                 - NEXTCLOUD_DATA_DIR=/var/www/html/data
         restart: always
+
