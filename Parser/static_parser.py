@@ -65,21 +65,21 @@ for line in data:
         if expose in line:
                 line = line.split(' ')
                 port_proto = line[1]
-                if '/' in line[1]:
-                    #Expose ports can be either tcp or udp, given as 80/udp
-                    proto=line[1].split('/')
-                    protocol=proto[1]
-                    port=proto[0]
+                if 'udp' in port_proto:
+                    proto='udp'
                 else:
-                    #If no protocol mentioned, the default is tcp
-                    protocol='tcp'
-                    port=line[1]
-                ports_rule='\tnetwork ' + protocol + ',\n #Allowing networking with forwarding ports' 
+                    proto='tcp'
+                #At the time we strip the protocol
+                #When the bind rule is supported in AppArmor
+                #We will fix this if it's actually needed in the rule
+                port_cont = port_proto.strip(proto)
+                port_cont = port_cont.strip('/')
+                ports_rule='\tnetwork ' + proto + ',\n #Allowing networking with forwarding ports' 
                 static_profile.append(ports_rule)
                 
                 #port refers to container's port
                 #In order for an app to bind to ports < 1024 capability net bind service is needed
-                if int(port) < 1024:
+                if int(port_cont) < 1024:
                     static_profile.append('\tcapability net_bind_service,  #This capability is needed to bind a socket to Internet domain privileged ports\n')
 
         if user2 in line:
@@ -223,6 +223,7 @@ for i in xrange(len(data)): #because we will need the next line
                     #When the bind rule is supported in AppArmor
                     #We will fix this if it's actually needed in the rule
                     ports = ports.strip(proto)
+                    ports = ports.strip('/')
 		    ports = ports.strip('"')
 		    ports = ports.split(':')
 		    port_host = ports[0].strip('-')
