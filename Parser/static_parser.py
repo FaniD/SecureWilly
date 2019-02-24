@@ -219,6 +219,9 @@ for i in xrange(len(data)): #because we will need the next line
                         proto='udp'
                     else:
                         proto='tcp'
+                    #At the time we strip the protocol
+                    #When the bind rule is supported in AppArmor
+                    #We will fix this if it's actually needed in the rule
                     ports = ports.strip(proto)
 		    ports = ports.strip('"')
 		    ports = ports.split(':')
