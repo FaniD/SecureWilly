@@ -51,6 +51,7 @@ done
 #For each RUN follow the steps
 #Starting with complain mode
 i=1
+abort_net=true
 while true; do
 	echo $i | source ${dynamic_script_path}/2_cp_to_apparmor.sh
 	./${dynamic_script_path}/3_load_profiles.sh 
@@ -68,12 +69,13 @@ while true; do
 	((x++))
 	lp_count=0
 	for SERVICE in "${service_list[@]}"; do
-		if [[ "$i" == "1" ]]; then
+		if $abort_net ; then
 			if_net=$(wc -l ${app_run_path}/parser_output/Logs/RUN1/awk_out/complain_logs_net_${SERVICE} | cut -d' ' -f1)
 			if [[ "$if_net" != "0" ]]; then
 				#If there are already rules by the testplan then abort network static rule, as it will get more specific on ports eitheir inet or inet6 etc
 				python ${dynamic_script_path}/1_abort_network_rule.py $SERVICE
 			fi
+				abort_net=false
 		fi
 		vol_str=$(cut -d'%' -f1 if_vol_${SERVICE})
 		num_vols=$(cut -d'%' -f2 if_vol_${SERVICE})
