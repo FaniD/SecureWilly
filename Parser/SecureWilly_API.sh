@@ -23,7 +23,7 @@ echo ""
 echo "Give the name of each service following the next rules:"
 echo "1. The names should not be used for other purposes like named volumes, network etc"
 echo "2. If you use a docker-compose.yml, make sure that you give the same names of services you used inside the yml file and with the same order as they are in it."
-echo "3. Names of services should be identical to the names of the corresponding images."
+echo "3. If you do not use docker-compose.yml, the names of services should be identical to the names of the corresponding images."
 echo "   Do not worry about special characters, just give the exact same name of the image and let SecureWilly worry about it." # Make sure to name your containers either in docker-container using container_name or in the testplan commands with flag --name."
 echo "4. Give one name per line."
 x=0
@@ -123,8 +123,9 @@ echo "Make sure you follow the next rules:"
 echo "1. Give a command per line"
 echo "2. Include the docker run commands or docker-compose commands with which you will start and stop your container(s)."
 echo "3. If no docker-compose is used, it is wise to use the --name flag to run your containers. If you do not do that, SecureWilly will name your containers after the corresponding service name."
-echo "4. Do NOT use flag --security-opt to run your containers."
-echo "5. Type Done when you're finished."
+echo "4. If your image is getting built by Dockerfile, make sure to give the same name to the image as the service you gave before, using docker build <path_to_Dockerfile> -t <service>"
+echo "5. Do NOT use flag --security-opt to run your containers."
+echo "6. Type Done when you're finished."
 echo "Remember, you are the one who knows how your program works. The commands will be executed in a script, so take all the actions needed to make it work."
 
 while true; do
@@ -150,8 +151,9 @@ while true; do
 		echo "1. Give a command per line."
 		echo "2. Include the docker run commands or docker-compose commands with which you will start and stop your container(s)."
 		echo "3. If no docker-compose is used, it is wise to use the --name flag to run your containers. If you do not do that, SecureWilly will name your containers after the corresponding service name."
-		echo "4. Do NOT use flag --security-opt to run your containers."
-		echo "5. Type Done when you're finished."
+		echo "4. If your image is getting built by Dockerfile, make sure to give the same name to the image as the service you gave before, using docker build <path_to_Dockerfile> -t <service>"
+		echo "5. Do NOT use flag --security-opt to run your containers."
+		echo "6. Type Done when you're finished."
 		echo "Remember, you are the one who knows how your program works. The commands will be executed in a script, so take all the actions needed to make it work."
 	else
 		break
@@ -357,7 +359,6 @@ else
 		rm name
 	done
 	containers+=")"
-	echo "${containers}"
 fi
 
 #Fix 9_clear_containers.sh to rm the selected containers
