@@ -73,6 +73,14 @@ for service_i in "${array[@]}"; do
 		#Wait for docker-compose and then do static analysis
 		touch ${array_noslash[${dcrf}]}_dockerfile_path
 	else
+		#Fix path
+		dockerfile_path=$(echo "${dockerfile_path}" | sed 's#[/]$##') #Strip / from the end if it exists
+		lastpart=$(echo "${dockerfile_path}" | sed 's#.*/##') #Keep last dir of the path
+		#If it does not end with Dockerfile, the user probably wrote the dir's path so add the Dockerfile to it
+		if [[ "$lastpart" != "Dockerfile" ]]; then
+			dockerfile_path=$(echo "${dockerfile_path}" | sed 's#.*/#&#' | sed 's#.*#&/Dockerfile#')
+		fi
+		#Create file for service
 		cat ${dockerfile_path} > ${array_noslash[${dcrf}]}_dockerfile_path
 	fi
 	((dcrf++))
@@ -85,7 +93,16 @@ echo "If yes, give the full path to docker-compose.yml (<path_to_yml>/docker-com
 read yml_path
 sed -i "20s/yml=.*/yml=false/" dynamic_scripts/9_clear_containers.sh
 if [[ "$yml" != "N" ]]; then
+	#Fix script
 	sed -i "20s/yml=.*/yml=true/" dynamic_scripts/9_clear_containers.sh
+
+	#Fix path
+	yml_path=$(echo "${yml_path}" | sed 's#[/]$##') #Strip / from the end if it exists
+	lastpart=$(echo "${yml_path}" | sed 's#.*/##') #Keep last dir of the path
+	#If it does not end with docker-compose.yml, the user probably wrote the dir's path so add the docker-compose.yml to it
+	if [[ "$lastpart" != "docker-compose.yml" ]]; then 
+		yml_path=$(echo "${yml_path}" | sed 's#.*/#&#' | sed 's#.*#&/docker-compose.yml#')
+	fi
 fi
 echo ""
 
