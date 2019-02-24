@@ -78,7 +78,6 @@ while true; do
 				python ${dynamic_script_path}/1_abort_network_rule.py $SERVICE
 			fi
 		fi
-		abort_net=false
 		
 		vol_str=$(cut -d'%' -f1 if_vol_${SERVICE})
 		num_vols=$(cut -d'%' -f2 if_vol_${SERVICE})
@@ -94,6 +93,7 @@ while true; do
 		fi
 		((lp_count++))
 	done
+	abort_net=false
 	echo $x | source ${dynamic_script_path}/12_complain_enforce_audit.sh
 	enforce_time='1'
 	for SERVICE in "${service_list[@]}"; do
