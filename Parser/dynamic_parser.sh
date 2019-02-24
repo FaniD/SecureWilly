@@ -63,7 +63,9 @@ while true; do
 
 	./${dynamic_script_path}/7_run.sh
 	echo $i | source ${dynamic_script_path}/8_logging_files.sh
-	./${dynamic_script_path}/9_clear_containers.sh
+	./${dynamic_script_path}/9a_clear_containers_net.sh
+	./${dynamic_script_path}/9b_clear_compose.sh
+	./${dynamic_script_path}/9c_clear_volumes.sh
 	echo $i | source ${dynamic_script_path}/10a_awk_it_complain.sh
 	x=${x:-$i}
 	((x++))
@@ -118,7 +120,9 @@ while true; do
 	./${dynamic_script_path}/6_net.sh
 	./${dynamic_script_path}/7_run.sh
 	echo $i | source ${dynamic_script_path}/8_logging_files.sh
-	./${dynamic_script_path}/9_clear_containers.sh
+	./${dynamic_script_path}/9a_clear_containers_net.sh
+	./${dynamic_script_path}/9b_clear_compose.sh
+	./${dynamic_script_path}/9c_clear_volumes.sh
 	echo $i | source ${dynamic_script_path}/10b_awk_it_enforce.sh
 	x=${x:-$i}
 	((x++))
@@ -174,7 +178,9 @@ while true; do
 	./${dynamic_script_path}/6_net.sh
 	./${dynamic_script_path}/7_run.sh
 	echo $i | source ${dynamic_script_path}/8_logging_files.sh
-	./${dynamic_script_path}/9_clear_containers.sh
+	./${dynamic_script_path}/9a_clear_containers_net.sh
+	./${dynamic_script_path}/9b_clear_compose.sh
+	./${dynamic_script_path}/9c_clear_volumes.sh
 	echo $i | source ${dynamic_script_path}/10a_awk_it_complain.sh
 	x=${x:-$i}
 	((x++))
@@ -223,7 +229,9 @@ while true; do
 	./${dynamic_script_path}/6_net.sh
 	./${dynamic_script_path}/7_run.sh
 	echo $i | source ${dynamic_script_path}/8_logging_files.sh
-	./${dynamic_script_path}/9_clear_containers.sh
+	./${dynamic_script_path}/9a_clear_containers_net.sh
+	./${dynamic_script_path}/9b_clear_compose.sh
+	./${dynamic_script_path}/9c_clear_volumes.sh
 	echo $i | source ${dynamic_script_path}/10b_awk_it_enforce.sh
 	x=${x:-$i}
         ((x++))
