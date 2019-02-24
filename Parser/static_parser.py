@@ -215,6 +215,11 @@ for i in xrange(len(data)): #because we will need the next line
 	        z = i
 		while ('-' in data[z+1]): #checking for multiple ports (same with volumes, capabilities etc)
 		    ports = data[z+1].strip()
+                    if 'udp' in ports:
+                        proto='udp'
+                    else:
+                        proto='tcp'
+                    ports = ports.strip(proto)
 		    ports = ports.strip('"')
 		    ports = ports.split(':')
 		    port_host = ports[0].strip('-')
@@ -225,8 +230,8 @@ for i in xrange(len(data)): #because we will need the next line
                     if int(port_container) < 1024: #In order for an app to bind to ports < 1024 capability net bind service is needed
                         static_profile.append('\tcapability net_bind_service,  #This capability is needed to bind a socket to Internet domain privileged ports\n')
 
-		    #bind_rule = '\tnetwork bind ' + port_host + ' to ' + port_container + ',\n' NOT SUPPORTED
-		    static_profile.append('\tnetwork,  #Grain access to networking - ports forwarding\n')
+		    #bind_rule = '\tnetwork bind ' + port_host + ' to ' + port_container + ',\n' NOT SUPPORTED YET
+		    static_profile.append('\tnetwork ' + proto + ',  #Grain access to networking - ports forwarding\n')
 		    z = z+1
 
         if mount in data[i]:
