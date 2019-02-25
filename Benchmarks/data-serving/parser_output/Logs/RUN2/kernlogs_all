@@ -1,0 +1,40 @@
+Feb 25 19:33:59 docker-security59 kernel: [82837.846939] IPv6: ADDRCONF(NETDEV_UP): br-73031a118dca: link is not ready
+Feb 25 19:34:00 docker-security59 kernel: [82838.691033] device veth33fd778 entered promiscuous mode
+Feb 25 19:34:00 docker-security59 kernel: [82838.691222] IPv6: ADDRCONF(NETDEV_UP): veth33fd778: link is not ready
+Feb 25 19:34:00 docker-security59 kernel: [82838.691228] br-73031a118dca: port 1(veth33fd778) entered forwarding state
+Feb 25 19:34:00 docker-security59 kernel: [82838.691241] br-73031a118dca: port 1(veth33fd778) entered forwarding state
+Feb 25 19:34:00 docker-security59 kernel: [82838.691260] IPv6: ADDRCONF(NETDEV_CHANGE): br-73031a118dca: link becomes ready
+Feb 25 19:34:00 docker-security59 kernel: [82838.768271] br-73031a118dca: port 1(veth33fd778) entered disabled state
+Feb 25 19:34:01 docker-security59 kernel: [82839.532593] IPv6: ADDRCONF(NETDEV_CHANGE): veth33fd778: link becomes ready
+Feb 25 19:34:01 docker-security59 kernel: [82839.532646] br-73031a118dca: port 1(veth33fd778) entered forwarding state
+Feb 25 19:34:01 docker-security59 kernel: [82839.532668] br-73031a118dca: port 1(veth33fd778) entered forwarding state
+Feb 25 19:34:02 docker-security59 kernel: [82840.469740] device veth4c10040 entered promiscuous mode
+Feb 25 19:34:02 docker-security59 kernel: [82840.469898] IPv6: ADDRCONF(NETDEV_UP): veth4c10040: link is not ready
+Feb 25 19:34:02 docker-security59 kernel: [82840.469905] br-73031a118dca: port 2(veth4c10040) entered forwarding state
+Feb 25 19:34:02 docker-security59 kernel: [82840.469911] br-73031a118dca: port 2(veth4c10040) entered forwarding state
+Feb 25 19:34:02 docker-security59 kernel: [82840.768397] br-73031a118dca: port 2(veth4c10040) entered disabled state
+Feb 25 19:34:03 docker-security59 kernel: [82841.016405] type=1400 audit(1551123243.114:32333154): apparmor="ALLOWED" operation="capable" profile="cloudsuitedata-servingserver_profile" pid=26232 comm="java" capability=4  capname="fsetid"
+Feb 25 19:34:03 docker-security59 kernel: [82841.421073] IPv6: ADDRCONF(NETDEV_CHANGE): veth4c10040: link becomes ready
+Feb 25 19:34:03 docker-security59 kernel: [82841.421112] br-73031a118dca: port 2(veth4c10040) entered forwarding state
+Feb 25 19:34:03 docker-security59 kernel: [82841.421117] br-73031a118dca: port 2(veth4c10040) entered forwarding state
+Feb 25 19:34:03 docker-security59 kernel: [82841.831424] type=1400 audit(1551123243.926:32333155): apparmor="ALLOWED" operation="create" profile="cloudsuitedata-servingclient_profile" pid=26373 comm="java" family="inet6" sock_type="stream" protocol=0
+Feb 25 19:34:03 docker-security59 kernel: [82841.847095] type=1400 audit(1551123243.942:32333156): apparmor="ALLOWED" operation="create" profile="cloudsuitedata-servingclient_profile" pid=26373 comm="java" family="inet" sock_type="dgram" protocol=0
+Feb 25 19:34:03 docker-security59 kernel: [82841.847109] type=1400 audit(1551123243.942:32333157): apparmor="ALLOWED" operation="connect" profile="cloudsuitedata-servingclient_profile" pid=26373 comm="java" family="inet" sock_type="dgram" protocol=17
+Feb 25 19:34:03 docker-security59 kernel: [82841.847159] type=1400 audit(1551123243.942:32333158): apparmor="ALLOWED" operation="sendmsg" profile="cloudsuitedata-servingclient_profile" pid=26373 comm="java" laddr=127.0.0.1 lport=60207 faddr=127.0.0.11 fport=53 family="inet" sock_type="dgram" protocol=17
+Feb 25 19:34:16 docker-security59 kernel: [82854.556059] br-73031a118dca: port 1(veth33fd778) entered forwarding state
+Feb 25 19:34:18 docker-security59 kernel: [82856.476201] br-73031a118dca: port 2(veth4c10040) entered forwarding state
+Feb 25 19:34:20 docker-security59 kernel: [82858.224360] audit_printk_skb: 3 callbacks suppressed
+Feb 25 19:34:20 docker-security59 kernel: [82858.224365] type=1400 audit(1551123260.322:32333160): apparmor="ALLOWED" operation="create" profile="cloudsuitedata-servingclient_profile" pid=26527 comm="java" family="inet6" sock_type="stream" protocol=0
+Feb 25 19:34:20 docker-security59 kernel: [82858.239760] type=1400 audit(1551123260.334:32333161): apparmor="ALLOWED" operation="create" profile="cloudsuitedata-servingclient_profile" pid=26527 comm="java" family="inet" sock_type="dgram" protocol=0
+Feb 25 19:34:20 docker-security59 kernel: [82858.239777] type=1400 audit(1551123260.334:32333162): apparmor="ALLOWED" operation="connect" profile="cloudsuitedata-servingclient_profile" pid=26527 comm="java" family="inet" sock_type="dgram" protocol=17
+Feb 25 19:34:20 docker-security59 kernel: [82858.239826] type=1400 audit(1551123260.334:32333163): apparmor="ALLOWED" operation="sendmsg" profile="cloudsuitedata-servingclient_profile" pid=26527 comm="java" laddr=127.0.0.1 lport=33115 faddr=127.0.0.11 fport=53 family="inet" sock_type="dgram" protocol=17
+Feb 25 19:34:20 docker-security59 kernel: [82858.240511] type=1400 audit(1551123260.338:32333164): apparmor="ALLOWED" operation="recvmsg" profile="cloudsuitedata-servingclient_profile" pid=26527 comm="java" laddr=127.0.0.1 lport=33115 faddr=127.0.0.11 fport=53 family="inet" sock_type="dgram" protocol=17
+Feb 25 19:34:21 docker-security59 kernel: [82859.131898] br-73031a118dca: port 2(veth4c10040) entered disabled state
+Feb 25 19:34:21 docker-security59 kernel: [82859.189021] type=1400 audit(1551123261.286:32333165): apparmor="ALLOWED" operation="signal" profile="cloudsuitedata-servingserver_profile" pid=7788 comm="docker-containe" requested_mask="receive" denied_mask="receive" signal=term peer="unconfined"
+Feb 25 19:34:21 docker-security59 kernel: [82859.522149] br-73031a118dca: port 2(veth4c10040) entered disabled state
+Feb 25 19:34:21 docker-security59 kernel: [82859.522950] device veth4c10040 left promiscuous mode
+Feb 25 19:34:21 docker-security59 kernel: [82859.522961] br-73031a118dca: port 2(veth4c10040) entered disabled state
+Feb 25 19:34:31 docker-security59 kernel: [82869.393584] br-73031a118dca: port 1(veth33fd778) entered disabled state
+Feb 25 19:34:31 docker-security59 kernel: [82869.776830] br-73031a118dca: port 1(veth33fd778) entered disabled state
+Feb 25 19:34:31 docker-security59 kernel: [82869.777525] device veth33fd778 left promiscuous mode
+Feb 25 19:34:31 docker-security59 kernel: [82869.777539] br-73031a118dca: port 1(veth33fd778) entered disabled state

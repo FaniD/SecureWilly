@@ -1,0 +1,28 @@
+Feb 25 19:34:36 docker-security59 kernel: [82874.521850] IPv6: ADDRCONF(NETDEV_UP): br-f527f4558ef3: link is not ready
+Feb 25 19:34:37 docker-security59 kernel: [82875.147778] device veth2938661 entered promiscuous mode
+Feb 25 19:34:37 docker-security59 kernel: [82875.147936] IPv6: ADDRCONF(NETDEV_UP): veth2938661: link is not ready
+Feb 25 19:34:37 docker-security59 kernel: [82875.147942] br-f527f4558ef3: port 1(veth2938661) entered forwarding state
+Feb 25 19:34:37 docker-security59 kernel: [82875.147955] br-f527f4558ef3: port 1(veth2938661) entered forwarding state
+Feb 25 19:34:37 docker-security59 kernel: [82875.147975] IPv6: ADDRCONF(NETDEV_CHANGE): br-f527f4558ef3: link becomes ready
+Feb 25 19:34:37 docker-security59 kernel: [82875.440310] br-f527f4558ef3: port 1(veth2938661) entered disabled state
+Feb 25 19:34:38 docker-security59 kernel: [82875.928536] IPv6: ADDRCONF(NETDEV_CHANGE): veth2938661: link becomes ready
+Feb 25 19:34:38 docker-security59 kernel: [82875.928574] br-f527f4558ef3: port 1(veth2938661) entered forwarding state
+Feb 25 19:34:38 docker-security59 kernel: [82875.928580] br-f527f4558ef3: port 1(veth2938661) entered forwarding state
+Feb 25 19:34:38 docker-security59 kernel: [82876.845253] device veth2e00b2a entered promiscuous mode
+Feb 25 19:34:38 docker-security59 kernel: [82876.845393] IPv6: ADDRCONF(NETDEV_UP): veth2e00b2a: link is not ready
+Feb 25 19:34:38 docker-security59 kernel: [82876.845403] br-f527f4558ef3: port 2(veth2e00b2a) entered forwarding state
+Feb 25 19:34:38 docker-security59 kernel: [82876.845410] br-f527f4558ef3: port 2(veth2e00b2a) entered forwarding state
+Feb 25 19:34:39 docker-security59 kernel: [82877.447018] br-f527f4558ef3: port 2(veth2e00b2a) entered disabled state
+Feb 25 19:34:39 docker-security59 kernel: [82877.784906] IPv6: ADDRCONF(NETDEV_CHANGE): veth2e00b2a: link becomes ready
+Feb 25 19:34:39 docker-security59 kernel: [82877.784949] br-f527f4558ef3: port 2(veth2e00b2a) entered forwarding state
+Feb 25 19:34:39 docker-security59 kernel: [82877.784956] br-f527f4558ef3: port 2(veth2e00b2a) entered forwarding state
+Feb 25 19:34:53 docker-security59 kernel: [82890.972252] br-f527f4558ef3: port 1(veth2938661) entered forwarding state
+Feb 25 19:34:54 docker-security59 kernel: [82892.828136] br-f527f4558ef3: port 2(veth2e00b2a) entered forwarding state
+Feb 25 19:34:59 docker-security59 kernel: [82897.725398] br-f527f4558ef3: port 2(veth2e00b2a) entered disabled state
+Feb 25 19:35:00 docker-security59 kernel: [82897.914148] br-f527f4558ef3: port 2(veth2e00b2a) entered disabled state
+Feb 25 19:35:00 docker-security59 kernel: [82897.914834] device veth2e00b2a left promiscuous mode
+Feb 25 19:35:00 docker-security59 kernel: [82897.914846] br-f527f4558ef3: port 2(veth2e00b2a) entered disabled state
+Feb 25 19:35:10 docker-security59 kernel: [82907.932844] br-f527f4558ef3: port 1(veth2938661) entered disabled state
+Feb 25 19:35:10 docker-security59 kernel: [82908.113833] br-f527f4558ef3: port 1(veth2938661) entered disabled state
+Feb 25 19:35:10 docker-security59 kernel: [82908.114623] device veth2938661 left promiscuous mode
+Feb 25 19:35:10 docker-security59 kernel: [82908.114640] br-f527f4558ef3: port 1(veth2938661) entered disabled state

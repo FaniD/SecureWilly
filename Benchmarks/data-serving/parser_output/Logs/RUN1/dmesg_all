@@ -1,0 +1,85 @@
+[82800.868133] IPv6: ADDRCONF(NETDEV_UP): br-fba6f518cd0b: link is not ready
+[82802.063475] device vethac2801d entered promiscuous mode
+[82802.063639] IPv6: ADDRCONF(NETDEV_UP): vethac2801d: link is not ready
+[82802.896696] IPv6: ADDRCONF(NETDEV_CHANGE): vethac2801d: link becomes ready
+[82802.896732] br-fba6f518cd0b: port 1(vethac2801d) entered forwarding state
+[82802.896738] br-fba6f518cd0b: port 1(vethac2801d) entered forwarding state
+[82802.896752] IPv6: ADDRCONF(NETDEV_CHANGE): br-fba6f518cd0b: link becomes ready
+[82803.101463] type=1400 audit(1551123205.198:32325903): apparmor="ALLOWED" operation="create" profile="cloudsuitedata-servingserver_profile" pid=24958 comm="ifconfig" family="inet" sock_type="dgram" protocol=0
+[82803.101494] type=1400 audit(1551123205.198:32325904): apparmor="ALLOWED" operation="create" profile="cloudsuitedata-servingserver_profile" pid=24958 comm="ifconfig" family="inet6" sock_type="dgram" protocol=0
+[82803.849448] device veth07a2362 entered promiscuous mode
+[82803.849656] IPv6: ADDRCONF(NETDEV_UP): veth07a2362: link is not ready
+[82803.849663] br-fba6f518cd0b: port 2(veth07a2362) entered forwarding state
+[82803.849670] br-fba6f518cd0b: port 2(veth07a2362) entered forwarding state
+[82803.906572] type=1400 audit(1551123206.002:32325905): apparmor="ALLOWED" operation="create" profile="cloudsuitedata-servingserver_profile" pid=25046 comm="java" family="inet6" sock_type="stream" protocol=0
+[82804.060259] br-fba6f518cd0b: port 2(veth07a2362) entered disabled state
+[82804.350195] type=1400 audit(1551123206.446:32325906): apparmor="ALLOWED" operation="capable" profile="cloudsuitedata-servingserver_profile" pid=25046 comm="java" capability=1  capname="dac_override"
+[82805.220832] IPv6: ADDRCONF(NETDEV_CHANGE): veth07a2362: link becomes ready
+[82805.220885] br-fba6f518cd0b: port 2(veth07a2362) entered forwarding state
+[82805.220890] br-fba6f518cd0b: port 2(veth07a2362) entered forwarding state
+[82805.366822] type=1400 audit(1551123207.462:32325907): apparmor="ALLOWED" operation="create" profile="cloudsuitedata-servingserver_profile" pid=25046 comm="java" family="inet" sock_type="stream" protocol=0
+[82805.366847] type=1400 audit(1551123207.462:32325908): apparmor="ALLOWED" operation="setsockopt" profile="cloudsuitedata-servingserver_profile" pid=25046 comm="java" family="inet" sock_type="stream" protocol=6
+[82805.367497] type=1400 audit(1551123207.462:32325909): apparmor="ALLOWED" operation="bind" profile="cloudsuitedata-servingserver_profile" pid=25046 comm="java" family="inet" sock_type="stream" protocol=6
+[82805.367553] type=1400 audit(1551123207.462:32325910): apparmor="ALLOWED" operation="listen" profile="cloudsuitedata-servingserver_profile" pid=25046 comm="java" laddr=127.0.0.1 lport=7199 family="inet" sock_type="stream" protocol=6
+[82805.373817] type=1400 audit(1551123207.470:32325911): apparmor="ALLOWED" operation="create" profile="cloudsuitedata-servingserver_profile" pid=25046 comm="java" family="inet" sock_type="stream" protocol=0
+[82805.373852] type=1400 audit(1551123207.470:32325912): apparmor="ALLOWED" operation="setsockopt" profile="cloudsuitedata-servingserver_profile" pid=25046 comm="java" family="inet" sock_type="stream" protocol=6
+[82805.373868] type=1400 audit(1551123207.470:32325913): apparmor="ALLOWED" operation="bind" profile="cloudsuitedata-servingserver_profile" pid=25046 comm="java" family="inet" sock_type="stream" protocol=6
+[82805.373892] type=1400 audit(1551123207.470:32325914): apparmor="ALLOWED" operation="getsockname" profile="cloudsuitedata-servingserver_profile" pid=25046 comm="java" laddr=127.0.0.1 lport=49358 family="inet" sock_type="stream" protocol=6
+[82805.373902] type=1400 audit(1551123207.470:32325915): apparmor="ALLOWED" operation="listen" profile="cloudsuitedata-servingserver_profile" pid=25046 comm="java" laddr=127.0.0.1 lport=49358 family="inet" sock_type="stream" protocol=6
+[82805.393502] type=1400 audit(1551123207.490:32325916): apparmor="ALLOWED" operation="create" profile="cloudsuitedata-servingserver_profile" pid=25046 comm="java" family="inet" sock_type="stream" protocol=0
+[82810.684231] audit_printk_skb: 243 callbacks suppressed
+[82810.684237] type=1400 audit(1551123212.782:32325998): apparmor="ALLOWED" operation="create" profile="cloudsuitedata-servingclient_profile" pid=25208 comm="java" family="inet" sock_type="stream" protocol=0
+[82810.684348] type=1400 audit(1551123212.782:32325999): apparmor="ALLOWED" operation="setsockopt" profile="cloudsuitedata-servingclient_profile" pid=25208 comm="java" family="inet" sock_type="stream" protocol=6
+[82810.684365] type=1400 audit(1551123212.782:32326000): apparmor="ALLOWED" operation="setsockopt" profile="cloudsuitedata-servingclient_profile" pid=25208 comm="java" family="inet" sock_type="stream" protocol=6
+[82810.684617] type=1400 audit(1551123212.782:32326001): apparmor="ALLOWED" operation="connect" profile="cloudsuitedata-servingclient_profile" pid=25208 comm="java" family="inet" sock_type="stream" protocol=6
+[82811.685868] type=1400 audit(1551123213.782:32326002): apparmor="ALLOWED" operation="create" profile="cloudsuitedata-servingclient_profile" pid=25208 comm="java" family="inet" sock_type="stream" protocol=0
+[82811.685947] type=1400 audit(1551123213.782:32326003): apparmor="ALLOWED" operation="setsockopt" profile="cloudsuitedata-servingclient_profile" pid=25208 comm="java" family="inet" sock_type="stream" protocol=6
+[82811.685963] type=1400 audit(1551123213.782:32326004): apparmor="ALLOWED" operation="setsockopt" profile="cloudsuitedata-servingclient_profile" pid=25208 comm="java" family="inet" sock_type="stream" protocol=6
+[82811.686244] type=1400 audit(1551123213.782:32326005): apparmor="ALLOWED" operation="connect" profile="cloudsuitedata-servingclient_profile" pid=25208 comm="java" family="inet" sock_type="stream" protocol=6
+[82812.687088] type=1400 audit(1551123214.782:32326006): apparmor="ALLOWED" operation="create" profile="cloudsuitedata-servingclient_profile" pid=25208 comm="java" family="inet" sock_type="stream" protocol=0
+[82812.687145] type=1400 audit(1551123214.782:32326007): apparmor="ALLOWED" operation="setsockopt" profile="cloudsuitedata-servingclient_profile" pid=25208 comm="java" family="inet" sock_type="stream" protocol=6
+[82815.690144] audit_printk_skb: 54 callbacks suppressed
+[82815.690164] type=1400 audit(1551123217.790:32326026): apparmor="ALLOWED" operation="create" profile="cloudsuitedata-servingclient_profile" pid=25208 comm="java" family="inet" sock_type="stream" protocol=0
+[82815.690242] type=1400 audit(1551123217.790:32326027): apparmor="ALLOWED" operation="setsockopt" profile="cloudsuitedata-servingclient_profile" pid=25208 comm="java" family="inet" sock_type="stream" protocol=6
+[82815.690261] type=1400 audit(1551123217.790:32326028): apparmor="ALLOWED" operation="setsockopt" profile="cloudsuitedata-servingclient_profile" pid=25208 comm="java" family="inet" sock_type="stream" protocol=6
+[82815.691635] type=1400 audit(1551123217.790:32326029): apparmor="ALLOWED" operation="connect" profile="cloudsuitedata-servingclient_profile" pid=25208 comm="java" family="inet" sock_type="stream" protocol=6
+[82816.693122] type=1400 audit(1551123218.790:32326030): apparmor="ALLOWED" operation="create" profile="cloudsuitedata-servingclient_profile" pid=25208 comm="java" family="inet" sock_type="stream" protocol=0
+[82816.693201] type=1400 audit(1551123218.790:32326031): apparmor="ALLOWED" operation="setsockopt" profile="cloudsuitedata-servingclient_profile" pid=25208 comm="java" family="inet" sock_type="stream" protocol=6
+[82816.693216] type=1400 audit(1551123218.790:32326032): apparmor="ALLOWED" operation="setsockopt" profile="cloudsuitedata-servingclient_profile" pid=25208 comm="java" family="inet" sock_type="stream" protocol=6
+[82816.693486] type=1400 audit(1551123218.790:32326033): apparmor="ALLOWED" operation="connect" profile="cloudsuitedata-servingclient_profile" pid=25208 comm="java" family="inet" sock_type="stream" protocol=6
+[82817.694576] type=1400 audit(1551123219.794:32326034): apparmor="ALLOWED" operation="create" profile="cloudsuitedata-servingclient_profile" pid=25208 comm="java" family="inet" sock_type="stream" protocol=0
+[82817.694651] type=1400 audit(1551123219.794:32326035): apparmor="ALLOWED" operation="setsockopt" profile="cloudsuitedata-servingclient_profile" pid=25208 comm="java" family="inet" sock_type="stream" protocol=6
+[82817.948138] br-fba6f518cd0b: port 1(vethac2801d) entered forwarding state
+[82820.252344] br-fba6f518cd0b: port 2(veth07a2362) entered forwarding state
+[82820.698807] audit_printk_skb: 42 callbacks suppressed
+[82820.698813] type=1400 audit(1551123222.794:32326050): apparmor="ALLOWED" operation="create" profile="cloudsuitedata-servingclient_profile" pid=25208 comm="java" family="inet" sock_type="stream" protocol=0
+[82820.698874] type=1400 audit(1551123222.794:32326051): apparmor="ALLOWED" operation="setsockopt" profile="cloudsuitedata-servingclient_profile" pid=25208 comm="java" family="inet" sock_type="stream" protocol=6
+[82820.698886] type=1400 audit(1551123222.794:32326052): apparmor="ALLOWED" operation="setsockopt" profile="cloudsuitedata-servingclient_profile" pid=25208 comm="java" family="inet" sock_type="stream" protocol=6
+[82820.699110] type=1400 audit(1551123222.794:32326053): apparmor="ALLOWED" operation="connect" profile="cloudsuitedata-servingclient_profile" pid=25208 comm="java" family="inet" sock_type="stream" protocol=6
+[82820.715348] type=1400 audit(1551123222.810:32326054): apparmor="ALLOWED" operation="create" profile="cloudsuitedata-servingserver_profile" pid=25310 comm="java" family="inet6" sock_type="stream" protocol=0
+[82820.810303] type=1400 audit(1551123222.906:32326055): apparmor="ALLOWED" operation="create" profile="cloudsuitedata-servingserver_profile" pid=25046 comm="java" family="inet" sock_type="dgram" protocol=0
+[82820.917191] type=1400 audit(1551123223.014:32326056): apparmor="ALLOWED" operation="create" profile="cloudsuitedata-servingserver_profile" pid=25046 comm="java" family="inet" sock_type="stream" protocol=0
+[82820.944442] type=1400 audit(1551123223.042:32326057): apparmor="ALLOWED" operation="setsockopt" profile="cloudsuitedata-servingserver_profile" pid=25046 comm="java" family="inet" sock_type="stream" protocol=6
+[82820.960648] type=1400 audit(1551123223.058:32326058): apparmor="ALLOWED" operation="bind" profile="cloudsuitedata-servingserver_profile" pid=25327 comm="java" family="inet" sock_type="stream" protocol=6
+[82820.960700] type=1400 audit(1551123223.058:32326059): apparmor="ALLOWED" operation="getsockname" profile="cloudsuitedata-servingserver_profile" pid=25327 comm="java" lport=9042 family="inet" sock_type="stream" protocol=6
+[82822.917037] br-fba6f518cd0b: port 2(veth07a2362) entered disabled state
+[82823.126412] br-fba6f518cd0b: port 2(veth07a2362) entered disabled state
+[82823.127567] device veth07a2362 left promiscuous mode
+[82823.127581] br-fba6f518cd0b: port 2(veth07a2362) entered disabled state
+[82826.336902] audit_printk_skb: 21109 callbacks suppressed
+[82826.336907] type=1400 audit(1551123228.434:32333097): apparmor="ALLOWED" operation="signal" profile="cloudsuitedata-servingserver_profile" pid=25407 comm="java" requested_mask="send" denied_mask="send" signal=exists peer="cloudsuitedata-servingserver_profile"
+[82826.336914] type=1400 audit(1551123228.434:32333098): apparmor="ALLOWED" operation="signal" profile="cloudsuitedata-servingserver_profile" pid=25407 comm="java" requested_mask="receive" denied_mask="receive" signal=exists peer="cloudsuitedata-servingserver_profile"
+[82826.607332] type=1400 audit(1551123228.702:32333099): apparmor="ALLOWED" operation="create" profile="cloudsuitedata-servingserver_profile" pid=25407 comm="java" family="inet6" sock_type="stream" protocol=0
+[82826.894926] type=1400 audit(1551123228.990:32333100): apparmor="ALLOWED" operation="create" profile="cloudsuitedata-servingserver_profile" pid=25407 comm="java" family="inet" sock_type="stream" protocol=0
+[82826.895017] type=1400 audit(1551123228.990:32333101): apparmor="ALLOWED" operation="setsockopt" profile="cloudsuitedata-servingserver_profile" pid=25407 comm="java" family="inet" sock_type="stream" protocol=6
+[82826.895039] type=1400 audit(1551123228.990:32333102): apparmor="ALLOWED" operation="setsockopt" profile="cloudsuitedata-servingserver_profile" pid=25407 comm="java" family="inet" sock_type="stream" protocol=6
+[82826.895051] type=1400 audit(1551123228.990:32333103): apparmor="ALLOWED" operation="setsockopt" profile="cloudsuitedata-servingserver_profile" pid=25407 comm="java" family="inet" sock_type="stream" protocol=6
+[82826.899656] type=1400 audit(1551123228.994:32333104): apparmor="ALLOWED" operation="connect" profile="cloudsuitedata-servingserver_profile" pid=25407 comm="java" family="inet" sock_type="stream" protocol=6
+[82826.899893] type=1400 audit(1551123228.994:32333105): apparmor="ALLOWED" operation="getsockname" profile="cloudsuitedata-servingserver_profile" pid=25407 comm="java" laddr=127.0.0.1 lport=41009 faddr=127.0.0.1 fport=9160 family="inet" sock_type="stream" protocol=6
+[82826.899904] type=1400 audit(1551123228.994:32333106): apparmor="ALLOWED" operation="accept" profile="cloudsuitedata-servingserver_profile" pid=25328 comm="java" lport=9160 family="inet" sock_type="stream" protocol=6
+[82833.098132] audit_printk_skb: 126 callbacks suppressed
+[82833.098138] type=1400 audit(1551123235.194:32333149): apparmor="ALLOWED" operation="signal" profile="cloudsuitedata-servingserver_profile" pid=1710 comm="docker-containe" requested_mask="receive" denied_mask="receive" signal=kill peer="unconfined"
+[82833.309060] br-fba6f518cd0b: port 1(vethac2801d) entered disabled state
+[82833.619417] br-fba6f518cd0b: port 1(vethac2801d) entered disabled state
+[82833.627025] device vethac2801d left promiscuous mode
+[82833.627036] br-fba6f518cd0b: port 1(vethac2801d) entered disabled state

@@ -1,0 +1,13 @@
+#Capability\n
+dac_override
+#Network\n
+inet dgram
+inet6 dgram
+inet6 stream
+inet stream
+#File
+requested_mask 
+#Signal
+send exists cloudsuitedata-servingserver_profile
+receive exists cloudsuitedata-servingserver_profile
+receive kill unconfined

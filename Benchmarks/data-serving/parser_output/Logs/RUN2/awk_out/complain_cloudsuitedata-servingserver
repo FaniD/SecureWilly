@@ -1,0 +1,7 @@
+#Capability\n
+fsetid
+#Network\n
+#File
+requested_mask 
+#Signal
+receive term unconfined
