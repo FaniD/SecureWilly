@@ -282,7 +282,7 @@ for i in xrange(len(data)): #because we will need the next line
 		mount_rule = '\tmount ' + src + ' -> ' + mntpnt + ', #Bind host volume to docker container volume\n'
                 file_mnt_rule = '\t' + mntpnt + '/* rw,\n'
 
-            if mnpnt == '': 
+            if mntpnt == '': 
                 #Then it was root's dir and we stripped of the /
                 mntpnt = '/'
 
