@@ -1,0 +1,38 @@
+#include <tunables/global>
+
+profile db_profile flags=(audit,attach_disconnected,mediate_deleted) {
+	/tmp/ibV6XEwP w,
+	/var/lib/mysql/* rw,
+	/lib/x86_64-linux-gnu/libtinfo.so.5.9 r,
+	/tmp/#sql_1_0.MAD r,
+	/tmp/#sql_1_0.MAI rw,
+	network inet6 dgram,
+	/usr/share/mysql/english/errmsg.sys r,
+	signal (receive) set=(usr1) peer=db_profile,
+	/etc/ld.so.cache r,
+	/usr/ r,
+	/tmp/#sql_1_0.MAI r,
+	signal (send) set=(usr1) peer=db_profile,
+	/var/lib/docker/* r, #Access to layers of filesystem
+	network inet6 stream,
+	capability setgid,
+	capability dac_override,
+	/usr/share/mysql/charsets/Index.xml r,
+	/tmp/ r,
+	/tmp/#sql_1_0.MAD w,
+	file,  #This rule is needed so that I can work with files (create files/directories, copy, etc)
+	network inet dgram,
+	mount /var/lib/docker/volumes/nextcloudexample_db_/_data -> /var/lib/mysql, #Bind host volume to docker container volume
+	capability setuid,
+	deny ptrace (readby, tracedby), #Confront container breakout attacks
+	/tmp/ibV6XEwP rw,
+	/var/ r,
+	signal (receive) set=(term) peer=db_profile,
+	/usr/share/zoneinfo/UTC r,
+	/tmp/#sql_1_0.MAD rw,
+	/tmp/#sql_1_0.MAI w,
+	signal (receive) set=(kill) peer=unconfined,
+	deny remount /var/lib/mysql, #Disallow anybody that wants to remount this mountpoint
+	deny umount /var/lib/mysql, #Disallow anybody that wants to break this mountpoint
+	signal (send) set=(term) peer=db_profile,
+}

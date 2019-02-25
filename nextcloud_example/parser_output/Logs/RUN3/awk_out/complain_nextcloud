@@ -2,6 +2,7 @@
 fsetid
 setgid
 #Network\n
+inet6 stream
 #File
 requested_mask 
 #Signal

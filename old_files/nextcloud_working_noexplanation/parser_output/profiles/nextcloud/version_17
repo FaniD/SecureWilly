@@ -1,0 +1,51 @@
+#include <tunables/global>
+
+profile nextcloud_profile flags=(audit,attach_disconnected,mediate_deleted) {
+	/var/www/html/data/* rw,
+	signal (receive) set=(kill) peer=unconfined,
+	/tmp/.ZendSem.y3eMDN wk,
+	/tmp/.ZendSem.y3eMDN k,
+	capability fsetid,
+	capability chown,
+	/usr/src/nextcloud/apps/serverinfo/img/app-dark.svg r,
+	network inet6 dgram,
+	signal (receive) set=(exists) peer=unconfined,
+	/usr/src/nextcloud/apps/workflowengine/l10n/it.json r,
+	/usr/src/nextcloud/apps/serverinfo/css/style.css r,
+	/etc/ld.so.cache r,
+	/usr/src/nextcloud/apps/twofactor_backupcodes/l10n/ r,
+	/usr/src/nextcloud/apps/serverinfo/img/app.svg r,
+	capability setuid,
+	network inet stream,
+	/var/www/html/* rw,
+	/var/lib/docker/* r, #Access to layers of filesystem
+	network inet6 stream,
+	capability fowner,
+	capability setgid,
+	signal (receive) set=(usr2) peer=nextcloud_profile,
+	capability dac_override,
+	mount /var/lib/docker/volumes/nextcloudexample_nextcloud_/_data -> /var/www/html, #Bind host volume to docker container volume
+	deny umount /var/www/html, #Disallow anybody that wants to break this mountpoint
+	/usr/src/nextcloud/apps/serverinfo/l10n/ast.json r,
+	/usr/src/nextcloud/apps/workflowengine/l10n/ka_GE.json r,
+	/usr/src/nextcloud/apps/workflowengine/l10n/zh_CN.js r,
+	file,  #This rule is needed so that I can work with files (create files/directories, copy, etc)
+	deny remount /var/www/html/data, #Disallow anybody that wants to remount this mountpoint
+	/usr/src/nextcloud/apps/workflowengine/l10n/sv.js r,
+	network inet dgram,
+	/usr/src/nextcloud/apps/password_policy/templates/settings-admin.php r,
+	deny remount /var/www/html, #Disallow anybody that wants to remount this mountpoint
+	deny ptrace (readby, tracedby), #Confront container breakout attacks
+	/usr/src/nextcloud/apps/systemtags/l10n/cs.json r,
+	/lib/x86_64-linux-gnu/libcrypt-2.24.so r,
+	/var/lib/mysql/nextcloud_/oc_calendarsubscriptions.frm w,
+	/usr/src/nextcloud/apps/workflowengine/l10n/es_PA.json r,
+	/var/lib/mysql/nextcloud_/#sql-1_a.frm rw,
+	/var/lib/mysql/nextcloud_/oc_calendarsubscriptions.frm r,
+	/usr/src/nextcloud/apps/serverinfo/l10n/ast.js r,
+	signal (send) set=(usr2) peer=nextcloud_profile,
+	/usr/src/nextcloud/apps/serverinfo/l10n/bg.js r,
+	mount /home/ubuntu/SecureWilly/nextcloud_example/data -> /var/www/html/data, #Bind host volume to docker container volume
+	deny umount /var/www/html/data, #Disallow anybody that wants to break this mountpoint
+	capability net_bind_service,  #This capability is needed to bind a socket to Internet domain privileged ports
+}

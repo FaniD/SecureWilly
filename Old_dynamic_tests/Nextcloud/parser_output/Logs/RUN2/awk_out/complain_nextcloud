@@ -1,0 +1,6 @@
+#Capability\n
+fowner
+#Network\n
+inet dgram
+#File
+#Signal

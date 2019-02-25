@@ -1,0 +1,4 @@
+[26931.316334] type=1400 audit(1550810867.392:3697842): apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=1439 comm="rsync" capability=3  capname="fowner"
+[26931.344553] type=1400 audit(1550810867.420:3697843): apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=1439 comm="rsync" capability=3  capname="fowner"
+[26931.360977] type=1400 audit(1550810867.436:3697844): apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=1439 comm="rsync" capability=3  capname="fowner"
+[26931.466228] type=1400 audit(1550810867.540:3697845): apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=1439 comm="rsync" capability=3  capname="fowner"

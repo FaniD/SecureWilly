@@ -1,3 +1,2 @@
 send usr2 nextcloud_profile
-receive usr2 nextcloud_profile
 receive exists unconfined

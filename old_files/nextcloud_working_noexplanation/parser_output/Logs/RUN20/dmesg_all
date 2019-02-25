@@ -1,0 +1,69 @@
+[28279.922042] device veth562ae8f entered promiscuous mode
+[28279.922187] IPv6: ADDRCONF(NETDEV_UP): veth562ae8f: link is not ready
+[28280.212749] IPv6: ADDRCONF(NETDEV_CHANGE): veth562ae8f: link becomes ready
+[28280.212809] br-4063ee0b93e3: port 1(veth562ae8f) entered forwarding state
+[28280.212822] br-4063ee0b93e3: port 1(veth562ae8f) entered forwarding state
+[28280.272354] type=1400 audit(1550812216.348:10196728): apparmor="AUDIT" operation="open" profile="db_profile" name="/etc/ld.so.cache" pid=21446 comm="docker-entrypoi" requested_mask="r" fsuid=0 ouid=0
+[28280.272370] type=1400 audit(1550812216.348:10196729): apparmor="AUDIT" operation="open" profile="db_profile" name="/var/lib/docker/aufs/diff/c93fe217b4d9be2a1682d8f8d63b6cea73f1c4367a71a660cfcf0c86804a3573/etc/ld.so.cache" pid=21446 comm="docker-entrypoi" requested_mask="r" fsuid=0 ouid=0
+[28280.272383] type=1400 audit(1550812216.348:10196730): apparmor="AUDIT" operation="getattr" profile="db_profile" name="/etc/ld.so.cache" pid=21446 comm="docker-entrypoi" requested_mask="r" fsuid=0 ouid=0
+[28280.272392] type=1400 audit(1550812216.348:10196731): apparmor="AUDIT" operation="getattr" profile="db_profile" name="/var/lib/docker/aufs/diff/c93fe217b4d9be2a1682d8f8d63b6cea73f1c4367a71a660cfcf0c86804a3573/etc/ld.so.cache" pid=21446 comm="docker-entrypoi" requested_mask="r" fsuid=0 ouid=0
+[28280.272495] type=1400 audit(1550812216.348:10196732): apparmor="AUDIT" operation="open" profile="db_profile" name="/lib/x86_64-linux-gnu/libtinfo.so.5.9" pid=21446 comm="docker-entrypoi" requested_mask="r" fsuid=0 ouid=0
+[28280.272508] type=1400 audit(1550812216.348:10196733): apparmor="AUDIT" operation="open" profile="db_profile" name="/var/lib/docker/aufs/diff/355e65d8d3b5ff91219ab678bd433873ea9bf90c9b23819a12d01f2ca2b5bc32/lib/x86_64-linux-gnu/libtinfo.so.5.9" pid=21446 comm="docker-entrypoi" requested_mask="r" fsuid=0 ouid=0
+[28280.521227] device vethf88d2f5 entered promiscuous mode
+[28280.521460] IPv6: ADDRCONF(NETDEV_UP): vethf88d2f5: link is not ready
+[28280.521468] br-4063ee0b93e3: port 2(vethf88d2f5) entered forwarding state
+[28280.521482] br-4063ee0b93e3: port 2(vethf88d2f5) entered forwarding state
+[28280.809052] IPv6: ADDRCONF(NETDEV_CHANGE): vethf88d2f5: link becomes ready
+[28283.468048] audit_printk_skb: 470569 callbacks suppressed
+[28283.468053] type=1400 audit(1550812219.540:10354131): apparmor="AUDIT" operation="getattr" profile="nextcloud_profile" name="/var/www/html/apps/serverinfo/l10n/.de.json.zLdqaZ" pid=21676 comm="rsync" requested_mask="r" fsuid=0 ouid=0
+[28283.468066] type=1400 audit(1550812219.540:10354132): apparmor="AUDIT" operation="chown" profile="nextcloud_profile" name="/var/www/html/apps/serverinfo/l10n/.de.json.zLdqaZ" pid=21676 comm="rsync" requested_mask="w" fsuid=0 ouid=0
+[28283.468095] type=1400 audit(1550812219.540:10354133): apparmor="AUDIT" operation="chmod" profile="nextcloud_profile" name="/var/www/html/apps/serverinfo/l10n/.de.json.zLdqaZ" pid=21676 comm="rsync" requested_mask="w" fsuid=0 ouid=33
+[28283.468114] type=1400 audit(1550812219.540:10354134): apparmor="AUDIT" operation="rename_src" profile="nextcloud_profile" name="/var/www/html/apps/serverinfo/l10n/.de.json.zLdqaZ" pid=21676 comm="rsync" requested_mask="rwd" fsuid=0 ouid=33
+[28283.468122] type=1400 audit(1550812219.540:10354135): apparmor="AUDIT" operation="rename_dest" profile="nextcloud_profile" name="/var/www/html/apps/serverinfo/l10n/de.json" pid=21676 comm="rsync" requested_mask="wc" fsuid=0 ouid=33
+[28283.468159] type=1400 audit(1550812219.540:10354136): apparmor="AUDIT" operation="mknod" profile="nextcloud_profile" name="/var/www/html/apps/serverinfo/l10n/.de_DE.js.6WyWgd" pid=21676 comm="rsync" requested_mask="c" fsuid=0 ouid=0
+[28283.468184] type=1400 audit(1550812219.540:10354137): apparmor="AUDIT" operation="open" profile="nextcloud_profile" name="/var/www/html/apps/serverinfo/l10n/.de_DE.js.6WyWgd" pid=21676 comm="rsync" requested_mask="rwc" fsuid=0 ouid=0
+[28283.468195] type=1400 audit(1550812219.540:10354138): apparmor="AUDIT" operation="chmod" profile="nextcloud_profile" name="/var/www/html/apps/serverinfo/l10n/.de_DE.js.6WyWgd" pid=21676 comm="rsync" requested_mask="w" fsuid=0 ouid=0
+[28283.468287] type=1400 audit(1550812219.544:10354139): apparmor="AUDIT" operation="getattr" profile="nextcloud_profile" name="/var/www/html/apps/serverinfo/l10n/.de_DE.js.6WyWgd" pid=21676 comm="rsync" requested_mask="r" fsuid=0 ouid=0
+[28283.468298] type=1400 audit(1550812219.544:10354140): apparmor="AUDIT" operation="chown" profile="nextcloud_profile" name="/var/www/html/apps/serverinfo/l10n/.de_DE.js.6WyWgd" pid=21676 comm="rsync" requested_mask="w" fsuid=0 ouid=0
+[28295.260176] br-4063ee0b93e3: port 1(veth562ae8f) entered forwarding state
+[28295.548129] br-4063ee0b93e3: port 2(vethf88d2f5) entered forwarding state
+[28341.144501] audit_printk_skb: 257895 callbacks suppressed
+[28341.144511] type=1400 audit(1550812277.220:10440351): apparmor="AUDIT" operation="signal" profile="nextcloud_profile" pid=21847 comm="docker-runc" requested_mask="receive" signal=exists peer="unconfined"
+[28341.144738] type=1400 audit(1550812277.220:10440352): apparmor="AUDIT" operation="signal" profile="nextcloud_profile" pid=21847 comm="docker-runc" requested_mask="receive" signal=exists peer="unconfined"
+[28341.148152] type=1400 audit(1550812277.224:10440353): apparmor="AUDIT" operation="signal" profile="nextcloud_profile" pid=21851 comm="docker-runc" requested_mask="receive" signal=exists peer="unconfined"
+[28341.161322] type=1400 audit(1550812277.236:10440354): apparmor="AUDIT" operation="open" profile="nextcloud_profile" name="/etc/ld.so.cache" pid=21855 comm="php" requested_mask="r" fsuid=33 ouid=0
+[28341.161338] type=1400 audit(1550812277.236:10440355): apparmor="AUDIT" operation="open" profile="nextcloud_profile" name="/var/lib/docker/aufs/diff/81c90542e8ca7a9c86fd52be511a9696f0dc4851567770ee073e9037459a8bfa/etc/ld.so.cache" pid=21855 comm="php" requested_mask="r" fsuid=33 ouid=0
+[28341.161349] type=1400 audit(1550812277.236:10440356): apparmor="AUDIT" operation="getattr" profile="nextcloud_profile" name="/etc/ld.so.cache" pid=21855 comm="php" requested_mask="r" fsuid=33 ouid=0
+[28341.161357] type=1400 audit(1550812277.236:10440357): apparmor="AUDIT" operation="getattr" profile="nextcloud_profile" name="/var/lib/docker/aufs/diff/81c90542e8ca7a9c86fd52be511a9696f0dc4851567770ee073e9037459a8bfa/etc/ld.so.cache" pid=21855 comm="php" requested_mask="r" fsuid=33 ouid=0
+[28341.161486] type=1400 audit(1550812277.236:10440358): apparmor="AUDIT" operation="open" profile="nextcloud_profile" name="/lib/x86_64-linux-gnu/libcrypt-2.24.so" pid=21855 comm="php" requested_mask="r" fsuid=33 ouid=0
+[28341.161499] type=1400 audit(1550812277.236:10440359): apparmor="AUDIT" operation="open" profile="nextcloud_profile" name="/var/lib/docker/aufs/diff/dc4f0e8a6c8350e59bc35c5f888f96ed532991d9fe551e85f6425d4186207ad3/lib/x86_64-linux-gnu/libcrypt-2.24.so" pid=21855 comm="php" requested_mask="r" fsuid=33 ouid=0
+[28341.161541] type=1400 audit(1550812277.236:10440360): apparmor="AUDIT" operation="getattr" profile="nextcloud_profile" name="/lib/x86_64-linux-gnu/libcrypt-2.24.so" pid=21855 comm="php" requested_mask="r" fsuid=33 ouid=0
+[28346.148173] audit_printk_skb: 279300 callbacks suppressed
+[28346.148178] type=1400 audit(1550812282.224:10533461): apparmor="AUDIT" operation="sendmsg" profile="db_profile" pid=21911 comm="mysqld" laddr=::ffff:172.19.0.2 lport=3306 faddr=::ffff:172.19.0.3 fport=34045 family="inet6" sock_type="stream" protocol=6
+[28346.148221] type=1400 audit(1550812282.224:10533462): apparmor="AUDIT" operation="recvmsg" profile="nextcloud_profile" pid=21897 comm="php" laddr=172.19.0.3 lport=34045 faddr=172.19.0.2 fport=3306 family="inet" sock_type="stream" protocol=6
+[28346.148236] type=1400 audit(1550812282.224:10533463): apparmor="AUDIT" operation="recvmsg" profile="nextcloud_profile" pid=21897 comm="php" laddr=172.19.0.3 lport=34045 faddr=172.19.0.2 fport=3306 family="inet" sock_type="stream" protocol=6
+[28346.148244] type=1400 audit(1550812282.224:10533464): apparmor="AUDIT" operation="recvmsg" profile="nextcloud_profile" pid=21897 comm="php" laddr=172.19.0.3 lport=34045 faddr=172.19.0.2 fport=3306 family="inet" sock_type="stream" protocol=6
+[28346.148251] type=1400 audit(1550812282.224:10533465): apparmor="AUDIT" operation="recvmsg" profile="nextcloud_profile" pid=21897 comm="php" laddr=172.19.0.3 lport=34045 faddr=172.19.0.2 fport=3306 family="inet" sock_type="stream" protocol=6
+[28346.148259] type=1400 audit(1550812282.224:10533466): apparmor="AUDIT" operation="recvmsg" profile="nextcloud_profile" pid=21897 comm="php" laddr=172.19.0.3 lport=34045 faddr=172.19.0.2 fport=3306 family="inet" sock_type="stream" protocol=6
+[28346.148267] type=1400 audit(1550812282.224:10533467): apparmor="AUDIT" operation="recvmsg" profile="nextcloud_profile" pid=21897 comm="php" laddr=172.19.0.3 lport=34045 faddr=172.19.0.2 fport=3306 family="inet" sock_type="stream" protocol=6
+[28346.148307] type=1400 audit(1550812282.224:10533468): apparmor="AUDIT" operation="sendmsg" profile="nextcloud_profile" pid=21897 comm="php" laddr=172.19.0.3 lport=34045 faddr=172.19.0.2 fport=3306 family="inet" sock_type="stream" protocol=6
+[28346.148351] type=1400 audit(1550812282.224:10533469): apparmor="AUDIT" operation="recvmsg" profile="db_profile" pid=21911 comm="mysqld" laddr=::ffff:172.19.0.2 lport=3306 faddr=::ffff:172.19.0.3 fport=34045 family="inet6" sock_type="stream" protocol=6
+[28346.148359] type=1400 audit(1550812282.224:10533470): apparmor="AUDIT" operation="recvmsg" profile="db_profile" pid=21911 comm="mysqld" laddr=::ffff:172.19.0.2 lport=3306 faddr=::ffff:172.19.0.3 fport=34045 family="inet6" sock_type="stream" protocol=6
+[28351.152122] audit_printk_skb: 395586 callbacks suppressed
+[28351.152131] type=1400 audit(1550812287.228:10665333): apparmor="AUDIT" operation="recvmsg" profile="nextcloud_profile" pid=21897 comm="php" laddr=172.19.0.3 lport=34045 faddr=172.19.0.2 fport=3306 family="inet" sock_type="stream" protocol=6
+[28351.152146] type=1400 audit(1550812287.228:10665334): apparmor="AUDIT" operation="recvmsg" profile="nextcloud_profile" pid=21897 comm="php" laddr=172.19.0.3 lport=34045 faddr=172.19.0.2 fport=3306 family="inet" sock_type="stream" protocol=6
+[28351.152154] type=1400 audit(1550812287.228:10665335): apparmor="AUDIT" operation="recvmsg" profile="nextcloud_profile" pid=21897 comm="php" laddr=172.19.0.3 lport=34045 faddr=172.19.0.2 fport=3306 family="inet" sock_type="stream" protocol=6
+[28351.152162] type=1400 audit(1550812287.228:10665336): apparmor="AUDIT" operation="recvmsg" profile="nextcloud_profile" pid=21897 comm="php" laddr=172.19.0.3 lport=34045 faddr=172.19.0.2 fport=3306 family="inet" sock_type="stream" protocol=6
+[28351.152169] type=1400 audit(1550812287.228:10665337): apparmor="AUDIT" operation="recvmsg" profile="nextcloud_profile" pid=21897 comm="php" laddr=172.19.0.3 lport=34045 faddr=172.19.0.2 fport=3306 family="inet" sock_type="stream" protocol=6
+[28351.152180] type=1400 audit(1550812287.228:10665338): apparmor="AUDIT" operation="recvmsg" profile="nextcloud_profile" pid=21897 comm="php" laddr=172.19.0.3 lport=34045 faddr=172.19.0.2 fport=3306 family="inet" sock_type="stream" protocol=6
+[28351.152189] type=1400 audit(1550812287.228:10665339): apparmor="AUDIT" operation="recvmsg" profile="nextcloud_profile" pid=21897 comm="php" laddr=172.19.0.3 lport=34045 faddr=172.19.0.2 fport=3306 family="inet" sock_type="stream" protocol=6
+[28351.152201] type=1400 audit(1550812287.228:10665340): apparmor="AUDIT" operation="recvmsg" profile="nextcloud_profile" pid=21897 comm="php" laddr=172.19.0.3 lport=34045 faddr=172.19.0.2 fport=3306 family="inet" sock_type="stream" protocol=6
+[28351.152209] type=1400 audit(1550812287.228:10665341): apparmor="AUDIT" operation="recvmsg" profile="nextcloud_profile" pid=21897 comm="php" laddr=172.19.0.3 lport=34045 faddr=172.19.0.2 fport=3306 family="inet" sock_type="stream" protocol=6
+[28351.152217] type=1400 audit(1550812287.228:10665342): apparmor="AUDIT" operation="recvmsg" profile="nextcloud_profile" pid=21897 comm="php" laddr=172.19.0.3 lport=34045 faddr=172.19.0.2 fport=3306 family="inet" sock_type="stream" protocol=6
+[28354.964921] br-4063ee0b93e3: port 2(vethf88d2f5) entered disabled state
+[28354.972579] br-4063ee0b93e3: port 2(vethf88d2f5) entered disabled state
+[28354.973389] device vethf88d2f5 left promiscuous mode
+[28354.973401] br-4063ee0b93e3: port 2(vethf88d2f5) entered disabled state
+[28355.283231] br-4063ee0b93e3: port 1(veth562ae8f) entered disabled state
+[28355.283701] device veth562ae8f left promiscuous mode
+[28355.283711] br-4063ee0b93e3: port 1(veth562ae8f) entered disabled state

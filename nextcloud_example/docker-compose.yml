@@ -6,6 +6,10 @@ volumes:
 
 services:
      db:
+        security_opt:
+          - "apparmor:db_profile"
+        security_opt:
+          - "apparmor:db_profile"
         container_name: db
         security_opt:
           - "apparmor:db_profile"
@@ -20,6 +24,10 @@ services:
                 - MYSQL_DATABASE=nextcloud_
                 - MYSQL_USER=willy
      nextcloud:
+        security_opt:
+          - "apparmor:nextcloud_profile"
+        security_opt:
+          - "apparmor:nextcloud_profile"
         container_name: nextcloud
         security_opt:
           - "apparmor:nextcloud_profile"

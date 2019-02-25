@@ -1,0 +1,21 @@
+#Capability\n
+#Network\n
+inet stream
+#File
+/var/www/html/3rdparty/aws/aws-sdk-php/src/Api/.MapShape.php.axfgPv rwc
+/var/www/html/3rdparty/aws/aws-sdk-php/src/Api/.MapShape.php.axfgPv w
+/var/www/html/3rdparty/aws/aws-sdk-php/src/data/ecr/ r
+/var/www/html/3rdparty/aws/aws-sdk-php/src/data/ecr/ w
+/var/www/html/3rdparty/aws/aws-sdk-php/src/Api/.MapShape.php.axfgPv r
+/var/www/html/3rdparty/aws/aws-sdk-php/src/Api/.MapShape.php.axfgPv rwd
+requested_mask 
+/etc/ld.so.cache r
+/var/lib/docker/aufs/diff/cfc059bdfccdec858f8a8d37166da7369301af3345dcd1881fdff1668f0444d7/etc/ld.so.cache r
+/lib/x86_64-linux-gnu/libcrypt-2.24.so r
+/var/lib/docker/aufs/diff/372e57cb06386738748844a476b32ec855c673f7ddf9805f48ff3f185dab651e/lib/x86_64-linux-gnu/libcrypt-2.24.so r
+/var/www/html/3rdparty/doctrine/dbal/lib/Doctrine/DBAL/Schema/Visitor/CreateSchemaSqlCollector.php r
+/var/www/html/3rdparty/doctrine/dbal/lib/Doctrine/DBAL/Schema/Visitor/ r
+/tmp/.ZendSem.KacSVZ wk
+/tmp/.ZendSem.KacSVZ k
+#Signal
+receive exists unconfined

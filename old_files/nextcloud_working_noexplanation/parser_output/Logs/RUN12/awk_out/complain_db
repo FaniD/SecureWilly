@@ -1,0 +1,20 @@
+#Capability\n
+#Network\n
+inet6 stream
+#File
+/etc/ld.so.cache r
+/var/lib/docker/aufs/diff/c93fe217b4d9be2a1682d8f8d63b6cea73f1c4367a71a660cfcf0c86804a3573/etc/ld.so.cache r
+/lib/x86_64-linux-gnu/libtinfo.so.5.9 r
+/var/lib/docker/aufs/diff/355e65d8d3b5ff91219ab678bd433873ea9bf90c9b23819a12d01f2ca2b5bc32/lib/x86_64-linux-gnu/libtinfo.so.5.9 r
+/tmp/ibV6XEwP rwc
+/var/lib/docker/aufs/diff/e40b7ba3bff4b6e901c9fb0a182cfe4478e5dd3200cca7154bcffe5ad9463fd5/tmp/ibV6XEwP rw
+/tmp/ibV6XEwP d
+/var/lib/docker/aufs/diff/e40b7ba3bff4b6e901c9fb0a182cfe4478e5dd3200cca7154bcffe5ad9463fd5/tmp/ibV6XEwP d
+/tmp/ r
+/var/lib/docker/aufs/diff/e40b7ba3bff4b6e901c9fb0a182cfe4478e5dd3200cca7154bcffe5ad9463fd5/tmp/ r
+/tmp/#sql_1_0.MAI c
+/var/lib/docker/aufs/diff/e40b7ba3bff4b6e901c9fb0a182cfe4478e5dd3200cca7154bcffe5ad9463fd5/tmp/#sql_1_0.MAI c
+/tmp/#sql_1_0.MAI rwc
+/var/lib/docker/aufs/diff/e40b7ba3bff4b6e901c9fb0a182cfe4478e5dd3200cca7154bcffe5ad9463fd5/tmp/#sql_1_0.MAI rw
+/tmp/#sql_1_0.MAD c
+#Signal

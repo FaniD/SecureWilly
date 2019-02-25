@@ -1,0 +1,24 @@
+Feb 22 04:47:46 docker-security47 kernel: [26930.153307] device veth2c99371 entered promiscuous mode
+Feb 22 04:47:46 docker-security47 kernel: [26930.153442] IPv6: ADDRCONF(NETDEV_UP): veth2c99371: link is not ready
+Feb 22 04:47:46 docker-security47 kernel: [26930.416769] IPv6: ADDRCONF(NETDEV_CHANGE): veth2c99371: link becomes ready
+Feb 22 04:47:46 docker-security47 kernel: [26930.416827] br-4063ee0b93e3: port 1(veth2c99371) entered forwarding state
+Feb 22 04:47:46 docker-security47 kernel: [26930.416836] br-4063ee0b93e3: port 1(veth2c99371) entered forwarding state
+Feb 22 04:47:46 docker-security47 kernel: [26930.721952] device veth72aa380 entered promiscuous mode
+Feb 22 04:47:46 docker-security47 kernel: [26930.722069] IPv6: ADDRCONF(NETDEV_UP): veth72aa380: link is not ready
+Feb 22 04:47:46 docker-security47 kernel: [26930.722075] br-4063ee0b93e3: port 2(veth72aa380) entered forwarding state
+Feb 22 04:47:46 docker-security47 kernel: [26930.722080] br-4063ee0b93e3: port 2(veth72aa380) entered forwarding state
+Feb 22 04:47:46 docker-security47 kernel: [26930.869431] type=1400 audit(1550810866.944:3697841): apparmor="ALLOWED" operation="capable" profile="db_profile" pid=1202 comm="gosu" capability=7  capname="setuid"
+Feb 22 04:47:47 docker-security47 kernel: [26931.044620] IPv6: ADDRCONF(NETDEV_CHANGE): veth72aa380: link becomes ready
+Feb 22 04:47:47 docker-security47 kernel: [26931.316334] type=1400 audit(1550810867.392:3697842): apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=1439 comm="rsync" capability=3  capname="fowner"
+Feb 22 04:47:47 docker-security47 kernel: [26931.344553] type=1400 audit(1550810867.420:3697843): apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=1439 comm="rsync" capability=3  capname="fowner"
+Feb 22 04:47:47 docker-security47 kernel: [26931.360977] type=1400 audit(1550810867.436:3697844): apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=1439 comm="rsync" capability=3  capname="fowner"
+Feb 22 04:47:47 docker-security47 kernel: [26931.466228] type=1400 audit(1550810867.540:3697845): apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=1439 comm="rsync" capability=3  capname="fowner"
+Feb 22 04:48:01 docker-security47 kernel: [26945.436185] br-4063ee0b93e3: port 1(veth2c99371) entered forwarding state
+Feb 22 04:48:01 docker-security47 kernel: [26945.756164] br-4063ee0b93e3: port 2(veth72aa380) entered forwarding state
+Feb 22 04:49:00 docker-security47 kernel: [27004.274891] br-4063ee0b93e3: port 2(veth72aa380) entered disabled state
+Feb 22 04:49:00 docker-security47 kernel: [27004.314468] br-4063ee0b93e3: port 2(veth72aa380) entered disabled state
+Feb 22 04:49:00 docker-security47 kernel: [27004.315255] device veth72aa380 left promiscuous mode
+Feb 22 04:49:00 docker-security47 kernel: [27004.315271] br-4063ee0b93e3: port 2(veth72aa380) entered disabled state
+Feb 22 04:49:00 docker-security47 kernel: [27004.623242] br-4063ee0b93e3: port 1(veth2c99371) entered disabled state
+Feb 22 04:49:00 docker-security47 kernel: [27004.624319] device veth2c99371 left promiscuous mode
+Feb 22 04:49:00 docker-security47 kernel: [27004.624327] br-4063ee0b93e3: port 1(veth2c99371) entered disabled state

@@ -1,0 +1,19 @@
+Feb 22 04:52:59 docker-security47 kernel: [27243.807381] device vethdee99ac entered promiscuous mode
+Feb 22 04:52:59 docker-security47 kernel: [27243.807516] IPv6: ADDRCONF(NETDEV_UP): vethdee99ac: link is not ready
+Feb 22 04:53:00 docker-security47 kernel: [27244.108732] IPv6: ADDRCONF(NETDEV_CHANGE): vethdee99ac: link becomes ready
+Feb 22 04:53:00 docker-security47 kernel: [27244.108793] br-4063ee0b93e3: port 1(vethdee99ac) entered forwarding state
+Feb 22 04:53:00 docker-security47 kernel: [27244.108801] br-4063ee0b93e3: port 1(vethdee99ac) entered forwarding state
+Feb 22 04:53:00 docker-security47 kernel: [27244.432889] device veth5bf6139 entered promiscuous mode
+Feb 22 04:53:00 docker-security47 kernel: [27244.433029] IPv6: ADDRCONF(NETDEV_UP): veth5bf6139: link is not ready
+Feb 22 04:53:00 docker-security47 kernel: [27244.433036] br-4063ee0b93e3: port 2(veth5bf6139) entered forwarding state
+Feb 22 04:53:00 docker-security47 kernel: [27244.433042] br-4063ee0b93e3: port 2(veth5bf6139) entered forwarding state
+Feb 22 04:53:00 docker-security47 kernel: [27244.768930] IPv6: ADDRCONF(NETDEV_CHANGE): veth5bf6139: link becomes ready
+Feb 22 04:53:15 docker-security47 kernel: [27259.164307] br-4063ee0b93e3: port 1(vethdee99ac) entered forwarding state
+Feb 22 04:53:15 docker-security47 kernel: [27259.484214] br-4063ee0b93e3: port 2(veth5bf6139) entered forwarding state
+Feb 22 04:54:14 docker-security47 kernel: [27318.214499] br-4063ee0b93e3: port 2(veth5bf6139) entered disabled state
+Feb 22 04:54:14 docker-security47 kernel: [27318.274452] br-4063ee0b93e3: port 2(veth5bf6139) entered disabled state
+Feb 22 04:54:14 docker-security47 kernel: [27318.275243] device veth5bf6139 left promiscuous mode
+Feb 22 04:54:14 docker-security47 kernel: [27318.275255] br-4063ee0b93e3: port 2(veth5bf6139) entered disabled state
+Feb 22 04:54:14 docker-security47 kernel: [27318.559478] br-4063ee0b93e3: port 1(vethdee99ac) entered disabled state
+Feb 22 04:54:14 docker-security47 kernel: [27318.559973] device vethdee99ac left promiscuous mode
+Feb 22 04:54:14 docker-security47 kernel: [27318.559982] br-4063ee0b93e3: port 1(vethdee99ac) entered disabled state

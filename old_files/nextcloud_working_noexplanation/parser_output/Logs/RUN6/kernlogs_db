@@ -1,0 +1,9 @@
+Feb 22 04:51:41 docker-security47 kernel: [27165.211648] device vethddb92ce entered promiscuous mode
+Feb 22 04:51:41 docker-security47 kernel: [27165.211858] IPv6: ADDRCONF(NETDEV_UP): vethddb92ce: link is not ready
+Feb 22 04:51:41 docker-security47 kernel: [27165.488709] IPv6: ADDRCONF(NETDEV_CHANGE): vethddb92ce: link becomes ready
+Feb 22 04:51:41 docker-security47 kernel: [27165.488763] br-4063ee0b93e3: port 1(vethddb92ce) entered forwarding state
+Feb 22 04:51:41 docker-security47 kernel: [27165.488799] br-4063ee0b93e3: port 1(vethddb92ce) entered forwarding state
+Feb 22 04:51:56 docker-security47 kernel: [27180.508196] br-4063ee0b93e3: port 1(vethddb92ce) entered forwarding state
+Feb 22 04:52:55 docker-security47 kernel: [27239.687058] br-4063ee0b93e3: port 1(vethddb92ce) entered disabled state
+Feb 22 04:52:55 docker-security47 kernel: [27239.687563] device vethddb92ce left promiscuous mode
+Feb 22 04:52:55 docker-security47 kernel: [27239.687571] br-4063ee0b93e3: port 1(vethddb92ce) entered disabled state

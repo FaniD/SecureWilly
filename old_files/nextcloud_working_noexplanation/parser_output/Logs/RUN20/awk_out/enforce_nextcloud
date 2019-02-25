@@ -1,0 +1,19 @@
+#Capability\n
+#Network\n
+inet stream
+#File
+/var/www/html/apps/serverinfo/l10n/.de.json.zLdqaZ r
+/var/www/html/apps/serverinfo/l10n/.de.json.zLdqaZ w
+/var/www/html/apps/serverinfo/l10n/.de.json.zLdqaZ rwd
+/var/www/html/apps/serverinfo/l10n/de.json wc
+/var/www/html/apps/serverinfo/l10n/.de_DE.js.6WyWgd c
+/var/www/html/apps/serverinfo/l10n/.de_DE.js.6WyWgd rwc
+/var/www/html/apps/serverinfo/l10n/.de_DE.js.6WyWgd w
+/var/www/html/apps/serverinfo/l10n/.de_DE.js.6WyWgd r
+requested_mask 
+/etc/ld.so.cache r
+/var/lib/docker/aufs/diff/81c90542e8ca7a9c86fd52be511a9696f0dc4851567770ee073e9037459a8bfa/etc/ld.so.cache r
+/lib/x86_64-linux-gnu/libcrypt-2.24.so r
+/var/lib/docker/aufs/diff/dc4f0e8a6c8350e59bc35c5f888f96ed532991d9fe551e85f6425d4186207ad3/lib/x86_64-linux-gnu/libcrypt-2.24.so r
+#Signal
+receive exists unconfined

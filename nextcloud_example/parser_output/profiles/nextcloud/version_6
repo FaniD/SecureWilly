@@ -4,6 +4,7 @@ profile nextcloud_profile flags=(attach_disconnected,mediate_deleted) {
 	/var/www/html/data/* rw,
 	capability fsetid,
 	capability chown,
+	file,  #Allows access to containers filesystem
 	network inet6 dgram,
 	signal (receive) set=(exists) peer=unconfined,
 	network inet stream,
@@ -17,7 +18,6 @@ profile nextcloud_profile flags=(attach_disconnected,mediate_deleted) {
 	mount /var/lib/docker/volumes/nextcloudexample_nextcloud_/_data -> /var/www/html, #Bind host volume to docker container volume
 	deny umount /var/www/html, #Disallow anybody that wants to break this mountpoint
 	signal (receive) set=(kill) peer=unconfined,
-	file,  #This rule is needed so that I can work with files (create files/directories, copy, etc)
 	deny remount /var/www/html/data, #Disallow anybody that wants to remount this mountpoint
 	network inet dgram,
 	capability setuid,
