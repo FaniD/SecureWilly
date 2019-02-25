@@ -9,7 +9,6 @@
         volumes:
                 - nextcloud_:/var/www/html
                 - /home/ubuntu/SecureWilly/nextcloud_example/data:/var/www/html/data
-                - db_:/var/lib/mysql
         environment:
                 - NEXTCLOUD_ADMIN_USER=willy
                 - NEXTCLOUD_ADMIN_PASSWORD=secret

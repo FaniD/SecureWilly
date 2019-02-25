@@ -1,0 +1,19 @@
+     nextcloud:
+        security_opt:
+          - "apparmor:nextcloud_profile"
+        image: nextcloud:latest
+        ports:
+                - 8080:80
+        links:
+                - db
+        volumes:
+                - nextcloud_:/var/www/html
+                - /home/ubuntu/SecureWilly/nextcloud_example/data:/var/www/html/data
+                - db_:/var/lib/mysql
+        environment:
+                - NEXTCLOUD_ADMIN_USER=willy
+                - NEXTCLOUD_ADMIN_PASSWORD=secret
+                - NEXTCLOUD_TABLE_PREFIX=nc_
+                - NEXTCLOUD_DATA_DIR=/var/www/html/data
+        restart: always
+

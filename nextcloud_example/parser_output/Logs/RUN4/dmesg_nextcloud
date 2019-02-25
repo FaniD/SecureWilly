@@ -1,1 +1,1 @@
-[22480.804660] type=1400 audit(1551062882.902:13485224): apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=1778 comm="apache2" capability=7  capname="setuid"
+[49407.456226] type=1400 audit(1551089809.554:21762212): apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=3156 comm="apache2" capability=7  capname="setuid"

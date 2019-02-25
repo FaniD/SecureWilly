@@ -1,0 +1,24 @@
+[22199.887379] device veth6fee0e0 entered promiscuous mode
+[22199.887575] IPv6: ADDRCONF(NETDEV_UP): veth6fee0e0: link is not ready
+[22200.972827] IPv6: ADDRCONF(NETDEV_CHANGE): veth6fee0e0: link becomes ready
+[22200.972907] br-038c28a7fafb: port 1(veth6fee0e0) entered forwarding state
+[22200.972927] br-038c28a7fafb: port 1(veth6fee0e0) entered forwarding state
+[22202.705670] device veth6f77ace entered promiscuous mode
+[22202.705858] IPv6: ADDRCONF(NETDEV_UP): veth6f77ace: link is not ready
+[22204.449165] IPv6: ADDRCONF(NETDEV_CHANGE): veth6f77ace: link becomes ready
+[22204.449272] br-038c28a7fafb: port 2(veth6f77ace) entered forwarding state
+[22204.449282] br-038c28a7fafb: port 2(veth6f77ace) entered forwarding state
+[22209.560471] type=1400 audit(1551062611.658:13485216): apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=32646 comm="apache2" capability=4  capname="fsetid"
+[22209.562019] type=1400 audit(1551062611.658:13485217): apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=300 comm="apache2" capability=6  capname="setgid"
+[22216.028126] br-038c28a7fafb: port 1(veth6fee0e0) entered forwarding state
+[22219.484135] br-038c28a7fafb: port 2(veth6f77ace) entered forwarding state
+[22461.456854] type=1400 audit(1551062863.554:13485218): apparmor="ALLOWED" operation="signal" profile="nextcloud_profile" pid=1716 comm="docker-containe" requested_mask="receive" denied_mask="receive" signal=kill peer="unconfined"
+[22461.697038] br-038c28a7fafb: port 2(veth6f77ace) entered disabled state
+[22462.412981] br-038c28a7fafb: port 2(veth6f77ace) entered disabled state
+[22462.416550] device veth6f77ace left promiscuous mode
+[22462.416564] br-038c28a7fafb: port 2(veth6f77ace) entered disabled state
+[22464.037153] type=1400 audit(1551062866.134:13485219): apparmor="ALLOWED" operation="signal" profile="db_profile" pid=1716 comm="docker-containe" requested_mask="receive" denied_mask="receive" signal=kill peer="unconfined"
+[22464.236574] br-038c28a7fafb: port 1(veth6fee0e0) entered disabled state
+[22464.501778] br-038c28a7fafb: port 1(veth6fee0e0) entered disabled state
+[22464.502575] device veth6fee0e0 left promiscuous mode
+[22464.502587] br-038c28a7fafb: port 1(veth6fee0e0) entered disabled state
