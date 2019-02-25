@@ -12,9 +12,9 @@ chmod 777 ../parser_output/Logs/RUN${round}/kernlogs_all
 sudo dmesg > ../parser_output/Logs/RUN${round}/dmesg_all
 
 #Then separate them for each service/profile
-service_list=(cloudsuitemedia-streamingserver cloudsuitemedia-streamingclient)
+service_list=(db nextcloud)
 for SERVICE in "${service_list[@]}"; do
-	cat ../parser_output/Logs/RUN${round}/kernlogs_all | grep "${SERVICE}" > ../parser_output/Logs/RUN${round}/kernlogs_${SERVICE}
-	cat ../parser_output/Logs/RUN${round}/dmesg_all | grep "${SERVICE}" > ../parser_output/Logs/RUN${round}/dmesg_${SERVICE}
+	cat ../parser_output/Logs/RUN${round}/kernlogs_all | grep "${SERVICE}_profile" > ../parser_output/Logs/RUN${round}/kernlogs_${SERVICE}
+	cat ../parser_output/Logs/RUN${round}/dmesg_all | grep "${SERVICE}_profile" > ../parser_output/Logs/RUN${round}/dmesg_${SERVICE}
 done
 
