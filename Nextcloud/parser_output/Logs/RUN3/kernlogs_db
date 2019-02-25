@@ -1,0 +1,1 @@
+Feb 25 17:34:03 docker-security59 kernel: [75641.680854] type=1400 audit(1551116043.778:32323000): apparmor="ALLOWED" operation="capable" profile="db_profile" pid=10661 comm="gosu" capability=7  capname="setuid"
