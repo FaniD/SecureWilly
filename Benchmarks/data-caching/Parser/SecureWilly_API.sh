@@ -7,7 +7,6 @@ app_run_path=".."
 parser_path="${app_run_path}/Parser"
 dynamic_script_path="${parser_path}/dynamic_scripts"
 
-static=false
 touch empty_file
 
 echo "SecureWily"
@@ -15,30 +14,17 @@ echo "Copyright (c) 2019 Fani Dimou <fani.dimou92@gmail.com>"
 echo ""
 
 #~~~~~~~~~~~~Static Part requirements~~~~~~~~~~~~~~
-#~~~Dockerfile~~~
-echo "Is there a Dockerfile to provide?"
-echo "If yes, give the full path to Dockerfile (<path_to_dockerfile>/Dockerfile), if no, type N:"
-read dockerfile_path
-if [[ "$dockerfile_path" != "N" ]]; then
-	#Wait for docker-compose and then do static analysis
-	static=true
-fi
-echo ""
-
-#~~~Docker-Compose~~~
-echo "Is there a docker-compose.yml to provide?"
-echo "If yes, give the full path to docker-compose.yml (<path_to_yml>/docker-compose.yml), if no, type N:"
-read yml_path
-echo ""
 
 #~~~Dynamic part requirements~~~
 echo "Give the number of services that need a profile for your project:"
+echo "A service is defined by a docker image, either it is built by Dockerfile or uses an existing image, with or without docker-compose file."
 read num_of_services
 echo ""
 echo "Give the name of each service following the next rules:"
 echo "1. The names should not be used for other purposes like named volumes, network etc"
-echo "2. If you provided a docker-compose.yml, make sure that you give the same names of services you used inside the yml file and with the same order as they are in it."
-echo "3. Names of services should be identical to the names of the corresponding images and containers. Make sure to name your containers either in docker-container using container_name or in the testplan commands with flag --name."
+echo "2. If you use a docker-compose.yml, make sure that you give the same names of services you used inside the yml file and with the same order as they are in it."
+echo "3. If you do not use docker-compose.yml, the names of services should be identical to the names of the corresponding images."
+echo "   Do not worry about special characters, just give the exact same name of the image and let SecureWilly worry about it." # Make sure to name your containers either in docker-container using container_name or in the testplan commands with flag --name."
 echo "4. Give one name per line."
 x=0
 x_str=${x}
@@ -73,12 +59,59 @@ sed -i "s,:,,g" a
 services_noslash=$(cat a)
 rm a
 
+#Services in arrays
+IFS=',' read -r -a array <<< "$services"
+IFS=',' read -r -a array_noslash <<<"$services_noslash"
+
+#~~~Dockerfile~~~
+dcrf=0
+for service_i in "${array[@]}"; do 
+	echo "Is there a Dockerfile to provide for image ${service_i}?"
+	echo "If yes, give the full path to Dockerfile (<path_to_dockerfile>/Dockerfile), if no, type N:"
+	read dockerfile_path
+	if [[ "$dockerfile_path" == "N" ]]; then
+		#Wait for docker-compose and then do static analysis
+		touch ${array_noslash[${dcrf}]}_dockerfile_path
+	else
+		#Fix path
+		dockerfile_path=$(echo "${dockerfile_path}" | sed 's#[/]$##') #Strip / from the end if it exists
+		lastpart=$(echo "${dockerfile_path}" | sed 's#.*/##') #Keep last dir of the path
+		#If it does not end with Dockerfile, the user probably wrote the dir's path so add the Dockerfile to it
+		if [[ "$lastpart" != "Dockerfile" ]]; then
+			dockerfile_path=$(echo "${dockerfile_path}" | sed 's#.*/#&#' | sed 's#.*#&/Dockerfile#')
+		fi
+		#Create file for service
+		cat ${dockerfile_path} > ${array_noslash[${dcrf}]}_dockerfile_path
+	fi
+	((dcrf++))
+done
+echo ""
+
+#~~~Docker-Compose~~~
+echo "Is there a docker-compose.yml to provide?"
+echo "Tip: If you intend to use docker exec later, make sure you include container_name inside the yml file for each service."
+echo "If yes, give the full path to docker-compose.yml (<path_to_yml>/docker-compose.yml), if no, type N:"
+read yml_path
+sed -i "5s/yml=.*/yml=false/" dynamic_scripts/9b_clear_compose.sh
+if [[ "$yml_path" != "N" ]]; then
+	#Fix script
+	sed -i "5s/yml=.*/yml=true/" dynamic_scripts/9b_clear_compose.sh
+
+	#Fix path
+	yml_path=$(echo "${yml_path}" | sed 's#[/]$##') #Strip / from the end if it exists
+	lastpart=$(echo "${yml_path}" | sed 's#.*/##') #Keep last dir of the path
+	#If it does not end with docker-compose.yml, the user probably wrote the dir's path so add the docker-compose.yml to it
+	if [[ "$lastpart" != "docker-compose.yml" ]]; then 
+		yml_path=$(echo "${yml_path}" | sed 's#.*/#&#' | sed 's#.*#&/docker-compose.yml#')
+	fi
+fi
+echo ""
+
 #We have the service list ready
 #Sed every script that needs them
 #Dynamic parser seds alone because of its different path
 sed -i "5s,service_list=(.*,service_list=${service_list_noslash}," dynamic_parser.sh
 file_list=(2_cp_to_apparmor.sh*6s 3_load_profiles.sh*4s 4a_complain_mode.sh*4s 4b_enforce_mode.sh*4s 8_logging_files.sh*15s 10a_awk_it_complain.sh*10s 10b_awk_it_enforce.sh*10s 12_complain_enforce_audit.sh*5s)
-#sed -i "9s,service_list=(.*,service_list=${service_list}," dynamic_scripts/9_clear_containers.sh
 for f_i in  "${file_list[@]}"; do
 	file_i=$(echo $f_i | cut -d'*' -f1)
 	line=$(echo $f_i | cut -d'*' -f2) #line var includes s for sed
@@ -90,15 +123,15 @@ echo ""
 echo "Do you need to create a docker network for your images?"
 echo "If yes, specify network's name, if no, type N:"
 read net
-#Fix 6_net.sh & 9_clear_containers.sh
+#Fix 6_net.sh & 9a_clear_containers_net.sh
 sed -i "4s/net=.*/net=false/" dynamic_scripts/6_net.sh
-sed -i "3s/net=.*/net=false/" dynamic_scripts/9_clear_containers.sh
+sed -i "3s/net=.*/net=false/" dynamic_scripts/9a_clear_containers_net.sh
 if [[ "$net" != "N" ]]; then
 	sed -i "4s/net=.*/net=true/" dynamic_scripts/6_net.sh
 	sed -i "6s/create .*/create ${net}/" dynamic_scripts/6_net.sh
 
-	sed -i "3s/net=.*/net=true/" dynamic_scripts/9_clear_containers.sh
-	sed -i "6s/rm .*/rm ${net}/" dynamic_scripts/9_clear_containers.sh
+	sed -i "3s/net=.*/net=true/" dynamic_scripts/9a_clear_containers_net.sh
+	sed -i "6s/rm .*/rm ${net}/" dynamic_scripts/9a_clear_containers_net.sh
 fi
 echo ""
 
@@ -107,9 +140,11 @@ echo "In the next lines please give a testplan that you want to execute inside t
 echo "Make sure you follow the next rules:"
 echo "1. Give a command per line"
 echo "2. Include the docker run commands or docker-compose commands with which you will start and stop your container(s)."
-echo "3. Use the --name flag to run your containers and name them after the name of service you mentioned before."
-echo "4. Do NOT use flag --security-opt to run your containers."
-echo "5. Type Done when you're finished."
+echo "3. If no docker-compose is used, it is wise to use the --name flag to run your containers. If you do not do that, SecureWilly will name your containers after the corresponding service name."
+echo "4. If your image is getting built by Dockerfile, make sure to give the same name to the image as the service you gave before, using docker build <path_to_Dockerfile> -t <service>"
+echo "5. Do NOT use flag --security-opt to run your containers."
+echo "6. If you docker run servers os daemons in general, make sure you add flag -d"
+echo "7. Type Done when you're finished."
 echo "Remember, you are the one who knows how your program works. The commands will be executed in a script, so take all the actions needed to make it work."
 
 while true; do
@@ -134,9 +169,11 @@ while true; do
 		echo "Make sure you follow the next rules:"
 		echo "1. Give a command per line."
 		echo "2. Include the docker run commands or docker-compose commands with which you will start and stop your container(s)."
-		echo "3. Use the --name flag to run your containers and name them after the name of service you mentioned before."
-		echo "4. Do NOT use flag --security-opt to run your containers."
-		echo "5. Type Done when you're finished."
+		echo "3. If no docker-compose is used, it is wise to use the --name flag to run your containers. If you do not do that, SecureWilly will name your containers after the corresponding service name."
+		echo "4. If your image is getting built by Dockerfile, make sure to give the same name to the image as the service you gave before, using docker build <path_to_Dockerfile> -t <service>"
+		echo "5. Do NOT use flag --security-opt to run your containers."
+		echo "6. If you docker run servers os daemons in general, make sure you add flag -d"
+		echo "7. Type Done when you're finished."
 		echo "Remember, you are the one who knows how your program works. The commands will be executed in a script, so take all the actions needed to make it work."
 	else
 		break
@@ -145,24 +182,43 @@ done
 echo ""
 mv run.sh dynamic_scripts/7_run.sh
 
-yml_count=0
-IFS=',' read -r -a array <<< "$services"
-IFS=',' read -r -a array_noslash <<<"$services_noslash"
+containers="("
 if [[ "$yml_path" == "N" ]]; then
 #If docker-compose does not exist, make sure to fix the script so that it includes security-opt flag and create mini docker compose files for each service
 	yml_count=0
 	for service_i in "${array[@]}"; do
 		#Add security-opt flag
+		sed -i "/docker create/ s,${service_i},--security-opt \"apparmor=${array_noslash[${yml_count}]}_profile\" ${service_i}," dynamic_scripts/7_run.sh
 		sed -i "/docker run/ s,${service_i},--security-opt \"apparmor=${array_noslash[${yml_count}]}_profile\" ${service_i}," dynamic_scripts/7_run.sh
 
 		#Convert flags into docker-compose files
 
 		#Separate docker run commands for each service
 		grep -E "docker run.*${service_i}" dynamic_scripts/7_run.sh > run
+		grep -E "docker create.*${service_i}" dynamic_scripts/7_run.sh >> run
 
-		#Find ports
+		#Does the docker run and create have named containers?
+		awk '/ --name / {for(i=1;i<=NF;i++) {if($i ~ /--name/) print $(i+1)}}' run > name
+		wc_name=$(wc -l name | cut -d' ' -f1)
+		if [[ "$yml_count" != 0 ]]; then
+			containers+=" "
+		fi
+		if [[ "$wc_name" == "0" ]]; then
+			containers+="${array_noslash[${yml_count}]}"
+			sed -i "/docker create/ s,${service_i},--name ${array_noslash[${yml_count}]} ${service_i}," dynamic_scripts/7_run.sh
+			sed -i "/docker run/ s,${service_i},--name ${array_noslash[${yml_count}]} ${service_i}," dynamic_scripts/7_run.sh
+		else
+			containers+=$(cat name)
+		fi
+		rm name
+
+		#Find published ports
 		awk '/ -p / {for(i=1;i<=NF;i++) {if($i ~ /-p/) print $(i+1)}}' run > ports
 		sed -i 's,",,g' ports
+
+		#Find exposed ports
+		awk '/ --expose / {for(i=1;i<=NF;i++) {if($i ~ /--expose/) print $(i+1)}}' run > exp_ports
+		sed -i 's,",,g' exp_ports
 
 		#Find volumes
 		sed 's,--volumes-from,,g' run > run_vol
@@ -187,7 +243,7 @@ if [[ "$yml_path" == "N" ]]; then
 		#Start creating mini docker-compose.yml
 		echo "${service_i}:" > ${array_noslash[${yml_count}]}_yml
 	
-		#Ports
+		#Published ports
 		wc_ports=$(wc -l ports | cut -d' ' -f1)
 		if [[ "$wc_ports" != "0" ]]; then
 			echo " ports:" >> ${array_noslash[${yml_count}]}_yml
@@ -196,6 +252,14 @@ if [[ "$yml_path" == "N" ]]; then
 		fi
 		rm ports
 		
+		#Exposed ports
+		wc_eports=$(wc -l exp_ports | cut -d' ' -f1)
+		if [[ "$wc_ports" != "0" ]]; then
+			echo " expose:" >> ${array_noslash[${yml_count}]}_yml
+			sed -i 's,.*,  - "&",g' exp_ports
+			cat exp_ports >> ${array_noslash[${yml_count}]}_yml
+		fi
+		rm exp_ports
 
 		#Volumes
                 wc_volumes=$(wc -l volumes | cut -d' ' -f1)
@@ -243,6 +307,7 @@ if [[ "$yml_path" == "N" ]]; then
                 rm ulimits
 		((yml_count++))
 	done
+	containers+=")"
 else
 #If docker-compose.yml exists, add security-opt and create mini docker compose files for each service
 
@@ -268,8 +333,6 @@ else
 		#String of the next line of each service
 		var1="$(< ${yml_path} sed -n "${x}s/ *//p")"
 		
-		#Index of non whitespace string of next line 
-		#indx=$(awk -v p="$var1" 'index($0,p) {s=$0; m=0; while((n=index(s, p))>0) {m+=n; printf "%s ", m; s=substr(s, n+1) } print ""}' ${yml_path})
 		xx=$(expr $x + 1)
 		#Duplicate the after service name next line
 		sed -i "${x}s/\([^.]*\)/&\n\1/" ${yml_path}
@@ -301,30 +364,65 @@ else
 		y=$(expr $y + $lpp)
 		((z++))
 	done
+	
+	lines_security=$(awk '/security_opt:/ {print NR}' ${yml_path})
+	while IFS= read -r line ; do lines_secopt+="$line,"; done <<< "$lines_security"
+	IFS=',' read -r -a lines_ar <<< "$lines_secopt"
+	line=0
+	line_=0
+	for service_i in "${array_noslash[@]}"; do
+		line_=$(expr ${lines_ar[${line}]} + ${line})
+		#I search every mini yml to see if container name exists
+		awk '/container_name:/ {for(i=1;i<=NF;i++) {if($i ~ /container_name:/) print $(i+1)}}' ${service_i}_yml > name
+		wc_name=$(wc -l name | cut -d' ' -f1)
+		if [[ "$line" != 0 ]]; then
+			containers+=" "
+		fi
+		if [[ "$wc_name" == "0" ]]; then
+		        containers+="${service_i}"
+			#Duplicate the security opt line
+			sed -i "${line_}s/\([^.]*\)/&\n\1/" ${yml_path}
+			#Write the new line on this line so that the syntax stays the same
+			sed -i "${line_}s/security.*/container_name: ${service_i}/" ${yml_path}
+		else
+			containers+=$(cat name)
+		fi
+		((line++))
+		rm name
+	done
+	containers+=")"
 fi
 
-#Run static_parser.py
-if [ "$static" = false ] ; then
-	dockerfile_path="empty_file"
-fi
+#Fix 9a_clear_containers_net.sh to rm the selected containers
+sed -i "9s,container_list=(.*,container_list=${containers}," dynamic_scripts/9a_clear_containers_net.sh
 
 mkdir ${app_run_path}/parser_output
 
 current_dir=$(pwd | sed "s,/*[^/]\+/*$,," |  sed 's#.*/##' | sed 's/_//g' | sed "s/.*/\"&\"/")
-sed -i "s/current_dir = .*/current_dir = ${current_dir}/" static_parser.py
+sed -i "6s/current_dir = .*/current_dir = ${current_dir}/" static_parser.py
 
 yml_count=0
 for service_i in "${array[@]}"; do
 	echo "" >> ${array_noslash[${yml_count}]}_yml
 
-	#Count volumes if exist and fix 11_merge.py
-	echo ${array_noslash[${yml_count}]}
+	#Count volumes if exist
+	#echo ${array_noslash[${yml_count}]}
 	python find_vols.py ${array_noslash[${yml_count}]}_yml
+	
+	#This file is needed in dynamic_analysis
 	mv if_vol if_vol_${array_noslash[${yml_count}]}
-	python static_parser.py ${dockerfile_path} ${array_noslash[${yml_count}]}_yml
+
+	#Run static parser
+	python static_parser.py ${array_noslash[${yml_count}]}_dockerfile_path ${array_noslash[${yml_count}]}_yml
+
+	#Fix profile's name
 	sed -i "3s,static_profile,${array_noslash[${yml_count}]}_profile," static_profile
 	mv static_profile ${app_run_path}/parser_output/${array_noslash[${yml_count}]}_profile
+
+	#Keep yml files in parser output as it may come in handy for the user
 	mv ${array_noslash[${yml_count}]}_yml ${app_run_path}/parser_output/${array_noslash[${yml_count}]}_yml
+	#Delete dockerfiles as the user already has them
+	rm ${array_noslash[${yml_count}]}_dockerfile_path
 	((yml_count++))
 done
 
@@ -337,5 +435,6 @@ sudo chmod +x dynamic_scripts/7_run.sh
 for service_i in "${array_noslash[@]}"; do
 	rm if_vol_${service_i}
 done
-
+echo ""
+echo "--------------------------------------------------------------------------"
 echo "Profiles produced for all services are located in parser_output directory."

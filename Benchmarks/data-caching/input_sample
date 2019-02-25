@@ -1,0 +1,12 @@
+2
+cloudsuite/data-caching:server
+cloudsuite/data-caching:client
+N
+N
+N
+caching_network
+docker run -d --name dc-server --net caching_network -d cloudsuite/data-caching:server -t 4 -m 4096 -n 550
+docker run -it --name dc-client --net caching_network cloudsuite/data-caching:client bash
+docker stop dc-server
+Done
+Y

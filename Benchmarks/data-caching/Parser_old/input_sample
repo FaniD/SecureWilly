@@ -1,9 +1,0 @@
-N
-N
-2
-cloudsuite/data-caching:server
-cloudsuite/data-caching:client
-caching_network
-docker stop streaming_server
-Done
-Y

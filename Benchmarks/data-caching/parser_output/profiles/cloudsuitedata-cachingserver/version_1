@@ -2,7 +2,7 @@
 
 profile cloudsuitedata-cachingserver_profile flags=(attach_disconnected,mediate_deleted) {
 
-	deny ptrace (readby, tracedby), #Confront container breakout attacks
-	file,  #This rule is needed so that I can work with files (create files/directories, copy, etc)
+	file,  #Allows access to containers filesystem
 	/var/lib/docker/* r, #Access to layers of filesystem
+	deny ptrace (readby, tracedby), #Confront container breakout attacks
 }

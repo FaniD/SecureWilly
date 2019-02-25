@@ -80,7 +80,7 @@ for line in data:
         continue
 
 #Volumes here
-   #if ( line.startswith('/scripts') ):
+   #if abc
        #continue
 
     if '/var/lib/docker/' in line:

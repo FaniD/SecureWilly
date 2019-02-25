@@ -1,0 +1,29 @@
+[95018.261929] IPv6: ADDRCONF(NETDEV_UP): br-60c1e784e79b: link is not ready
+[95018.933945] device vethd095340 entered promiscuous mode
+[95018.934151] IPv6: ADDRCONF(NETDEV_UP): vethd095340: link is not ready
+[95018.934164] br-60c1e784e79b: port 1(vethd095340) entered forwarding state
+[95018.934178] br-60c1e784e79b: port 1(vethd095340) entered forwarding state
+[95018.934198] IPv6: ADDRCONF(NETDEV_CHANGE): br-60c1e784e79b: link becomes ready
+[95019.188694] br-60c1e784e79b: port 1(vethd095340) entered disabled state
+[95019.960652] IPv6: ADDRCONF(NETDEV_CHANGE): vethd095340: link becomes ready
+[95019.960694] br-60c1e784e79b: port 1(vethd095340) entered forwarding state
+[95019.960699] br-60c1e784e79b: port 1(vethd095340) entered forwarding state
+[95020.726884] device veth6ebceb7 entered promiscuous mode
+[95020.727373] IPv6: ADDRCONF(NETDEV_UP): veth6ebceb7: link is not ready
+[95020.727383] br-60c1e784e79b: port 2(veth6ebceb7) entered forwarding state
+[95020.727393] br-60c1e784e79b: port 2(veth6ebceb7) entered forwarding state
+[95021.188429] br-60c1e784e79b: port 2(veth6ebceb7) entered disabled state
+[95021.696750] IPv6: ADDRCONF(NETDEV_CHANGE): veth6ebceb7: link becomes ready
+[95021.696823] br-60c1e784e79b: port 2(veth6ebceb7) entered forwarding state
+[95021.696830] br-60c1e784e79b: port 2(veth6ebceb7) entered forwarding state
+[95034.972101] br-60c1e784e79b: port 1(vethd095340) entered forwarding state
+[95036.700229] br-60c1e784e79b: port 2(veth6ebceb7) entered forwarding state
+[96021.864378] hrtimer: interrupt took 10384669 ns
+[96310.813196] br-60c1e784e79b: port 2(veth6ebceb7) entered disabled state
+[96312.027331] br-60c1e784e79b: port 2(veth6ebceb7) entered disabled state
+[96312.028090] device veth6ebceb7 left promiscuous mode
+[96312.028099] br-60c1e784e79b: port 2(veth6ebceb7) entered disabled state
+[96312.692669] br-60c1e784e79b: port 1(vethd095340) entered disabled state
+[96314.866614] br-60c1e784e79b: port 1(vethd095340) entered disabled state
+[96314.867175] device vethd095340 left promiscuous mode
+[96314.867183] br-60c1e784e79b: port 1(vethd095340) entered disabled state

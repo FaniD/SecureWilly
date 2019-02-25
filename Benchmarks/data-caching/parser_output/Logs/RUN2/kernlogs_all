@@ -1,0 +1,33 @@
+Feb 25 22:18:43 docker-security59 kernel: [92721.250691] IPv6: ADDRCONF(NETDEV_UP): br-c0ba05ee739b: link is not ready
+Feb 25 22:18:44 docker-security59 kernel: [92721.983211] device veth1fdca0a entered promiscuous mode
+Feb 25 22:18:44 docker-security59 kernel: [92721.983370] IPv6: ADDRCONF(NETDEV_UP): veth1fdca0a: link is not ready
+Feb 25 22:18:44 docker-security59 kernel: [92721.983376] br-c0ba05ee739b: port 1(veth1fdca0a) entered forwarding state
+Feb 25 22:18:44 docker-security59 kernel: [92721.983388] br-c0ba05ee739b: port 1(veth1fdca0a) entered forwarding state
+Feb 25 22:18:44 docker-security59 kernel: [92721.983410] IPv6: ADDRCONF(NETDEV_CHANGE): br-c0ba05ee739b: link becomes ready
+Feb 25 22:18:44 docker-security59 kernel: [92722.172390] br-c0ba05ee739b: port 1(veth1fdca0a) entered disabled state
+Feb 25 22:18:45 docker-security59 kernel: [92723.028860] IPv6: ADDRCONF(NETDEV_CHANGE): veth1fdca0a: link becomes ready
+Feb 25 22:18:45 docker-security59 kernel: [92723.028944] br-c0ba05ee739b: port 1(veth1fdca0a) entered forwarding state
+Feb 25 22:18:45 docker-security59 kernel: [92723.028951] br-c0ba05ee739b: port 1(veth1fdca0a) entered forwarding state
+Feb 25 22:18:45 docker-security59 kernel: [92723.171218] type=1400 audit(1551133125.266:810195808): apparmor="ALLOWED" operation="create" profile="cloudsuitedata-cachingserver_profile" pid=10482 comm="memcached" family="inet6" sock_type="stream" protocol=6
+Feb 25 22:18:45 docker-security59 kernel: [92723.171234] type=1400 audit(1551133125.266:810195809): apparmor="ALLOWED" operation="setsockopt" profile="cloudsuitedata-cachingserver_profile" pid=10482 comm="memcached" family="inet6" sock_type="stream" protocol=6
+Feb 25 22:18:45 docker-security59 kernel: [92723.171241] type=1400 audit(1551133125.266:810195810): apparmor="ALLOWED" operation="setsockopt" profile="cloudsuitedata-cachingserver_profile" pid=10482 comm="memcached" family="inet6" sock_type="stream" protocol=6
+Feb 25 22:18:45 docker-security59 kernel: [92723.171245] type=1400 audit(1551133125.266:810195811): apparmor="ALLOWED" operation="setsockopt" profile="cloudsuitedata-cachingserver_profile" pid=10482 comm="memcached" family="inet6" sock_type="stream" protocol=6
+Feb 25 22:18:45 docker-security59 kernel: [92723.171250] type=1400 audit(1551133125.266:810195812): apparmor="ALLOWED" operation="setsockopt" profile="cloudsuitedata-cachingserver_profile" pid=10482 comm="memcached" family="inet6" sock_type="stream" protocol=6
+Feb 25 22:18:45 docker-security59 kernel: [92723.171254] type=1400 audit(1551133125.266:810195813): apparmor="ALLOWED" operation="setsockopt" profile="cloudsuitedata-cachingserver_profile" pid=10482 comm="memcached" family="inet6" sock_type="stream" protocol=6
+Feb 25 22:18:45 docker-security59 kernel: [92723.739862] device vethe78fb29 entered promiscuous mode
+Feb 25 22:18:45 docker-security59 kernel: [92723.739974] IPv6: ADDRCONF(NETDEV_UP): vethe78fb29: link is not ready
+Feb 25 22:18:45 docker-security59 kernel: [92723.739980] br-c0ba05ee739b: port 2(vethe78fb29) entered forwarding state
+Feb 25 22:18:45 docker-security59 kernel: [92723.739985] br-c0ba05ee739b: port 2(vethe78fb29) entered forwarding state
+Feb 25 22:18:46 docker-security59 kernel: [92724.176611] br-c0ba05ee739b: port 2(vethe78fb29) entered disabled state
+Feb 25 22:18:46 docker-security59 kernel: [92724.724568] IPv6: ADDRCONF(NETDEV_CHANGE): vethe78fb29: link becomes ready
+Feb 25 22:18:46 docker-security59 kernel: [92724.724605] br-c0ba05ee739b: port 2(vethe78fb29) entered forwarding state
+Feb 25 22:18:46 docker-security59 kernel: [92724.724610] br-c0ba05ee739b: port 2(vethe78fb29) entered forwarding state
+Feb 25 22:19:00 docker-security59 kernel: [92738.076201] br-c0ba05ee739b: port 1(veth1fdca0a) entered forwarding state
+Feb 25 22:19:01 docker-security59 kernel: [92739.740470] br-c0ba05ee739b: port 2(vethe78fb29) entered forwarding state
+Feb 25 22:35:20 docker-security59 kernel: [93718.409081] br-c0ba05ee739b: port 2(vethe78fb29) entered disabled state
+Feb 25 22:35:20 docker-security59 kernel: [93718.661297] br-c0ba05ee739b: port 2(vethe78fb29) entered disabled state
+Feb 25 22:35:20 docker-security59 kernel: [93718.662182] device vethe78fb29 left promiscuous mode
+Feb 25 22:35:20 docker-security59 kernel: [93718.662196] br-c0ba05ee739b: port 2(vethe78fb29) entered disabled state
+Feb 25 22:35:21 docker-security59 kernel: [93719.386735] br-c0ba05ee739b: port 1(veth1fdca0a) entered disabled state
+Feb 25 22:35:21 docker-security59 kernel: [93719.387501] device veth1fdca0a left promiscuous mode
+Feb 25 22:35:21 docker-security59 kernel: [93719.387513] br-c0ba05ee739b: port 1(veth1fdca0a) entered disabled state

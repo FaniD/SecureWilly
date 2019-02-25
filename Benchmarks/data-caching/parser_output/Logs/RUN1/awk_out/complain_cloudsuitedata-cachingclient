@@ -1,0 +1,9 @@
+#Capability\n
+#Network\n
+inet dgram
+inet stream
+#File
+requested_mask 
+#Signal
+receive exists unconfined
+receive kill unconfined
