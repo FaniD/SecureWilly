@@ -273,7 +273,7 @@ for i in xrange(len(data)): #because we will need the next line
             #If source does not start with / then it is not a path but a named volume
             #So we change it into the real host path
             if (not src.startswith('/')):
-                src="/var/lib/docker/volumes/" + current_dir + "_" + src + "/_data"
+                src="/var/lib/docker/volumes/" + current_dir.lower() + "_" + src + "/_data"
 
             #If there is a mount option:
             if len(src_mntpnt)==3:
