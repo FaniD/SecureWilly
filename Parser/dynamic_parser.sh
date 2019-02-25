@@ -160,7 +160,7 @@ while true; do
 done
 
 #Audit flag runs (complain & enforce)
-
+: <<'END'
 y=${y:-$i}
 #########################
 while true; do
@@ -271,6 +271,7 @@ while true; do
 	fi
 done
 ######################
+END
 
 #version_{i} is the last profile
 #Delete audit flag now
