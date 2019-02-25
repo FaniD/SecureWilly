@@ -433,4 +433,6 @@ sudo chmod +x dynamic_scripts/7_run.sh
 for service_i in "${array_noslash[@]}"; do
 	rm if_vol_${service_i}
 done
+echo ""
+echo "--------------------------------------------------------------------------"
 echo "Profiles produced for all services are located in parser_output directory."
