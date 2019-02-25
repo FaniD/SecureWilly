@@ -55,6 +55,7 @@ expose = 'EXPOSE'
 #Parse the whole file, line per line
 for line in data:
 
+    #Exposed ports
     if expose in line:
         line = line.split(' ')
         port_proto = line[1]
@@ -75,21 +76,27 @@ for line in data:
         if int(port_cont) < 1024:
             static_profile.append('\tcapability net_bind_service,  #This capability is needed to bind a socket to Internet domain privileged ports\n')
 
-    if user2 in line:
-    #USER command is found so we consider that there must be given the permission to switch between users
+
+    #Users
     #There should be permission to switch only to this user but athough it is given in the documentation, this specification is not yet implemented:
     #setuid -> userA
+    #static_profile.append(setuid_setgid_rule)
+    if user1 in line:
+        #USER found. Augment the counter and keep the name in names list
+        line = line.strip('\n')
+        line = line.split(' ')
+        user1_counter+=1
+        user1_names.append(line[1])
+
+    if user2 in line:
+        #Run useradd found: Augment the counter and keep the name in names list
+        #There should be permission to switch only to this user but athough it is given in the documentation, this specification is not yet implemented:
+        #setuid -> userA
         #static_profile.append(setuid_setgid_rule)
         line = line.strip('\n')
         line = line.split(' ')
         user2_counter+=1
         user2_names.append(line[2])
-
-    if user1 in line:
-        line = line.strip('\n')
-        line = line.split(' ')
-        user1_counter+=1
-        user1_names.append(line[1])
 
     if chmod in line:
     #Chmod found so we have to deal with files (file rule) and fix sticky bits and permissions
@@ -173,7 +180,7 @@ for line in data:
 	#Add chown rule
 	#static_profile.append(chown_rule)        
 
-#Count users used in Dockerfile
+#Count number of users used and added in Dockerfile to determine if there should be a switching at the image or not
 if user1_counter>1:
     static_profile.append(setuid_setgid_rule)
 if user2_counter==1:
@@ -181,6 +188,7 @@ if user2_counter==1:
         if user1_names[0]!=user2_names[0]:
             static_profile.append(setuid_setgid_rule)
     else:
+        #This is about 0 USER commands (>1 is already taken into account)
         static_profile.append(setuid_setgid_rule)
 if user2_counter>1:
     static_profile.append(setuid_setgid_rule)
