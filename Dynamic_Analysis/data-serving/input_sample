@@ -1,0 +1,13 @@
+2
+cloudsuite/data-serving:server
+cloudsuite/data-serving:client
+N
+N
+N
+serving_network
+docker run --name cassandra-server --net serving_network cloudsuite/data-serving:server cassandra
+$ docker run --name cassandra-client --net serving_network cloudsuite/data-serving:client "cassandra-server"
+
+docker stop cassandra-server
+Done
+Y

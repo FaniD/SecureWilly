@@ -1,0 +1,9 @@
+#include <tunables/global>
+
+profile cloudsuiteweb-searchserver_profile flags=(attach_disconnected,mediate_deleted) {
+
+	network tcp,  #Grain access to networking - ports forwarding
+	deny ptrace (readby, tracedby), #Confront container breakout attacks
+	file,  #This rule is needed so that I can work with files (create files/directories, copy, etc)
+	/var/lib/docker/* r, #Access to layers of filesystem
+}

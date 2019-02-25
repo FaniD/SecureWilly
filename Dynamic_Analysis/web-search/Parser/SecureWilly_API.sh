@@ -92,10 +92,10 @@ echo "Is there a docker-compose.yml to provide?"
 echo "Tip: If you intend to use docker exec later, make sure you include container_name inside the yml file for each service."
 echo "If yes, give the full path to docker-compose.yml (<path_to_yml>/docker-compose.yml), if no, type N:"
 read yml_path
-sed -i "5s/yml=.*/yml=false/" dynamic_scripts/9b_clear_compose.sh
+sed -i "20s/yml=.*/yml=false/" dynamic_scripts/9_clear_containers.sh
 if [[ "$yml_path" != "N" ]]; then
 	#Fix script
-	sed -i "5s/yml=.*/yml=true/" dynamic_scripts/9b_clear_compose.sh
+	sed -i "20s/yml=.*/yml=true/" dynamic_scripts/9_clear_containers.sh
 
 	#Fix path
 	yml_path=$(echo "${yml_path}" | sed 's#[/]$##') #Strip / from the end if it exists
@@ -123,15 +123,15 @@ echo ""
 echo "Do you need to create a docker network for your images?"
 echo "If yes, specify network's name, if no, type N:"
 read net
-#Fix 6_net.sh & 9a_clear_containers_net.sh
+#Fix 6_net.sh & 9_clear_containers.sh
 sed -i "4s/net=.*/net=false/" dynamic_scripts/6_net.sh
-sed -i "3s/net=.*/net=false/" dynamic_scripts/9a_clear_containers_net.sh
+sed -i "3s/net=.*/net=false/" dynamic_scripts/9_clear_containers.sh
 if [[ "$net" != "N" ]]; then
 	sed -i "4s/net=.*/net=true/" dynamic_scripts/6_net.sh
 	sed -i "6s/create .*/create ${net}/" dynamic_scripts/6_net.sh
 
-	sed -i "3s/net=.*/net=true/" dynamic_scripts/9a_clear_containers_net.sh
-	sed -i "6s/rm .*/rm ${net}/" dynamic_scripts/9a_clear_containers_net.sh
+	sed -i "3s/net=.*/net=true/" dynamic_scripts/9_clear_containers.sh
+	sed -i "6s/rm .*/rm ${net}/" dynamic_scripts/9_clear_containers.sh
 fi
 echo ""
 
@@ -379,8 +379,8 @@ else
 	containers+=")"
 fi
 
-#Fix 9a_clear_containers_net.sh to rm the selected containers
-sed -i "9s,container_list=(.*,container_list=${containers}," dynamic_scripts/9a_clear_containers_net.sh
+#Fix 9_clear_containers.sh to rm the selected containers
+sed -i "9s,container_list=(.*,container_list=${containers}," dynamic_scripts/9_clear_containers.sh
 
 mkdir ${app_run_path}/parser_output
 

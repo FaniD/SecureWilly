@@ -2,7 +2,7 @@
 
 #Change this with the services I have each time
 #Also do that in 2_cp, 3, 4a, 4b, 9, 10a, 10b, 12, metrics 
-service_list=(cloudsuitemedia-streamingserver cloudsuitemedia-streamingclient cloudsuitemedia-streamingdataset)
+service_list=(cloudsuiteweb-searchserver cloudsuiteweb-searchclient)
 
 app_run_path=".."
 parser_path="${app_run_path}/Parser"
@@ -63,9 +63,7 @@ while true; do
 
 	./${dynamic_script_path}/7_run.sh
 	echo $i | source ${dynamic_script_path}/8_logging_files.sh
-	./${dynamic_script_path}/9a_clear_containers_net.sh
-	./${dynamic_script_path}/9b_clear_compose.sh
-	./${dynamic_script_path}/9c_clear_volumes.sh
+	./${dynamic_script_path}/9_clear_containers.sh
 	echo $i | source ${dynamic_script_path}/10a_awk_it_complain.sh
 	x=${x:-$i}
 	((x++))
@@ -78,6 +76,7 @@ while true; do
 				python ${dynamic_script_path}/1_abort_network_rule.py $SERVICE
 			fi
 		fi
+		abort_net=false
 		
 		vol_str=$(cut -d'%' -f1 if_vol_${SERVICE})
 		num_vols=$(cut -d'%' -f2 if_vol_${SERVICE})
@@ -93,7 +92,6 @@ while true; do
 		fi
 		((lp_count++))
 	done
-	abort_net=false
 	echo $x | source ${dynamic_script_path}/12_complain_enforce_audit.sh
 	enforce_time='1'
 	for SERVICE in "${service_list[@]}"; do
@@ -110,7 +108,6 @@ while true; do
 		#echo "Inside enforce time = ${enforce_time}"
 		break
 	fi	
-	cp -r /output /parser_output/output_run_${i}
 done
 
 while true; do
@@ -121,9 +118,7 @@ while true; do
 	./${dynamic_script_path}/6_net.sh
 	./${dynamic_script_path}/7_run.sh
 	echo $i | source ${dynamic_script_path}/8_logging_files.sh
-	./${dynamic_script_path}/9a_clear_containers_net.sh
-	./${dynamic_script_path}/9b_clear_compose.sh
-	./${dynamic_script_path}/9c_clear_volumes.sh
+	./${dynamic_script_path}/9_clear_containers.sh
 	echo $i | source ${dynamic_script_path}/10b_awk_it_enforce.sh
 	x=${x:-$i}
 	((x++))
@@ -158,7 +153,6 @@ while true; do
 	then
 		break
 	fi
-	cp -r /output /parser_output/output_run_${i}
 done
 
 #Audit flag runs (complain & enforce)
@@ -180,9 +174,7 @@ while true; do
 	./${dynamic_script_path}/6_net.sh
 	./${dynamic_script_path}/7_run.sh
 	echo $i | source ${dynamic_script_path}/8_logging_files.sh
-	./${dynamic_script_path}/9a_clear_containers_net.sh
-	./${dynamic_script_path}/9b_clear_compose.sh
-	./${dynamic_script_path}/9c_clear_volumes.sh
+	./${dynamic_script_path}/9_clear_containers.sh
 	echo $i | source ${dynamic_script_path}/10a_awk_it_complain.sh
 	x=${x:-$i}
 	((x++))
@@ -231,9 +223,7 @@ while true; do
 	./${dynamic_script_path}/6_net.sh
 	./${dynamic_script_path}/7_run.sh
 	echo $i | source ${dynamic_script_path}/8_logging_files.sh
-	./${dynamic_script_path}/9a_clear_containers_net.sh
-	./${dynamic_script_path}/9b_clear_compose.sh
-	./${dynamic_script_path}/9c_clear_volumes.sh
+	./${dynamic_script_path}/9_clear_containers.sh
 	echo $i | source ${dynamic_script_path}/10b_awk_it_enforce.sh
 	x=${x:-$i}
         ((x++))
@@ -273,7 +263,6 @@ while true; do
 	fi
 done
 ######################
-
 
 #version_{i} is the last profile
 #Delete audit flag now

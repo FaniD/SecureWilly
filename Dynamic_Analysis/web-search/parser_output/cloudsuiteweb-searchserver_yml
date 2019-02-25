@@ -1,0 +1,4 @@
+cloudsuite/web-search:server:
+ ports:
+  - "8983:8983"
+

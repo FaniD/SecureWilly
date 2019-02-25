@@ -1,0 +1,11 @@
+2
+cloudsuite/twitter-dataset-graph
+cloudsuite/graph-analytics
+N
+N
+N
+N
+docker create --name data cloudsuite/twitter-dataset-graph
+docker run --rm --volumes-from data cloudsuite/graph-analytics
+Done
+Y
