@@ -143,7 +143,8 @@ echo "2. Include the docker run commands or docker-compose commands with which y
 echo "3. If no docker-compose is used, it is wise to use the --name flag to run your containers. If you do not do that, SecureWilly will name your containers after the corresponding service name."
 echo "4. If your image is getting built by Dockerfile, make sure to give the same name to the image as the service you gave before, using docker build <path_to_Dockerfile> -t <service>"
 echo "5. Do NOT use flag --security-opt to run your containers."
-echo "6. Type Done when you're finished."
+echo "6. If you docker run servers os daemons in general, make sure you add flag -d"
+echo "7. Type Done when you're finished."
 echo "Remember, you are the one who knows how your program works. The commands will be executed in a script, so take all the actions needed to make it work."
 
 while true; do
@@ -171,7 +172,8 @@ while true; do
 		echo "3. If no docker-compose is used, it is wise to use the --name flag to run your containers. If you do not do that, SecureWilly will name your containers after the corresponding service name."
 		echo "4. If your image is getting built by Dockerfile, make sure to give the same name to the image as the service you gave before, using docker build <path_to_Dockerfile> -t <service>"
 		echo "5. Do NOT use flag --security-opt to run your containers."
-		echo "6. Type Done when you're finished."
+		echo "6. If you docker run servers os daemons in general, make sure you add flag -d"
+		echo "7. Type Done when you're finished."
 		echo "Remember, you are the one who knows how your program works. The commands will be executed in a script, so take all the actions needed to make it work."
 	else
 		break
@@ -428,7 +430,7 @@ rm empty_file
 
 sudo chmod +x dynamic_scripts/7_run.sh
 #Dynamic_parser
-#./dynamic_parser.sh
+./dynamic_parser.sh
 
 for service_i in "${array_noslash[@]}"; do
 	rm if_vol_${service_i}
