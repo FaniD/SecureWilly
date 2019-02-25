@@ -23,7 +23,7 @@ services:
         container_name: nextcloud
         security_opt:
           - "apparmor:nextcloud_profile"
-        image: nextcloud
+        image: nextcloud:latest
         ports:
                 - 8080:80
         links:
@@ -31,7 +31,7 @@ services:
         volumes:
                 - nextcloud_:/var/www/html
                 - /home/ubuntu/SecureWilly/nextcloud_example/data:/var/www/html/data
-               
+                - db_:/var/lib/mysql
         environment:
                 - NEXTCLOUD_ADMIN_USER=willy
                 - NEXTCLOUD_ADMIN_PASSWORD=secret

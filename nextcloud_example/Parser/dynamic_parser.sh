@@ -63,7 +63,9 @@ while true; do
 
 	./${dynamic_script_path}/7_run.sh
 	echo $i | source ${dynamic_script_path}/8_logging_files.sh
-	./${dynamic_script_path}/9_clear_containers.sh
+	./${dynamic_script_path}/9a_clear_containers_net.sh
+	./${dynamic_script_path}/9b_clear_compose.sh
+	./${dynamic_script_path}/9c_clear_volumes.sh
 	echo $i | source ${dynamic_script_path}/10a_awk_it_complain.sh
 	x=${x:-$i}
 	((x++))
@@ -76,7 +78,7 @@ while true; do
 				python ${dynamic_script_path}/1_abort_network_rule.py $SERVICE
 			fi
 		fi
-		abort_net=false
+		
 		vol_str=$(cut -d'%' -f1 if_vol_${SERVICE})
 		num_vols=$(cut -d'%' -f2 if_vol_${SERVICE})
 		if [[ "$num_vols" == "0" ]]; then
@@ -91,6 +93,7 @@ while true; do
 		fi
 		((lp_count++))
 	done
+	abort_net=false
 	echo $x | source ${dynamic_script_path}/12_complain_enforce_audit.sh
 	enforce_time='1'
 	for SERVICE in "${service_list[@]}"; do
@@ -117,7 +120,9 @@ while true; do
 	./${dynamic_script_path}/6_net.sh
 	./${dynamic_script_path}/7_run.sh
 	echo $i | source ${dynamic_script_path}/8_logging_files.sh
-	./${dynamic_script_path}/9_clear_containers.sh
+	./${dynamic_script_path}/9a_clear_containers_net.sh
+	./${dynamic_script_path}/9b_clear_compose.sh
+	./${dynamic_script_path}/9c_clear_volumes.sh
 	echo $i | source ${dynamic_script_path}/10b_awk_it_enforce.sh
 	x=${x:-$i}
 	((x++))
@@ -173,7 +178,9 @@ while true; do
 	./${dynamic_script_path}/6_net.sh
 	./${dynamic_script_path}/7_run.sh
 	echo $i | source ${dynamic_script_path}/8_logging_files.sh
-	./${dynamic_script_path}/9_clear_containers.sh
+	./${dynamic_script_path}/9a_clear_containers_net.sh
+	./${dynamic_script_path}/9b_clear_compose.sh
+	./${dynamic_script_path}/9c_clear_volumes.sh
 	echo $i | source ${dynamic_script_path}/10a_awk_it_complain.sh
 	x=${x:-$i}
 	((x++))
@@ -222,7 +229,9 @@ while true; do
 	./${dynamic_script_path}/6_net.sh
 	./${dynamic_script_path}/7_run.sh
 	echo $i | source ${dynamic_script_path}/8_logging_files.sh
-	./${dynamic_script_path}/9_clear_containers.sh
+	./${dynamic_script_path}/9a_clear_containers_net.sh
+	./${dynamic_script_path}/9b_clear_compose.sh
+	./${dynamic_script_path}/9c_clear_volumes.sh
 	echo $i | source ${dynamic_script_path}/10b_awk_it_enforce.sh
 	x=${x:-$i}
         ((x++))

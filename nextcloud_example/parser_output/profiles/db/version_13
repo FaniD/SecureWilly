@@ -1,0 +1,57 @@
+#include <tunables/global>
+
+profile db_profile flags=(audit,attach_disconnected,mediate_deleted) {
+	/tmp/ib9077dI w,
+	/tmp/ibahjNMc w,
+	/var/lib/mysql/* rw,
+	/proc/10/status r,
+	/tmp/#sql_1_0.MAD r,
+	/run/mysqld/mysqld.pid w,
+	network inet6 dgram,
+	/tmp/ibgr0Ivr rw,
+	/tmp/ibzhYH7U rw,
+	/etc/ld.so.cache r,
+	signal (receive) set=(usr1) peer=db_profile,
+	/usr/ r,
+	/tmp/#sql_1_0.MAI r,
+	/sys/devices/system/node/ r,
+	/usr/share/zoneinfo/America/Louisville r,
+	/tmp/ r,
+	signal (send) set=(usr1) peer=db_profile,
+	/tmp/ibahjNMc rw,
+	/var/lib/docker/* r, #Access to layers of filesystem
+	/ r,
+	capability setgid,
+	/tmp/ib2DcH7e rw,
+	capability dac_override,
+	/lib/x86_64-linux-gnu/libtinfo.so.5.9 r,
+	/sys/devices/system/node/node0/meminfo r,
+	network inet6 stream,
+	network inet dgram,
+	/tmp/#sql_1_0.MAD w,
+	/usr/share/zoneinfo/America/Kentucky/Monticello r,
+	/usr/share/zoneinfo/America/Aruba r,
+	/tmp/ib2DcH7e w,
+	file,  #This rule is needed so that I can work with files (create files/directories, copy, etc)
+	/usr/share/zoneinfo/America/Danmarkshavn r,
+	/usr/bin/gawk r,
+	mount /var/lib/docker/volumes/nextcloudexample_db_/_data -> /var/lib/mysql, #Bind host volume to docker container volume
+	capability setuid,
+	deny ptrace (readby, tracedby), #Confront container breakout attacks
+	/sys/devices/system/cpu/ r,
+	/tmp/ib9077dI rw,
+	/tmp/ibgr0Ivr w,
+	/var/ r,
+	/tmp/ibzhYH7U w,
+	/usr/share/zoneinfo/posix/America/Kentucky/ r,
+	signal (receive) set=(term) peer=db_profile,
+	/usr/share/zoneinfo/UTC r,
+	/tmp/#sql_1_0.MAD rw,
+	/tmp/#sql_1_0.MAI w,
+	/usr/share/zoneinfo/America/Dawson r,
+	signal (receive) set=(kill) peer=unconfined,
+	deny remount /var/lib/mysql, #Disallow anybody that wants to remount this mountpoint
+	deny umount /var/lib/mysql, #Disallow anybody that wants to break this mountpoint
+	signal (send) set=(term) peer=db_profile,
+	/tmp/#sql_1_0.MAI rw,
+}

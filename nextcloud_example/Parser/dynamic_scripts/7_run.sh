@@ -5,9 +5,7 @@ mkdir /home/ubuntu/SecureWilly/nextcloud_example/data
 sudo chown www-data:www-data /home/ubuntu/SecureWilly/nextcloud_example/data
 
 docker-compose up -d
-echo "kolla sto docker compse"
 sleep 60
-echo "ksekina ta exec"
 docker exec -u www-data nextcloud php occ status > answer
 answer=$(cat answer | grep 'Nextcloud is not installed')
 while [ -z "$answer" ]

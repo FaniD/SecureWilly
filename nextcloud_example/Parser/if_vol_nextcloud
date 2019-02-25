@@ -1,1 +1,1 @@
-( line.startswith('/var/www/html') or line.startswith('/var/www/html/data') ):%2
+( line.startswith('/var/www/html') or line.startswith('/var/www/html/data') or line.startswith('/var/lib/mysql') ):%3

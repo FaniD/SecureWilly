@@ -1,0 +1,91 @@
+#include <tunables/global>
+
+profile nextcloud_profile flags=(audit,attach_disconnected,mediate_deleted) {
+	/tmp/.ZendSem.IgmWZV k,
+	network inet6 dgram,
+	mount /var/lib/docker/volumes/nextcloudexample_nextcloud_/_data -> /var/www/html, #Bind host volume to docker container volume
+	/tmp/.ZendSem.u7RUkW wk,
+	/usr/src/nextcloud/apps/oauth2/l10n/es_UY.json r,
+	/lib/x86_64-linux-gnu/libcrypt-2.24.so r,
+	/tmp/.ZendSem.kSZZYh wk,
+	/usr/src/nextcloud/apps/password_policy/lists/list-8.php r,
+	/usr/src/nextcloud/apps/oauth2/l10n/tr.json r,
+	/usr/src/nextcloud/apps/password_policy/lists/list-9.php r,
+	/var/lib/docker/* r, #Access to layers of filesystem
+	capability setgid,
+	/etc/apache2/mods-available/mpm_prefork.load r,
+	signal (receive) set=(usr2) peer=nextcloud_profile,
+	capability dac_override,
+	/tmp/.ZendSem.dxEt2v wk,
+	/tmp/.ZendSem.cLBkX9 wk,
+	/tmp/.ZendSem.tuh372 wk,
+	/tmp/.ZendSem.aUum6T wk,
+	/usr/src/nextcloud/apps/password_policy/templates/settings-admin.php r,
+	deny remount /var/www/html, #Disallow anybody that wants to remount this mountpoint
+	/tmp/.ZendSem.4Ez9oh k,
+	/usr/src/nextcloud/apps/files_texteditor/css/DroidSansMono/DroidSansMono-webfont.eot r,
+	/tmp/.ZendSem.aZjfpz wk,
+	mount /home/ubuntu/SecureWilly/nextcloud_example/data -> /var/www/html/data, #Bind host volume to docker container volume
+	/tmp/.ZendSem.JIiZOs wk,
+	/var/www/html/data/* rw,
+	/tmp/.ZendSem.HwW2OL wk,
+	capability chown,
+	/usr/src/nextcloud/apps/gallery/lib/Config/ConfigParser.php r,
+	/tmp/.ZendSem.HwW2OL k,
+	/usr/src/nextcloud/apps/twofactor_backupcodes/l10n/ r,
+	/usr/src/nextcloud/apps/files_videoplayer/js/videojs/video-js.css r,
+	network inet stream,
+	network inet6 stream,
+	/tmp/.ZendSem.dxEt2v k,
+	/usr/src/nextcloud/apps/password_policy/lists/list-6.php r,
+	/usr/src/nextcloud/apps/password_policy/lists/list-7.php r,
+	deny umount /var/www/html, #Disallow anybody that wants to break this mountpoint
+	/tmp/.ZendSem.sbm4Vs wk,
+	/tmp/.ZendSem.dsW4E2 wk,
+	/tmp/.ZendSem.KPteai wk,
+	/tmp/.ZendSem.aUum6T k,
+	network inet dgram,
+	capability setuid,
+	/usr/src/nextcloud/apps/firstrunwizard/l10n/it.json r,
+	/usr/local/lib/php/extensions/no-debug-non-zts-20170718/apcu.so r,
+	/tmp/.ZendSem.EIzmki wk,
+	/usr/src/nextcloud/apps/gallery/lib/Config/ConfigValidator.php r,
+	/usr/src/nextcloud/apps/oauth2/l10n/pt_BR.json r,
+	deny remount /var/lib/mysql, #Disallow anybody that wants to remount this mountpoint
+	/usr/src/nextcloud/apps/files_pdfviewer/vendor/pdfjs/web/viewer.css r,
+	deny umount /var/lib/mysql, #Disallow anybody that wants to break this mountpoint
+	/var/lib/mysql/* rw,
+	capability fsetid,
+	/usr/src/nextcloud/apps/files_pdfviewer/vendor/pdfjs/build/pdf.worker.js.map r,
+	/usr/src/nextcloud/apps/serverinfo/l10n/es_UY.js r,
+	/tmp/.ZendSem.V2vsHS k,
+	capability fowner,
+	/usr/lib/apache2/modules/mod_mime.so r,
+	/usr/local/lib/php/extensions/no-debug-non-zts-20170718/opcache.so r,
+	/usr/src/nextcloud/apps/oauth2/l10n/lv.js r,
+	/usr/src/nextcloud/apps/oauth2/l10n/cs.js r,
+	deny remount /var/www/html/data, #Disallow anybody that wants to remount this mountpoint
+	mount /var/lib/docker/volumes/nextcloudexample_db_/_data -> /var/lib/mysql, #Bind host volume to docker container volume
+	/tmp/.ZendSem.YwYfqE k,
+	/usr/lib/apache2/modules/mod_mpm_prefork.so r,
+	/tmp/.ZendSem.4Ez9oh wk,
+	signal (send) set=(usr2) peer=nextcloud_profile,
+	/usr/src/nextcloud/apps/files_pdfviewer/vendor/pdfjs/web/debugger.js r,
+	/tmp/.ZendSem.XrVXSW wk,
+	/tmp/.ZendSem.IgmWZV wk,
+	/tmp/.ZendSem.EIzmki k,
+	/usr/src/nextcloud/apps/files_pdfviewer/vendor/pdfjs/web/viewer.js r,
+	signal (receive) set=(exists) peer=unconfined,
+	/etc/ld.so.cache r,
+	/tmp/.ZendSem.KPteai k,
+	/tmp/.ZendSem.JIiZOs k,
+	/var/www/html/* rw,
+	file,  #This rule is needed so that I can work with files (create files/directories, copy, etc)
+	deny ptrace (readby, tracedby), #Confront container breakout attacks
+	/tmp/.ZendSem.V2vsHS wk,
+	deny umount /var/www/html/data, #Disallow anybody that wants to break this mountpoint
+	signal (receive) set=(kill) peer=unconfined,
+	/usr/src/nextcloud/apps/twofactor_backupcodes/l10n/ru.js r,
+	/tmp/.ZendSem.YwYfqE wk,
+	capability net_bind_service,  #This capability is needed to bind a socket to Internet domain privileged ports
+}

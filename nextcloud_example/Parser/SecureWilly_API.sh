@@ -23,7 +23,7 @@ echo ""
 echo "Give the name of each service following the next rules:"
 echo "1. The names should not be used for other purposes like named volumes, network etc"
 echo "2. If you use a docker-compose.yml, make sure that you give the same names of services you used inside the yml file and with the same order as they are in it."
-echo "3. Names of services should be identical to the names of the corresponding images."
+echo "3. If you do not use docker-compose.yml, the names of services should be identical to the names of the corresponding images."
 echo "   Do not worry about special characters, just give the exact same name of the image and let SecureWilly worry about it." # Make sure to name your containers either in docker-container using container_name or in the testplan commands with flag --name."
 echo "4. Give one name per line."
 x=0
@@ -73,6 +73,14 @@ for service_i in "${array[@]}"; do
 		#Wait for docker-compose and then do static analysis
 		touch ${array_noslash[${dcrf}]}_dockerfile_path
 	else
+		#Fix path
+		dockerfile_path=$(echo "${dockerfile_path}" | sed 's#[/]$##') #Strip / from the end if it exists
+		lastpart=$(echo "${dockerfile_path}" | sed 's#.*/##') #Keep last dir of the path
+		#If it does not end with Dockerfile, the user probably wrote the dir's path so add the Dockerfile to it
+		if [[ "$lastpart" != "Dockerfile" ]]; then
+			dockerfile_path=$(echo "${dockerfile_path}" | sed 's#.*/#&#' | sed 's#.*#&/Dockerfile#')
+		fi
+		#Create file for service
 		cat ${dockerfile_path} > ${array_noslash[${dcrf}]}_dockerfile_path
 	fi
 	((dcrf++))
@@ -81,11 +89,21 @@ echo ""
 
 #~~~Docker-Compose~~~
 echo "Is there a docker-compose.yml to provide?"
+echo "Tip: If you intend to use docker exec later, make sure you include container_name inside the yml file for each service."
 echo "If yes, give the full path to docker-compose.yml (<path_to_yml>/docker-compose.yml), if no, type N:"
 read yml_path
-sed -i "20s/yml=.*/yml=false/" dynamic_scripts/9_clear_containers.sh
-if [[ "$yml" != "N" ]]; then
-	sed -i "20s/yml=.*/yml=true/" dynamic_scripts/9_clear_containers.sh
+sed -i "5s/yml=.*/yml=false/" dynamic_scripts/9b_clear_compose.sh
+if [[ "$yml_path" != "N" ]]; then
+	#Fix script
+	sed -i "5s/yml=.*/yml=true/" dynamic_scripts/9b_clear_compose.sh
+
+	#Fix path
+	yml_path=$(echo "${yml_path}" | sed 's#[/]$##') #Strip / from the end if it exists
+	lastpart=$(echo "${yml_path}" | sed 's#.*/##') #Keep last dir of the path
+	#If it does not end with docker-compose.yml, the user probably wrote the dir's path so add the docker-compose.yml to it
+	if [[ "$lastpart" != "docker-compose.yml" ]]; then 
+		yml_path=$(echo "${yml_path}" | sed 's#.*/#&#' | sed 's#.*#&/docker-compose.yml#')
+	fi
 fi
 echo ""
 
@@ -105,15 +123,15 @@ echo ""
 echo "Do you need to create a docker network for your images?"
 echo "If yes, specify network's name, if no, type N:"
 read net
-#Fix 6_net.sh & 9_clear_containers.sh
+#Fix 6_net.sh & 9a_clear_containers_net.sh
 sed -i "4s/net=.*/net=false/" dynamic_scripts/6_net.sh
-sed -i "3s/net=.*/net=false/" dynamic_scripts/9_clear_containers.sh
+sed -i "3s/net=.*/net=false/" dynamic_scripts/9a_clear_containers_net.sh
 if [[ "$net" != "N" ]]; then
 	sed -i "4s/net=.*/net=true/" dynamic_scripts/6_net.sh
 	sed -i "6s/create .*/create ${net}/" dynamic_scripts/6_net.sh
 
-	sed -i "3s/net=.*/net=true/" dynamic_scripts/9_clear_containers.sh
-	sed -i "6s/rm .*/rm ${net}/" dynamic_scripts/9_clear_containers.sh
+	sed -i "3s/net=.*/net=true/" dynamic_scripts/9a_clear_containers_net.sh
+	sed -i "6s/rm .*/rm ${net}/" dynamic_scripts/9a_clear_containers_net.sh
 fi
 echo ""
 
@@ -123,8 +141,9 @@ echo "Make sure you follow the next rules:"
 echo "1. Give a command per line"
 echo "2. Include the docker run commands or docker-compose commands with which you will start and stop your container(s)."
 echo "3. If no docker-compose is used, it is wise to use the --name flag to run your containers. If you do not do that, SecureWilly will name your containers after the corresponding service name."
-echo "4. Do NOT use flag --security-opt to run your containers."
-echo "5. Type Done when you're finished."
+echo "4. If your image is getting built by Dockerfile, make sure to give the same name to the image as the service you gave before, using docker build <path_to_Dockerfile> -t <service>"
+echo "5. Do NOT use flag --security-opt to run your containers."
+echo "6. Type Done when you're finished."
 echo "Remember, you are the one who knows how your program works. The commands will be executed in a script, so take all the actions needed to make it work."
 
 while true; do
@@ -150,8 +169,9 @@ while true; do
 		echo "1. Give a command per line."
 		echo "2. Include the docker run commands or docker-compose commands with which you will start and stop your container(s)."
 		echo "3. If no docker-compose is used, it is wise to use the --name flag to run your containers. If you do not do that, SecureWilly will name your containers after the corresponding service name."
-		echo "4. Do NOT use flag --security-opt to run your containers."
-		echo "5. Type Done when you're finished."
+		echo "4. If your image is getting built by Dockerfile, make sure to give the same name to the image as the service you gave before, using docker build <path_to_Dockerfile> -t <service>"
+		echo "5. Do NOT use flag --security-opt to run your containers."
+		echo "6. Type Done when you're finished."
 		echo "Remember, you are the one who knows how your program works. The commands will be executed in a script, so take all the actions needed to make it work."
 	else
 		break
@@ -357,11 +377,10 @@ else
 		rm name
 	done
 	containers+=")"
-	echo "${containers}"
 fi
 
-#Fix 9_clear_containers.sh to rm the selected containers
-sed -i "9s,container_list=(.*,container_list=${containers}," dynamic_scripts/9_clear_containers.sh
+#Fix 9a_clear_containers_net.sh to rm the selected containers
+sed -i "9s,container_list=(.*,container_list=${containers}," dynamic_scripts/9a_clear_containers_net.sh
 
 mkdir ${app_run_path}/parser_output
 
