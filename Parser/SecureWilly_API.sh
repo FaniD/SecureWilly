@@ -210,9 +210,13 @@ if [[ "$yml_path" == "N" ]]; then
 		fi
 		rm name
 
-		#Find ports
+		#Find published ports
 		awk '/ -p / {for(i=1;i<=NF;i++) {if($i ~ /-p/) print $(i+1)}}' run > ports
 		sed -i 's,",,g' ports
+
+		#Find exposed ports
+		awk '/ --expose / {for(i=1;i<=NF;i++) {if($i ~ /--expose/) print $(i+1)}}' run > exp_ports
+		sed -i 's,",,g' exp_ports
 
 		#Find volumes
 		sed 's,--volumes-from,,g' run > run_vol
@@ -237,7 +241,7 @@ if [[ "$yml_path" == "N" ]]; then
 		#Start creating mini docker-compose.yml
 		echo "${service_i}:" > ${array_noslash[${yml_count}]}_yml
 	
-		#Ports
+		#Published ports
 		wc_ports=$(wc -l ports | cut -d' ' -f1)
 		if [[ "$wc_ports" != "0" ]]; then
 			echo " ports:" >> ${array_noslash[${yml_count}]}_yml
@@ -246,6 +250,14 @@ if [[ "$yml_path" == "N" ]]; then
 		fi
 		rm ports
 		
+		#Exposed ports
+		wc_eports=$(wc -l exp_ports | cut -d' ' -f1)
+		if [[ "$wc_ports" != "0" ]]; then
+			echo " expose:" >> ${array_noslash[${yml_count}]}_yml
+			sed -i 's,.*,  - "&",g' exp_ports
+			cat exp_ports >> ${array_noslash[${yml_count}]}_yml
+		fi
+		rm exp_ports
 
 		#Volumes
                 wc_volumes=$(wc -l volumes | cut -d' ' -f1)
