@@ -1,12 +1,12 @@
 #!/bin/bash
 
-net=true
+net=false
 #delete network
 if $net ; then
-	docker network rm search_network
+	docker network rm streaming_network
 fi
 
-container_list=(server client)
+container_list=(db nextcloud)
 for cont in "${container_list[@]}"; do
 	docker container rm ${cont}
 done
@@ -17,7 +17,7 @@ set -e
 #echo "Clean containers"
 #docker container prune -f
 
-yml=false
+yml=true
 if $yml ; then
 	echo "Docker-compose clean volumes"
 	docker-compose rm -vf

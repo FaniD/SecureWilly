@@ -2,7 +2,7 @@
 
 set -e
 
-yml=false
+yml=true
 if $yml ; then
 	echo "Docker-compose clean volumes"
 	docker-compose rm -vf

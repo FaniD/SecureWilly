@@ -3,5 +3,5 @@
 #If network is needed, is determined in API
 net=true
 if $net ; then
-	docker network create search_network
+	docker network create streaming-network
 fi

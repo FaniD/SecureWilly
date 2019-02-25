@@ -92,10 +92,10 @@ echo "Is there a docker-compose.yml to provide?"
 echo "Tip: If you intend to use docker exec later, make sure you include container_name inside the yml file for each service."
 echo "If yes, give the full path to docker-compose.yml (<path_to_yml>/docker-compose.yml), if no, type N:"
 read yml_path
-sed -i "20s/yml=.*/yml=false/" dynamic_scripts/9_clear_containers.sh
+sed -i "5s/yml=.*/yml=false/" dynamic_scripts/9b_clear_compose.sh
 if [[ "$yml_path" != "N" ]]; then
 	#Fix script
-	sed -i "20s/yml=.*/yml=true/" dynamic_scripts/9_clear_containers.sh
+	sed -i "5s/yml=.*/yml=true/" dynamic_scripts/9b_clear_compose.sh
 
 	#Fix path
 	yml_path=$(echo "${yml_path}" | sed 's#[/]$##') #Strip / from the end if it exists
@@ -123,15 +123,15 @@ echo ""
 echo "Do you need to create a docker network for your images?"
 echo "If yes, specify network's name, if no, type N:"
 read net
-#Fix 6_net.sh & 9_clear_containers.sh
+#Fix 6_net.sh & 9a_clear_containers_net.sh
 sed -i "4s/net=.*/net=false/" dynamic_scripts/6_net.sh
-sed -i "3s/net=.*/net=false/" dynamic_scripts/9_clear_containers.sh
+sed -i "3s/net=.*/net=false/" dynamic_scripts/9a_clear_containers_net.sh
 if [[ "$net" != "N" ]]; then
 	sed -i "4s/net=.*/net=true/" dynamic_scripts/6_net.sh
 	sed -i "6s/create .*/create ${net}/" dynamic_scripts/6_net.sh
 
-	sed -i "3s/net=.*/net=true/" dynamic_scripts/9_clear_containers.sh
-	sed -i "6s/rm .*/rm ${net}/" dynamic_scripts/9_clear_containers.sh
+	sed -i "3s/net=.*/net=true/" dynamic_scripts/9a_clear_containers_net.sh
+	sed -i "6s/rm .*/rm ${net}/" dynamic_scripts/9a_clear_containers_net.sh
 fi
 echo ""
 
@@ -210,9 +210,13 @@ if [[ "$yml_path" == "N" ]]; then
 		fi
 		rm name
 
-		#Find ports
+		#Find published ports
 		awk '/ -p / {for(i=1;i<=NF;i++) {if($i ~ /-p/) print $(i+1)}}' run > ports
 		sed -i 's,",,g' ports
+
+		#Find exposed ports
+		awk '/ --expose / {for(i=1;i<=NF;i++) {if($i ~ /--expose/) print $(i+1)}}' run > exp_ports
+		sed -i 's,",,g' exp_ports
 
 		#Find volumes
 		sed 's,--volumes-from,,g' run > run_vol
@@ -237,7 +241,7 @@ if [[ "$yml_path" == "N" ]]; then
 		#Start creating mini docker-compose.yml
 		echo "${service_i}:" > ${array_noslash[${yml_count}]}_yml
 	
-		#Ports
+		#Published ports
 		wc_ports=$(wc -l ports | cut -d' ' -f1)
 		if [[ "$wc_ports" != "0" ]]; then
 			echo " ports:" >> ${array_noslash[${yml_count}]}_yml
@@ -246,6 +250,14 @@ if [[ "$yml_path" == "N" ]]; then
 		fi
 		rm ports
 		
+		#Exposed ports
+		wc_eports=$(wc -l exp_ports | cut -d' ' -f1)
+		if [[ "$wc_ports" != "0" ]]; then
+			echo " expose:" >> ${array_noslash[${yml_count}]}_yml
+			sed -i 's,.*,  - "&",g' exp_ports
+			cat exp_ports >> ${array_noslash[${yml_count}]}_yml
+		fi
+		rm exp_ports
 
 		#Volumes
                 wc_volumes=$(wc -l volumes | cut -d' ' -f1)
@@ -379,13 +391,13 @@ else
 	containers+=")"
 fi
 
-#Fix 9_clear_containers.sh to rm the selected containers
-sed -i "9s,container_list=(.*,container_list=${containers}," dynamic_scripts/9_clear_containers.sh
+#Fix 9a_clear_containers_net.sh to rm the selected containers
+sed -i "9s,container_list=(.*,container_list=${containers}," dynamic_scripts/9a_clear_containers_net.sh
 
 mkdir ${app_run_path}/parser_output
 
 current_dir=$(pwd | sed "s,/*[^/]\+/*$,," |  sed 's#.*/##' | sed 's/_//g' | sed "s/.*/\"&\"/")
-sed -i "s/current_dir = .*/current_dir = ${current_dir}/" static_parser.py
+sed -i "6s/current_dir = .*/current_dir = ${current_dir}/" static_parser.py
 
 yml_count=0
 for service_i in "${array[@]}"; do
@@ -416,7 +428,7 @@ rm empty_file
 
 sudo chmod +x dynamic_scripts/7_run.sh
 #Dynamic_parser
-./dynamic_parser.sh
+#./dynamic_parser.sh
 
 for service_i in "${array_noslash[@]}"; do
 	rm if_vol_${service_i}
