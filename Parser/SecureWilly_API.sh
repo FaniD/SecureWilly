@@ -397,7 +397,7 @@ sed -i "9s,container_list=(.*,container_list=${containers}," dynamic_scripts/9a_
 mkdir ${app_run_path}/parser_output
 
 current_dir=$(pwd | sed "s,/*[^/]\+/*$,," |  sed 's#.*/##' | sed 's/_//g' | sed "s/.*/\"&\"/")
-sed -i "s/current_dir = .*/current_dir = ${current_dir}/" static_parser.py
+sed -i "6s/current_dir = .*/current_dir = ${current_dir}/" static_parser.py
 
 yml_count=0
 for service_i in "${array[@]}"; do
@@ -428,7 +428,7 @@ rm empty_file
 
 sudo chmod +x dynamic_scripts/7_run.sh
 #Dynamic_parser
-./dynamic_parser.sh
+#./dynamic_parser.sh
 
 for service_i in "${array_noslash[@]}"; do
 	rm if_vol_${service_i}
