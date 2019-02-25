@@ -51,9 +51,9 @@ done
 #For each RUN follow the steps
 #Starting with complain mode
 i=1
-enforce_not_confirms=true
+enforce="0"
 abort_net=true
-while $enforce_not_confirms ; do
+while [[ "$enforce" == "0" ]]; do
 	while true; do
 		echo $i | source ${dynamic_script_path}/2_cp_to_apparmor.sh
 		./${dynamic_script_path}/3_load_profiles.sh 
@@ -114,7 +114,7 @@ while $enforce_not_confirms ; do
 		fi	
 	done
 
-	enforce_confirms=false
+	enforce="1"
 
 	echo $i | source ${dynamic_script_path}/2_cp_to_apparmor.sh
 	./${dynamic_script_path}/3_load_profiles.sh
@@ -149,9 +149,9 @@ while $enforce_not_confirms ; do
 	for SERVICE in "${service_list[@]}"; do
 		next_step=$(head -n 1 next_step_${SERVICE})
 		#echo "Next step for ${SERVICE} is $next_step"
-		if [[ "$next_step" != "0" ]]
+		if [[ "$next_step" == "0" ]]
 		then
-			enforce_not_confirms=false
+			enforce="0"
 		fi
 	done
 	((i++))
