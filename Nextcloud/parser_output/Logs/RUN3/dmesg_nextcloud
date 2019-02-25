@@ -1,3 +1,0 @@
-[45969.081805] type=1400 audit(1549843618.457:2086030): apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=13688 comm="apache2" capability=10  capname="net_bind_service"
-[45969.152141] type=1400 audit(1549843618.529:2086031): apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=13912 comm="apache2" capability=6  capname="setgid"
-[46008.661284] type=1400 audit(1549843658.037:2086032): apparmor="ALLOWED" operation="signal" profile="nextcloud_profile" pid=26782 comm="docker-containe" requested_mask="receive" denied_mask="receive" signal=kill peer="unconfined"

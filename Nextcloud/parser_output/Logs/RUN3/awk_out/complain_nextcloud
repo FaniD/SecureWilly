@@ -1,8 +1,0 @@
-#Capability\n
-net_bind_service
-setgid
-#Network\n
-#File
-requested_mask 
-#Signal
-receive kill unconfined

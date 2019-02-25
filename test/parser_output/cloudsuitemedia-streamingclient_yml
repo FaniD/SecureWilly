@@ -1,4 +1,0 @@
-cloudsuite/media-streaming:client:
- volumes:
-  - "/output:/output"
-
