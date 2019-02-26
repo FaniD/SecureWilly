@@ -254,7 +254,7 @@ if [[ "$yml_path" == "N" ]]; then
 		
 		#Exposed ports
 		wc_eports=$(wc -l exp_ports | cut -d' ' -f1)
-		if [[ "$wc_ports" != "0" ]]; then
+		if [[ "$wc_eports" != "0" ]]; then
 			echo " expose:" >> ${array_noslash[${yml_count}]}_yml
 			sed -i 's,.*,  - "&",g' exp_ports
 			cat exp_ports >> ${array_noslash[${yml_count}]}_yml
