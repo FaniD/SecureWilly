@@ -100,10 +100,10 @@ for line in data:
         user2_names.append(line[2])
 
     if chmod in line:
-    #Chmod found so we have to deal with files (file rule) and fix sticky bits and permissions
+        #Chmod found so we have to deal with files (file rule) and fix permission bits
 	line = line.strip('\n')
 	line = line.split(' ')
-	#flags	TODO	s = line[1].split('-', 1)
+	#flags TODO s = line[1].split('-', 1)
 
         #Chmod Rule - not supported 
 	#Add the right permissions to owner of the file and others
@@ -111,7 +111,6 @@ for line in data:
 	#Path permission rule - File access rule
         chmod_path = line[len(line)-1]
 	chmod_permission = list(line[len(line)-2])
-
 
         #chmod permissions calculate both for letters and numbers. ONLY FOR OWNER and OTHERS. Not supported for owning group!
 	if chmod_permission[0] == 'u':
@@ -153,17 +152,17 @@ for line in data:
         #Others' permissions
         chmod_others = '\t' + chmod_path + ' ' + others  + ',\n'
 
-        chmod_rule = '\t#Chmod command\n' + chmod_owner + chmod_others + '\n'
-        static_profile.append(chmod_rule)
+        static_profile.append(chmod_owner)
+        static_profile.append(chmod_others)
 
-    if chown in line:
-    #Chown command found so we need file rule, setuid rule and sticky bits - if given
+    #if chown in line:
+    #Chown command found so we need file rule, setuid rule and permission bits - if given
 
     #Add capability rule if we want to allow chown command to be used in the container
     #Not needed. Do it only if it is asked
     #static_profile.append('\tcapability chown,\n')
 
-        static_profile.append(setuid_setgid_rule)
+        #static_profile.append(setuid_setgid_rule)
 
 	#Not supported!
 	#Chown Rule needed as well
