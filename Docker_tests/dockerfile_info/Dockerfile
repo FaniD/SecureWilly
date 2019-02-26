@@ -4,6 +4,9 @@ MAINTAINER Fani Dimou <fani.dimou92@gmail.com>
 #Install vim
 RUN apt-get -y update && apt-get install -y vim
 
+#Exposing port 80 tcp
+EXPOSE 80/tcp
+
 #Create file hello, create directory Heys 
 RUN echo "greetings" > hello
 RUN mkdir "Heys"
