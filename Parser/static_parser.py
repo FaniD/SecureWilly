@@ -3,7 +3,7 @@ import io
 import sys
 from collections import OrderedDict
 
-current_dir = "Nextcloud"
+current_dir = "dockerfileinfo"
 current_dir = current_dir.lower()
 
 #This will be our preliminery profile from Static Analysis. Append every rule extracted to it.
@@ -67,8 +67,9 @@ for line in data:
         #At the time we strip the protocol
         #When the bind rule is supported in AppArmor
         #We will fix this if it's actually needed in the rule
-        port_cont = port_proto.strip(proto)
-        port_cont = port_cont.strip('/')
+        port_cont = port_proto.replace(proto, '')
+        port_cont = port_cont.replace('/','')
+        port_cont = port_cont.strip('\n')
         ports_rule='\tnetwork ' + proto + ',\n #Allowing networking with forwarding ports' 
         static_profile.append(ports_rule)
                 
@@ -224,8 +225,9 @@ for i in xrange(len(data)): #because we will need the next line
             #At the time we strip the protocol
             #When the bind rule is supported in AppArmor
             #We will fix this if it's actually needed in the rule
-            ports = ports.strip(proto)
-            ports = ports.strip('/')
+            ports = ports.replace(proto,'')
+            ports = ports.replace('/','')
+            ports = ports.strip('\n')
 	    ports = ports.strip('"')
 	    ports = ports.split(':')
 	    port_host = ports[0].strip('-')
@@ -248,8 +250,9 @@ for i in xrange(len(data)): #because we will need the next line
                 proto='udp'
             else:
                 proto='tcp'
-            port = port.strip(proto)
-            port = port.strip('/')
+            port = port.replace(proto, '')
+            port = port.replace('/','')
+            port = port.strip('\n')
             port = port.strip('"')
             if int(port) < 1024: #In order for an app to bind to ports < 1024 capability net bind service is needed
                 static_profile.append('\tcapability net_bind_service,  #This capability is needed to bind a socket to Internet domain privileged ports\n')
