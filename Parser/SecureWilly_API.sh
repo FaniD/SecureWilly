@@ -438,3 +438,5 @@ done
 echo ""
 echo "--------------------------------------------------------------------------"
 echo "Profiles produced for all services are located in parser_output directory."
+echo "--------------------------------------------------------------------------"
+echo ""
