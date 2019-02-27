@@ -83,6 +83,9 @@ for line in data:
    #if abc
        #continue
 
+    if '/tmp' in line:
+        continue
+
     if '/var/lib/docker/' in line:
         continue
 
