@@ -1,12 +1,12 @@
 #!/bin/bash
 
-net=false
+net=true
 #delete network
 if $net ; then
-	docker network rm streaming_network
+	docker network rm search_network
 fi
 
-container_list=(db nextcloud)
+container_list=(server client)
 for cont in "${container_list[@]}"; do
 	docker container rm ${cont}
 done

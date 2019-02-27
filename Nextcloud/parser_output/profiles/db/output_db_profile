@@ -1,22 +1,30 @@
 #include <tunables/global>
 
 profile db_profile flags=(attach_disconnected,mediate_deleted) {
-	capability setgid,
-	capability dac_override,
-	network inet dgram,
 	/var/lib/mysql/* rw,
-	signal (receive) set=(term) peer=db_profile,
-	mount /var/lib/docker/volumes/nextcloud_db_/_data -> /var/lib/mysql, #Bind host volume to docker container volume
-	signal (send) set=(usr1) peer=db_profile,
 	file,  #Allows access to containers filesystem
-	/var/lib/docker/* r, #Access to layers of filesystem
-	network inet6 stream,
-	signal (receive) set=(kill) peer=unconfined,
-	deny remount /var/lib/mysql, #Disallow anybody that wants to remount this mountpoint
+	/usr/bin/mysql r,
 	network inet6 dgram,
 	signal (receive) set=(usr1) peer=db_profile,
-	deny umount /var/lib/mysql, #Disallow anybody that wants to break this mountpoint
+	/etc/ld.so.cache r,
+	/usr/bin/gawk r,
+	/run/mysqld/mysqld.pid w,
+	signal (send) set=(usr1) peer=db_profile,
+	/var/lib/docker/* r, #Access to layers of filesystem
+	/ r,
+	capability setgid,
+	capability dac_override,
+	/lib/x86_64-linux-gnu/libtinfo.so.5.9 r,
+	network inet6 stream,
+	mount /var/lib/docker/volumes/nextcloud_db_/_data -> /var/lib/mysql, #Bind host volume to docker container volume
+	network inet dgram,
 	capability setuid,
-	signal (send) set=(term) peer=db_profile,
 	deny ptrace (readby, tracedby), #Confront container breakout attacks
+	signal (receive) set=(term) peer=db_profile,
+	/dev/null r,
+	/usr/sbin/mysqld r,
+	signal (receive) set=(kill) peer=unconfined,
+	deny remount /var/lib/mysql, #Disallow anybody that wants to remount this mountpoint
+	deny umount /var/lib/mysql, #Disallow anybody that wants to break this mountpoint
+	signal (send) set=(term) peer=db_profile,
 }

@@ -2,7 +2,7 @@
 
 #Change this with the services I have each time
 #Also do that in 2_cp, 3, 4a, 4b, 9, 10a, 10b, 12, metrics 
-service_list=(db nextcloud)
+service_list=(cloudsuiteweb-searchserver cloudsuiteweb-searchclient)
 
 app_run_path=".."
 parser_path="${app_run_path}/Parser"

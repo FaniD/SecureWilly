@@ -1,0 +1,9 @@
+1
+dockerfile_info
+/home/ubuntu/SecureWilly/Docker_tests/dockerfile_info
+N
+N
+docker build -t dockerfile_info ..
+docker run --name acont -t dockerfile_info
+Done
+Y

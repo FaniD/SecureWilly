@@ -1,0 +1,19 @@
+#Capability\n
+#Network\n
+inet stream
+#File
+/usr/src/nextcloud/apps/password_policy/lists/list-11.php r
+/var/lib/docker/aufs/diff/4d999d5f0e1af427f4ef5bd886c9551f9acab147fdfe4985af55d79200002cf3/usr/src/nextcloud/apps/password_policy/lists/list-11.php r
+requested_mask 
+/etc/ld.so.cache r
+/var/lib/docker/aufs/diff/4d999d5f0e1af427f4ef5bd886c9551f9acab147fdfe4985af55d79200002cf3/etc/ld.so.cache r
+/lib/x86_64-linux-gnu/libcrypt-2.24.so r
+/var/lib/docker/aufs/diff/2484fa342de159083066aec204c872d0a6aa2866855e001db25810834de7ae09/lib/x86_64-linux-gnu/libcrypt-2.24.so r
+/var/www/html/core/Migrations/Version14000Date20180626223656.php r
+/tmp/.ZendSem.VeCo4Y wk
+/var/www/html/apps/firstrunwizard/ r
+/var/www/html/apps/firstrunwizard/appinfo/info.xml r
+/var/www/html/apps/firstrunwizard/appinfo/ r
+/var/www/html/apps/dav/lib/Migration/Version1004Date20170924124212.php r
+#Signal
+receive exists unconfined

@@ -1,27 +1,24 @@
-[75639.607197] device veth130ded9 entered promiscuous mode
-[75639.607379] IPv6: ADDRCONF(NETDEV_UP): veth130ded9: link is not ready
-[75641.148655] IPv6: ADDRCONF(NETDEV_CHANGE): veth130ded9: link becomes ready
-[75641.148696] br-9c3d561b259f: port 1(veth130ded9) entered forwarding state
-[75641.148707] br-9c3d561b259f: port 1(veth130ded9) entered forwarding state
-[75641.680854] type=1400 audit(1551116043.778:32323000): apparmor="ALLOWED" operation="capable" profile="db_profile" pid=10661 comm="gosu" capability=7  capname="setuid"
-[75643.399301] device veth3697072 entered promiscuous mode
-[75643.399525] IPv6: ADDRCONF(NETDEV_UP): veth3697072: link is not ready
-[75645.348600] IPv6: ADDRCONF(NETDEV_CHANGE): veth3697072: link becomes ready
-[75645.348673] br-9c3d561b259f: port 2(veth3697072) entered forwarding state
-[75645.348680] br-9c3d561b259f: port 2(veth3697072) entered forwarding state
-[75650.039450] type=1400 audit(1551116052.134:32323001): apparmor="ALLOWED" operation="create" profile="nextcloud_profile" pid=10853 comm="apache2" family="inet6" sock_type="stream" protocol=0
-[75650.039482] type=1400 audit(1551116052.134:32323002): apparmor="ALLOWED" operation="setsockopt" profile="nextcloud_profile" pid=10853 comm="apache2" family="inet6" sock_type="stream" protocol=6
-[75650.107400] type=1400 audit(1551116052.202:32323003): apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=10853 comm="apache2" capability=4  capname="fsetid"
-[75650.108832] type=1400 audit(1551116052.206:32323004): apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=11017 comm="apache2" capability=6  capname="setgid"
-[75650.112880] type=1400 audit(1551116052.210:32323005): apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=11021 comm="apache2" capability=6  capname="setgid"
-[75656.156088] br-9c3d561b259f: port 1(veth130ded9) entered forwarding state
-[75660.380203] br-9c3d561b259f: port 2(veth3697072) entered forwarding state
-[75926.306408] type=1400 audit(1551116328.402:32323006): apparmor="ALLOWED" operation="signal" profile="nextcloud_profile" pid=4024 comm="docker-containe" requested_mask="receive" denied_mask="receive" signal=kill peer="unconfined"
-[75926.636414] br-9c3d561b259f: port 2(veth3697072) entered disabled state
-[75926.999156] br-9c3d561b259f: port 2(veth3697072) entered disabled state
-[75927.003357] device veth3697072 left promiscuous mode
-[75927.003369] br-9c3d561b259f: port 2(veth3697072) entered disabled state
-[75928.384957] br-9c3d561b259f: port 1(veth130ded9) entered disabled state
-[75928.680432] br-9c3d561b259f: port 1(veth130ded9) entered disabled state
-[75928.681290] device veth130ded9 left promiscuous mode
-[75928.681302] br-9c3d561b259f: port 1(veth130ded9) entered disabled state
+[244824.997550] device veth4daf4d8 entered promiscuous mode
+[244824.997716] IPv6: ADDRCONF(NETDEV_UP): veth4daf4d8: link is not ready
+[244826.000708] IPv6: ADDRCONF(NETDEV_CHANGE): veth4daf4d8: link becomes ready
+[244826.000774] br-3fcd46478446: port 1(veth4daf4d8) entered forwarding state
+[244826.000782] br-3fcd46478446: port 1(veth4daf4d8) entered forwarding state
+[244827.369095] device veth670cd46 entered promiscuous mode
+[244827.369275] IPv6: ADDRCONF(NETDEV_UP): veth670cd46: link is not ready
+[244828.973017] IPv6: ADDRCONF(NETDEV_CHANGE): veth670cd46: link becomes ready
+[244828.973072] br-3fcd46478446: port 2(veth670cd46) entered forwarding state
+[244828.973084] br-3fcd46478446: port 2(veth670cd46) entered forwarding state
+[244835.802608] type=1400 audit(1551285237.898:835322934): apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=11272 comm="apache2" capability=4  capname="fsetid"
+[244835.803770] type=1400 audit(1551285237.898:835322935): apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=11395 comm="apache2" capability=6  capname="setgid"
+[244841.052235] br-3fcd46478446: port 1(veth4daf4d8) entered forwarding state
+[244843.996182] br-3fcd46478446: port 2(veth670cd46) entered forwarding state
+[245096.018723] type=1400 audit(1551285498.114:835322936): apparmor="ALLOWED" operation="signal" profile="nextcloud_profile" pid=4025 comm="docker-containe" requested_mask="receive" denied_mask="receive" signal=kill peer="unconfined"
+[245096.529615] br-3fcd46478446: port 2(veth670cd46) entered disabled state
+[245096.804671] br-3fcd46478446: port 2(veth670cd46) entered disabled state
+[245096.805415] device veth670cd46 left promiscuous mode
+[245096.805427] br-3fcd46478446: port 2(veth670cd46) entered disabled state
+[245098.625196] type=1400 audit(1551285500.722:835322937): apparmor="ALLOWED" operation="signal" profile="db_profile" pid=4025 comm="docker-containe" requested_mask="receive" denied_mask="receive" signal=kill peer="unconfined"
+[245099.233324] br-3fcd46478446: port 1(veth4daf4d8) entered disabled state
+[245099.655856] br-3fcd46478446: port 1(veth4daf4d8) entered disabled state
+[245099.657094] device veth4daf4d8 left promiscuous mode
+[245099.657106] br-3fcd46478446: port 1(veth4daf4d8) entered disabled state

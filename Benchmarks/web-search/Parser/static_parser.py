@@ -3,7 +3,7 @@ import io
 import sys
 from collections import OrderedDict
 
-current_dir = "Nextcloud"
+current_dir = "web-search"
 current_dir = current_dir.lower()
 
 #This will be our preliminery profile from Static Analysis. Append every rule extracted to it.

@@ -1,0 +1,9 @@
+#Capability\n
+dac_override
+#Network\n
+inet dgram
+#File
+requested_mask 
+#Signal
+receive exists unconfined
+receive kill unconfined

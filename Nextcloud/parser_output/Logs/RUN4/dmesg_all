@@ -1,21 +1,22 @@
-[75936.603935] device veth375b811 entered promiscuous mode
-[75936.604137] IPv6: ADDRCONF(NETDEV_UP): veth375b811: link is not ready
-[75937.781426] IPv6: ADDRCONF(NETDEV_CHANGE): veth375b811: link becomes ready
-[75937.781494] br-9c3d561b259f: port 1(veth375b811) entered forwarding state
-[75937.781503] br-9c3d561b259f: port 1(veth375b811) entered forwarding state
-[75939.704769] device vethea13582 entered promiscuous mode
-[75939.704872] IPv6: ADDRCONF(NETDEV_UP): vethea13582: link is not ready
-[75941.532734] IPv6: ADDRCONF(NETDEV_CHANGE): vethea13582: link becomes ready
-[75941.532806] br-9c3d561b259f: port 2(vethea13582) entered forwarding state
-[75941.532822] br-9c3d561b259f: port 2(vethea13582) entered forwarding state
-[75947.981353] type=1400 audit(1551116350.078:32323011): apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=12338 comm="apache2" capability=7  capname="setuid"
-[75952.796115] br-9c3d561b259f: port 1(veth375b811) entered forwarding state
-[75956.572182] br-9c3d561b259f: port 2(vethea13582) entered forwarding state
-[76242.572290] br-9c3d561b259f: port 2(vethea13582) entered disabled state
-[76242.838380] br-9c3d561b259f: port 2(vethea13582) entered disabled state
-[76242.839731] device vethea13582 left promiscuous mode
-[76242.839749] br-9c3d561b259f: port 2(vethea13582) entered disabled state
-[76244.359219] br-9c3d561b259f: port 1(veth375b811) entered disabled state
-[76244.615132] br-9c3d561b259f: port 1(veth375b811) entered disabled state
-[76244.616044] device veth375b811 left promiscuous mode
-[76244.616059] br-9c3d561b259f: port 1(veth375b811) entered disabled state
+[245106.282686] device veth1a2eaeb entered promiscuous mode
+[245106.282948] IPv6: ADDRCONF(NETDEV_UP): veth1a2eaeb: link is not ready
+[245107.257129] IPv6: ADDRCONF(NETDEV_CHANGE): veth1a2eaeb: link becomes ready
+[245107.257199] br-3fcd46478446: port 1(veth1a2eaeb) entered forwarding state
+[245107.257207] br-3fcd46478446: port 1(veth1a2eaeb) entered forwarding state
+[245108.861491] device vethe3eaa8e entered promiscuous mode
+[245108.861622] IPv6: ADDRCONF(NETDEV_UP): vethe3eaa8e: link is not ready
+[245110.379501] IPv6: ADDRCONF(NETDEV_CHANGE): vethe3eaa8e: link becomes ready
+[245110.379562] br-3fcd46478446: port 2(vethe3eaa8e) entered forwarding state
+[245110.379568] br-3fcd46478446: port 2(vethe3eaa8e) entered forwarding state
+[245115.099880] type=1400 audit(1551285517.194:835322942): apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=12792 comm="apache2" capability=7  capname="setuid"
+[245115.102151] type=1400 audit(1551285517.198:835322943): apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=12795 comm="apache2" capability=7  capname="setuid"
+[245122.268166] br-3fcd46478446: port 1(veth1a2eaeb) entered forwarding state
+[245125.404128] br-3fcd46478446: port 2(vethe3eaa8e) entered forwarding state
+[245359.633057] br-3fcd46478446: port 2(vethe3eaa8e) entered disabled state
+[245359.975177] br-3fcd46478446: port 2(vethe3eaa8e) entered disabled state
+[245359.977693] device vethe3eaa8e left promiscuous mode
+[245359.977702] br-3fcd46478446: port 2(vethe3eaa8e) entered disabled state
+[245361.297507] br-3fcd46478446: port 1(veth1a2eaeb) entered disabled state
+[245361.541561] br-3fcd46478446: port 1(veth1a2eaeb) entered disabled state
+[245361.542399] device veth1a2eaeb left promiscuous mode
+[245361.542412] br-3fcd46478446: port 1(veth1a2eaeb) entered disabled state

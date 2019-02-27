@@ -35,7 +35,7 @@ services:
         container_name: nextcloud
         security_opt:
           - "apparmor:nextcloud_profile"
-        image: nextcloud:latest
+        image: nextcloud
         ports:
                 - 8080:80
         links:

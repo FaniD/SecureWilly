@@ -67,8 +67,9 @@ for line in data:
         #At the time we strip the protocol
         #When the bind rule is supported in AppArmor
         #We will fix this if it's actually needed in the rule
-        port_cont = port_proto.strip(proto)
-        port_cont = port_cont.strip('/')
+        port_cont = port_proto.replace(proto, '')
+        port_cont = port_cont.replace('/','')
+        port_cont = port_cont.strip('\n')
         ports_rule='\tnetwork ' + proto + ',\n #Allowing networking with forwarding ports' 
         static_profile.append(ports_rule)
                 
@@ -100,10 +101,10 @@ for line in data:
         user2_names.append(line[2])
 
     if chmod in line:
-    #Chmod found so we have to deal with files (file rule) and fix sticky bits and permissions
+        #Chmod found so we have to deal with files (file rule) and fix permission bits
 	line = line.strip('\n')
 	line = line.split(' ')
-	#flags	TODO	s = line[1].split('-', 1)
+	#flags TODO s = line[1].split('-', 1)
 
         #Chmod Rule - not supported 
 	#Add the right permissions to owner of the file and others
@@ -111,7 +112,6 @@ for line in data:
 	#Path permission rule - File access rule
         chmod_path = line[len(line)-1]
 	chmod_permission = list(line[len(line)-2])
-
 
         #chmod permissions calculate both for letters and numbers. ONLY FOR OWNER and OTHERS. Not supported for owning group!
 	if chmod_permission[0] == 'u':
@@ -153,17 +153,17 @@ for line in data:
         #Others' permissions
         chmod_others = '\t' + chmod_path + ' ' + others  + ',\n'
 
-        chmod_rule = '\t#Chmod command\n' + chmod_owner + chmod_others + '\n'
-        static_profile.append(chmod_rule)
+        static_profile.append(chmod_owner)
+        static_profile.append(chmod_others)
 
-    if chown in line:
-    #Chown command found so we need file rule, setuid rule and sticky bits - if given
+    #if chown in line:
+    #Chown command found so we need file rule, setuid rule and permission bits - if given
 
     #Add capability rule if we want to allow chown command to be used in the container
     #Not needed. Do it only if it is asked
     #static_profile.append('\tcapability chown,\n')
 
-        static_profile.append(setuid_setgid_rule)
+        #static_profile.append(setuid_setgid_rule)
 
 	#Not supported!
 	#Chown Rule needed as well
@@ -225,8 +225,9 @@ for i in xrange(len(data)): #because we will need the next line
             #At the time we strip the protocol
             #When the bind rule is supported in AppArmor
             #We will fix this if it's actually needed in the rule
-            ports = ports.strip(proto)
-            ports = ports.strip('/')
+            ports = ports.replace(proto,'')
+            ports = ports.replace('/','')
+            ports = ports.strip('\n')
 	    ports = ports.strip('"')
 	    ports = ports.split(':')
 	    port_host = ports[0].strip('-')
@@ -249,8 +250,9 @@ for i in xrange(len(data)): #because we will need the next line
                 proto='udp'
             else:
                 proto='tcp'
-            port = port.strip(proto)
-            port = port.strip('/')
+            port = port.replace(proto, '')
+            port = port.replace('/','')
+            port = port.strip('\n')
             port = port.strip('"')
             if int(port) < 1024: #In order for an app to bind to ports < 1024 capability net bind service is needed
                 static_profile.append('\tcapability net_bind_service,  #This capability is needed to bind a socket to Internet domain privileged ports\n')

@@ -1,0 +1,5 @@
+Feb 26 03:53:55 docker-security59 kernel: [112833.206197] device veth8f9a8db entered promiscuous mode
+Feb 26 03:53:55 docker-security59 kernel: [112833.206381] IPv6: ADDRCONF(NETDEV_UP): veth8f9a8db: link is not ready
+Feb 26 03:53:56 docker-security59 kernel: [112834.100636] IPv6: ADDRCONF(NETDEV_CHANGE): veth8f9a8db: link becomes ready
+Feb 26 03:53:56 docker-security59 kernel: [112834.100672] docker0: port 1(veth8f9a8db) entered forwarding state
+Feb 26 03:53:56 docker-security59 kernel: [112834.100679] docker0: port 1(veth8f9a8db) entered forwarding state
