@@ -1,0 +1,15 @@
+#include <tunables/global>
+
+profile cloudsuitemedia-streamingserver_profile flags=(attach_disconnected,mediate_deleted) {
+	capability dac_override,
+	capability net_bind_service,
+	capability setuid,
+	capability chown,
+	network inet stream,
+	file,  #Allows access to containers filesystem
+	/var/lib/docker/* r, #Access to layers of filesystem
+	network inet6 stream,
+	capability setgid,
+	signal (receive) set=(term) peer=unconfined,
+	deny ptrace (readby, tracedby), #Confront container breakout attacks
+}

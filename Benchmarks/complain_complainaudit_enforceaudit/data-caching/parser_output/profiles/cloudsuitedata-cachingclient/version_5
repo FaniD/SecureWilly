@@ -1,0 +1,11 @@
+#include <tunables/global>
+
+profile cloudsuitedata-cachingclient_profile flags=(audit,attach_disconnected,mediate_deleted) {
+	network inet stream,
+	file,  #Allows access to containers filesystem
+	/var/lib/docker/* r, #Access to layers of filesystem
+	signal (receive) set=(kill) peer=unconfined,
+	network inet dgram,
+	signal (receive) set=(exists) peer=unconfined,
+	deny ptrace (readby, tracedby), #Confront container breakout attacks
+}

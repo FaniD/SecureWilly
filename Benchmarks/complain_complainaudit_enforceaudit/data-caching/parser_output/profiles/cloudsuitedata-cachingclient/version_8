@@ -1,0 +1,21 @@
+#include <tunables/global>
+
+profile cloudsuitedata-cachingclient_profile flags=(audit,attach_disconnected,mediate_deleted) {
+	/etc/ld.so.cache r,
+	/usr/src/memcached/twitter_dataset/twitter_dataset_unscaled r,
+	/usr/ r,
+	/lib/x86_64-linux-gnu/libtinfo.so.5.9 r,
+	/usr/src/memcached/memcached_client/ r,
+	/usr/lib/x86_64-linux-gnu/libevent-2.0.so.5.1.9 r,
+	network inet stream,
+	file,  #Allows access to containers filesystem
+	/var/lib/docker/* r, #Access to layers of filesystem
+	signal (receive) set=(kill) peer=unconfined,
+	/usr/src/memcached/twitter_dataset/twitter_dataset_30x r,
+	/usr/src/ r,
+	network inet dgram,
+	/usr/src/memcached/ r,
+	signal (receive) set=(exists) peer=unconfined,
+	/usr/src/memcached/memcached_client/loader ix,
+	deny ptrace (readby, tracedby), #Confront container breakout attacks
+}

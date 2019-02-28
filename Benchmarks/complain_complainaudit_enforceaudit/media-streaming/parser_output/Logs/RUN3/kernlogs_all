@@ -1,0 +1,28 @@
+Feb 27 17:46:32 docker-security59 kernel: [249189.989840] IPv6: ADDRCONF(NETDEV_UP): br-25757f08ad6a: link is not ready
+Feb 27 17:47:01 docker-security59 kernel: [249219.086480] device veth8db0444 entered promiscuous mode
+Feb 27 17:47:01 docker-security59 kernel: [249219.086595] IPv6: ADDRCONF(NETDEV_UP): veth8db0444: link is not ready
+Feb 27 17:47:01 docker-security59 kernel: [249219.086600] br-25757f08ad6a: port 1(veth8db0444) entered forwarding state
+Feb 27 17:47:01 docker-security59 kernel: [249219.086605] br-25757f08ad6a: port 1(veth8db0444) entered forwarding state
+Feb 27 17:47:01 docker-security59 kernel: [249219.088284] br-25757f08ad6a: port 1(veth8db0444) entered disabled state
+Feb 27 17:47:08 docker-security59 kernel: [249226.644769] IPv6: ADDRCONF(NETDEV_CHANGE): veth8db0444: link becomes ready
+Feb 27 17:47:08 docker-security59 kernel: [249226.644813] br-25757f08ad6a: port 1(veth8db0444) entered forwarding state
+Feb 27 17:47:08 docker-security59 kernel: [249226.644820] br-25757f08ad6a: port 1(veth8db0444) entered forwarding state
+Feb 27 17:47:08 docker-security59 kernel: [249226.644837] IPv6: ADDRCONF(NETDEV_CHANGE): br-25757f08ad6a: link becomes ready
+Feb 27 17:47:09 docker-security59 kernel: [249227.686254] type=1400 audit(1551289629.782:840170257): apparmor="ALLOWED" operation="capable" profile="cloudsuitemedia-streamingserver_profile" pid=30655 comm="nginx" capability=10  capname="net_bind_service"
+Feb 27 17:47:09 docker-security59 kernel: [249227.687434] type=1400 audit(1551289629.782:840170258): apparmor="ALLOWED" operation="capable" profile="cloudsuitemedia-streamingserver_profile" pid=30721 comm="nginx" capability=7  capname="setuid"
+Feb 27 17:47:09 docker-security59 kernel: [249227.688767] type=1400 audit(1551289629.786:840170259): apparmor="ALLOWED" operation="capable" profile="cloudsuitemedia-streamingserver_profile" pid=30724 comm="nginx" capability=7  capname="setuid"
+Feb 27 17:47:09 docker-security59 kernel: [249227.689191] type=1400 audit(1551289629.786:840170260): apparmor="ALLOWED" operation="capable" profile="cloudsuitemedia-streamingserver_profile" pid=30723 comm="nginx" capability=7  capname="setuid"
+Feb 27 17:47:18 docker-security59 kernel: [249236.729799] device vetha4045e6 entered promiscuous mode
+Feb 27 17:47:18 docker-security59 kernel: [249236.730279] IPv6: ADDRCONF(NETDEV_UP): vetha4045e6: link is not ready
+Feb 27 17:47:22 docker-security59 kernel: [249240.148992] IPv6: ADDRCONF(NETDEV_CHANGE): vetha4045e6: link becomes ready
+Feb 27 17:47:22 docker-security59 kernel: [249240.149073] br-25757f08ad6a: port 2(vetha4045e6) entered forwarding state
+Feb 27 17:47:22 docker-security59 kernel: [249240.149083] br-25757f08ad6a: port 2(vetha4045e6) entered forwarding state
+Feb 27 17:47:23 docker-security59 kernel: [249241.692183] br-25757f08ad6a: port 1(veth8db0444) entered forwarding state
+Feb 27 17:47:37 docker-security59 kernel: [249255.196094] br-25757f08ad6a: port 2(vetha4045e6) entered forwarding state
+Feb 27 17:58:27 docker-security59 kernel: [249905.865128] br-25757f08ad6a: port 2(vetha4045e6) entered disabled state
+Feb 27 17:58:28 docker-security59 kernel: [249906.223525] br-25757f08ad6a: port 2(vetha4045e6) entered disabled state
+Feb 27 17:58:28 docker-security59 kernel: [249906.224328] device vetha4045e6 left promiscuous mode
+Feb 27 17:58:28 docker-security59 kernel: [249906.224340] br-25757f08ad6a: port 2(vetha4045e6) entered disabled state
+Feb 27 17:58:28 docker-security59 kernel: [249906.315746] br-25757f08ad6a: port 1(veth8db0444) entered disabled state
+Feb 27 17:58:28 docker-security59 kernel: [249906.316447] device veth8db0444 left promiscuous mode
+Feb 27 17:58:28 docker-security59 kernel: [249906.316457] br-25757f08ad6a: port 1(veth8db0444) entered disabled state

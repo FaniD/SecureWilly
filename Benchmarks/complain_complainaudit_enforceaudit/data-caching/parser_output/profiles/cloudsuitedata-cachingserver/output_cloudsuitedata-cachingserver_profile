@@ -1,0 +1,14 @@
+#include <tunables/global>
+
+profile cloudsuitedata-cachingserver_profile flags=(attach_disconnected,mediate_deleted) {
+	/etc/ld.so.cache r,
+	network inet6 dgram,
+	network inet stream,
+	file,  #Allows access to containers filesystem
+	/var/lib/docker/* r, #Access to layers of filesystem
+	network inet6 stream,
+	network inet dgram,
+	signal (receive) set=(term) peer=unconfined,
+	/usr/lib/x86_64-linux-gnu/libevent-2.0.so.5.1.9 r,
+	deny ptrace (readby, tracedby), #Confront container breakout attacks
+}

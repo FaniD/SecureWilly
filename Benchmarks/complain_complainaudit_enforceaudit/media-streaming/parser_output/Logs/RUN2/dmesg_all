@@ -1,0 +1,25 @@
+[248468.242518] IPv6: ADDRCONF(NETDEV_UP): br-7596a42c16bb: link is not ready
+[248496.904197] device vethd7857ee entered promiscuous mode
+[248496.904338] IPv6: ADDRCONF(NETDEV_UP): vethd7857ee: link is not ready
+[248506.096620] IPv6: ADDRCONF(NETDEV_CHANGE): vethd7857ee: link becomes ready
+[248506.096721] br-7596a42c16bb: port 1(vethd7857ee) entered forwarding state
+[248506.096732] br-7596a42c16bb: port 1(vethd7857ee) entered forwarding state
+[248506.096749] IPv6: ADDRCONF(NETDEV_CHANGE): br-7596a42c16bb: link becomes ready
+[248507.420784] type=1400 audit(1551288909.518:840170247): apparmor="ALLOWED" operation="capable" profile="cloudsuitemedia-streamingserver_profile" pid=26798 comm="nginx" capability=0  capname="chown"
+[248507.421893] type=1400 audit(1551288909.518:840170248): apparmor="ALLOWED" operation="capable" profile="cloudsuitemedia-streamingserver_profile" pid=26864 comm="nginx" capability=6  capname="setgid"
+[248507.422247] type=1400 audit(1551288909.518:840170249): apparmor="ALLOWED" operation="capable" profile="cloudsuitemedia-streamingserver_profile" pid=26865 comm="nginx" capability=6  capname="setgid"
+[248507.423021] type=1400 audit(1551288909.518:840170250): apparmor="ALLOWED" operation="capable" profile="cloudsuitemedia-streamingserver_profile" pid=26867 comm="nginx" capability=6  capname="setgid"
+[248515.892779] device vethec4fc33 entered promiscuous mode
+[248515.893230] IPv6: ADDRCONF(NETDEV_UP): vethec4fc33: link is not ready
+[248516.918895] IPv6: ADDRCONF(NETDEV_CHANGE): vethec4fc33: link becomes ready
+[248516.918978] br-7596a42c16bb: port 2(vethec4fc33) entered forwarding state
+[248516.918988] br-7596a42c16bb: port 2(vethec4fc33) entered forwarding state
+[248521.116084] br-7596a42c16bb: port 1(vethd7857ee) entered forwarding state
+[248531.932413] br-7596a42c16bb: port 2(vethec4fc33) entered forwarding state
+[249182.636958] br-7596a42c16bb: port 2(vethec4fc33) entered disabled state
+[249183.352982] br-7596a42c16bb: port 1(vethd7857ee) entered disabled state
+[249183.354208] device vethd7857ee left promiscuous mode
+[249183.354220] br-7596a42c16bb: port 1(vethd7857ee) entered disabled state
+[249183.516077] br-7596a42c16bb: port 2(vethec4fc33) entered disabled state
+[249183.516916] device vethec4fc33 left promiscuous mode
+[249183.516928] br-7596a42c16bb: port 2(vethec4fc33) entered disabled state

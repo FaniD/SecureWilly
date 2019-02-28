@@ -1,0 +1,21 @@
+#include <tunables/global>
+
+profile cloudsuitemedia-streamingclient_profile flags=(audit,attach_disconnected,mediate_deleted) {
+	/etc/ld.so.cache r,
+	/lib/x86_64-linux-gnu/libtinfo.so.5.9 r,
+	/bin/grep r,
+	/output/* rw,
+	deny umount /output, #Disallow anybody that wants to break this mountpoint
+	mount /output -> /output, #Bind host volume to docker container volume
+	network inet stream,
+	file,  #Allows access to containers filesystem
+	/var/lib/docker/* r, #Access to layers of filesystem
+	/lib/x86_64-linux-gnu/libpcre.so.3.13.1 r,
+	/bin/grep ix,
+	/lib/x86_64-linux-gnu/libdl-2.19.so r,
+	/root/run/ r,
+	network inet dgram,
+	/usr/bin/dirname r,
+	deny remount /output, #Disallow anybody that wants to remount this mountpoint
+	deny ptrace (readby, tracedby), #Confront container breakout attacks
+}

@@ -1,0 +1,17 @@
+requested_mask 
+/etc/ld.so.cache r
+/var/lib/docker/aufs/diff/cb67ae8e30bb0cb809b933098d543f5726cf5155f7591f6784aacd84d25e4012/etc/ld.so.cache r
+/lib/x86_64-linux-gnu/libtinfo.so.5.9 r
+/var/lib/docker/aufs/diff/a2bc6df9b8a81a34aec03aa235762910c60383820aa815877bb329a300768aab/lib/x86_64-linux-gnu/libtinfo.so.5.9 r
+/usr/ r
+/var/lib/docker/aufs/diff/cb67ae8e30bb0cb809b933098d543f5726cf5155f7591f6784aacd84d25e4012/usr/ r
+/usr/src/ r
+/var/lib/docker/aufs/diff/cb67ae8e30bb0cb809b933098d543f5726cf5155f7591f6784aacd84d25e4012/usr/src/ r
+/usr/src/memcached/ r
+/var/lib/docker/aufs/diff/cb67ae8e30bb0cb809b933098d543f5726cf5155f7591f6784aacd84d25e4012/usr/src/memcached/ r
+/usr/src/memcached/memcached_client/ r
+/var/lib/docker/aufs/diff/cb67ae8e30bb0cb809b933098d543f5726cf5155f7591f6784aacd84d25e4012/usr/src/memcached/memcached_client/ r
+/usr/src/memcached/memcached_client/loader x
+/usr/lib/x86_64-linux-gnu/libevent-2.0.so.5.1.9 r
+/var/lib/docker/aufs/diff/ca0d19e7fa885af220391349b38364044216c7718eb4512876bc6243bd479697/usr/lib/x86_64-linux-gnu/libevent-2.0.so.5.1.9 r
+/var/lib/docker/aufs/diff/8f2b39a8de880daac93d3db2374b0759cf67651db9e7e236d16ebe619805fa80/usr/src/memcached/memcached_client/ r
