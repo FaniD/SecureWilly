@@ -6,6 +6,9 @@ from collections import OrderedDict
 current_dir = "dockerfileinfo"
 current_dir = current_dir.lower()
 
+pwd = ""
+pre_pwd = ""
+
 #This will be our preliminery profile from Static Analysis. Append every rule extracted to it.
 static_profile = []
 
@@ -276,9 +279,16 @@ for i in xrange(len(data)): #because we will need the next line
             if (mntpnt.endswith('/')):
                 mntpnt = mntpnt.rstrip('/')
 
-            #If source does not start with / then it is not a path but a named volume
+            #If source does not start with / then it is one of the following
+            #Relative path . -> pwd
+            #Relative path .. -> father of pwd
+            #Not a path but a named volume
             #So we change it into the real host path
-            if (not src.startswith('/')):
+            if (src.startswith('..')):
+                src = pwd_dir
+            else if (src.startwith('.')):
+                src = pre_pwd
+            else if (not src.startswith('/')):
                 src="/var/lib/docker/volumes/" + current_dir + "_" + src + "/_data"
 
             #If there is a mount option:

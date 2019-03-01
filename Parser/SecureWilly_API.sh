@@ -398,8 +398,14 @@ sed -i "9s,container_list=(.*,container_list=${containers}," dynamic_scripts/9a_
 
 mkdir ${app_run_path}/parser_output
 
+#Fix directories in static_parser
 current_dir=$(pwd | sed "s,/*[^/]\+/*$,," |  sed 's#.*/##' | sed 's/_//g' | sed "s/.*/\"&\"/")
 sed -i "6s/current_dir = .*/current_dir = ${current_dir}/" static_parser.py
+#pwd and pre_pwd are given as they are because we need paths, not names, just add "" to make it a string in python 
+pwd_path=$(pwd | sed "s/.*/\"&\"/")
+sed -i "9s/pwd = .*/pwd = ${pwd_path}/" static_parser.py
+pre_pwd=$(pwd | sed "s,/*[^/]\+/*$,," | sed "s/.*/\"&\"/")
+sed -i "10s/pre_pwd = .*/pre_pwd = ${pre_pwd}/" static_parser.py
 
 yml_count=0
 for service_i in "${array[@]}"; do
