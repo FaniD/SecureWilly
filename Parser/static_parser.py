@@ -232,7 +232,7 @@ for i in xrange(len(data)): #because we will need the next line
             ports = ports.replace('/','')
             ports = ports.strip('\n')
 	    ports = ports.strip('"')
-            if ':' in line:
+            if ':' in ports:
 	        ports = ports.split(':')
 	        port_host = ports[0].strip('-')
 	        port_host = port_host.strip()
