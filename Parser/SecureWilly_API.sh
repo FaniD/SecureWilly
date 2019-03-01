@@ -205,8 +205,8 @@ if [[ "$yml_path" == "N" ]]; then
 		fi
 		if [[ "$wc_name" == "0" ]]; then
 			containers+="${array_noslash[${yml_count}]}"
-			sed -i "/docker create/ s,${service_i},--name ${array_noslash[${yml_count}]} ${service_i}," dynamic_scripts/7_run.sh
-			sed -i "/docker run/ s,${service_i},--name ${array_noslash[${yml_count}]} ${service_i}," dynamic_scripts/7_run.sh
+			sed -i "/docker create/ s,${service_i}_profile\",${service_i}_profile\" --name ${array_noslash[${yml_count}]}," dynamic_scripts/7_run.sh
+			sed -i "/docker run/ s,${service_i}_profile\",${service_i}_profile\" --name ${array_noslash[${yml_count}]}," dynamic_scripts/7_run.sh
 		else
 			containers+=$(cat name)
 		fi
