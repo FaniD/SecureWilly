@@ -286,9 +286,9 @@ for i in xrange(len(data)): #because we will need the next line
             #So we change it into the real host path
             if (src.startswith('..')):
                 src = pwd_dir
-            else if (src.startwith('.')):
+            elif (src.startswith('.')):
                 src = pre_pwd
-            else if (not src.startswith('/')):
+            elif (not src.startswith('/')):
                 src="/var/lib/docker/volumes/" + current_dir + "_" + src + "/_data"
 
             #If there is a mount option:
