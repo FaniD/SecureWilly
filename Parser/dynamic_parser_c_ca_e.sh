@@ -116,7 +116,7 @@ while [[ "$enforce" == "0" ]]; do
 
 	enforce="1"
 
-	#Audit flag runs (complain & enforce)
+	#Audit flag runs (complain audit)
 	y=${y:-$i}
 	while true; do
 		if [ $y -eq $i ] 
@@ -179,6 +179,9 @@ while [[ "$enforce" == "0" ]]; do
 	./${dynamic_script_path}/4b_enforce_mode.sh
 	./${dynamic_script_path}/5_clear_logs.sh
 	./${dynamic_script_path}/6_net.sh
+	for SERVICE in "${service_list[@]}"; do
+		sed -i "3s/(audit/(/" ${app_run_path}/parser_output/profiles/${SERVICE}/version_${i}
+	done
 	./${dynamic_script_path}/7_run.sh
 	echo $i | source ${dynamic_script_path}/8_logging_files.sh
 	./${dynamic_script_path}/9a_clear_containers_net.sh
@@ -204,7 +207,6 @@ while [[ "$enforce" == "0" ]]; do
 		((lp_count++))
         done
 	echo $x | source ${dynamic_script_path}/12_complain_enforce_audit.sh
-	#end_of_logs="1"
 	for SERVICE in "${service_list[@]}"; do
 		next_step=$(head -n 1 next_step_${SERVICE})
 	        #echo "Next step for ${SERVICE} is $next_step"
@@ -215,17 +217,13 @@ while [[ "$enforce" == "0" ]]; do
 		fi
 	done
 	((i++))
-	#Enforce audit is done, delete audit in last profile in case it re-runs complain
-	for SERVICE in "${service_list[@]}"; do
-		sed -i "3s/(audit/(/" ${app_run_path}/parser_output/profiles/${SERVICE}/version_${i}
-	done
 done
 
 #RUN i uses version i so the profile produced is version i+1. At the end there is i++
 #So, version_{i} is the last profile
 #Delete audit flag if exists and output the profile
 for SERVICE in "${service_list[@]}"; do
-	python ${dynamic_script_path}/13_delete_audit_flag.py $SERVICE $i
+	python ${dynamic_script_path}/13_delete_audit_flag.py $SERVICE ${i}
 	rm next_step_${SERVICE}
 	cp ${app_run_path}/parser_output/profiles/${SERVICE}/output_${SERVICE}_profile ${app_run_path}/parser_output/${SERVICE}_profile
 done
