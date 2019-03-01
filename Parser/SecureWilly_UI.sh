@@ -14,8 +14,6 @@ echo "Copyright (c) 2019 Fani Dimou <fani.dimou92@gmail.com>"
 echo ""
 
 #~~~~~~~~~~~~Static Part requirements~~~~~~~~~~~~~~
-
-#~~~Dynamic part requirements~~~
 echo "Give the number of services that need a profile for your project:"
 echo "A service is defined by a docker image, either it is built by Dockerfile or uses an existing image, with or without docker-compose file."
 read num_of_services
@@ -135,6 +133,8 @@ if [[ "$net" != "N" ]]; then
 fi
 echo ""
 
+
+#~~~~~~~~~~~~Dynamic part requirements~~~~~~~~~~~~~
 #define run - testplan.sh
 echo "In the next lines please give a testplan that you want to execute inside the container."
 echo "Make sure you follow the next rules:"
@@ -407,6 +407,7 @@ sed -i "9s/pwd = .*/pwd = ${pwd_path}/" static_parser.py
 pre_pwd=$(pwd | sed "s,/*[^/]\+/*$,," | sed "s/.*/\"&\"/")
 sed -i "10s/pre_pwd = .*/pre_pwd = ${pre_pwd}/" static_parser.py
 
+#~~~~~~~~~~~~Run Static Parser~~~~~~~~~~~~~
 yml_count=0
 for service_i in "${array[@]}"; do
 	echo "" >> ${array_noslash[${yml_count}]}_yml
@@ -434,6 +435,7 @@ done
 
 rm empty_file
 
+#~~~~~~~~~~~~Run Dynamic Parser~~~~~~~~~~~~~
 sudo chmod +x dynamic_scripts/7_run.sh
 #Dynamic_parser
 ./dynamic_parser.sh
@@ -441,6 +443,8 @@ sudo chmod +x dynamic_scripts/7_run.sh
 for service_i in "${array_noslash[@]}"; do
 	rm if_vol_${service_i}
 done
+
+#~~~~~~~~~~~~THE END~~~~~~~~~~~~~
 echo ""
 echo "--------------------------------------------------------------------------"
 echo "Profiles produced for all services are located in parser_output directory."
