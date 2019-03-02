@@ -1,10 +1,8 @@
 #include <tunables/global>
 
 profile cloudsuitedata-servingclient_profile flags=(attach_disconnected,mediate_deleted) {
-	network inet stream,
 	file,  #Allows access to containers filesystem
-	/var/lib/docker/* r, #Access to layers of filesystem
-	network inet6 stream,
-	network inet dgram,
+	network inet stream,
 	deny ptrace (readby, tracedby), #Confront container breakout attacks
+	/var/lib/docker/* r, #Access to layers of filesystem
 }

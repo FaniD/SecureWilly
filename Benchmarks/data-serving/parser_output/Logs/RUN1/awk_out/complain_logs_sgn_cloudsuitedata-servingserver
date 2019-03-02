@@ -1,3 +1,1 @@
-send exists cloudsuitedata-servingserver_profile
-receive exists cloudsuitedata-servingserver_profile
 receive kill unconfined

@@ -1,17 +1,13 @@
 #include <tunables/global>
 
 profile cloudsuitedata-servingserver_profile flags=(attach_disconnected,mediate_deleted) {
-	signal (send) set=(exists) peer=cloudsuitedata-servingserver_profile,
 	capability dac_override,
 	network inet6 dgram,
-	signal (receive) set=(exists) peer=cloudsuitedata-servingserver_profile,
-	capability fsetid,
 	network inet stream,
 	file,  #Allows access to containers filesystem
 	/var/lib/docker/* r, #Access to layers of filesystem
 	network inet6 stream,
 	signal (receive) set=(kill) peer=unconfined,
 	network inet dgram,
-	signal (receive) set=(term) peer=unconfined,
 	deny ptrace (readby, tracedby), #Confront container breakout attacks
 }

@@ -1,2 +1,0 @@
-Feb 25 19:34:03 docker-security59 kernel: [82841.016405] type=1400 audit(1551123243.114:32333154): apparmor="ALLOWED" operation="capable" profile="cloudsuitedata-servingserver_profile" pid=26232 comm="java" capability=4  capname="fsetid"
-Feb 25 19:34:21 docker-security59 kernel: [82859.189021] type=1400 audit(1551123261.286:32333165): apparmor="ALLOWED" operation="signal" profile="cloudsuitedata-servingserver_profile" pid=7788 comm="docker-containe" requested_mask="receive" denied_mask="receive" signal=term peer="unconfined"
