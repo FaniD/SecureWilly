@@ -1,0 +1,26 @@
+Mar  1 23:27:57 docker-security59 kernel: [442475.344489] device veth8566878 entered promiscuous mode
+Mar  1 23:27:57 docker-security59 kernel: [442475.344643] IPv6: ADDRCONF(NETDEV_UP): veth8566878: link is not ready
+Mar  1 23:27:57 docker-security59 kernel: [442475.344649] br-e32a1ed46e5f: port 1(veth8566878) entered forwarding state
+Mar  1 23:27:57 docker-security59 kernel: [442475.344657] br-e32a1ed46e5f: port 1(veth8566878) entered forwarding state
+Mar  1 23:27:57 docker-security59 kernel: [442475.345209] br-e32a1ed46e5f: port 1(veth8566878) entered disabled state
+Mar  1 23:27:58 docker-security59 kernel: [442476.345308] IPv6: ADDRCONF(NETDEV_CHANGE): veth8566878: link becomes ready
+Mar  1 23:27:58 docker-security59 kernel: [442476.345362] br-e32a1ed46e5f: port 1(veth8566878) entered forwarding state
+Mar  1 23:27:58 docker-security59 kernel: [442476.345370] br-e32a1ed46e5f: port 1(veth8566878) entered forwarding state
+Mar  1 23:27:59 docker-security59 kernel: [442477.787155] device veth9cf9a39 entered promiscuous mode
+Mar  1 23:27:59 docker-security59 kernel: [442477.787273] IPv6: ADDRCONF(NETDEV_UP): veth9cf9a39: link is not ready
+Mar  1 23:28:01 docker-security59 kernel: [442479.492745] IPv6: ADDRCONF(NETDEV_CHANGE): veth9cf9a39: link becomes ready
+Mar  1 23:28:01 docker-security59 kernel: [442479.492783] br-e32a1ed46e5f: port 2(veth9cf9a39) entered forwarding state
+Mar  1 23:28:01 docker-security59 kernel: [442479.492790] br-e32a1ed46e5f: port 2(veth9cf9a39) entered forwarding state
+Mar  1 23:28:07 docker-security59 kernel: [442485.468296] type=1400 audit(1551482887.566:3767576668): apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=14952 comm="apache2" capability=4  capname="fsetid"
+Mar  1 23:28:07 docker-security59 kernel: [442485.469404] type=1400 audit(1551482887.566:3767576669): apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=15109 comm="apache2" capability=6  capname="setgid"
+Mar  1 23:28:13 docker-security59 kernel: [442491.356073] br-e32a1ed46e5f: port 1(veth8566878) entered forwarding state
+Mar  1 23:28:16 docker-security59 kernel: [442494.524120] br-e32a1ed46e5f: port 2(veth9cf9a39) entered forwarding state
+Mar  1 23:32:24 docker-security59 kernel: [442742.494355] type=1400 audit(1551483144.590:3767576670): apparmor="ALLOWED" operation="signal" profile="nextcloud_profile" pid=4025 comm="docker-containe" requested_mask="receive" denied_mask="receive" signal=kill peer="unconfined"
+Mar  1 23:32:24 docker-security59 kernel: [442742.758257] br-e32a1ed46e5f: port 2(veth9cf9a39) entered disabled state
+Mar  1 23:32:25 docker-security59 kernel: [442743.099925] br-e32a1ed46e5f: port 2(veth9cf9a39) entered disabled state
+Mar  1 23:32:25 docker-security59 kernel: [442743.100800] device veth9cf9a39 left promiscuous mode
+Mar  1 23:32:25 docker-security59 kernel: [442743.100812] br-e32a1ed46e5f: port 2(veth9cf9a39) entered disabled state
+Mar  1 23:32:26 docker-security59 kernel: [442744.112668] br-e32a1ed46e5f: port 1(veth8566878) entered disabled state
+Mar  1 23:32:26 docker-security59 kernel: [442744.550281] br-e32a1ed46e5f: port 1(veth8566878) entered disabled state
+Mar  1 23:32:26 docker-security59 kernel: [442744.551436] device veth8566878 left promiscuous mode
+Mar  1 23:32:26 docker-security59 kernel: [442744.551448] br-e32a1ed46e5f: port 1(veth8566878) entered disabled state

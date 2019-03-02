@@ -1,0 +1,28 @@
+#Capability\n
+#Network\n
+inet stream
+#File
+/var/www/html/apps/cloud_federation_api/lib/AppInfo/ r
+/var/www/html/apps/cloud_federation_api/lib/AppInfo/.Application.php.mNy9gs c
+/var/www/html/apps/cloud_federation_api/lib/AppInfo/.Application.php.mNy9gs rwc
+/var/www/html/apps/cloud_federation_api/lib/AppInfo/.Application.php.mNy9gs w
+/usr/src/nextcloud/apps/comments/js/templates/comment.handlebars r
+/var/lib/docker/aufs/diff/4d999d5f0e1af427f4ef5bd886c9551f9acab147fdfe4985af55d79200002cf3/usr/src/nextcloud/apps/comments/js/templates/comment.handlebars r
+/var/www/html/apps/cloud_federation_api/lib/AppInfo/.Application.php.mNy9gs r
+requested_mask 
+/etc/ld.so.cache r
+/var/lib/docker/aufs/diff/4d999d5f0e1af427f4ef5bd886c9551f9acab147fdfe4985af55d79200002cf3/etc/ld.so.cache r
+/lib/x86_64-linux-gnu/libcrypt-2.24.so r
+/var/lib/docker/aufs/diff/2484fa342de159083066aec204c872d0a6aa2866855e001db25810834de7ae09/lib/x86_64-linux-gnu/libcrypt-2.24.so r
+/var/www/html/lib/private/User/User.php r
+/var/www/html/apps/password_policy/ r
+/var/www/html/apps/password_policy/appinfo/info.xml r
+/var/www/html/apps/sharebymail/ r
+/var/www/html/apps/sharebymail/appinfo/info.xml r
+/var/www/html/apps/sharebymail/appinfo/ r
+/var/www/html/apps/logreader/ r
+/var/www/html/apps/logreader/appinfo/info.xml r
+/var/www/html/data/appdata_ocl2uk81nq6i/ r
+2F7661722F7777772F68746D6C2F646174612F77696C6C792F66696C65732F446F63756D656E74732F4E657874636C6F756420466C7965722E706466 r
+#Signal
+receive exists unconfined

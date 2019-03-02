@@ -1,0 +1,24 @@
+/var/www/html/apps/user_ldap/l10n/.fr.js.0jNFL0 rwc
+/var/www/html/apps/user_ldap/l10n/.fr.js.0jNFL0 w
+/var/www/html/apps/user_ldap/l10n/.fr.js.0jNFL0 r
+/var/www/html/apps/user_ldap/l10n/.fr.js.0jNFL0 rwd
+/var/www/html/apps/user_ldap/l10n/fr.js wc
+/var/www/html/apps/user_ldap/l10n/.fr.json.fkZIzO c
+/var/www/html/apps/user_ldap/l10n/.fr.json.fkZIzO rwc
+/var/www/html/apps/user_ldap/l10n/.fr.json.fkZIzO w
+requested_mask 
+/etc/ld.so.cache r
+/var/lib/docker/aufs/diff/4d999d5f0e1af427f4ef5bd886c9551f9acab147fdfe4985af55d79200002cf3/etc/ld.so.cache r
+/lib/x86_64-linux-gnu/libcrypt-2.24.so r
+/var/lib/docker/aufs/diff/2484fa342de159083066aec204c872d0a6aa2866855e001db25810834de7ae09/lib/x86_64-linux-gnu/libcrypt-2.24.so r
+/var/www/html/lib/private/User/Backend.php r
+/tmp/.ZendSem.kMienO wk
+/tmp/.ZendSem.kMienO k
+/var/www/html/apps/federation/ r
+/var/www/html/apps/federation/appinfo/info.xml r
+/var/www/html/apps/logreader/ r
+/var/www/html/apps/logreader/appinfo/info.xml r
+/var/www/html/apps/logreader/appinfo/ r
+/var/www/html/apps/oauth2/ r
+/var/www/html/data/ r
+/var/www/html/data/willy/files/Nextcloud.png r

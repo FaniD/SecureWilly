@@ -1,0 +1,15 @@
+#Capability\n
+dac_override
+setgid
+#Network\n
+inet dgram
+inet6 dgram
+inet6 stream
+#File
+requested_mask 
+#Signal
+send term db_profile
+receive term db_profile
+send usr1 db_profile
+receive usr1 db_profile
+receive kill unconfined

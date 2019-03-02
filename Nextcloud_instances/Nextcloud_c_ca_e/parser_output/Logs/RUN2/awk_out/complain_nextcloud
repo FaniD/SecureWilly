@@ -1,0 +1,8 @@
+#Capability\n
+dac_override
+fowner
+#Network\n
+inet6 stream
+inet stream
+#File
+#Signal

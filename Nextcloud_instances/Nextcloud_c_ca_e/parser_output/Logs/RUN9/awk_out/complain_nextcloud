@@ -1,0 +1,28 @@
+#Capability\n
+#Network\n
+inet stream
+#File
+/var/www/html/apps/serverinfo/js/.Chart.min.js.1ITDDB r
+/var/www/html/apps/serverinfo/js/.Chart.min.js.1ITDDB w
+/var/www/html/apps/serverinfo/js/.Chart.min.js.1ITDDB rwd
+/var/www/html/apps/serverinfo/js/Chart.min.js wc
+/var/www/html/apps/serverinfo/js/.script.js.BL35Me c
+/var/www/html/apps/serverinfo/js/.script.js.BL35Me rwc
+/var/www/html/apps/serverinfo/js/.script.js.BL35Me w
+/var/www/html/apps/serverinfo/js/.script.js.BL35Me r
+requested_mask 
+/etc/ld.so.cache r
+/var/lib/docker/aufs/diff/4d999d5f0e1af427f4ef5bd886c9551f9acab147fdfe4985af55d79200002cf3/etc/ld.so.cache r
+/lib/x86_64-linux-gnu/libcrypt-2.24.so r
+/var/lib/docker/aufs/diff/2484fa342de159083066aec204c872d0a6aa2866855e001db25810834de7ae09/lib/x86_64-linux-gnu/libcrypt-2.24.so r
+/var/www/html/apps/activity/lib/Migration/Version2006Date20170808155040.php r
+/tmp/.ZendSem.4l5WPJ wk
+/var/www/html/apps/files_texteditor/ r
+/var/www/html/apps/files_texteditor/appinfo/info.xml r
+/var/www/html/apps/files_texteditor/appinfo/ r
+/lib/x86_64-linux-gnu/libc-2.24.so r
+/var/lib/docker/aufs/diff/2484fa342de159083066aec204c872d0a6aa2866855e001db25810834de7ae09/lib/x86_64-linux-gnu/libc-2.24.so r
+/var/www/html/lib/private/DB/QueryBuilder/CompositeExpression.php r
+/var/www/html/data/willy/files/Photos/Nut.jpg r
+#Signal
+receive exists unconfined

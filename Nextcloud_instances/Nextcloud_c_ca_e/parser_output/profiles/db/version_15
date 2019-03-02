@@ -1,0 +1,42 @@
+#include <tunables/global>
+
+profile db_profile flags=(,attach_disconnected,mediate_deleted) {
+	/usr/share/zoneinfo/America/Dawson_Creek r,
+	/var/lib/mysql/* rw,
+	/usr/share/zoneinfo/Portugal r,
+	/usr/share/zoneinfo/America/Detroit r,
+	/usr/share/zoneinfo/right/America/Los_Angeles r,
+	/usr/share/zoneinfo/right/America/Detroit r,
+	file,  #Allows access to containers filesystem
+	/usr/share/zoneinfo/right/America/Anguilla r,
+	network inet6 dgram,
+	signal (receive) set=(usr1) peer=db_profile,
+	/usr/share/zoneinfo/Europe/Belgrade r,
+	/etc/ld.so.cache r,
+	network inet dgram,
+	/usr/share/zoneinfo/right/America/Nassau r,
+	/ r,
+	/sys/devices/system/node/ r,
+	signal (send) set=(usr1) peer=db_profile,
+	/usr/share/zoneinfo/Navajo r,
+	/var/lib/docker/* r, #Access to layers of filesystem
+	/usr/share/zoneinfo/GB r,
+	capability setgid,
+	capability dac_override,
+	/lib/x86_64-linux-gnu/libtinfo.so.5.9 r,
+	/sys/devices/system/node/node0/meminfo r,
+	network inet6 stream,
+	mount /var/lib/docker/volumes/nextcloud_db_/_data -> /var/lib/mysql, #Bind host volume to docker container volume
+	/proc/102/status r,
+	/usr/bin/gawk r,
+	capability setuid,
+	deny ptrace (readby, tracedby), #Confront container breakout attacks
+	/sys/devices/system/cpu/ r,
+	/usr/share/zoneinfo/right/America/New_York r,
+	signal (receive) set=(term) peer=db_profile,
+	/usr/share/zoneinfo/right/Navajo r,
+	signal (receive) set=(kill) peer=unconfined,
+	deny remount /var/lib/mysql, #Disallow anybody that wants to remount this mountpoint
+	deny umount /var/lib/mysql, #Disallow anybody that wants to break this mountpoint
+	signal (send) set=(term) peer=db_profile,
+}

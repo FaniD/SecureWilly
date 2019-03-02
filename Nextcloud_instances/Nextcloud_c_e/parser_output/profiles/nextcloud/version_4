@@ -1,0 +1,29 @@
+#include <tunables/global>
+
+profile nextcloud_profile flags=(attach_disconnected,mediate_deleted) {
+	/var/www/html/data/* rw,
+	capability fsetid,
+	capability chown,
+	file,  #Allows access to containers filesystem
+	mount /var/lib/docker/volumes/nextcloud_nextcloud_/_data -> /var/www/html, #Bind host volume to docker container volume
+	network inet6 dgram,
+	signal (receive) set=(exists) peer=unconfined,
+	mount /home/ubuntu/SecureWilly/Nextcloud/data -> /var/www/html/data, #Bind host volume to docker container volume
+	network inet stream,
+	/var/www/html/* rw,
+	/var/lib/docker/* r, #Access to layers of filesystem
+	network inet6 stream,
+	capability fowner,
+	capability setgid,
+	signal (receive) set=(usr2) peer=nextcloud_profile,
+	capability dac_override,
+	deny umount /var/www/html, #Disallow anybody that wants to break this mountpoint
+	signal (receive) set=(kill) peer=unconfined,
+	deny remount /var/www/html/data, #Disallow anybody that wants to remount this mountpoint
+	network inet dgram,
+	deny remount /var/www/html, #Disallow anybody that wants to remount this mountpoint
+	deny ptrace (readby, tracedby), #Confront container breakout attacks
+	signal (send) set=(usr2) peer=nextcloud_profile,
+	deny umount /var/www/html/data, #Disallow anybody that wants to break this mountpoint
+	capability net_bind_service,  #This capability is needed to bind a socket to Internet domain privileged ports
+}

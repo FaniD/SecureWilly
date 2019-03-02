@@ -1,8 +1,0 @@
-#Capability\n
-fowner
-#Network\n
-inet stream
-#File
-requested_mask 
-#Signal
-receive usr2 nextcloud_profile

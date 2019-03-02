@@ -1,0 +1,36 @@
+#include <tunables/global>
+
+profile nextcloud_profile flags=(,attach_disconnected,mediate_deleted) {
+	/var/www/html/data/* rw,
+	/usr/src/nextcloud/apps/twofactor_backupcodes/l10n/es_UY.js r,
+	capability dac_override,
+	/lib/x86_64-linux-gnu/libc-2.24.so r,
+	capability chown,
+	file,  #Allows access to containers filesystem
+	mount /var/lib/docker/volumes/nextcloud_nextcloud_/_data -> /var/www/html, #Bind host volume to docker container volume
+	network inet6 dgram,
+	signal (receive) set=(exists) peer=unconfined,
+	/usr/src/nextcloud/apps/twofactor_backupcodes/l10n/es_UY.json r,
+	/etc/ld.so.cache r,
+	mount /home/ubuntu/SecureWilly/Nextcloud/data -> /var/www/html/data, #Bind host volume to docker container volume
+	network inet stream,
+	/var/www/html/* rw,
+	/var/lib/docker/* r, #Access to layers of filesystem
+	network inet6 stream,
+	capability fowner,
+	capability setgid,
+	signal (receive) set=(usr2) peer=nextcloud_profile,
+	/usr/src/nextcloud/apps/password_policy/lists/list-7.php r,
+	deny umount /var/www/html, #Disallow anybody that wants to break this mountpoint
+	signal (send) set=(usr2) peer=nextcloud_profile,
+	capability fsetid,
+	deny remount /var/www/html/data, #Disallow anybody that wants to remount this mountpoint
+	network inet dgram,
+	capability setuid,
+	deny remount /var/www/html, #Disallow anybody that wants to remount this mountpoint
+	deny ptrace (readby, tracedby), #Confront container breakout attacks
+	/lib/x86_64-linux-gnu/libcrypt-2.24.so r,
+	signal (receive) set=(kill) peer=unconfined,
+	deny umount /var/www/html/data, #Disallow anybody that wants to break this mountpoint
+	capability net_bind_service,  #This capability is needed to bind a socket to Internet domain privileged ports
+}

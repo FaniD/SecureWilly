@@ -1,0 +1,24 @@
+#Capability\n
+#Network\n
+inet stream
+#File
+/usr/src/nextcloud/apps/password_policy/lists/list-7.php r
+/var/lib/docker/aufs/diff/4d999d5f0e1af427f4ef5bd886c9551f9acab147fdfe4985af55d79200002cf3/usr/src/nextcloud/apps/password_policy/lists/list-7.php r
+/var/www/html/apps/password_policy/lists/.list-6.php.ODnDYC r
+/var/www/html/apps/password_policy/lists/.list-6.php.ODnDYC w
+/var/www/html/apps/password_policy/lists/.list-6.php.ODnDYC rwd
+/var/www/html/apps/password_policy/lists/list-6.php wc
+/var/www/html/apps/password_policy/lists/.list-7.php.clTTk6 c
+requested_mask 
+/etc/ld.so.cache r
+/var/lib/docker/aufs/diff/4d999d5f0e1af427f4ef5bd886c9551f9acab147fdfe4985af55d79200002cf3/etc/ld.so.cache r
+/lib/x86_64-linux-gnu/libcrypt-2.24.so r
+/var/lib/docker/aufs/diff/2484fa342de159083066aec204c872d0a6aa2866855e001db25810834de7ae09/lib/x86_64-linux-gnu/libcrypt-2.24.so r
+/var/www/html/apps/twofactor_backupcodes/ r
+/var/www/html/apps/twofactor_backupcodes/appinfo/info.xml r
+/var/www/html/apps/twofactor_backupcodes/lib/Migration/Version1002Date20180821043638.php r
+/tmp/.ZendSem.eWEXye wk
+/tmp/.ZendSem.eWEXye k
+2F7661722F7777772F68746D6C2F646174612F77696C6C792F66696C65732F446F63756D656E74732F4E657874636C6F756420466C7965722E706466 r
+#Signal
+receive exists unconfined
