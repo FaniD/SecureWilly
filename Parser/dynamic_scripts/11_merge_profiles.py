@@ -86,11 +86,11 @@ for line in data:
 
     #Temporary files should not be included in dynamic analysis, otherwise there is risk of infinite loop and they are useless anyway as they differ from run to run
     #Omit /tmp and /var/tmp where temporary files exist in Linux
-    if '/tmp' in line:
-        continue
+    #if '/tmp' in line:
+    #    continue
 
-    if 'var/tmp' in line:
-        continue
+    #if 'var/tmp' in line:
+    #    continue
 
     if '/var/lib/docker/' in line:
         continue
