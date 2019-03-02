@@ -2,7 +2,7 @@
 
 read round
 #This script determines if dynamic parser is ready to move on to the next mode either enforce or complain
-service_list=(cloudsuitemedia-streamingserver cloudsuitemedia-streamingclient)
+service_list=(cloudsuitedata-cachingserver cloudsuitedata-cachingclient)
 for service in "${service_list[@]}"; do
 	#Compare 2 profiles by number of lines
 	#Beware: There are no empty lines, comments are added next to rules, no duplicate rules, include and profile names are added as the same lines to each profile. So profiles are either augmentations of previous profiles or the same.

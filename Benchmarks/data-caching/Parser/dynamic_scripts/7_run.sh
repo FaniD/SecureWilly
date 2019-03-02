@@ -1,8 +1,9 @@
 #!/bin/bash
  
-docker network create streaming_network
-docker create --name cloudsuite/media-streaming:dataset cloudsuite/media-streaming:dataset
-docker run -d --name cloudsuite/media-streaming:server --security-opt apparmor=cloudsuitemedia-streamingserver_profile --volumes-from streaming_dataset --net streaming_network cloudsuite/media-streaming:server
-docker run -t --name cloudsuite/media-streaming:client --security-opt apparmor=cloudsuitemedia-streamingclient_profile -v /output:/output --volumes-from streaming_dataset --net streaming_network cloudsuite/media-streaming:client streaming_server
-
-docker stop cloudsuite/media-streaming:server
+docker run -d --name dc-server --net caching_network -d --security-opt "apparmor=cloudsuitedata-cachingserver_profile" cloudsuite/data-caching:server -t 4 -m 4096 -n 550
+docker run -d -t --name dc-client --net caching_network -v /home/ubuntu/SecureWilly/Benchmarks/data-caching/scripts:/scripts --security-opt "apparmor=cloudsuitedata-cachingclient_profile" cloudsuite/data-caching:client bash
+docker exec -t dc-client ./scripts/1_create_dataset.sh
+docker exec -t dc-client ./scripts/2_run.sh
+docker exec -t dc-client ./scripts/3_run.sh
+docker stop dc-client
+docker stop dc-server

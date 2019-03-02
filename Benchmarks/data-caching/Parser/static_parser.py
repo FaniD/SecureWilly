@@ -3,11 +3,11 @@ import io
 import sys
 from collections import OrderedDict
 
-current_dir = "dockerfileinfo"
+current_dir = "data-caching"
 current_dir = current_dir.lower()
 
-pwd = ""
-pre_pwd = ""
+pwd = "/home/ubuntu/SecureWilly/Benchmarks/data-caching/Parser"
+pre_pwd = "/home/ubuntu/SecureWilly/Benchmarks/data-caching"
 
 #This will be our preliminery profile from Static Analysis. Append every rule extracted to it.
 static_profile = []

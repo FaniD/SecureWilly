@@ -1,35 +1,16 @@
-N
-/home/ubuntu/SecureWilly/next/docker-compose.yml
 2
-db
-app
+cloudsuite/data-caching:server
+cloudsuite/data-caching:client
 N
-sudo rm -r /home/ubuntu/SecureWilly/next/data
-mkdir /home/ubuntu/SecureWilly/next/data
-sudo chown www-data:www-data /home/ubuntu/SecureWilly/next/data
-
-docker-compose up -d
-sleep 30
-
-docker exec -u www-data -t app php occ status > answer
-answer=$(cat answer | grep 'Nextcloud is not installed')
-while [ -z "$answer" ]
-do
-        rm answer
-        docker exec -u www-data -t nextcloud_securewilly php occ status > answer
-        answer=$(cat answer | grep 'Nextcloud is not installed')
-done
-rm answer
-#Configure nextcloud
-docker exec -u www-data -ti app php occ maintenance:install --database "mysql" --database-name "nextcloud" --database-host "db" --database-user "willy" --database-pass "secret" --admin-user "willy" --admin-pass "secret"
-
-#Create a file in local data directory
-sudo touch /home/ubuntu/SecureWilly/next/data/willy/files/HelloFromTheOtherSide
-
-#Use occ files:scan to make it visible to the web interface
-docker exec -u www-data -t app php occ files:scan --all
-
-docker kill app
-docker kill db
+N
+N
+caching_network
+docker run -d --name dc-server --net caching_network -d cloudsuite/data-caching:server -t 4 -m 4096 -n 550
+docker run -d -t --name dc-client --net caching_network -v /home/ubuntu/SecureWilly/Benchmarks/data-caching/scripts:/scripts cloudsuite/data-caching:client bash
+docker exec -t dc-client ./scripts/1_create_dataset.sh
+docker exec -t dc-client ./scripts/2_run.sh
+docker exec -t dc-client ./scripts/3_run.sh
+docker stop dc-client
+docker stop dc-server
 Done
 Y

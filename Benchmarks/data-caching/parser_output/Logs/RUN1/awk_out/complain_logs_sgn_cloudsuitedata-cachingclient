@@ -1,0 +1,4 @@
+receive exists unconfined
+receive term unconfined
+send term cloudsuitedata-cachingclient_profile
+receive term cloudsuitedata-cachingclient_profile

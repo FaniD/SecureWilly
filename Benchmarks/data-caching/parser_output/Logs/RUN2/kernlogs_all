@@ -1,0 +1,47 @@
+Mar  2 18:48:49 docker-security59 kernel: [512127.732296] IPv6: ADDRCONF(NETDEV_UP): br-0358ffc18aa4: link is not ready
+Mar  2 18:48:50 docker-security59 kernel: [512128.463447] device veth808a9a9 entered promiscuous mode
+Mar  2 18:48:50 docker-security59 kernel: [512128.463596] IPv6: ADDRCONF(NETDEV_UP): veth808a9a9: link is not ready
+Mar  2 18:48:50 docker-security59 kernel: [512128.463610] br-0358ffc18aa4: port 1(veth808a9a9) entered forwarding state
+Mar  2 18:48:50 docker-security59 kernel: [512128.463631] br-0358ffc18aa4: port 1(veth808a9a9) entered forwarding state
+Mar  2 18:48:50 docker-security59 kernel: [512128.463649] IPv6: ADDRCONF(NETDEV_CHANGE): br-0358ffc18aa4: link becomes ready
+Mar  2 18:48:50 docker-security59 kernel: [512128.656365] br-0358ffc18aa4: port 1(veth808a9a9) entered disabled state
+Mar  2 18:48:51 docker-security59 kernel: [512129.400665] IPv6: ADDRCONF(NETDEV_CHANGE): veth808a9a9: link becomes ready
+Mar  2 18:48:51 docker-security59 kernel: [512129.400713] br-0358ffc18aa4: port 1(veth808a9a9) entered forwarding state
+Mar  2 18:48:51 docker-security59 kernel: [512129.400720] br-0358ffc18aa4: port 1(veth808a9a9) entered forwarding state
+Mar  2 18:48:51 docker-security59 kernel: [512129.597286] type=1400 audit(1551552531.694:177124281): apparmor="ALLOWED" operation="create" profile="cloudsuitedata-cachingserver_profile" pid=307 comm="memcached" family="inet6" sock_type="stream" protocol=6
+Mar  2 18:48:51 docker-security59 kernel: [512129.597302] type=1400 audit(1551552531.694:177124282): apparmor="ALLOWED" operation="setsockopt" profile="cloudsuitedata-cachingserver_profile" pid=307 comm="memcached" family="inet6" sock_type="stream" protocol=6
+Mar  2 18:48:51 docker-security59 kernel: [512129.597309] type=1400 audit(1551552531.694:177124283): apparmor="ALLOWED" operation="setsockopt" profile="cloudsuitedata-cachingserver_profile" pid=307 comm="memcached" family="inet6" sock_type="stream" protocol=6
+Mar  2 18:48:51 docker-security59 kernel: [512129.597315] type=1400 audit(1551552531.694:177124284): apparmor="ALLOWED" operation="setsockopt" profile="cloudsuitedata-cachingserver_profile" pid=307 comm="memcached" family="inet6" sock_type="stream" protocol=6
+Mar  2 18:48:51 docker-security59 kernel: [512129.597321] type=1400 audit(1551552531.694:177124285): apparmor="ALLOWED" operation="setsockopt" profile="cloudsuitedata-cachingserver_profile" pid=307 comm="memcached" family="inet6" sock_type="stream" protocol=6
+Mar  2 18:48:51 docker-security59 kernel: [512129.597326] type=1400 audit(1551552531.694:177124286): apparmor="ALLOWED" operation="setsockopt" profile="cloudsuitedata-cachingserver_profile" pid=307 comm="memcached" family="inet6" sock_type="stream" protocol=6
+Mar  2 18:48:52 docker-security59 kernel: [512130.167398] device veth2aad2da entered promiscuous mode
+Mar  2 18:48:52 docker-security59 kernel: [512130.167950] IPv6: ADDRCONF(NETDEV_UP): veth2aad2da: link is not ready
+Mar  2 18:48:52 docker-security59 kernel: [512130.167956] br-0358ffc18aa4: port 2(veth2aad2da) entered forwarding state
+Mar  2 18:48:52 docker-security59 kernel: [512130.167961] br-0358ffc18aa4: port 2(veth2aad2da) entered forwarding state
+Mar  2 18:48:52 docker-security59 kernel: [512130.656331] br-0358ffc18aa4: port 2(veth2aad2da) entered disabled state
+Mar  2 18:48:53 docker-security59 kernel: [512131.144684] IPv6: ADDRCONF(NETDEV_CHANGE): veth2aad2da: link becomes ready
+Mar  2 18:48:53 docker-security59 kernel: [512131.144741] br-0358ffc18aa4: port 2(veth2aad2da) entered forwarding state
+Mar  2 18:48:53 docker-security59 kernel: [512131.144748] br-0358ffc18aa4: port 2(veth2aad2da) entered forwarding state
+Mar  2 18:49:06 docker-security59 kernel: [512144.412093] br-0358ffc18aa4: port 1(veth808a9a9) entered forwarding state
+Mar  2 18:49:08 docker-security59 kernel: [512146.172131] br-0358ffc18aa4: port 2(veth2aad2da) entered forwarding state
+Mar  2 19:01:23 docker-security59 kernel: [512881.135435] audit_printk_skb: 102 callbacks suppressed
+Mar  2 19:01:23 docker-security59 kernel: [512881.135440] type=1400 audit(1551553283.230:177124321): apparmor="ALLOWED" operation="signal" profile="cloudsuitedata-cachingclient_profile" pid=596 comm="timeout" requested_mask="send" denied_mask="send" signal=cont peer="cloudsuitedata-cachingclient_profile"
+Mar  2 19:01:23 docker-security59 kernel: [512881.135446] type=1400 audit(1551553283.230:177124322): apparmor="ALLOWED" operation="signal" profile="cloudsuitedata-cachingclient_profile" pid=596 comm="timeout" requested_mask="receive" denied_mask="receive" signal=cont peer="cloudsuitedata-cachingclient_profile"
+Mar  2 19:01:23 docker-security59 kernel: [512881.135452] type=1400 audit(1551553283.230:177124323): apparmor="ALLOWED" operation="signal" profile="cloudsuitedata-cachingclient_profile" pid=596 comm="timeout" requested_mask="send" denied_mask="send" signal=cont peer="cloudsuitedata-cachingclient_profile"
+Mar  2 19:01:23 docker-security59 kernel: [512881.135456] type=1400 audit(1551553283.230:177124324): apparmor="ALLOWED" operation="signal" profile="cloudsuitedata-cachingclient_profile" pid=596 comm="timeout" requested_mask="receive" denied_mask="receive" signal=cont peer="cloudsuitedata-cachingclient_profile"
+Mar  2 19:01:23 docker-security59 kernel: [512881.135461] type=1400 audit(1551553283.230:177124325): apparmor="ALLOWED" operation="signal" profile="cloudsuitedata-cachingclient_profile" pid=596 comm="timeout" requested_mask="send" denied_mask="send" signal=cont peer="cloudsuitedata-cachingclient_profile"
+Mar  2 19:01:23 docker-security59 kernel: [512881.135465] type=1400 audit(1551553283.230:177124326): apparmor="ALLOWED" operation="signal" profile="cloudsuitedata-cachingclient_profile" pid=596 comm="timeout" requested_mask="receive" denied_mask="receive" signal=cont peer="cloudsuitedata-cachingclient_profile"
+Mar  2 19:11:23 docker-security59 kernel: [513481.511699] type=1400 audit(1551553883.606:177124327): apparmor="ALLOWED" operation="signal" profile="cloudsuitedata-cachingclient_profile" pid=794 comm="timeout" requested_mask="send" denied_mask="send" signal=cont peer="cloudsuitedata-cachingclient_profile"
+Mar  2 19:11:23 docker-security59 kernel: [513481.511707] type=1400 audit(1551553883.606:177124328): apparmor="ALLOWED" operation="signal" profile="cloudsuitedata-cachingclient_profile" pid=794 comm="timeout" requested_mask="receive" denied_mask="receive" signal=cont peer="cloudsuitedata-cachingclient_profile"
+Mar  2 19:11:23 docker-security59 kernel: [513481.511715] type=1400 audit(1551553883.606:177124329): apparmor="ALLOWED" operation="signal" profile="cloudsuitedata-cachingclient_profile" pid=794 comm="timeout" requested_mask="send" denied_mask="send" signal=cont peer="cloudsuitedata-cachingclient_profile"
+Mar  2 19:11:23 docker-security59 kernel: [513481.511719] type=1400 audit(1551553883.606:177124330): apparmor="ALLOWED" operation="signal" profile="cloudsuitedata-cachingclient_profile" pid=794 comm="timeout" requested_mask="receive" denied_mask="receive" signal=cont peer="cloudsuitedata-cachingclient_profile"
+Mar  2 19:11:23 docker-security59 kernel: [513481.511724] type=1400 audit(1551553883.606:177124331): apparmor="ALLOWED" operation="signal" profile="cloudsuitedata-cachingclient_profile" pid=794 comm="timeout" requested_mask="send" denied_mask="send" signal=cont peer="cloudsuitedata-cachingclient_profile"
+Mar  2 19:11:23 docker-security59 kernel: [513481.511732] type=1400 audit(1551553883.606:177124332): apparmor="ALLOWED" operation="signal" profile="cloudsuitedata-cachingclient_profile" pid=794 comm="timeout" requested_mask="receive" denied_mask="receive" signal=cont peer="cloudsuitedata-cachingclient_profile"
+Mar  2 19:11:24 docker-security59 kernel: [513481.969237] br-0358ffc18aa4: port 2(veth2aad2da) entered disabled state
+Mar  2 19:11:24 docker-security59 kernel: [513482.179148] br-0358ffc18aa4: port 2(veth2aad2da) entered disabled state
+Mar  2 19:11:24 docker-security59 kernel: [513482.179919] device veth2aad2da left promiscuous mode
+Mar  2 19:11:24 docker-security59 kernel: [513482.179931] br-0358ffc18aa4: port 2(veth2aad2da) entered disabled state
+Mar  2 19:11:25 docker-security59 kernel: [513483.172904] br-0358ffc18aa4: port 1(veth808a9a9) entered disabled state
+Mar  2 19:11:25 docker-security59 kernel: [513483.397726] br-0358ffc18aa4: port 1(veth808a9a9) entered disabled state
+Mar  2 19:11:25 docker-security59 kernel: [513483.398287] device veth808a9a9 left promiscuous mode
+Mar  2 19:11:25 docker-security59 kernel: [513483.398295] br-0358ffc18aa4: port 1(veth808a9a9) entered disabled state

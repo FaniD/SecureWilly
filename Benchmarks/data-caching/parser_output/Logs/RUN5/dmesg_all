@@ -1,0 +1,28 @@
+[516217.311771] IPv6: ADDRCONF(NETDEV_UP): br-7a5cc2ff07ae: link is not ready
+[516218.012612] device veth894349e entered promiscuous mode
+[516218.012754] IPv6: ADDRCONF(NETDEV_UP): veth894349e: link is not ready
+[516218.012760] br-7a5cc2ff07ae: port 1(veth894349e) entered forwarding state
+[516218.012772] br-7a5cc2ff07ae: port 1(veth894349e) entered forwarding state
+[516218.012790] IPv6: ADDRCONF(NETDEV_CHANGE): br-7a5cc2ff07ae: link becomes ready
+[516218.244581] br-7a5cc2ff07ae: port 1(veth894349e) entered disabled state
+[516218.956675] IPv6: ADDRCONF(NETDEV_CHANGE): veth894349e: link becomes ready
+[516218.956714] br-7a5cc2ff07ae: port 1(veth894349e) entered forwarding state
+[516218.956720] br-7a5cc2ff07ae: port 1(veth894349e) entered forwarding state
+[516219.746782] device veth4ddf27c entered promiscuous mode
+[516219.746901] IPv6: ADDRCONF(NETDEV_UP): veth4ddf27c: link is not ready
+[516219.746907] br-7a5cc2ff07ae: port 2(veth4ddf27c) entered forwarding state
+[516219.746913] br-7a5cc2ff07ae: port 2(veth4ddf27c) entered forwarding state
+[516220.244356] br-7a5cc2ff07ae: port 2(veth4ddf27c) entered disabled state
+[516220.684801] IPv6: ADDRCONF(NETDEV_CHANGE): veth4ddf27c: link becomes ready
+[516220.684841] br-7a5cc2ff07ae: port 2(veth4ddf27c) entered forwarding state
+[516220.684847] br-7a5cc2ff07ae: port 2(veth4ddf27c) entered forwarding state
+[516234.012276] br-7a5cc2ff07ae: port 1(veth894349e) entered forwarding state
+[516235.740237] br-7a5cc2ff07ae: port 2(veth4ddf27c) entered forwarding state
+[517567.669753] br-7a5cc2ff07ae: port 2(veth4ddf27c) entered disabled state
+[517567.891174] br-7a5cc2ff07ae: port 2(veth4ddf27c) entered disabled state
+[517567.892404] device veth4ddf27c left promiscuous mode
+[517567.892420] br-7a5cc2ff07ae: port 2(veth4ddf27c) entered disabled state
+[517568.788862] br-7a5cc2ff07ae: port 1(veth894349e) entered disabled state
+[517569.034867] br-7a5cc2ff07ae: port 1(veth894349e) entered disabled state
+[517569.035602] device veth894349e left promiscuous mode
+[517569.035613] br-7a5cc2ff07ae: port 1(veth894349e) entered disabled state

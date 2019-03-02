@@ -1,0 +1,33 @@
+[513487.299475] IPv6: ADDRCONF(NETDEV_UP): br-e44e95cd9658: link is not ready
+[513488.086655] device veth7ca3a36 entered promiscuous mode
+[513488.086796] IPv6: ADDRCONF(NETDEV_UP): veth7ca3a36: link is not ready
+[513488.086803] br-e44e95cd9658: port 1(veth7ca3a36) entered forwarding state
+[513488.086815] br-e44e95cd9658: port 1(veth7ca3a36) entered forwarding state
+[513488.086833] IPv6: ADDRCONF(NETDEV_CHANGE): br-e44e95cd9658: link becomes ready
+[513488.220405] br-e44e95cd9658: port 1(veth7ca3a36) entered disabled state
+[513489.216754] IPv6: ADDRCONF(NETDEV_CHANGE): veth7ca3a36: link becomes ready
+[513489.216809] br-e44e95cd9658: port 1(veth7ca3a36) entered forwarding state
+[513489.216824] br-e44e95cd9658: port 1(veth7ca3a36) entered forwarding state
+[513489.357956] type=1400 audit(1551553891.454:177124337): apparmor="ALLOWED" operation="create" profile="cloudsuitedata-cachingserver_profile" pid=1806 comm="memcached" family="inet" sock_type="dgram" protocol=17
+[513489.357972] type=1400 audit(1551553891.454:177124338): apparmor="ALLOWED" operation="setsockopt" profile="cloudsuitedata-cachingserver_profile" pid=1806 comm="memcached" family="inet" sock_type="dgram" protocol=17
+[513489.357983] type=1400 audit(1551553891.454:177124339): apparmor="ALLOWED" operation="getsockopt" profile="cloudsuitedata-cachingserver_profile" pid=1806 comm="memcached" family="inet" sock_type="dgram" protocol=17
+[513489.357990] type=1400 audit(1551553891.454:177124340): apparmor="ALLOWED" operation="setsockopt" profile="cloudsuitedata-cachingserver_profile" pid=1806 comm="memcached" family="inet" sock_type="dgram" protocol=17
+[513489.357997] type=1400 audit(1551553891.454:177124341): apparmor="ALLOWED" operation="setsockopt" profile="cloudsuitedata-cachingserver_profile" pid=1806 comm="memcached" family="inet" sock_type="dgram" protocol=17
+[513489.358006] type=1400 audit(1551553891.454:177124342): apparmor="ALLOWED" operation="setsockopt" profile="cloudsuitedata-cachingserver_profile" pid=1806 comm="memcached" family="inet" sock_type="dgram" protocol=17
+[513489.358016] type=1400 audit(1551553891.454:177124343): apparmor="ALLOWED" operation="setsockopt" profile="cloudsuitedata-cachingserver_profile" pid=1806 comm="memcached" family="inet" sock_type="dgram" protocol=17
+[513489.358026] type=1400 audit(1551553891.454:177124344): apparmor="ALLOWED" operation="setsockopt" profile="cloudsuitedata-cachingserver_profile" pid=1806 comm="memcached" family="inet" sock_type="dgram" protocol=17
+[513490.400994] device vethc366cf6 entered promiscuous mode
+[513490.401150] IPv6: ADDRCONF(NETDEV_UP): vethc366cf6: link is not ready
+[513491.632724] IPv6: ADDRCONF(NETDEV_CHANGE): vethc366cf6: link becomes ready
+[513491.632781] br-e44e95cd9658: port 2(vethc366cf6) entered forwarding state
+[513491.632788] br-e44e95cd9658: port 2(vethc366cf6) entered forwarding state
+[513504.220082] br-e44e95cd9658: port 1(veth7ca3a36) entered forwarding state
+[513506.652022] br-e44e95cd9658: port 2(vethc366cf6) entered forwarding state
+[514839.722065] br-e44e95cd9658: port 2(vethc366cf6) entered disabled state
+[514839.968755] br-e44e95cd9658: port 2(vethc366cf6) entered disabled state
+[514839.969449] device vethc366cf6 left promiscuous mode
+[514839.969461] br-e44e95cd9658: port 2(vethc366cf6) entered disabled state
+[514840.953565] br-e44e95cd9658: port 1(veth7ca3a36) entered disabled state
+[514841.214863] br-e44e95cd9658: port 1(veth7ca3a36) entered disabled state
+[514841.215655] device veth7ca3a36 left promiscuous mode
+[514841.215666] br-e44e95cd9658: port 1(veth7ca3a36) entered disabled state
