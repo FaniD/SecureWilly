@@ -1,0 +1,2 @@
+Mar  2 15:53:20 docker-security59 kernel: [501598.576054] type=1400 audit(1551542000.670:3821920781): apparmor="ALLOWED" operation="capable" profile="db_profile" pid=23261 comm="gosu" capability=7  capname="setuid"
+Mar  2 15:57:31 docker-security59 kernel: [501849.439363] type=1400 audit(1551542251.534:3822043028): apparmor="ALLOWED" operation="signal" profile="db_profile" pid=2287 comm="docker-containe" requested_mask="receive" denied_mask="receive" signal=kill peer="unconfined"

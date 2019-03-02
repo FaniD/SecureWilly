@@ -20,10 +20,8 @@ profile cloudsuitemedia-streamingserver_profile flags=(audit,attach_disconnected
 	/videos/full-480p-00004.txt r,
 	/videos/full-480p-00001.txt r,
 	/videos/full-720p-00001.txt r,
-	/videos/full-240p-00004.txt r,
 	capability setuid,
 	deny ptrace (readby, tracedby), #Confront container breakout attacks
-	/videos/full-360p-00007.txt r,
 	capability net_bind_service,
 	/videos/full-240p-00003.txt r,
 	/videos/full-720p-00007.txt r,

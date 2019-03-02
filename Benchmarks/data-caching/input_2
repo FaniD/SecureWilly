@@ -1,0 +1,16 @@
+2
+cloudsuite/data-caching:server
+cloudsuite/data-caching:client
+N
+N
+N
+caching_network
+docker run -d --name dc-server --net caching_network -d cloudsuite/data-caching:server -t 4 -m 4096 -n 550
+docker run -d -t --name dc-client --net caching_network cloudsuite/data-caching:client bash
+docker exec -t -v /home/ubuntu/SecureWilly/Benchmarks/data-caching/scripts:/scripts dc-client ./scripts/1_create_dataset.sh
+docker exec -t -v /home/ubuntu/SecureWilly/Benchmarks/data-caching/scripts:/scripts dc-client ./scripts/2_run.sh
+docker exec -t -v /home/ubuntu/SecureWilly/Benchmarks/data-caching/scripts:/scripts dc-client ./scripts/3_run.sh
+docker stop dc-client
+docker stop dc-server
+Done
+Y

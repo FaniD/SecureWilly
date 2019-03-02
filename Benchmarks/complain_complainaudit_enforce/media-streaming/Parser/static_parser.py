@@ -6,8 +6,8 @@ from collections import OrderedDict
 current_dir = "media-streaming"
 current_dir = current_dir.lower()
 
-pwd = ""
-pre_pwd = ""
+pwd = "/home/ubuntu/SecureWilly/Benchmarks/complain_complainaudit_enforce/media-streaming/Parser"
+pre_pwd = "/home/ubuntu/SecureWilly/Benchmarks/complain_complainaudit_enforce/media-streaming"
 
 #This will be our preliminery profile from Static Analysis. Append every rule extracted to it.
 static_profile = []
@@ -232,7 +232,7 @@ for i in xrange(len(data)): #because we will need the next line
             ports = ports.replace('/','')
             ports = ports.strip('\n')
 	    ports = ports.strip('"')
-            if ':' in line:
+            if ':' in ports:
 	        ports = ports.split(':')
 	        port_host = ports[0].strip('-')
 	        port_host = port_host.strip()

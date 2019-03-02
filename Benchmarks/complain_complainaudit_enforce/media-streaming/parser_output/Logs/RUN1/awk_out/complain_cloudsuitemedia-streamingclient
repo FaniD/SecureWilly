@@ -1,6 +1,6 @@
 #Capability\n
 #Network\n
-inet stream
 inet dgram
+inet stream
 #File
 #Signal

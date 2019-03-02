@@ -3,12 +3,12 @@
 profile cloudsuitemedia-streamingserver_profile flags=(attach_disconnected,mediate_deleted) {
 	/videos/full-360p-00001.txt r,
 	/lib/x86_64-linux-gnu/libcrypt-2.19.so r,
-	/videos/full-480p-00003.txt r,
 	capability chown,
 	file,  #Allows access to containers filesystem
 	/videos/full-360p-00004.txt r,
 	/videos/full-720p-00004.txt r,
 	/etc/ld.so.cache r,
+	/videos/full-240p-00001.txt r,
 	/var/log/nginx/access.log w,
 	/videos/full-360p-00003.txt r,
 	network inet stream,
@@ -17,6 +17,7 @@ profile cloudsuitemedia-streamingserver_profile flags=(attach_disconnected,media
 	capability setgid,
 	signal (receive) set=(term) peer=unconfined,
 	capability dac_override,
+	/videos/full-480p-00003.txt r,
 	/videos/full-480p-00004.txt r,
 	/videos/full-480p-00001.txt r,
 	/videos/full-720p-00001.txt r,

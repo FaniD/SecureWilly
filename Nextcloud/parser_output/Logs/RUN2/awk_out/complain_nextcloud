@@ -1,0 +1,10 @@
+#Capability\n
+fowner
+dac_override
+#Network\n
+inet6 stream
+inet stream
+#File
+requested_mask 
+#Signal
+receive usr2 nextcloud_profile

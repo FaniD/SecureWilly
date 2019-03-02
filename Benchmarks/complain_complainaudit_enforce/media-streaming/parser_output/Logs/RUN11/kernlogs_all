@@ -1,0 +1,21 @@
+Mar  2 13:32:11 docker-security59 kernel: [493129.728624] IPv6: ADDRCONF(NETDEV_UP): br-3af33773f2e9: link is not ready
+Mar  2 13:32:40 docker-security59 kernel: [493158.875130] device veth04b352c entered promiscuous mode
+Mar  2 13:32:40 docker-security59 kernel: [493158.875277] IPv6: ADDRCONF(NETDEV_UP): veth04b352c: link is not ready
+Mar  2 13:32:50 docker-security59 kernel: [493167.936780] IPv6: ADDRCONF(NETDEV_CHANGE): veth04b352c: link becomes ready
+Mar  2 13:32:50 docker-security59 kernel: [493167.936837] br-3af33773f2e9: port 1(veth04b352c) entered forwarding state
+Mar  2 13:32:50 docker-security59 kernel: [493167.936850] br-3af33773f2e9: port 1(veth04b352c) entered forwarding state
+Mar  2 13:32:50 docker-security59 kernel: [493167.936867] IPv6: ADDRCONF(NETDEV_CHANGE): br-3af33773f2e9: link becomes ready
+Mar  2 13:32:59 docker-security59 kernel: [493177.314469] device veth2796651 entered promiscuous mode
+Mar  2 13:32:59 docker-security59 kernel: [493177.314628] IPv6: ADDRCONF(NETDEV_UP): veth2796651: link is not ready
+Mar  2 13:33:03 docker-security59 kernel: [493181.772684] IPv6: ADDRCONF(NETDEV_CHANGE): veth2796651: link becomes ready
+Mar  2 13:33:03 docker-security59 kernel: [493181.772741] br-3af33773f2e9: port 2(veth2796651) entered forwarding state
+Mar  2 13:33:03 docker-security59 kernel: [493181.772754] br-3af33773f2e9: port 2(veth2796651) entered forwarding state
+Mar  2 13:33:05 docker-security59 kernel: [493182.940109] br-3af33773f2e9: port 1(veth04b352c) entered forwarding state
+Mar  2 13:33:18 docker-security59 kernel: [493196.828100] br-3af33773f2e9: port 2(veth2796651) entered forwarding state
+Mar  2 13:44:11 docker-security59 kernel: [493848.969245] br-3af33773f2e9: port 2(veth2796651) entered disabled state
+Mar  2 13:44:11 docker-security59 kernel: [493849.545294] br-3af33773f2e9: port 2(veth2796651) entered disabled state
+Mar  2 13:44:11 docker-security59 kernel: [493849.546550] device veth2796651 left promiscuous mode
+Mar  2 13:44:11 docker-security59 kernel: [493849.546562] br-3af33773f2e9: port 2(veth2796651) entered disabled state
+Mar  2 13:44:11 docker-security59 kernel: [493849.637231] br-3af33773f2e9: port 1(veth04b352c) entered disabled state
+Mar  2 13:44:11 docker-security59 kernel: [493849.638012] device veth04b352c left promiscuous mode
+Mar  2 13:44:11 docker-security59 kernel: [493849.638024] br-3af33773f2e9: port 1(veth04b352c) entered disabled state

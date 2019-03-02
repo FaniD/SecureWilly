@@ -106,7 +106,6 @@ while [[ "$enforce" == "0" ]]; do
 				enforce_time="0"
 			fi
 		done
-		cp -r /output ${app_run_path}/parser_output/output_run_${i}
 		((i++))
 		if [[ "$enforce_time" == "1" ]] #Then none of the services has 0 value so enforce time
 		then
@@ -164,7 +163,6 @@ while [[ "$enforce" == "0" ]]; do
 				audit_enforce_time="0"
 			fi
 		done
-		cp -r /output ${app_run_path}/parser_output/output_run_${i}
 		((i++))
 		if [[ "$audit_enforce_time" == "1" ]] #Then none of the services has 0 value so audit enforce time
 		then
@@ -218,7 +216,6 @@ while [[ "$enforce" == "0" ]]; do
 			enforce="0"
 		fi
 	done
-	cp -r /output ${app_run_path}/parser_output/output_run_${i}
 	((i++))
 done
 

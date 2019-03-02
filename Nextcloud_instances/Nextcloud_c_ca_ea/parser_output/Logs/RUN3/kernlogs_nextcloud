@@ -1,3 +1,0 @@
-Feb 27 16:33:57 docker-security59 kernel: [244835.802608] type=1400 audit(1551285237.898:835322934): apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=11272 comm="apache2" capability=4  capname="fsetid"
-Feb 27 16:33:57 docker-security59 kernel: [244835.803770] type=1400 audit(1551285237.898:835322935): apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=11395 comm="apache2" capability=6  capname="setgid"
-Feb 27 16:38:18 docker-security59 kernel: [245096.018723] type=1400 audit(1551285498.114:835322936): apparmor="ALLOWED" operation="signal" profile="nextcloud_profile" pid=4025 comm="docker-containe" requested_mask="receive" denied_mask="receive" signal=kill peer="unconfined"

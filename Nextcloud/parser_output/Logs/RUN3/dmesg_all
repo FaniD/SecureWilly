@@ -1,0 +1,23 @@
+[501857.668583] device veth395afb0 entered promiscuous mode
+[501857.668782] IPv6: ADDRCONF(NETDEV_UP): veth395afb0: link is not ready
+[501858.588738] IPv6: ADDRCONF(NETDEV_CHANGE): veth395afb0: link becomes ready
+[501858.588798] br-afcbbbcff3c1: port 1(veth395afb0) entered forwarding state
+[501858.588808] br-afcbbbcff3c1: port 1(veth395afb0) entered forwarding state
+[501860.013685] device vethefd250c entered promiscuous mode
+[501860.013830] IPv6: ADDRCONF(NETDEV_UP): vethefd250c: link is not ready
+[501861.548661] IPv6: ADDRCONF(NETDEV_CHANGE): vethefd250c: link becomes ready
+[501861.548698] br-afcbbbcff3c1: port 2(vethefd250c) entered forwarding state
+[501861.548704] br-afcbbbcff3c1: port 2(vethefd250c) entered forwarding state
+[501865.746299] type=1400 audit(1551542267.842:3822043033): apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=24777 comm="apache2" capability=4  capname="fsetid"
+[501865.747447] type=1400 audit(1551542267.842:3822043034): apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=24895 comm="apache2" capability=6  capname="setgid"
+[501873.628092] br-afcbbbcff3c1: port 1(veth395afb0) entered forwarding state
+[501876.572113] br-afcbbbcff3c1: port 2(vethefd250c) entered forwarding state
+[502120.618024] type=1400 audit(1551542522.714:3822043035): apparmor="ALLOWED" operation="signal" profile="nextcloud_profile" pid=1716 comm="docker-containe" requested_mask="receive" denied_mask="receive" signal=kill peer="unconfined"
+[502120.891833] br-afcbbbcff3c1: port 2(vethefd250c) entered disabled state
+[502121.222343] br-afcbbbcff3c1: port 2(vethefd250c) entered disabled state
+[502121.223445] device vethefd250c left promiscuous mode
+[502121.223462] br-afcbbbcff3c1: port 2(vethefd250c) entered disabled state
+[502122.354766] br-afcbbbcff3c1: port 1(veth395afb0) entered disabled state
+[502122.572298] br-afcbbbcff3c1: port 1(veth395afb0) entered disabled state
+[502122.573424] device veth395afb0 left promiscuous mode
+[502122.573436] br-afcbbbcff3c1: port 1(veth395afb0) entered disabled state

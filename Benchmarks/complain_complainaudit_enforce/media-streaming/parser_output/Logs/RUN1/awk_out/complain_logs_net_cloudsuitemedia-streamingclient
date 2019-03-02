@@ -1,2 +1,2 @@
-inet stream
 inet dgram
+inet stream

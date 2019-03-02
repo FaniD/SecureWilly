@@ -6,5 +6,6 @@ profile cloudsuitemedia-streamingserver_profile flags=(attach_disconnected,media
 	file,  #Allows access to containers filesystem
 	/var/lib/docker/* r, #Access to layers of filesystem
 	network inet6 stream,
+	signal (receive) set=(term) peer=unconfined,
 	deny ptrace (readby, tracedby), #Confront container breakout attacks
 }

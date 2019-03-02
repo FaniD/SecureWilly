@@ -1,1 +1,0 @@
-[434346.791952] type=1400 audit(1551474748.886:3763623374): apparmor="ALLOWED" operation="capable" profile="db_profile" pid=25355 comm="gosu" capability=7  capname="setuid"

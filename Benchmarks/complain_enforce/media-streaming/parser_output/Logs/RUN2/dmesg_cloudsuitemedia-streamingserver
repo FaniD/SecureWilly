@@ -1,3 +1,0 @@
-[98877.568675] type=1400 audit(1551139279.666:812023557): apparmor="ALLOWED" operation="capable" profile="cloudsuitemedia-streamingserver_profile" pid=19852 comm="nginx" capability=0  capname="chown"
-[98877.570033] type=1400 audit(1551139279.666:812023558): apparmor="ALLOWED" operation="capable" profile="cloudsuitemedia-streamingserver_profile" pid=19919 comm="nginx" capability=6  capname="setgid"
-[98877.572483] type=1400 audit(1551139279.670:812023559): apparmor="ALLOWED" operation="capable" profile="cloudsuitemedia-streamingserver_profile" pid=19922 comm="nginx" capability=6  capname="setgid"

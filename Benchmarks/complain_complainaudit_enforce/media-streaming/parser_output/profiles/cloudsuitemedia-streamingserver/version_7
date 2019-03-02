@@ -9,6 +9,7 @@ profile cloudsuitemedia-streamingserver_profile flags=(audit,attach_disconnected
 	/videos/full-360p-00004.txt r,
 	/videos/full-720p-00004.txt r,
 	/etc/ld.so.cache r,
+	/videos/full-240p-00001.txt r,
 	/var/log/nginx/access.log w,
 	/videos/full-360p-00003.txt r,
 	network inet stream,

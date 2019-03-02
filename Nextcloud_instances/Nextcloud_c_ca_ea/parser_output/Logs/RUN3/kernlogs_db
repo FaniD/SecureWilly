@@ -1,1 +1,0 @@
-Feb 27 16:38:20 docker-security59 kernel: [245098.625196] type=1400 audit(1551285500.722:835322937): apparmor="ALLOWED" operation="signal" profile="db_profile" pid=4025 comm="docker-containe" requested_mask="receive" denied_mask="receive" signal=kill peer="unconfined"
