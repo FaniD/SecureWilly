@@ -13,20 +13,13 @@ RUN echo "Hello everybody" > hello
 RUN useradd userA && echo "userA:A" | chpasswd
 RUN useradd userB && echo "userB:B" | chpasswd
 
-#Create file greetings, create directory HelloB
-RUN echo "Hello A" > greetings
-RUN mkdir "HelloB"
+#Create file greetings
+RUN echo "userA says Hello" > greetings
 
 #Test 2
 #greetings: userA owner
 #Permissions: rwx to userA, r to others
 RUN chown userA:userA /greetings
 RUN chmod 744 /greetings
-
-#Test 3
-#HelloB: userB owner
-#Permissions: rwx to userB, r to others
-RUN chown userB /HelloB/
-RUN chmod 744 /HelloB/
 
 ENTRYPOINT /bin/bash

@@ -1,0 +1,10 @@
+1
+dockerfile_info
+/home/ubuntu/SecureWilly/StaticAnalysis/dockerfile_info2
+N
+N
+docker build -t dockerfile_info ..
+docker run --name dockerfile_cont -it dockerfile_info
+Done
+Y
+

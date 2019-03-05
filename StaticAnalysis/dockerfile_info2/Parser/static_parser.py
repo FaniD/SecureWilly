@@ -3,11 +3,11 @@ import io
 import sys
 from collections import OrderedDict
 
-current_dir = "dockerfileinfo"
+current_dir = "dockerfileinfo2"
 current_dir = current_dir.lower()
 
-pwd = "/home/ubuntu/SecureWilly/StaticAnalysis/dockerfile_info/Parser"
-pre_pwd = "/home/ubuntu/SecureWilly/StaticAnalysis/dockerfile_info"
+pwd = "/home/ubuntu/SecureWilly/StaticAnalysis/dockerfile_info2/Parser"
+pre_pwd = "/home/ubuntu/SecureWilly/StaticAnalysis/dockerfile_info2"
 
 #This will be our preliminery profile from Static Analysis. Append every rule extracted to it.
 static_profile = []
