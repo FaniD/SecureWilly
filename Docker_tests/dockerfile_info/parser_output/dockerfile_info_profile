@@ -3,14 +3,14 @@
 profile dockerfile_info_profile flags=(attach_disconnected,mediate_deleted) {
 
 	owner /HelloB rwix,
-	/HelloB r,
 	capability setuid,  #Needed to switch between users
 	capability setgid,  #Needed to switch between users
+	network tcp, #Allowing networking with ports forwarding
+	capability net_bind_service,  #This capability is needed to bind a socket to well-known ports
 	owner /greetings rwix,
 	/greetings r,
 	file,  #Allows access to containers filesystem
 	/var/lib/docker/* r, #Access to layers of filesystem
-	network tcp,
- #Allowing networking with forwarding ports	capability net_bind_service,  #This capability is needed to bind a socket to Internet domain privileged ports
+	/HelloB r,
 	deny ptrace (readby, tracedby), #Confront container breakout attacks
 }

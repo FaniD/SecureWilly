@@ -73,13 +73,13 @@ for line in data:
         port_cont = port_proto.replace(proto, '')
         port_cont = port_cont.replace('/','')
         port_cont = port_cont.strip('\n')
-        ports_rule='\tnetwork ' + proto + ',\n #Allowing networking with forwarding ports' 
+        ports_rule='\tnetwork ' + proto + ', #Allowing networking with ports forwarding\n' 
         static_profile.append(ports_rule)
                 
         #port refers to container's port
         #In order for an app to bind to ports < 1024 capability net bind service is needed
         if int(port_cont) < 1024:
-            static_profile.append('\tcapability net_bind_service,  #This capability is needed to bind a socket to Internet domain privileged ports\n')
+            static_profile.append('\tcapability net_bind_service,  #This capability is needed to bind a socket to well-known ports\n')
 
 
     #Users
@@ -242,10 +242,10 @@ for i in xrange(len(data)): #because we will need the next line
                 port_container = ports
                                 
             if int(port_container) < 1024: #In order for an app to bind to ports < 1024 capability net bind service is needed
-                static_profile.append('\tcapability net_bind_service,  #This capability is needed to bind a socket to Internet domain privileged ports\n')
+                static_profile.append('\tcapability net_bind_service,  #This capability is needed to bind a socket to well-known ports\n')
 
 	    #bind_rule = '\tnetwork bind ' + port_host + ' to ' + port_container + ',\n' NOT SUPPORTED YET
-	    static_profile.append('\tnetwork ' + proto + ',  #Grain access to networking - ports forwarding\n')
+	    static_profile.append('\tnetwork ' + proto + ',  #Allowing networking with ports forwarding\n')
 	    z = z+1
 
     if expose in data[i]:
@@ -261,8 +261,8 @@ for i in xrange(len(data)): #because we will need the next line
             port = port.strip('\n')
             port = port.strip('"')
             if int(port) < 1024: #In order for an app to bind to ports < 1024 capability net bind service is needed
-                static_profile.append('\tcapability net_bind_service,  #This capability is needed to bind a socket to Internet domain privileged ports\n')
-            static_profile.append('\tnetwork ' + proto + ',  #Grain access to networking - ports forwarding\n')
+                static_profile.append('\tcapability net_bind_service,  #This capability is needed to bind a socket to well-known ports\n')
+            static_profile.append('\tnetwork ' + proto + ',  #Allowing networking with ports forwarding\n')
             z = z+1
 
     if mount in data[i]:
