@@ -1,17 +1,16 @@
 #include <tunables/global>
 
 profile dockerfile_info_profile flags=(attach_disconnected,mediate_deleted) {
-	capability dac_override,
+
+	owner /HelloB rwix,
+	capability setuid,  #Needed to switch between users (chown or USER commands)
 	capability setgid,  #Needed to switch between users (chown or USER commands)
-	/hello r,
-	owner /Heys rwix,
-	owner /hello rwix,
-	/Heys r,
+	/HelloB r,
+	owner /greetings rwix,
+	/greetings r,
 	file,  #Allows access to containers filesystem
 	/var/lib/docker/* r, #Access to layers of filesystem
-	signal (receive) set=(kill) peer=unconfined,
-	capability setuid,  #Needed to switch between users (chown or USER commands)
-	network inet dgram,
-	signal (receive) set=(exists) peer=unconfined,
+	network tcp,
+ #Allowing networking with forwarding ports	capability net_bind_service,  #This capability is needed to bind a socket to Internet domain privileged ports
 	deny ptrace (readby, tracedby), #Confront container breakout attacks
 }

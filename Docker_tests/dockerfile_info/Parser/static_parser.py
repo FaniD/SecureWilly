@@ -6,6 +6,9 @@ from collections import OrderedDict
 current_dir = "dockerfileinfo"
 current_dir = current_dir.lower()
 
+pwd = "/home/ubuntu/SecureWilly/Docker_tests/dockerfile_info/Parser"
+pre_pwd = "/home/ubuntu/SecureWilly/Docker_tests/dockerfile_info"
+
 #This will be our preliminery profile from Static Analysis. Append every rule extracted to it.
 static_profile = []
 
@@ -229,11 +232,14 @@ for i in xrange(len(data)): #because we will need the next line
             ports = ports.replace('/','')
             ports = ports.strip('\n')
 	    ports = ports.strip('"')
-	    ports = ports.split(':')
-	    port_host = ports[0].strip('-')
-	    port_host = port_host.strip()
-	    port_host = port_host.strip('"')
-	    port_container = ports[1]
+            if ':' in ports:
+	        ports = ports.split(':')
+	        port_host = ports[0].strip('-')
+	        port_host = port_host.strip()
+	        port_host = port_host.strip('"')
+	        port_container = ports[1]
+            else:
+                port_container = ports
                                 
             if int(port_container) < 1024: #In order for an app to bind to ports < 1024 capability net bind service is needed
                 static_profile.append('\tcapability net_bind_service,  #This capability is needed to bind a socket to Internet domain privileged ports\n')
@@ -273,9 +279,16 @@ for i in xrange(len(data)): #because we will need the next line
             if (mntpnt.endswith('/')):
                 mntpnt = mntpnt.rstrip('/')
 
-            #If source does not start with / then it is not a path but a named volume
+            #If source does not start with / then it is one of the following
+            #Relative path . -> pwd
+            #Relative path .. -> father of pwd
+            #Not a path but a named volume
             #So we change it into the real host path
-            if (not src.startswith('/')):
+            if (src.startswith('..')):
+                src = pwd_dir
+            elif (src.startswith('.')):
+                src = pre_pwd
+            elif (not src.startswith('/')):
                 src="/var/lib/docker/volumes/" + current_dir + "_" + src + "/_data"
 
             #If there is a mount option:

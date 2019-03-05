@@ -7,10 +7,10 @@ RUN apt-get -y update && apt-get install -y vim
 #Exposing port 80 tcp
 EXPOSE 80/tcp
 
-#Create file hello, create directory Heys 
+#Create file greetings, create directory HelloB
 RUN echo "Hello A" > greetings
-RUN mkdir "Hello_B"
-RUN echo "Hello everybody" > test #by default r to everybody, w only to root
+RUN mkdir "HelloB"
+RUN echo "Hello everybody" > hello #by default r to everybody, w only to root
 
 #Create 2 users, userA with password A, userB with password B
 RUN useradd userA && echo "userA:A" | chpasswd
@@ -20,14 +20,14 @@ RUN useradd userB && echo "userB:B" | chpasswd
 #greetings: userA owner and permissions rwx only userA
 #everybody else only r permission
 #test who can edit the file -> Only userA
-RUN chown userA:userA /hello
-RUN chmod 744 /hello
+RUN chown userA:userA /greetings
+RUN chmod 744 /greetings
 
 #Test 2
-#Hello_B: userB owner and only userB rwx permissions in dir
+#HelloB: userB owner and only userB rwx permissions in dir
 #everybody else only r permission
-RUN chown userB:userB /Heys/
-RUN chmod 744 /Heys
+RUN chown userB:userB /HelloB/
+RUN chmod 744 /HelloB
 
 USER userA
 

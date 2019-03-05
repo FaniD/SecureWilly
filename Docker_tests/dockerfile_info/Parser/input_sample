@@ -4,6 +4,7 @@ dockerfile_info
 N
 N
 docker build -t dockerfile_info ..
-docker run --name acont -t dockerfile_info
+docker run --name dockerfile_cont -it dockerfile_info
 Done
 Y
+
