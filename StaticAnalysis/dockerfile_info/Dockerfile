@@ -29,6 +29,6 @@ RUN chmod 744 /greetings
 RUN chown userB:userB /HelloB/
 RUN chmod 744 /HelloB
 
-USER userA
+#USER userA
 
 ENTRYPOINT /bin/bash
