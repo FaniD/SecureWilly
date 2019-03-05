@@ -1,0 +1,16 @@
+#include <tunables/global>
+
+profile dockerfile_info_profile flags=(attach_disconnected,mediate_deleted) {
+
+	owner /HelloB rwix,
+	capability setuid,  #Needed to switch between users
+	capability setgid,  #Needed to switch between users
+	network tcp, #Allowing networking with ports forwarding
+	capability net_bind_service,  #This capability is needed to bind a socket to well-known ports
+	owner /greetings rwix,
+	/greetings r,
+	file,  #Allows access to containers filesystem
+	/var/lib/docker/* r, #Access to layers of filesystem
+	/HelloB r,
+	deny ptrace (readby, tracedby), #Confront container breakout attacks
+}

@@ -1,0 +1,17 @@
+#include <tunables/global>
+
+profile mounty_profile flags=(attach_disconnected,mediate_deleted) {
+
+	mount options=ro /home/ubuntu/SecureWilly/volumes/data_ro -> /data_here_ro, #Bind host volume to docker container volume
+	/data_here_ro/* r,
+	deny remount /data_here_ro, #Disallow anybody that wants to remount this mountpoint
+	deny /data_here_ro w,
+	deny umount /data_here_ro, #Disallow anybody that wants to break this mountpoint
+	/data_here/* rw,
+	file,  #Allows access to containers filesystem
+	/var/lib/docker/* r, #Access to layers of filesystem
+	mount /home/ubuntu/SecureWilly/volumes/data -> /data_here, #Bind host volume to docker container volume
+	deny remount /data_here, #Disallow anybody that wants to remount this mountpoint
+	deny umount /data_here, #Disallow anybody that wants to break this mountpoint
+	deny ptrace (readby, tracedby), #Confront container breakout attacks
+}

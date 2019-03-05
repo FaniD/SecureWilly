@@ -1,0 +1,12 @@
+version: "3"
+
+services:
+  mounty:
+    container_name: mounty
+    security_opt:
+      - "apparmor:mounty_profile"
+    image: ubuntu
+    volumes:
+       - /home/ubuntu/SecureWilly/volumes/data:/data_here
+       - /home/ubuntu/SecureWilly/volumes/data_ro:/data_here_ro:ro
+
