@@ -19,7 +19,7 @@ static_profile = []
 file_rule = '\tfile,  #Allows access to containers filesystem\n'
 
 #These rules are needed so that we can switch between users
-setuid_setgid_rule = '\tcapability setuid,  #Needed to switch between users (chown or USER commands)\n\tcapability setgid,  #Needed to switch between users (chown or USER commands)\n'
+setuid_setgid_rule = '\tcapability setuid,  #Needed to switch between users\n\tcapability setgid,  #Needed to switch between users\n'
 deny_setuid_setgid_rule = '\tdeny capability setuid,  #Deny capability to create new login session\n\tdeny capability setgid,  #Deny capability to create new login session\n'
 
 #Chown capability
