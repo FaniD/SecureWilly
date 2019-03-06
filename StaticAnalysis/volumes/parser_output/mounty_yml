@@ -1,6 +1,9 @@
   mounty:
     security_opt:
       - "apparmor:mounty_profile"
+    container_name: mounty
+    security_opt:
+      - "apparmor:mounty_profile"
     image: ubuntu
     volumes:
        - /home/ubuntu/SecureWilly/volumes/data:/data_here

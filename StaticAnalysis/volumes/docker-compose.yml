@@ -1,11 +1,15 @@
 version: "3"
 
 services:
-  mounty:
-    container_name: mounty
+  mount_test:
+    container_name: mount_test
     security_opt:
-      - "apparmor:mounty_profile"
+      - "apparmor:mount_test_profile"
     image: ubuntu
+    entrypoint:
+            /bin/bash
+    stdin_open: true
+    tty: true
     volumes:
        - /home/ubuntu/SecureWilly/volumes/data:/data_here
        - /home/ubuntu/SecureWilly/volumes/data_ro:/data_here_ro:ro
