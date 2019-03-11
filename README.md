@@ -65,5 +65,5 @@ This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENS
 
 ## Acknowledgments
 
-* Inspiration by 
- 
+* Inspiration by @giagiannis
+* Trademark made by Katerina Mavromoustakaki
