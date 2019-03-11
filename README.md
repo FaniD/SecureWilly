@@ -8,7 +8,7 @@ SecureWilly is a software for automatically creating secure and efficient AppArm
 
 ### Prerequisites
 
-Make sure you have installed all the required packages listed in Requirements.txt
+Make sure you have installed all the required packages listed in Requirements/requirements.sh
 
 ### Usage
 1. Copy directory "Parser" under the path on your host where Dockerfiles/docker compose file of your docker project exist.
