@@ -10,9 +10,9 @@ SecureWilly is a software for automatically creating secure and efficient AppArm
 1. Copy directory "Parser" under the path on your host where Dockerfiles/docker compose file of your docker project exist.
 2. Make sure that you have knowledge about the input that SecureWilly will require when you run it. You can either give your input interactively or in a file - in directory Parser you can see an input_sample. The requirements of the input are given below:
 
-  I. The number of services that need a profile for your project. A service is defined by a docker image, either it is built by Dockerfile or uses an existing image, with or without docker-compose file.
+  * The number of services that need a profile for your project. A service is defined by a docker image, either it is built by Dockerfile or uses an existing image, with or without docker-compose file.
   
-  II. The name of each service following the next rules:
+  * The name of each service following the next rules:
   
     a. The names should not be used for other purposes like named volumes, network etc
     
@@ -20,11 +20,11 @@ SecureWilly is a software for automatically creating secure and efficient AppArm
     
     c. If you do not use docker-compose.yml, the names of services should be identical to the names of the corresponding images. Do not worry about special characters, just give the exact same name of the image and let SecureWilly worry about it.
     
-  III. If there are Dockerfiles to provide for each service or a Docker Compose file then you will be asked to give the full path to the file (<path_to_dockerfile>/Dockerfile_or_DockerComposefile), otherwise you should type N.
+  * If there are Dockerfiles to provide for each service or a Docker Compose file then you will be asked to give the full path to the file (<path_to_dockerfile>/Dockerfile_or_DockerComposefile), otherwise you should type N.
   
-  IV. The name of an internal network, otherwise you should type N.
+  * The name of an internal network, otherwise you should type N.
   
-  V. Then you will be prompted give a testplan that you want to execute inside the container. Make sure you follow the next rules:
+  * Then you will be prompted give a testplan that you want to execute inside the container. Make sure you follow the next rules:
   
     a. Give a command per line
     
