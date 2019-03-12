@@ -98,7 +98,9 @@ ax.plot(x_Axis, mount, label="mount", color="k", marker='o')
 ax.plot(x_Axis, rlimit, label="rlimit", color="y", marker='o')
 ax.plot(x_Axis, file_rules, label="file", color="b", marker='o')
 
-ax.legend(loc=0)
+#ax.legend(loc=0)
+ax.legend(loc='upper center', bbox_to_anchor=(0.5, 1.05),
+                  ncol=3, fancybox=True, shadow=True)
 ax.grid()
 ax.set_xlabel("Runs")
 ax.set_ylabel(r"Rules")
