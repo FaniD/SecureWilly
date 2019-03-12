@@ -127,7 +127,7 @@ ax3.plot(enf_rules, part_2c, label="enforce mode", color="red", marker='o')
 box = ax1.get_position()
 ax1.set_position([box.x0, box.y0*1.02, box.width, box.height*0.2])
 
-ax1.legend(loc='lower left', ncol=3, fancybox=True, shadow=True, mode="expand")
+ax1.legend(loc='lower left', bbox_to_anchor=(1, 0.5), ncol=3, fancybox=True, shadow=True, mode="expand")
 
 
 #ax1.legend(loc=1,prop={'size': 12})
