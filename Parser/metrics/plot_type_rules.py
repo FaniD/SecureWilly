@@ -103,11 +103,11 @@ ax.plot(x_Axis, file_rules, label="file", color="b", marker='o')
 #                  ncol=3, fancybox=True, shadow=True)
 
 box = ax.get_position()
-ax.set_position([box.x0, box.y0, box.width * 0.8, box.height])
+#ax.set_position([box.x0, box.y0, box.width * 0.8, box.height])
 
 # Put a legend below current axis
-ax.legend(loc='center left', bbox_to_anchor=(1, 0.05),
-                  fancybox=True, shadow=True)
+ax.legend(loc='center left', bbox_to_anchor=(1.04, 1),
+                  fancybox=True, shadow=True, mode="expand")
 
 #ax.grid()
 ax.set_xlabel("Runs")
@@ -200,8 +200,8 @@ for x1 in range(complain_enforce[0], int(num_of_runs)): #complain_enforce[1]+1):
 
 #File rules
 ax1 = fig.add_subplot(321)
-ax1.plot(compl_rules, part_1a, label="file", color="b", marker='o')
-ax1.plot(enf_rules, part_2a, label="file", color="r", marker='o')
+ax1.plot(compl_rules, part_1a, label="complain mode", color="b", marker='o')
+ax1.plot(enf_rules, part_2a, label="enforce mode", color="r", marker='o')
 #ax1.plot(compl_audit, part_3a, label="file", color="g", marker='x')
 #ax1.plot(enf_audit, part_4a, label="file", color="darkmagenta", marker='x')
 #ax1.grid()
