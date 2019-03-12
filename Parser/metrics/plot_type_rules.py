@@ -122,6 +122,43 @@ enforce = 5 #Read this from bash script
 
 fig = plt.figure()
 
+##Bars
+fig, ax = plt.subplots()
+
+#index = np.arange(n_groups)
+bar_width = 0.2
+
+opacity = 0.6
+ind = np.arange(start = 0, stop = ((num_of_runs*2)+0.1), step = 2)
+ind = np.arange(num_of_runs)
+rects1 = ax.bar(ind, capabilities, bar_width, alpha=opacity, color='r', label='capabilities')
+rects2 = ax.bar(ind + 0.2, network, bar_width, alpha=opacity, color='g', label='network')
+rects3 = ax.bar(ind + 0.4, signal, bar_width, alpha=opacity, color='m', label='signal')
+rects4 = ax.bar(ind + 0.6, mount, bar_width, alpha=opacity, color='y', label='mount')
+rects5 = ax.bar(ind + 0.8, file_rules, bar_width, alpha=opacity, color='b', label='file')
+rects6 = ax.bar(ind + 1, rlimit, bar_width, alpha=opacity, color='k', label='rlimit')
+
+ax.set_xlabel('Runs')
+ax.set_ylabel(r'Rules')
+ax.set_title('Types of rules per run')
+ax.set_xticks(ind+1)
+ax.set_xticklabels(x_Axis)
+ax.set_ylim(0,max_value+0.2)
+
+box = ax.get_position()
+ax.set_position([box.x0, box.y0, box.width * 0.8, box.height])
+
+# Put a legend below current axis
+ax.legend(loc='center left', bbox_to_anchor=(1, 0.8),
+                          fancybox=True, shadow=True)
+
+plt.show()
+output = "../../parser_output/Bar_types_" + service + ".png"
+plt.savefig(output,bbox_inches="tight")
+
+#fig.tight_layout()
+#plt.show()
+
 #Complain and enforce different colour                                 
 complain_enforce = []
 with open("changes",'r') as infile:
