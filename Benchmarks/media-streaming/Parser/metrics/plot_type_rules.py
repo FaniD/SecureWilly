@@ -126,7 +126,7 @@ fig = plt.figure()
 fig, ax = plt.subplots()
 
 #index = np.arange(n_groups)
-bar_width = 0.6
+bar_width = 0.1
 
 opacity = 0.4
 ind = np.arange(num_of_runs)
@@ -140,7 +140,7 @@ rects6 = ax.bar(ind + 0.1, file_rules, bar_width, alpha=opacity, color='b', labe
 ax.set_xlabel('Runs')
 ax.set_ylabel(r'Rules')
 ax.set_title('Types of rules per run')
-ax.set_xticks((ind + 0.6) /2)
+ax.set_xticks(ind + 0.6)
 ax.set_xticklabels(ind)
 ax.legend()
 plt.show()
