@@ -1,0 +1,21 @@
+Mar  2 17:35:30 docker-security59 kernel: [507728.552539] IPv6: ADDRCONF(NETDEV_UP): br-fdf2110fb17e: link is not ready
+Mar  2 17:35:58 docker-security59 kernel: [507756.239457] device vethe0daf64 entered promiscuous mode
+Mar  2 17:35:58 docker-security59 kernel: [507756.239928] IPv6: ADDRCONF(NETDEV_UP): vethe0daf64: link is not ready
+Mar  2 17:36:06 docker-security59 kernel: [507764.192618] IPv6: ADDRCONF(NETDEV_CHANGE): vethe0daf64: link becomes ready
+Mar  2 17:36:06 docker-security59 kernel: [507764.192670] br-fdf2110fb17e: port 1(vethe0daf64) entered forwarding state
+Mar  2 17:36:06 docker-security59 kernel: [507764.192681] br-fdf2110fb17e: port 1(vethe0daf64) entered forwarding state
+Mar  2 17:36:06 docker-security59 kernel: [507764.192693] IPv6: ADDRCONF(NETDEV_CHANGE): br-fdf2110fb17e: link becomes ready
+Mar  2 17:36:16 docker-security59 kernel: [507774.071290] device veth4a690a4 entered promiscuous mode
+Mar  2 17:36:16 docker-security59 kernel: [507774.071389] IPv6: ADDRCONF(NETDEV_UP): veth4a690a4: link is not ready
+Mar  2 17:36:19 docker-security59 kernel: [507777.661387] IPv6: ADDRCONF(NETDEV_CHANGE): veth4a690a4: link becomes ready
+Mar  2 17:36:19 docker-security59 kernel: [507777.661444] br-fdf2110fb17e: port 2(veth4a690a4) entered forwarding state
+Mar  2 17:36:19 docker-security59 kernel: [507777.661452] br-fdf2110fb17e: port 2(veth4a690a4) entered forwarding state
+Mar  2 17:36:21 docker-security59 kernel: [507779.228073] br-fdf2110fb17e: port 1(vethe0daf64) entered forwarding state
+Mar  2 17:36:34 docker-security59 kernel: [507792.668165] br-fdf2110fb17e: port 2(veth4a690a4) entered forwarding state
+Mar  2 17:47:27 docker-security59 kernel: [508444.913063] br-fdf2110fb17e: port 2(veth4a690a4) entered disabled state
+Mar  2 17:47:27 docker-security59 kernel: [508445.458552] br-fdf2110fb17e: port 1(vethe0daf64) entered disabled state
+Mar  2 17:47:27 docker-security59 kernel: [508445.459429] device vethe0daf64 left promiscuous mode
+Mar  2 17:47:27 docker-security59 kernel: [508445.459447] br-fdf2110fb17e: port 1(vethe0daf64) entered disabled state
+Mar  2 17:47:27 docker-security59 kernel: [508445.573640] br-fdf2110fb17e: port 2(veth4a690a4) entered disabled state
+Mar  2 17:47:27 docker-security59 kernel: [508445.574475] device veth4a690a4 left promiscuous mode
+Mar  2 17:47:27 docker-security59 kernel: [508445.574487] br-fdf2110fb17e: port 2(veth4a690a4) entered disabled state
