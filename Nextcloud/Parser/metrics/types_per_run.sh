@@ -91,7 +91,7 @@ for SERVICE in "${service_list[@]}"; do
 	rm ${parser_output_path}/file_rules_${SERVICE}
 done
 
-mv ${parser_output_path}/*.png ${parser_output_path}/plots
+mv ${parser_output_path}/*.png ${parser_output_path}/plots/
 
 rm changes
 rm run*

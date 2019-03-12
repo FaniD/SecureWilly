@@ -103,14 +103,13 @@ ax.plot(x_Axis, file_rules, label="file", color="b", marker='o')
 #                  ncol=3, fancybox=True, shadow=True)
 
 box = ax.get_position()
-ax.set_position([box.x0, box.y0 + box.height * 0.1,
-                     box.width, box.height * 0.9])
+ax.set_position([box.x0, box.y0, box.width * 0.8, box.height])
 
 # Put a legend below current axis
-ax.legend(loc='upper center', bbox_to_anchor=(0.5, -0.05),
-                  fancybox=True, shadow=True, ncol=5)
+ax.legend(loc='center left', bbox_to_anchor=(1, 0.8),
+                  fancybox=True, shadow=True)
 
-ax.grid()
+#ax.grid()
 ax.set_xlabel("Runs")
 ax.set_ylabel(r"Rules")
 ax.set_ylim(0,max_value+2)
@@ -122,6 +121,41 @@ plt.savefig(output,bbox_inches="tight")
 enforce = 5 #Read this from bash script 
 
 fig = plt.figure()
+
+##Bars
+
+#index = np.arange(n_groups)
+bar_width = 0.3
+
+objects = ('Capabilities', 'Network', 'Signal', 'Mount', 'File', 'Rlimit')
+y_pos = np.arange(len(objects))
+ 
+barlist = []
+barlist.append(capabilities[-1])
+barlist.append(network[-1])
+barlist.append(signal[-1])
+barlist.append(mount[-1])
+barlist.append(file_rules[-1])
+barlist.append(rlimit[-1])
+
+plt.bar(y_pos, barlist, align='center', alpha=0.5)
+plt.xticks(y_pos, objects)
+ax.set_ylim(0,max_value+0.5)
+plt.xlabel('Number of rules')
+plt.title('Amount of different types of rules')
+plt.show()
+
+#box = ax.get_position()
+#ax.set_position([box.x0, box.y0, box.width * 0.8, box.height])
+
+# Put a legend below current axis
+#ax.legend(loc='center left', bbox_to_anchor=(1, 0.8),
+#                          fancybox=True, shadow=True)
+
+#plt.show()
+output = "../../parser_output/Barfinal_" + service + ".png"
+plt.savefig(output,bbox_inches="tight")
+
 
 #Complain and enforce different colour                                 
 complain_enforce = []
@@ -201,11 +235,11 @@ for x1 in range(complain_enforce[0], int(num_of_runs)): #complain_enforce[1]+1):
 
 #File rules
 ax1 = fig.add_subplot(321)
-ax1.plot(compl_rules, part_1a, label="file", color="b", marker='o')
-ax1.plot(enf_rules, part_2a, label="file", color="r", marker='o')
+ax1.plot(compl_rules, part_1a, label="complain mode", color="b", marker='o')
+ax1.plot(enf_rules, part_2a, label="enforce mode", color="r", marker='o')
 #ax1.plot(compl_audit, part_3a, label="file", color="g", marker='x')
 #ax1.plot(enf_audit, part_4a, label="file", color="darkmagenta", marker='x')
-ax1.grid()
+#ax1.grid()
 ax1.set_xlabel("Runs")
 ax1.set_ylabel(r"File rules")
 ax1.set_ylim(0,max_value+2)
@@ -216,7 +250,7 @@ ax2.plot(compl_rules, part_1b, label="capabilities", color="b", marker='o')
 ax2.plot(enf_rules, part_2b, label="capabilities", color="r", marker='o')
 #ax2.plot(compl_audit, part_3b, label="capabilities", color="g", marker='x')
 #ax2.plot(enf_audit, part_4b, label="capabilities", color="darkmagenta", marker='x')
-ax2.grid()
+#ax2.grid()
 ax2.set_xlabel("Runs")
 ax2.set_ylabel(r"Capability rules")
 ax2.set_ylim(0,max_value+2)
@@ -227,7 +261,7 @@ ax3.plot(compl_rules, part_1c, label="network", color="b", marker='o')
 ax3.plot(enf_rules, part_2c, label="network", color="r", marker='o')
 #ax3.plot(compl_audit, part_3c, label="network", color="g", marker='x')
 #ax3.plot(enf_audit, part_4c, label="network", color="darkmagenta", marker='x')
-ax3.grid()                                                             
+#ax3.grid()                                                             
 ax3.set_xlabel("Runs")
 ax3.set_ylabel(r"Network rules")
 ax3.set_ylim(0,max_value+2)
@@ -238,7 +272,7 @@ ax4.plot(compl_rules, part_1d, label="mount", color="b", marker='o')
 ax4.plot(enf_rules, part_2d, label="mount", color="r", marker='o')
 #ax4.plot(compl_audit, part_3d, label="mount", color="g", marker='x')
 #ax4.plot(enf_audit, part_4d, label="mount", color="darkmagenta", marker='x')
-ax4.grid()                                                             
+#ax4.grid()                                                             
 ax4.set_xlabel("Runs")
 ax4.set_ylabel(r"Mount rules")
 ax4.set_ylim(0,max_value+2)
@@ -249,7 +283,7 @@ ax5.plot(compl_rules, part_1e, label="signal", color="b", marker='o')
 ax5.plot(enf_rules, part_2e, label="signal", color="r", marker='o')
 #ax5.plot(compl_audit, part_3e, label="signal", color="g", marker='x')
 #ax5.plot(enf_audit, part_4e, label="signal", color="darkmagenta", marker='x')
-ax5.grid()                                                             
+#ax5.grid()                                                             
 ax5.set_xlabel("Runs")
 ax5.set_ylabel(r"Signal rules")
 ax5.set_ylim(0,max_value+2)
@@ -260,11 +294,14 @@ ax6.plot(compl_rules, part_1f, label="rlimit", color="b", marker='o')
 ax6.plot(enf_rules, part_2f, label="rlimit", color="r", marker='o')
 #ax6.plot(compl_audit, part_3f, label="rlimit", color="g", marker='x')
 #ax6.plot(enf_audit, part_4f, label="rlimit", color="darkmagenta", marker='x')
-ax6.grid()                                                             
+#ax6.grid()                                                             
 ax6.set_xlabel("Runs")
 ax6.set_ylabel(r"Rlimit rules")
 ax6.set_ylim(0,max_value+2)
 
+box = ax1.get_position()
+ax1.legend(loc='lower left', bbox_to_anchor=(0,1.02,1, 0.2), ncol=2, fancybox=True, shadow=True, mode="expand")
+
 plt.show()
-output = "../../parser_output/complain_enforce_types_" + service + ".png"
+output = "../../parser_output/ce_types_" + service + ".png"
 plt.savefig(output,bbox_inches="tight")
