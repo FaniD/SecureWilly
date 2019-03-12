@@ -48,11 +48,9 @@ ax.plot(x_Axis, rules[1], label="client", color="red", marker='o')
 ax.plot(x_Axis, rules[2], label="server", color="blue", marker='o')
 
 box = ax.get_position()
-ax.set_position([box.x0, box.y0 + box.height * 0.4,
-                         box.width, box.height * 0.9])
+ax.set_position([box.x0, box.y0, box.width * 0.8, box.height])
 
-ax.legend(loc='upper center', bbox_to_anchor=(0.5, -0.05),fancybox=True, shadow=True, ncol=5)
-
+ax.legend(loc='center left', bbox_to_anchor=(1, 0.5), fancybox=True, shadow=True)
 #ax.legend(loc=0)
 #ax.grid()
 ax.set_xlabel("Runs")
@@ -126,8 +124,12 @@ ax3.plot(enf_rules, part_2c, label="enforce mode", color="red", marker='o')
 #ax3.plot(enf_audit, part_4c, label="enforce audit", color="darkmagenta", marker='x')
 
 
-ax.set_position([box.x0, box.y0 + box.height * 0.4,
-                         box.width, box.height * 0.9])
+box = ax1.get_position()
+#ax1.set_position([box.x0, box.y0*1.02, box.width, box.height*0.2])
+
+ax1.legend(loc='lower left', bbox_to_anchor=(0,1.02,1, 0.2), ncol=2, fancybox=True, shadow=True, mode="expand")
+
+
 #ax1.legend(loc=1,prop={'size': 12})
 #ax1.grid()
 #ax2.grid()

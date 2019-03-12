@@ -103,12 +103,11 @@ ax.plot(x_Axis, file_rules, label="file", color="b", marker='o')
 #                  ncol=3, fancybox=True, shadow=True)
 
 box = ax.get_position()
-ax.set_position([box.x0, box.y0 + box.height * 0.4,
-                     box.width, box.height * 0.9])
+ax.set_position([box.x0, box.y0, box.width * 0.8, box.height])
 
 # Put a legend below current axis
-ax.legend(loc='upper center', bbox_to_anchor=(0.5, -0.05),
-                  fancybox=True, shadow=True, ncol=5)
+ax.legend(loc='center left', bbox_to_anchor=(1, 0.05),
+                  fancybox=True, shadow=True)
 
 #ax.grid()
 ax.set_xlabel("Runs")
@@ -264,6 +263,9 @@ ax6.plot(enf_rules, part_2f, label="rlimit", color="r", marker='o')
 ax6.set_xlabel("Runs")
 ax6.set_ylabel(r"Rlimit rules")
 ax6.set_ylim(0,max_value+2)
+
+box = ax1.get_position()
+ax1.legend(loc='lower left', bbox_to_anchor=(0,1.02,1, 0.2), ncol=2, fancybox=True, shadow=True, mode="expand")
 
 plt.show()
 output = "../../parser_output/ce_types_" + service + ".png"

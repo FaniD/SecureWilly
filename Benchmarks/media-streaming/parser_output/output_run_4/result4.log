@@ -1,34 +1,34 @@
 
-Total: connections 500 requests 8473 replies 8473 test-duration 330.353 s
+Total: connections 500 requests 8473 replies 8473 test-duration 330.929 s
 Number of connected connections is currently = 0
 
-Connection rate: 1.5 conn/s (660.7 ms/conn, <=500 concurrent connections)
-Connected connection rate: 1.5 conn/s (660.7 ms/conn, <=500 concurrent connected connections)
-Connection time [ms]: min 30010.1 avg 129587.0 max 320668.5 median 99999.5 stddev 101340.5
+Connection rate: 1.5 conn/s (661.9 ms/conn, <=500 concurrent connections)
+Connected connection rate: 1.5 conn/s (661.9 ms/conn, <=500 concurrent connected connections)
+Connection time [ms]: min 30010.3 avg 129568.2 max 321007.9 median 99999.5 stddev 101324.0
 Connection time [ms]: connect 0.1
 Connection length [replies/conn]: 16.946
 
 Response time (no timeouts) [ms]: 0.0
 Response time (only timeouts) [ms]: 0.0
-Response time (all) [ms]: 129587.0
-Request rate: 25.6 req/s (39.0 ms/req)
+Response time (all) [ms]: 129568.2
+Request rate: 25.6 req/s (39.1 ms/req)
 Request size [B]: 139.0
 
 Overall reply rate: 25.6 replies/sec
-Reply rate [replies/s]: min 9.4 avg 25.7 max 200.2 stddev 34.0 (66 samples)
-Reply time [ms]: response 2.1 transfer 4.8
+Reply rate [replies/s]: min 9.6 avg 25.7 max 200.0 stddev 34.0 (66 samples)
+Reply time [ms]: response 1.8 transfer 4.0
 Reply size [B]: header 294.0 content 2985306.0 footer 0.0 (total 2985600.0)
 Reply status: 1xx=0 2xx=8473 3xx=0 4xx=0 5xx=0
 
-CPU time [s]: user 2.09 system 29.49 (user 0.6% system 8.9% total 9.6%)
-Net I/O: 74784.5 KB/s (612.6*10^6 bps)
+CPU time [s]: user 1.82 system 27.69 (user 0.5% system 8.4% total 8.9%)
+Net I/O: 74654.3 KB/s (611.6*10^6 bps)
 
 Errors: total 0 client-timo 0 socket-timo 0 connrefused 0 connreset 0
 Errors: fd-unavail 0 addrunavail 0 ftab-full 0 addrinuse 0 other 0
 Unconnected timeouts 0 connected timeouts 0 total (0) client_timeouts 0
 
 
-Session rate [sess/s]: min 0.00 avg 1.51 max 10.40 stddev 3.57 (500/500)
+Session rate [sess/s]: min 0.00 avg 1.51 max 10.40 stddev 3.58 (500/500)
 Session: avg 1.00 connections/session
 Session lifetime [s]: 129.6
 Session failtime [s]: 0.0
