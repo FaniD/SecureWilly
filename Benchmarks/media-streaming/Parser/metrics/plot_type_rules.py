@@ -122,6 +122,34 @@ enforce = 5 #Read this from bash script
 
 fig = plt.figure()
 
+##Bars
+fig, ax = plt.subplots()
+
+#index = np.arange(n_groups)
+bar_width = 0.35
+
+opacity = 0.4
+
+rects1 = ax.bar(x_Axis, capabilities, bar_width, alpha=opacity, color='r', label='capabilities')
+rects2 = ax.bar(x_Axis, network, bar_width, alpha=opacity, color='g', label='network')
+rects3 = ax.bar(x_Axis, signal, bar_width, alpha=opacity, color='m', label='signal')
+rects4 = ax.bar(x_Axis, mount, bar_width, alpha=opacity, color='k', label='mount')
+rects5 = ax.bar(x_Axis, rlimit, bar_width, alpha=opacity, color='y', label='rlimit')
+rects6 = ax.bar(x_Axis, file_rules, bar_width, alpha=opacity, color='b', label='file')
+
+ax.set_xlabel('Runs')
+ax.set_ylabel(r'Rules')
+ax.set_title('Types of rules per run')
+ax.set_xticks(x_Axis)
+ax.set_xticklabels(x_Axis)
+ax.legend()
+plt.show()
+output = "../../parser_output/Bar_types_" + service + ".png"
+plt.savefig(output,bbox_inches="tight")
+
+#fig.tight_layout()
+#plt.show()
+
 #Complain and enforce different colour                                 
 complain_enforce = []
 with open("changes",'r') as infile:
