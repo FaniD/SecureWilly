@@ -142,7 +142,7 @@ ax.set_ylabel(r'Rules')
 ax.set_title('Types of rules per run')
 ax.set_xticks(ind-0.3)
 ax.set_xticklabels(ind)
-ax.set_ylim(0,max_value+2)
+ax.set_ylim(0,max_value+0.5)
 
 box = ax.get_position()
 ax.set_position([box.x0, box.y0, box.width * 0.8, box.height])
