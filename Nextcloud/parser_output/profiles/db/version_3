@@ -4,7 +4,6 @@ profile db_profile flags=(attach_disconnected,mediate_deleted) {
 	capability dac_override,
 	network inet dgram,
 	/var/lib/mysql/* rw,
-	signal (receive) set=(kill) peer=unconfined,
 	signal (receive) set=(term) peer=db_profile,
 	mount /var/lib/docker/volumes/nextcloud_db_/_data -> /var/lib/mysql, #Bind host volume to docker container volume
 	signal (send) set=(usr1) peer=db_profile,

@@ -24,7 +24,7 @@ profile nextcloud_profile flags=(attach_disconnected,mediate_deleted) {
 	capability setuid,
 	deny remount /var/www/html, #Disallow anybody that wants to remount this mountpoint
 	deny ptrace (readby, tracedby), #Confront container breakout attacks
+	capability net_bind_service,  #This capability is needed to bind a socket to well-known ports
 	signal (send) set=(usr2) peer=nextcloud_profile,
 	deny umount /var/www/html/data, #Disallow anybody that wants to break this mountpoint
-	capability net_bind_service,  #This capability is needed to bind a socket to Internet domain privileged ports
 }

@@ -1,3 +1,5 @@
-[501865.746299] type=1400 audit(1551542267.842:3822043033): apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=24777 comm="apache2" capability=4  capname="fsetid"
-[501865.747447] type=1400 audit(1551542267.842:3822043034): apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=24895 comm="apache2" capability=6  capname="setgid"
-[502120.618024] type=1400 audit(1551542522.714:3822043035): apparmor="ALLOWED" operation="signal" profile="nextcloud_profile" pid=1716 comm="docker-containe" requested_mask="receive" denied_mask="receive" signal=kill peer="unconfined"
+[1357586.819827] type=1400 audit(1552397988.914:179387286): apparmor="ALLOWED" operation="create" profile="nextcloud_profile" pid=17199 comm="apache2" family="inet6" sock_type="stream" protocol=0
+[1357586.819848] type=1400 audit(1552397988.914:179387287): apparmor="ALLOWED" operation="setsockopt" profile="nextcloud_profile" pid=17199 comm="apache2" family="inet6" sock_type="stream" protocol=6
+[1357587.021909] type=1400 audit(1552397989.118:179387288): apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=17199 comm="apache2" capability=4  capname="fsetid"
+[1357587.023089] type=1400 audit(1552397989.118:179387289): apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=17317 comm="apache2" capability=6  capname="setgid"
+[1357841.278677] type=1400 audit(1552398243.374:179387290): apparmor="ALLOWED" operation="signal" profile="nextcloud_profile" pid=2286 comm="docker-containe" requested_mask="receive" denied_mask="receive" signal=kill peer="unconfined"

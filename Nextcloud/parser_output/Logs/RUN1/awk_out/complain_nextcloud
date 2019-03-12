@@ -1,5 +1,6 @@
 #Capability\n
 chown
+dac_override
 #Network\n
 inet6 dgram
 inet dgram
