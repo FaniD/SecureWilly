@@ -126,23 +126,23 @@ fig = plt.figure()
 fig, ax = plt.subplots()
 
 #index = np.arange(n_groups)
-bar_width = 0.1
+bar_width = 0.2
 
 opacity = 0.6
 ind = np.arange(num_of_runs)
 rects1 = ax.bar(ind, capabilities, bar_width, alpha=opacity, color='r', label='capabilities')
-rects2 = ax.bar(ind + 0.1, network, bar_width, alpha=opacity, color='g', label='network')
-rects3 = ax.bar(ind + 0.2, signal, bar_width, alpha=opacity, color='m', label='signal')
-rects4 = ax.bar(ind + 0.3, mount, bar_width, alpha=opacity, color='k', label='mount')
-rects5 = ax.bar(ind + 0.4, rlimit, bar_width, alpha=opacity, color='y', label='rlimit')
-rects6 = ax.bar(ind + 0.5, file_rules, bar_width, alpha=opacity, color='b', label='file')
+rects2 = ax.bar(ind + 0.2, network, bar_width, alpha=opacity, color='g', label='network')
+rects3 = ax.bar(ind + 0.4, signal, bar_width, alpha=opacity, color='m', label='signal')
+rects4 = ax.bar(ind + 0.6, mount, bar_width, alpha=opacity, color='k', label='mount')
+rects5 = ax.bar(ind + 0.8, rlimit, bar_width, alpha=opacity, color='y', label='rlimit')
+rects6 = ax.bar(ind + 1, file_rules, bar_width, alpha=opacity, color='b', label='file')
 
 ax.set_xlabel('Runs')
 ax.set_ylabel(r'Rules')
 ax.set_title('Types of rules per run')
-ax.set_xticks(ind-0.3)
-ax.set_xticklabels(ind)
-ax.set_ylim(0,max_value+0.5)
+ax.set_xticks(ind)
+ax.set_xticklabels(ind+0.6)
+ax.set_ylim(0,max_value+0.2)
 
 box = ax.get_position()
 ax.set_position([box.x0, box.y0, box.width * 0.8, box.height])
