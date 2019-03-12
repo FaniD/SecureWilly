@@ -265,7 +265,7 @@ ax6.set_ylabel(r"Rlimit rules")
 ax6.set_ylim(0,max_value+2)
 
 box = ax1.get_position()
-ax1.legend(loc='lower left', bbox_to_anchor=(0,1.02,1, 0.2), ncol=2, fancybox=True, shadow=True, mode="expand")
+ax1.legend(loc='center left', bbox_to_anchor=(0,1.02,1, 0.2), ncol=2, fancybox=True, shadow=True)
 
 plt.show()
 output = "../../parser_output/ce_types_" + service + ".png"
