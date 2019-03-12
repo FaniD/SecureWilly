@@ -107,7 +107,7 @@ ax.set_position([box.x0, box.y0, box.width * 0.8, box.height])
 
 # Put a legend below current axis
 ax.legend(loc='center left', bbox_to_anchor=(1, 0.8),
-                  fancybox=True, shadow=True, mode="expand")
+                  fancybox=True, shadow=True)
 
 #ax.grid()
 ax.set_xlabel("Runs")
@@ -265,7 +265,7 @@ ax6.set_ylabel(r"Rlimit rules")
 ax6.set_ylim(0,max_value+2)
 
 box = ax1.get_position()
-ax1.legend(loc='center left', bbox_to_anchor=(0,1.02,1, 0.2), ncol=2, fancybox=True, shadow=True)
+ax1.legend(loc='lower left', bbox_to_anchor=(0,1.02,1, 0.2), ncol=2, fancybox=True, shadow=True, mode="expand")
 
 plt.show()
 output = "../../parser_output/ce_types_" + service + ".png"
