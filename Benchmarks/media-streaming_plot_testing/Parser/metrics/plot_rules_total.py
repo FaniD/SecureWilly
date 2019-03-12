@@ -48,7 +48,7 @@ ax.plot(x_Axis, rules[1], label="client", color="red", marker='o')
 ax.plot(x_Axis, rules[2], label="server", color="blue", marker='o')
 
 box = ax.get_position()
-x.set_position([box.x0, box.y0, box.width * 0.8, box.height])
+ax.set_position([box.x0, box.y0, box.width * 0.8, box.height])
 
 ax.legend(loc='lower right', bbox_to_anchor=(1, 0), mode="expand", fancybox=True, shadow=True, ncol=1)
 #ax.legend(loc=0)
