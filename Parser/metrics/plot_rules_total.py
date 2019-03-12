@@ -72,52 +72,52 @@ part_1c = []
 part_2a = []
 part_2b = []
 part_2c = []
-part_3a = []
-part_3b = []
-part_3c = []
-part_4a = []
-part_4b = []
-part_4c = []
+#part_3a = []
+#part_3b = []
+#part_3c = []
+#part_4a = []
+#part_4b = []
+#part_4c = []
 
 compl_rules = range(complain_enforce[0]+1)
-enf_rules = range(complain_enforce[0],complain_enforce[1]+1)
-compl_audit = range(complain_enforce[1],complain_enforce[2]+1)
-enf_audit = range(complain_enforce[2],int(num_of_runs))
+enf_rules = range(complain_enforce[0],int(num_of_runs)) #complain_enforce[1]+1)
+#compl_audit = range(complain_enforce[1],complain_enforce[2]+1)
+#enf_audit = range(complain_enforce[2],int(num_of_runs))
 
 for x1 in range(complain_enforce[0]+1):
     part_1a.append(rules[0][x1])
     part_1b.append(rules[1][x1])
     part_1c.append(rules[2][x1])
-for x1 in range(complain_enforce[0], complain_enforce[1]+1):
+for x1 in range(complain_enforce[0], int(num_of_runs)): #complain_enforce[1]+1):
     part_2a.append(rules[0][x1])
     part_2b.append(rules[1][x1])
     part_2c.append(rules[2][x1])
-for x1 in range(complain_enforce[1], complain_enforce[2]+1):
-    part_3a.append(rules[0][x1])
-    part_3b.append(rules[1][x1])
-    part_3c.append(rules[2][x1])
-for x1 in range(complain_enforce[2], int(num_of_runs)):
-    part_4a.append(rules[0][x1])
-    part_4b.append(rules[1][x1])
-    part_4c.append(rules[2][x1])
+#for x1 in range(complain_enforce[1], complain_enforce[2]+1):
+#    part_3a.append(rules[0][x1])
+#    part_3b.append(rules[1][x1])
+#    part_3c.append(rules[2][x1])
+#for x1 in range(complain_enforce[2], int(num_of_runs)):
+#    part_4a.append(rules[0][x1])
+#    part_4b.append(rules[1][x1])
+#    part_4c.append(rules[2][x1])
 
 ax1 = fig.add_subplot(311)
 ax1.plot(compl_rules, part_1a, label="complain", color="blue", marker='x') 
 ax1.plot(enf_rules, part_2a, label="enforce", color="red", marker='x')
-ax1.plot(compl_audit, part_3a, label="complain audit", color="green", marker='x')
-ax1.plot(enf_audit, part_4a, label="enforce audit", color="darkmagenta", marker='x')
+#ax1.plot(compl_audit, part_3a, label="complain audit", color="green", marker='x')
+#ax1.plot(enf_audit, part_4a, label="enforce audit", color="darkmagenta", marker='x')
 
 ax2 = fig.add_subplot(312)
 ax2.plot(compl_rules, part_1b, label="complain", color="blue", marker='x')
 ax2.plot(enf_rules, part_2b, label="enforce", color="red", marker='x')
-ax2.plot(compl_audit, part_3b, label="complain audit", color="green", marker='x')
-ax2.plot(enf_audit, part_4b, label="enforce audit", color="darkmagenta", marker='x')
+#ax2.plot(compl_audit, part_3b, label="complain audit", color="green", marker='x')
+#ax2.plot(enf_audit, part_4b, label="enforce audit", color="darkmagenta", marker='x')
 
 ax3 = fig.add_subplot(313)
 ax3.plot(compl_rules, part_1c, label="complain", color="blue", marker='x')
 ax3.plot(enf_rules, part_2c, label="enforce", color="red", marker='x')
-ax3.plot(compl_audit, part_3c, label="complain audit", color="green", marker='x')
-ax3.plot(enf_audit, part_4c, label="enforce audit", color="darkmagenta", marker='x')
+#ax3.plot(compl_audit, part_3c, label="complain audit", color="green", marker='x')
+#ax3.plot(enf_audit, part_4c, label="enforce audit", color="darkmagenta", marker='x')
 
 ax1.legend(loc=1,prop={'size': 12})
 ax1.grid()
