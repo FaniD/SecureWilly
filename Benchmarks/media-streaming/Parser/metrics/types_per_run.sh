@@ -1,6 +1,6 @@
 #!/bin/bash
 
-service_list=(dataset server client) 
+service_list=(cloudsuitemedia-streamingdataset cloudsuitemedia-streamingserver cloudsuitemedia-streamingclient) 
 app_path="../.."
 parser_output_path="${app_path}/parser_output"
 

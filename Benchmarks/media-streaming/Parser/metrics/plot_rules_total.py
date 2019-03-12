@@ -102,20 +102,20 @@ for x1 in range(complain_enforce[0], int(num_of_runs)): #complain_enforce[1]+1):
 #    part_4c.append(rules[2][x1])
 
 ax1 = fig.add_subplot(311)
-ax1.plot(compl_rules, part_1a, label="complain", color="blue", marker='o') 
-ax1.plot(enf_rules, part_2a, label="enforce", color="red", marker='o')
+ax1.plot(compl_rules, part_1a, label="complain mode", color="blue", marker='o') 
+ax1.plot(enf_rules, part_2a, label="enforce mode", color="red", marker='o')
 #ax1.plot(compl_audit, part_3a, label="complain audit", color="green", marker='x')
 #ax1.plot(enf_audit, part_4a, label="enforce audit", color="darkmagenta", marker='x')
 
 ax2 = fig.add_subplot(312)
-ax2.plot(compl_rules, part_1b, label="complain", color="blue", marker='o')
-ax2.plot(enf_rules, part_2b, label="enforce", color="red", marker='o')
+ax2.plot(compl_rules, part_1b, label="complain mode", color="blue", marker='o')
+ax2.plot(enf_rules, part_2b, label="enforce mode", color="red", marker='o')
 #ax2.plot(compl_audit, part_3b, label="complain audit", color="green", marker='x')
 #ax2.plot(enf_audit, part_4b, label="enforce audit", color="darkmagenta", marker='x')
 
 ax3 = fig.add_subplot(313)
-ax3.plot(compl_rules, part_1c, label="complain", color="blue", marker='o')
-ax3.plot(enf_rules, part_2c, label="enforce", color="red", marker='o')
+ax3.plot(compl_rules, part_1c, label="complain mode", color="blue", marker='o')
+ax3.plot(enf_rules, part_2c, label="enforce mode", color="red", marker='o')
 #ax3.plot(compl_audit, part_3c, label="complain audit", color="green", marker='x')
 #ax3.plot(enf_audit, part_4c, label="enforce audit", color="darkmagenta", marker='x')
 
