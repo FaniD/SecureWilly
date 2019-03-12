@@ -139,7 +139,7 @@ barlist.append(file_rules[-1])
 barlist.append(rlimit[-1])
 
 plt.bar(y_pos, barlist, align='center', alpha=0.5)
-plt.yticks(y_pos, objects)
+plt.xticks(y_pos, objects)
 ax.set_ylim(0,max_value+0.5)
 plt.xlabel('Number of rules')
 plt.title('Amount of different types of rules')
