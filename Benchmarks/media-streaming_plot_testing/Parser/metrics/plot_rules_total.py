@@ -50,7 +50,7 @@ ax.plot(x_Axis, rules[2], label="server", color="blue", marker='o')
 box = ax.get_position()
 ax.set_position([box.x0, box.y0, box.width * 0.8, box.height])
 
-ax.legend(loc='lower left', bbox_to_anchor=(1, 0.5), fancybox=True, shadow=True)
+ax.legend(loc='center left', bbox_to_anchor=(1, 0.5), fancybox=True, shadow=True)
 #ax.legend(loc=0)
 #ax.grid()
 ax.set_xlabel("Runs")
@@ -127,7 +127,7 @@ ax3.plot(enf_rules, part_2c, label="enforce mode", color="red", marker='o')
 box = ax1.get_position()
 ax1.set_position([box.x0, box.y0, box.width * 0.8, box.height])
 
-ax1.legend(loc='center left', bbox_to_anchor=(1, 0.5), fancybox=True, shadow=True)
+ax1.legend(loc='upper center', bbox_to_anchor=(0.5, 1.05), ncol=3, fancybox=True, shadow=True)
 
 
 #ax1.legend(loc=1,prop={'size': 12})
