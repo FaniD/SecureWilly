@@ -129,6 +129,7 @@ fig, ax = plt.subplots()
 bar_width = 0.2
 
 opacity = 0.6
+ind = np.arange(start = 0, stop = num_of_runs, step = 1.5)
 ind = np.arange(num_of_runs)
 rects1 = ax.bar(ind, capabilities, bar_width, alpha=opacity, color='r', label='capabilities')
 rects2 = ax.bar(ind + 0.2, network, bar_width, alpha=opacity, color='g', label='network')
@@ -140,8 +141,8 @@ rects6 = ax.bar(ind + 1, file_rules, bar_width, alpha=opacity, color='b', label=
 ax.set_xlabel('Runs')
 ax.set_ylabel(r'Rules')
 ax.set_title('Types of rules per run')
-ax.set_xticks(ind)
-ax.set_xticklabels(ind+0.6)
+ax.set_xticks(ind+0.6)
+ax.set_xticklabels(x_Axis)
 ax.set_ylim(0,max_value+0.2)
 
 box = ax.get_position()
