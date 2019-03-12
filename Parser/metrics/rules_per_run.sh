@@ -1,8 +1,9 @@
 #!/bin/bash
 
-service_list=(dataset server client) 
+service_list=(cloudsuitemedia-streamingdataset cloudsuitemedia-streamingserver cloudsuitemedia-streamingclient) 
 app_path="../.."
 parser_output_path="${app_path}/parser_output"
+mkdir ${parser_output_path}/plots
 
 for SERVICE in "${service_list[@]}"; do
 	profile_path="${parser_output_path}/profiles/${SERVICE}"
@@ -30,7 +31,9 @@ rm num_of_runs
 ./complain_enforce_audit.sh
 
 #Do this manually depending on services
-python plot_rules_total.py ${parser_output_path}/rules_dataset ${parser_output_path}/rules_client ${parser_output_path}/rules_server $num_runs
+python plot_rules_total.py ${parser_output_path}/rules_${service_list[0]} ${parser_output_path}/rules_${service_list[1]} ${parser_output_path}/rules_${service_list[2]} $num_runs
+
+mv ${parser_output_path}/*.png ${parser_output_path}/plots/
 
 rm changes
 rm run*

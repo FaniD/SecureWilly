@@ -47,7 +47,11 @@ ax.plot(x_Axis, rules[0], label="dataset", color="green", marker='o')
 ax.plot(x_Axis, rules[1], label="client", color="red", marker='o')
 ax.plot(x_Axis, rules[2], label="server", color="blue", marker='o')
 
-ax.legend(loc=0)
+box = ax.get_position()
+ax.set_position([box.x0, box.y0, box.width * 0.8, box.height])
+
+ax.legend(loc='center left', bbox_to_anchor=(1, 0.5), fancybox=True, shadow=True)
+#ax.legend(loc=0)
 #ax.grid()
 ax.set_xlabel("Runs")
 ax.set_ylabel(r"Rules")
@@ -119,7 +123,14 @@ ax3.plot(enf_rules, part_2c, label="enforce mode", color="red", marker='o')
 #ax3.plot(compl_audit, part_3c, label="complain audit", color="green", marker='x')
 #ax3.plot(enf_audit, part_4c, label="enforce audit", color="darkmagenta", marker='x')
 
-ax1.legend(loc=1,prop={'size': 12})
+
+box = ax1.get_position()
+#ax1.set_position([box.x0, box.y0*1.02, box.width, box.height*0.2])
+
+ax1.legend(loc='lower left', bbox_to_anchor=(0,1.02,1, 0.2), ncol=2, fancybox=True, shadow=True, mode="expand")
+
+
+#ax1.legend(loc=1,prop={'size': 12})
 #ax1.grid()
 #ax2.grid()
 #ax3.grid()
