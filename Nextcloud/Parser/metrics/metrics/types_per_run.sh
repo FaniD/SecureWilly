@@ -1,6 +1,6 @@
 #!/bin/bash
 
-service_list=(db nextcloud) 
+service_list=(cloudsuitemedia-streamingdataset cloudsuitemedia-streamingserver cloudsuitemedia-streamingclient) 
 app_path="../.."
 parser_output_path="${app_path}/parser_output"
 mkdir ${parser_output_path}/plots
@@ -91,7 +91,7 @@ for SERVICE in "${service_list[@]}"; do
 	rm ${parser_output_path}/file_rules_${SERVICE}
 done
 
-mv ${parser_output_path}/*.png ${parser_output_path}/plots
+mv ${parser_output_path}/*.png ${parser_output_path}/plots/
 
 rm changes
 rm run*
