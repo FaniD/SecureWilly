@@ -129,7 +129,7 @@ fig, ax = plt.subplots()
 bar_width = 0.2
 
 opacity = 0.6
-ind = np.arange(start = 0, stop = num_of_runs, step = 1.5)
+ind = np.arange(start = 0, stop = num_of_runs*1.5, step = 1.5)
 ind = np.arange(num_of_runs)
 rects1 = ax.bar(ind, capabilities, bar_width, alpha=opacity, color='r', label='capabilities')
 rects2 = ax.bar(ind + 0.2, network, bar_width, alpha=opacity, color='g', label='network')
