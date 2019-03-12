@@ -383,7 +383,7 @@ static_profile = list(set(static_profile))
 
 #Add the beggining and ending of the profile
 #beggining
-static_profile.insert(0, '#include <tunables/global>\n\nprofile static_profile flags=(attach_disconnected,mediate_deleted) {\n\n')
+static_profile.insert(0, '#include <tunables/global>\n\nprofile static_profile flags=(attach_disconnected,mediate_deleted) {\n')
 #ending
 static_profile.append('}\n')
 
