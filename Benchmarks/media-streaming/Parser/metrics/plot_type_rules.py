@@ -112,7 +112,7 @@ ax.legend(loc='center left', bbox_to_anchor=(1, 0.8),
 #ax.grid()
 ax.set_xlabel("Runs")
 ax.set_ylabel(r"Rules")
-#ax.set_ylim(0,max_value+2)
+ax.set_ylim(0,max_value+2)
 plt.show()
 plt.title("Type of rules per run")
 output = "../../parser_output/types_" + service + ".png"
@@ -128,7 +128,7 @@ fig, ax = plt.subplots()
 #index = np.arange(n_groups)
 bar_width = 0.1
 
-opacity = 0.4
+opacity = 0.6
 ind = np.arange(num_of_runs)
 rects1 = ax.bar(ind, capabilities, bar_width, alpha=opacity, color='r', label='capabilities')
 rects2 = ax.bar(ind + 0.1, network, bar_width, alpha=opacity, color='g', label='network')
@@ -140,9 +140,17 @@ rects6 = ax.bar(ind + 0.5, file_rules, bar_width, alpha=opacity, color='b', labe
 ax.set_xlabel('Runs')
 ax.set_ylabel(r'Rules')
 ax.set_title('Types of rules per run')
-ax.set_xticks(ind + 0.6)
-ax.set_xticklabels(ind+0.6)
-ax.legend()
+ax.set_xticks(ind-0.3)
+ax.set_xticklabels(ind)
+ax.set_ylim(0,max_value+2)
+
+box = ax.get_position()
+ax.set_position([box.x0, box.y0, box.width * 0.8, box.height])
+
+# Put a legend below current axis
+ax.legend(loc='center left', bbox_to_anchor=(1, 0.8),
+                          fancybox=True, shadow=True)
+
 plt.show()
 output = "../../parser_output/Bar_types_" + service + ".png"
 plt.savefig(output,bbox_inches="tight")
