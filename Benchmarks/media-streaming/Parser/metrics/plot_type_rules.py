@@ -103,7 +103,7 @@ ax.plot(x_Axis, file_rules, label="file", color="b", marker='o')
 #                  ncol=3, fancybox=True, shadow=True)
 
 box = ax.get_position()
-#ax.set_position([box.x0, box.y0, box.width * 0.8, box.height])
+ax.set_position([box.x0, box.y0, box.width * 0.8, box.height])
 
 # Put a legend below current axis
 ax.legend(loc='center left', bbox_to_anchor=(1.04, 1),
