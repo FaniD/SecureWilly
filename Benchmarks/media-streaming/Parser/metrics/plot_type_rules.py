@@ -112,7 +112,7 @@ ax.legend(loc='center left', bbox_to_anchor=(1, 0.8),
 #ax.grid()
 ax.set_xlabel("Runs")
 ax.set_ylabel(r"Rules")
-ax.set_ylim(0,max_value+2)
+#ax.set_ylim(0,max_value+2)
 plt.show()
 plt.title("Type of rules per run")
 output = "../../parser_output/types_" + service + ".png"
