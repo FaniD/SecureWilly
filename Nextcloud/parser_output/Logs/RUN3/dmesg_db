@@ -1,1 +1,1 @@
-[1357843.610963] type=1400 audit(1552398245.706:179387291): apparmor="ALLOWED" operation="signal" profile="db_profile" pid=7788 comm="docker-containe" requested_mask="receive" denied_mask="receive" signal=kill peer="unconfined"
+[1389226.961238] type=1400 audit(1552429629.058:181609715): apparmor="ALLOWED" operation="signal" profile="db_profile" pid=1716 comm="docker-containe" requested_mask="receive" denied_mask="receive" signal=kill peer="unconfined"

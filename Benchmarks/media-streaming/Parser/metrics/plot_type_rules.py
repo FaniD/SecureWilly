@@ -116,7 +116,7 @@ ax.set_xlabel("Runs")
 ax.set_ylabel(r"Rules")
 ax.set_ylim(0,max_value+2)
 plt.show()
-plt.title("Type of rules per run")
+plt.title("Types of rules per run")
 output = "../../parser_output/types_" + service + ".png"
 plt.savefig(output,bbox_inches="tight")
 ###
@@ -143,7 +143,7 @@ plt.bar(y_pos, barlist, align='center', alpha=0.5)
 plt.xticks(y_pos, objects)
 ax.set_ylim(0,max_value+0.5)
 plt.ylabel('Rules')
-plt.title('Amount of each type of rules in final profile')
+plt.title('Amount of each type of rule in final profile')
 plt.show()
 
 #box = ax.get_position()

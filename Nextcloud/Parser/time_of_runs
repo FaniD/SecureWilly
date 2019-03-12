@@ -1,0 +1,55 @@
+RUN 1
+Creating network "nextcloud_default" with the default driver
+Creating volume "nextcloud_db_" with default driver
+Creating volume "nextcloud_nextcloud_" with default driver
+Creating db ... 
+[2A[2KCreating db ... [32mdone[0m[2BCreating nextcloud ... 
+[2A[2KCreating nextcloud ... [32mdone[0m[2B
+real	4m40.119s
+user	0m0.702s
+sys	0m0.297s
+RUN 2
+Creating volume "nextcloud_db_" with default driver
+Creating volume "nextcloud_nextcloud_" with default driver
+Creating db ... 
+[2A[2KCreating db ... [32mdone[0m[2BCreating nextcloud ... 
+[2A[2KCreating nextcloud ... [32mdone[0m[2B
+real	4m23.128s
+user	0m0.757s
+sys	0m0.283s
+RUN 3
+Creating volume "nextcloud_db_" with default driver
+Creating volume "nextcloud_nextcloud_" with default driver
+Creating db ... 
+[2A[2KCreating db ... [32mdone[0m[2BCreating nextcloud ... 
+[2A[2KCreating nextcloud ... [32mdone[0m[2B
+real	4m34.041s
+user	0m0.755s
+sys	0m0.289s
+RUN 4
+Creating volume "nextcloud_db_" with default driver
+Creating volume "nextcloud_nextcloud_" with default driver
+Creating db ... 
+[2A[2KCreating db ... [32mdone[0m[2BCreating nextcloud ... 
+[2A[2KCreating nextcloud ... [32mdone[0m[2B
+real	4m35.805s
+user	0m0.724s
+sys	0m0.262s
+RUN 5
+Creating volume "nextcloud_db_" with default driver
+Creating volume "nextcloud_nextcloud_" with default driver
+Creating db ... 
+[2A[2KCreating db ... [32mdone[0m[2BCreating nextcloud ... 
+[2A[2KCreating nextcloud ... [32mdone[0m[2B
+real	4m34.339s
+user	0m0.750s
+sys	0m0.232s
+RUN 6
+Creating volume "nextcloud_db_" with default driver
+Creating volume "nextcloud_nextcloud_" with default driver
+Creating db ... 
+[2A[2KCreating db ... [32mdone[0m[2BCreating nextcloud ... 
+[2A[2KCreating nextcloud ... [32mdone[0m[2B
+real	4m29.247s
+user	0m0.717s
+sys	0m0.277s

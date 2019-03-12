@@ -1,3 +1,2 @@
-Mar 12 13:44:21 docker-security59 kernel: [1357859.135388] type=1400 audit(1552398261.230:179387296): apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=18629 comm="apache2" capability=7  capname="setuid"
-Mar 12 13:44:21 docker-security59 kernel: [1357859.135847] type=1400 audit(1552398261.230:179387297): apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=18630 comm="apache2" capability=7  capname="setuid"
-Mar 12 13:44:21 docker-security59 kernel: [1357859.136371] type=1400 audit(1552398261.234:179387298): apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=18631 comm="apache2" capability=7  capname="setuid"
+Mar 12 22:27:26 docker-security59 kernel: [1389243.915478] type=1400 audit(1552429646.010:181609720): apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=4396 comm="apache2" capability=7  capname="setuid"
+Mar 12 22:27:26 docker-security59 kernel: [1389243.916530] type=1400 audit(1552429646.014:181609721): apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=4398 comm="apache2" capability=7  capname="setuid"
