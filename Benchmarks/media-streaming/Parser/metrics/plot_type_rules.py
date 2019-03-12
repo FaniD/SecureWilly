@@ -110,6 +110,8 @@ ax.legend(loc='center left', bbox_to_anchor=(1, 0.8),
                   fancybox=True, shadow=True)
 
 #ax.grid()
+
+##1st plot
 ax.set_xlabel("Runs")
 ax.set_ylabel(r"Rules")
 ax.set_ylim(0,max_value+2)
@@ -117,9 +119,7 @@ plt.show()
 plt.title("Type of rules per run")
 output = "../../parser_output/types_" + service + ".png"
 plt.savefig(output,bbox_inches="tight")
-
-enforce = 5 #Read this from bash script 
-
+###
 fig = plt.figure()
 
 ##Bars
@@ -138,11 +138,12 @@ barlist.append(mount[-1])
 barlist.append(file_rules[-1])
 barlist.append(rlimit[-1])
 
+max_value=max(barlist)
 plt.bar(y_pos, barlist, align='center', alpha=0.5)
 plt.xticks(y_pos, objects)
 ax.set_ylim(0,max_value+0.5)
-plt.xlabel('Number of rules')
-plt.title('Amount of different types of rules')
+plt.ylabel('Rules')
+plt.title('Amount of each type of rules in final profile')
 plt.show()
 
 #box = ax.get_position()
@@ -302,6 +303,6 @@ ax6.set_ylim(0,max_value+2)
 box = ax1.get_position()
 ax1.legend(loc='lower left', bbox_to_anchor=(0,1.02,1, 0.2), ncol=2, fancybox=True, shadow=True, mode="expand")
 
-plt.show()
-output = "../../parser_output/ce_types_" + service + ".png"
-plt.savefig(output,bbox_inches="tight")
+#plt.show()
+#output = "../../parser_output/ce_types_" + service + ".png"
+#plt.savefig(output,bbox_inches="tight")
