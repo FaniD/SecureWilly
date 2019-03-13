@@ -23,6 +23,7 @@ x_Axis = np.arange(len(sec))
 
 fig = plt.figure()
 ax = fig.add_subplot(111)
+ax.grid()
 ax.plot(x_Axis, sec, label="time", color="b", marker='o')
 
 ##1st plot
