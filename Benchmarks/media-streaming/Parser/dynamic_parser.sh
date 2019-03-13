@@ -35,6 +35,8 @@ for SERVICE in "${service_list[@]}"; do
 done
 
 #./${dynamic_script_path}/0b_pull_images.sh
+rm time_of_runs
+touch time_of_runs
 
 #For each RUN follow the steps
 i=1
@@ -49,7 +51,11 @@ while [[ "$enforce" == "0" ]]; do
 		./${dynamic_script_path}/4a_complain_mode.sh
 		./${dynamic_script_path}/5_clear_logs.sh 
 		./${dynamic_script_path}/6_net.sh
-		./${dynamic_script_path}/7_run.sh
+		#./${dynamic_script_path}/7_run.sh
+		echo "RUN ${i}" >> time_of_runs
+		time ( ./${dynamic_script_path}/7_run.sh ) 2> time_out
+		cat time_out >> time_of_runs
+		rm time_out
 		echo $i | source ${dynamic_script_path}/8_logging_files.sh
 		./${dynamic_script_path}/9a_clear_containers_net.sh
 		./${dynamic_script_path}/9b_clear_compose.sh
@@ -109,7 +115,11 @@ while [[ "$enforce" == "0" ]]; do
 	./${dynamic_script_path}/4b_enforce_mode.sh
 	./${dynamic_script_path}/5_clear_logs.sh
 	./${dynamic_script_path}/6_net.sh
-	./${dynamic_script_path}/7_run.sh
+	#./${dynamic_script_path}/7_run.sh
+	echo "RUN ${i}" >> time_of_runs
+	time ( ./${dynamic_script_path}/7_run.sh ) 2> time_out
+	cat time_out >> time_of_runs
+	rm time_out
 	echo $i | source ${dynamic_script_path}/8_logging_files.sh
 	./${dynamic_script_path}/9a_clear_containers_net.sh
 	./${dynamic_script_path}/9b_clear_compose.sh

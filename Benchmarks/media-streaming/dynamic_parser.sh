@@ -2,7 +2,7 @@
 
 #Change this with the services I have each time
 #Also do that in 2_cp, 3, 4a, 4b, 9, 10a, 10b, 12, metrics 
-service_list=(db nextcloud)
+service_list=(cloudsuitemedia-streamingserver cloudsuitemedia-streamingclient cloudsuitemedia-streamingdataset)
 
 app_run_path=".."
 parser_path="${app_run_path}/Parser"
@@ -35,8 +35,6 @@ for SERVICE in "${service_list[@]}"; do
 done
 
 #./${dynamic_script_path}/0b_pull_images.sh
-rm time_of_runs
-touch time_of_runs
 
 #For each RUN follow the steps
 i=1
@@ -52,10 +50,6 @@ while [[ "$enforce" == "0" ]]; do
 		./${dynamic_script_path}/5_clear_logs.sh 
 		./${dynamic_script_path}/6_net.sh
 		./${dynamic_script_path}/7_run.sh
-		#echo "RUN ${i}" >> time_of_runs
-		#time ( ./${dynamic_script_path}/7_run.sh ) 2> time_out
-		#cat time_out >> time_of_runs
-		#rm time_out
 		echo $i | source ${dynamic_script_path}/8_logging_files.sh
 		./${dynamic_script_path}/9a_clear_containers_net.sh
 		./${dynamic_script_path}/9b_clear_compose.sh
@@ -100,6 +94,7 @@ while [[ "$enforce" == "0" ]]; do
 				enforce_time="0"
 			fi
 		done
+		cp -r /output ${app_run_path}/parser_output/output_run_${i}
 		((i++))
 		if [[ "$enforce_time" == "1" ]] #Then none of the services has 0 value so enforce time
 		then
@@ -115,10 +110,6 @@ while [[ "$enforce" == "0" ]]; do
 	./${dynamic_script_path}/5_clear_logs.sh
 	./${dynamic_script_path}/6_net.sh
 	./${dynamic_script_path}/7_run.sh
-	#echo "RUN ${i}" >> time_of_runs
-	#time ( ./${dynamic_script_path}/7_run.sh ) 2> time_out
-	#cat time_out >> time_of_runs
-	#rm time_out
 	echo $i | source ${dynamic_script_path}/8_logging_files.sh
 	./${dynamic_script_path}/9a_clear_containers_net.sh
 	./${dynamic_script_path}/9b_clear_compose.sh
@@ -150,6 +141,7 @@ while [[ "$enforce" == "0" ]]; do
 			enforce="0"
 		fi
 	done
+	cp -r /output ${app_run_path}/parser_output/output_run_${i}
 	((i++))
 done
 
