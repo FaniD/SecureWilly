@@ -5,6 +5,8 @@
    \caption{Trademark of SecureWilly}
 \end{figure}
 
+SecureWilly is the software we created, in order to produce secure and efficient AppArmor profiles. The profiles are adjusted to the given docker project, based on the Principle of Least Privilege, meaning they will allow exclusively a set of actions, determined by the user in a test plan. Any other action will be considered as redundant and will be denied. SecureWilly also supports multi-service docker projects and produces one AppArmor profile per service. The profiles are created, with knowledge of their coordination, the way this is indicated by the test plan. SecureWilly focuses on preserving isolation between host and containers, as well as between running containers themselves.
+
 \section{User Interface}
 
 SecureWilly's user interface at the moment is rather simple and is represented by a terminal UI.
@@ -261,7 +263,6 @@ Switching users as well as permissions work perfectly, therefore the rules we ex
 
 \subsection{Docker Compose}
 It is a fact that most of the parameters we would like to obtain are not given at build phase but at runtime. Therefore, the material that Dockerfile offers to static analysis is limited, due to portability issues. Runtime parameters would constitute a key factor to create strict and fine-grained AppArmor profiles that reach our goal of containers obeying the Principle of least privilege. Docker offers a solution to this issue, with Docker Compose.
-\hfill\break
 
 \begin{figure}[h!]
   \centering
@@ -447,7 +448,7 @@ SecureWilly uses a series of scripts to commit all of the actions above. Scripts
 
 The steps of dynamic parser are clearly presented in the following flowchart:
 
-\hfill\break\hfill\break\hfill\break\hfill\break\hfill\break\hfill\break\hfill\break\hfill\break\hfill\break\hfill\break\hfill\break\hfill\break\hfill\break\hfill\break
+\hfill\break\hfill\break\hfill\break\hfill\break\hfill\break
 
 \begin{figure}[hp!]
   \centering
