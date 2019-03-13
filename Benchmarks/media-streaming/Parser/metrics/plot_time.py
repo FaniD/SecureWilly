@@ -24,7 +24,7 @@ x_Axis = np.arange(len(sec))
 fig = plt.figure()
 ax = fig.add_subplot(111)
 ax.plot(x_Axis, sec, label="time", color="b", marker='o')
-
+ax.grid()
 ##1st plot
 ax.set_xlabel("Runs")
 ax.set_ylabel(r"Time(sec)")
