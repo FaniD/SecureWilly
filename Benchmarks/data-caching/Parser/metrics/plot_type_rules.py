@@ -109,7 +109,7 @@ ax.set_position([box.x0, box.y0, box.width * 0.8, box.height])
 ax.legend(loc='center left', bbox_to_anchor=(1, 0.8),
                   fancybox=True, shadow=True)
 
-#ax.grid()
+ax.grid()
 
 ##1st plot
 ax.set_xlabel("Runs")

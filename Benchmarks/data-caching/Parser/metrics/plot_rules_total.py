@@ -52,7 +52,7 @@ ax.set_position([box.x0, box.y0, box.width * 0.8, box.height])
 
 ax.legend(loc='center left', bbox_to_anchor=(1, 0.5), fancybox=True, shadow=True)
 #ax.legend(loc=0)
-#ax.grid()
+ax.grid()
 ax.set_xlabel("Runs")
 ax.set_ylabel(r"Rules")
 ax.set_ylim(0,max_value+2)
@@ -131,8 +131,8 @@ ax1.legend(loc='lower left', bbox_to_anchor=(0,1.02,1, 0.2), ncol=2, fancybox=Tr
 
 
 #ax1.legend(loc=1,prop={'size': 12})
-#ax1.grid()
-#ax2.grid()
+ax1.grid()
+ax2.grid()
 #ax3.grid()
 ax2.set_xlabel("Runs")
 ax1.set_ylabel(r"Server rules")
