@@ -4,3 +4,22 @@ real	12m0.849s
 user	0m0.185s
 sys	0m0.247s
 RUN 2
+
+real	34m19.532s
+user	0m0.233s
+sys	0m0.386s
+RUN 3
+
+real	12m0.062s
+user	0m0.220s
+sys	0m0.191s
+RUN 4
+
+real	11m57.842s
+user	0m0.160s
+sys	0m0.238s
+RUN 5
+
+real	12m2.628s
+user	0m0.156s
+sys	0m0.257s

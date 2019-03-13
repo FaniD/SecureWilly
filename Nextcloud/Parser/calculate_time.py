@@ -21,15 +21,15 @@ with open(time_of_runs,'r') as infile:
                         usr = usr.rstrip('\n')
                         usr = usr.rstrip('s')
                         usr_l = usr.split('m')
-                        usr = usr_l[1]
+                        usr = usr_l[1].replace('.','')
                         #sys_time = data[z+1].rstrip('\n')
                         sys_time = data[z+1].split('\t')
                         sys = sys_time[1]
                         sys = sys.rstrip('\n')
                         sys = sys.rstrip('s')
                         sys_l = sys.split('m')
-                        sys = sys_l[1]
-                        time_ = float(usr) + float(sys)
+                        sys = sys_l[1].replace('.','')
+                        time_ = int(usr) + int(sys)
                         run_time.append(str(time_) + '\n')
 #Output
 with open('time_total', 'w') as outfile:

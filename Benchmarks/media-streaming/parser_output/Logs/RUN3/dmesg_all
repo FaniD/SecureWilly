@@ -1,0 +1,23 @@
+[1396318.768933] IPv6: ADDRCONF(NETDEV_UP): br-e3d3df70abe7: link is not ready
+[1396347.626460] device veth656f30a entered promiscuous mode
+[1396347.626662] IPv6: ADDRCONF(NETDEV_UP): veth656f30a: link is not ready
+[1396357.041011] IPv6: ADDRCONF(NETDEV_CHANGE): veth656f30a: link becomes ready
+[1396357.041067] br-e3d3df70abe7: port 1(veth656f30a) entered forwarding state
+[1396357.041075] br-e3d3df70abe7: port 1(veth656f30a) entered forwarding state
+[1396357.041092] IPv6: ADDRCONF(NETDEV_CHANGE): br-e3d3df70abe7: link becomes ready
+[1396357.966979] type=1400 audit(1552436760.062:183839601): apparmor="ALLOWED" operation="capable" profile="cloudsuitemedia-streamingserver_profile" pid=25481 comm="nginx" capability=10  capname="net_bind_service"
+[1396357.968263] type=1400 audit(1552436760.066:183839602): apparmor="ALLOWED" operation="capable" profile="cloudsuitemedia-streamingserver_profile" pid=25546 comm="nginx" capability=7  capname="setuid"
+[1396367.232711] device veth4fc8063 entered promiscuous mode
+[1396367.232846] IPv6: ADDRCONF(NETDEV_UP): veth4fc8063: link is not ready
+[1396369.642007] IPv6: ADDRCONF(NETDEV_CHANGE): veth4fc8063: link becomes ready
+[1396369.642083] br-e3d3df70abe7: port 2(veth4fc8063) entered forwarding state
+[1396369.642090] br-e3d3df70abe7: port 2(veth4fc8063) entered forwarding state
+[1396372.060372] br-e3d3df70abe7: port 1(veth656f30a) entered forwarding state
+[1396384.668049] br-e3d3df70abe7: port 2(veth4fc8063) entered forwarding state
+[1397037.432010] br-e3d3df70abe7: port 2(veth4fc8063) entered disabled state
+[1397037.881553] br-e3d3df70abe7: port 1(veth656f30a) entered disabled state
+[1397037.883004] device veth656f30a left promiscuous mode
+[1397037.883016] br-e3d3df70abe7: port 1(veth656f30a) entered disabled state
+[1397037.973577] br-e3d3df70abe7: port 2(veth4fc8063) entered disabled state
+[1397037.974265] device veth4fc8063 left promiscuous mode
+[1397037.974276] br-e3d3df70abe7: port 2(veth4fc8063) entered disabled state
