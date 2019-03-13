@@ -1,0 +1,2 @@
+[1396357.966979] type=1400 audit(1552436760.062:183839601): apparmor="ALLOWED" operation="capable" profile="cloudsuitemedia-streamingserver_profile" pid=25481 comm="nginx" capability=10  capname="net_bind_service"
+[1396357.968263] type=1400 audit(1552436760.066:183839602): apparmor="ALLOWED" operation="capable" profile="cloudsuitemedia-streamingserver_profile" pid=25546 comm="nginx" capability=7  capname="setuid"

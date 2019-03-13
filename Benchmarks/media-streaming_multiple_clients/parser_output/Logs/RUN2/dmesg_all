@@ -1,0 +1,27 @@
+[1394254.145540] IPv6: ADDRCONF(NETDEV_UP): br-06da9ca0f315: link is not ready
+[1394284.543147] device vethc7a5f33 entered promiscuous mode
+[1394284.543425] IPv6: ADDRCONF(NETDEV_UP): vethc7a5f33: link is not ready
+[1394292.044666] IPv6: ADDRCONF(NETDEV_CHANGE): vethc7a5f33: link becomes ready
+[1394292.044737] br-06da9ca0f315: port 1(vethc7a5f33) entered forwarding state
+[1394292.044745] br-06da9ca0f315: port 1(vethc7a5f33) entered forwarding state
+[1394292.044763] IPv6: ADDRCONF(NETDEV_CHANGE): br-06da9ca0f315: link becomes ready
+[1394293.587290] type=1400 audit(1552434695.682:183839592): apparmor="ALLOWED" operation="capable" profile="cloudsuitemedia-streamingserver_profile" pid=18702 comm="nginx" capability=0  capname="chown"
+[1394293.588325] type=1400 audit(1552434695.686:183839593): apparmor="ALLOWED" operation="capable" profile="cloudsuitemedia-streamingserver_profile" pid=18765 comm="nginx" capability=6  capname="setgid"
+[1394293.589276] type=1400 audit(1552434695.686:183839594): apparmor="ALLOWED" operation="capable" profile="cloudsuitemedia-streamingserver_profile" pid=18768 comm="nginx" capability=6  capname="setgid"
+[1394302.310675] device veth47b45f2 entered promiscuous mode
+[1394302.310829] IPv6: ADDRCONF(NETDEV_UP): veth47b45f2: link is not ready
+[1394302.310836] br-06da9ca0f315: port 2(veth47b45f2) entered forwarding state
+[1394302.310841] br-06da9ca0f315: port 2(veth47b45f2) entered forwarding state
+[1394302.311531] br-06da9ca0f315: port 2(veth47b45f2) entered disabled state
+[1394303.388737] IPv6: ADDRCONF(NETDEV_CHANGE): veth47b45f2: link becomes ready
+[1394303.388794] br-06da9ca0f315: port 2(veth47b45f2) entered forwarding state
+[1394303.388800] br-06da9ca0f315: port 2(veth47b45f2) entered forwarding state
+[1394307.100142] br-06da9ca0f315: port 1(vethc7a5f33) entered forwarding state
+[1394318.428414] br-06da9ca0f315: port 2(veth47b45f2) entered forwarding state
+[1396312.353004] br-06da9ca0f315: port 2(veth47b45f2) entered disabled state
+[1396312.815001] br-06da9ca0f315: port 2(veth47b45f2) entered disabled state
+[1396312.815832] device veth47b45f2 left promiscuous mode
+[1396312.815844] br-06da9ca0f315: port 2(veth47b45f2) entered disabled state
+[1396312.970733] br-06da9ca0f315: port 1(vethc7a5f33) entered disabled state
+[1396312.971950] device vethc7a5f33 left promiscuous mode
+[1396312.971962] br-06da9ca0f315: port 1(vethc7a5f33) entered disabled state
