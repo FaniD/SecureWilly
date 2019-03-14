@@ -5,12 +5,18 @@ N
 N
 /home/ubuntu/SecureWilly/Nextcloud
 N
+#Clear data directory if it exists and chown it to www-data, as configured in Nextcloud
 sudo rm -r /home/ubuntu/SecureWilly/Nextcloud/data
 mkdir /home/ubuntu/SecureWilly/Nextcloud/data
 sudo chown www-data:www-data /home/ubuntu/SecureWilly/Nextcloud/data
 
+#Start the containers
 docker-compose up -d
+
+#Wait some time for the database to be configured
 sleep 60
+
+#Check server's status
 docker exec -u www-data nextcloud php occ status > answer
 answer=$(cat answer | grep 'Nextcloud is not installed')
 while [ -z "$answer" ]
@@ -20,7 +26,8 @@ do
         answer=$(cat answer | grep 'Nextcloud is not installed')
 done
 rm answer
-#Configure nextcloud
+
+#Configure nextcloud, when the server is up
 docker exec -u www-data nextcloud php occ maintenance:install --database "mysql" --database-name "nextcloud_" --database-host "db" --database-user "willy" --database-pass "secret" --admin-user "willy" --admin-pass "secret"
 
 #Create a file in local data directory
@@ -29,6 +36,7 @@ sudo touch /home/ubuntu/SecureWilly/Nextcloud/data/willy/files/HelloFromTheOther
 #Use occ files:scan to make it visible to the web interface
 docker exec -u www-data nextcloud php occ files:scan --all
 
+#Stop the containers when you're finished
 docker kill nextcloud
 docker kill db
 Done
