@@ -17,5 +17,5 @@ echo "dc-server, 11211" > docker_servers.txt
 #Maximum throughput
 #./loader -a ../twitter_dataset/twitter_dataset_30x -s docker_servers.txt -g 0.8 -T 1 -c 200 -w 8 
 #rps 90%
-timeout 600s ./loader -a ../twitter_dataset/twitter_dataset_30x -s docker_servers.txt -g 0.8 -T 1 -c 200 -w 8 -e -r rps 
+timeout 200s ./loader -a ../twitter_dataset/twitter_dataset_30x -s docker_servers.txt -g 0.8 -T 1 -c 200 -w 8 -e -r rps 
 

@@ -2,4 +2,6 @@
 #Network\n
 inet dgram
 #File
+requested_mask 
 #Signal
+receive term unconfined

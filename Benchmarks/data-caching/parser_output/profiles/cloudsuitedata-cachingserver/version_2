@@ -5,6 +5,5 @@ profile cloudsuitedata-cachingserver_profile flags=(attach_disconnected,mediate_
 	network inet stream,
 	file,  #Allows access to containers filesystem
 	/var/lib/docker/* r, #Access to layers of filesystem
-	signal (receive) set=(term) peer=unconfined,
 	deny ptrace (readby, tracedby), #Confront container breakout attacks
 }

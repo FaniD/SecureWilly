@@ -1,0 +1,25 @@
+RUN 1
+
+real	9m55.879s
+user	0m0.192s
+sys	0m0.195s
+RUN 2
+
+real	9m38.545s
+user	0m0.179s
+sys	0m0.183s
+RUN 3
+
+real	9m31.739s
+user	0m0.196s
+sys	0m0.183s
+RUN 4
+
+real	9m9.286s
+user	0m0.163s
+sys	0m0.157s
+RUN 5
+
+real	9m13.640s
+user	0m0.196s
+sys	0m0.161s

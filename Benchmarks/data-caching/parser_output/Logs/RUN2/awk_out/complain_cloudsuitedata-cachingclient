@@ -1,7 +1,11 @@
 #Capability\n
 #Network\n
+inet dgram
 #File
 requested_mask 
 #Signal
+receive exists unconfined
+send term cloudsuitedata-cachingclient_profile
+receive term cloudsuitedata-cachingclient_profile
 send cont cloudsuitedata-cachingclient_profile
 receive cont cloudsuitedata-cachingclient_profile

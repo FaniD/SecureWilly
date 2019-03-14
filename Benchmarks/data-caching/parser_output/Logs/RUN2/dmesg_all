@@ -1,47 +1,63 @@
-[512127.732296] IPv6: ADDRCONF(NETDEV_UP): br-0358ffc18aa4: link is not ready
-[512128.463447] device veth808a9a9 entered promiscuous mode
-[512128.463596] IPv6: ADDRCONF(NETDEV_UP): veth808a9a9: link is not ready
-[512128.463610] br-0358ffc18aa4: port 1(veth808a9a9) entered forwarding state
-[512128.463631] br-0358ffc18aa4: port 1(veth808a9a9) entered forwarding state
-[512128.463649] IPv6: ADDRCONF(NETDEV_CHANGE): br-0358ffc18aa4: link becomes ready
-[512128.656365] br-0358ffc18aa4: port 1(veth808a9a9) entered disabled state
-[512129.400665] IPv6: ADDRCONF(NETDEV_CHANGE): veth808a9a9: link becomes ready
-[512129.400713] br-0358ffc18aa4: port 1(veth808a9a9) entered forwarding state
-[512129.400720] br-0358ffc18aa4: port 1(veth808a9a9) entered forwarding state
-[512129.597286] type=1400 audit(1551552531.694:177124281): apparmor="ALLOWED" operation="create" profile="cloudsuitedata-cachingserver_profile" pid=307 comm="memcached" family="inet6" sock_type="stream" protocol=6
-[512129.597302] type=1400 audit(1551552531.694:177124282): apparmor="ALLOWED" operation="setsockopt" profile="cloudsuitedata-cachingserver_profile" pid=307 comm="memcached" family="inet6" sock_type="stream" protocol=6
-[512129.597309] type=1400 audit(1551552531.694:177124283): apparmor="ALLOWED" operation="setsockopt" profile="cloudsuitedata-cachingserver_profile" pid=307 comm="memcached" family="inet6" sock_type="stream" protocol=6
-[512129.597315] type=1400 audit(1551552531.694:177124284): apparmor="ALLOWED" operation="setsockopt" profile="cloudsuitedata-cachingserver_profile" pid=307 comm="memcached" family="inet6" sock_type="stream" protocol=6
-[512129.597321] type=1400 audit(1551552531.694:177124285): apparmor="ALLOWED" operation="setsockopt" profile="cloudsuitedata-cachingserver_profile" pid=307 comm="memcached" family="inet6" sock_type="stream" protocol=6
-[512129.597326] type=1400 audit(1551552531.694:177124286): apparmor="ALLOWED" operation="setsockopt" profile="cloudsuitedata-cachingserver_profile" pid=307 comm="memcached" family="inet6" sock_type="stream" protocol=6
-[512130.167398] device veth2aad2da entered promiscuous mode
-[512130.167950] IPv6: ADDRCONF(NETDEV_UP): veth2aad2da: link is not ready
-[512130.167956] br-0358ffc18aa4: port 2(veth2aad2da) entered forwarding state
-[512130.167961] br-0358ffc18aa4: port 2(veth2aad2da) entered forwarding state
-[512130.656331] br-0358ffc18aa4: port 2(veth2aad2da) entered disabled state
-[512131.144684] IPv6: ADDRCONF(NETDEV_CHANGE): veth2aad2da: link becomes ready
-[512131.144741] br-0358ffc18aa4: port 2(veth2aad2da) entered forwarding state
-[512131.144748] br-0358ffc18aa4: port 2(veth2aad2da) entered forwarding state
-[512144.412093] br-0358ffc18aa4: port 1(veth808a9a9) entered forwarding state
-[512146.172131] br-0358ffc18aa4: port 2(veth2aad2da) entered forwarding state
-[512881.135435] audit_printk_skb: 102 callbacks suppressed
-[512881.135440] type=1400 audit(1551553283.230:177124321): apparmor="ALLOWED" operation="signal" profile="cloudsuitedata-cachingclient_profile" pid=596 comm="timeout" requested_mask="send" denied_mask="send" signal=cont peer="cloudsuitedata-cachingclient_profile"
-[512881.135446] type=1400 audit(1551553283.230:177124322): apparmor="ALLOWED" operation="signal" profile="cloudsuitedata-cachingclient_profile" pid=596 comm="timeout" requested_mask="receive" denied_mask="receive" signal=cont peer="cloudsuitedata-cachingclient_profile"
-[512881.135452] type=1400 audit(1551553283.230:177124323): apparmor="ALLOWED" operation="signal" profile="cloudsuitedata-cachingclient_profile" pid=596 comm="timeout" requested_mask="send" denied_mask="send" signal=cont peer="cloudsuitedata-cachingclient_profile"
-[512881.135456] type=1400 audit(1551553283.230:177124324): apparmor="ALLOWED" operation="signal" profile="cloudsuitedata-cachingclient_profile" pid=596 comm="timeout" requested_mask="receive" denied_mask="receive" signal=cont peer="cloudsuitedata-cachingclient_profile"
-[512881.135461] type=1400 audit(1551553283.230:177124325): apparmor="ALLOWED" operation="signal" profile="cloudsuitedata-cachingclient_profile" pid=596 comm="timeout" requested_mask="send" denied_mask="send" signal=cont peer="cloudsuitedata-cachingclient_profile"
-[512881.135465] type=1400 audit(1551553283.230:177124326): apparmor="ALLOWED" operation="signal" profile="cloudsuitedata-cachingclient_profile" pid=596 comm="timeout" requested_mask="receive" denied_mask="receive" signal=cont peer="cloudsuitedata-cachingclient_profile"
-[513481.511699] type=1400 audit(1551553883.606:177124327): apparmor="ALLOWED" operation="signal" profile="cloudsuitedata-cachingclient_profile" pid=794 comm="timeout" requested_mask="send" denied_mask="send" signal=cont peer="cloudsuitedata-cachingclient_profile"
-[513481.511707] type=1400 audit(1551553883.606:177124328): apparmor="ALLOWED" operation="signal" profile="cloudsuitedata-cachingclient_profile" pid=794 comm="timeout" requested_mask="receive" denied_mask="receive" signal=cont peer="cloudsuitedata-cachingclient_profile"
-[513481.511715] type=1400 audit(1551553883.606:177124329): apparmor="ALLOWED" operation="signal" profile="cloudsuitedata-cachingclient_profile" pid=794 comm="timeout" requested_mask="send" denied_mask="send" signal=cont peer="cloudsuitedata-cachingclient_profile"
-[513481.511719] type=1400 audit(1551553883.606:177124330): apparmor="ALLOWED" operation="signal" profile="cloudsuitedata-cachingclient_profile" pid=794 comm="timeout" requested_mask="receive" denied_mask="receive" signal=cont peer="cloudsuitedata-cachingclient_profile"
-[513481.511724] type=1400 audit(1551553883.606:177124331): apparmor="ALLOWED" operation="signal" profile="cloudsuitedata-cachingclient_profile" pid=794 comm="timeout" requested_mask="send" denied_mask="send" signal=cont peer="cloudsuitedata-cachingclient_profile"
-[513481.511732] type=1400 audit(1551553883.606:177124332): apparmor="ALLOWED" operation="signal" profile="cloudsuitedata-cachingclient_profile" pid=794 comm="timeout" requested_mask="receive" denied_mask="receive" signal=cont peer="cloudsuitedata-cachingclient_profile"
-[513481.969237] br-0358ffc18aa4: port 2(veth2aad2da) entered disabled state
-[513482.179148] br-0358ffc18aa4: port 2(veth2aad2da) entered disabled state
-[513482.179919] device veth2aad2da left promiscuous mode
-[513482.179931] br-0358ffc18aa4: port 2(veth2aad2da) entered disabled state
-[513483.172904] br-0358ffc18aa4: port 1(veth808a9a9) entered disabled state
-[513483.397726] br-0358ffc18aa4: port 1(veth808a9a9) entered disabled state
-[513483.398287] device veth808a9a9 left promiscuous mode
-[513483.398295] br-0358ffc18aa4: port 1(veth808a9a9) entered disabled state
+[1534841.173237] IPv6: ADDRCONF(NETDEV_UP): br-220696d25c35: link is not ready
+[1534841.964392] device veth99aede8 entered promiscuous mode
+[1534841.964504] IPv6: ADDRCONF(NETDEV_UP): veth99aede8: link is not ready
+[1534841.964509] br-220696d25c35: port 1(veth99aede8) entered forwarding state
+[1534841.964517] br-220696d25c35: port 1(veth99aede8) entered forwarding state
+[1534841.964531] IPv6: ADDRCONF(NETDEV_CHANGE): br-220696d25c35: link becomes ready
+[1534842.084435] br-220696d25c35: port 1(veth99aede8) entered disabled state
+[1534842.760778] IPv6: ADDRCONF(NETDEV_CHANGE): veth99aede8: link becomes ready
+[1534842.760837] br-220696d25c35: port 1(veth99aede8) entered forwarding state
+[1534842.760845] br-220696d25c35: port 1(veth99aede8) entered forwarding state
+[1534842.853297] type=1400 audit(1552575244.950:1395986023): apparmor="ALLOWED" operation="create" profile="cloudsuitedata-cachingserver_profile" pid=28709 comm="memcached" family="inet6" sock_type="stream" protocol=6
+[1534842.853310] type=1400 audit(1552575244.950:1395986024): apparmor="ALLOWED" operation="setsockopt" profile="cloudsuitedata-cachingserver_profile" pid=28709 comm="memcached" family="inet6" sock_type="stream" protocol=6
+[1534842.853316] type=1400 audit(1552575244.950:1395986025): apparmor="ALLOWED" operation="setsockopt" profile="cloudsuitedata-cachingserver_profile" pid=28709 comm="memcached" family="inet6" sock_type="stream" protocol=6
+[1534842.853320] type=1400 audit(1552575244.950:1395986026): apparmor="ALLOWED" operation="setsockopt" profile="cloudsuitedata-cachingserver_profile" pid=28709 comm="memcached" family="inet6" sock_type="stream" protocol=6
+[1534842.853325] type=1400 audit(1552575244.950:1395986027): apparmor="ALLOWED" operation="setsockopt" profile="cloudsuitedata-cachingserver_profile" pid=28709 comm="memcached" family="inet6" sock_type="stream" protocol=6
+[1534842.853329] type=1400 audit(1552575244.950:1395986028): apparmor="ALLOWED" operation="setsockopt" profile="cloudsuitedata-cachingserver_profile" pid=28709 comm="memcached" family="inet6" sock_type="stream" protocol=6
+[1534843.434300] device vethbfa9a09 entered promiscuous mode
+[1534843.434422] IPv6: ADDRCONF(NETDEV_UP): vethbfa9a09: link is not ready
+[1534843.434427] br-220696d25c35: port 2(vethbfa9a09) entered forwarding state
+[1534843.434431] br-220696d25c35: port 2(vethbfa9a09) entered forwarding state
+[1534844.084400] br-220696d25c35: port 2(vethbfa9a09) entered disabled state
+[1534844.517154] IPv6: ADDRCONF(NETDEV_CHANGE): vethbfa9a09: link becomes ready
+[1534844.517190] br-220696d25c35: port 2(vethbfa9a09) entered forwarding state
+[1534844.517194] br-220696d25c35: port 2(vethbfa9a09) entered forwarding state
+[1534857.788261] br-220696d25c35: port 1(veth99aede8) entered forwarding state
+[1534859.548060] br-220696d25c35: port 2(vethbfa9a09) entered forwarding state
+[1535017.295064] audit_printk_skb: 123 callbacks suppressed
+[1535017.295072] type=1400 audit(1552575419.390:1395986070): apparmor="ALLOWED" operation="signal" profile="cloudsuitedata-cachingclient_profile" pid=28982 comm="docker-runc" requested_mask="receive" denied_mask="receive" signal=exists peer="unconfined"
+[1535017.295247] type=1400 audit(1552575419.390:1395986071): apparmor="ALLOWED" operation="signal" profile="cloudsuitedata-cachingclient_profile" pid=28982 comm="docker-runc" requested_mask="receive" denied_mask="receive" signal=exists peer="unconfined"
+[1535017.299105] type=1400 audit(1552575419.394:1395986072): apparmor="ALLOWED" operation="signal" profile="cloudsuitedata-cachingclient_profile" pid=28990 comm="docker-runc" requested_mask="receive" denied_mask="receive" signal=exists peer="unconfined"
+[1535017.323104] type=1400 audit(1552575419.418:1395986073): apparmor="ALLOWED" operation="create" profile="cloudsuitedata-cachingclient_profile" pid=29003 comm="loader" family="inet" sock_type="dgram" protocol=0
+[1535017.323133] type=1400 audit(1552575419.418:1395986074): apparmor="ALLOWED" operation="connect" profile="cloudsuitedata-cachingclient_profile" pid=29003 comm="loader" family="inet" sock_type="dgram" protocol=17
+[1535017.323207] type=1400 audit(1552575419.418:1395986075): apparmor="ALLOWED" operation="sendmsg" profile="cloudsuitedata-cachingclient_profile" pid=29003 comm="loader" laddr=127.0.0.1 lport=49685 faddr=127.0.0.11 fport=53 family="inet" sock_type="dgram" protocol=17
+[1535017.324085] type=1400 audit(1552575419.422:1395986076): apparmor="ALLOWED" operation="recvmsg" profile="cloudsuitedata-cachingclient_profile" pid=29003 comm="loader" laddr=127.0.0.1 lport=49685 faddr=127.0.0.11 fport=53 family="inet" sock_type="dgram" protocol=17
+[1535217.320387] type=1400 audit(1552575619.418:1395986077): apparmor="ALLOWED" operation="signal" profile="cloudsuitedata-cachingclient_profile" pid=29002 comm="timeout" requested_mask="send" denied_mask="send" signal=term peer="cloudsuitedata-cachingclient_profile"
+[1535217.320398] type=1400 audit(1552575619.418:1395986078): apparmor="ALLOWED" operation="signal" profile="cloudsuitedata-cachingclient_profile" pid=29002 comm="timeout" requested_mask="receive" denied_mask="receive" signal=term peer="cloudsuitedata-cachingclient_profile"
+[1535217.320432] type=1400 audit(1552575619.418:1395986079): apparmor="ALLOWED" operation="signal" profile="cloudsuitedata-cachingclient_profile" pid=29002 comm="timeout" requested_mask="send" denied_mask="send" signal=term peer="cloudsuitedata-cachingclient_profile"
+[1535217.320439] type=1400 audit(1552575619.418:1395986080): apparmor="ALLOWED" operation="signal" profile="cloudsuitedata-cachingclient_profile" pid=29002 comm="timeout" requested_mask="receive" denied_mask="receive" signal=term peer="cloudsuitedata-cachingclient_profile"
+[1535217.320445] type=1400 audit(1552575619.418:1395986081): apparmor="ALLOWED" operation="signal" profile="cloudsuitedata-cachingclient_profile" pid=29002 comm="timeout" requested_mask="send" denied_mask="send" signal=term peer="cloudsuitedata-cachingclient_profile"
+[1535217.320451] type=1400 audit(1552575619.418:1395986082): apparmor="ALLOWED" operation="signal" profile="cloudsuitedata-cachingclient_profile" pid=29002 comm="timeout" requested_mask="receive" denied_mask="receive" signal=term peer="cloudsuitedata-cachingclient_profile"
+[1535217.320466] type=1400 audit(1552575619.418:1395986083): apparmor="ALLOWED" operation="signal" profile="cloudsuitedata-cachingclient_profile" pid=29002 comm="timeout" requested_mask="send" denied_mask="send" signal=cont peer="cloudsuitedata-cachingclient_profile"
+[1535217.320473] type=1400 audit(1552575619.418:1395986084): apparmor="ALLOWED" operation="signal" profile="cloudsuitedata-cachingclient_profile" pid=29002 comm="timeout" requested_mask="receive" denied_mask="receive" signal=cont peer="cloudsuitedata-cachingclient_profile"
+[1535217.320481] type=1400 audit(1552575619.418:1395986085): apparmor="ALLOWED" operation="signal" profile="cloudsuitedata-cachingclient_profile" pid=29002 comm="timeout" requested_mask="send" denied_mask="send" signal=cont peer="cloudsuitedata-cachingclient_profile"
+[1535217.320487] type=1400 audit(1552575619.418:1395986086): apparmor="ALLOWED" operation="signal" profile="cloudsuitedata-cachingclient_profile" pid=29002 comm="timeout" requested_mask="receive" denied_mask="receive" signal=cont peer="cloudsuitedata-cachingclient_profile"
+[1535417.591448] audit_printk_skb: 27 callbacks suppressed
+[1535417.591453] type=1400 audit(1552575819.686:1395986096): apparmor="ALLOWED" operation="signal" profile="cloudsuitedata-cachingclient_profile" pid=29093 comm="timeout" requested_mask="send" denied_mask="send" signal=term peer="cloudsuitedata-cachingclient_profile"
+[1535417.591461] type=1400 audit(1552575819.686:1395986097): apparmor="ALLOWED" operation="signal" profile="cloudsuitedata-cachingclient_profile" pid=29093 comm="timeout" requested_mask="receive" denied_mask="receive" signal=term peer="cloudsuitedata-cachingclient_profile"
+[1535417.591516] type=1400 audit(1552575819.686:1395986098): apparmor="ALLOWED" operation="signal" profile="cloudsuitedata-cachingclient_profile" pid=29093 comm="timeout" requested_mask="send" denied_mask="send" signal=term peer="cloudsuitedata-cachingclient_profile"
+[1535417.591524] type=1400 audit(1552575819.686:1395986099): apparmor="ALLOWED" operation="signal" profile="cloudsuitedata-cachingclient_profile" pid=29093 comm="timeout" requested_mask="receive" denied_mask="receive" signal=term peer="cloudsuitedata-cachingclient_profile"
+[1535417.591531] type=1400 audit(1552575819.686:1395986100): apparmor="ALLOWED" operation="signal" profile="cloudsuitedata-cachingclient_profile" pid=29093 comm="timeout" requested_mask="send" denied_mask="send" signal=term peer="cloudsuitedata-cachingclient_profile"
+[1535417.591537] type=1400 audit(1552575819.686:1395986101): apparmor="ALLOWED" operation="signal" profile="cloudsuitedata-cachingclient_profile" pid=29093 comm="timeout" requested_mask="receive" denied_mask="receive" signal=term peer="cloudsuitedata-cachingclient_profile"
+[1535417.591545] type=1400 audit(1552575819.686:1395986102): apparmor="ALLOWED" operation="signal" profile="cloudsuitedata-cachingclient_profile" pid=29093 comm="timeout" requested_mask="send" denied_mask="send" signal=cont peer="cloudsuitedata-cachingclient_profile"
+[1535417.591552] type=1400 audit(1552575819.686:1395986103): apparmor="ALLOWED" operation="signal" profile="cloudsuitedata-cachingclient_profile" pid=29093 comm="timeout" requested_mask="receive" denied_mask="receive" signal=cont peer="cloudsuitedata-cachingclient_profile"
+[1535417.591559] type=1400 audit(1552575819.686:1395986104): apparmor="ALLOWED" operation="signal" profile="cloudsuitedata-cachingclient_profile" pid=29093 comm="timeout" requested_mask="send" denied_mask="send" signal=cont peer="cloudsuitedata-cachingclient_profile"
+[1535417.591565] type=1400 audit(1552575819.686:1395986105): apparmor="ALLOWED" operation="signal" profile="cloudsuitedata-cachingclient_profile" pid=29093 comm="timeout" requested_mask="receive" denied_mask="receive" signal=cont peer="cloudsuitedata-cachingclient_profile"
+[1535418.049207] br-220696d25c35: port 2(vethbfa9a09) entered disabled state
+[1535418.307218] br-220696d25c35: port 2(vethbfa9a09) entered disabled state
+[1535418.307941] device vethbfa9a09 left promiscuous mode
+[1535418.307951] br-220696d25c35: port 2(vethbfa9a09) entered disabled state
+[1535419.241081] br-220696d25c35: port 1(veth99aede8) entered disabled state
+[1535419.501602] br-220696d25c35: port 1(veth99aede8) entered disabled state
+[1535419.502571] device veth99aede8 left promiscuous mode
+[1535419.502580] br-220696d25c35: port 1(veth99aede8) entered disabled state

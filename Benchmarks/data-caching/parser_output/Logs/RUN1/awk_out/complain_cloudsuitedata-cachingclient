@@ -1,11 +1,5 @@
 #Capability\n
 #Network\n
-inet dgram
 inet stream
 #File
-requested_mask 
 #Signal
-receive exists unconfined
-receive term unconfined
-send term cloudsuitedata-cachingclient_profile
-receive term cloudsuitedata-cachingclient_profile

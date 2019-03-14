@@ -1,0 +1,1 @@
+Mar 14 15:13:15 docker-security59 kernel: [1535993.300736] type=1400 audit(1552576395.398:1395986148): apparmor="ALLOWED" operation="signal" profile="cloudsuitedata-cachingclient_profile" pid=4025 comm="docker-containe" requested_mask="receive" denied_mask="receive" signal=term peer="unconfined"
