@@ -239,7 +239,7 @@ The execution time was captured by executing the time command on the run script 
 
 \begin{figure}[h!]
   \centering
-   \includegraphics[width=0.70\linewidth]{./figures/nextcloud/time.png}
+   \includegraphics[width=0.75\linewidth]{./figures/nextcloud/time.png}
    \caption{Nextcloud: Time of test plan per run}
 \end{figure}
 \hfill\break
@@ -250,33 +250,70 @@ The reason why the first runs of the test plan take more time, is not relevant t
 
 It follows that the test plan is not affected by the AppArmor profiles, either they are set to complain or enforce mode. This behaviour was expected, since in the computational complexity, the AppArmor profile addition was represented by a constant.
 
-\section{Software Testing: Black Box Testing}
-
-\hfill\break
-\underline{Types of rules in final profile}
+\section{Functionality}
+\underline{Enforce mode}
 \hfill\break
 
-The next step of the rules' analysis, was to identify which types of rules are encountered in our profiles. Figures 5.2, 5.3 and 5.4 shows a bar graph of the types of different rules used in the final AppArmor profile of each service. 
+Testing SecureWilly's functionality is actually equal to testing the input docker project, with the profiles produced enforced and evaluate if the actions described in the test plan are allowed.
 
-%\begin{textblock*}{18cm}(0.1cm,6.4cm) % {block width} (coords)
-%\begin{figure}
-%  \begin{minipage}[H!]{0.55\textwidth}
-%    \includegraphics[width=\textwidth]{./figures/mediastreaming/Barfinal_cloudsuitemedia-streamingserver.png}
-%    \caption{Server's types of rules}
-%  \end{minipage}
-%  \begin{minipage}[H!]{0.55\textwidth}
-%    \includegraphics[width=\textwidth]{./figures/mediastreaming/Barfinal_cloudsuitemedia-streamingclient.png}
-%    \caption{Client's types of rules}
-%  \end{minipage}
-%\end{figure}
-%\end{textblock*}
+The profiles produced by SecureWilly rely completely on the test plan that the user gives as input, as there is no other way to predict what actions should be allowed.  
+
+SecureWilly performs a functionality testing inside the dynamic parser's loop, by enforcing the profiles after there are no more logs in the complain mode, and runs the test plan one more time. If there are still system logs denying actions of the test plan and new rules can be extracted from them, then SecureWilly repeats the complain mode procedure from the beginning. That way, it ensures that all actions specified in the test plan are allowed.
+
+Figures 5.8, 5.9 and 5.10 show each project's line graphs per service, which illustrate again the amount of rules per run, but this time emphasizing whether each run sets the profiles in complain or enforce mode.
+
+In all docker projects, only one run of enforce mode was performed and the fact that no system logs denying actions were produced means that the test plan was executed in success, with all of its operations allowed.
+
+\hfill\break
+
+\begin{figure}[h!]
+  \centering
+   \includegraphics[width=0.8\linewidth]{./figures/mediastreaming/complain_enforce_rules.png}
+   \caption{Media Streaming: Rules per run, emphasizing complain/enforce mode}
+\end{figure}
+
+\hfill\break
+
+\begin{figure}[h!]
+  \centering
+   \includegraphics[width=0.75\linewidth]{./figures/datacaching/complain_enforce_rules.png}
+   \caption{Data Caching: Rules per run, emphasizing complain/enforce mode}
+\end{figure}
+
+\hfill\break
+
+\begin{figure}[h!]
+  \centering
+   \includegraphics[width=0.75\linewidth]{./figures/nextcloud/complain_enforce_rules.png}
+   \caption{Nextcloud: Rules per run, emphasizing complain/enforce mode}
+\end{figure}
+\hfill\break
+\underline{Types of rules}
+\hfill\break
+
+Another way to test the functionality of SecureWilly is monitor the rules of each profile and identify which types of rules are encountered in it.
+
+Figures 5.11, 5.12 and 5.13 show the line graphs of the types of different rules used in the media streaming services' profiles. 
+
+\begin{textblock*}{18cm}(0.1cm,7.8cm) % {block width} (coords)
+\begin{figure}
+  \begin{minipage}[H!]{0.55\textwidth}
+    \includegraphics[width=\textwidth]{./figures/mediastreaming/Barfinal_cloudsuitedata-cachingserver.png}
+    \caption{Media Streaming: Server's types of rules}
+  \end{minipage}
+  \begin{minipage}[H!]{0.55\textwidth}
+    \includegraphics[width=\textwidth]{./figures/mediastreaming/Barfinal_cloudsuitedata-cachingclient.png}
+    \caption{Media Streaming: Client's types of rules}
+  \end{minipage}
+\end{figure}
+\end{textblock*}
 
 \hfill\break\hfill\break\hfill\break\hfill\break\hfill\break\hfill\break\hfill\break\hfill\break\hfill\break\hfill\break\hfill\break\hfill\break\hfill\break\hfill\break\hfill\break\hfill\break\hfill\break
 
 \begin{figure}[h!]
   \centering
-   \includegraphics[width=0.65\linewidth]{./figures/mediastreaming/Barfinal_cloudsuitemedia-streamingdataset.png}
-   \caption{Dataset's types of rules}
+   \includegraphics[width=0.65\linewidth]{./figures/mediastreaming/types_cloudsuitemedia-streamingdataset.png}
+   \caption{Media Streaming: Dataset's types of rules}
 \end{figure}
 
 The above bar graphs show that each profile describes perfectly the role of the service and the operations of its task.
