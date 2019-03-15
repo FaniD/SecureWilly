@@ -138,7 +138,7 @@ docker kill db
 \underline{Computational complexity}
 \hfill\break
 
-In order to evaluate the performance of SecureWilly, we will first calculate its computational complexity.
+In order to evaluate the performance of SecureWilly, we will first find out its computational complexity.
 
 \begin{itemize}
 \item First, it is clear that the computational complexity of static analysis is $\mathcal{O}(1)$, because all the operations are about text editing on the input files.
@@ -180,7 +180,7 @@ Server's and client's profiles follow a similar escalation, as they both rise to
 
 Server's shoot up is more enduring and considerable than the client's. This is reasonable, since a server is expected to be responsible for more operations than a client.  
 
-It appears that there is a threshold in runs, which represents the minimum number of runs which have to be executed, until all of the project's profiles stabilize over runs. The threshold for media streaming as shown in the graph is at run 3. After the threshold, it takes three runs for SecureWilly to finish its execution.
+It appears that there is a threshold in runs, which represents the minimum number of runs which have to be executed, until all of the project's profiles stabilize over runs. The threshold for media streaming, as shown in the graph, is at run three. After the threshold, it takes three runs for SecureWilly to finish its execution.
 
 \begin{figure}[h!]
   \centering
@@ -194,15 +194,55 @@ Similarly with media streaming, both server and client lift to a point and after
 
 On the contrary, data caching seems to have more active clients, as client's profile has more rools.
 
-In Figure 5.3, the graph outlines the behaviour of nextcloud's profiles over runs. The threshold in nextcloud's execution is at run four. This slight difference with CloudSuite's benchmarks is reasonable as nextcloud's server seems to need more rules in its profile in order to complete its operations. Thus, SecureWilly needs to execute more runs of the test plan in order to extract all the rules necessary. 
+In Figure 5.3, the graph outlines the behaviour of nextcloud's profiles over runs. The threshold in nextcloud's execution is at run four. This slight difference with CloudSuite's benchmarks is reasonable, as nextcloud's server seems to need more rules in its profile, in order to complete its operations. Thus, SecureWilly needs to execute more runs of the test plan in order to extract all the rules necessary.
+
+Nextcloud's server and database service almost traverse the threshold at the same run, and their escalation is quite similar. Server thoough requires more rules in its profile, as it commits more actions.
 
 \begin{figure}[h!]
   \centering
    \includegraphics[width=0.70\linewidth]{./figures/nextcloud/rulesthreshold.png}
+   \caption{Media Streaming: Rules per run for each service}
+\end{figure}
+\hfill\break
+
+The bar chart, in figure 5.4, depicts the performance of SecureWilly on every project, by diplaying the amount of runs of the test plan and the run that consistutes the last augmentation in services' profiles, given by the value of threshold.
+
+\begin{figure}[h!]
+  \centering
+   \includegraphics[width=1\linewidth]{./figures/compare.png}
+   \caption{Comparing total runs and threshold between projects run by SecureWilly}
+\end{figure}
+
+It becomes evident, that the performance of SecureWilly on each project depends on the complexity of the project and the amount of operations of the test plan, which will lead to the amount of runs it needs, until it reaches its threshold. The threshold is set also based on the complexity of the project.
+
+\hfill\break
+\underline{Time of test plan per run}
+\hfill\break
+
+As described above, comparing the execution time between different projects run by SecureWilly is meaningless. The only essential way to observe time would be monitoring the time execution of test plan over runs.
+
+Figures 5.5, 5.6 and 5.7 represent the line graphs of each project, which illustrate the execution time of the test plan over runs executed by SecureWilly.
+
+\begin{figure}[h!]
+  \centering
+   \includegraphics[width=0.70\linewidth]{./figures/mediastreaming/time.png}
+   \caption{Nextcloud: Rules per run for each service}
+\end{figure}
+
+\begin{figure}[h!]
+  \centering
+   \includegraphics[width=0.70\linewidth]{./figures/datacaching/time.png}
+   \caption{Data Caching: Rules per run for each service}
+\end{figure}
+
+\begin{figure}[h!]
+  \centering
+   \includegraphics[width=0.70\linewidth]{./figures/nextcloud/time.png}
    \caption{Nextcloud: Rules per run for each service}
 \end{figure}
 
 \section{Software Testing: Black Box Testing}
+
 \hfill\break
 \underline{Types of rules in final profile}
 \hfill\break
