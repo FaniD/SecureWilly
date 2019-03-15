@@ -156,7 +156,7 @@ $T(n) = \mathcal{O}(1) + m*f(n) + c \Rightarrow T(n) = m*f(n) + d \Rightarrow T(
 
 \end{itemize}
 
-It becomes evident, that the performance of SecureWilly over each benchmark cannot be evaluated using time, as every test plan has different computational complexity.
+It becomes evident, that the performance of SecureWilly over each benchmark cannot be evaluated using the execution time of SecureWilly, as every test plan has different computational complexity.
 
 Therefore, we approached the performance evaluation by monitoring the amount of runs of each test plan, not by the whole time it took SecureWilly to produce the profiles.
 
@@ -200,8 +200,8 @@ Nextcloud's server and database service almost traverse the threshold at the sam
 
 \begin{figure}[h!]
   \centering
-   \includegraphics[width=0.70\linewidth]{./figures/nextcloud/rulesthreshold.png}
-   \caption{Media Streaming: Rules per run for each service}
+   \includegraphics[width=0.75\linewidth]{./figures/nextcloud/rulesthreshold.png}
+   \caption{Nextcloud: Rules per run for each service}
 \end{figure}
 \hfill\break
 
@@ -223,23 +223,32 @@ As described above, comparing the execution time between different projects run 
 
 Figures 5.5, 5.6 and 5.7 represent the line graphs of each project, which illustrate the execution time of the test plan over runs executed by SecureWilly.
 
+The execution time was captured by executing the time command on the run script of dynamic parser. To calculate the execution time, we used the sum of sys and usr time, which shows the actual CPU time that docker containers' processes used.
+
 \begin{figure}[h!]
   \centering
    \includegraphics[width=0.70\linewidth]{./figures/mediastreaming/time.png}
-   \caption{Nextcloud: Rules per run for each service}
+   \caption{Media Streaming: Time of test plan per run}
 \end{figure}
 
 \begin{figure}[h!]
   \centering
    \includegraphics[width=0.70\linewidth]{./figures/datacaching/time.png}
-   \caption{Data Caching: Rules per run for each service}
+   \caption{Data Caching: Time of test plan per run}
 \end{figure}
 
 \begin{figure}[h!]
   \centering
    \includegraphics[width=0.70\linewidth]{./figures/nextcloud/time.png}
-   \caption{Nextcloud: Rules per run for each service}
+   \caption{Nextcloud: Time of test plan per run}
 \end{figure}
+\hfill\break
+
+All of the projects in their time graphs reach a peak at the first or second run and then they all follow a downward trend, each one at its own rate. However, the fall in all cases is smooth.
+
+The reason why the first runs of the test plan take more time, is not relevant to SecureWilly, but it derives from memory caching. Similarly, the rate of the fall that comes after the highest point depends on the usage of data and volumes in services and if they remain in cache memory.
+
+It follows that the test plan is not affected by the AppArmor profiles, either they are set to complain or enforce mode. This behaviour was expected, since in the computational complexity, the AppArmor profile addition was represented by a constant.
 
 \section{Software Testing: Black Box Testing}
 
