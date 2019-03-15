@@ -1,8 +1,8 @@
-\chapter{Results and Evaluation}
+\chapter{Experimental Evaluation}
 
 In this chapter, we assess the potential benefit of using SecureWilly in docker projects. Through a variety of experiments, we display the results of SecureWilly's execution we examine the profiles produced and we evaluate the performance and the scalability of our software.
 
-\section{Experimental Evaluation}
+\section{Experimental setup}
 \subsection{Benchmarks}
 SecureWilly has been tested on creating AppArmor profiles for a set of multi-service projects provided by CloudSuite, a benchmark suite for cloud services. \cite{cloudsuite} The benchmarks are based on real-world software stacks and represent real-world setups. 
 
@@ -23,6 +23,8 @@ This benchmark features two tiers: the server(s), running Memcached, and the cli
 
 To facilitate the communication between the client(s) and the server, a docker network is built, and the launched containers were attached to it.
 \end{description}
+
+In the following instances, the benchmarks were executed, having one client and one server. SecureWilly produced one profile for each of the services of every benchmark.
 
 \subsection{Nextcloud}
 
@@ -131,11 +133,34 @@ docker kill nextcloud
 docker kill db
 \end{lstlisting}
 
-\subsection{Evaluation of the profiles produced}
+\section{Performance}
 
-In the following instances, the benchmarks were executed, having one client and one server. SecureWilly produced one profile for each of the services of every benchmark.
+\underline{Computational complexity}
 \hfill\break
 
+In order to evaluate the performance of SecureWilly, we will first calculate its computational complexity.
+
+\begin{itemize}
+\item First, it is clear that the computational complexity of static analysis is $\mathcal{O}(1)$, because all the operations are about text editing on the input files.
+\item Dynamic analysis depends on the computational complexity of the given test plan, which will be repeated $m$ times.
+
+\item Suppose that the computational complexity of the test plan is $f(n)$
+
+\item As for the computational complexity of the process to set the AppArmor profile in complain or enforce mode, it is represented by a constant $c$, as it takes standard time.
+
+\item Thus, the computational complexity of dynamic analysis is $m*f(n) + c$.
+
+\item The computational complexity of SecureWilly on the whole is
+
+$T(n) = \mathcal{O}(1) + m*f(n) + c \Rightarrow T(n) = m*f(n) + d \Rightarrow T(n) = m*f(n) \Rightarrow T(n) = f(n)$
+
+\end{itemize}
+
+It becomes evident, that the performance of SecureWilly over each benchmark cannot be evaluated using time, as every test plan has different computational complexity.
+
+Therefore, we approached the performance evaluation by monitoring the amount of runs of each test plan, not by the whole time it took SecureWilly to produce the profiles.
+
+\hfill\break
 \underline{Rules per run}
 \hfill\break
 
@@ -143,7 +168,7 @@ In Figure 5.1, a line graph illustrates the amount of rules of each service's pr
 
 \begin{figure}[h!]
   \centering
-   \includegraphics[width=0.8\linewidth]{./figures/mediastreaming/rules.png}
+   \includegraphics[width=0.70\linewidth]{./figures/mediastreaming/rulesthreshold.png}
    \caption{Media Streaming: Rules per run for each service}
 \end{figure}
 
@@ -153,17 +178,31 @@ We observe that most of the services had a gradual increase in their AppArmor pr
 
 Server's and client's profiles follow a similar escalation, as they both rise to a point and then stabilize over the last runs. The rising derives from the first complain runs, in which rules are extracted gradually, as the addition of some rules leads to new system logs. While the first runs are crucial, as the most part of the rules are extracted over the first runs, the logs become gradually fewer over the last runs until all actions are allowed, and this explains the final stability of the profiles after some runs, shown in the graph.
 
-It appears that there is a threshold in runs, which represents the minimum number of runs which have to be executed, until a profile stabilizes over runs.
+Server's shoot up is more enduring and considerable than the client's. This is reasonable, since a server is expected to be responsible for more operations than a client.  
 
-Figure 5.2 shows the corresponding line graph to data-caching benchmark.
+It appears that there is a threshold in runs, which represents the minimum number of runs which have to be executed, until all of the project's profiles stabilize over runs. The threshold for media streaming as shown in the graph is at run 3. After the threshold, it takes three runs for SecureWilly to finish its execution.
 
 \begin{figure}[h!]
   \centering
-   \includegraphics[width=0.8\linewidth]{./figures/datacaching/rules.png}
+   \includegraphics[width=0.70\linewidth]{./figures/datacaching/rulesthreshold.png}
    \caption{Data Caching: Rules per run for each service}
 \end{figure}
 
+Figure 5.2 shows the corresponding line graph of data-caching benchmark.
 
+Similarly with media streaming, both server and client lift to a point and afterwards they remain stable. The threshold we observed before, is at the third run again. Moreover, in this benchmark, server and client traverse the threshold exactly at the same runs.
+
+On the contrary, data caching seems to have more active clients, as client's profile has more rools.
+
+In Figure 5.3, the graph outlines the behaviour of nextcloud's profiles over runs. The threshold in nextcloud's execution is at run four. This slight difference with CloudSuite's benchmarks is reasonable as nextcloud's server seems to need more rules in its profile in order to complete its operations. Thus, SecureWilly needs to execute more runs of the test plan in order to extract all the rules necessary. 
+
+\begin{figure}[h!]
+  \centering
+   \includegraphics[width=0.70\linewidth]{./figures/nextcloud/rulesthreshold.png}
+   \caption{Nextcloud: Rules per run for each service}
+\end{figure}
+
+\section{Software Testing: Black Box Testing}
 \hfill\break
 \underline{Types of rules in final profile}
 \hfill\break
@@ -187,7 +226,7 @@ The next step of the rules' analysis, was to identify which types of rules are e
 
 \begin{figure}[h!]
   \centering
-   \includegraphics[width=0.64\linewidth]{./figures/mediastreaming/Barfinal_cloudsuitemedia-streamingdataset.png}
+   \includegraphics[width=0.65\linewidth]{./figures/mediastreaming/Barfinal_cloudsuitemedia-streamingdataset.png}
    \caption{Dataset's types of rules}
 \end{figure}
 
@@ -223,3 +262,6 @@ Let's see how the rules of each type increment over the runs of the test plan.
    \includegraphics[width=0.64\linewidth]{./figures/mediastreaming/types_cloudsuitemedia-streamingdataset.png}
    \caption{Dataset's types of rules per run}
 \end{figure}
+
+\section{Scalability}
+\section{Summary}
