@@ -43,8 +43,8 @@ x_Axis = range(int(num_of_runs))
 
 fig = plt.figure()
 ax = fig.add_subplot(111)
-ax.plot(x_Axis, rules[0], label="server", color="blue", marker='o')
-ax.plot(x_Axis, rules[1], label="client", color="red", marker='o')
+ax.plot(x_Axis, rules[0], label="server", color="red", marker='o')
+ax.plot(x_Axis, rules[1], label="client", color="blue", marker='o')
 #ax.plot(x_Axis, rules[2], label="server", color="blue", marker='o')
 
 box = ax.get_position()
