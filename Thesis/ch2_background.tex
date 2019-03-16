@@ -125,14 +125,20 @@ Isolation, as an aspect of security, appears to be a compromise that has to be m
 
 The reason why isolation is essential to docker containers is for protecting the host machine from malicious activities committed by containers, as well as among the running containers. The most common instance of such attacks are container breakouts. If a container manages to breakout of its environment, then both host and running containers are at risk. 
 
-In fairness, docker or container bugs that lead to such attacks are rare, taken with extreme seriousness, and tend to be patched by the time they are announced. However, running unsecured containers, often bad configured, which violate isolation by disabling namespaces is a very common issue. Containers have to follow some rules in order to be isolated. There are features that are responsible for preserving isolation such as kernel namespaces and control groups. Namespaces turn what most people think of as an authorization decision (does process X have permission to access resource Y) into a context or domain decision while cgroups do the same for hardware resources. There are ways, though, to disable them and in that case if the container does not have any other protection wall, the host is in great danger. Moreover, some will point out that not everything in the Linux Kernel is namespaced. Meaning that there are some resources that are not yet isolated.
+In fairness, docker or container bugs that lead to such attacks are rare, taken with extreme seriousness, and tend to be patched by the time they are announced. However, running unsecured containers, often bad configured, which violate isolation by disabling namespaces is a very common issue.
+
+Containers have to follow some rules in order to be isolated. There are features that are responsible for preserving isolation such as kernel namespaces and control groups. Namespaces turn what most people think of as an authorization decision (does process X have permission to access resource Y) into a context or domain decision while cgroups do the same for hardware resources. There are ways, though, to disable them and in that case if the container does not have any other protection wall, the host is in great danger. Moreover, some will point out that not everything in the Linux Kernel is namespaced. Meaning that there are some resources that are not yet isolated.
 
 This is when other security walls and hardening tools, like AppArmor or SELinux, step in. Going beyond the tools that ship with the Kernel, integrating with other tools will help you build some real fortresses. If there is extra work to do for containers, to reach the same level of security as a virtual machine, it is worth it. \cite{isolatiocont}
 
 \subsection{Mandatory Access Control}
 Mandatory Access Control (MAC) or policy based access control refers to a type of access control by which the operating system constrains the ability of a subject or initiator - this could be a process or thread - to access or generally perform some sort of operation on an object or target - constructs such as files, directories, TCP/UDP ports, shared memory segments, IO devices, etc. \cite{wikimac}
 
-This is implemented using Linux Security Modules (LSM) which enable additionnal checks based on other models than the classical UNIX style security checks. All of those models are based on a policy describing what kind of opeartions are allowed for which process in which context. The currently accepted modules in the official kernel are AppArmor, SELinux, Smack, and TOMOYO Linux. The LSM that SecureWilly is currently using is AppArmor. Docker supports AppArmor LSM as well as SELinux as well.
+In a multiple user environment, it is important that restrictions are placed in order to ensure that individuals can only access what they need. Mandatory Access Control (MAC) is one of the two most popular access control models in use. The other one is Discretionary Access Control (DAC). The main difference between them lies in the way they provide access to users. MAC provides access based on levels while DAC provides access by identity of the user and not by permission level. Another major difference between them, which is significant to defending isolation from attackers, is that it is not possible under MAC enforcement for users to change the access control of a resource, but it can only be changed by admins, while DAC access can be provided by other users.\cite{dacmac}
+
+What makes MAC invaluable for Docker Security is its \say{administrator} defined policy, which means that it can confine even root applications.
+
+MAC is implemented using Linux Security Modules (LSM) which enable additionnal checks based on other models than the classical UNIX style security checks. All of those models are based on a policy describing what kind of opeartions are allowed for which process in which context. The currently accepted modules in the official kernel are AppArmor, SELinux, Smack, and TOMOYO Linux. The LSM that SecureWilly is currently using is AppArmor. Docker supports AppArmor LSM as well as SELinux.
 
 Ubuntu, SUSE and a number of other distributions use AppArmor, by default. RHEL (and its variants) use SELinux which requires good userspace integration to work properly. SELinux attaches labels to all files, processes and objects and is therefore very flexible. However configuring SELinux is considered to be very complicated and requires a supported filesystem. AppArmor on the other hand works using file paths and its configuration can be easily adapted. \cite{archlsm}
 
@@ -147,6 +153,8 @@ AppArmor (Application Armor) is a Linux security module that protects an operati
 
 AppArmor, like most other LSMs, supplements rather than replaces the default Discretionary Access Control (DAC). As such, it's impossible to grant a process more privileges than it had in the first place, but it can also restrict the privileges that a process already grants.
 
+AppArmor applies the mechanism of Mandatory Access Control (MAC) by granting programs only the privileges they need to do their job and nothing else. So if program X needs to access a library Y, DAC first ensures it has adequate permissions to do so, before AppArmor comes into the picture and further locks down the privileges.\cite{appsel}
+
 AppArmor proactively protects the operating system and applications from external or internal threats and even zero-day attacks, by enforcing a specific rule set on a per application basis. Security policies completely define what system resources individual applications can access, and with what privileges. Access is denied by default if no profile says otherwise. \cite{archlsm}
 
 AppArmor profiles describe mandatory access rights granted to given programs and are fed to the AppArmor policy enforcement module using command \say{\textit{apparmor\_parser}}. The more specific the profile is, the more strict it will be. An AppArmor profile includes rules that can either allow access to a resource or deny it. If a MAC check matches a rule, it is allowed, otherwise if there is no matching rule, it is denied.
@@ -158,8 +166,12 @@ Genprof tool is the official AppArmor tool for profile generation.
 Below, there are listed some differences between genprof tool and SecureWilly:
 
 \begin{enumerate}
-\item The profile generated by genprof tool is designed to run on host. This means that the profile's rules refer to host's system (paths, namespaces, filesystems etc) and not to container's, as we desire.
-As a result, it will include some more rules because of host's intention to run the program. These rules won't be necessarily harmful but they violate our principal rule for least possible permissions.
+\item The profile generated by genprof tool is designed to run on host. This means that the profile's rules refer to host's system (paths, namespaces, filesystems etc) and not to our target's, which is the container.
+As a result, it will include some more rules because of host's intention to run the program. These rules will not be necessarily harmful, but they still violate our principal rule for least possible permissions.
+
+\item While the profile produced by genprof includes rules that refer to the docker project's processes, among rules referring to host, one profile is produced for all of them, destined to confine host's process. The profiles that SecureWilly produces are destined for each one of the project's services. SecureWilly addresses to multi-service docker projects and creates separate profiles for each service/process. The profiles are adjusted to the task of each service, but they have knowledge of the services' cooperation.
+
+SecureWilly's approach is service-oriented and therefore, the profiles produced are more specific about the task of each service. 
 
 \item One necessary rule for docker containers is \say{file}. Without this rule, they are not able to read their filesystem, which is located on the host. Genprof does not include that rule and therefore, a container with such a profile enforced could not even start.
 
@@ -167,9 +179,7 @@ Frankly, adding this rule manually, is neither difficult nor time-consuming. But
 
 \item Genprof makes several assumptions depending on the rules extracted and the services that are used and includes some preliminary profiles. While we strongly believe that this procedure is develloped in caution, our principal rule for least possible permissions, prevent us from using a profile which will possibly have more rules than we need.
 
-\item Genprof asks users whether they want to run the test again. What happens though if they don't? Throughout our research, we have seen that not all rules are extracted from the first run of application train session, but it is essential to run the application many times until it certain that all necessary rules to make a profile efficient are added. Giving user the choice, might as well mean that the profile will not be complete.
+\item Genprof asks users whether they want to run the test again. What happens though if they reject the proposal? Throughout our research, we have seen that not all rules are extracted from the first run of application train session, but it is essential to run the application multiple times, until it is certain that all necessary rules to make a profile efficient are added. Giving user the choice, might as well mean that the profile will not be complete.
 
-\item Genprof does not use a static analysis, as SecureWilly does. As it is described in Chapter 1, some interesting rules can be extracted from the initiative code.
-
-\item Genprof creates one profile for a program, while SecureWilly creates one profile for each service used by a program, which makes it more specific for each one of them. Moreover, SecureWilly respects and takes into consideration during the profile creation process the coordination of services.
+\item Genprof does not use a static analysis, as SecureWilly does. As it is described in Chapter 3, some interesting rules can be extracted from the initiative code.
 \end{enumerate}
