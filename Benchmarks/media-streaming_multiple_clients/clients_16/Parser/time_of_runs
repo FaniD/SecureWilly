@@ -1,0 +1,26 @@
+RUN 1
+Error response from daemon: Conflict. The container name "/streaming_dataset" is already in use by container "ecf66f802d1cbd306097b33c736aaf34954403f39b10cc4fe9bdbc23fdabf578". You have to remove (or rename) that container to be able to reuse that name.
+
+real	67m23.251s
+user	0m0.726s
+sys	0m0.871s
+RUN 2
+
+real	45m37.021s
+user	0m0.540s
+sys	0m0.852s
+RUN 3
+
+real	45m33.625s
+user	0m0.623s
+sys	0m0.760s
+RUN 4
+
+real	67m49.497s
+user	0m0.745s
+sys	0m0.847s
+RUN 5
+
+real	68m1.434s
+user	0m0.790s
+sys	0m0.840s

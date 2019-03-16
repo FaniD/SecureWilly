@@ -12,7 +12,7 @@ chmod 777 ../parser_output/Logs/RUN${round}/kernlogs_all
 sudo dmesg > ../parser_output/Logs/RUN${round}/dmesg_all
 
 #Then separate them for each service/profile
-service_list=(cloudsuitemedia-streamingserver cloudsuitemedia-streamingclient1 cloudsuitemedia-streamingclient2 cloudsuitemedia-streamingclient3 cloudsuitemedia-streamingclient4 cloudsuitemedia-streamingclient5 cloudsuitemedia-streamingclient6 cloudsuitemedia-streamingclient7 cloudsuitemedia-streamingclient8 cloudsuitemedia-streamingclient9 cloudsuitemedia-streamingclient10 cloudsuitemedia-streamingclient11 cloudsuitemedia-streamingclient12 cloudsuitemedia-streamingclient13 cloudsuitemedia-streamingclient14 cloudsuitemedia-streamingclient15 cloudsuitemedia-streamingclient16 cloudsuitemedia-streamingdataset)
+service_list=(cloudsuitemedia-streamingserver cloudsuitemedia-streamingclient1 cloudsuitemedia-streamingclient2 cloudsuitemedia-streamingclient3 cloudsuitemedia-streamingclient4 cloudsuitemedia-streamingdataset)
 for SERVICE in "${service_list[@]}"; do
 	cat ../parser_output/Logs/RUN${round}/kernlogs_all | grep "${SERVICE}_profile" > ../parser_output/Logs/RUN${round}/kernlogs_${SERVICE}
 	cat ../parser_output/Logs/RUN${round}/dmesg_all | grep "${SERVICE}_profile" > ../parser_output/Logs/RUN${round}/dmesg_${SERVICE}

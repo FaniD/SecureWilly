@@ -1,6 +1,6 @@
 #!/bin/bash
 
-service_list=(cloudsuitemedia-streamingdataset cloudsuitemedia-streamingserver cloudsuitemedia-streamingclient) 
+service_list=(cloudsuitemedia-streamingdataset cloudsuitemedia-streamingserver cloudsuitemedia-streamingclient1 cloudsuitemedia-streamingclient2 cloudsuitemedia-streamingclient3 cloudsuitemedia-streamingclient4) 
 app_path="../.."
 parser_output_path="${app_path}/parser_output"
 mkdir ${parser_output_path}/plots
@@ -31,7 +31,7 @@ rm num_of_runs
 ./complain_enforce_audit.sh
 
 #Do this manually depending on services
-python plot_rules_total.py ${parser_output_path}/rules_${service_list[0]} ${parser_output_path}/rules_${service_list[1]} ${parser_output_path}/rules_${service_list[2]} $num_runs
+python plot_rules_total.py ${parser_output_path}/rules_${service_list[0]} ${parser_output_path}/rules_${service_list[1]} ${parser_output_path}/rules_${service_list[2]} ${parser_output_path}/rules_${service_list[3]} ${parser_output_path}/rules_${service_list[4]} ${parser_output_path}/rules_${service_list[5]} ${parser_output_path}/rules_${service_list[2]} ${parser_output_path}/rules_${service_list[3]} ${parser_output_path}/rules_${service_list[4]} ${parser_output_path}/rules_${service_list[5]} ${parser_output_path}/rules_${service_list[1]} ${parser_output_path}/rules_${service_list[2]} ${parser_output_path}/rules_${service_list[3]} ${parser_output_path}/rules_${service_list[4]} ${parser_output_path}/rules_${service_list[5]} ${parser_output_path}/rules_${service_list[2]} ${parser_output_path}/rules_${service_list[3]} ${parser_output_path}/rules_${service_list[4]} $num_runs
 
 mv ${parser_output_path}/*.png ${parser_output_path}/plots/
 
