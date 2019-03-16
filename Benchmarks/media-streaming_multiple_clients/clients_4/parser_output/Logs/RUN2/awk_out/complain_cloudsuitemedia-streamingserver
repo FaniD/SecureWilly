@@ -1,0 +1,6 @@
+#Capability\n
+chown
+setgid
+#Network\n
+#File
+#Signal

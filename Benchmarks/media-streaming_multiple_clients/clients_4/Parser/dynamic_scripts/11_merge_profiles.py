@@ -80,7 +80,7 @@ for line in data:
         continue
 
 #Volumes here
-   #if 
+   #if ( line.startswith('/output') ):
        #continue
 
 

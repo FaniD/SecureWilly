@@ -3,12 +3,12 @@
 #Change this with the services I have each time
 #Also do that in 2_cp, 3, 4a, 4b, 9, 10a, 10b, 12, metrics 
 
-num="8"
+num="16"
 
 service_list_noslash="(cloudsuitemedia-streamingserver "
 
 #~~~~Fix range!!!
-for i in `seq 1 8`; do
+for i in `seq 1 16`; do
 	service_list_noslash+="cloudsuitemedia-streamingclient${i} "
 	cp cloudsuitemedia-streamingclient_profile clients_${num}/parser_output/cloudsuitemedia-streamingclient${i}_profile
 	sed -i "3s,client,client${i}," clients_${num}/parser_output/cloudsuitemedia-streamingclient${i}_profile
@@ -29,7 +29,7 @@ done
 cp 7_run.sh clients_${num}/Parser/dynamic_scripts/7_run.sh
 
 j=7
-for i in `seq 2 8`; do
+for i in `seq 2 16`; do
 	sed -i "${j}s,.*,docker run -t --name streaming_client${i} -v /output:/output --volumes-from streaming_dataset --net streaming_network --security-opt "apparmor=cloudsuitemedia-streamingclient${i}_profile" cloudsuite/media-streaming:client streaming_server," clients_${num}/Parser/dynamic_scripts/7_run.sh
 	((j++))
 done
