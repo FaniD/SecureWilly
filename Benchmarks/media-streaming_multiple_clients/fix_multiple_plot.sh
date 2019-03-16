@@ -3,12 +3,12 @@
 #Change this with the services I have each time
 #Also do that in 2_cp, 3, 4a, 4b, 9, 10a, 10b, 12, metrics 
 
-num="64"
+num="4"
 
 service_list_noslash="(cloudsuitemedia-streamingserver "
 
 #~~~~Fix range!!!
-for i in `seq 1 64`; do
+for i in `seq 1 4`; do
 	service_list_noslash+="cloudsuitemedia-streamingclient${i} "
 done
 service_list_noslash+="cloudsuitemedia-streamingdataset)"
