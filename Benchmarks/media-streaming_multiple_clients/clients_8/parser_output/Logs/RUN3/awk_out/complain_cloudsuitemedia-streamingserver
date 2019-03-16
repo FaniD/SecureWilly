@@ -1,0 +1,6 @@
+#Capability\n
+net_bind_service
+setuid
+#Network\n
+#File
+#Signal
