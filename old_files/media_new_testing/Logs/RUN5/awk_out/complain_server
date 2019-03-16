@@ -1,9 +1,0 @@
-#Capability\n
-chown
-net_bind_service
-#Network\n
-inet stream
-inet6 stream
-#File
-chowncapname 
-#Signal

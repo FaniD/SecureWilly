@@ -1,3 +1,0 @@
-Dec  5 23:31:12 docker-security15 kernel: [200582.273184] type=1400 audit(1544052672.637:73945092): apparmor="ALLOWED" operation="capable" profile="server_profile" pid=19093 comm="nginx" capability=10  capname="net_bind_service"
-Dec  5 23:31:12 docker-security15 kernel: [200582.274854] type=1400 audit(1544052672.637:73945093): apparmor="ALLOWED" operation="capable" profile="server_profile" pid=19154 comm="nginx" capability=7  capname="setuid"
-Dec  5 23:31:12 docker-security15 kernel: [200582.275272] type=1400 audit(1544052672.637:73945094): apparmor="ALLOWED" operation="capable" profile="server_profile" pid=19156 comm="nginx" capability=7  capname="setuid"

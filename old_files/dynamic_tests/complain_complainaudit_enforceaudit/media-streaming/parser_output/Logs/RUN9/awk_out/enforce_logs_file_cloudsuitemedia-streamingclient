@@ -1,7 +1,0 @@
-/etc/ld.so.cache r
-/var/lib/docker/aufs/diff/e8b8db7d910fd82ee12fe2c2ec184046ea9a74682a156c0e71681f05e6c4952f/etc/ld.so.cache r
-/lib/x86_64-linux-gnu/libtinfo.so.5.9 r
-/var/lib/docker/aufs/diff/20de55b95d44575f7c6653f7ca7b64621925cdad81db240fc4396a4b019c3972/lib/x86_64-linux-gnu/libtinfo.so.5.9 r
-/lib/x86_64-linux-gnu/libdl-2.19.so r
-/lib/x86_64-linux-gnu/libpcre.so.3.13.1 r
-/var/lib/docker/aufs/diff/20de55b95d44575f7c6653f7ca7b64621925cdad81db240fc4396a4b019c3972/lib/x86_64-linux-gnu/libpcre.so.3.13.1 r

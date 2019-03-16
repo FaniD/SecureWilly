@@ -1,9 +1,0 @@
-#include <tunables/global>
-
-profile client_profile flags=(audit,attach_disconnected,mediate_deleted) {
-	deny ptrace (readby, tracedby),
-	/var/lib/docker/* r,
-	network inet stream,
-	file,  #This rule is needed so that I can work with files (create files/directories, copy, etc)
-	network inet dgram,
-}

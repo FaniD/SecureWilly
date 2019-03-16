@@ -1,2 +1,0 @@
-Aug 21 15:20:33 docker-security9 kernel: [ 6600.486494] type=1400 audit(1534864833.785:2267215): apparmor="ALLOWED" operation="capable" profile="server_profile" pid=10093 comm="nginx" capability=7  capname="setuid"
-Aug 21 15:20:33 docker-security9 kernel: [ 6600.487180] type=1400 audit(1534864833.785:2267216): apparmor="ALLOWED" operation="capable" profile="server_profile" pid=10095 comm="nginx" capability=7  capname="setuid"

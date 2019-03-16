@@ -1,5 +1,0 @@
-Jul 21 20:02:56 docker-security8 kernel: [92276.332962] type=1400 audit(1532203376.438:447976924): apparmor="ALLOWED" operation="create" profile="server_profile" pid=443 comm="memcached" family="inet6" sock_type="stream" protocol=6
-Jul 21 20:02:56 docker-security8 kernel: [92276.332977] type=1400 audit(1532203376.438:447976925): apparmor="ALLOWED" operation="setsockopt" profile="server_profile" pid=443 comm="memcached" family="inet6" sock_type="stream" protocol=6
-Jul 21 20:02:56 docker-security8 kernel: [92276.332984] type=1400 audit(1532203376.438:447976926): apparmor="ALLOWED" operation="setsockopt" profile="server_profile" pid=443 comm="memcached" family="inet6" sock_type="stream" protocol=6
-Jul 21 20:02:56 docker-security8 kernel: [92276.332990] type=1400 audit(1532203376.438:447976927): apparmor="ALLOWED" operation="setsockopt" profile="server_profile" pid=443 comm="memcached" family="inet6" sock_type="stream" protocol=6
-Jul 21 20:02:56 docker-security8 kernel: [92276.332995] type=1400 audit(1532203376.438:447976928): apparmor="ALLOWED" operation="setsockopt" profile="server_profile" pid=443 comm="memcached" family="inet6" sock_type="stream" protocol=6

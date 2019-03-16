@@ -1,1 +1,0 @@
-Feb 25 15:40:39 docker-security59 kernel: [68836.909094] type=1400 audit(1551109239.006:32102840): apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=29207 comm="apache2" capability=7  capname="setuid"

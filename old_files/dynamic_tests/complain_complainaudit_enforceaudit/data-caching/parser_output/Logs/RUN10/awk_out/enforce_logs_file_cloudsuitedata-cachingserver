@@ -1,4 +1,0 @@
-/etc/ld.so.cache r
-/var/lib/docker/aufs/diff/cc1d25cb7379030e7c994eea08e11b0ada5370d4aa03428ea0900111bfc8fc24/etc/ld.so.cache r
-/usr/lib/x86_64-linux-gnu/libevent-2.0.so.5.1.9 r
-/var/lib/docker/aufs/diff/5c997e611af4330ac7d237ba04d2f9b8c0450e62f533b8ac714d98e6e5832e56/usr/lib/x86_64-linux-gnu/libevent-2.0.so.5.1.9 r

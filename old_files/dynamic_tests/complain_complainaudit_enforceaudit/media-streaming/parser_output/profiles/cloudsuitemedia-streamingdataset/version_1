@@ -1,8 +1,0 @@
-#include <tunables/global>
-
-profile cloudsuitemedia-streamingdataset_profile flags=(attach_disconnected,mediate_deleted) {
-
-	file,  #Allows access to containers filesystem
-	/var/lib/docker/* r, #Access to layers of filesystem
-	deny ptrace (readby, tracedby), #Confront container breakout attacks
-}

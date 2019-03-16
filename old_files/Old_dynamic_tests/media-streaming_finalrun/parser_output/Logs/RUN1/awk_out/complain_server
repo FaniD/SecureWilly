@@ -1,9 +1,0 @@
-#Capability\n
-dac_override
-#Network\n
-inet stream
-inet6 stream
-#File
-requested_mask 
-#Signal
-receive term unconfined

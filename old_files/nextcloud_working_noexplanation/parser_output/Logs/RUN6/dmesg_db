@@ -1,9 +1,0 @@
-[27165.211648] device vethddb92ce entered promiscuous mode
-[27165.211858] IPv6: ADDRCONF(NETDEV_UP): vethddb92ce: link is not ready
-[27165.488709] IPv6: ADDRCONF(NETDEV_CHANGE): vethddb92ce: link becomes ready
-[27165.488763] br-4063ee0b93e3: port 1(vethddb92ce) entered forwarding state
-[27165.488799] br-4063ee0b93e3: port 1(vethddb92ce) entered forwarding state
-[27180.508196] br-4063ee0b93e3: port 1(vethddb92ce) entered forwarding state
-[27239.687058] br-4063ee0b93e3: port 1(vethddb92ce) entered disabled state
-[27239.687563] device vethddb92ce left promiscuous mode
-[27239.687571] br-4063ee0b93e3: port 1(vethddb92ce) entered disabled state

@@ -1,1 +1,0 @@
-[74016.082882] type=1400 audit(1529697473.430:38): apparmor="ALLOWED" operation="signal" profile="server_profile" pid=19858 comm="docker-containe" requested_mask="receive" denied_mask="receive" signal=term peer="unconfined"
