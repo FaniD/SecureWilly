@@ -1,0 +1,11 @@
+#include <tunables/global>
+
+profile cloudsuitemedia-streamingclient56_profile flags=(attach_disconnected,mediate_deleted) {
+	/output/* rw,
+	deny umount /output, #Disallow anybody that wants to break this mountpoint
+	mount /output -> /output, #Bind host volume to docker container volume
+	file,  #Allows access to containers filesystem
+	/var/lib/docker/* r, #Access to layers of filesystem
+	deny remount /output, #Disallow anybody that wants to remount this mountpoint
+	deny ptrace (readby, tracedby), #Confront container breakout attacks
+}
