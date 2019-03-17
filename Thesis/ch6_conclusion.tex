@@ -1,4 +1,16 @@
 \chapter{Conclusion}
+\section{Related Work}
+
+Security is a crucial subject and many people have turned to it in order to assist.
+
+There are already other software which generate AppArmor profiles for docker applications. One of them is \say{bane}, created by Jessie Frazelle. \cite{bane}
+
+Bane receives a configuration file as input by the user, which is adjusted on a docker application, and a profile is produced for it. This configuration file sums up everything that could be extracted as a rule: defining access to files, defining network and capabilities.
+
+The idea of a configuration file to let user write down some file permissions is brilliant and could be easily adopted by SecureWilly.
+
+On the other hand, bane does not train the application in order to extract more rules based on a test plan, which is an aspect that SecureWilly embraces.
+
 \section{Future Work}
 
 \subsection{Fill the gaps}
@@ -47,7 +59,7 @@ Two other recent developments of AppArmor that should be attached to SecureWilly
 
 If we combine policy namespaces and policy stacking then we have an interesting result.
 
-\begin{figure}[h!]
+\begin{figure}[H]
   \centering
    \includegraphics[width=0.9\linewidth]{./figures/policystacking1.png}
    \caption{AppArmor Policy Stacking}
@@ -55,7 +67,6 @@ If we combine policy namespaces and policy stacking then we have an interesting 
 
 Let's examine the figure 6.1. In this tree, we have a system with some hierarchical policy namespaces and a task which is confined by a stacked policy including profiles from system and ns3. What makes the combination of these two interesting, is that although the task is confined by both profiles, it can only see policy from ns3 and below. This is exactly what we are seeking for docker containers. We want containers to be restricted by host for outer namespaces and allowed to load extra policy to restrict themselves in inner namespaces without knowing the existence of the outer namespace.
 This could have a further extent to policies for nesting containers within containers.
-\hfil\break\hfil\break
 
 To sum up, as soon as AppArmor brings new features SecureWilly is ready to investigate them and adapt them in order to defend container's isolation.
 
@@ -64,7 +75,8 @@ Currently, SecureWilly focuses on preventing container breakout attacks. Researc
 
 Specifically, DoS attacks could be prevented, if AppArmor had rules that involve cgroups. As we mentioned in the previous section, isolating cgroups in the future is an aspect that AppArmor is considering of. This means that as AppArmor gets more powerful, more attacks could be prevented by SecureWilly.
 
-\subsection{SELinux}
+\subsection{Adopt other hardening tools}
+SELinuc and seccomp
 SecureWilly is using AppArmor profiles but it could include SELinux and give user the choice between AppArmor or SELinux profile.
 
 \subsection{Container orchestration}

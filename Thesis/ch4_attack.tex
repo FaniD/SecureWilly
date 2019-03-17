@@ -248,9 +248,7 @@ Suppose we know pids of processes outside our container, is it possible for a co
 
 \item[DAC\_OVERRIDE]
 Quoting capabilities man page, \say{DAC\_OVERRIDE allows root to bypass file read, write, and execute permission checks (DAC is an abbreviation of discretionary access control)}.
-This means that a container which has this capability could bypass all file and owner permission fields and have any access it desires on any file on the system. Obviously, this destroys almost everything SecureWilly is working on, as file rules in AppArmor profiles are completely useless. 
-
-Throughout, our research we came across some benchmarks that requested this capability in logs. We could not get past this, so with a heavy heart we added this capability to the container. However, we should mention that, at those particular benchmarks, we did not have input for static analysis. We only had a docker image for dynamic analysis, so we believe that, if SecureWilly had access to Dockerfile and docker-compose file, then it could figure a way around this capability, because it could investigate what files the container would need access and extract the necessary rules. This is why static analysis is very important, so if you want SecureWilly to help you build a secure profile, you should help too by providing the input code for static analysis and avoid capabilities like DAC\_OVERRIDE.
+This means that a container which has this capability could bypass all file and owner permission fields and have any access it desires on any file on the system. Obviously, this destroys almost everything that the static analysis of SecureWilly is working on, as the DAC permissions of files it used to extract file rules are overwritten. 
 
 On the other hand, we should be optimistic and think that a container asks for DAC\_OVERRIDE for a good reason, such as fixing bad permissions in the file system.
 But, we should always bare in mind DAC\_OVERRIDE's evil side and as Steve Grubb, security standards expert at Red Hat, said \say{If your container needs this, it's probably doing something horrible}.
@@ -432,7 +430,7 @@ Except for the SYS\_ADMIN capability, when attempting to nsenter to specifically
 Lastly, the namespace the attacker needs to enter in order to commit the attack is the mount namespace as it is the one handling the set of file systems a process can see and all of our examples implement attacks to target's filesystem. Thus, we add flag -m, which is the same as flag --mount that we will encounter in the next example.
 
 All of those actions are allowed to happen owning to the following AppArmor profile:
-
+\hfill\break
 \begin{lstlisting}[style=Dockerfile, caption={AppArmor profile attacker\_profile}]
 #include <tunables/global>
 
@@ -907,7 +905,7 @@ Let's see another example, to have a more recent and clear picture of that vulne
 Suppose there is a non-root user on host who is member of the docker group and runs an ubuntu image as root, while mounting host's directory /bin/ to a directory inside the container (/attack\_bin). 
 
 This container's image is created with the following minimal Dockerfile:
-
+\hfill\break\hfill\break
 \begin{lstlisting}[style=Dockerfile, caption={Dockerfile used for docgroup image}]
 FROM ubuntu:latest
 MAINTAINER Fani Dimou <fani.dimou92@gmail.com>

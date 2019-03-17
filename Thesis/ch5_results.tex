@@ -291,19 +291,17 @@ In all docker projects, only one run of enforce mode was performed and the fact 
 \underline{Types of rules}
 \hfill\break
 
-Another way to test the functionality of SecureWilly is monitor the rules of each profile and identify which types of rules are encountered in it.
+Another way to test the functionality of SecureWilly is to monitor the rules of each profile, identify which types of rules are encountered in it and check if they correspond to the role and operations of each service.
 
-Figures 5.11, 5.12 and 5.13 show the line graphs of the types of different rules used in the media streaming services' profiles. 
-
-\begin{textblock*}{18cm}(0.1cm,7.8cm) % {block width} (coords)
+\begin{textblock*}{18cm}(0.1cm,7cm) % {block width} (coords)
 \begin{figure}
-  \begin{minipage}[H!]{0.55\textwidth}
-    \includegraphics[width=\textwidth]{./figures/mediastreaming/Barfinal_cloudsuitemedia-streamingserver.png}
-    \caption{Media Streaming: Server's types of rules}
+  \begin{minipage}[H!]{0.5\textwidth}
+    \includegraphics[width=\textwidth]{./figures/mediastreaming/nolegend/types_cloudsuitemedia-streamingserver.png}
+    \caption{Media Streaming: Server types}
   \end{minipage}
-  \begin{minipage}[H!]{0.55\textwidth}
-    \includegraphics[width=\textwidth]{./figures/mediastreaming/Barfinal_cloudsuitemedia-streamingclient.png}
-    \caption{Media Streaming: Client's types of rules}
+  \begin{minipage}[H!]{0.5\textwidth}
+    \includegraphics[width=\textwidth]{./figures/mediastreaming/nolegend/types_cloudsuitemedia-streamingclient.png}
+    \caption{Media Streaming: Client types}
   \end{minipage}
 \end{figure}
 \end{textblock*}
@@ -312,42 +310,97 @@ Figures 5.11, 5.12 and 5.13 show the line graphs of the types of different rules
 
 \begin{figure}[h!]
   \centering
-   \includegraphics[width=0.65\linewidth]{./figures/mediastreaming/Barfinal_cloudsuitemedia-streamingserver.png}
-   \caption{Media Streaming: Dataset's types of rules}
+   \includegraphics[width=0.7\linewidth]{./figures/mediastreaming/types_cloudsuitemedia-streamingdataset.png}
+   \caption{Media Streaming: Dataset types}
 \end{figure}
 
-The above bar graphs show that each profile describes perfectly the role of the service and the operations of its task.
+Figures 5.11, 5.12 and 5.13 show the line graphs of the types of different rules used in the media streaming services' profiles over runs. 
 
-In server's profile, the graph shows that a server has more capabilities rules than other types. This derives from the fact that a server commits several actions in order to serve the clients, and thus it is expected to need some capabilities. The file rules can derive from file access the server needs, but not from volumes since there are no mount rules extracted. Network rules are extracted for the internal communication of the services and lastly, one signal rule, which is needed in order to send a SEGKILL/SIGTERM to the server, since it is running as a daemon.
+The above graphs show that each profile describes perfectly the role of the service and the operations of its task.
+
+In server's profile, the graph shows that a server has more capability rules than other types. This derives from the fact that a server commits several actions in order to serve the clients, and thus it is expected to need some capabilities. It is evident now that capabilities are the type of rules that most of the times set the threshold, as they appear to escalate gradually on each run. The file rules can derive from file accesses the server needs, but not from volumes since there are no mount rules extracted. Network rules are extracted for the internal communication of the services and lastly, one signal rule, which is needed in order to send a SEGKILL/SIGTERM to the server, since it is running as a daemon.
 
 In client's profile, it appears that client had bind volumes, since there are mount rules and the corresponding file rules. File rules are more, because the preliminary profile's rules are added to them. Moreover, client also needs some network rules in order to communicate with the server.
 
 As it is expeted, dataset only needs some file rules which are the ones of the preliminary profile, as its container will not commit any actions.
 
-In the light of the above, it is clear that the AppArmor profile that are produced by SecureWilly are adjusted completely to the docker project and are closely tied with their tasks. That means they are efficient and secure, since they allow to the docker project to run unhinderedly, but all redundant actions will be denied.\\
+In figures 5.14 and 5.15 we observe how server and client act in data caching example. 
 
-\underline{Types of rules per run}
-\hfill\break
+It appears that network and file rules are the most rules of server's profile, since network is needed in order to communicate with client and files as server in data caching benchmark handles a twitter dataset. Apart from these types, it needs only one signal rule in order to be able to terminate.
 
-Let's see how the rules of each type increment over the runs of the test plan.
+As for the client, network rules are needed in order to make requests to the server while the rest of the rules are all relevant to the way we implemented this example. Mount and file rules derive both from the volume script we used in order to run this benchmark non-interactively, while all the signal rules derive from the timeout and kill signals - either send by the client or received by one of its process - which were used to stop all processes of clients when the benchmarking was complete.
 
+Lastly, figures 5.16 and 5.17 represent Nextloud's line graphs, one for the database service and one for the server - nextcloud.
+
+In these graphs, it is more clear than ever that Nextcloud is the more complex of the examples used, as its profiles consist of a variety of rules. 
+
+Starting with nextcloud service, capability rules, which are the the type with the most rules in the profile, escalate gradually per run and they are responsible for setting the threshold at run four, exactly like we observed in media streaming. This is reasonable, since Nextcloud's server requires several capabilities in order to connect to the database and serve all of its users.  File and mount rules are added by static analysis, deriving from the volumes mounted which we described in nextcloud's section, and remain stable for the rest of the runs. Some network rules are needed, like in almost every multi-service project, in order to communicate with the database, as well as some signal rules in order to make the server able to get terminated.
+
+Database's service needs some capability rules as well, fewer than the server though. It needs some signal rules in order to be able to handle termination rules, sent and received, as well as some network rules that will make the communication with the server possible. However, the profile mainly consists of mount and file rules, due to the volumes it handles and the file accesses it needs to make, which is fundamental characteristic of a database.
+ 
 \begin{figure}[h!]
   \centering
-   \includegraphics[width=0.64\linewidth]{./figures/mediastreaming/types_cloudsuitemedia-streamingserver.png}
-   \caption{Server's types of rules per run}
+   \includegraphics[width=0.65\linewidth]{./figures/datacaching/types_cloudsuitedata-cachingserver.png}
+   \caption{Data Caching: Server types}
 \end{figure}
 
 \begin{figure}[h!]
   \centering
-   \includegraphics[width=0.64\linewidth]{./figures/mediastreaming/types_cloudsuitemedia-streamingclient.png}
-   \caption{Client's types of rules per run}
+   \includegraphics[width=0.65\linewidth]{./figures/datacaching/types_cloudsuitedata-cachingclient.png}
+   \caption{Data Caching: Client types}
 \end{figure}
 
 \begin{figure}[h!]
   \centering
-   \includegraphics[width=0.64\linewidth]{./figures/mediastreaming/types_cloudsuitemedia-streamingdataset.png}
-   \caption{Dataset's types of rules per run}
+   \includegraphics[width=0.68\linewidth]{./figures/nextcloud/types_nextcloud.png}
+   \caption{Nextcloud: Nextcloud types}
 \end{figure}
+
+\begin{figure}[h!]
+  \centering
+   \includegraphics[width=0.68\linewidth]{./figures/nextcloud/types_db.png}
+   \caption{Nextcloud: Db types}
+\end{figure}
+In the light of the above, it is clear that the AppArmor profile that are produced by SecureWilly are adjusted completely to the docker project and are closely tied with their tasks. That means they are efficient and secure, since they allow any docker project to run unhinderedly, but all redundant actions will be denied.\\
 
 \section{Scalability}
+SecureWilly should be able to handle large increases in services and other workloads. 
+
+In order to evaluate scalability we perfomed a testing using media streaming benchmark with multiple clients.
+
+Figure 5.18 illustrates a line graph which shows the execution time of test plan per run for each test case. As it is expected, time has a steady increase as the amount of clients increase.
+
+\begin{figure}[h!]
+  \centering
+   \includegraphics[width=0.8\linewidth]{./figures/scalability/time1_4_8_16.png}
+   \caption{Media Streaming: Time of test plan per run for each test case}
+\end{figure}
+
+However, as we previously described, the correct way to measure the performance per case is not time but runs.
+
+In figures 5.19, 5.20 and 5.21, the line graphs representing rules per run for each test case show that the amount of total runs executed is not affected at all by the increase in clients and neither does the threshold. Moreover, since clients are running the same docker run command, their lines follow exactly the same trend.
+
+Therefore, it has been proved that SecureWilly can handle large scale projects and its task is not affected in any way by them.
+
+\begin{figure}[h!]
+  \centering
+   \includegraphics[width=0.65\linewidth]{./figures/scalability/rules_4_t.png}
+   \caption{Media streaming with 4 clients}
+\end{figure}
+\hfill\break\hfill\break
+\begin{figure}[h!]
+  \centering
+   \includegraphics[width=0.68\linewidth]{./figures/scalability/rules_8_t.png}
+   \caption{Media streaming with 8 clients}
+\end{figure}
+\hfill\break\hfill\break\hfill\break\hfill\break
+\begin{figure}[h!]
+  \centering
+   \includegraphics[width=0.68\linewidth]{./figures/scalability/rules_16_t.png}
+   \caption{Media streaming with 16 clients}
+\end{figure}
+
 \section{Summary}
+All in all, SecureWilly has proved through experimental evaluation that is functional and produces profiles which reach their initial goal, and scalable as well, meaning it can handle large increases in services. Furthemore, the performance is exactly as it is expected by its computational complexity and it depends on the performance of the test plan, as SecureWilly does not add any great delays.
+
+In order to perform these testings, SecureWilly used some demanding benchmarks of CloudSuite and also Nextcloud, which is a widely used real software, and the profiles produced could constitute a useful contribution to the community of Nextcloud.
