@@ -68,16 +68,17 @@ Two other recent developments of AppArmor that should be attached to SecureWilly
 \item[Policy stacking:] AppArmor policies can be stacked. Host could be protected from containers with one set of profiles, and then the container could use AppArmor profiles itself to keep its services and users separated from the host and do whatever they need to do. For example, blanket profiles can be applied to all users in a group to keep them in a certain portion of a system, such as “no net” profile or “no capabilities” profile that could be stacked with other profiles and have a very creative policy with all these profiles combined. SecureWilly should use this feature for multiservices projects, to keep a global stacked policy for all services in order to protect the host as well as separate profiles for each service in alignment with what each service requests to do.
 \end{description}
 
-If we combine policy namespaces and policy stacking then we have an interesting result.
+If we combine policy namespaces and policy stacking, we get an interesting result.
 
-\begin{figure}[H]
+Let's examine the diagram that figure 6.1 represents. In this tree, we have a system with some hierarchical policy namespaces and a task which is confined by a stacked policy including profiles from system and ns3. What makes the combination of these two interesting, is that although the task is confined by both profiles, it can only see policy from ns3 and below. This is exactly what we are seeking for docker containers. We want containers to be restricted by host for outer namespaces and allowed to load extra policy to restrict themselves in inner namespaces without knowing the existence of the outer namespace.
+This could have a further extent to policies for nesting containers within containers.
+
+\begin{figure}[h!]
   \centering
-   \includegraphics[width=0.9\linewidth]{./figures/policystacking1.png}
+   \includegraphics[width=0.9\linewidth]{../figures/policystacking1.png}
    \caption{AppArmor Policy Stacking}
 \end{figure}
-
-Let's examine the figure 6.1. In this tree, we have a system with some hierarchical policy namespaces and a task which is confined by a stacked policy including profiles from system and ns3. What makes the combination of these two interesting, is that although the task is confined by both profiles, it can only see policy from ns3 and below. This is exactly what we are seeking for docker containers. We want containers to be restricted by host for outer namespaces and allowed to load extra policy to restrict themselves in inner namespaces without knowing the existence of the outer namespace.
-This could have a further extent to policies for nesting containers within containers.
+\hfill\break
 
 To sum up, as soon as AppArmor brings new features SecureWilly is ready to investigate them and adapt them in order to defend container's isolation.
 

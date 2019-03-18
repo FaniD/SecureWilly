@@ -187,7 +187,7 @@ Let's take a look at the following diagram of namespaces: \cite{diagramuserns}
 
 \begin{figure}[h!]
   \centering
-   \includegraphics[width=0.9\linewidth]{./figures/userns1gm.png}
+   \includegraphics[width=0.9\linewidth]{../figures/userns1gm.png}
    \caption{Namespaces Diagram}
 \end{figure}
 
@@ -306,7 +306,7 @@ Both of these features create a mount from host to container for persistent data
 
 \begin{figure}[h!]
   \centering
-   \includegraphics[width=0.6\linewidth]{./figures/omittmpfsgm.png}
+   \includegraphics[width=0.6\linewidth]{../figures/omittmpfsgm.png}
    \caption{Persistent data mounting: Bind Mounts and Volumes}
 \end{figure}
 
@@ -887,15 +887,15 @@ If we look at this situation from a distance, we can see the big picture: all us
 
 Docker's approach does not include admin segregation controls, where different users can be granted with different admin rights to different containers and that makes docker group a vulnerability.
 
-The following diagram describes 'Alice' and 'Bob', two UNIX users, member of docker group.
+The following diagram describes 'Alice' and 'Bob', two UNIX users, both members of docker group.
 
 \begin{figure}[h!]
   \centering
-   \includegraphics[width=0.85\linewidth]{./figures/dockergroupgm.png}
+   \includegraphics[width=0.85\linewidth]{../figures/dockergroupgm.png}
    \caption{Docker Group Members on Docker Engine}
 \end{figure}
 
-Both Alice and Bob, not only have full control of their own containers but of all docker containers running on host as well.
+Both Alice and Bob, not only have full control of their own containers, but of all docker containers running on host as well.
 
 \subsection{User Privilege Elevation}
 Being able to run a docker container as root could eventually lead in getting root on host, as we explained in section \textit{Running as root}. The example that was examined in that section - \textit{Running as root: What can an attacker do with root user?} - is representative of how a standard non-root user who is granted with membership to docker group can easily surrogate into the 'real root' account on the host, only with some host resources provided - /etc/ dir is mounted in the specific example.

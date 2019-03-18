@@ -1,7 +1,7 @@
 \chapter{SecureWilly: Design and Implementation}
 \begin{figure}[h!]
    \centering
-   \includegraphics[width=0.45\linewidth]{./figures/trt.png}
+   \includegraphics[width=0.45\linewidth]{../figures/trt.png}
    \caption{Trademark of SecureWilly}
 \end{figure}
 
@@ -119,7 +119,7 @@ All in all, what SecureWilly's static parser does when encounters EXPOSE command
 \begin{mdframed}[backgroundcolor=tipcolor]
 \textbf{Tip}: The docker network command supports creating networks for communication among containers without the need to expose or publish specific ports, because the containers connected to the network can communicate with each other over any port. Therefore, it is recommended to use internal networks for communication among containers.
 
-If communication with the host is needed then port forwarding is the best practice to use and certainly, avoid runtime flag --net=host (see Chapter \textit{Attacks and Vulnerabilities: Disabling Namespaces}).
+If communication with the host is needed then port forwarding is the best practice to use and certainly, avoid runtime flag --net=host (see Chapter 4, section \textit{Disabling Namespaces}).
 \end{mdframed}
 
 \subsubsection{USER \& RUN useradd}
@@ -266,7 +266,7 @@ It is a fact that most of the parameters we would like to obtain are not given a
 
 \begin{figure}[h!]
   \centering
-   \includegraphics[width=0.5\linewidth]{./figures/dockercompose.png}
+   \includegraphics[width=0.5\linewidth]{../figures/dockercompose.png}
    \caption{Trademark of Docker Compose}
 \end{figure}
 
@@ -452,7 +452,7 @@ The steps of dynamic parser are clearly presented in the following flowchart:
 
 \begin{figure}[hp!]
   \centering
-   \includegraphics[width=0.8\linewidth]{./figures/DynamicAlgo.jpeg}
+   \includegraphics[width=0.8\linewidth]{../figures/DynamicAlgo.jpeg}
    \caption{Flowchart of dynamic parser}
 \end{figure}
 
