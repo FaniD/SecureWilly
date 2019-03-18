@@ -1,11 +1,22 @@
 \chapter{Conclusion}
+
+\section{Thesis Summary}
+
+Preserving security, and more specifically isolation, on docker containers, as well as preventing container attacks, is a very demanding field. It can get even more complicated when trying to balance docker container's functionality with security.
+
+This thesis dealt with security on docker environment, from a practical point of view, as we created a software that automatically produces AppArmor profiles for a docker project. These profiles are adjusted to the given docker project, and consist of the least possible rules that make a profile secure and efficient, based on the Principle of Least Privilege, meaning they will allow exclusively a set of actions and block any other action, considered as redundant. The set of actions that will be allowed is determined by the user, who is asked to provide a test plan of the project. Our software can handle both single and multi service docker projects, and the profiles produced are service-oriented. Therefore, each service is confined by its own profile, which makes the profile more specific about the task of the service it confines, but also aware of the coordination of the project's services.
+
+Except for the software that we created, in the current thesis we present an extensive research on vulnerable features of docker that could lead to violation of container's isolation and we implement specific examples of container breakout attacks, in the context of ethical hacking, which we created in order to extract rules that prevent these attacks, for our software.
+
+Finally, in order to evaluate our software in functionality, performance and scalability we used some benchmarks from CloudSuite, a very useful benchmark suite for cloud services, as well as a real program, Nextcloud, which is a widely used open source, self-hosted file share and communication platform. We successfully produced AppArmor profiles for the services of the benchmarks of CloudSuite and Nextcloud, hoping it will be a useful contribution to the respective communities.
+
 \section{Related Work}
 
 Security is a crucial subject and many people have turned to it in order to assist.
 
 There are already other software which generate AppArmor profiles for docker applications. One of them is \say{bane}, created by Jessie Frazelle. \cite{bane}
 
-Bane receives a configuration file as input by the user, which is adjusted on a docker application, and a profile is produced for it. This configuration file sums up everything that could be extracted as a rule: defining access to files, defining network and capabilities.
+Bane receives a configuration file as input by the user, which is adjusted on a docker application, and a profile is produced for it. This configuration file sums up everything that could be extracted as a rule: defining access to files, network and capabilities.
 
 The idea of a configuration file to let user write down some file permissions is brilliant and could be easily adopted by SecureWilly.
 
@@ -76,11 +87,13 @@ Currently, SecureWilly focuses on preventing container breakout attacks. Researc
 Specifically, DoS attacks could be prevented, if AppArmor had rules that involve cgroups. As we mentioned in the previous section, isolating cgroups in the future is an aspect that AppArmor is considering of. This means that as AppArmor gets more powerful, more attacks could be prevented by SecureWilly.
 
 \subsection{Adopt other hardening tools}
-SELinuc and seccomp
-SecureWilly is using AppArmor profiles but it could include SELinux and give user the choice between AppArmor or SELinux profile.
+AppArmor is a useful secutiry tool, but as we discussed in Chapter 2, it is not the only one. Seccomp and SELinux are some interesting hardening tools, both supported by Docker's security option, that SecureWilly could adopt and use either as a supplement to AppArmor or as an alternative choice over AppArmor. 
+
+Seccomp (Secure Computing Mode) is a computer security facility in the Linux kernel which limits the program to use a specific set of system calls, which can make the system more secure considering that only a subset of the plenty system calls which are exposed to the programs directly, are actually needed to the users.
+
+SELinux (Security-Enhanced Linux) was already discussed in Chapter 2, as it uses the Linux Security Modules (LSM) as the implementation to handle enforcement within the Linux kernel, like AppArmor. SELinux's approach is comprehensive, and is based on strong security techniques like MAC and Multi-Level Security (MLS). But this makes it rather cumbersome to set up. \cite{appsel} It is however, undeniably, a strong security tool that could be examined and adopted by SecureWilly as an alternative choice over AppArmor.
 
 \subsection{Container orchestration}
-SecureWilly already supports multi-service projects and succeeds in exporting a profile for each service. It is a fact though that there are several new aspects we can work with on this field.
+SecureWilly already supports multi-service docker projects and succeeds in exporting a profile for each service. Moreover, as it was proved in the scalability testing of Chapter 5, it can handle large increases in services and pruduce effective profiles successfully.
 
-This can be expanded and examine new horizons where SecureWilly will be used to support container orchestration platforms like Docker Swarm, Kubernetes, Apache Mesos, Cloud Foundry etc 
-
+This opens the way to a potential expansion in the area of container orchestration where SecureWilly could be used to support projects running on container orchestration platforms like Docker Swarm, Kubernetes, Apache Mesos, Cloud Foundry etc. This would clearly need some modifications in the source code of SecureWilly, but it is a potential aspect of which SecureWilly has already laid the foundations.

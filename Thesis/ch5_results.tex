@@ -1,6 +1,6 @@
 \chapter{Experimental Evaluation}
 
-In this chapter, we assess the potential benefit of using SecureWilly in docker projects. Through a variety of experiments, we display the results of SecureWilly's execution we examine the profiles produced and we evaluate the performance and the scalability of our software.
+In this chapter, we assess the potential benefit of using SecureWilly in docker projects. Through a variety of experiments, we display the results of SecureWilly's execution, we examine the profiles produced and we evaluate the performance, the functionality and the scalability of our software.
 
 \section{Experimental setup}
 \subsection{Benchmarks}
@@ -32,7 +32,7 @@ Despite the fact that CloudSuite's benchmarks are based on real-world software, 
 
 Nextcloud is a suite of client-server software for creating and using file hosting services. It is free and open-source, which means that anyone is allowed to install and operate it on their own private server devices. \cite{wikinext}
 
-Although it is true that Nextcloud offers a variety of operations, we will be using it in its simplest form, where Nextcloud is used to run a personal cloud storage service, making files accessible via the internet and sharing them with other users.
+Although it is true that Nextcloud offers a variety of operations (file sharing, communication etc), we will be using it in its simplest form, where Nextcloud is used to run a personal cloud storage service, making files accessible via the internet and sharing them with other users.
 
 The services of Nextcloud's project in the particular example are two:
 \begin{enumerate}
@@ -144,7 +144,7 @@ In order to evaluate the performance of SecureWilly, we will first find out its 
 \item First, it is clear that the computational complexity of static analysis is $\mathcal{O}(1)$, because all the operations are about text editing on the input files.
 \item Dynamic analysis depends on the computational complexity of the given test plan, which will be repeated $m$ times.
 
-\item Suppose that the computational complexity of the test plan is $f(n)$
+\item Suppose that the computational complexity of the test plan is $f(n)$.
 
 \item As for the computational complexity of the process to set the AppArmor profile in complain or enforce mode, it is represented by a constant $c$, as it takes standard time.
 
@@ -176,7 +176,7 @@ All of the services start with non-zero amount of rules, which derives from stat
 
 We observe that most of the services had a gradual increase in their AppArmor profiles' rules, except for dataset, which starts with a preliminary profile of three rules and remains stable for the rest of the runs. This behaviour of dataset's profile is expected as the corresponding container does not execute any operations, but it only exists in order to expose a volume.
 
-Server's and client's profiles follow a similar escalation, as they both rise to a point and then stabilize over the last runs. The rising derives from the first complain runs, in which rules are extracted gradually, as the addition of some rules leads to new system logs. While the first runs are crucial, as the most part of the rules are extracted over the first runs, the logs become gradually fewer over the last runs until all actions are allowed, and this explains the final stability of the profiles after some runs, shown in the graph.
+Server's and client's profiles follow a similar escalation, as they both rise to a point and then stabilize over the last runs. The rising derives from the first complain runs, in which rules are extracted gradually, as the addition of some rules leads to new system logs. While the first runs are crucial, as the most part of the rules are extracted over the first runs, the logs become gradually fewer over the last runs until all actions are allowed, and this explains the final stability of the profiles after some runs, as shown in the graph.
 
 Server's shoot up is more enduring and considerable than the client's. This is reasonable, since a server is expected to be responsible for more operations than a client.  
 
@@ -188,15 +188,15 @@ It appears that there is a threshold in runs, which represents the minimum numbe
    \caption{Data Caching: Rules per run for each service}
 \end{figure}
 
-Figure 5.2 shows the corresponding line graph of data-caching benchmark.
+Figure 5.2 shows the corresponding line graph of data caching benchmark.
 
-Similarly with media streaming, both server and client lift to a point and afterwards they remain stable. The threshold we observed before, is at the third run again. Moreover, in this benchmark, server and client traverse the threshold exactly at the same runs.
+Similar to media streaming, both server and client lift to a point and afterwards they remain stable. The threshold we observed before, is at the third run again. Moreover, in this benchmark, server and client traverse the threshold exactly at the same runs.
 
-On the contrary, data caching seems to have more active clients, as client's profile has more rools.
+On the contrary, data caching seems to have more active clients, as client's profile has more rules.
 
-In Figure 5.3, the graph outlines the behaviour of nextcloud's profiles over runs. The threshold in nextcloud's execution is at run four. This slight difference with CloudSuite's benchmarks is reasonable, as nextcloud's server seems to need more rules in its profile, in order to complete its operations. Thus, SecureWilly needs to execute more runs of the test plan in order to extract all the rules necessary.
+In Figure 5.3, the graph outlines the behaviour of nextcloud's profiles over runs. The threshold in nextcloud's execution is at run four. This slight difference with CloudSuite's benchmarks is reasonable, as nextcloud's server appears to need more rules in its profile, in order to complete its operations. Thus, SecureWilly needs to execute more runs of the test plan in order to extract all the rules necessary.
 
-Nextcloud's server and database service almost traverse the threshold at the same run, and their escalation is quite similar. Server thoough requires more rules in its profile, as it commits more actions.
+Nextcloud's server and database service traverse the threshold almost at the same run, and their escalation is quite similar. Server's service though requires more rules in its profile, as it commits more actions, comparing to the database.
 
 \begin{figure}[h!]
   \centering
@@ -213,7 +213,7 @@ The bar chart, in figure 5.4, depicts the performance of SecureWilly on every pr
    \caption{Comparing total runs and threshold between projects run by SecureWilly}
 \end{figure}
 
-It becomes evident, that the performance of SecureWilly on each project depends on the complexity of the project and the amount of operations of the test plan, which will lead to the amount of runs it needs, until it reaches its threshold. The threshold is set also based on the complexity of the project.
+It becomes evident, that the performance of SecureWilly on each project depends on the complexity of the project and the amount of operations that the test plan executes, which will lead to the amount of runs it needs, until it reaches its threshold. The threshold is set also based on the complexity of the project.
 
 \hfill\break
 \underline{Time of test plan per run}
@@ -246,7 +246,7 @@ The execution time was captured by executing the time command on the run script 
 
 All of the projects in their time graphs reach a peak at the first or second run and then they all follow a downward trend, each one at its own rate. However, the fall in all cases is smooth.
 
-The reason why the first runs of the test plan take more time, is not relevant to SecureWilly, but it derives from memory caching. Similarly, the rate of the fall that comes after the highest point depends on the usage of data and volumes in services and if they remain in cache memory.
+The reason why the first runs of the test plan take more time, is not relevant to SecureWilly, but it derives from the time it takes to pull the images from DockerHub in the first run, as well as memory caching on data. Similarly, the rate of the fall that comes after the highest point depends on the usage of data and volumes in services and if they remain in cache memory.
 
 It follows that the test plan is not affected by the AppArmor profiles, either they are set to complain or enforce mode. This behaviour was expected, since in the computational complexity, the AppArmor profile addition was represented by a constant.
 
@@ -254,15 +254,15 @@ It follows that the test plan is not affected by the AppArmor profiles, either t
 \underline{Enforce mode}
 \hfill\break
 
-Testing SecureWilly's functionality is actually equal to testing the input docker project, with the profiles produced enforced and evaluate if the actions described in the test plan are allowed.
+Testing SecureWilly's functionality is actually equal to testing the input docker project, with the profiles produced set to enforce mode and evaluate if the actions described in the test plan are allowed.
 
 The profiles produced by SecureWilly rely completely on the test plan that the user gives as input, as there is no other way to predict what actions should be allowed.  
 
-SecureWilly performs a functionality testing inside the dynamic parser's loop, by enforcing the profiles after there are no more logs in the complain mode, and runs the test plan one more time. If there are still system logs denying actions of the test plan and new rules can be extracted from them, then SecureWilly repeats the complain mode procedure from the beginning. That way, it ensures that all actions specified in the test plan are allowed.
+SecureWilly performs a functionality testing inside the dynamic parser's loop, by enforcing the profiles after there are no more logs in the complain mode, and runs the test plan one more time. If there are still system logs denying actions of the test plan and new rules can be extracted from them, then SecureWilly repeats the complain mode procedure from the beginning. In this way, it ensures that all actions specified in the test plan are allowed.
 
-Figures 5.8, 5.9 and 5.10 show each project's line graphs per service, which illustrate again the amount of rules per run, but this time emphasizing whether each run sets the profiles in complain or enforce mode.
+Figures 5.8, 5.9 and 5.10 show each project's line graphs per service, which illustrate again the amount of rules per run, but this time emphasizing whether each run sets the profiles to complain or enforce mode.
 
-In all docker projects, only one run of enforce mode was performed and the fact that no system logs denying actions were produced means that the test plan was executed in success, with all of its operations allowed.
+In all docker projects, only one run of enforce mode was performed and the fact that no system logs denying actions were produced means that the test plan was executed successfully, with all of its operations allowed.
 
 \hfill\break
 
@@ -280,18 +280,17 @@ In all docker projects, only one run of enforce mode was performed and the fact 
    \caption{Data Caching: Rules per run, emphasizing complain/enforce mode}
 \end{figure}
 
-\hfill\break
-
 \begin{figure}[h!]
   \centering
    \includegraphics[width=0.75\linewidth]{./figures/nextcloud/complain_enforce_rules.png}
    \caption{Nextcloud: Rules per run, emphasizing complain/enforce mode}
 \end{figure}
 \hfill\break
+\hfill\break
 \underline{Types of rules}
 \hfill\break
 
-Another way to test the functionality of SecureWilly is to monitor the rules of each profile, identify which types of rules are encountered in it and check if they correspond to the role and operations of each service.
+Another way to test the functionality of SecureWilly is to monitor the rules of each profile, identify which types of rules are encountered in it and make sure they correspond to the role and operations of each service.
 
 \begin{textblock*}{18cm}(0.1cm,7cm) % {block width} (coords)
 \begin{figure}
@@ -318,25 +317,25 @@ Figures 5.11, 5.12 and 5.13 show the line graphs of the types of different rules
 
 The above graphs show that each profile describes perfectly the role of the service and the operations of its task.
 
-In server's profile, the graph shows that a server has more capability rules than other types. This derives from the fact that a server commits several actions in order to serve the clients, and thus it is expected to need some capabilities. It is evident now that capabilities are the type of rules that most of the times set the threshold, as they appear to escalate gradually on each run. The file rules can derive from file accesses the server needs, but not from volumes since there are no mount rules extracted. Network rules are extracted for the internal communication of the services and lastly, one signal rule, which is needed in order to send a SEGKILL/SIGTERM to the server, since it is running as a daemon.
+In server's profile, the graph shows that a server has more capability rules than other types. This derives from the fact that a server commits several actions in order to serve the clients, and thus it is expected to need some capabilities. It is evident now that capabilities are the type of rules that most of the times set the threshold, as they appear to escalate gradually on each run. The file rules can derive from file accesses the server needs, but not from volumes since there are no mount rules extracted. Network rules are extracted for the internal communication of the services and lastly, there is one signal rule, which is needed in order to send a SEGKILL/SIGTERM to the server, since it is running as a daemon.
 
-In client's profile, it appears that client had bind volumes, since there are mount rules and the corresponding file rules. File rules are more, because the preliminary profile's rules are added to them. Moreover, client also needs some network rules in order to communicate with the server.
+In client's profile, it appears that client handles some volumes, since there are mount rules and the corresponding file rules. File rules are more, because the preliminary profile's rules are added to them. Moreover, client also needs some network rules in order to communicate with the server.
 
 As it is expeted, dataset only needs some file rules which are the ones of the preliminary profile, as its container will not commit any actions.
 
 In figures 5.14 and 5.15 we observe how server and client act in data caching example. 
 
-It appears that network and file rules are the most rules of server's profile, since network is needed in order to communicate with client and files as server in data caching benchmark handles a twitter dataset. Apart from these types, it needs only one signal rule in order to be able to terminate.
+It appears that plenty of network and file rules are included in server's profile, since network is needed in order to communicate with client and file rules derive from the fact that server in data caching benchmark handles a twitter dataset. Apart from these types, it needs only one signal rule in order to be able to terminate.
 
-As for the client, network rules are needed in order to make requests to the server while the rest of the rules are all relevant to the way we implemented this example. Mount and file rules derive both from the volume script we used in order to run this benchmark non-interactively, while all the signal rules derive from the timeout and kill signals - either send by the client or received by one of its process - which were used to stop all processes of clients when the benchmarking was complete.
+As for the client, network rules are needed in order to make requests to the server while the rest of the rules are all relevant to the way we implemented this example. Mount and file rules derive both from the volume script we used in order to run this benchmark non-interactively, while all the signal rules derive from the timeout and kill signals - either sent by the client or received by one of its process - which were used to stop all processes of clients when the benchmarking was complete.
 
 Lastly, figures 5.16 and 5.17 represent Nextloud's line graphs, one for the database service and one for the server - nextcloud.
 
-In these graphs, it is more clear than ever that Nextcloud is the more complex of the examples used, as its profiles consist of a variety of rules. 
+In these graphs, it is more clear than ever that Nextcloud is the most complex of the examples used, as its profiles consist of a variety of rules. 
 
-Starting with nextcloud service, capability rules, which are the the type with the most rules in the profile, escalate gradually per run and they are responsible for setting the threshold at run four, exactly like we observed in media streaming. This is reasonable, since Nextcloud's server requires several capabilities in order to connect to the database and serve all of its users.  File and mount rules are added by static analysis, deriving from the volumes mounted which we described in nextcloud's section, and remain stable for the rest of the runs. Some network rules are needed, like in almost every multi-service project, in order to communicate with the database, as well as some signal rules in order to make the server able to get terminated.
+Starting with nextcloud service, capability rules, which is the type with the most rules in the profile, escalate gradually per run and they are responsible for setting the threshold at run four, exactly like we observed in media streaming. This is reasonable, since Nextcloud's server requires several capabilities in order to connect to the database and serve all of its users.  File and mount rules are added by static analysis, deriving from the volumes mounted which we described in nextcloud's section, and remain stable for the rest of the runs. Some network rules are needed, like in almost every multi-service project, in order to communicate with the database, as well as some signal rules in order to make the server capable of getting terminated, rather than becoming a zombie container process.
 
-Database's service needs some capability rules as well, fewer than the server though. It needs some signal rules in order to be able to handle termination rules, sent and received, as well as some network rules that will make the communication with the server possible. However, the profile mainly consists of mount and file rules, due to the volumes it handles and the file accesses it needs to make, which is fundamental characteristic of a database.
+Database's service needs some capability rules as well, fewer than the server though. It needs some signal rules in order to be able to handle termination signals, sent and received, as well as some network rules that constitute the communication with the server possible. However, the profile mainly consists of mount and file rules, due to the volumes it handles and the file accesses it needs to make, which is a fundamental characteristic of a database.
  
 \begin{figure}[h!]
   \centering
@@ -361,14 +360,14 @@ Database's service needs some capability rules as well, fewer than the server th
    \includegraphics[width=0.68\linewidth]{./figures/nextcloud/types_db.png}
    \caption{Nextcloud: Db types}
 \end{figure}
-In the light of the above, it is clear that the AppArmor profile that are produced by SecureWilly are adjusted completely to the docker project and are closely tied with their tasks. That means they are efficient and secure, since they allow any docker project to run unhinderedly, but all redundant actions will be denied.\\
+In the light of the above, it is clear that the AppArmor profiles that are produced by SecureWilly are adjusted completely to the docker project and are closely tied with their tasks. This means they are efficient and secure, since they allow any docker project to run unhinderedly, but all redundant actions will be blocked.\\
 
 \section{Scalability}
 SecureWilly should be able to handle large increases in services and other workloads. 
 
 In order to evaluate scalability we perfomed a testing using media streaming benchmark with multiple clients.
 
-Figure 5.18 illustrates a line graph which shows the execution time of test plan per run for each test case. As it is expected, time has a steady increase as the amount of clients increase.
+Figure 5.18 illustrates a line graph which shows the execution time of test plan per run for each test case. As it is expected, time has a steady increase, accordingly with the augmentation of the amount of clients.
 
 \begin{figure}[h!]
   \centering
@@ -378,7 +377,7 @@ Figure 5.18 illustrates a line graph which shows the execution time of test plan
 
 However, as we previously described, the correct way to measure the performance per case is not time but runs.
 
-In figures 5.19, 5.20 and 5.21, the line graphs representing rules per run for each test case show that the amount of total runs executed is not affected at all by the increase in clients and neither does the threshold. Moreover, since clients are running the same docker run command, their lines follow exactly the same trend.
+In figures 5.19 and 5.20, the line graphs representing rules per run for the test cases of 4 and 8 clients (the figure about the 16 clients test case was left out, because the line graphs were identical) respectively, show that the amount of total runs executed is not affected at all by the increase in the amount of clients and neither does the threshold. Moreover, since clients are running the same docker run command, their lines follow exactly the same trend.
 
 Therefore, it has been proved that SecureWilly can handle large scale projects and its task is not affected in any way by them.
 
@@ -393,14 +392,8 @@ Therefore, it has been proved that SecureWilly can handle large scale projects a
    \includegraphics[width=0.68\linewidth]{./figures/scalability/rules_8_t.png}
    \caption{Media streaming with 8 clients}
 \end{figure}
-\hfill\break\hfill\break\hfill\break\hfill\break
-\begin{figure}[h!]
-  \centering
-   \includegraphics[width=0.68\linewidth]{./figures/scalability/rules_16_t.png}
-   \caption{Media streaming with 16 clients}
-\end{figure}
 
 \section{Summary}
-All in all, SecureWilly has proved through experimental evaluation that is functional and produces profiles which reach their initial goal, and scalable as well, meaning it can handle large increases in services. Furthemore, the performance is exactly as it is expected by its computational complexity and it depends on the performance of the test plan, as SecureWilly does not add any great delays.
+All in all, SecureWilly has proved through experimental evaluation that is functional and produces profiles which reach their fundamental goal, and scalable as well, meaning it can handle large increases in services. Furthemore, the performance is exactly as it is expected by its computational complexity and it depends on the performance of the test plan, as SecureWilly does not add any great delays.
 
-In order to perform these testings, SecureWilly used some demanding benchmarks of CloudSuite and also Nextcloud, which is a widely used real software, and the profiles produced could constitute a useful contribution to the community of Nextcloud.
+In order to perform these testings, SecureWilly used some demanding benchmarks of CloudSuite and also Nextcloud, which is a widely used real software, and the profiles produced by SecureWilly could constitute a useful contribution to the community of Nextcloud.

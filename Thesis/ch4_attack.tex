@@ -653,7 +653,7 @@ are required due to the use of nsenter which aims to enter host.
 Afterwards, the attacker inside the container will get into the attacking directory and commit the attack by executing a series of scripts. We divided the larger script of the attack into smaller pieces, each of which solves one part of the overall task:
 
 \begin{lstlisting}[style=dockercommands]
-# cd /home/ubuntu/Security-on-Docker/Attacks/Nsenter/Mount_hosts_filesystem
+# cd /home/ubuntu/SecureWilly/Attacks/Nsenter/Mount_hosts_filesystem
 # ./3_attack_to_host.sh
 # ./4_attack_to_container_part1_mount.sh
 # ./5_attack_to_container_part2_device.sh
@@ -1010,22 +1010,22 @@ Sharing the docker.sock is possible by running the container with one of the fol
 
 \begin{itemize}
 \item \begin{lstlisting}[style=dockercommands]
-$ docker run -v /var/run/docker.sock:/var/run/docker.sock …
+$ docker run -v /var/run/docker.sock:/var/run/docker.sock
 \end{lstlisting}
 Direct access to the docker socket
 
 \item \begin{lstlisting}[style=dockercommands]
-$ docker run -v /var/run:/var/run …
+$ docker run -v /var/run:/var/run
 \end{lstlisting}
 Access to /var/run directory
 
 \item \begin{lstlisting}[style=dockercommands]
-$ docker run -v /var:/var…
+$ docker run -v /var:/var
 \end{lstlisting}
 Access to /var directory
 
 \item \begin{lstlisting}[style=dockercommands]
-$ docker run -v /:/host …
+$ docker run -v /:/host
 \end{lstlisting}
 Access to root file system (where docker socket is located)
 \end{itemize}
