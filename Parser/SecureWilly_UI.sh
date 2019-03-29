@@ -435,7 +435,7 @@ done
 
 rm empty_file
 
-#~~~~~~~~~~~~Run Dynamic Parser~~~~~~~~~~~~~
+#~~~~~~~~~~~~~~~~Run Dynamic Parser~~~~~~~~~~~~~~~~~~~~~~
 sudo chmod +x dynamic_scripts/7_run.sh
 #Dynamic_parser
 ./dynamic_parser.sh
@@ -444,9 +444,103 @@ for service_i in "${array_noslash[@]}"; do
 	rm if_vol_${service_i}
 done
 
+#~~~~~~~~~~~~~~Alerts about vulnerabilities~~~~~~~~~~~~~~~~
+mkdir ${app_run_path}/parser_output/Alerts
+
+#~~~Disabling namespaces flags detected~~~
+echo "Alerting of disabling namespaces vulnerabilities that could lead to attacks." > ${app_run_path}/parser_output/Alerts/Namespaces
+echo "" >> ${app_run_path}/parser_output/Alerts/Namespaces
+
+#Network namespace
+awk '/--net=host/ {for(i=1;i<=NF;i++) {if($i ~ /--name/) print $(i+1)}}' dynamic_scripts/7_run.sh > network
+nethost=$(wc -l network | cut -d' ' -f1)
+if [[ "$nethost" != "0" ]]; then
+	python alert.py network "enters host's Network namespace."
+	awk '!seen[$0]++' alert_logs > alert_logs
+	cat alert_logs >> ${app_run_path}/parser_output/Alerts/Namespaces
+	rm alert_logs
+	echo "" >> ${app_run_path}/parser_output/Alerts/Namespaces
+fi
+rm network
+
+#Pid namespace
+awk '/--pid=host/ {for(i=1;i<=NF;i++) {if($i ~ /--name/) print $(i+1)}}' dynamic_scripts/7_run.sh > pid
+pidhost=$(wc -l pid | cut -d' ' -f1)
+if [[ "$pidhost" != "0" ]]; then
+        python alert.py pid "enters host's PID namespace."
+        awk '!seen[$0]++' alert_logs > alert_logs
+        cat alert_logs >> ${app_run_path}/parser_output/Alerts/Namespaces
+        rm alert_logs
+        echo "" >> ${app_run_path}/parser_output/Alerts/Namespaces
+fi
+rm pid
+
+#UTS namespace
+awk '/--uts=host/ {for(i=1;i<=NF;i++) {if($i ~ /--name/) print $(i+1)}}' dynamic_scripts/7_run.sh > uts
+utshost=$(wc -l uts | cut -d' ' -f1)
+if [[ "$utshost" != "0" ]]; then
+        python alert.py uts "enters host's UTS namespace."
+        awk '!seen[$0]++' alert_logs > alert_logs
+        cat alert_logs >> ${app_run_path}/parser_output/Alerts/Namespaces
+        rm alert_logs
+        echo "" >> ${app_run_path}/parser_output/Alerts/Namespaces
+fi
+rm uts
+
+#IPC namespace
+awk '/--ipc=host/ {for(i=1;i<=NF;i++) {if($i ~ /--name/) print $(i+1)}}' dynamic_scripts/7_run.sh > ipc
+ipchost=$(wc -l ipc | cut -d' ' -f1)
+if [[ "$ipchost" != "0" ]]; then
+        python alert.py ipc "enters host's IPC namespace."
+        awk '!seen[$0]++' alert_logs > alert_logs
+        cat alert_logs >> ${app_run_path}/parser_output/Alerts/Namespaces
+        rm alert_logs
+        echo "" >> ${app_run_path}/parser_output/Alerts/Namespaces
+fi
+rm ipc
+
+#User namespace
+awk '/--userns=host/ {for(i=1;i<=NF;i++) {if($i ~ /--name/) print $(i+1)}}' dynamic_scripts/7_run.sh > userns
+usrhost=$(wc -l userns | cut -d' ' -f1)
+if [[ "$usrhost" != "0" ]]; then
+        python alert.py userns "enters host's User namespace."
+        awk '!seen[$0]++' alert_logs > alert_logs
+        cat alert_logs >> ${app_run_path}/parser_output/Alerts/Namespaces
+        rm alert_logs
+        echo "" >> ${app_run_path}/parser_output/Alerts/Namespaces
+fi
+rm userns
+
+ns_file=$(wc -l ${app_run_path}/parser_output/Alerts/Namespaces | cut -d' ' -f1)
+if [[ "$ns_file" == "2" ]]; then
+#Then there were none disabling namespaces vulnerabilities detected so delete the file
+	rm ${app_run_path}/parser_output/Alerts/Namespaces
+fi
+
+#~~~Running in privileged mode~~~
+echo "Alerting of privileged mode vulnerability that could lead to attacks." > ${app_run_path}/parser_output/Alerts/Privileged
+echo "" >> ${app_run_path}/parser_output/Alerts/Privileged
+
+#Privileged mode
+awk '/--privileged/ {for(i=1;i<=NF;i++) {if($i ~ /--name/) print $(i+1)}}' dynamic_scripts/7_run.sh > privileged
+priv=$(wc -l privileged | cut -d' ' -f1)
+if [[ "$priv" != "0" ]]; then
+        python alert.py privileged "runs in privileged mode."
+        awk '!seen[$0]++' alert_logs > alert_logs
+        cat alert_logs >> ${app_run_path}/parser_output/Alerts/Privileged
+        rm alert_logs
+        echo "" >> ${app_run_path}/parser_output/Alerts/Privileged
+fi
+rm privileged
+
+
 #~~~~~~~~~~~~THE END~~~~~~~~~~~~~
 echo ""
-echo "--------------------------------------------------------------------------"
-echo "Profiles produced for all services are located in parser_output directory."
-echo "--------------------------------------------------------------------------"
+echo "----------------------------------------------------------------------------------------------"
+echo "Profiles produced for all services are located in parser_output directory, as service_profile."
+echo "----------------------------------------------------------------------------------------------"
+echo "Please take a look at the Alerts directory, for any logs produced because of vulnerabilities"
+echo "SecureWilly does not act on the particular vulnerabilities detected, but it is recommended"
+echo "you work your way around them, if possible, in order to avoid the possibility of attacks"
+echo "----------------------------------------------------------------------------------------------"
 echo ""
