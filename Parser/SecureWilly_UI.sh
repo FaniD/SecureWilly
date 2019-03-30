@@ -451,11 +451,26 @@ mkdir ${app_run_path}/parser_output/Alerts
 echo "Alerting of disabling namespaces vulnerabilities that could lead to attacks." > ${app_run_path}/parser_output/Alerts/Namespaces
 echo "" >> ${app_run_path}/parser_output/Alerts/Namespaces
 
-#Network namespace
-awk '/--net=host/ {for(i=1;i<=NF;i++) {if($i ~ /--name/) print $(i+1)}}' dynamic_scripts/7_run.sh > network
+#Network namespace in 7_run.sh
+awk '/ --net=host / {for(i=1;i<=NF;i++) {if($i ~ /--name/) print $(i+1)}}' dynamic_scripts/7_run.sh > network
+#Network namespace in yml file
+for service_i in "${array_noslash[@]}"; do
+	netmode=$(grep 'network_mode: "host"' ${app_run_path}/parser_output/${service_i}_yml | wc -l)
+	if [[ "$netmode" != "0" ]]; then
+		contname=$(grep 'container_name:' ${app_run_path}/parser_output/${service_i}_yml | wc -l)
+		if [[ "$contname" != "0" ]]; then
+			name=$(awk '/container_name:/ {for(i=1;i<=NF;i++) {if($i ~ /container_name:/) print $(i+1)}}' ${app_run_path}/parser_output/${service_i}_yml)
+			echo "Container ${name} enters host's Network namespace." >> yml_alert
+		elif
+			echo "Container ${service_i} enters host's Network namespace." >> yml_alert
+		fi
+	fi
+	
+done
 nethost=$(wc -l network | cut -d' ' -f1)
 if [[ "$nethost" != "0" ]]; then
 	python alert.py network "enters host's Network namespace."
+	cat yml_alert >> alert_logs
 	awk '!seen[$0]++' alert_logs > alert_logs
 	cat alert_logs >> ${app_run_path}/parser_output/Alerts/Namespaces
 	rm alert_logs
