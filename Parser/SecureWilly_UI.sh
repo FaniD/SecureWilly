@@ -448,29 +448,53 @@ done
 mkdir ${app_run_path}/parser_output/Alerts
 
 #~~~Disabling namespaces flags detected~~~
+#Search test plan for runtime flags
+#Search compose files for the existing options (network, pid, userns)
 echo "Alerting of disabling namespaces vulnerabilities that could lead to attacks." > ${app_run_path}/parser_output/Alerts/Namespaces
 echo "" >> ${app_run_path}/parser_output/Alerts/Namespaces
 
-#Network namespace in 7_run.sh
-awk '/ --net=host / {for(i=1;i<=NF;i++) {if($i ~ /--name/) print $(i+1)}}' dynamic_scripts/7_run.sh > network
-#Network namespace in yml file
+#yml file options
 for service_i in "${array_noslash[@]}"; do
-	netmode=$(grep 'network_mode: "host"' ${app_run_path}/parser_output/${service_i}_yml | wc -l)
-	if [[ "$netmode" != "0" ]]; then
-		contname=$(grep 'container_name:' ${app_run_path}/parser_output/${service_i}_yml | wc -l)
-		if [[ "$contname" != "0" ]]; then
-			name=$(awk '/container_name:/ {for(i=1;i<=NF;i++) {if($i ~ /container_name:/) print $(i+1)}}' ${app_run_path}/parser_output/${service_i}_yml)
-			echo "Container ${name} enters host's Network namespace." >> yml_alert
-		elif
-			echo "Container ${service_i} enters host's Network namespace." >> yml_alert
-		fi
+        netmode=$(grep 'network_mode: "host"' ${app_run_path}/parser_output/${service_i}_yml | wc -l)
+	pidmode=$(grep 'pid: "host"' ${app_run_path}/parser_output/${service_i}_yml | wc -l)
+	usrmode=$(grep 'userns_mode: "host"' ${app_run_path}/parser_output/${service_i}_yml | wc -l)
+
+	privilegedmode=$(grep 'privileged: true' ${app_run_path}/parser_output/${service_i}_yml | wc -l)
+
+	contname=$(grep 'container_name:' ${app_run_path}/parser_output/${service_i}_yml | wc -l)
+        if [[ "$contname" != "0" ]]; then
+        	name=$(awk '/container_name:/ {for(i=1;i<=NF;i++) {if($i ~ /container_name:/) print $(i+1)}}' ${app_run_path}/parser_output/${service_i}_yml)
+	elif
+		name=$(echo ${service_i})
 	fi
-	
+
+        if [[ "$netmode" != "0" ]]; then
+        	echo "Container ${name} enters host's Network namespace." >> yml_alert_net
+	fi
+
+        if [[ "$pidmode" != "0" ]]; then
+        	echo "Container ${name} enters host's Pid namespace." >> yml_alert_pid
+        fi
+
+        if [[ "$usrmode" != "0" ]]; then
+        	echo "Container ${name} enters host's User namespace." >> yml_alert_usr
+        fi
+
+	if [[ "$privilegedmode" != "0" ]]; then
+                echo "Container ${name} runs in privileged mode." >> yml_alert_priv
+        fi
+
 done
+
+#Flags in 7_run.sh
+
+#Network namespace
+awk '/ --net=host / {for(i=1;i<=NF;i++) {if($i ~ /--name/) print $(i+1)}}' dynamic_scripts/7_run.sh > network
 nethost=$(wc -l network | cut -d' ' -f1)
 if [[ "$nethost" != "0" ]]; then
 	python alert.py network "enters host's Network namespace."
-	cat yml_alert >> alert_logs
+	cat yml_alert_net >> alert_logs
+	rm yml_alert_net
 	awk '!seen[$0]++' alert_logs > alert_logs
 	cat alert_logs >> ${app_run_path}/parser_output/Alerts/Namespaces
 	rm alert_logs
@@ -483,6 +507,8 @@ awk '/--pid=host/ {for(i=1;i<=NF;i++) {if($i ~ /--name/) print $(i+1)}}' dynamic
 pidhost=$(wc -l pid | cut -d' ' -f1)
 if [[ "$pidhost" != "0" ]]; then
         python alert.py pid "enters host's PID namespace."
+        cat yml_alert_pid >> alert_logs
+        rm yml_alert_pid
         awk '!seen[$0]++' alert_logs > alert_logs
         cat alert_logs >> ${app_run_path}/parser_output/Alerts/Namespaces
         rm alert_logs
@@ -519,6 +545,8 @@ awk '/--userns=host/ {for(i=1;i<=NF;i++) {if($i ~ /--name/) print $(i+1)}}' dyna
 usrhost=$(wc -l userns | cut -d' ' -f1)
 if [[ "$usrhost" != "0" ]]; then
         python alert.py userns "enters host's User namespace."
+        cat yml_alert_usr >> alert_logs
+        rm yml_alert_usr
         awk '!seen[$0]++' alert_logs > alert_logs
         cat alert_logs >> ${app_run_path}/parser_output/Alerts/Namespaces
         rm alert_logs
@@ -541,6 +569,8 @@ awk '/--privileged/ {for(i=1;i<=NF;i++) {if($i ~ /--name/) print $(i+1)}}' dynam
 priv=$(wc -l privileged | cut -d' ' -f1)
 if [[ "$priv" != "0" ]]; then
         python alert.py privileged "runs in privileged mode."
+        cat yml_alert_priv >> alert_logs
+        rm yml_alert_priv
         awk '!seen[$0]++' alert_logs > alert_logs
         cat alert_logs >> ${app_run_path}/parser_output/Alerts/Privileged
         rm alert_logs
@@ -548,6 +578,11 @@ if [[ "$priv" != "0" ]]; then
 fi
 rm privileged
 
+priv_file=$(wc -l ${app_run_path}/parser_output/Alerts/Privileged | cut -d' ' -f1)
+if [[ "$priv_file" == "2" ]]; then
+#Then there were none disabling namespaces vulnerabilities detected so delete the file
+        rm ${app_run_path}/parser_output/Alerts/Privileged
+fi
 
 #~~~~~~~~~~~~THE END~~~~~~~~~~~~~
 echo ""
