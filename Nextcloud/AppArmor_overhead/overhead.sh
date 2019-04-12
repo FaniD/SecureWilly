@@ -4,6 +4,9 @@
 time (./test_plan.sh) 2> unconfined
 cat unconfined >> time_nc
 
+#Clear network, images, volume
+clear_docker.sh
+
 #Count time while running Nextcloud services with SecureWilly's profiles enabled
 
 #Load the profiles into kernel
