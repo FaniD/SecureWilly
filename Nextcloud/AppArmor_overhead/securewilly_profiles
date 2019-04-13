@@ -1,5 +1,0 @@
-[33mWARNING:[0m Dependency conflict: an older version of the 'docker-py' package may be polluting the namespace. If you're experiencing crashes, run the following command to remedy the issue:
-pip uninstall docker-py; pip uninstall docker; pip install docker
-Recreating db ... 
-[1A[2KRecreating db ... [32mdone[0m[1BRecreating nextcloud ... 
-[1A[2KRecreating nextcloud ... [32mdone[0m[1B

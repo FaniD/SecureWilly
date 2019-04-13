@@ -1,11 +1,0 @@
-[33mWARNING:[0m Dependency conflict: an older version of the 'docker-py' package may be polluting the namespace. If you're experiencing crashes, run the following command to remedy the issue:
-pip uninstall docker-py; pip uninstall docker; pip install docker
-Creating network "apparmoroverhead_default" with the default driver
-Creating volume "apparmoroverhead_db_" with default driver
-Creating volume "apparmoroverhead_nextcloud_" with default driver
-Creating db ... 
-[2A[2KCreating db ... [32mdone[0m[2BCreating nextcloud ... 
-[2A[2KCreating nextcloud ... [32mdone[0m[2B
-real	1m35.906s
-user	0m1.001s
-sys	0m0.236s
