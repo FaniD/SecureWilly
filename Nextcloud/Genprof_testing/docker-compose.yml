@@ -26,7 +26,7 @@ services:
                 - db
         volumes:
                 - nextcloud_:/var/www/html
-                - /home/ubuntu/SecureWilly/Nextcloud/data:/var/www/html/data
+                - /home/fani/SecureWilly/Nextcloud/Genprof_testing/data:/var/www/html/data
         environment:
                 - NEXTCLOUD_ADMIN_USER=willy
                 - NEXTCLOUD_ADMIN_PASSWORD=secret

@@ -1,8 +1,8 @@
 #!/bin/bash
 
-sudo rm -r /home/ubuntu/SecureWilly/Nextcloud/data
-sudo mkdir /home/ubuntu/SecureWilly/Nextcloud/data
-sudo chown www-data:www-data /home/ubuntu/SecureWilly/Nextcloud/data
+sudo rm -r /home/fani/SecureWilly/Nextcloud/Genprof_testing/data
+sudo mkdir /home/fani/SecureWilly/Nextcloud/Genprof_testing/data
+sudo chown www-data:www-data /home/fani/SecureWilly/Nextcloud/Genprof_testing/data
 
 docker-compose up -d
 sleep 60
@@ -19,7 +19,7 @@ rm answer
 docker exec -u www-data nextcloud php occ maintenance:install --database "mysql" --database-name "nextcloud_" --database-host "db" --database-user "willy" --database-pass "secret" --admin-user "willy" --admin-pass "secret"
 
 #Create a file in local data directory
-sudo touch /home/ubuntu/SecureWilly/Nextcloud/data/willy/files/HelloFromTheOtherSide
+sudo touch /home/fani/SecureWilly/Nextcloud/Genprof_testing/data/willy/files/HelloFromTheOtherSide
 
 #Use occ files:scan to make it visible to the web interface
 docker exec -u www-data nextcloud php occ files:scan --all
