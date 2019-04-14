@@ -1,0 +1,16 @@
+[71015.794256] docker0: port 1(veth4bb58ac) entered blocking state
+[71015.794257] docker0: port 1(veth4bb58ac) entered disabled state
+[71015.794305] device veth4bb58ac entered promiscuous mode
+[71015.794342] IPv6: ADDRCONF(NETDEV_UP): veth4bb58ac: link is not ready
+[71015.794343] docker0: port 1(veth4bb58ac) entered blocking state
+[71015.794343] docker0: port 1(veth4bb58ac) entered forwarding state
+[71015.794608] docker0: port 1(veth4bb58ac) entered disabled state
+[71015.983808] eth0: renamed from veth85515d5
+[71016.007768] IPv6: ADDRCONF(NETDEV_CHANGE): veth4bb58ac: link becomes ready
+[71016.007788] docker0: port 1(veth4bb58ac) entered blocking state
+[71016.007788] docker0: port 1(veth4bb58ac) entered forwarding state
+[71016.285927] docker0: port 1(veth4bb58ac) entered disabled state
+[71016.285967] veth85515d5: renamed from eth0
+[71016.349453] docker0: port 1(veth4bb58ac) entered disabled state
+[71016.350053] device veth4bb58ac left promiscuous mode
+[71016.350054] docker0: port 1(veth4bb58ac) entered disabled state

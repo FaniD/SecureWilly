@@ -1,0 +1,4 @@
+Alerting of disabling namespaces vulnerabilities that could lead to attacks.
+
+Container demo enters host's PID namespace.
+

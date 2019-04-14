@@ -1,0 +1,16 @@
+Apr 14 21:01:12 debian kernel: [71017.078807] docker0: port 1(veth0307170) entered blocking state
+Apr 14 21:01:12 debian kernel: [71017.078808] docker0: port 1(veth0307170) entered disabled state
+Apr 14 21:01:12 debian kernel: [71017.078855] device veth0307170 entered promiscuous mode
+Apr 14 21:01:12 debian kernel: [71017.078904] IPv6: ADDRCONF(NETDEV_UP): veth0307170: link is not ready
+Apr 14 21:01:12 debian kernel: [71017.078905] docker0: port 1(veth0307170) entered blocking state
+Apr 14 21:01:12 debian kernel: [71017.078906] docker0: port 1(veth0307170) entered forwarding state
+Apr 14 21:01:12 debian kernel: [71017.079231] docker0: port 1(veth0307170) entered disabled state
+Apr 14 21:01:12 debian kernel: [71017.263893] eth0: renamed from veth9392631
+Apr 14 21:01:12 debian kernel: [71017.279729] IPv6: ADDRCONF(NETDEV_CHANGE): veth0307170: link becomes ready
+Apr 14 21:01:12 debian kernel: [71017.279767] docker0: port 1(veth0307170) entered blocking state
+Apr 14 21:01:12 debian kernel: [71017.279768] docker0: port 1(veth0307170) entered forwarding state
+Apr 14 21:01:12 debian kernel: [71017.573034] docker0: port 1(veth0307170) entered disabled state
+Apr 14 21:01:12 debian kernel: [71017.573089] veth9392631: renamed from eth0
+Apr 14 21:01:12 debian kernel: [71017.638511] docker0: port 1(veth0307170) entered disabled state
+Apr 14 21:01:12 debian kernel: [71017.639105] device veth0307170 left promiscuous mode
+Apr 14 21:01:12 debian kernel: [71017.639105] docker0: port 1(veth0307170) entered disabled state

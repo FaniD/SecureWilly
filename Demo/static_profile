@@ -1,0 +1,8 @@
+#include <tunables/global>
+
+profile static_profile flags=(attach_disconnected,mediate_deleted) {
+
+	network,  #Grain access to networking - ports forwarding
+	file,  #This rule is needed so that I can work with files (create files/directories, copy, etc)
+	/var/lib/docker/* r,
+}
