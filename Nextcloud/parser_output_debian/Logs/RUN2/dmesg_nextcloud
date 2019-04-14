@@ -1,0 +1,5 @@
+[14072.536361] audit: type=1400 audit(1555207926.525:156): apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=22765 comm="rsync" capability=3  capname="fowner"
+[14072.537060] audit: type=1400 audit(1555207926.525:157): apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=22765 comm="rsync" capability=3  capname="fowner"
+[14073.726224] audit: type=1400 audit(1555207927.717:158): apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=22789 comm="rsync" capability=3  capname="fowner"
+[14073.809195] audit: type=1400 audit(1555207927.801:159): apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=22813 comm="apache2" capability=6  capname="setgid"
+[14073.809296] audit: type=1400 audit(1555207927.801:160): apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=22813 comm="apache2" capability=7  capname="setuid"

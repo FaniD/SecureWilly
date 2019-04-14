@@ -464,7 +464,7 @@ for service_i in "${array_noslash[@]}"; do
 	contname=$(grep 'container_name:' ${app_run_path}/parser_output/${service_i}_yml | wc -l)
         if [[ "$contname" != "0" ]]; then
         	name=$(awk '/container_name:/ {for(i=1;i<=NF;i++) {if($i ~ /container_name:/) print $(i+1)}}' ${app_run_path}/parser_output/${service_i}_yml)
-	elif
+	else
 		name=$(echo ${service_i})
 	fi
 

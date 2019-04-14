@@ -1,0 +1,4 @@
+[13995.251073] audit: type=1400 audit(1555207849.239:144): apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=21445 comm="rsync" capability=0  capname="chown"
+[13995.251123] audit: type=1400 audit(1555207849.239:145): apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=21446 comm="rsync" capability=0  capname="chown"
+[13995.280046] audit: type=1400 audit(1555207849.267:146): apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=21445 comm="rsync" capability=1  capname="dac_override"
+[13995.570806] audit: type=1400 audit(1555207849.555:147): apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=21446 comm="rsync" capability=0  capname="chown"
