@@ -496,8 +496,11 @@ awk '/ --net=host / {for(i=1;i<=NF;i++) {if($i ~ /--name/) print $(i+1)}}' dynam
 nethost=$(wc -l network | cut -d' ' -f1)
 if [[ "$nethost" != "0" ]]; then
 	python alert.py network "enters host's Network namespace."
-	cat yml_alert_net >> alert_logs
-	rm yml_alert_net
+	if [ -e yml_alert_net ]
+	then
+		cat yml_alert_net >> alert_logs
+		rm yml_alert_net
+	fi
 	awk '!seen[$0]++' alert_logs > alert_logs_
 	cat alert_logs >> ${app_run_path}/parser_output/Alerts/Namespaces
 	rm alert_logs
@@ -509,11 +512,13 @@ rm network
 awk '/--pid=host/ {for(i=1;i<=NF;i++) {if($i ~ /--name/) print $(i+1)}}' dynamic_scripts/7_run.sh > pid
 pidhost=$(wc -l pid | cut -d' ' -f1)
 if [[ "$pidhost" != "0" ]]; then
-	echo "mpainei"
         python alert.py pid "enters host's PID namespace."
-        cat yml_alert_pid >> alert_logs
-        rm yml_alert_pid
-        awk '!seen[$0]++' alert_logs > alert_logs_
+	if [ -e yml_alert_pid ]
+        then
+        	cat yml_alert_pid >> alert_logs
+        	rm yml_alert_pid
+	fi
+	awk '!seen[$0]++' alert_logs > alert_logs_
         cat alert_logs_ >> ${app_run_path}/parser_output/Alerts/Namespaces
 	rm alert_logs
         echo "" >> ${app_run_path}/parser_output/Alerts/Namespaces
@@ -549,8 +554,11 @@ awk '/--userns=host/ {for(i=1;i<=NF;i++) {if($i ~ /--name/) print $(i+1)}}' dyna
 usrhost=$(wc -l userns | cut -d' ' -f1)
 if [[ "$usrhost" != "0" ]]; then
         python alert.py userns "enters host's User namespace."
-        cat yml_alert_usr >> alert_logs
-        rm yml_alert_usr
+	if [ -e yml_alert_usr ]
+        then
+        	cat yml_alert_usr >> alert_logs
+        	rm yml_alert_usr
+	fi
         awk '!seen[$0]++' alert_logs > alert_logs_
         cat alert_logs_ >> ${app_run_path}/parser_output/Alerts/Namespaces
         rm alert_logs
@@ -573,8 +581,11 @@ awk '/--privileged/ {for(i=1;i<=NF;i++) {if($i ~ /--name/) print $(i+1)}}' dynam
 priv=$(wc -l privileged | cut -d' ' -f1)
 if [[ "$priv" != "0" ]]; then
         python alert.py privileged "runs in privileged mode."
-        cat yml_alert_priv >> alert_logs
-        rm yml_alert_priv
+        if [ -e yml_alert_priv ]
+        then
+		cat yml_alert_priv >> alert_logs
+        	rm yml_alert_priv
+	fi
         awk '!seen[$0]++' alert_logs > alert_logs_
         cat alert_logs_ >> ${app_run_path}/parser_output/Alerts/Privileged
         rm alert_logs

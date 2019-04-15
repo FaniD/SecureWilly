@@ -1,0 +1,4 @@
+Alerting of privileged mode vulnerability that could lead to attacks.
+
+Container demo runs in privileged mode.
+

@@ -1,8 +1,9 @@
 #include <tunables/global>
 
 profile demo_profile flags=(attach_disconnected,mediate_deleted) {
-	network tcp,  #Allowing networking with ports forwarding
 	file,  #Allows access to containers filesystem
 	/var/lib/docker/* r, #Access to layers of filesystem
+	signal (receive) set=(kill) peer=unconfined,
 	deny ptrace (readby, tracedby), #Confront container breakout attacks
+	network tcp,  #Allowing networking with ports forwarding
 }

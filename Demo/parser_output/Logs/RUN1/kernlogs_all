@@ -1,16 +1,2 @@
-Apr 14 21:01:11 debian kernel: [71015.794256] docker0: port 1(veth4bb58ac) entered blocking state
-Apr 14 21:01:11 debian kernel: [71015.794257] docker0: port 1(veth4bb58ac) entered disabled state
-Apr 14 21:01:11 debian kernel: [71015.794305] device veth4bb58ac entered promiscuous mode
-Apr 14 21:01:11 debian kernel: [71015.794342] IPv6: ADDRCONF(NETDEV_UP): veth4bb58ac: link is not ready
-Apr 14 21:01:11 debian kernel: [71015.794343] docker0: port 1(veth4bb58ac) entered blocking state
-Apr 14 21:01:11 debian kernel: [71015.794343] docker0: port 1(veth4bb58ac) entered forwarding state
-Apr 14 21:01:11 debian kernel: [71015.794608] docker0: port 1(veth4bb58ac) entered disabled state
-Apr 14 21:01:11 debian kernel: [71015.983808] eth0: renamed from veth85515d5
-Apr 14 21:01:11 debian kernel: [71016.007768] IPv6: ADDRCONF(NETDEV_CHANGE): veth4bb58ac: link becomes ready
-Apr 14 21:01:11 debian kernel: [71016.007788] docker0: port 1(veth4bb58ac) entered blocking state
-Apr 14 21:01:11 debian kernel: [71016.007788] docker0: port 1(veth4bb58ac) entered forwarding state
-Apr 14 21:01:11 debian kernel: [71016.285927] docker0: port 1(veth4bb58ac) entered disabled state
-Apr 14 21:01:11 debian kernel: [71016.285967] veth85515d5: renamed from eth0
-Apr 14 21:01:11 debian kernel: [71016.349453] docker0: port 1(veth4bb58ac) entered disabled state
-Apr 14 21:01:11 debian kernel: [71016.350053] device veth4bb58ac left promiscuous mode
-Apr 14 21:01:11 debian kernel: [71016.350054] docker0: port 1(veth4bb58ac) entered disabled state
+Apr 15 18:20:29 ubuntu kernel: [74810.467360] audit: type=1400 audit(1555352429.424:397762): apparmor="ALLOWED" operation="signal" profile="demo_profile" pid=18175 comm="runc" requested_mask="receive" denied_mask="receive" signal=kill peer="unconfined"
+Apr 15 18:20:29 ubuntu kernel: [74810.481788] audit: type=1400 audit(1555352429.440:397763): apparmor="ALLOWED" operation="signal" profile="demo_profile" pid=18180 comm="runc" requested_mask="receive" denied_mask="receive" signal=kill peer="unconfined"

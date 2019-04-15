@@ -3,6 +3,7 @@
 profile demo_profile flags=(attach_disconnected,mediate_deleted) {
 	file,  #Allows access to containers filesystem
 	/var/lib/docker/* r, #Access to layers of filesystem
-	deny ptrace (readby, tracedby), #Confront container breakout attacks
+	signal (receive) set=(kill) peer=unconfined,
 	network tcp,  #Allowing networking with ports forwarding
+	deny ptrace (readby, tracedby), #Confront container breakout attacks
 }
