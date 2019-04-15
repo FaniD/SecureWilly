@@ -1,0 +1,7 @@
+#Capability\n
+fowner
+#Network\n
+#File
+requested_mask 
+#Signal
+receive kill unconfined

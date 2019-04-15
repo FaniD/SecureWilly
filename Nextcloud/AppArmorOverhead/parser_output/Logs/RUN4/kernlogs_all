@@ -1,0 +1,41 @@
+Apr 15 14:22:24 ubuntu kernel: [60526.343412] br-49c0352a16b2: port 1(veth7d42a79) entered blocking state
+Apr 15 14:22:24 ubuntu kernel: [60526.343414] br-49c0352a16b2: port 1(veth7d42a79) entered disabled state
+Apr 15 14:22:24 ubuntu kernel: [60526.343451] device veth7d42a79 entered promiscuous mode
+Apr 15 14:22:24 ubuntu kernel: [60526.343520] IPv6: ADDRCONF(NETDEV_UP): veth7d42a79: link is not ready
+Apr 15 14:22:25 ubuntu kernel: [60526.551897] eth0: renamed from vetheda6703
+Apr 15 14:22:25 ubuntu kernel: [60526.571475] IPv6: ADDRCONF(NETDEV_CHANGE): veth7d42a79: link becomes ready
+Apr 15 14:22:25 ubuntu kernel: [60526.571502] br-49c0352a16b2: port 1(veth7d42a79) entered blocking state
+Apr 15 14:22:25 ubuntu kernel: [60526.571503] br-49c0352a16b2: port 1(veth7d42a79) entered forwarding state
+Apr 15 14:22:25 ubuntu kernel: [60526.973682] br-49c0352a16b2: port 2(veth322b622) entered blocking state
+Apr 15 14:22:25 ubuntu kernel: [60526.973684] br-49c0352a16b2: port 2(veth322b622) entered disabled state
+Apr 15 14:22:25 ubuntu kernel: [60526.973760] device veth322b622 entered promiscuous mode
+Apr 15 14:22:25 ubuntu kernel: [60526.973917] IPv6: ADDRCONF(NETDEV_UP): veth322b622: link is not ready
+Apr 15 14:22:25 ubuntu kernel: [60526.973920] br-49c0352a16b2: port 2(veth322b622) entered blocking state
+Apr 15 14:22:25 ubuntu kernel: [60526.973922] br-49c0352a16b2: port 2(veth322b622) entered forwarding state
+Apr 15 14:22:25 ubuntu kernel: [60527.272434] eth0: renamed from vetha832eaf
+Apr 15 14:22:25 ubuntu kernel: [60527.343390] IPv6: ADDRCONF(NETDEV_CHANGE): veth322b622: link becomes ready
+Apr 15 14:22:27 ubuntu kernel: [60528.725108] audit: type=1400 audit(1555338147.341:397623): apparmor="ALLOWED" operation="signal" profile="nextcloud_profile" pid=31801 comm="rsync" requested_mask="send" denied_mask="send" signal=usr2 peer="nextcloud_profile"
+Apr 15 14:22:27 ubuntu kernel: [60528.725111] audit: type=1400 audit(1555338147.341:397624): apparmor="ALLOWED" operation="signal" profile="nextcloud_profile" pid=31801 comm="rsync" requested_mask="receive" denied_mask="receive" signal=usr2 peer="nextcloud_profile"
+Apr 15 14:22:27 ubuntu kernel: [60528.728542] audit: type=1400 audit(1555338147.345:397625): apparmor="ALLOWED" operation="signal" profile="nextcloud_profile" pid=31808 comm="rsync" requested_mask="send" denied_mask="send" signal=usr2 peer="nextcloud_profile"
+Apr 15 14:22:27 ubuntu kernel: [60528.728544] audit: type=1400 audit(1555338147.345:397626): apparmor="ALLOWED" operation="signal" profile="nextcloud_profile" pid=31808 comm="rsync" requested_mask="receive" denied_mask="receive" signal=usr2 peer="nextcloud_profile"
+Apr 15 14:22:27 ubuntu kernel: [60528.773759] kauditd_printk_skb: 14 callbacks suppressed
+Apr 15 14:22:27 ubuntu kernel: [60528.773760] audit: type=1400 audit(1555338147.389:397641): apparmor="ALLOWED" operation="create" profile="nextcloud_profile" pid=31634 comm="apache2" family="inet6" sock_type="stream" protocol=0 requested_mask="create" denied_mask="create"
+Apr 15 14:22:27 ubuntu kernel: [60528.773880] audit: type=1400 audit(1555338147.389:397642): apparmor="ALLOWED" operation="setsockopt" profile="nextcloud_profile" pid=31634 comm="apache2" family="inet6" sock_type="stream" protocol=6 requested_mask="setopt" denied_mask="setopt"
+Apr 15 14:22:27 ubuntu kernel: [60528.774371] audit: type=1400 audit(1555338147.389:397643): apparmor="ALLOWED" operation="create" profile="nextcloud_profile" pid=31634 comm="apache2" family="netlink" sock_type="raw" protocol=0 requested_mask="create" denied_mask="create"
+Apr 15 14:22:27 ubuntu kernel: [60528.774373] audit: type=1400 audit(1555338147.389:397644): apparmor="ALLOWED" operation="bind" profile="nextcloud_profile" pid=31634 comm="apache2" family="netlink" sock_type="raw" protocol=0 requested_mask="bind" denied_mask="bind"
+Apr 15 14:22:27 ubuntu kernel: [60528.774374] audit: type=1400 audit(1555338147.389:397645): apparmor="ALLOWED" operation="getsockname" profile="nextcloud_profile" pid=31634 comm="apache2" family="netlink" sock_type="raw" protocol=0 requested_mask="getattr" denied_mask="getattr"
+Apr 15 14:22:27 ubuntu kernel: [60528.774376] audit: type=1400 audit(1555338147.389:397646): apparmor="ALLOWED" operation="sendmsg" profile="nextcloud_profile" pid=31634 comm="apache2" family="netlink" sock_type="raw" protocol=0 requested_mask="send" denied_mask="send"
+Apr 15 14:22:27 ubuntu kernel: [60528.774584] audit: type=1400 audit(1555338147.389:397647): apparmor="ALLOWED" operation="recvmsg" profile="nextcloud_profile" pid=31634 comm="apache2" family="netlink" sock_type="raw" protocol=0 requested_mask="receive" denied_mask="receive"
+Apr 15 14:22:27 ubuntu kernel: [60528.774586] audit: type=1400 audit(1555338147.389:397648): apparmor="ALLOWED" operation="recvmsg" profile="nextcloud_profile" pid=31634 comm="apache2" family="netlink" sock_type="raw" protocol=0 requested_mask="receive" denied_mask="receive"
+Apr 15 14:22:27 ubuntu kernel: [60528.774588] audit: type=1400 audit(1555338147.389:397649): apparmor="ALLOWED" operation="create" profile="nextcloud_profile" pid=31634 comm="apache2" family="netlink" sock_type="raw" protocol=0 requested_mask="create" denied_mask="create"
+Apr 15 14:22:27 ubuntu kernel: [60528.774589] audit: type=1400 audit(1555338147.389:397650): apparmor="ALLOWED" operation="bind" profile="nextcloud_profile" pid=31634 comm="apache2" family="netlink" sock_type="raw" protocol=0 requested_mask="bind" denied_mask="bind"
+Apr 15 14:23:34 ubuntu kernel: [60596.022425] br-49c0352a16b2: port 2(veth322b622) entered disabled state
+Apr 15 14:23:34 ubuntu kernel: [60596.022843] vetha832eaf: renamed from eth0
+Apr 15 14:23:34 ubuntu kernel: [60596.107080] br-49c0352a16b2: port 2(veth322b622) entered disabled state
+Apr 15 14:23:34 ubuntu kernel: [60596.108770] device veth322b622 left promiscuous mode
+Apr 15 14:23:34 ubuntu kernel: [60596.108773] br-49c0352a16b2: port 2(veth322b622) entered disabled state
+Apr 15 14:23:35 ubuntu kernel: [60596.480239] br-49c0352a16b2: port 1(veth7d42a79) entered disabled state
+Apr 15 14:23:35 ubuntu kernel: [60596.480276] vetheda6703: renamed from eth0
+Apr 15 14:23:35 ubuntu kernel: [60596.548821] br-49c0352a16b2: port 1(veth7d42a79) entered disabled state
+Apr 15 14:23:35 ubuntu kernel: [60596.550266] device veth7d42a79 left promiscuous mode
+Apr 15 14:23:35 ubuntu kernel: [60596.550269] br-49c0352a16b2: port 1(veth7d42a79) entered disabled state

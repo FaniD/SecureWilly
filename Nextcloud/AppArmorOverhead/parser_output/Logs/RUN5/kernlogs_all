@@ -1,0 +1,31 @@
+Apr 15 14:23:37 ubuntu kernel: [60598.544678] br-49c0352a16b2: port 1(veth99e100b) entered blocking state
+Apr 15 14:23:37 ubuntu kernel: [60598.544680] br-49c0352a16b2: port 1(veth99e100b) entered disabled state
+Apr 15 14:23:37 ubuntu kernel: [60598.544724] device veth99e100b entered promiscuous mode
+Apr 15 14:23:37 ubuntu kernel: [60598.544775] IPv6: ADDRCONF(NETDEV_UP): veth99e100b: link is not ready
+Apr 15 14:23:37 ubuntu kernel: [60598.773876] eth0: renamed from vethb1e9d37
+Apr 15 14:23:37 ubuntu kernel: [60598.797604] IPv6: ADDRCONF(NETDEV_CHANGE): veth99e100b: link becomes ready
+Apr 15 14:23:37 ubuntu kernel: [60598.797629] br-49c0352a16b2: port 1(veth99e100b) entered blocking state
+Apr 15 14:23:37 ubuntu kernel: [60598.797630] br-49c0352a16b2: port 1(veth99e100b) entered forwarding state
+Apr 15 14:23:37 ubuntu kernel: [60599.099623] br-49c0352a16b2: port 2(veth0aab199) entered blocking state
+Apr 15 14:23:37 ubuntu kernel: [60599.099624] br-49c0352a16b2: port 2(veth0aab199) entered disabled state
+Apr 15 14:23:37 ubuntu kernel: [60599.099689] device veth0aab199 entered promiscuous mode
+Apr 15 14:23:37 ubuntu kernel: [60599.100879] IPv6: ADDRCONF(NETDEV_UP): veth0aab199: link is not ready
+Apr 15 14:23:37 ubuntu kernel: [60599.100883] br-49c0352a16b2: port 2(veth0aab199) entered blocking state
+Apr 15 14:23:37 ubuntu kernel: [60599.100884] br-49c0352a16b2: port 2(veth0aab199) entered forwarding state
+Apr 15 14:23:38 ubuntu kernel: [60599.410595] eth0: renamed from veth74299b6
+Apr 15 14:23:38 ubuntu kernel: [60599.433507] IPv6: ADDRCONF(NETDEV_CHANGE): veth0aab199: link becomes ready
+Apr 15 14:23:39 ubuntu kernel: [60600.938248] audit: type=1400 audit(1555338219.559:397688): apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=768 comm="apache2" capability=6  capname="setgid"
+Apr 15 14:23:39 ubuntu kernel: [60600.938669] audit: type=1400 audit(1555338219.559:397689): apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=769 comm="apache2" capability=6  capname="setgid"
+Apr 15 14:23:39 ubuntu kernel: [60600.939004] audit: type=1400 audit(1555338219.559:397690): apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=771 comm="apache2" capability=6  capname="setgid"
+Apr 15 14:23:39 ubuntu kernel: [60600.939445] audit: type=1400 audit(1555338219.559:397691): apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=772 comm="apache2" capability=6  capname="setgid"
+Apr 15 14:23:39 ubuntu kernel: [60600.939822] audit: type=1400 audit(1555338219.559:397692): apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=773 comm="apache2" capability=6  capname="setgid"
+Apr 15 14:24:46 ubuntu kernel: [60668.057343] veth74299b6: renamed from eth0
+Apr 15 14:24:46 ubuntu kernel: [60668.083651] br-49c0352a16b2: port 2(veth0aab199) entered disabled state
+Apr 15 14:24:46 ubuntu kernel: [60668.122557] br-49c0352a16b2: port 2(veth0aab199) entered disabled state
+Apr 15 14:24:46 ubuntu kernel: [60668.123852] device veth0aab199 left promiscuous mode
+Apr 15 14:24:46 ubuntu kernel: [60668.123855] br-49c0352a16b2: port 2(veth0aab199) entered disabled state
+Apr 15 14:24:47 ubuntu kernel: [60668.474479] br-49c0352a16b2: port 1(veth99e100b) entered disabled state
+Apr 15 14:24:47 ubuntu kernel: [60668.474535] vethb1e9d37: renamed from eth0
+Apr 15 14:24:47 ubuntu kernel: [60668.534251] br-49c0352a16b2: port 1(veth99e100b) entered disabled state
+Apr 15 14:24:47 ubuntu kernel: [60668.535522] device veth99e100b left promiscuous mode
+Apr 15 14:24:47 ubuntu kernel: [60668.535525] br-49c0352a16b2: port 1(veth99e100b) entered disabled state

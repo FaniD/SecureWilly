@@ -1,0 +1,73 @@
+Apr 15 14:18:47 ubuntu kernel: [60308.642718] IPv6: ADDRCONF(NETDEV_UP): br-49c0352a16b2: link is not ready
+Apr 15 14:18:47 ubuntu kernel: [60308.796255] br-49c0352a16b2: port 1(veth66b38c2) entered blocking state
+Apr 15 14:18:47 ubuntu kernel: [60308.796257] br-49c0352a16b2: port 1(veth66b38c2) entered disabled state
+Apr 15 14:18:47 ubuntu kernel: [60308.796292] device veth66b38c2 entered promiscuous mode
+Apr 15 14:18:47 ubuntu kernel: [60308.796346] IPv6: ADDRCONF(NETDEV_UP): veth66b38c2: link is not ready
+Apr 15 14:18:47 ubuntu kernel: [60308.796362] br-49c0352a16b2: port 1(veth66b38c2) entered blocking state
+Apr 15 14:18:47 ubuntu kernel: [60308.796364] br-49c0352a16b2: port 1(veth66b38c2) entered forwarding state
+Apr 15 14:18:47 ubuntu kernel: [60308.796789] br-49c0352a16b2: port 1(veth66b38c2) entered disabled state
+Apr 15 14:18:47 ubuntu kernel: [60309.029080] eth0: renamed from vethee7df35
+Apr 15 14:18:47 ubuntu kernel: [60309.044624] IPv6: ADDRCONF(NETDEV_CHANGE): veth66b38c2: link becomes ready
+Apr 15 14:18:47 ubuntu kernel: [60309.044649] br-49c0352a16b2: port 1(veth66b38c2) entered blocking state
+Apr 15 14:18:47 ubuntu kernel: [60309.044651] br-49c0352a16b2: port 1(veth66b38c2) entered forwarding state
+Apr 15 14:18:47 ubuntu kernel: [60309.044674] IPv6: ADDRCONF(NETDEV_CHANGE): br-49c0352a16b2: link becomes ready
+Apr 15 14:18:47 ubuntu kernel: [60309.190346] audit: type=1400 audit(1555337927.804:328060): apparmor="ALLOWED" operation="create" profile="db_profile" pid=27306 comm="docker-entrypoi" family="unix" sock_type="stream" protocol=0 requested_mask="create" denied_mask="create" addr=none
+Apr 15 14:18:47 ubuntu kernel: [60309.190371] audit: type=1400 audit(1555337927.804:328061): apparmor="ALLOWED" operation="create" profile="db_profile" pid=27306 comm="docker-entrypoi" family="unix" sock_type="stream" protocol=0 requested_mask="create" denied_mask="create" addr=none
+Apr 15 14:18:47 ubuntu kernel: [60309.305560] audit: type=1400 audit(1555337927.920:328062): apparmor="ALLOWED" operation="capable" profile="db_profile" pid=27393 comm="mysqld" capability=1  capname="dac_override"
+Apr 15 14:18:47 ubuntu kernel: [60309.305678] audit: type=1400 audit(1555337927.920:328063): apparmor="ALLOWED" operation="create" profile="db_profile" pid=27393 comm="mysqld" family="inet" sock_type="dgram" protocol=0 requested_mask="create" denied_mask="create"
+Apr 15 14:18:48 ubuntu kernel: [60309.421902] br-49c0352a16b2: port 2(vethd946609) entered blocking state
+Apr 15 14:18:48 ubuntu kernel: [60309.421903] br-49c0352a16b2: port 2(vethd946609) entered disabled state
+Apr 15 14:18:48 ubuntu kernel: [60309.421936] device vethd946609 entered promiscuous mode
+Apr 15 14:18:48 ubuntu kernel: [60309.421973] IPv6: ADDRCONF(NETDEV_UP): vethd946609: link is not ready
+Apr 15 14:18:48 ubuntu kernel: [60309.421978] br-49c0352a16b2: port 2(vethd946609) entered blocking state
+Apr 15 14:18:48 ubuntu kernel: [60309.421979] br-49c0352a16b2: port 2(vethd946609) entered forwarding state
+Apr 15 14:18:48 ubuntu kernel: [60309.426062] audit: type=1400 audit(1555337928.040:328064): apparmor="ALLOWED" operation="create" profile="db_profile" pid=27400 comm="mysqld" family="inet" sock_type="dgram" protocol=0 requested_mask="create" denied_mask="create"
+Apr 15 14:18:48 ubuntu kernel: [60309.442919] audit: type=1400 audit(1555337928.056:328065): apparmor="ALLOWED" operation="create" profile="db_profile" pid=27419 comm="find" family="unix" sock_type="stream" protocol=0 requested_mask="create" denied_mask="create" addr=none
+Apr 15 14:18:48 ubuntu kernel: [60309.632439] br-49c0352a16b2: port 2(vethd946609) entered disabled state
+Apr 15 14:18:48 ubuntu kernel: [60309.701652] eth0: renamed from vethe943dfc
+Apr 15 14:18:48 ubuntu kernel: [60309.716536] IPv6: ADDRCONF(NETDEV_CHANGE): vethd946609: link becomes ready
+Apr 15 14:18:48 ubuntu kernel: [60309.716556] br-49c0352a16b2: port 2(vethd946609) entered blocking state
+Apr 15 14:18:48 ubuntu kernel: [60309.716558] br-49c0352a16b2: port 2(vethd946609) entered forwarding state
+Apr 15 14:18:52 ubuntu kernel: [60313.824900] kauditd_printk_skb: 332 callbacks suppressed
+Apr 15 14:18:52 ubuntu kernel: [60313.824900] audit: type=1400 audit(1555337932.440:328398): apparmor="ALLOWED" operation="create" profile="db_profile" pid=27724 comm="mysql" family="unix" sock_type="stream" protocol=0 requested_mask="create" denied_mask="create" addr=none
+Apr 15 14:18:52 ubuntu kernel: [60313.824903] audit: type=1400 audit(1555337932.440:328399): apparmor="ALLOWED" operation="create" profile="db_profile" pid=27724 comm="mysql" family="unix" sock_type="stream" protocol=0 requested_mask="create" denied_mask="create" addr=none
+Apr 15 14:18:52 ubuntu kernel: [60313.826139] audit: type=1400 audit(1555337932.440:328400): apparmor="ALLOWED" operation="create" profile="db_profile" pid=27724 comm="mysql" family="unix" sock_type="stream" protocol=0 requested_mask="create" denied_mask="create" addr=none
+Apr 15 14:18:52 ubuntu kernel: [60313.826189] audit: type=1400 audit(1555337932.440:328401): apparmor="ALLOWED" operation="setsockopt" profile="db_profile" pid=27724 comm="mysql" family="unix" sock_type="stream" protocol=0 requested_mask="setopt" denied_mask="setopt" addr=none
+Apr 15 14:18:52 ubuntu kernel: [60313.826190] audit: type=1400 audit(1555337932.440:328402): apparmor="ALLOWED" operation="setsockopt" profile="db_profile" pid=27724 comm="mysql" family="unix" sock_type="stream" protocol=0 requested_mask="setopt" denied_mask="setopt" addr=none
+Apr 15 14:18:52 ubuntu kernel: [60313.826282] audit: type=1400 audit(1555337932.440:328403): apparmor="ALLOWED" operation="setsockopt" profile="db_profile" pid=27724 comm="mysql" family="unix" sock_type="stream" protocol=0 requested_mask="setopt" denied_mask="setopt" addr=none
+Apr 15 14:18:52 ubuntu kernel: [60313.826283] audit: type=1400 audit(1555337932.440:328404): apparmor="ALLOWED" operation="setsockopt" profile="db_profile" pid=27724 comm="mysql" family="unix" sock_type="stream" protocol=0 requested_mask="setopt" denied_mask="setopt" addr=none
+Apr 15 14:18:52 ubuntu kernel: [60313.830472] audit: type=1400 audit(1555337932.444:328405): apparmor="ALLOWED" operation="create" profile="db_profile" pid=27726 comm="mysql" family="unix" sock_type="stream" protocol=0 requested_mask="create" denied_mask="create" addr=none
+Apr 15 14:18:52 ubuntu kernel: [60313.830556] audit: type=1400 audit(1555337932.444:328406): apparmor="ALLOWED" operation="create" profile="db_profile" pid=27726 comm="mysql" family="unix" sock_type="stream" protocol=0 requested_mask="create" denied_mask="create" addr=none
+Apr 15 14:18:52 ubuntu kernel: [60313.831646] audit: type=1400 audit(1555337932.444:328407): apparmor="ALLOWED" operation="create" profile="db_profile" pid=27726 comm="mysql" family="unix" sock_type="stream" protocol=0 requested_mask="create" denied_mask="create" addr=none
+Apr 15 14:19:48 ubuntu kernel: [60370.120094] kauditd_printk_skb: 44 callbacks suppressed
+Apr 15 14:19:48 ubuntu kernel: [60370.120095] audit: type=1400 audit(1555337988.734:328452): apparmor="ALLOWED" operation="create" profile="nextcloud_profile" pid=27791 comm="php" family="inet6" sock_type="dgram" protocol=0 requested_mask="create" denied_mask="create"
+Apr 15 14:19:48 ubuntu kernel: [60370.121508] audit: type=1400 audit(1555337988.734:328453): apparmor="ALLOWED" operation="signal" profile="nextcloud_profile" pid=27437 comm="containerd-shim" requested_mask="receive" denied_mask="receive" signal=exists peer="unconfined"
+Apr 15 14:19:48 ubuntu kernel: [60370.167482] audit: type=1400 audit(1555337988.782:328454): apparmor="ALLOWED" operation="create" profile="nextcloud_profile" pid=27791 comm="php" family="unix" sock_type="stream" protocol=0 requested_mask="create" denied_mask="create" addr=none
+Apr 15 14:19:48 ubuntu kernel: [60370.167485] audit: type=1400 audit(1555337988.782:328455): apparmor="ALLOWED" operation="create" profile="nextcloud_profile" pid=27791 comm="php" family="unix" sock_type="stream" protocol=0 requested_mask="create" denied_mask="create" addr=none
+Apr 15 14:19:48 ubuntu kernel: [60370.343459] audit: type=1400 audit(1555337988.958:328456): apparmor="ALLOWED" operation="create" profile="nextcloud_profile" pid=27860 comm="php" family="inet6" sock_type="dgram" protocol=0 requested_mask="create" denied_mask="create"
+Apr 15 14:19:48 ubuntu kernel: [60370.345089] audit: type=1400 audit(1555337988.958:328457): apparmor="ALLOWED" operation="signal" profile="nextcloud_profile" pid=27437 comm="containerd-shim" requested_mask="receive" denied_mask="receive" signal=exists peer="unconfined"
+Apr 15 14:19:49 ubuntu kernel: [60370.391149] audit: type=1400 audit(1555337989.006:328458): apparmor="ALLOWED" operation="create" profile="nextcloud_profile" pid=27860 comm="php" family="unix" sock_type="stream" protocol=0 requested_mask="create" denied_mask="create" addr=none
+Apr 15 14:19:49 ubuntu kernel: [60370.391151] audit: type=1400 audit(1555337989.006:328459): apparmor="ALLOWED" operation="create" profile="nextcloud_profile" pid=27860 comm="php" family="unix" sock_type="stream" protocol=0 requested_mask="create" denied_mask="create" addr=none
+Apr 15 14:19:49 ubuntu kernel: [60370.432623] audit: type=1400 audit(1555337989.046:328460): apparmor="ALLOWED" operation="create" profile="nextcloud_profile" pid=27860 comm="php" family="inet6" sock_type="dgram" protocol=0 requested_mask="create" denied_mask="create"
+Apr 15 14:19:49 ubuntu kernel: [60370.432625] audit: type=1400 audit(1555337989.046:328461): apparmor="ALLOWED" operation="create" profile="nextcloud_profile" pid=27860 comm="php" family="unix" sock_type="stream" protocol=0 requested_mask="create" denied_mask="create" addr=none
+Apr 15 14:19:53 ubuntu kernel: [60375.122991] kauditd_printk_skb: 23765 callbacks suppressed
+Apr 15 14:19:53 ubuntu kernel: [60375.122992] audit: type=1400 audit(1555337993.738:352227): apparmor="ALLOWED" operation="recvmsg" profile="db_profile" pid=27306 comm="mysqld" laddr=::ffff:192.168.128.2 lport=3306 faddr=::ffff:192.168.128.3 fport=50930 family="inet6" sock_type="stream" protocol=6 requested_mask="receive" denied_mask="receive"
+Apr 15 14:19:53 ubuntu kernel: [60375.122994] audit: type=1400 audit(1555337993.738:352228): apparmor="ALLOWED" operation="recvmsg" profile="db_profile" pid=27306 comm="mysqld" laddr=::ffff:192.168.128.2 lport=3306 faddr=::ffff:192.168.128.3 fport=50930 family="inet6" sock_type="stream" protocol=6 requested_mask="receive" denied_mask="receive"
+Apr 15 14:19:53 ubuntu kernel: [60375.123067] audit: type=1400 audit(1555337993.738:352229): apparmor="ALLOWED" operation="sendmsg" profile="db_profile" pid=27306 comm="mysqld" laddr=::ffff:192.168.128.2 lport=3306 faddr=::ffff:192.168.128.3 fport=50930 family="inet6" sock_type="stream" protocol=6 requested_mask="send" denied_mask="send"
+Apr 15 14:19:53 ubuntu kernel: [60375.123118] audit: type=1400 audit(1555337993.738:352230): apparmor="ALLOWED" operation="recvmsg" profile="db_profile" pid=27306 comm="mysqld" laddr=::ffff:192.168.128.2 lport=3306 faddr=::ffff:192.168.128.3 fport=50930 family="inet6" sock_type="stream" protocol=6 requested_mask="receive" denied_mask="receive"
+Apr 15 14:19:53 ubuntu kernel: [60375.123198] audit: type=1400 audit(1555337993.738:352231): apparmor="ALLOWED" operation="recvmsg" profile="db_profile" pid=27306 comm="mysqld" laddr=::ffff:192.168.128.2 lport=3306 faddr=::ffff:192.168.128.3 fport=50930 family="inet6" sock_type="stream" protocol=6 requested_mask="receive" denied_mask="receive"
+Apr 15 14:19:53 ubuntu kernel: [60375.123200] audit: type=1400 audit(1555337993.738:352232): apparmor="ALLOWED" operation="recvmsg" profile="db_profile" pid=27306 comm="mysqld" laddr=::ffff:192.168.128.2 lport=3306 faddr=::ffff:192.168.128.3 fport=50930 family="inet6" sock_type="stream" protocol=6 requested_mask="receive" denied_mask="receive"
+Apr 15 14:19:53 ubuntu kernel: [60375.123518] audit: type=1400 audit(1555337993.738:352233): apparmor="ALLOWED" operation="sendmsg" profile="db_profile" pid=27306 comm="mysqld" laddr=::ffff:192.168.128.2 lport=3306 faddr=::ffff:192.168.128.3 fport=50930 family="inet6" sock_type="stream" protocol=6 requested_mask="send" denied_mask="send"
+Apr 15 14:19:53 ubuntu kernel: [60375.123520] audit: type=1400 audit(1555337993.738:352234): apparmor="ALLOWED" operation="recvmsg" profile="db_profile" pid=27306 comm="mysqld" laddr=::ffff:192.168.128.2 lport=3306 faddr=::ffff:192.168.128.3 fport=50930 family="inet6" sock_type="stream" protocol=6 requested_mask="receive" denied_mask="receive"
+Apr 15 14:19:53 ubuntu kernel: [60375.123624] audit: type=1400 audit(1555337993.738:352235): apparmor="ALLOWED" operation="recvmsg" profile="db_profile" pid=27306 comm="mysqld" laddr=::ffff:192.168.128.2 lport=3306 faddr=::ffff:192.168.128.3 fport=50930 family="inet6" sock_type="stream" protocol=6 requested_mask="receive" denied_mask="receive"
+Apr 15 14:19:53 ubuntu kernel: [60375.123626] audit: type=1400 audit(1555337993.738:352236): apparmor="ALLOWED" operation="recvmsg" profile="db_profile" pid=27306 comm="mysqld" laddr=::ffff:192.168.128.2 lport=3306 faddr=::ffff:192.168.128.3 fport=50930 family="inet6" sock_type="stream" protocol=6 requested_mask="receive" denied_mask="receive"
+Apr 15 14:19:57 ubuntu kernel: [60379.338438] br-49c0352a16b2: port 2(vethd946609) entered disabled state
+Apr 15 14:19:57 ubuntu kernel: [60379.338478] vethe943dfc: renamed from eth0
+Apr 15 14:19:58 ubuntu kernel: [60379.384903] br-49c0352a16b2: port 2(vethd946609) entered disabled state
+Apr 15 14:19:58 ubuntu kernel: [60379.386303] device vethd946609 left promiscuous mode
+Apr 15 14:19:58 ubuntu kernel: [60379.386305] br-49c0352a16b2: port 2(vethd946609) entered disabled state
+Apr 15 14:19:58 ubuntu kernel: [60379.746182] br-49c0352a16b2: port 1(veth66b38c2) entered disabled state
+Apr 15 14:19:58 ubuntu kernel: [60379.746217] vethee7df35: renamed from eth0
+Apr 15 14:19:58 ubuntu kernel: [60379.805549] br-49c0352a16b2: port 1(veth66b38c2) entered disabled state
+Apr 15 14:19:58 ubuntu kernel: [60379.807356] device veth66b38c2 left promiscuous mode
+Apr 15 14:19:58 ubuntu kernel: [60379.807359] br-49c0352a16b2: port 1(veth66b38c2) entered disabled state

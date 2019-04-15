@@ -1,0 +1,8 @@
+#Capability\n
+setuid
+#Network\n
+inet6 dgram
+#File
+requested_mask 
+#Signal
+receive kill unconfined

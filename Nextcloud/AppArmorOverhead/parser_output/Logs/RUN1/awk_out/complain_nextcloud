@@ -1,0 +1,8 @@
+#Capability\n
+#Network\n
+inet6 dgram
+unix stream
+#File
+requested_mask 
+#Signal
+receive exists unconfined

@@ -1,9 +1,0 @@
-Creating network "apparmoroverhead_default" with the default driver
-Creating volume "apparmoroverhead_db_" with default driver
-Creating volume "apparmoroverhead_nextcloud_" with default driver
-Creating db ... 
-[2A[2KCreating db ... [32mdone[0m[2BCreating nextcloud ... 
-[2A[2KCreating nextcloud ... [32mdone[0m[2B
-real	1m15.970s
-user	0m0.312s
-sys	0m0.096s

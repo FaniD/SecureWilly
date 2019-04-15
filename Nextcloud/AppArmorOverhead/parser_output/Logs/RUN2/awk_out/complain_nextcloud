@@ -1,0 +1,9 @@
+#Capability\n
+chown
+dac_override
+#Network\n
+inet dgram
+inet stream
+#File
+requested_mask 
+#Signal

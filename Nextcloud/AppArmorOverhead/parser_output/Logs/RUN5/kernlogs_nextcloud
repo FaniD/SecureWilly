@@ -1,0 +1,5 @@
+Apr 15 14:23:39 ubuntu kernel: [60600.938248] audit: type=1400 audit(1555338219.559:397688): apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=768 comm="apache2" capability=6  capname="setgid"
+Apr 15 14:23:39 ubuntu kernel: [60600.938669] audit: type=1400 audit(1555338219.559:397689): apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=769 comm="apache2" capability=6  capname="setgid"
+Apr 15 14:23:39 ubuntu kernel: [60600.939004] audit: type=1400 audit(1555338219.559:397690): apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=771 comm="apache2" capability=6  capname="setgid"
+Apr 15 14:23:39 ubuntu kernel: [60600.939445] audit: type=1400 audit(1555338219.559:397691): apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=772 comm="apache2" capability=6  capname="setgid"
+Apr 15 14:23:39 ubuntu kernel: [60600.939822] audit: type=1400 audit(1555338219.559:397692): apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=773 comm="apache2" capability=6  capname="setgid"

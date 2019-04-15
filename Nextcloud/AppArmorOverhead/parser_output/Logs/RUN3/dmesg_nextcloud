@@ -1,0 +1,6 @@
+[60455.464740] audit: type=1400 audit(1555338074.079:397548): apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=30412 comm="rsync" capability=3  capname="fowner"
+[60455.464954] audit: type=1400 audit(1555338074.079:397549): apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=30412 comm="rsync" capability=3  capname="fowner"
+[60455.493612] audit: type=1400 audit(1555338074.111:397550): apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=30412 comm="rsync" capability=3  capname="fowner"
+[60455.510125] audit: type=1400 audit(1555338074.127:397551): apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=30412 comm="rsync" capability=3  capname="fowner"
+[60455.549292] audit: type=1400 audit(1555338074.167:397552): apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=30412 comm="rsync" capability=3  capname="fowner"
+[60523.756548] audit: type=1400 audit(1555338142.373:397617): apparmor="ALLOWED" operation="signal" profile="nextcloud_profile" pid=30788 comm="runc" requested_mask="receive" denied_mask="receive" signal=kill peer="unconfined"

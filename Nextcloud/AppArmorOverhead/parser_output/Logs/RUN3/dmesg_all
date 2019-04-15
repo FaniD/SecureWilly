@@ -1,0 +1,43 @@
+[60454.235741] br-49c0352a16b2: port 1(veth8ea7a26) entered blocking state
+[60454.235742] br-49c0352a16b2: port 1(veth8ea7a26) entered disabled state
+[60454.235791] device veth8ea7a26 entered promiscuous mode
+[60454.235841] IPv6: ADDRCONF(NETDEV_UP): veth8ea7a26: link is not ready
+[60454.235847] br-49c0352a16b2: port 1(veth8ea7a26) entered blocking state
+[60454.235848] br-49c0352a16b2: port 1(veth8ea7a26) entered forwarding state
+[60454.238847] br-49c0352a16b2: port 1(veth8ea7a26) entered disabled state
+[60454.477672] eth0: renamed from veth4cc07ea
+[60454.509417] IPv6: ADDRCONF(NETDEV_CHANGE): veth8ea7a26: link becomes ready
+[60454.509462] br-49c0352a16b2: port 1(veth8ea7a26) entered blocking state
+[60454.509463] br-49c0352a16b2: port 1(veth8ea7a26) entered forwarding state
+[60454.890911] br-49c0352a16b2: port 2(vetha8875f3) entered blocking state
+[60454.890912] br-49c0352a16b2: port 2(vetha8875f3) entered disabled state
+[60454.890948] device vetha8875f3 entered promiscuous mode
+[60454.890993] IPv6: ADDRCONF(NETDEV_UP): vetha8875f3: link is not ready
+[60454.890997] br-49c0352a16b2: port 2(vetha8875f3) entered blocking state
+[60454.890998] br-49c0352a16b2: port 2(vetha8875f3) entered forwarding state
+[60454.902113] audit: type=1400 audit(1555338073.519:397547): apparmor="ALLOWED" operation="capable" profile="db_profile" pid=30076 comm="gosu" capability=7  capname="setuid"
+[60455.165638] eth0: renamed from veth32a73d9
+[60455.193410] IPv6: ADDRCONF(NETDEV_CHANGE): vetha8875f3: link becomes ready
+[60455.464740] audit: type=1400 audit(1555338074.079:397548): apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=30412 comm="rsync" capability=3  capname="fowner"
+[60455.464954] audit: type=1400 audit(1555338074.079:397549): apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=30412 comm="rsync" capability=3  capname="fowner"
+[60455.493612] audit: type=1400 audit(1555338074.111:397550): apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=30412 comm="rsync" capability=3  capname="fowner"
+[60455.510125] audit: type=1400 audit(1555338074.127:397551): apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=30412 comm="rsync" capability=3  capname="fowner"
+[60455.549292] audit: type=1400 audit(1555338074.167:397552): apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=30412 comm="rsync" capability=3  capname="fowner"
+[60460.561528] kauditd_printk_skb: 59 callbacks suppressed
+[60460.561529] audit: type=1400 audit(1555338079.180:397612): apparmor="ALLOWED" operation="create" profile="db_profile" pid=30076 comm="mysqld" family="inet6" sock_type="dgram" protocol=0 requested_mask="create" denied_mask="create"
+[60460.561637] audit: type=1400 audit(1555338079.180:397613): apparmor="ALLOWED" operation="connect" profile="db_profile" pid=30076 comm="mysqld" family="inet6" sock_type="dgram" protocol=17 requested_mask="connect" denied_mask="connect"
+[60460.561639] audit: type=1400 audit(1555338079.180:397614): apparmor="ALLOWED" operation="connect" profile="db_profile" pid=30076 comm="mysqld" lport=45945 family="inet6" sock_type="dgram" protocol=17 requested_mask="connect" denied_mask="connect"
+[60460.561640] audit: type=1400 audit(1555338079.180:397615): apparmor="ALLOWED" operation="connect" profile="db_profile" pid=30076 comm="mysqld" family="inet6" sock_type="dgram" protocol=17 requested_mask="connect" denied_mask="connect"
+[60460.561641] audit: type=1400 audit(1555338079.180:397616): apparmor="ALLOWED" operation="getsockname" profile="db_profile" pid=30076 comm="mysqld" laddr=::ffff:127.0.0.1 lport=49857 faddr=::ffff:127.0.0.1 fport=3306 family="inet6" sock_type="dgram" protocol=17 requested_mask="getattr" denied_mask="getattr"
+[60523.756548] audit: type=1400 audit(1555338142.373:397617): apparmor="ALLOWED" operation="signal" profile="nextcloud_profile" pid=30788 comm="runc" requested_mask="receive" denied_mask="receive" signal=kill peer="unconfined"
+[60523.870883] br-49c0352a16b2: port 2(vetha8875f3) entered disabled state
+[60523.871006] veth32a73d9: renamed from eth0
+[60523.961142] br-49c0352a16b2: port 2(vetha8875f3) entered disabled state
+[60523.962547] device vetha8875f3 left promiscuous mode
+[60523.962549] br-49c0352a16b2: port 2(vetha8875f3) entered disabled state
+[60524.158328] audit: type=1400 audit(1555338142.773:397618): apparmor="ALLOWED" operation="signal" profile="db_profile" pid=30856 comm="runc" requested_mask="receive" denied_mask="receive" signal=kill peer="unconfined"
+[60524.305371] br-49c0352a16b2: port 1(veth8ea7a26) entered disabled state
+[60524.305658] veth4cc07ea: renamed from eth0
+[60524.354939] br-49c0352a16b2: port 1(veth8ea7a26) entered disabled state
+[60524.356564] device veth8ea7a26 left promiscuous mode
+[60524.356568] br-49c0352a16b2: port 1(veth8ea7a26) entered disabled state

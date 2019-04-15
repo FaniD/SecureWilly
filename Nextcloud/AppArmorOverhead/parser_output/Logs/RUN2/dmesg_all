@@ -1,0 +1,68 @@
+[60381.825562] br-49c0352a16b2: port 1(vethc71a034) entered blocking state
+[60381.825565] br-49c0352a16b2: port 1(vethc71a034) entered disabled state
+[60381.825608] device vethc71a034 entered promiscuous mode
+[60381.825656] IPv6: ADDRCONF(NETDEV_UP): vethc71a034: link is not ready
+[60381.825662] br-49c0352a16b2: port 1(vethc71a034) entered blocking state
+[60381.825663] br-49c0352a16b2: port 1(vethc71a034) entered forwarding state
+[60381.827443] br-49c0352a16b2: port 1(vethc71a034) entered disabled state
+[60382.079667] eth0: renamed from vethfa0d1be
+[60382.095054] IPv6: ADDRCONF(NETDEV_CHANGE): vethc71a034: link becomes ready
+[60382.095081] br-49c0352a16b2: port 1(vethc71a034) entered blocking state
+[60382.095082] br-49c0352a16b2: port 1(vethc71a034) entered forwarding state
+[60382.463453] br-49c0352a16b2: port 2(vethaec49f1) entered blocking state
+[60382.463454] br-49c0352a16b2: port 2(vethaec49f1) entered disabled state
+[60382.463573] device vethaec49f1 entered promiscuous mode
+[60382.463632] IPv6: ADDRCONF(NETDEV_UP): vethaec49f1: link is not ready
+[60382.463636] br-49c0352a16b2: port 2(vethaec49f1) entered blocking state
+[60382.463637] br-49c0352a16b2: port 2(vethaec49f1) entered forwarding state
+[60382.489434] audit: type=1400 audit(1555338001.102:373574): apparmor="ALLOWED" operation="capable" profile="db_profile" pid=28695 comm="gosu" capability=6  capname="setgid"
+[60382.747087] eth0: renamed from vethe1adbf7
+[60382.763072] IPv6: ADDRCONF(NETDEV_CHANGE): vethaec49f1: link becomes ready
+[60382.991654] audit: type=1400 audit(1555338001.606:373575): apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=29016 comm="rsync" capability=0  capname="chown"
+[60382.991968] audit: type=1400 audit(1555338001.606:373576): apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=29015 comm="rsync" capability=0  capname="chown"
+[60382.998463] audit: type=1400 audit(1555338001.610:373577): apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=29015 comm="rsync" capability=0  capname="chown"
+[60383.012994] audit: type=1400 audit(1555338001.626:373578): apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=29015 comm="rsync" capability=1  capname="dac_override"
+[60383.030941] audit: type=1400 audit(1555338001.646:373579): apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=29016 comm="rsync" capability=0  capname="chown"
+[60386.836824] kauditd_printk_skb: 75 callbacks suppressed
+[60386.836825] audit: type=1400 audit(1555338005.450:373655): apparmor="ALLOWED" operation="signal" profile="db_profile" pid=28695 comm="docker-entrypoi" requested_mask="send" denied_mask="send" signal=term peer="db_profile"
+[60386.836828] audit: type=1400 audit(1555338005.450:373656): apparmor="ALLOWED" operation="signal" profile="db_profile" pid=28695 comm="docker-entrypoi" requested_mask="receive" denied_mask="receive" signal=term peer="db_profile"
+[60386.837020] audit: type=1400 audit(1555338005.450:373657): apparmor="ALLOWED" operation="signal" profile="db_profile" pid=29078 comm="mysqld" requested_mask="send" denied_mask="send" signal=usr1 peer="db_profile"
+[60386.837022] audit: type=1400 audit(1555338005.450:373658): apparmor="ALLOWED" operation="signal" profile="db_profile" pid=29078 comm="mysqld" requested_mask="receive" denied_mask="receive" signal=usr1 peer="db_profile"
+[60387.883862] audit: type=1400 audit(1555338006.498:373659): apparmor="ALLOWED" operation="signal" profile="db_profile" pid=29078 comm="mysqld" requested_mask="send" denied_mask="send" signal=term peer="db_profile"
+[60387.883864] audit: type=1400 audit(1555338006.498:373660): apparmor="ALLOWED" operation="signal" profile="db_profile" pid=29078 comm="mysqld" requested_mask="receive" denied_mask="receive" signal=term peer="db_profile"
+[60388.147220] audit: type=1400 audit(1555338006.762:373661): apparmor="ALLOWED" operation="create" profile="db_profile" pid=28695 comm="mysqld" family="netlink" sock_type="raw" protocol=0 requested_mask="create" denied_mask="create"
+[60388.147266] audit: type=1400 audit(1555338006.762:373662): apparmor="ALLOWED" operation="bind" profile="db_profile" pid=28695 comm="mysqld" family="netlink" sock_type="raw" protocol=0 requested_mask="bind" denied_mask="bind"
+[60388.147291] audit: type=1400 audit(1555338006.762:373663): apparmor="ALLOWED" operation="getsockname" profile="db_profile" pid=28695 comm="mysqld" family="netlink" sock_type="raw" protocol=0 requested_mask="getattr" denied_mask="getattr"
+[60388.147297] audit: type=1400 audit(1555338006.762:373664): apparmor="ALLOWED" operation="sendmsg" profile="db_profile" pid=28695 comm="mysqld" family="netlink" sock_type="raw" protocol=0 requested_mask="send" denied_mask="send"
+[60443.438149] kauditd_printk_skb: 7 callbacks suppressed
+[60443.438150] audit: type=1400 audit(1555338062.055:373672): apparmor="ALLOWED" operation="create" profile="nextcloud_profile" pid=29254 comm="php" family="inet" sock_type="dgram" protocol=0 requested_mask="create" denied_mask="create"
+[60443.438168] audit: type=1400 audit(1555338062.055:373673): apparmor="ALLOWED" operation="connect" profile="nextcloud_profile" pid=29254 comm="php" family="inet" sock_type="dgram" protocol=17 requested_mask="connect" denied_mask="connect"
+[60443.438195] audit: type=1400 audit(1555338062.055:373674): apparmor="ALLOWED" operation="sendmsg" profile="nextcloud_profile" pid=29254 comm="php" laddr=127.0.0.1 lport=46427 faddr=127.0.0.11 fport=53 family="inet" sock_type="dgram" protocol=17 requested_mask="send" denied_mask="send"
+[60443.438237] audit: type=1400 audit(1555338062.055:373675): apparmor="ALLOWED" operation="sendmsg" profile="nextcloud_profile" pid=29254 comm="php" laddr=127.0.0.1 lport=46427 faddr=127.0.0.11 fport=53 family="inet" sock_type="dgram" protocol=17 requested_mask="send" denied_mask="send"
+[60443.438456] audit: type=1400 audit(1555338062.055:373676): apparmor="ALLOWED" operation="recvmsg" profile="nextcloud_profile" pid=29254 comm="php" laddr=127.0.0.1 lport=46427 faddr=127.0.0.11 fport=53 family="inet" sock_type="dgram" protocol=17 requested_mask="receive" denied_mask="receive"
+[60443.438493] audit: type=1400 audit(1555338062.055:373677): apparmor="ALLOWED" operation="recvmsg" profile="nextcloud_profile" pid=29254 comm="php" laddr=127.0.0.1 lport=46427 faddr=127.0.0.11 fport=53 family="inet" sock_type="dgram" protocol=17 requested_mask="receive" denied_mask="receive"
+[60443.438529] audit: type=1400 audit(1555338062.055:373678): apparmor="ALLOWED" operation="create" profile="nextcloud_profile" pid=29254 comm="php" family="inet" sock_type="stream" protocol=0 requested_mask="create" denied_mask="create"
+[60443.438545] audit: type=1400 audit(1555338062.055:373679): apparmor="ALLOWED" operation="connect" profile="nextcloud_profile" pid=29254 comm="php" family="inet" sock_type="stream" protocol=6 requested_mask="connect" denied_mask="connect"
+[60443.438726] audit: type=1400 audit(1555338062.055:373680): apparmor="ALLOWED" operation="getsockopt" profile="nextcloud_profile" pid=29254 comm="php" laddr=192.168.128.3 lport=50936 faddr=192.168.128.2 fport=3306 family="inet" sock_type="stream" protocol=6 requested_mask="getopt" denied_mask="getopt"
+[60443.438740] audit: type=1400 audit(1555338062.055:373681): apparmor="ALLOWED" operation="setsockopt" profile="nextcloud_profile" pid=29254 comm="php" laddr=192.168.128.3 lport=50936 faddr=192.168.128.2 fport=3306 family="inet" sock_type="stream" protocol=6 requested_mask="setopt" denied_mask="setopt"
+[60448.488281] kauditd_printk_skb: 14773 callbacks suppressed
+[60448.488282] audit: type=1400 audit(1555338067.103:388455): apparmor="ALLOWED" operation="recvmsg" profile="nextcloud_profile" pid=29254 comm="php" laddr=192.168.128.3 lport=50940 faddr=192.168.128.2 fport=3306 family="inet" sock_type="stream" protocol=6 requested_mask="receive" denied_mask="receive"
+[60448.488284] audit: type=1400 audit(1555338067.103:388456): apparmor="ALLOWED" operation="sendmsg" profile="nextcloud_profile" pid=29254 comm="php" laddr=192.168.128.3 lport=50940 faddr=192.168.128.2 fport=3306 family="inet" sock_type="stream" protocol=6 requested_mask="send" denied_mask="send"
+[60448.545030] audit: type=1400 audit(1555338067.159:388457): apparmor="ALLOWED" operation="recvmsg" profile="nextcloud_profile" pid=29254 comm="php" laddr=192.168.128.3 lport=50940 faddr=192.168.128.2 fport=3306 family="inet" sock_type="stream" protocol=6 requested_mask="receive" denied_mask="receive"
+[60448.545067] audit: type=1400 audit(1555338067.159:388458): apparmor="ALLOWED" operation="sendmsg" profile="nextcloud_profile" pid=29254 comm="php" laddr=192.168.128.3 lport=50940 faddr=192.168.128.2 fport=3306 family="inet" sock_type="stream" protocol=6 requested_mask="send" denied_mask="send"
+[60448.606531] audit: type=1400 audit(1555338067.223:388459): apparmor="ALLOWED" operation="recvmsg" profile="nextcloud_profile" pid=29254 comm="php" laddr=192.168.128.3 lport=50940 faddr=192.168.128.2 fport=3306 family="inet" sock_type="stream" protocol=6 requested_mask="receive" denied_mask="receive"
+[60448.606591] audit: type=1400 audit(1555338067.223:388460): apparmor="ALLOWED" operation="sendmsg" profile="nextcloud_profile" pid=29254 comm="php" laddr=192.168.128.3 lport=50940 faddr=192.168.128.2 fport=3306 family="inet" sock_type="stream" protocol=6 requested_mask="send" denied_mask="send"
+[60448.672258] audit: type=1400 audit(1555338067.287:388461): apparmor="ALLOWED" operation="recvmsg" profile="nextcloud_profile" pid=29254 comm="php" laddr=192.168.128.3 lport=50940 faddr=192.168.128.2 fport=3306 family="inet" sock_type="stream" protocol=6 requested_mask="receive" denied_mask="receive"
+[60448.672314] audit: type=1400 audit(1555338067.287:388462): apparmor="ALLOWED" operation="sendmsg" profile="nextcloud_profile" pid=29254 comm="php" laddr=192.168.128.3 lport=50940 faddr=192.168.128.2 fport=3306 family="inet" sock_type="stream" protocol=6 requested_mask="send" denied_mask="send"
+[60448.672372] audit: type=1400 audit(1555338067.287:388463): apparmor="ALLOWED" operation="recvmsg" profile="nextcloud_profile" pid=29254 comm="php" laddr=192.168.128.3 lport=50940 faddr=192.168.128.2 fport=3306 family="inet" sock_type="stream" protocol=6 requested_mask="receive" denied_mask="receive"
+[60448.672555] audit: type=1400 audit(1555338067.287:388464): apparmor="ALLOWED" operation="sendmsg" profile="nextcloud_profile" pid=29254 comm="php" laddr=192.168.128.3 lport=50940 faddr=192.168.128.2 fport=3306 family="inet" sock_type="stream" protocol=6 requested_mask="send" denied_mask="send"
+[60451.642570] br-49c0352a16b2: port 2(vethaec49f1) entered disabled state
+[60451.642647] vethe1adbf7: renamed from eth0
+[60451.722490] br-49c0352a16b2: port 2(vethaec49f1) entered disabled state
+[60451.723861] device vethaec49f1 left promiscuous mode
+[60451.723864] br-49c0352a16b2: port 2(vethaec49f1) entered disabled state
+[60452.153535] br-49c0352a16b2: port 1(vethc71a034) entered disabled state
+[60452.153570] vethfa0d1be: renamed from eth0
+[60452.211696] br-49c0352a16b2: port 1(vethc71a034) entered disabled state
+[60452.214171] device vethc71a034 left promiscuous mode
+[60452.214176] br-49c0352a16b2: port 1(vethc71a034) entered disabled state

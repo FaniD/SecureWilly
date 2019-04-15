@@ -1,0 +1,11 @@
+#Capability\n
+setgid
+#Network\n
+netlink raw
+#File
+requested_mask 
+#Signal
+send term db_profile
+receive term db_profile
+send usr1 db_profile
+receive usr1 db_profile

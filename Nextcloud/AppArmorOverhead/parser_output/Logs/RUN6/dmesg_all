@@ -1,0 +1,31 @@
+[60670.562911] br-49c0352a16b2: port 1(veth5449772) entered blocking state
+[60670.562912] br-49c0352a16b2: port 1(veth5449772) entered disabled state
+[60670.562944] device veth5449772 entered promiscuous mode
+[60670.562988] IPv6: ADDRCONF(NETDEV_UP): veth5449772: link is not ready
+[60670.768012] eth0: renamed from veth3b80ed8
+[60670.783797] IPv6: ADDRCONF(NETDEV_CHANGE): veth5449772: link becomes ready
+[60670.783823] br-49c0352a16b2: port 1(veth5449772) entered blocking state
+[60670.783824] br-49c0352a16b2: port 1(veth5449772) entered forwarding state
+[60671.124581] br-49c0352a16b2: port 2(vethaa6cb23) entered blocking state
+[60671.124583] br-49c0352a16b2: port 2(vethaa6cb23) entered disabled state
+[60671.124643] device vethaa6cb23 entered promiscuous mode
+[60671.124755] IPv6: ADDRCONF(NETDEV_UP): vethaa6cb23: link is not ready
+[60671.124762] br-49c0352a16b2: port 2(vethaa6cb23) entered blocking state
+[60671.124763] br-49c0352a16b2: port 2(vethaa6cb23) entered forwarding state
+[60671.395737] eth0: renamed from vethbf72b13
+[60671.419854] IPv6: ADDRCONF(NETDEV_CHANGE): vethaa6cb23: link becomes ready
+[60672.912893] audit: type=1400 audit(1555338291.533:397697): apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=2161 comm="apache2" capability=7  capname="setuid"
+[60672.913066] audit: type=1400 audit(1555338291.533:397698): apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=2162 comm="apache2" capability=7  capname="setuid"
+[60672.913350] audit: type=1400 audit(1555338291.533:397699): apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=2164 comm="apache2" capability=7  capname="setuid"
+[60672.913819] audit: type=1400 audit(1555338291.533:397700): apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=2165 comm="apache2" capability=7  capname="setuid"
+[60672.914174] audit: type=1400 audit(1555338291.533:397701): apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=2166 comm="apache2" capability=7  capname="setuid"
+[60740.182775] vethbf72b13: renamed from eth0
+[60740.270507] br-49c0352a16b2: port 2(vethaa6cb23) entered disabled state
+[60740.279774] br-49c0352a16b2: port 2(vethaa6cb23) entered disabled state
+[60740.281120] device vethaa6cb23 left promiscuous mode
+[60740.281122] br-49c0352a16b2: port 2(vethaa6cb23) entered disabled state
+[60740.647740] br-49c0352a16b2: port 1(veth5449772) entered disabled state
+[60740.647790] veth3b80ed8: renamed from eth0
+[60740.726977] br-49c0352a16b2: port 1(veth5449772) entered disabled state
+[60740.729121] device veth5449772 left promiscuous mode
+[60740.729124] br-49c0352a16b2: port 1(veth5449772) entered disabled state

@@ -1,0 +1,26 @@
+[60742.749472] br-49c0352a16b2: port 1(veth81234ae) entered blocking state
+[60742.749474] br-49c0352a16b2: port 1(veth81234ae) entered disabled state
+[60742.749521] device veth81234ae entered promiscuous mode
+[60742.749866] IPv6: ADDRCONF(NETDEV_UP): veth81234ae: link is not ready
+[60742.986166] eth0: renamed from veth3ca8489
+[60743.021920] IPv6: ADDRCONF(NETDEV_CHANGE): veth81234ae: link becomes ready
+[60743.021959] br-49c0352a16b2: port 1(veth81234ae) entered blocking state
+[60743.021960] br-49c0352a16b2: port 1(veth81234ae) entered forwarding state
+[60743.385717] br-49c0352a16b2: port 2(veth4295191) entered blocking state
+[60743.385719] br-49c0352a16b2: port 2(veth4295191) entered disabled state
+[60743.385807] device veth4295191 entered promiscuous mode
+[60743.385953] IPv6: ADDRCONF(NETDEV_UP): veth4295191: link is not ready
+[60743.385960] br-49c0352a16b2: port 2(veth4295191) entered blocking state
+[60743.385961] br-49c0352a16b2: port 2(veth4295191) entered forwarding state
+[60743.678330] eth0: renamed from veth79bdb50
+[60743.698026] IPv6: ADDRCONF(NETDEV_CHANGE): veth4295191: link becomes ready
+[60812.315647] br-49c0352a16b2: port 2(veth4295191) entered disabled state
+[60812.315797] veth79bdb50: renamed from eth0
+[60812.383867] br-49c0352a16b2: port 2(veth4295191) entered disabled state
+[60812.385122] device veth4295191 left promiscuous mode
+[60812.385124] br-49c0352a16b2: port 2(veth4295191) entered disabled state
+[60812.774480] br-49c0352a16b2: port 1(veth81234ae) entered disabled state
+[60812.774536] veth3ca8489: renamed from eth0
+[60812.862993] br-49c0352a16b2: port 1(veth81234ae) entered disabled state
+[60812.864657] device veth81234ae left promiscuous mode
+[60812.864659] br-49c0352a16b2: port 1(veth81234ae) entered disabled state
