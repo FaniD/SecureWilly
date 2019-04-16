@@ -398,7 +398,7 @@ Therefore, we approached the performance evaluation by monitoring the amount of 
 \underline{Rules per run}
 \hfill\break
 
-In Figure 5.2, a line graph illustrates the amount of rules of each service's profile over the test plan runs, referring to media streaming benchmark.
+In Figure 5.3, a line graph illustrates the amount of rules of each service's profile over the test plan runs, referring to media streaming benchmark.
 
 \begin{figure}[h!]
   \centering
@@ -422,13 +422,13 @@ It appears that there is a threshold in runs, which represents the minimum numbe
    \caption{Data Caching: Rules per run for each service}
 \end{figure}
 
-Figure 5.3 shows the corresponding line graph of data caching benchmark.
+Figure 5.4 shows the corresponding line graph of data caching benchmark.
 
 Similar to media streaming, both server and client lift to a point and afterwards they remain stable. The threshold we observed before, is at the third run again. Moreover, in this benchmark, server and client traverse the threshold exactly at the same runs.
 
 On the contrary, data caching seems to have more active clients, as client's profile has more rules.
 
-In Figure 5.4, the graph outlines the behaviour of nextcloud's profiles over runs. The threshold in nextcloud's execution is at run four. This slight difference with CloudSuite's benchmarks is reasonable, as nextcloud's server appears to need more rules in its profile, in order to complete its operations. Thus, SecureWilly needs to execute more runs of the test plan in order to extract all the rules necessary.
+In Figure 5.5, the graph outlines the behaviour of nextcloud's profiles over runs. The threshold in nextcloud's execution is at run four. This slight difference with CloudSuite's benchmarks is reasonable, as nextcloud's server appears to need more rules in its profile, in order to complete its operations. Thus, SecureWilly needs to execute more runs of the test plan in order to extract all the rules necessary.
 
 Nextcloud's server and database service traverse the threshold almost at the same run, and their escalation is quite similar. Server's service though requires more rules in its profile, as it commits more actions, comparing to the database.
 
@@ -439,7 +439,7 @@ Nextcloud's server and database service traverse the threshold almost at the sam
 \end{figure}
 \hfill\break
 
-The bar chart, in figure 5.5, depicts the performance of SecureWilly on every project, by diplaying the amount of runs of the test plan and the run that consistutes the last augmentation in services' profiles, given by the value of threshold.
+The bar chart, in figure 5.6, depicts the performance of SecureWilly on every project, by diplaying the amount of runs of the test plan and the run that consistutes the last augmentation in services' profiles, given by the value of threshold.
 
 \begin{figure}[h!]
   \centering
@@ -455,7 +455,7 @@ It becomes evident, that the performance of SecureWilly on each project depends 
 
 As described above, comparing the execution time between different projects run by SecureWilly is meaningless. The only essential way to observe time would be monitoring the time execution of test plan over runs.
 
-Figures 5.6, 5.7 and 5.8 represent the line graphs of each project, which illustrate the execution time of the test plan over runs executed by SecureWilly.
+Figures 5.7, 5.8 and 5.9 represent the line graphs of each project, which illustrate the execution time of the test plan over runs executed by SecureWilly.
 
 The execution time was captured by executing the time command on the run script of dynamic parser. To calculate the execution time, we used the sum of sys and usr time, which shows the actual CPU time that docker containers' processes used.
 
@@ -494,7 +494,7 @@ The profiles produced by SecureWilly rely completely on the test plan that the u
 
 SecureWilly performs a functionality testing inside the dynamic parser's loop, by enforcing the profiles after there are no more logs in the complain mode, and runs the test plan one more time. If there are still system logs denying actions of the test plan and new rules can be extracted from them, then SecureWilly repeats the complain mode procedure from the beginning. In this way, it ensures that all actions specified in the test plan are allowed.
 
-Figures 5.9, 5.10 and 5.11 show each project's line graphs per service, which illustrate again the amount of rules per run, but this time emphasizing whether each run sets the profiles to complain or enforce mode.
+Figures 5.10, 5.11 and 5.12 show each project's line graphs per service, which illustrate again the amount of rules per run, but this time emphasizing whether each run sets the profiles to complain or enforce mode.
 
 In all docker projects, only one run of enforce mode was performed and the fact that no system logs denying actions were produced means that the test plan was executed successfully, with all of its operations allowed.
 
@@ -547,7 +547,7 @@ Another way to test the functionality of SecureWilly is to monitor the rules of 
    \caption{Media Streaming: Dataset types}
 \end{figure}
 
-Figures 5.12, 5.13 and 5.14 show the line graphs of the types of different rules used in the media streaming services' profiles over runs. 
+Figures 5.13, 5.14 and 5.15 show the line graphs of the types of different rules used in the media streaming services' profiles over runs. 
 
 The above graphs show that each profile describes perfectly the role of the service and the operations of its task.
 
@@ -557,13 +557,13 @@ In client's profile, it appears that client handles some volumes, since there ar
 
 As it is expeted, dataset only needs some file rules which are the ones of the preliminary profile, as its container will not commit any actions.
 
-In figures 5.15 and 5.16 we observe how server and client act in data caching example. 
+In figures 5.16 and 5.17 we observe how server and client act in data caching example. 
 
 It appears that plenty of network and file rules are included in server's profile, since network is needed in order to communicate with client and file rules derive from the fact that server in data caching benchmark handles a twitter dataset. Apart from these types, it needs only one signal rule in order to be able to terminate.
 
 As for the client, network rules are needed in order to make requests to the server while the rest of the rules are all relevant to the way we implemented this example. Mount and file rules derive both from the volume script we used in order to run this benchmark non-interactively, while all the signal rules derive from the timeout and kill signals - either sent by the client or received by one of its process - which were used to stop all processes of clients when the benchmarking was complete.
 
-Lastly, figures 5.17 and 5.18 represent Nextloud's line graphs, one for the database service and one for the server - nextcloud.
+Lastly, figures 5.18 and 5.19 represent Nextloud's line graphs, one for the database service and one for the server - nextcloud.
 
 In these graphs, it is more clear than ever that Nextcloud is the most complex of the examples used, as its profiles consist of a variety of rules. 
 
@@ -602,7 +602,7 @@ SecureWilly should be able to handle large increases in services and other workl
 
 In order to evaluate scalability we perfomed a testing using media streaming benchmark with multiple clients.
 
-Figure 5.19 illustrates a line graph which shows the execution time of test plan per run for each test case. As it is expected, time has a steady increase, accordingly with the augmentation of the amount of clients.
+Figure 5.20 illustrates a line graph which shows the execution time of test plan per run for each test case. As it is expected, time has a steady increase, accordingly with the augmentation of the amount of clients.
 
 \begin{figure}[h!]
   \centering
@@ -612,7 +612,7 @@ Figure 5.19 illustrates a line graph which shows the execution time of test plan
 
 However, as we previously described, the correct way to measure the performance per case is not time but runs.
 
-In figures 5.20 and 5.21, the line graphs representing rules per run for the test cases of 4 and 8 clients (the figure about the 16 clients test case was left out, because the line graphs were identical) respectively, show that the amount of total runs executed is not affected at all by the increase in the amount of clients and neither does the threshold. Moreover, since clients are running the same docker run command, their lines follow exactly the same trend.
+In figures 5.21 and 5.22, the line graphs representing rules per run for the test cases of 4 and 8 clients (the figure about the 16 clients test case was left out, because the line graphs were identical) respectively, show that the amount of total runs executed is not affected at all by the increase in the amount of clients and neither does the threshold. Moreover, since clients are running the same docker run command, their lines follow exactly the same trend.
 
 \begin{figure}[h!]
   \centering
