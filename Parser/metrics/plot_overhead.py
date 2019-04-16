@@ -20,7 +20,7 @@ bar_width = 0.35
 rects1 = plt.bar(index, total_runs, bar_width, color = (0.3,0.1,0.4,0.6), label='Unconfined')
 rects2 = plt.bar(index + bar_width, threshold, bar_width, color = (0.3,0.9,0.4,0.6), label='AppArmor profiles enforced')
 
-plt.xlabel('time output')
+plt.xlabel('Nextcloud time output')
 plt.ylabel('sec')
 plt.title('AppArmor Overhead')
 plt.xticks(index + bar_width, ('sys time', 'user time', 'real time'))
