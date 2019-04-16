@@ -1,2 +1,0 @@
-[13994.636050] audit: type=1400 audit(1555207848.623:142): apparmor="ALLOWED" operation="capable" profile="db_profile" pid=21242 comm="mysqld" capability=1  capname="dac_override"
-[13994.786459] audit: type=1400 audit(1555207848.771:143): apparmor="ALLOWED" operation="capable" profile="db_profile" pid=21171 comm="gosu" capability=6  capname="setgid"

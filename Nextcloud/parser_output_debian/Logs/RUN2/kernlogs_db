@@ -1,1 +1,0 @@
-Apr 14 05:12:06 debian kernel: [14072.064648] audit: type=1400 audit(1555207926.053:155): apparmor="ALLOWED" operation="capable" profile="db_profile" pid=22489 comm="gosu" capability=7  capname="setuid"
