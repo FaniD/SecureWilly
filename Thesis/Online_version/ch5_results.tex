@@ -30,6 +30,12 @@ In the following instances, the benchmarks were executed, having one client and 
 
 Despite the fact that CloudSuite's benchmarks are based on real-world software, we considered testing a real program, which is widely used and a lot of users rely on docker images in order to run it, and exercise it first-hand. Our choice was Nextcloud.
 
+\begin{figure}[h!]
+  \centering
+   \includegraphics[width=0.3\linewidth]{../figures/Nextcloud.png}
+   \caption{Nextcloud's trademark}
+\end{figure}
+
 Nextcloud is a suite of client-server software for creating and using file hosting services. It is free and open-source, which means that anyone is allowed to install and operate it on their own private server devices. \cite{wikinext}
 
 Although it is true that Nextcloud offers a variety of operations (file sharing, communication etc), we will be using it in its simplest form, where Nextcloud is used to run a personal cloud storage service, making files accessible via the internet and sharing them with other users.
@@ -149,16 +155,16 @@ profile db_profile flags=(attach_disconnected,mediate_deleted) {
         network inet dgram,
         /var/lib/mysql/* rw,
         signal (receive) set=(term) peer=db_profile,
-        mount /var/lib/docker/volumes/nextcloud_db_/_data -> /var/lib/mysql, #Bind host volume to docker container volume
+        mount /var/lib/docker/volumes/nextcloud_db_/_data -> /var/lib/mysql, #Bind host to docker volume
         signal (send) set=(usr1) peer=db_profile,
         file,  #Allows access to containers filesystem
         /var/lib/docker/* r, #Access to layers of filesystem
         network inet6 stream,
         signal (receive) set=(kill) peer=unconfined,
-        deny remount /var/lib/mysql, #Disallow anybody that wants to remount this mountpoint
+        deny remount /var/lib/mysql, #Disallow remounting this mountpoint
         network inet6 dgram,
         signal (receive) set=(usr1) peer=db_profile,
-        deny umount /var/lib/mysql, #Disallow anybody that wants to break this mountpoint
+        deny umount /var/lib/mysql, #Disallow breaking this mountpoint
         capability setuid,
         signal (send) set=(term) peer=db_profile,
         deny ptrace (readby, tracedby), #Confront container breakout attacks
@@ -173,10 +179,10 @@ profile nextcloud_profile flags=(attach_disconnected,mediate_deleted) {
         capability fsetid,
         capability chown,
         file,  #Allows access to containers filesystem
-        mount /var/lib/docker/volumes/nextcloud_nextcloud_/_data -> /var/www/html, #Bind host volume to docker container volume
+        mount /var/lib/docker/volumes/nextcloud_nextcloud_/_data -> /var/www/html, #Bind host docker volume
         network inet6 dgram,
         signal (receive) set=(exists) peer=unconfined,
-        mount /home/ubuntu/SecureWilly/Nextcloud/data -> /var/www/html/data, #Bind host volume to docker container volume
+        mount /home/ubuntu/SecureWilly/Nextcloud/data -> /var/www/html/data, #Bind host to docker volume
         network inet stream,
         /var/www/html/* rw,
         /var/lib/docker/* r, #Access to layers of filesystem
@@ -185,16 +191,16 @@ profile nextcloud_profile flags=(attach_disconnected,mediate_deleted) {
         capability setgid,
         signal (receive) set=(usr2) peer=nextcloud_profile,
         capability dac_override,
-        deny umount /var/www/html, #Disallow anybody that wants to break this mountpoint
+        deny umount /var/www/html, #Disallow breaking mntpnt
         signal (send) set=(usr2) peer=nextcloud_profile,
-        deny remount /var/www/html/data, #Disallow anybody that wants to remount this mountpoint
+        deny remount /var/www/html/data, #Disallow remounting this mountpoint
         network inet dgram,
         capability setuid,
-        deny remount /var/www/html, #Disallow anybody that wants to remount this mountpoint
+        deny remount /var/www/html, #Disallow remounting this mountpoint
         deny ptrace (readby, tracedby), #Confront container breakout attacks
         capability net_bind_service,  #This capability is needed to bind a socket to well-known ports
         signal (receive) set=(kill) peer=unconfined,
-        deny umount /var/www/html/data, #Disallow anybody that wants to break this mountpoint
+        deny umount /var/www/html/data, #Disallow breaking mntpnt
 }
 \end{lstlisting}
 
@@ -222,17 +228,17 @@ profile db_profile flags=(attach_disconnected,mediate_deleted) {
 	/var/lib/docker/* r, #Access to layers of filesystem
 	network inet6 stream,
 	signal (receive) set=(kill) peer=unconfined,
-	deny remount /var/lib/mysql, #Disallow anybody that wants to remount this mountpoint
+	deny remount /var/lib/mysql, #Disallow remounting this mountpoint
 	network inet6 dgram,
-	mount /var/lib/docker/volumes/nextcloud_db_/_data -> /var/lib/mysql, #Bind host volume to docker container volume
+	mount /var/lib/docker/volumes/nextcloud_db_/_data -> /var/lib/mysql, #Bind host to docker volume
 	capability setgid,
-	deny umount /var/lib/mysql, #Disallow anybody that wants to break this mountpoint
+	deny umount /var/lib/mysql, #Disallow breaking this mountpoint
 	capability setuid,
 	network netlink raw,
 	deny ptrace (readby, tracedby), #Confront container breakout attacks
 }
 \end{lstlisting}
-
+\clearpage
 \begin{lstlisting}[style=Dockerfile, caption={New AppArmor profile for nextcloud service: nextcloud\_profile}]
 #include <tunables/global>
 
@@ -244,9 +250,9 @@ profile nextcloud_profile flags=(attach_disconnected,mediate_deleted) {
 	network inet6 dgram,
 	signal (receive) set=(exists) peer=unconfined,
 	network netlink raw,
-	mount /home/fani/SecureWilly/Nextcloud/data -> /var/www/html/data, #Bind host volume to docker container volume
+	mount /home/fani/SecureWilly/Nextcloud/data -> /var/www/html/data, #Bind host to docker volume
 	mount /var/lib/docker/volumes/
-		nextcloud_nextcloud_/_data -> /var/www/html, #Bind host volume to docker container volume
+		nextcloud_nextcloud_/_data -> /var/www/html, #Bind host to docker volume
 	network inet stream,
 	/var/www/html/* rw,
 	/var/lib/docker/* r, #Access to layers of filesystem
@@ -255,19 +261,18 @@ profile nextcloud_profile flags=(attach_disconnected,mediate_deleted) {
 	capability setgid,
 	signal (receive) set=(usr2) peer=nextcloud_profile,
 	capability dac_override,
-	deny umount /var/www/html, #Disallow anybody that wants to break this mountpoint
+	deny umount /var/www/html, #Disallow breaking this mountpoint
 	signal (send) set=(usr2) peer=nextcloud_profile,
-	deny remount /var/www/html/data, #Disallow anybody that wants to remount this mountpoint
+	deny remount /var/www/html/data, #Disallow remounting this mountpoint
 	network inet dgram,
 	capability setuid,
-	deny remount /var/www/html, #Disallow anybody that wants to remount this mountpoint
+	deny remount /var/www/html, #Disallow remounting this mountpoint
 	deny ptrace (readby, tracedby), #Confront container breakout attacks
 	capability net_bind_service,  #This capability is needed to bind a socket to well-known ports
 	signal (receive) set=(kill) peer=unconfined,
-	deny umount /var/www/html/data, #Disallow anybody that wants to break this mountpoint
+	deny umount /var/www/html/data, #Disallow breaking this mountpoint
 }
 \end{lstlisting}
-
 \begin{mdframed}[backgroundcolor=navajowhite]
 To sum up, SecureWilly's profiles are service-oriented but they still have some dependencies from the host machine, like mount rules and host's configuration on containers. Therefore, it is not recommended to use a profile coming from another system, but run SecureWilly to create a profile adjusted to your system.
 \end{mdframed}
@@ -282,7 +287,6 @@ $ sudo aa-genprof ./genprof_run.sh
 \end{lstlisting}
 
 The \textit{genprof\_run.sh} is the same test plan of Nextcloud we mentioned in section \textit{Experimental setup \ref{expset}}.
-\hfill\break
 
 \begin{lstlisting}[style=Dockerfile, caption={New AppArmor profile for nextcloud service: nextcloud\_profile}]
 #include <tunables/global>
@@ -317,7 +321,6 @@ The \textit{genprof\_run.sh} is the same test plan of Nextcloud we mentioned in 
   /usr/bin/docker mrix,
   /usr/bin/sudo mrix,
   /usr/local/bin/docker-compose mrix,
-
   owner /etc/default/locale r,
   owner /etc/environment r,
   owner /etc/sudoers.d/ r,
@@ -326,10 +329,8 @@ The \textit{genprof\_run.sh} is the same test plan of Nextcloud we mentioned in 
   owner /proc/filesystems r,
   owner /proc/sys/kernel/ngroups_max r,
   owner /{usr/,}lib{,32,64}/** mr,
-
 }
 \end{lstlisting}
-
 \hfill\break
 
 \textbf{\underline{Comparison}}
