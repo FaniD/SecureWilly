@@ -1,0 +1,43 @@
+# Last Modified: Tue Apr 16 00:23:09 2019
+#include <tunables/global>
+
+/home/fani/SecureWilly/Nextcloud/Genprof_testing/genprof_run.sh {
+  #include <abstractions/authentication>
+  #include <abstractions/base>
+  #include <abstractions/bash>
+  #include <abstractions/consoles>
+  #include <abstractions/nameservice>
+  #include <abstractions/postfix-common>
+  #include <abstractions/ubuntu-browsers.d/plugins-common>
+  #include <abstractions/user-tmp>
+  #include <abstractions/wutmp>
+
+  capability audit_write,
+  capability net_admin,
+  capability sys_resource,
+
+  /bin/cat mrix,
+  /bin/grep mrix,
+  /bin/rm mrix,
+  /bin/sleep mrix,
+  /etc/sudoers r,
+  /etc/sudoers.d/README r,
+  /home/fani/SecureWilly/Nextcloud/Genprof_testing/genprof_run.sh r,
+  /lib/x86_64-linux-gnu/ld-*.so mr,
+  /proc/stat r,
+  /proc/sys/kernel/cap_last_cap r,
+  /proc/sys/kernel/hostname r,
+  /proc/sys/net/core/somaxconn r,
+  /usr/bin/docker mrix,
+  /usr/bin/sudo mrix,
+  /usr/local/bin/docker-compose mrix,
+  owner /etc/default/locale r,
+  owner /etc/environment r,
+  owner /etc/sudoers.d/ r,
+  owner /home/*/SecureWilly/Nextcloud/Genprof_testing/answer rw,
+  owner /proc/*/stat r,
+  owner /proc/filesystems r,
+  owner /proc/sys/kernel/ngroups_max r,
+  owner /{usr/,}lib{,32,64}/** mr,
+
+}
