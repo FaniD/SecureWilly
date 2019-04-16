@@ -159,9 +159,15 @@ AppArmor proactively protects the operating system and applications from externa
 
 AppArmor profiles describe mandatory access rights granted to given programs and are fed to the AppArmor policy enforcement module using command \say{\textit{apparmor\_parser}}. The more specific the profile is, the more strict it will be. An AppArmor profile includes rules that can either allow access to a resource or deny it. If a MAC check matches a rule, it is allowed, otherwise if there is no matching rule, it is denied.
 
-\subsubsection{Genprof tool vs SecureWilly}
+\subsubsection{AppArmor's genprof tool}
 
-Genprof tool is the official AppArmor tool for profile generation.
+Genprof tool is the official AppArmor tool for profile generation, which is included as an utility in the apparmor-utils package.
+
+The command that should be run in order to produce a profile via genprof is \textit{aa-genprof} and it should be followed by the program to profile. If a profile does not exist for the program, aa-genprof will create one.
+
+Afterwards, genprof will set the profile to complain mode, write a mark to the system log and instruct the user to start the application to be profiled in another window and exercise its functionality. \cite{genprof} Then, the user will interact with genprof tool and will have to choose among several options about some presented profile entries. This procedure can be repeated as many times as the user decides and stopped when he is done exercising the application's functionality.
+
+\subsubsection{Genprof tool vs SecureWilly}
 
 Below, there are listed some differences between genprof tool and SecureWilly:
 
@@ -183,3 +189,5 @@ Frankly, adding this rule manually, is neither difficult nor time-consuming. But
 
 \item Genprof does not use a static analysis, as SecureWilly does. As it is described in Chapter 3, some interesting rules can be extracted from the initiative code.
 \end{enumerate}
+
+In \textit{Chapter 5, section \ref{genprofcompare}} specific examples of profiles created by genprof and SecureWilly are displayed and compared.

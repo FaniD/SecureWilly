@@ -7,6 +7,16 @@
 
 SecureWilly is the software we created, in order to produce secure and efficient AppArmor profiles. The profiles are adjusted to the given docker project, based on the Principle of Least Privilege, meaning they will allow exclusively a set of actions, determined by the user in a test plan. Any other action will be considered as redundant and will be denied. SecureWilly also supports multi-service docker projects and produces one AppArmor profile per service. The profiles are created, with knowledge of their coordination, the way this is indicated by the test plan. SecureWilly focuses on preserving isolation between host and containers, as well as between running containers themselves.
 
+Apart from the AppArmor profiles, SecureWilly produces some extra assets such as alerts about the vulnerabilities detected on the docker containers of the project, .yml files for each service and metrics/graphs about the behaviour of the services based on the rules produced for the respective AppArmor profiles. 
+
+Figure 3.2 illustrates the architecture of SecureWilly.
+
+\begin{figure}[h!]
+   \centering
+   \includegraphics[width=0.8\linewidth]{../figures/SecureWilly.png}
+   \caption{SecureWilly's architecture}
+\end{figure}
+
 \section{User Interface}
 
 SecureWilly's user interface at the moment is rather simple and is represented by a terminal UI.
@@ -30,7 +40,7 @@ All of the requirements up to now, were related to static analysis. Hereupon, Se
 
 SecureWilly will then ask the user whether a network is needed for the project. The answer should be either \say{N} for no, or the network's name for positive answer.
 
-The last part of SecureWilly's requirements is a test plan of the project. The user is prompted to write the basic commands that will be used to run the container, including starting and stopping it and the commands in-between. A script is created, including these commands, and will be used as a test plan to train the application and produce system logs for dynamic analysis.
+The last part of SecureWilly's requirements is a test plan of the project. The user is prompted to write the basic commands that will be used to run the container, including starting and stopping it and the commands in-between. A script is created, including these commands, and will be used as a test plan to exercise the application's functionality and produce system logs for dynamic analysis.
 
 \subsection{Editing}
 As soon as SecureWilly is done with user's input, starts the editing part.
@@ -43,12 +53,12 @@ Docker Compose file gets divided in mini docker compose files for each service a
 
 The network's name is used to create the network with docker command at the beginning of a run in dynamic analysis and is removed at the end of it.
 
-Lastly, the test plan that the user is asked to provide, will be used in dynamic analysis to train the services and produce system logs. Moreover, if there is no Docker Compose file, the test plan will be used to detect the runtime flags used in docker commands, to create mini yml files for each service.
+Lastly, the test plan that the user is asked to provide, will be used in dynamic analysis to exercise the services and produce system logs. The runtime flags in the test plan will be examined for known vulnerabilities. Moreover, if there is no Docker Compose file, the test plan will be used to detect the runtime flags used in docker commands, to create mini yml files for each service.
 
 \subsection{Output}
-SecureWilly produces one profile for each service. A directory, called parser\_output is created in the parent directory of Parser, and contains the services' profiles produced. It also contains the mini yml files for each service, as they me be helpful for the user, if willing to create a Docker Compose file. System logs produced from dynamic analysis are included also as well as all the versions of the profiles produced at each run of dynamic analysis.
+SecureWilly produces one profile for each service. A directory, called parser\_output is created in the parent directory of Parser, and contains the services' profiles produced, each one specified by the name of the service (\textit{service\_profile}). It also contains the mini yml files for each service, as they may be helpful for the user, if willing to create a Docker Compose file, in case it does not already exist. System logs produced from dynamic analysis are included too, as well as all the versions of the profiles produced at each run of dynamic analysis. Finally, there is a directory named Alerts which consists of text files, like Namespaces or Privileged, alerting user about any detected vulnerabilities on the containers.
 
-The user should now copy the profiles in AppArmor directory (usually /etc/apparmor.d/) and load them in kernel. Then the option security\_opt should be added in Docker Compose file, or flag security-opt (--security-opt "apparmor:service\_profile") inside docker run/create commands.
+The user should now copy the profiles in AppArmor directory (usually /etc/apparmor.d/) and load them in kernel (\textit{sudo apparmor\_parser -r -W /etc/apparmor.d/service\_profile}). Then the option security\_opt should be added in Docker Compose file, or flag security-opt (--security-opt "apparmor:service\_profile") inside docker run/create commands.
 
 \section{Static Analysis}
 \subsection{Purpose}
@@ -261,7 +271,7 @@ The login of userA is successful, due to the capabilities setuid and setgid, whi
 
 Switching users as well as permissions work perfectly, therefore the rules we extracted from Dockerfile constitute the profile useful and efficient.
 
-\subsection{Docker Compose}
+\subsection{Docker Compose} \label{dockcomp}
 It is a fact that most of the parameters we would like to obtain are not given at build phase but at runtime. Therefore, the material that Dockerfile offers to static analysis is limited, due to portability issues. Runtime parameters would constitute a key factor to create strict and fine-grained AppArmor profiles that reach our goal of containers obeying the Principle of least privilege. Docker offers a solution to this issue, with Docker Compose.
 
 \begin{figure}[h!]
@@ -455,7 +465,6 @@ The steps of dynamic parser are clearly presented in the following flowchart:
    \includegraphics[width=0.8\linewidth]{../figures/DynamicAlgo.jpeg}
    \caption{Flowchart of dynamic parser}
 \end{figure}
-
 Let's take a closer look at the basic steps of dynamic parser.
 
 \subsubsection{AppArmor profiles: load, complain, enforce}

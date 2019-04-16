@@ -2,7 +2,9 @@
 Among SecureWilly's goals, it is to achieve isolation between host and container, as well as between containers themselves.
 Preserving isolation is an important aspect in maintaining docker's security as a whole, because several attacks can be accomplished, if isolation is violated.
 
-We made an extensive research on the attacks that have a potential to happen, if docker containers are not strongly secured. We pointed out a set of vulnerabilities that could lead to several attacks and within the context of ethical hacking, we implemented specific examples of attacks. Through reverse engineering, we managed to create some rules that SecureWilly adds to the AppArmor profiles it produces, in order to assist isolation. 
+We made an extensive research on the attacks that have a potential to happen, if docker containers are not strongly secured. We pointed out a set of vulnerabilities that could lead to several attacks and within the context of ethical hacking, we implemented specific examples of attacks. All of the examples implemented in the following sections are functional and they have been tested on real systems (host machine's used Ubuntu 16.04 and Ubuntu 18.10).
+
+Through reverse engineering, we managed to create some rules that SecureWilly adds to the AppArmor profiles it produces, in order to assist isolation. SecureWilly currently prevents successfully the attacks mentioned in sections \textit{Nsenter tool \ref{nsattack}} and \textit{Access to Docker Daemon \ref{accessnoroot}}. As for the other vulnerabilities mentioned, SecureWilly's profiles may not be able to prevent attacks deriving from them, but SecureWilly produces alerts for the vulnerabilities detected on the docker containers, so that the user can avoid them and start using best practices.
 
 \section{Attacks}
 Below we can see some types of attacks that can happen from within a container \cite{securityattacks}: 
@@ -12,7 +14,7 @@ Below we can see some types of attacks that can happen from within a container \
 MAC cannot take action into this attack because it does not have the ability to restrict syscalls that would cause this reaction to kernel.
 
 \item Denial-of-service-attacks: Containers share kernel resources, so if one container is able to monopolise the access to certain resources, it can starve out other containers on the host. This results in a denial of - service (DoS). Users are then unable to access part or all of the system.
-Cgroups is the responsible security feature for resources, that could limit attacker's way up to it. AppArmor profiles do not have rules that involve cgroups...yet (see Chapter 6, section \textit{Future work}).
+Cgroups is the responsible security feature for resources, that could limit attacker's way up to it. AppArmor profiles do not have rules that involve cgroups...yet (see Chapter 6, section \textit{\ref{newappfeatures}}).
 
 \item Container breakouts: Be aware of potential privilege escalation attacks, where a user gains elevated privileges through a bug in application code that must run with extra privileges. While unikelly, breakouts are possible and should be considered  when developing a continuity plan.
 We looked into this kind of attack closely and we achieved to protect host and containers from breakouts. The following sections describe how these attacks occur and what SecureWilly is doing to prevent them.
@@ -21,7 +23,7 @@ We looked into this kind of attack closely and we achieved to protect host and c
 There's not much SecureWilly can do about it. We mainly rely on static analysis to prevent attacks, so if we have only a docker image for dynamic analysis, we cannot know if it has bad intentions.
 
 \item Compromising secrets: When a container accesses a database or service it will require a secret, like an API key or username and password. An attacker that gains access to the secret will also have access to the service.
-There are several ways that an attacker can eavesdrop other's secrets. SecureWilly can protect us from one way that an attacker could use. That would be through docker inspect. This is explained in an example in section \textit{Access to Docker Daemon}.
+There are several ways that an attacker can eavesdrop other's secrets. SecureWilly can protect us from one way that an attacker could use. That would be through docker inspect. This is explained in an example in section \textit{Access to Docker Daemon \ref{accessnoroot}}.
 
 \end{itemize}
 
@@ -29,7 +31,7 @@ We will focus on container breakout attacks, as they are the most relevant to co
 
 In SecureWilly's development we relied on reverse engineering to extract rules that would defend host from container breakouts and achieve isolation. We implemented several attacks and investigated the least privileges needed in order to commit the attacks. We then used those rules in our static analysis, in order to deny some privileges to the attacker and prevent him from completing the attack.
 
-The following sections, describe the types of the attacks mentioned and shows the solution that our system provides through examples of each attack.
+The following sections, describe the types of the attacks mentioned and shows the solution that our software provides through examples of each attack.
 
 \section{Container Breakouts}
 \subsection{Violating Isolation}
@@ -50,7 +52,9 @@ There are several tools, commands and tricks to escape docker container. Below w
 \item Access to Docker Daemon
 \end{enumerate}
 
-In the next sections, we discuss each of them in depth.
+The first three \say{tools/techniques} cannot be handled by SecureWilly, by default. As soon as the user enables them, the isolation will be at risk. In the respective sections, we explain why and how each \say{tool/technique} threatens isolation and how to harden a container's security.
+
+As for the last two \say{tools/techniques}, SecureWilly manages to prevent several attacks that are based on them. In the respective sections, we present an extensive research on how they could lead to an attack, we implement specific attacks based on each tool and we provide a protection towards them through SecureWilly's profiles.
 
 \section{Running as root}
 \subsection{Container's process on host}
@@ -91,7 +95,7 @@ ubuntu    5834  5714  0 18:52 pts/3    00:00:00 grep --color=auto %top%
 
 As you can see from the output, the user that runs top is root. This is the exact same root as host's, even though it is the container's process which runs top.
 
-\subsection{What can an attacker do with root user?}
+\subsection{What can an attacker do with root user?} \label{rootuseracctions}
 Attackers who run as root in a container can make use of root's ability to commit privileged actions, in order to attack host. 
 
 A very simple example to attack host by running a container as root is the following: 
@@ -139,7 +143,7 @@ $ ls -l /etc | grep Hello
 The owner of the new file is root, even though the container was run by a standard, non-root user who did not have the permission to create a file in /etc directory.
 Running as root, gave a non-root user the ability to commit privileged actions against the host, which he could not fulfil without docker client. 
 
-\subsection{User Namespaces}
+\subsection{User Namespaces} \label{userns}
 \subsubsection{How User Namespaces work}
 One may well wonder whether the user namespaces will protect host's root from such attacks.
 
@@ -179,19 +183,21 @@ Although user namespaces could prove themselves to be highly beneficial for cont
 
 First of all, we shall always have in mind as a potential risk that some piece of kernel code might not be refactored to account for distinct user namespaces. That could lead in harming host's environment.
 
-Moreover, user namespaces are in a way a namespacing of capabilities and rather than being subtractive as we would like them to be, actually grant non-root users increased access to system capabilities. This is happening because kernel grants initial process in new user namespace a full set of capabilities, which are only for operations on objects governed by the new user namespace. Yet, giving an unprivileged user full capabilities in a child user namespace - docker container - is a risk, as it is possible to achieve doing some privileged operations in outer namespace - host - as we explain in section \textit{Kernel Capabilities}. \cite{usernsnotsosecure}
+Moreover, user namespaces are in a way a namespacing of capabilities and rather than being subtractive as we would like them to be, actually grant non-root users increased access to system capabilities. This is happening because kernel grants initial process in new user namespace a full set of capabilities, which are only for operations on objects governed by the new user namespace. Yet, giving an unprivileged user full capabilities in a child user namespace - docker container - is a risk, as it is possible to achieve doing some privileged operations in outer namespace - host - as we explain in section \textit{Kernel Capabilities \ref{kernelcaps}}. \cite{usernsnotsosecure}
 
-It is of great importance for containers' security to merge user namespaces with other types of namespaces and other security features such as dropping capabilities.
+\textbf{It is of great importance for containers' security to merge user namespaces with other types of namespaces and other security features such as dropping capabilities.}
+\hfill\break
 
-Let's take a look at the following diagram of namespaces: \cite{diagramuserns}
+Let's take a look at the diagram of namespaces, represented in figure 4.1. \cite{diagramuserns}
+
+In the system represented in the diagram, there are three initial namespaces (user, network, UTS), one child of the initial user namespace and a second UTS namespace which is owned by the child user namespace.
 
 \begin{figure}[h!]
   \centering
    \includegraphics[width=0.9\linewidth]{../figures/userns1gm.png}
    \caption{Namespaces Diagram}
 \end{figure}
-
-In the system represented in the diagram, there are three initial namespaces (user, network, UTS), one child of the initial user namespace and a second UTS namespace which is owned by the child user namespace.
+\hfill\break\hfill\break
 
 Suppose that process X tries to change host name. Host name belongs to UTS namespace handling objects and changing it requires capability SYS\_ADMIN. Process X is a member of the second UTS namespace which is owned by child user namespace where our process has UID 0, which means it's root and has capability SYS\_ADMIN inside this namespace. Therefore, it is able to complete this action.
 
@@ -208,7 +214,7 @@ When using images from DockerHub or when using FROM command in Dockerfile to pro
 Another solution would be parsing a non-root user of host to the container at runtime either with \textbf{flag -u} or inside docker-compose. That would result in exactly the same solution as creating a new user inside the Dockerfile. Just make sure that the host's user that you will be parsing, does not have any special privileges by taking a look at the groups he belongs.
 \end{mdframed}
 
-\section{Kernel Capabilities}
+\section{Kernel Capabilities} \label{kernelcaps}
 \subsection{What are Kernel Capabilities?}
 In Linux, root's special powers have been split into individual capabilities and the actions normally reserved for root are broken down into smaller portions. Capabilities system was designed to help remove the problems associated with the need for root privileges. An application could demand more privileges but that does not mean it exclusively needs root to run it. All we have to do is give the specific capability needed for a task to the user. 
 A standard user could easily elevate to root by adding capabilities, and as we discussed before being root in a container should be avoided.
@@ -258,25 +264,36 @@ A similar capability which gives only read access that has to be taken into cons
 
 These capabilities are only a subset of the most obvious capabilities that could lead to an attack. Almost every capability could be proven dangerous, if an attacker uses it with bad intentions. 
 
+\subsection{Alert: Privileged mode}
+Flag privileged which adds all capabilities is definitely discouraged to be used, if not specifically needed. Even smart admins can make bad decisions, and using Docker's privileged feature if they need only a subset of capabilities, would be one of them. 
+
+SecureWilly detects privileged mode when used, either in Docker compose file as an option or in the given test plan, as a runtime flag and alerts the user about this vulnerable feature by producing some logs in a text file name Privileged, under the Alerts directory, like the following example:
+
+\begin{lstlisting}[style=terminal]
+$ cat parser_output/Alerts/Privileged
+Alerting of privileged mode vulnerability that could lead to attacks.
+
+Container demo runs in privileged mode.
+\end{lstlisting}
+
 \subsection{Use capabilities in caution}
 In this section, we do not provide any example attacks, as all of the capabilities mentioned are used maliciously by attackers in every example we present in the following sections.
 
 All in all, although a widespread use of \textbf{kernel capabilities} could reduce the amount of vulnerabilities that cause complete root access, they \textbf{should be added mindfully} otherwise they could lead to dangerous paths. 
-Flag privileged which adds all capabilities is definitely discouraged to be used, if not specifically needed. Even smart admins can make bad decisions, and using Docker's privileged feature if they need only a subset of capabilities would be a very bad decision.
 
-\section{Disabling Namespaces}
+\section{Disabling Namespaces} \label{disns}
 \subsection{Linux Namespaces in docker containers}
-Linux Namespaces, are a feaure that partitions kernel resources and provide resource isolation, like we mentioned in section \textit{Running as root: User Namespaces}.  The purpose of namespaces, as given in namespaces man page, is to wrap a particular global system resource in an abstraction that makes it appear to the processes within the namespace that they have their own isolated instance of the global resource. One of the overall goals of namespaces is to support the implementation of containers. 
+Linux Namespaces, are a feaure that partitions kernel resources and provide resource isolation, like we mentioned in section \textit{Running as root: User Namespaces \ref{userns}}.  The purpose of namespaces, as given in namespaces man page, is to wrap a particular global system resource in an abstraction that makes it appear to the processes within the namespace that they have their own isolated instance of the global resource. One of the overall goals of namespaces is to support the implementation of containers. 
 Currently, Linux implements seven different types of namespaces: mount (mnt), process id (pid), network (net), interprocess communication (ipc), UTS, user id (user), control group (cgroup).
 
-Docker uses namespaces and most of them are by default enabled. Only user namespaces as we mentioned in section \textit{Running as root: User Namespaces} are disabled, but we showed how we can enable them manually.
+Docker uses namespaces and most of them are by default enabled. Only user namespaces, as we mentioned in section \textit{Running as root: User Namespaces \ref{userns}} are disabled, but we showed how we can enable them manually.
 
 \subsection{Runtime flags to disable namespaces}
 Docker provides us with some flags that disable some of the container namespaces and allow a container to run within host's namespace or within another chosen namespace. These flags are the following:
 
 \begin{description}[style=nextline]
 \item[--pid=host:]
-Disables pid namespace and opens up host's pid namespace to the container. A container that is run with this flag, can see all processes running in host and if it combines it with mounting docker.sock or other vulnerabilities then it can inspect any container running on host. Moreover, being in host's pid namespace means that an attacker can enter host or any other container he knows the pid and execute commands, as we will see in section \textit{Nsenter tool}.
+Disables pid namespace and opens up host's pid namespace to the container. A container that is run with this flag, can see all processes running in host and if it combines it with mounting docker.sock or other vulnerabilities then it can inspect any container running on host. Moreover, being in host's pid namespace means that an attacker can enter host or any other container he knows the pid and execute commands, as we will see in section \textit{Nsenter tool \ref{nsentertools}}.
 
 \item[--net=host:]
 This flag makes host's network namespace visible to the container. This means that an attacker can become fully aware of what happens in host's networking and make use of host's network resources such as listening to ports where other containers are binded.
@@ -288,10 +305,10 @@ Being inside host's UTS namespace is not as dangerous as being inside other type
 By using this flag, a container gets to live in host's ipc namespace. IPC, which stands for Interprocess Communications, manipulates within its namespace certain IPC resources, namely, System V IPC objects and POSIX message queues. If host's IPC namespace is exposed, an attacker can make use of host's ipc resources.
 
 \item[--userns=host:]
-User Namespaces, which were discussed in section \textit{Running as root: User Namespaces}, can be disabled with this flag. As soon as user namespaces are disabled, host's root is at great risk of being exposed which could lead to severe attacks since being root means having full control of a machine.
+User Namespaces, which were discussed in section \textit{Running as root: User Namespaces \ref{userns}}, can be disabled with this flag. As soon as user namespaces are disabled, host's root is at great risk of being exposed which could lead to severe attacks since being root means having full control of a machine.
 \end{description}
 
-\subsection{Disabling Mount Namespace}
+\subsection{Disabling Mount Namespace} \label{mounthostfs}
 
 You may noticed that mount namespace is not included in the runtime flags we described above. Fortunately, there is no such a flag for mount namespace which controls the set of file systems and mounts a process can see. This means, a user who runs docker cannot use such a flag and directly enter host's mount namespace. However, if some of the flags above are used, an attacker can easily break his way into host's mount namespace too as we will see in the following examples.
 
@@ -326,7 +343,7 @@ This command lets host's mount namespace open up only for /dev/ directory where 
 \item \begin{lstlisting}[style=dockercommands]
 $ docker run -v /run:/run
 \end{lstlisting}
-This mounting has a significant impact in several ways, as many services of the host are provided to the container. For example, the container will be able to listen to docker.sock and thus, it will be able to run docker client - more on this is described in section \textit{Access to Docker Daemon}. It could also allow a container process to communicate with systemd (a software suite that provides fundamental building blocks for a Linux operating system) which also runs in /run directory as many other services.
+This mounting has a significant impact in several ways, as many services of the host are provided to the container. For example, the container will be able to listen to docker.sock and thus, it will be able to run docker client - more on this is described in section \textit{Access to Docker Daemon \ref{accesstodockerdaemon}}. It could also allow a container process to communicate with systemd (a software suite that provides fundamental building blocks for a Linux operating system) which also runs in /run directory as many other services.
 
 \item \begin{lstlisting}[style=dockercommands]
 $ docker run -v /:/host
@@ -334,12 +351,26 @@ $ docker run -v /:/host
 Little left to discuss in this example, as it shares the entire host's filesystem into the container. This is exactly the type of mountings that should be avoided, as it makes docker processes completely useless and isolation is totally violated.
 \end{itemize}
 
+\subsection{Alert: Disabling namespaces}
+SecureWilly detects the runtime flags which lets the container enter host's namespaces, through the test plan. It also detects the supported disabling namespaces options in Docker compose file - at the time of writing, the ones that are implemented in .yml files are network, pid and user namespace.
+
+Afterwards, it alerts the user with the respective logs about each container which tries to enter a specific namespace. Below, there is an example of the Namespaces Alerts.
+
+\begin{lstlisting}[style=terminal]
+$ cat parser_output/Alerts/Namespaces 
+Alerting of disabling namespaces vulnerabilities that could lead to attacks.
+
+Container demo enters host's Network namespace.
+
+Container demo enters host's PID namespace.
+\end{lstlisting}
+
 \subsection{Respect Namespaces}
-These features destroy every wall that isolates host from the container and makes it very easy for an attacker to commit an attack to host. These flags are discouraged to be used if not needed and so are the extended mountings on host. Namespaces exist to protect you and it is mindful to respect their boundaries. If all of these flags are used, then you have already lost. There is not even a reason to run docker, it's as if running a program on host. If some of them must be used, you should combine them with other security measures. 
+These features destroy every wall that isolates host from the container and makes it very easy for an attacker to commit an attack to host. These flags are discouraged to be used if not needed and so are the extended mountings on host. \textbf{Namespaces exist to protect you and it is mindful to respect their boundaries.} If all of these flags are used, then you have already lost. There is not even a reason to run docker, it's as if running a program on host. If some of them must be used, you should combine them with other security measures. 
 
-There is not much SecureWilly can do if you open up your namespaces to a malicious container. 
+There is not much SecureWilly can do if you open up your namespaces to a malicious container, except for alerting you about this vulnerability. 
 
-\section{Nsenter tool}
+\section{Nsenter tool} \label{nsentertools}
 \subsection{What is Nsenter tool?}
 Nsenter is the perfect tool to use to commit an attack by breaking into other processes' namespaces. The nsenter tool is part of the util-linux package since version 2.23. It provides access to the namespace of another process. Nsenter requires root privileges to work properly and this is another reason why we should not run containers as root. All you need to have in order to work with nsenter is the pid of the target process and then you can execute any command inside their namespaces. 
 What makes nsenter even more unsafe is that it does not drop capabilities. This means that the shell started by nsenter can do more harm potentially than a normal process running within the container, only by having the right capabilities added.
@@ -375,7 +406,7 @@ $ sudo docker cp nsenter:/util-linux/bash-completion/nsenter /etc/bash_completio
 
 Now you can stop docker container and nsenter should be installed and ready to use.
 
-\subsection{Using nsenter tool}
+\subsection{Using nsenter tool} \label{nsattack}
 There are multiple ways for an attacker to use nsenter, in order to commit an attack. In the following examples we can see some minimal attacks that could be used as a base for a deeper attack.
 
 The use cases we will look into are two: Breaking out to host and breaking out to another container. An attacker will commit the same attacks to both of them: ls root's directory, touch a file in root's directory, create a new user, create a shell in target's mount namespace.
@@ -430,7 +461,7 @@ Except for the SYS\_ADMIN capability, when attempting to nsenter to specifically
 Lastly, the namespace the attacker needs to enter in order to commit the attack is the mount namespace as it is the one handling the set of file systems a process can see and all of our examples implement attacks to target's filesystem. Thus, we add flag -m, which is the same as flag --mount that we will encounter in the next example.
 
 All of those actions are allowed to happen owning to the following AppArmor profile:
-\hfill\break
+
 \begin{lstlisting}[style=Dockerfile, caption={AppArmor profile attacker\_profile}]
 #include <tunables/global>
 
@@ -544,7 +575,6 @@ docker run --rm -it --security-opt "apparmor=attacker_profile" --pid=host --cap-
 #Create a shell in the container
 echo "====== /bin/bash ======"
 docker run --rm -it --security-opt "apparmor=attacker_profile" --pid=host --cap-add SYS_ADMIN debian:latest nsenter --target ${container_pid} --mount /bin/bash
-
 #Clear files
 rm PID
 rm dockerps
@@ -588,7 +618,6 @@ root@fdeb9f62ec00:/# cut -d: -f1 /etc/passwd | grep hacked
 \end{lstlisting}
 
 As expected, the attacker has succeeded again. He was able to list target's root directory contents, touch a new file and add a new user called hacked and confirmed all of these actions through the bash shell which was created and he may as well commit any attack inside target's mount namespace.
-\\
 \begin{mdframed}[backgroundcolor=navajowhite]
 To sum up, an attacker is capable to perform a breakout of his container with a small subset of privileges. This subset includes \textbf{running as root}, granting capability SYS\_ADMIN (and SYS\_PTRACE for PID 1) and an AppArmor profile which allows \textbf{capabilities SYS\_ADMIN, SYS\_CHROOT (SYS\_PTRACE for PID 1)} and \textbf{ptrace read and trace operations}. 
 Moreover, an AppArmor profile is needed for the target container which allows \textbf{ptrace readby and tracedby operations}.
@@ -597,7 +626,7 @@ Moreover, an AppArmor profile is needed for the target container which allows \t
 \subsubsection{Mounting host's filesystem into running container}
 Let's see a more complex example of using nsenter to attack host. 
 
-In this example an attacker aims to mount host's filesystem to a running container. As we explained in chapter Static Analysis, docker does not allow mounting on a running container. You can only create a mount volume at the phase of the creation of a container. This is because containers are supposed to be ephemeral so it is recommended to destroy the container and then recreate it to update the volume. 
+In this example an attacker aims to mount host's filesystem to a running container. As we explained in \textit{Chapter 3, section Volumes in \ref{dockcomp}}, docker does not allow mounting on a running container. You can only create a mount volume at the phase of the creation of a container. This is because containers are supposed to be ephemeral so it is recommended to destroy the container and then recreate it to update the volume. 
 
 However, there are some hacks that let the host interfere with the container and one of them is the container's filesystem layers hack presented below. The attacker in our example, achieves to create a mount on a running container through its filesystem layers which exist on host's filesystem.\cite{mountonrunning}
 
@@ -620,7 +649,6 @@ profile attacked_container_profile flags=(attach_disconnected,mediate_deleted) {
         ptrace (readby, tracedby),
 }
 \end{lstlisting}
-
 This profile allows only the syscall ptrace to be used by others towards this container, so that the container is traceable.
 
 The next thing that should be done is running a container that will commit nsenter to host's mount and pid namespaces and execute a shell inside host:
@@ -734,7 +762,7 @@ rm mntinfo
 rm mntpoint_of_fs
 \end{lstlisting}
 
-The second script that is run, 4\_attack\_to\_container\_part1\_mount.sh, is the one which lets the attack to the container begin. It configures the attack, by detecting the running container that will be attacked, finding its container id and its process's PID. The attacker here uses the docker client to detect the containers running on host. This is possible because of the mount of docker.sock to attacker's container at runtime - more information about the docker socket on section \textit{Access to Docker Daemon}. The part of the attack to the container in this script consists of the creation of a special device and a directory inside the container. The device that is created in the container is similar to one on the host - same type, major and minor number which we extracted with the previous script. In script 3\_attack\_to\_host.sh we found out the host's filesystem that contains the directory restricted\_area. We then found out the path on which that filesystem is mounted at and which subdirectory of that filesystem is mounted at the same path. That subdirectory is the identical device of the one created on the container. The purpose of this device's creation will be explained on the next script.
+The second script that is run, 4\_attack\_to\_container\_part1\_mount.sh, is the one which lets the attack to the container begin. It configures the attack, by detecting the running container that will be attacked, finding its container id and its process's PID. The attacker here uses the docker client to detect the containers running on host. This is possible because of the mount of docker.sock to attacker's container at runtime - more information about the docker socket in section \textit{Access to Docker Daemon \ref{accesstodockerdaemon}}. The part of the attack to the container in this script consists of the creation of a special device and a directory inside the container. The device that is created in the container is similar to one on the host - same type, major and minor number which we extracted with the previous script. In script 3\_attack\_to\_host.sh we found out the host's filesystem that contains the directory restricted\_area. We then found out the path on which that filesystem is mounted at and which subdirectory of that filesystem is mounted at the same path. That subdirectory is the identical device of the one created on the container. The purpose of this device's creation will be explained on the next script.
 
 What makes it possible for the attacker to see host's devices is the flag --device /dev/vda1 - we used this flag in docker run a priori but in fact that requires a pre-research about which device will be used at script 3\_attack\_to\_host.sh on behalf of the attacker. Moreover, the creation of the device on the container requires capability mknod which is allowed by the AppArmor profile enforced.
 
@@ -855,7 +883,7 @@ Denying capabilities was not the right choice because it would restrict the user
 
 Denying ptrace read and trace operations could not constitute a solution either as it limited user's abilities for tracing the processes inside his container, which does not cross the lines of isolation.
 
-Therefore, an attacking container which uses nsenter for a container breakout could not be stopped by SecureWilly. Nonetheless, SecureWilly can be used by a container to protect itself from an attack like that, either the attack is minimal or it is a more complex one.
+Moreover, creating an AppArmor profile to restrict vulnerable actions from the attacker's side could not constitute a solution after all, since an attacker can disable the AppArmor profile, before committing the attack. Nonetheless, what made this research invaluable was that by finding the least possible permissions an attacker needs in order to commit an attack, we can use the least possible reversed rules to the attacked container in order to protect itself from such an attack, either the attack is minimal or a more complex one.
 
 We considered that, on the attacked side, the only rule that could be extracted in order to preserve isolation in a generic way was denying the ptrace readby and tracedby operations in target's container profile. That rule protects a container from any attacker who tries to break into it, because they cannot trace it and enter its namespaces.
  
@@ -865,7 +893,7 @@ Thus, we added in the static part one more rule: \textbf{deny ptrace (readby, tr
 \textbf{Tip}: A very similar to nsenter tool, is the nsinit tool. Docker offers its own library for managing containers called libcontainer and the tool nsinit belongs to it. It allows the user direct access to the linux namespace and cgroup kernel features. We have not used it in our research but it should be examined as future work.
 \end{mdframed}
 
-\section{Access to Docker Deamon}
+\section{Access to Docker Deamon} \label{accesstodockerdaemon}
 \subsection{Who can use Docker?}
 A user who has access to the docker daemon has the ability to use the docker client - also known as docker CLI - and execute docker commands. This means that this user could manipulate the running containers, enter their environment, learn information about them or even stop them, and create new containers. Consequently, users with access to the docker command line are supposed to be quite powerful and this is the reason why the docker CLI is restricted to root and to members of docker group.
 
@@ -898,14 +926,13 @@ The following diagram describes 'Alice' and 'Bob', two UNIX users, both members 
 Both Alice and Bob, not only have full control of their own containers, but of all docker containers running on host as well.
 
 \subsection{User Privilege Elevation}
-Being able to run a docker container as root could eventually lead in getting root on host, as we explained in section \textit{Running as root}. The example that was examined in that section - \textit{Running as root: What can an attacker do with root user?} - is representative of how a standard non-root user who is granted with membership to docker group can easily surrogate into the 'real root' account on the host, only with some host resources provided - /etc/ dir is mounted in the specific example.
+Being able to run a docker container as root could eventually lead in getting root on host, as we explained in section \textit{Running as root}. The example that was examined in that section - \textit{Running as root: What can an attacker do with root user? \ref{rootuseracctions}} - is representative of how a standard non-root user who is granted with membership to docker group can easily surrogate into the 'real root' account on the host, only with some host resources provided - /etc/ dir is mounted in the specific example.
 
 Let's see another example, to have a more recent and clear picture of that vulnerability.
 
 Suppose there is a non-root user on host who is member of the docker group and runs an ubuntu image as root, while mounting host's directory /bin/ to a directory inside the container (/attack\_bin). 
 
 This container's image is created with the following minimal Dockerfile:
-\hfill\break\hfill\break
 \begin{lstlisting}[style=Dockerfile, caption={Dockerfile used for docgroup image}]
 FROM ubuntu:latest
 MAINTAINER Fani Dimou <fani.dimou92@gmail.com>
@@ -982,7 +1009,7 @@ A privileged docker container is given access to all host's devices, lifting all
 
 When using a privileged container, as it is expected, some security features are disabled. One of them is the user namespaces, as they are incompatible with privileged containers. The container must run in the host user namespace when running privileged mode. Another feature that is disabled is the mounting of file systems as readonly, thus any filesystem that it is mounted to the container provides all the permissions to the users.
 
-As we described in section \textit{Kernel Capabilities}, a privileged docker container can be started by using the flag --privileged in docker run command.
+As we described in section \textit{Kernel Capabilities \ref{kernelcaps}}, a privileged docker container can be started by using the flag --privileged in docker run command.
 
 \item[Super-Privileged Containers]
 By the term super-privileged containers we refer to a concept introduced in Project Atomic Blogs by Red Hat, where containers are supposed to run in a specific way. \cite{troubledocker}
@@ -992,7 +1019,7 @@ What could possibly make a container more privileged than the “privileged” c
 The idea of Super-Privileged containers refers to a way of running certain types of containers, not to a feature that when it is enabled, a container becomes super-privileged directly. SPC is defined as a container that runs with security turned off (--privileged) and turns off one or more of the namespaces, either by using the suitable flags for the supported namespaces or by mounting host volumes for mount namespace. \cite{spcbydanwalsh}. This results in exposing more of the host operating system.
 SPCs term is not a \say{standard}, it's a group of options to enable on a privileged container. 
 
-Among those options, are the flags that disable namespaces which we discussed in section \textit{Disabling Namespaces}.
+Among those options, are the flags that disable namespaces which we discussed in section \textit{Disabling Namespaces \ref{disns}}.
 
 In the most privileged version, the SPC will use only the mount namespace. It should be able to run without the PID, NET, IPC or UTS namespaces, but it should bring parts of the OS or the entire root's directory into the container, using volume mounts.
 
@@ -1030,7 +1057,7 @@ $ docker run -v /:/host
 Access to root file system (where docker socket is located)
 \end{itemize}
 
-As we discussed in section \textit{Disabling Namespaces: Mounting host's filesystem}, the closer we get to root's directory ( / ) in host's filesystem tree, the more exposed the host will be. Therefore, if docker.sock has to be mounted, the first command is the most preferable.
+As we discussed in section \textit{Disabling Namespaces: Mounting host's filesystem \ref{mounthostfs}}, the closer we get to root's directory ( / ) in host's filesystem tree, the more exposed the host will be. Therefore, if docker.sock has to be mounted, the first command is the most preferable.
 \\
  
 In the following example, we will see how an unprivileged container who runs as root and has access to docker daemon can launch a super-privileged container.
@@ -1118,7 +1145,7 @@ If we look into the requirements of the attack, we will uncover that running as 
 
 So, at first sight, it seems that running as non-root would constitute the solution. Unfortunately, this is not entirely true. There is still a way to make this type of attack work without running as root and we will examine it in the next subsection.
 
-\subsection{Access host's docker.sock without root}
+\subsection{Access host's docker.sock without root} \label{accessnoroot}
 \subsubsection{Docker socket's GID}
 How could host's Docker engine be used by a non-root user inside a container?
 
@@ -1315,7 +1342,6 @@ In the creation of a Super-Privileged container example, in section \textit{Cont
 Running as root is difficult to fight, but when it comes to non root users who intend to be added to docker group, a login is required, in order to apply the group changes. And that's what SecureWilly will block. In order to block this attack, the AppArmor profile has to deny the capabilities setuid and setgid. But is it appropriate to block them for every single container? The answer is no. We just have to block them whenever there is a mount of docker.sock, which probably means that the user intends to use host's docker client. Indeed, it may concern an innocent action but SecureWilly's purpose is to guard the isolation and these capabilities combined with docker.sock could lead to a vulnerability and a risk we do not wish to take.
 
 Thus, the profile that should have been used to defend the container (here we mean the attacker's container but in general this can be considered as any other image) in order to prevent the attack is the following:
-\hfill\break
 \begin{lstlisting}[style=Dockerfile, caption={AppArmor profile socket\_attacker}]
 #include <tunables/global>
 
@@ -1338,4 +1364,4 @@ In the reverse engineering phase, we added to the static part of SecureWilly a c
 \section{Summary}
 Containers have walls, even without AppArmor profiles, but you can go through them if you must. That's when our profile should take place as a second wall. SecureWilly assists building this wall by creating secure and efficient AppArmor profiles.
 
-It is a fact that not all of the vulnerable features we discussed can be confronted. Right now, SecureWilly protects isolation against a specific group of attacks. It gets harder though when these features are combined, and the attack gets more complicated to confront. This is why it is recommended to bear in mind the best practices suggested by Docker \cite{dockerbestpr} and be cautious about using the vulnerable features we detailed above, when creating an image and running the container.
+It is a fact that not all of the vulnerable features we discussed can be confronted. Right now, SecureWilly protects isolation against a specific group of attacks (Nsenter and Docker group). It gets harder though when these features are combined, and the attack gets more complicated to confront. This is why SecureWilly produces Alerts about vulnerabilities and it is recommended to bear in mind the best practices suggested by Docker \cite{dockerbestpr} and be cautious about using the vulnerable features we detailed above, when creating an image and running the container.

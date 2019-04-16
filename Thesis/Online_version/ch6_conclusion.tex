@@ -8,7 +8,7 @@ This thesis dealt with security on docker environment, from a practical point of
 
 Except for the software that we created, in the current thesis we present an extensive research on vulnerable features of docker that could lead to violation of container's isolation and we implement specific examples of container breakout attacks, in the context of ethical hacking, which we created in order to extract rules that prevent these attacks, for our software.
 
-Finally, in order to evaluate our software in functionality, performance and scalability we used some benchmarks from CloudSuite, a very useful benchmark suite for cloud services, as well as a real program, Nextcloud, which is a widely used open source, self-hosted file share and communication platform. We successfully produced AppArmor profiles for the services of the benchmarks of CloudSuite and Nextcloud, hoping it will be a useful contribution to the respective communities.
+Finally, in order to evaluate our software in functionality, performance and scalability we used some benchmarks from CloudSuite, a very useful benchmark suite for cloud services, as well as a real program, Nextcloud, which is a widely used open source, self-hosted file share and communication platform. We successfully produced AppArmor profiles for the services of the benchmarks of CloudSuite and Nextcloud, hoping it will be a useful contribution to the respective communities. We also compared a SecureWilly's profile to a profile created via genprof tool and spotted the differences between them. AppArmor overhead was proven to be barely noticeable and we concluded that SecureWilly produces valuable assets to harden the security of a docker project.
 
 \section{Related Work}
 
@@ -30,16 +30,20 @@ SecureWilly's development has been completed so that its goal is achieved but ce
 \item Extract more rules in static analysis
 \item Include other syntax forms of Dockerfile instructions and Docker Compose options to static\_parser.py
 \item More rules to prevent attacks
+\item Alerts about root user in containers
 \item More flexible User Interface
 \item Support interactive test plans of the project, not only script commands
+\item Option of user manually adding rules, through a configuration file
 \item Change python scripts into executables (maybe write programs in Go) so that python interpreter is not a requirement
 \item Fix the conflict of multiple containers using the same image, when a docker-compose file is not provided
 \item Fix clearing volumes by detecting docker project's volumes and deleting them, instead of using docker volume prune
+\item CI/CD to build releases on GitHub, through Travis CI, which supports open source projects and Docker
+\item Support distributed services
 \end{itemize}
 SecureWilly is an open source project and contributions are more than welcome. You can find it on GitHub: \url{https://github.com/FaniD/SecureWilly}
 
 \subsection{AppArmor}
-\subsubsection{AppArmor 3.0 and future features}
+\subsubsection{AppArmor 3.0 and future features} \label{newappfeatures}
 AppArmor 3.0 is coming and is bringing several new shiny features with it. \cite{app3seth}
 
 First of all, since AppArmor is the main tool SecureWilly is using, we are happy to hear that AppArmor 3.0 will compile and execute its policies much faster. AppArmor policies are compiled from the text to an optimized state machine that can be executed quickly in the kernel. The state machines are cached to speed up future boots. Current version of AppArmor uses a single binary policy cache. This causes several underlying risks. For example, if the default location /etc/apparmor.d/cache is moved or there is a change in kernel, the single cache has to be rebuilt on boot. Situations like that slows down the boot.

@@ -2,7 +2,7 @@
 
 In this chapter, we assess the potential benefit of using SecureWilly in docker projects. Through a variety of experiments, we display the results of SecureWilly's execution, we examine the profiles produced and we evaluate the performance, the functionality and the scalability of our software.
 
-\section{Experimental setup}
+\section{Experimental setup}\label{expset}
 \subsection{Benchmarks}
 SecureWilly has been tested on creating AppArmor profiles for a set of multi-service projects provided by CloudSuite, a benchmark suite for cloud services. \cite{cloudsuite} The benchmarks are based on real-world software stacks and represent real-world setups. 
 
@@ -111,11 +111,12 @@ sleep 60
 #Check server's status
 docker exec -u www-data nextcloud php occ status > answer
 answer=$(cat answer | grep 'Nextcloud is not installed')
-while [ -z "$answer" ]
+while [ -z "$answer" ] && [ ! -z "$error_exec" ]
 do
         rm answer
-        docker exec -u www-data nextcloud php occ status > answer
+        docker exec -u www-data nextcloud php occ status > answer 2> error_exec
         answer=$(cat answer | grep 'Nextcloud is not installed')
+		  error_exec=$(cat answer | grep 'is not running')
 done
 rm answer
 
@@ -133,6 +134,238 @@ docker kill nextcloud
 docker kill db
 \end{lstlisting}
 
+\section{Profiles}
+\subsection{SecureWilly's profiles}
+After SecureWilly's execution, the final AppArmor profiles are produced and are already loaded in kernel. The final profiles are under \textit{parser\_output} directory.
+
+Nextcloud's services profiles are presented below as an example. The following profiles were created by SecureWilly on a VM launched in OpenStack using an image of Ubuntu 16.04 and also tested on Arch Linux.
+
+\begin{lstlisting}[style=Dockerfile, caption={AppArmor profile for db service: db\_profile}]
+#include <tunables/global>
+
+profile db_profile flags=(attach_disconnected,mediate_deleted) {
+        capability setgid,
+        capability dac_override,
+        network inet dgram,
+        /var/lib/mysql/* rw,
+        signal (receive) set=(term) peer=db_profile,
+        mount /var/lib/docker/volumes/nextcloud_db_/_data -> /var/lib/mysql, #Bind host volume to docker container volume
+        signal (send) set=(usr1) peer=db_profile,
+        file,  #Allows access to containers filesystem
+        /var/lib/docker/* r, #Access to layers of filesystem
+        network inet6 stream,
+        signal (receive) set=(kill) peer=unconfined,
+        deny remount /var/lib/mysql, #Disallow anybody that wants to remount this mountpoint
+        network inet6 dgram,
+        signal (receive) set=(usr1) peer=db_profile,
+        deny umount /var/lib/mysql, #Disallow anybody that wants to break this mountpoint
+        capability setuid,
+        signal (send) set=(term) peer=db_profile,
+        deny ptrace (readby, tracedby), #Confront container breakout attacks
+}
+\end{lstlisting}
+
+\begin{lstlisting}[style=Dockerfile, caption={AppArmor profile for nextcloud service: nextcloud\_profile}]
+#include <tunables/global>
+
+profile nextcloud_profile flags=(attach_disconnected,mediate_deleted) {
+        /var/www/html/data/* rw,
+        capability fsetid,
+        capability chown,
+        file,  #Allows access to containers filesystem
+        mount /var/lib/docker/volumes/nextcloud_nextcloud_/_data -> /var/www/html, #Bind host volume to docker container volume
+        network inet6 dgram,
+        signal (receive) set=(exists) peer=unconfined,
+        mount /home/ubuntu/SecureWilly/Nextcloud/data -> /var/www/html/data, #Bind host volume to docker container volume
+        network inet stream,
+        /var/www/html/* rw,
+        /var/lib/docker/* r, #Access to layers of filesystem
+        network inet6 stream,
+        capability fowner,
+        capability setgid,
+        signal (receive) set=(usr2) peer=nextcloud_profile,
+        capability dac_override,
+        deny umount /var/www/html, #Disallow anybody that wants to break this mountpoint
+        signal (send) set=(usr2) peer=nextcloud_profile,
+        deny remount /var/www/html/data, #Disallow anybody that wants to remount this mountpoint
+        network inet dgram,
+        capability setuid,
+        deny remount /var/www/html, #Disallow anybody that wants to remount this mountpoint
+        deny ptrace (readby, tracedby), #Confront container breakout attacks
+        capability net_bind_service,  #This capability is needed to bind a socket to well-known ports
+        signal (receive) set=(kill) peer=unconfined,
+        deny umount /var/www/html/data, #Disallow anybody that wants to break this mountpoint
+}
+\end{lstlisting}
+
+Although the profiles produced are mainly service-oriented there are still some rules that depend on host's paths and configuration.
+
+One of them is a mount rule, where the host path is needed in order to have a strict rule indicating the mount of a particular volume.
+
+Except for the mount rules, through testing we came to the conclusion that host's system can also affect the AppArmor profile of a service. For example, the way a host treats the networking of containers may differ from one machine to another and therefore, new network rules may be required.
+
+The same Nextcloud instance was tested again on another host, using an image of Ubuntu 18.10 and the following profiles were created by SecureWilly. The following profiles defer from the previous one on network rules, as they needed some extra networking using unix stream and netlink raw.
+
+\begin{lstlisting}[style=Dockerfile, caption={New AppArmor profile for db service: db\_profile}]
+#include <tunables/global>
+
+profile db_profile flags=(attach_disconnected,mediate_deleted) {
+	capability dac_override,
+	network inet dgram,
+	/var/lib/mysql/* rw,
+	network unix stream,
+	signal (receive) set=(term) peer=db_profile,
+	signal (receive) set=(usr1) peer=db_profile,
+	signal (send) set=(term) peer=db_profile,
+	signal (send) set=(usr1) peer=db_profile,
+	file,  #Allows access to containers filesystem
+	/var/lib/docker/* r, #Access to layers of filesystem
+	network inet6 stream,
+	signal (receive) set=(kill) peer=unconfined,
+	deny remount /var/lib/mysql, #Disallow anybody that wants to remount this mountpoint
+	network inet6 dgram,
+	mount /var/lib/docker/volumes/nextcloud_db_/_data -> /var/lib/mysql, #Bind host volume to docker container volume
+	capability setgid,
+	deny umount /var/lib/mysql, #Disallow anybody that wants to break this mountpoint
+	capability setuid,
+	network netlink raw,
+	deny ptrace (readby, tracedby), #Confront container breakout attacks
+}
+\end{lstlisting}
+
+\begin{lstlisting}[style=Dockerfile, caption={New AppArmor profile for nextcloud service: nextcloud\_profile}]
+#include <tunables/global>
+
+profile nextcloud_profile flags=(attach_disconnected,mediate_deleted) {
+	/var/www/html/data/* rw,
+	network unix stream,
+	capability chown,
+	file,  #Allows access to containers filesystem
+	network inet6 dgram,
+	signal (receive) set=(exists) peer=unconfined,
+	network netlink raw,
+	mount /home/fani/SecureWilly/Nextcloud/data -> /var/www/html/data, #Bind host volume to docker container volume
+	mount /var/lib/docker/volumes/
+		nextcloud_nextcloud_/_data -> /var/www/html, #Bind host volume to docker container volume
+	network inet stream,
+	/var/www/html/* rw,
+	/var/lib/docker/* r, #Access to layers of filesystem
+	network inet6 stream,
+	capability fowner,
+	capability setgid,
+	signal (receive) set=(usr2) peer=nextcloud_profile,
+	capability dac_override,
+	deny umount /var/www/html, #Disallow anybody that wants to break this mountpoint
+	signal (send) set=(usr2) peer=nextcloud_profile,
+	deny remount /var/www/html/data, #Disallow anybody that wants to remount this mountpoint
+	network inet dgram,
+	capability setuid,
+	deny remount /var/www/html, #Disallow anybody that wants to remount this mountpoint
+	deny ptrace (readby, tracedby), #Confront container breakout attacks
+	capability net_bind_service,  #This capability is needed to bind a socket to well-known ports
+	signal (receive) set=(kill) peer=unconfined,
+	deny umount /var/www/html/data, #Disallow anybody that wants to break this mountpoint
+}
+\end{lstlisting}
+
+\begin{mdframed}[backgroundcolor=navajowhite]
+To sum up, SecureWilly's profiles are service-oriented but they still have some dependencies from the host machine, like mount rules and host's configuration on containers. Therefore, it is not recommended to use a profile coming from another system, but run SecureWilly to create a profile adjusted to your system.
+\end{mdframed}
+
+\subsection{Genprof profile comparison}\label{genprofcompare}
+Although SecureWilly's profiles have some dependencies from the host, they are not host-oriented in the way a profile created by genprof tool is. Below, we created a profile via genprof for the same Nextcloud instance in order to spot the differences.
+
+The profile was created using the following command:
+
+\begin{lstlisting}[style=dockercommands]
+$ sudo aa-genprof ./genprof_run.sh
+\end{lstlisting}
+
+The \textit{genprof\_run.sh} is the same test plan of Nextcloud we mentioned in section \textit{Experimental setup \ref{expset}}.
+\hfill\break
+
+\begin{lstlisting}[style=Dockerfile, caption={New AppArmor profile for nextcloud service: nextcloud\_profile}]
+#include <tunables/global>
+
+/home/fani/SecureWilly/Nextcloud/Genprof_testing/genprof_run.sh {
+  #include <abstractions/authentication>
+  #include <abstractions/base>
+  #include <abstractions/bash>
+  #include <abstractions/consoles>
+  #include <abstractions/nameservice>
+  #include <abstractions/postfix-common>
+  #include <abstractions/ubuntu-browsers.d/plugins-common>
+  #include <abstractions/user-tmp>
+  #include <abstractions/wutmp>
+
+  capability audit_write,
+  capability net_admin,
+  capability sys_resource,
+
+  /bin/cat mrix,
+  /bin/grep mrix,
+  /bin/rm mrix,
+  /bin/sleep mrix,
+  /etc/sudoers r,
+  /etc/sudoers.d/README r,
+  /home/fani/SecureWilly/Nextcloud/Genprof_testing/genprof_run.sh r,
+  /lib/x86_64-linux-gnu/ld-*.so mr,
+  /proc/stat r,
+  /proc/sys/kernel/cap_last_cap r,
+  /proc/sys/kernel/hostname r,
+  /proc/sys/net/core/somaxconn r,
+  /usr/bin/docker mrix,
+  /usr/bin/sudo mrix,
+  /usr/local/bin/docker-compose mrix,
+
+  owner /etc/default/locale r,
+  owner /etc/environment r,
+  owner /etc/sudoers.d/ r,
+  owner /home/*/SecureWilly/Nextcloud/Genprof_testing/answer rw,
+  owner /proc/*/stat r,
+  owner /proc/filesystems r,
+  owner /proc/sys/kernel/ngroups_max r,
+  owner /{usr/,}lib{,32,64}/** mr,
+
+}
+\end{lstlisting}
+
+\hfill\break
+
+\textbf{\underline{Comparison}}
+\hfill\break
+
+It is evident that there are a lot of different rules between the profile created by genprof and the ones created by SecureWilly.
+
+First of all, let it be clear that this profile is not going to work as security-opt option in Docker compose or runtime flag on a container. It will not let the container start at all, simply because the \say{file} rule is missing.
+
+Moreover, the host oriented behaviour is evident in genprof's profile, since there is an amount of file rules concerning files and paths on host's machine, even about the docker engine and docker compose itself, which run on the host. All of the rules in genprof's profile refer to the procedure - access and permissions - of running the script which includes the commands of the test plan.
+
+On the other hand, SecureWilly's profiles refer exclusively to the operations inside the container and divide accesses and capabilities to services, depending on the task of each service, so that not all services are allowed to act in the same way. This is of utmost importance, because we have full control of the docker services and no concerns about the rules needed for host in order to setup the services. Each service has a more clear view on what it is allowed to do and each one is restricted at a different rate.
+
+Furthemore, genprof's profile includes several other profiles, due to similar behaviour detected in dynamic analysis. This constitutes the profile generic and not adjusted to the specific project like SecureWilly's profiles are and it definitely is contrary to the Principle of Least Privilege, that we intend to follow, as the included profiles may consist of redundant rules that are not actually needed in our project.
+
+All in all, in the light of the above it is clear that SecureWilly's profiles are more specific, more strict and focused on the task of each service and therefore, they provide full control over a docker project in a more efficient and user friendly way.
+
+\section{AppArmor Overhead}
+
+The benefits deriving from enforcing AppArmor profiles have been explained thoroughly up to this point. The question that reasonably arises after this, is whether the usage of an AppArmor profile will delay our services and decrease the whole project's performance. 
+
+The answer to this question is yes, it does slow down the project. However, the extent to which it does, depends on what the services to profile do. For example, file system accesses are slower than other operations, because they have to be checked. Though, if a process does not open files or sockets, then it should not be affected at all (after initialization). But even file system accesses have such a slight delay on the services, that it is not even noticeable.
+
+The AppArmor was created on top of the idea that users should not notice AppArmor at all and thus, the performance is not affected noticeably by AppArmor.
+
+Using Nextcloud's instance as an example, we compared the time needed to run the test plan when the containers were running unconfined and when the profiles produced by SecureWilly were enforced. The results are diplayed in the figure below.
+
+\begin{figure}[h!]
+  \centering
+   \includegraphics[width=1\linewidth]{../figures/overhead.png}
+   \caption{AppArmor overhead}
+\end{figure}
+
+It is clear that the overhead of AppArmor is so small that the performance is not affected. Therefore, it is recommended to use AppArmor to harden the security, even if the performance is critical for your project.
+
+\clearpage
 \section{Performance}
 
 \underline{Computational complexity}
@@ -164,7 +397,7 @@ Therefore, we approached the performance evaluation by monitoring the amount of 
 \underline{Rules per run}
 \hfill\break
 
-In Figure 5.1, a line graph illustrates the amount of rules of each service's profile over the test plan runs, referring to media streaming benchmark.
+In Figure 5.2, a line graph illustrates the amount of rules of each service's profile over the test plan runs, referring to media streaming benchmark.
 
 \begin{figure}[h!]
   \centering
@@ -188,13 +421,13 @@ It appears that there is a threshold in runs, which represents the minimum numbe
    \caption{Data Caching: Rules per run for each service}
 \end{figure}
 
-Figure 5.2 shows the corresponding line graph of data caching benchmark.
+Figure 5.3 shows the corresponding line graph of data caching benchmark.
 
 Similar to media streaming, both server and client lift to a point and afterwards they remain stable. The threshold we observed before, is at the third run again. Moreover, in this benchmark, server and client traverse the threshold exactly at the same runs.
 
 On the contrary, data caching seems to have more active clients, as client's profile has more rules.
 
-In Figure 5.3, the graph outlines the behaviour of nextcloud's profiles over runs. The threshold in nextcloud's execution is at run four. This slight difference with CloudSuite's benchmarks is reasonable, as nextcloud's server appears to need more rules in its profile, in order to complete its operations. Thus, SecureWilly needs to execute more runs of the test plan in order to extract all the rules necessary.
+In Figure 5.4, the graph outlines the behaviour of nextcloud's profiles over runs. The threshold in nextcloud's execution is at run four. This slight difference with CloudSuite's benchmarks is reasonable, as nextcloud's server appears to need more rules in its profile, in order to complete its operations. Thus, SecureWilly needs to execute more runs of the test plan in order to extract all the rules necessary.
 
 Nextcloud's server and database service traverse the threshold almost at the same run, and their escalation is quite similar. Server's service though requires more rules in its profile, as it commits more actions, comparing to the database.
 
@@ -205,7 +438,7 @@ Nextcloud's server and database service traverse the threshold almost at the sam
 \end{figure}
 \hfill\break
 
-The bar chart, in figure 5.4, depicts the performance of SecureWilly on every project, by diplaying the amount of runs of the test plan and the run that consistutes the last augmentation in services' profiles, given by the value of threshold.
+The bar chart, in figure 5.5, depicts the performance of SecureWilly on every project, by diplaying the amount of runs of the test plan and the run that consistutes the last augmentation in services' profiles, given by the value of threshold.
 
 \begin{figure}[h!]
   \centering
@@ -221,7 +454,7 @@ It becomes evident, that the performance of SecureWilly on each project depends 
 
 As described above, comparing the execution time between different projects run by SecureWilly is meaningless. The only essential way to observe time would be monitoring the time execution of test plan over runs.
 
-Figures 5.5, 5.6 and 5.7 represent the line graphs of each project, which illustrate the execution time of the test plan over runs executed by SecureWilly.
+Figures 5.6, 5.7 and 5.8 represent the line graphs of each project, which illustrate the execution time of the test plan over runs executed by SecureWilly.
 
 The execution time was captured by executing the time command on the run script of dynamic parser. To calculate the execution time, we used the sum of sys and usr time, which shows the actual CPU time that docker containers' processes used.
 
@@ -260,7 +493,7 @@ The profiles produced by SecureWilly rely completely on the test plan that the u
 
 SecureWilly performs a functionality testing inside the dynamic parser's loop, by enforcing the profiles after there are no more logs in the complain mode, and runs the test plan one more time. If there are still system logs denying actions of the test plan and new rules can be extracted from them, then SecureWilly repeats the complain mode procedure from the beginning. In this way, it ensures that all actions specified in the test plan are allowed.
 
-Figures 5.8, 5.9 and 5.10 show each project's line graphs per service, which illustrate again the amount of rules per run, but this time emphasizing whether each run sets the profiles to complain or enforce mode.
+Figures 5.9, 5.10 and 5.11 show each project's line graphs per service, which illustrate again the amount of rules per run, but this time emphasizing whether each run sets the profiles to complain or enforce mode.
 
 In all docker projects, only one run of enforce mode was performed and the fact that no system logs denying actions were produced means that the test plan was executed successfully, with all of its operations allowed.
 
@@ -305,7 +538,7 @@ Another way to test the functionality of SecureWilly is to monitor the rules of 
 \end{figure}
 \end{textblock*}
 
-\hfill\break\hfill\break\hfill\break\hfill\break\hfill\break\hfill\break\hfill\break\hfill\break\hfill\break\hfill\break\hfill\break\hfill\break\hfill\break\hfill\break\hfill\break\hfill\break\hfill\break
+\hfill\break\hfill\break\hfill\break\hfill\break\hfill\break\hfill\break\hfill\break\hfill\break\hfill\break\hfill\break\hfill\break\hfill\break\hfill\break\hfill\break\hfill\break\hfill\break\hfill\break\hfill\break
 
 \begin{figure}[h!]
   \centering
@@ -313,7 +546,7 @@ Another way to test the functionality of SecureWilly is to monitor the rules of 
    \caption{Media Streaming: Dataset types}
 \end{figure}
 
-Figures 5.11, 5.12 and 5.13 show the line graphs of the types of different rules used in the media streaming services' profiles over runs. 
+Figures 5.12, 5.13 and 5.14 show the line graphs of the types of different rules used in the media streaming services' profiles over runs. 
 
 The above graphs show that each profile describes perfectly the role of the service and the operations of its task.
 
@@ -323,13 +556,13 @@ In client's profile, it appears that client handles some volumes, since there ar
 
 As it is expeted, dataset only needs some file rules which are the ones of the preliminary profile, as its container will not commit any actions.
 
-In figures 5.14 and 5.15 we observe how server and client act in data caching example. 
+In figures 5.15 and 5.16 we observe how server and client act in data caching example. 
 
 It appears that plenty of network and file rules are included in server's profile, since network is needed in order to communicate with client and file rules derive from the fact that server in data caching benchmark handles a twitter dataset. Apart from these types, it needs only one signal rule in order to be able to terminate.
 
 As for the client, network rules are needed in order to make requests to the server while the rest of the rules are all relevant to the way we implemented this example. Mount and file rules derive both from the volume script we used in order to run this benchmark non-interactively, while all the signal rules derive from the timeout and kill signals - either sent by the client or received by one of its process - which were used to stop all processes of clients when the benchmarking was complete.
 
-Lastly, figures 5.16 and 5.17 represent Nextloud's line graphs, one for the database service and one for the server - nextcloud.
+Lastly, figures 5.17 and 5.18 represent Nextloud's line graphs, one for the database service and one for the server - nextcloud.
 
 In these graphs, it is more clear than ever that Nextcloud is the most complex of the examples used, as its profiles consist of a variety of rules. 
 
@@ -363,11 +596,12 @@ Database's service needs some capability rules as well, fewer than the server th
 In the light of the above, it is clear that the AppArmor profiles that are produced by SecureWilly are adjusted completely to the docker project and are closely tied with their tasks. This means they are efficient and secure, since they allow any docker project to run unhinderedly, but all redundant actions will be blocked.\\
 
 \section{Scalability}
+\subsection{Multiple services}
 SecureWilly should be able to handle large increases in services and other workloads. 
 
 In order to evaluate scalability we perfomed a testing using media streaming benchmark with multiple clients.
 
-Figure 5.18 illustrates a line graph which shows the execution time of test plan per run for each test case. As it is expected, time has a steady increase, accordingly with the augmentation of the amount of clients.
+Figure 5.19 illustrates a line graph which shows the execution time of test plan per run for each test case. As it is expected, time has a steady increase, accordingly with the augmentation of the amount of clients.
 
 \begin{figure}[h!]
   \centering
@@ -377,9 +611,7 @@ Figure 5.18 illustrates a line graph which shows the execution time of test plan
 
 However, as we previously described, the correct way to measure the performance per case is not time but runs.
 
-In figures 5.19 and 5.20, the line graphs representing rules per run for the test cases of 4 and 8 clients (the figure about the 16 clients test case was left out, because the line graphs were identical) respectively, show that the amount of total runs executed is not affected at all by the increase in the amount of clients and neither does the threshold. Moreover, since clients are running the same docker run command, their lines follow exactly the same trend.
-
-Therefore, it has been proved that SecureWilly can handle large scale projects and its task is not affected in any way by them.
+In figures 5.20 and 5.21, the line graphs representing rules per run for the test cases of 4 and 8 clients (the figure about the 16 clients test case was left out, because the line graphs were identical) respectively, show that the amount of total runs executed is not affected at all by the increase in the amount of clients and neither does the threshold. Moreover, since clients are running the same docker run command, their lines follow exactly the same trend.
 
 \begin{figure}[h!]
   \centering
@@ -393,7 +625,26 @@ Therefore, it has been proved that SecureWilly can handle large scale projects a
    \caption{Media streaming with 8 clients}
 \end{figure}
 
+Therefore, it has been proved that SecureWilly can handle large scale projects and its task is not affected in any way by them.
+
+\subsection{Distributed systems}
+The multiple services we have examined up to this point were all running on the same machine. The scalability of SecureWilly would make more sense if the multiple services were distributed on different machines.
+
+This option addresses distributed systems and is not yet implemented on SecureWilly. However, the way SecureWilly approaches the services and their profiles constitutes this option implementable.
+
+Services are already considered as distignuished components of a docker project by SecureWilly and each one of them is restricted at a different rate by a private profile. The only thing that is shared is the kernel and the system logs it produces. In case of different machines, the system logs will exist on different systems. Therefore, one approach to handle this would be to implement requests to each machine/node from the machine where SecureWilly is running about sending the respective system logs to this machine. After SecureWilly's processing, the respective profile would be sent to the machine/node on which each service will run.
+
+\begin{figure}[h!]
+  \centering
+   \includegraphics[width=0.68\linewidth]{../figures/DistributedSystems.png}
+   \caption{SecureWilly handling distributed services}
+\end{figure}
+
 \section{Summary}
+To sum up, the profiles produced by SecureWilly are service-oriented but it is recommended to run SecureWilly on a system because each machine could cause slight differences to the profiles.
+
+AppArmor's overhead has proved to be very small and therefore, AppArmor is still very beneficial for an application to harden its security.
+
 All in all, SecureWilly has proved through experimental evaluation that is functional and produces profiles which reach their fundamental goal, and scalable as well, meaning it can handle large increases in services. Furthemore, the performance is exactly as it is expected by its computational complexity and it depends on the performance of the test plan, as SecureWilly does not add any great delays.
 
 In order to perform these testings, SecureWilly used some demanding benchmarks of CloudSuite and also Nextcloud, which is a widely used real software, and the profiles produced by SecureWilly could constitute a useful contribution to the community of Nextcloud.
