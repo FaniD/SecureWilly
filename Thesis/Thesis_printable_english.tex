@@ -1,0 +1,200 @@
+\documentclass[a4paper,oneside,openany,12pt, greek, english]{book}
+
+%%% Packages
+\usepackage{a4wide}
+\usepackage{indentfirst}
+\usepackage{color}
+\usepackage{listings}
+\usepackage{dirtytalk}
+\usepackage[
+backend=biber,
+style=numeric,
+sorting=none
+]{biblatex}
+\usepackage{mdframed}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{parcolumns}
+\usepackage[english,greek]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[absolute,overlay]{textpos}
+\usepackage{pagecolor}
+\usepackage{afterpage}
+\usepackage{hyperref}
+\usepackage{filecontents}
+
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+
+\addbibresource{references.bib}
+
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{2}
+
+%%% Defining colours
+\definecolor{aliceblue}{rgb}{0.94, 0.97, 1.0}
+\definecolor{beaublue}{rgb}{0.74, 0.83, 0.9}
+\definecolor{lightblue}{rgb}{0.68, 0.85, 0.9}
+\definecolor{navajowhite}{rgb}{1.0, 0.87, 0.68}
+\definecolor{tipcolor}{rgb}{0.82, 0.94, 0.75}
+\definecolor{amber}{rgb}{1.0, 0.75, 0.0}
+\definecolor{cadetgrey}{rgb}{0.57, 0.64, 0.69}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\definecolor{graybluebackcolor}{rgb}{0.95,0.95,0.92}
+\definecolor{coralred}{rgb}{1.0, 0.25, 0.25}
+\definecolor{tealblue}{rgb}{0.21, 0.46, 0.53}
+\definecolor{burgundy}{rgb}{0.8, 0.33, 0.0}
+
+%%% Defining styles
+\lstdefinestyle{Dockerfile}{
+  backgroundcolor=\color{graybluebackcolor},   
+  commentstyle=\color{tealblue},
+  keywordstyle=\color{black},
+  numbers=left,
+  numberstyle=\small\color{black},
+  stringstyle=\color{mauve},
+  basicstyle={\small\color{black}\ttfamily},
+  showstringspaces=false,
+  frame=tb,
+  xleftmargin=12pt,
+  language = sh,
+  aboveskip = 7pt,
+  belowskip = 7pt,
+  breaklines=true,
+  breakatwhitespace=true,
+  rulecolor=\color{black},
+  numberbychapter=true
+}
+
+\lstdefinestyle{terminal}
+{
+  language=sh,
+  frame=none,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\color{black}\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3,
+  commentstyle=\color{black},
+  keepspaces=false,
+  keywordstyle=\color{black},
+  backgroundcolor=\color{graybluebackcolor},
+  moredelim=**[is][\bfseries\color{coralred}]{\%}{\%} 
+}
+
+\lstdefinestyle{dockercommands}{
+  frame=none,
+  language=sh,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  keywordstyle=\color{black},
+  commentstyle=\color{black},
+  stringstyle=\color{black},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3,
+  numbers=none,
+  backgroundcolor=\color{graybluebackcolor}
+}
+
+\lstdefinestyle{shellscript}{
+  frame=tb,
+  language=sh,
+  xleftmargin=12pt,
+  xrightmargin=3pt,
+  aboveskip = 7pt,
+  belowskip = 7pt,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=left,
+  numberstyle=\small\color{black},
+  keywordstyle=\color{burgundy},
+  commentstyle=\color{tealblue},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3,
+  backgroundcolor=\color{graybluebackcolor},
+  numberbychapter=true
+}
+
+\lstdefinestyle{bashscript}{
+  frame=tb,
+  language=bash,
+  xleftmargin=12pt,
+  xrightmargin=3pt,
+  aboveskip = 7pt,
+  belowskip = 7pt,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=left,
+  numberstyle=\small\color{black},
+  keywordstyle=\color{burgundy},
+  commentstyle=\color{tealblue},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3,
+  backgroundcolor=\color{graybluebackcolor},
+  numberbychapter=true
+}
+
+\newenvironment{dedication}{
+  \fontsize{13.5}{12}\selectfont 
+  \thispagestyle{empty}% no header and footer
+  \vspace*{\stretch{0.5}}% some space at the top 
+  \itshape             % the text is in italics
+  \raggedleft
+}
+{\par % end the paragraph
+  \vspace{\stretch{3}} % space at bottom is three times that at the top
+  \clearpage           % finish off the page
+}
+
+\begin{document}
+\include{FrontMatter/Title}
+\clearpage\null\thispagestyle{empty}
+\newpage
+\include{FrontMatter/Title2}
+\include{FrontMatter/copyrights}
+\include{FrontMatter/dedication}
+\clearpage\null\thispagestyle{empty}
+\newpage
+\frontmatter
+\include{FrontMatter/abstract}
+\clearpage\null\thispagestyle{empty}
+\newpage
+\tableofcontents
+\listoffigures
+\mainmatter
+\include{MainMatter/ch1_introduction}
+\include{MainMatter/ch2_background}
+\include{MainMatter/ch3_SecureWilly}
+\include{MainMatter/ch4_attack}
+\include{MainMatter/ch5_results}
+\clearpage\null\thispagestyle{empty}
+\newpage
+\include{MainMatter/ch6_conclusion}
+
+\printbibliography[title={Bibliography},heading=bibintoc]
+
+\end{document}

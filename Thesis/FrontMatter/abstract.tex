@@ -1,0 +1,30 @@
+% Page 1
+%\chapter*{Abstract}
+\addcontentsline{toc}{chapter}{Abstract}
+\hfill\break
+\begingroup
+\Large{\textbf{Abstract}}
+\endgroup
+\hfill\break
+
+Nowadays, we are encountering virtualization in most of our computing environments. Docker, a software which performs operating-system-level virtualization, has revolutionized virtualization, as it made it possible to package an application with all of its dependencies into a lightweight container. It became prominent rapidly and companies are adopting Docker at a remarkable rate, including well known names such as Paypal, Visa, Ebay, etc. Its success derives from the multiple benefits it offers comparing to virtual machines, such as portability, better resource management, lighter overhead and faster boot up time. 
+
+On the other side of the coin, Docker also brings some disadvantages, which were not encountered in VMs. The most concerning drawback is security, and more specifically, isolation between host and containers as well as between containers themselves. Containers have walls to protect isolation, but it is much easier to violate them than it is in VMs, and it is usual to do this because of bad-configured containers.
+
+The goal of the current thesis is to design and implement a software, which will provide automatic security hardening of docker containers, using Mandatory Access Control. The software we created, named SecureWilly, handles either single or multi service docker projects and produces AppArmor profiles, one for each service. The profiles are adjusted to a given test plan that the user is asked to provide, and are completely tied to their service's task, which constitutes them efficient. They are also secure, since they are created in accordance to the principle of Least Privilege, which demands to allow only the necessary actions defined in the test plan, while any other action will be considered as redundant and will be blocked.
+
+Moreover, we present an extensive research on vulnerable features of docker that could lead to violation of container's isolation and we implement specific examples of container breakout attacks, in the context of ethical hacking, which we created in order to extract rules that prevent these attacks, for our software.
+
+Finally, we evaluate our software in functionality, performance and scalability using some benchmarks from CloudSuite, a very useful benchmark suite for cloud services, as well as a real program, Nextcloud, which is a widely used open source, self-hosted file share and communication platform. We successfully produced AppArmor profiles for the services of the benchmarks of CloudSuite and Nextcloud, hoping it will be a useful contribution to the respective communities.
+
+\hfill\break
+\begingroup
+\Large{\textbf{Keywords}}
+\endgroup
+
+\hfill\break
+Docker, Mandatory Access Control (MAC), AppArmor, Operating-system-level virtualization, Container-based virtualization, Containers, Cloud, Distributed Systems, Isolation, Container breakout attacks, Security, Ethical hacking
+
+% Page 2 - null
+%\clearpage\null\thispagestyle{empty}
+%\newpage

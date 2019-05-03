@@ -1,0 +1,8 @@
+Makefile provides the following versions of thesis:
+
+make oneside_english: Online version of thesis in English
+make printable_english: Printable version of thesis in English
+make oneside_greek: Online version of thesis in English, including an extensive summary and acknowledgements in Greek
+make printable_greek: Printable version of thesis in English, including an extensive summary and acknowledgements in Greek
+
+The default is set to oneside_english, which is the pdf provided in the directory.

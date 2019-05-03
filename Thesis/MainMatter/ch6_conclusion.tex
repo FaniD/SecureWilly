@@ -1,0 +1,104 @@
+\chapter{Conclusion}
+
+\section{Thesis Summary}
+
+Preserving security, and more specifically isolation, on docker containers, as well as preventing container attacks, is a very demanding field. It can get even more complicated when trying to balance docker container's functionality with security.
+
+This thesis dealt with security on docker environment, from a practical point of view, as we created a software that automatically produces AppArmor profiles for a docker project. These profiles are adjusted to the given docker project, and consist of the least possible rules that make a profile secure and efficient, based on the Principle of Least Privilege, meaning they will allow exclusively a set of actions and block any other action, considered as redundant. The set of actions that will be allowed is determined by the user, who is asked to provide a test plan of the project. Our software can handle both single and multi service docker projects, and the profiles produced are service-oriented. Therefore, each service is confined by its own profile, which makes the profile more specific about the task of the service it confines, but also aware of the coordination of the project's services.
+
+Except for the software that we created, in the current thesis we present an extensive research on vulnerable features of docker that could lead to violation of container's isolation and we implement specific examples of container breakout attacks, in the context of ethical hacking, which we created in order to extract rules that prevent these attacks, for our software.
+
+Finally, in order to evaluate our software in functionality, performance and scalability we used some benchmarks from CloudSuite, a very useful benchmark suite for cloud services, as well as a real program, Nextcloud, which is a widely used open source, self-hosted file share and communication platform. We successfully produced AppArmor profiles for the services of the benchmarks of CloudSuite and Nextcloud, hoping it will be a useful contribution to the respective communities. We also compared a SecureWilly's profile to a profile created via genprof tool and spotted the differences between them. AppArmor overhead was proven to be barely noticeable and we concluded that SecureWilly produces valuable assets to harden the security of a docker project.
+
+\section{Related Work}
+
+Security is a crucial subject and many people have turned to it in order to assist.
+
+There are already other software which generate AppArmor profiles for docker applications. One of them is \say{bane}, created by Jessie Frazelle. \cite{bane}
+
+Bane receives a configuration file as input by the user, which is adjusted on a docker application, and a profile is produced for it. This configuration file sums up everything that could be extracted as a rule: defining access to files, network and capabilities.
+
+The idea of a configuration file to let user write down some file permissions is brilliant and could be easily adopted by SecureWilly.
+
+On the other hand, bane does not train the application in order to extract more rules based on a test plan, which is an aspect that SecureWilly embraces.
+
+\section{Future Work}
+
+\subsection{Fill the gaps}
+SecureWilly's development has been completed so that its goal is achieved but certainly, there are still several features to be fixed. Some of them could be the following:
+\begin{itemize}
+\item Extract more rules in static analysis
+\item Include other syntax forms of Dockerfile instructions and Docker Compose options to static\_parser.py
+\item More rules to prevent attacks
+\item Alerts about root user in containers
+\item More flexible User Interface
+\item Support interactive test plans of the project, not only script commands
+\item Option of user manually adding rules, through a configuration file
+\item Change python scripts into executables (maybe write programs in Go) so that python interpreter is not a requirement
+\item Fix the conflict of multiple containers using the same image, when a docker-compose file is not provided
+\item Fix clearing volumes by detecting docker project's volumes and deleting them, instead of using docker volume prune
+\item CI/CD to build releases on GitHub, through Travis CI, which supports open source projects and Docker
+\item Support distributed services
+\end{itemize}
+SecureWilly is an open source project and contributions are more than welcome. You can find it on GitHub: \url{https://github.com/FaniD/SecureWilly}
+
+\subsection{AppArmor}
+\subsubsection{AppArmor 3.0 and future features} \label{newappfeatures}
+AppArmor 3.0 is coming and is bringing several new shiny features with it. \cite{app3seth}
+
+First of all, since AppArmor is the main tool SecureWilly is using, we are happy to hear that AppArmor 3.0 will compile and execute its policies much faster. AppArmor policies are compiled from the text to an optimized state machine that can be executed quickly in the kernel. The state machines are cached to speed up future boots. Current version of AppArmor uses a single binary policy cache. This causes several underlying risks. For example, if the default location /etc/apparmor.d/cache is moved or there is a change in kernel, the single cache has to be rebuilt on boot. Situations like that slows down the boot.
+  
+The upcoming AppArmor version will have multiple caches based on hashing the ABI exposed by the running kernel. In the end, swapping between kernels should be much faster.
+
+Furthermore, AppArmor is working on mediating access to coarse-grained networking, dbus and unix sockets. We should adapt new rules in SecureWilly as soon as the implementations are completed, to improve isolation referring to network, dbus and unix sockets. 
+
+It is also in AppArmor's plans to allow users to supply their own profiles and even restrict policies for specific users and groups. This will open up namespaces to user defined policy and it may help adapt user namespaces to SecureWilly's profiles by creating policies on container's user namespaces. Of course, this will expose more kernel interfaces to userspace, so it should be used thoughtfully.
+
+AppArmor has already had the ability to confine users or do roles for quite a while. 
+An AppArmor profile applies to an executable program; if a portion of the program needs different access permissions than other portions need, the program can change hats via change\_hat to a different role, also known as a subprofile. The pam\_apparmor PAM module allows applications to confine authenticated users into subprofiles based on group names, user names, or a default profile. To accomplish this, pam\_apparmor needs to be registered as a PAM session module. \cite{susepam}
+Pam\_apparmor creates mappings through policy using hats and requires task calling into pam to be confined. Roles use policy inheritance, which means that a task which is confined by a profile, demands all its children to be confined by the same profile.
+
+However, it is a fact that pam\_apparmor is a difficult tool to setup and has several limitations. In order to work properly, pam\_apparmor needs the whole system to be confined. This causes plenty of issues since total system confinement is not what most people want and not what most policy is setup for. These issues have led pam\_apparmor to being rather unpopular and SecureWilly hasn't adapted it either for the same reasons.
+
+AppArmor is willing to work on it in the future and upgrade pam\_apparmor. It's going to have a config file, it's going to be using change\_profile instead of change\_hat, a user condition is going to include in policies and last but not least it will not require total system confinement. All in all, pam\_apparmor is going to get far easier to use than it is now and SecureWilly is open to reconsider and adapt this tool.
+
+Other possible directions for the future that AppArmor is considering of following and that may help us in container isolation are cgroups and chroot (more than capability SYS\_CHROOT which is currently the only way to allow syscall chroot). Cgroups would be very helpful for restricting access to resources on containers and thus achieving hardware isolation on containers. Chroot implementations would be of great help if we use them in SecureWilly's profiles to restrict the chroot syscall as if it stays within a container and not allow it to happen out of the container and help attackers chroot to host or other containers.
+
+\subsubsection{Policy Namespaces and Stacking}
+Two other recent developments of AppArmor that should be attached to SecureWilly are policy namespaces and policy stacking. \cite{app3suse}
+\begin{description}
+\item[Policy namespaces:] AppArmor has multiple namespaces for policies. Docker can own its profiles and other host's applications can own their profiles. Policy namespaces are hierarchical.  Each namespace has its own set of profiles and its own unconfined state. A policy namespace defines a view, where a parent can see policies in its children and below and through this view we can answer questions like where can a policy be loaded, who can load a policy to where etc. 
+
+\item[Policy stacking:] AppArmor policies can be stacked. Host could be protected from containers with one set of profiles, and then the container could use AppArmor profiles itself to keep its services and users separated from the host and do whatever they need to do. For example, blanket profiles can be applied to all users in a group to keep them in a certain portion of a system, such as “no net” profile or “no capabilities” profile that could be stacked with other profiles and have a very creative policy with all these profiles combined. SecureWilly should use this feature for multiservices projects, to keep a global stacked policy for all services in order to protect the host as well as separate profiles for each service in alignment with what each service requests to do.
+\end{description}
+
+If we combine policy namespaces and policy stacking, we get an interesting result.
+
+Let's examine the diagram that figure 6.1 represents. In this tree, we have a system with some hierarchical policy namespaces and a task which is confined by a stacked policy including profiles from system and ns3. What makes the combination of these two interesting, is that although the task is confined by both profiles, it can only see policy from ns3 and below. This is exactly what we are seeking for docker containers. We want containers to be restricted by host for outer namespaces and allowed to load extra policy to restrict themselves in inner namespaces without knowing the existence of the outer namespace.
+This could have a further extent to policies for nesting containers within containers.
+
+\begin{figure}[h!]
+  \centering
+   \includegraphics[width=0.9\linewidth]{figures/policystacking1.png}
+   \caption{AppArmor Policy Stacking}
+\end{figure}
+\hfill\break
+
+To sum up, as soon as AppArmor brings new features SecureWilly is ready to investigate them and adapt them in order to defend container's isolation.
+
+\subsection{Confront other types of attacks}
+Currently, SecureWilly focuses on preventing container breakout attacks. Research could be made in other types of attacks in order to create rules that would prevent more isolation violations. There are certainly many aspects that we could examine in order to break down into pieces other types of attacks, like we did with container breakout and through this procedure we may come up with a set of rules that could possibly block some instances of these attacks.
+
+Specifically, DoS attacks could be prevented, if AppArmor had rules that involve cgroups. As we mentioned in the previous section, isolating cgroups in the future is an aspect that AppArmor is considering of. This means that as AppArmor gets more powerful, more attacks could be prevented by SecureWilly.
+
+\subsection{Adopt other hardening tools}
+AppArmor is a useful secutiry tool, but as we discussed in Chapter 2, it is not the only one. Seccomp and SELinux are some interesting hardening tools, both supported by Docker's security option, that SecureWilly could adopt and use either as a supplement to AppArmor or as an alternative choice over AppArmor. 
+
+Seccomp (Secure Computing Mode) is a computer security facility in the Linux kernel which limits the program to use a specific set of system calls, which can make the system more secure considering that only a subset of the plenty system calls which are exposed to the programs directly, are actually needed to the users.
+
+SELinux (Security-Enhanced Linux) was already discussed in Chapter 2, as it uses the Linux Security Modules (LSM) as the implementation to handle enforcement within the Linux kernel, like AppArmor. SELinux's approach is comprehensive, and is based on strong security techniques like MAC and Multi-Level Security (MLS). But this makes it rather cumbersome to set up. \cite{appsel} It is however, undeniably, a strong security tool that could be examined and adopted by SecureWilly as an alternative choice over AppArmor.
+
+\subsection{Container orchestration}
+SecureWilly already supports multi-service docker projects and succeeds in exporting a profile for each service. Moreover, as it was proved in the scalability testing of Chapter 5, it can handle large increases in services and pruduce effective profiles successfully.
+
+This opens the way to a potential expansion in the area of container orchestration where SecureWilly could be used to support projects running on container orchestration platforms like Docker Swarm, Kubernetes, Apache Mesos, Cloud Foundry etc. This would clearly need some modifications in the source code of SecureWilly, but it is a potential aspect of which SecureWilly has already laid the foundations.
