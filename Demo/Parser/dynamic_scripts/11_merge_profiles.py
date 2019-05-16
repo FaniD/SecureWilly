@@ -80,7 +80,7 @@ for line in data:
         continue
 
 #Volumes here
-   #if abc
+   #if ( line.startswith('/etc') ):
        #continue
 
 

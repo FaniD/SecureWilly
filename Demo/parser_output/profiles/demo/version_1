@@ -1,8 +1,13 @@
 #include <tunables/global>
 
 profile demo_profile flags=(attach_disconnected,mediate_deleted) {
-	network tcp,  #Allowing networking with ports forwarding
-	file,  #Allows access to containers filesystem
+	/etc/* rw,
+	mount /etc -> /etc, #Bind host volume to docker container volume
+	deny umount /etc, #Disallow anybody that wants to break this mountpoint
 	/var/lib/docker/* r, #Access to layers of filesystem
+	deny remount /etc, #Disallow anybody that wants to remount this mountpoint
+	file,  #Allows access to containers filesystem
 	deny ptrace (readby, tracedby), #Confront container breakout attacks
+	capability setuid,
+	network tcp,  #Allowing networking with ports forwarding
 }

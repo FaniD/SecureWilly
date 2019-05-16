@@ -4,7 +4,7 @@ demo
 N
 N
 docker build .. -t demo
-docker run -d -p "8887:8887" --pid=host --privileged --net=host demo
+docker run -d --cap-add SETUID -p "8887:8887" --pid=host --privileged --net=host -v "/etc:/etc" demo
 ./curl_it.sh
 docker kill demo
 Done

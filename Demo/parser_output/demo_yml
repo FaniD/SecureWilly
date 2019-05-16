@@ -1,4 +1,8 @@
 demo:
  ports:
   - "8887:8887"
+ volumes:
+  - "/etc:/etc"
+ cap_add:
+  - SETUID
 
