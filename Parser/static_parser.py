@@ -1,4 +1,5 @@
 #!/usr/bin/env python2
+
 import io
 import sys
 from collections import OrderedDict
@@ -41,7 +42,7 @@ dockerfile = str(sys.argv[1])
 
 #If there is no dockerfile provided, SecureWilly_API gives an empty file as argument
 with open(dockerfile,'r') as infile:
-    data = infile.readlines()
+  data = infile.readlines()
 
 #Keywords to search for in Dockerfile
 chmod = 'RUN chmod'
@@ -59,27 +60,27 @@ expose = 'EXPOSE'
 #Parse the whole file, line per line
 for line in data:
 
-    #Exposed ports
-    if expose in line:
-        line = line.split(' ')
-        port_proto = line[1]
-        if 'udp' in port_proto:
-            proto='udp'
-        else:
-            proto='tcp'
-        #At the time we strip the protocol
-        #When the bind rule is supported in AppArmor
-        #We will fix this if it's actually needed in the rule
-        port_cont = port_proto.replace(proto, '')
-        port_cont = port_cont.replace('/','')
-        port_cont = port_cont.strip('\n')
-        ports_rule='\tnetwork ' + proto + ', #Allowing networking with ports forwarding\n'
-        static_profile.append(ports_rule)
+  #Exposed ports
+  if expose in line:
+    line = line.split(' ')
+    port_proto = line[1]
+    if 'udp' in port_proto:
+      proto='udp'
+    else:
+      proto='tcp'
+    #At the time we strip the protocol
+    #When the bind rule is supported in AppArmor
+    #We will fix this if it's actually needed in the rule
+    port_cont = port_proto.replace(proto, '')
+    port_cont = port_cont.replace('/','')
+    port_cont = port_cont.strip('\n')
+    ports_rule='\tnetwork ' + proto + ', #Allowing networking with ports forwarding\n'
+    static_profile.append(ports_rule)
 
-        #port refers to container's port
-        #In order for an app to bind to ports < 1024 capability net bind service is needed
-        if int(port_cont) < 1024:
-            static_profile.append('\tcapability net_bind_service,  #This capability is needed to bind a socket to well-known ports\n')
+    #port refers to container's port
+    #In order for an app to bind to ports < 1024 capability net bind service is needed
+    if int(port_cont) < 1024:
+      static_profile.append('\tcapability net_bind_service,  #This capability is needed to bind a socket to well-known ports\n')
 
 
     #Users
@@ -87,102 +88,105 @@ for line in data:
     #setuid -> userA
     #static_profile.append(setuid_setgid_rule)
     if user1 in line:
-        #USER found. Augment the counter and keep the name in names list
-        line = line.strip('\n')
-        line = line.split(' ')
-        user1_counter+=1
-        user1_names.append(line[1])
+      #USER found. Augment the counter and keep the name in names list
+      line = line.strip('\n')
+      line = line.split(' ')
+      user1_counter+=1
+      user1_names.append(line[1])
 
     if user2 in line:
-        #Run useradd found: Augment the counter and keep the name in names list
-        #There should be permission to switch only to this user but athough it is given in the documentation, this specification is not yet implemented:
-        #setuid -> userA
-        #static_profile.append(setuid_setgid_rule)
-        line = line.strip('\n')
-        line = line.split(' ')
-        user2_counter+=1
-        user2_names.append(line[2])
+      #Run useradd found: Augment the counter and keep the name in names list
+      #There should be permission to switch only to this user but athough it is given in the documentation, this specification is not yet implemented:
+      #setuid -> userA
+      #static_profile.append(setuid_setgid_rule)
+      line = line.strip('\n')
+      line = line.split(' ')
+      user2_counter+=1
+      user2_names.append(line[2])
 
     if chmod in line:
-        #Chmod found so we have to deal with files (file rule) and fix permission bits
-	line = line.strip('\n')
-	line = line.split(' ')
-	#flags TODO s = line[1].split('-', 1)
+      #Chmod found so we have to deal with files (file rule) and fix permission bits
+      line = line.strip('\n')
+      line = line.split(' ')
+      #flags TODO s = line[1].split('-', 1)
 
-        #Chmod Rule - not supported
-	#Add the right permissions to owner of the file and others
+      #Chmod Rule - not supported
+      #Add the right permissions to owner of the file and others
 
-	#Path permission rule - File access rule
-        chmod_path = line[len(line)-1]
-	chmod_permission = list(line[len(line)-2])
+      #Path permission rule - File access rule
+      chmod_path = line[len(line)-1]
+      chmod_permission = list(line[len(line)-2])
 
-        #chmod permissions calculate both for letters and numbers. ONLY FOR OWNER and OTHERS. Not supported for owning group!
-	if chmod_permission[0] == 'u':
-	    owner = line[len(line)-2].split('+')
-	if chmod_permission[0] == '1':
-	    owner = 'ix'
-	if chmod_permission[0] == '2':
-	    owner = 'w'
-	if chmod_permission[0] == '3':
-	    owner = 'wix'
-	if chmod_permission[0] == '4':
-	    owner = 'r'
-	if chmod_permission[0] == '5':
-	    owner = 'rix'
-	if chmod_permission[0] == '6':
-	    owner = 'rw'
-	if chmod_permission[0] == '7':
-	    owner = 'rwix'
+      #chmod permissions calculate both for letters and numbers. ONLY FOR OWNER and OTHERS. Not supported for owning group!
+      if chmod_permission[0] == 'u':
+        owner = line[len(line)-2].split('+')
+      if chmod_permission[0] == '1':
+        owner = 'ix'
+      if chmod_permission[0] == '2':
+        owner = 'w'
+      if chmod_permission[0] == '3':
+        owner = 'wix'
+      if chmod_permission[0] == '4':
+        owner = 'r'
+      if chmod_permission[0] == '5':
+        owner = 'rix'
+      if chmod_permission[0] == '6':
+        owner = 'rw'
+      if chmod_permission[0] == '7':
+        owner = 'rwix'
 
-        if chmod_permission[2] == 'u':
-            others = line[len(line)-2].split('+')
-        if chmod_permission[2] == '1':
-            others = 'ix'
-        if chmod_permission[2] == '2':
-            others = 'w'
-        if chmod_permission[2] == '3':
-            others = 'wix'
-        if chmod_permission[2] == '4':
-            others = 'r'
-        if chmod_permission[2] == '5':
-            others = 'rix'
-        if chmod_permission[2] == '6':
-            others = 'rw'
-        if chmod_permission[2] == '7':
-            others = 'rwix'
+      if chmod_permission[2] == 'u':
+        others = line[len(line)-2].split('+')
+      if chmod_permission[2] == '1':
+        others = 'ix'
+      if chmod_permission[2] == '2':
+        others = 'w'
+      if chmod_permission[2] == '3':
+        others = 'wix'
+      if chmod_permission[2] == '4':
+        others = 'r'
+      if chmod_permission[2] == '5':
+        others = 'rix'
+      if chmod_permission[2] == '6':
+        others = 'rw'
+      if chmod_permission[2] == '7':
+        others = 'rwix'
 
-        #Owner's permissions
-	chmod_owner = '\towner ' + chmod_path + ' ' + owner + ',\n'
-        #Others' permissions
-        chmod_others = '\t' + chmod_path + ' ' + others  + ',\n'
+      #Owner's permissions
+      chmod_owner = '\towner ' + chmod_path + ' ' + owner + ',\n'
+      #Others' permissions
+      chmod_others = '\t' + chmod_path + ' ' + others  + ',\n'
 
-        static_profile.append(chmod_owner)
-        static_profile.append(chmod_others)
+      static_profile.append(chmod_owner)
+      static_profile.append(chmod_others)
 
-    #if chown in line:
-    #Chown command found so we need file rule, setuid rule and permission bits - if given
+     #if chown in line:
+     #Chown command found so we need file rule, setuid rule and permission bits - if given
 
-    #Add capability rule if we want to allow chown command to be used in the container
-    #Not needed. Do it only if it is asked
-    #static_profile.append('\tcapability chown,\n')
+     #Add capability rule if we want to allow chown command to be used in the container
+     #Not needed. Do it only if it is asked
+     #static_profile.append('\tcapability chown,\n')
 
-        #static_profile.append(setuid_setgid_rule)
+     #static_profile.append(setuid_setgid_rule)
 
-	#Not supported!
-	#Chown Rule needed as well
-	#line = line.strip('\n')
-	#line = line.split(' ')
-	#path = line[len(line)-1]
-	#owner_group = line[len(line)-2]
-	#owner_group = owner_group.split(':')
-	#owner = owner_group[0]
-	#if len(owner_group) == 2:
-	#	group = owner_group[1]
-	#	chown_rule = '\tchown ' + path + ' to owner=' + owner + ' group=' + group + ',\n'
-	#else:
-	#	chown_rule = '\tchown ' + path + ' to owner=' + owner + ',\n'
-	#Add chown rule
-	#static_profile.append(chown_rule)
+     #Not supported!
+     #Chown Rule needed as well
+     #line = line.strip('\n')
+     #line = line.split(' ')
+     #path = line[len(line)-1]
+     #owner_group = line[len(line)-2]
+     #owner_group = owner_group.split(':')
+     #owner = owner_group[0]
+     #if len(owner_group) == 2:
+     # group = owner_group[1]
+     # chown_rule = '\tchown ' + path + ' to owner=' + owner + ' group=' + group + ',\n'
+     #else:
+     # chown_rule = '\tchown ' + path + ' to owner=' + owner + ',\n'
+     #Add chown rule
+     #static_profile.append(chown_rule)
+
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #Count number of users used and added in Dockerfile to determine if there should be a switching at the image or not
 if user1_counter>1:
