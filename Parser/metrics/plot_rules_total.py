@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python2
 
 import sys
 import matplotlib
@@ -106,7 +106,7 @@ for x1 in range(complain_enforce[0], int(num_of_runs)): #complain_enforce[1]+1):
 #    part_4c.append(rules[2][x1])
 
 ax1 = fig.add_subplot(311)
-ax1.plot(compl_rules, part_1a, label="complain mode", color="blue", marker='o') 
+ax1.plot(compl_rules, part_1a, label="complain mode", color="blue", marker='o')
 ax1.plot(enf_rules, part_2a, label="enforce mode", color="red", marker='o')
 #ax1.plot(compl_audit, part_3a, label="complain audit", color="green", marker='x')
 #ax1.plot(enf_audit, part_4a, label="enforce audit", color="darkmagenta", marker='x')
@@ -144,4 +144,3 @@ ax3.set_ylim(0,max_value+2)
 plt.show()
 #plt.title("Rules per run")
 plt.savefig("../../parser_output/complain_enforce_rules.png",bbox_inches="tight")
-

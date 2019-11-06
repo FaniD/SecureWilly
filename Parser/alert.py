@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python2
 import io
 import sys
 from collections import OrderedDict
@@ -18,4 +18,3 @@ with open(alert,'r') as infile:
 #Output
 with open('alert_logs', 'w') as outfile:
 	outfile.writelines( alert_logs )
-

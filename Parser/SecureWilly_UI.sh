@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #Change this with the services I have each time
-#Also do that in 2_cp, 3, 4a, 4b, 9, 10a, 10b, 12, metrics 
+#Also do that in 2_cp, 3, 4a, 4b, 9, 10a, 10b, 12, metrics
 
 app_run_path=".."
 parser_path="${app_run_path}/Parser"
@@ -52,7 +52,7 @@ sed -i "s,:,,g" a
 service_list_noslash=$(cat a)
 rm a
 echo "${services}" > a
-sed -i "s,/,,g" a 
+sed -i "s,/,,g" a
 sed -i "s,:,,g" a
 services_noslash=$(cat a)
 rm a
@@ -63,7 +63,7 @@ IFS=',' read -r -a array_noslash <<<"$services_noslash"
 
 #~~~Dockerfile~~~
 dcrf=0
-for service_i in "${array[@]}"; do 
+for service_i in "${array[@]}"; do
 	echo "Is there a Dockerfile to provide for image ${service_i}?"
 	echo "If yes, give the full path to Dockerfile (<path_to_dockerfile>/Dockerfile), if no, type N:"
 	read dockerfile_path
@@ -99,7 +99,7 @@ if [[ "$yml_path" != "N" ]]; then
 	yml_path=$(echo "${yml_path}" | sed 's#[/]$##') #Strip / from the end if it exists
 	lastpart=$(echo "${yml_path}" | sed 's#.*/##') #Keep last dir of the path
 	#If it does not end with docker-compose.yml, the user probably wrote the dir's path so add the docker-compose.yml to it
-	if [[ "$lastpart" != "docker-compose.yml" ]]; then 
+	if [[ "$lastpart" != "docker-compose.yml" ]]; then
 		yml_path=$(echo "${yml_path}" | sed 's#.*/#&#' | sed 's#.*#&/docker-compose.yml#')
 	fi
 fi
@@ -245,7 +245,7 @@ if [[ "$yml_path" == "N" ]]; then
 
 		#Start creating mini docker-compose.yml
 		echo "${service_i}:" > ${array_noslash[${yml_count}]}_yml
-	
+
 		#Published ports
 		wc_ports=$(wc -l ports | cut -d' ' -f1)
 		if [[ "$wc_ports" != "0" ]]; then
@@ -254,7 +254,7 @@ if [[ "$yml_path" == "N" ]]; then
 			cat ports >> ${array_noslash[${yml_count}]}_yml
 		fi
 		rm ports
-		
+
 		#Exposed ports
 		wc_eports=$(wc -l exp_ports | cut -d' ' -f1)
 		if [[ "$wc_eports" != "0" ]]; then
@@ -332,10 +332,10 @@ else
 		start_old=${start_position}
 		#x will show where to add the new line
 		x=$(expr $i + $y)
-		
+
 		#String of the next line of each service
 		var1="$(< ${yml_path} sed -n "${x}s/ *//p")"
-		
+
 		xx=$(expr $x + 1)
 		#Duplicate the after service name next line
 		sed -i "${x}s/\([^.]*\)/&\n\1/" ${yml_path}
@@ -356,7 +356,7 @@ else
 			#Last service's docker-compose.yml
 			sed -e "1,${start_minus}d" ${yml_path} > ${array_noslash[${z}]}_yml #${array[${z}]}_yml
 			#Previous service's docker-compose.yml
-			if [[ "$num_of_services" != "1" ]]; then 
+			if [[ "$num_of_services" != "1" ]]; then
 				sed -n "${start_old},${start_minus}p" ${yml_path} > ${array_noslash[${previous_z}]}_yml #${array[${previous_z}]}_yml
 			fi
 		elif [[ "$loops" != "1" ]]; then
@@ -367,7 +367,7 @@ else
 		y=$(expr $y + $lpp)
 		((z++))
 	done
-	
+
 	lines_security=$(awk '/security_opt:/ {print NR}' ${yml_path})
 	while IFS= read -r line ; do lines_secopt+="$line,"; done <<< "$lines_security"
 	IFS=',' read -r -a lines_ar <<< "$lines_secopt"
@@ -404,7 +404,7 @@ mkdir ${app_run_path}/parser_output
 #Fix directories in static_parser
 current_dir=$(pwd | sed "s,/*[^/]\+/*$,," |  sed 's#.*/##' | sed 's/_//g' | sed "s/.*/\"&\"/")
 sed -i "6s/current_dir = .*/current_dir = ${current_dir}/" static_parser.py
-#pwd and pre_pwd are given as they are because we need paths, not names, just add "" to make it a string in python
+#pwd and pre_pwd are given as they are because we need paths, not names, just add "" to make it a string in python2
 pwd_path=$(pwd | sed "s,.*,\"&\",")
 sed -i "9s,pwd = .*,pwd = ${pwd_path}," static_parser.py
 pre_pwd=$(pwd | sed "s,/*[^/]\+/*$,," | sed "s,.*,\"&\",")
@@ -417,13 +417,13 @@ for service_i in "${array[@]}"; do
 
 	#Count volumes if exist
 	#echo ${array_noslash[${yml_count}]}
-	python find_vols.py ${array_noslash[${yml_count}]}_yml
-	
+	python2 find_vols.py ${array_noslash[${yml_count}]}_yml
+
 	#This file is needed in dynamic_analysis
 	mv if_vol if_vol_${array_noslash[${yml_count}]}
 
 	#Run static parser
-	python static_parser.py ${array_noslash[${yml_count}]}_dockerfile_path ${array_noslash[${yml_count}]}_yml
+	python2 static_parser.py ${array_noslash[${yml_count}]}_dockerfile_path ${array_noslash[${yml_count}]}_yml
 
 	#Fix profile's name
 	sed -i "3s,static_profile,${array_noslash[${yml_count}]}_profile," static_profile
@@ -495,7 +495,7 @@ done
 awk '/ --net=host / {for(i=1;i<=NF;i++) {if($i ~ /--name/) print $(i+1)}}' dynamic_scripts/7_run.sh > network
 nethost=$(wc -l network | cut -d' ' -f1)
 if [[ "$nethost" != "0" ]]; then
-	python alert.py network "enters host's Network namespace."
+	python2 alert.py network "enters host's Network namespace."
 	if [ -e yml_alert_net ]
 	then
 		cat yml_alert_net >> alert_logs
@@ -512,7 +512,7 @@ rm network
 awk '/--pid=host/ {for(i=1;i<=NF;i++) {if($i ~ /--name/) print $(i+1)}}' dynamic_scripts/7_run.sh > pid
 pidhost=$(wc -l pid | cut -d' ' -f1)
 if [[ "$pidhost" != "0" ]]; then
-        python alert.py pid "enters host's PID namespace."
+        python2 alert.py pid "enters host's PID namespace."
 	if [ -e yml_alert_pid ]
         then
         	cat yml_alert_pid >> alert_logs
@@ -529,7 +529,7 @@ rm pid
 awk '/--uts=host/ {for(i=1;i<=NF;i++) {if($i ~ /--name/) print $(i+1)}}' dynamic_scripts/7_run.sh > uts
 utshost=$(wc -l uts | cut -d' ' -f1)
 if [[ "$utshost" != "0" ]]; then
-        python alert.py uts "enters host's UTS namespace."
+        python2 alert.py uts "enters host's UTS namespace."
         awk '!seen[$0]++' alert_logs > alert_logs_
         cat alert_logs_ >> ${app_run_path}/parser_output/Alerts/Namespaces
         rm alert_logs
@@ -541,7 +541,7 @@ rm uts
 awk '/--ipc=host/ {for(i=1;i<=NF;i++) {if($i ~ /--name/) print $(i+1)}}' dynamic_scripts/7_run.sh > ipc
 ipchost=$(wc -l ipc | cut -d' ' -f1)
 if [[ "$ipchost" != "0" ]]; then
-        python alert.py ipc "enters host's IPC namespace."
+        python2 alert.py ipc "enters host's IPC namespace."
         awk '!seen[$0]++' alert_logs > alert_logs_
         cat alert_logs_ >> ${app_run_path}/parser_output/Alerts/Namespaces
         rm alert_logs
@@ -553,7 +553,7 @@ rm ipc
 awk '/--userns=host/ {for(i=1;i<=NF;i++) {if($i ~ /--name/) print $(i+1)}}' dynamic_scripts/7_run.sh > userns
 usrhost=$(wc -l userns | cut -d' ' -f1)
 if [[ "$usrhost" != "0" ]]; then
-        python alert.py userns "enters host's User namespace."
+        python2 alert.py userns "enters host's User namespace."
 	if [ -e yml_alert_usr ]
         then
         	cat yml_alert_usr >> alert_logs
@@ -580,7 +580,7 @@ echo "" >> ${app_run_path}/parser_output/Alerts/Privileged
 awk '/--privileged/ {for(i=1;i<=NF;i++) {if($i ~ /--name/) print $(i+1)}}' dynamic_scripts/7_run.sh > privileged
 priv=$(wc -l privileged | cut -d' ' -f1)
 if [[ "$priv" != "0" ]]; then
-        python alert.py privileged "runs in privileged mode."
+        python2 alert.py privileged "runs in privileged mode."
         if [ -e yml_alert_priv ]
         then
 		cat yml_alert_priv >> alert_logs

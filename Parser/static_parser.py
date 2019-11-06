@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python2
 import io
 import sys
 from collections import OrderedDict
@@ -73,9 +73,9 @@ for line in data:
         port_cont = port_proto.replace(proto, '')
         port_cont = port_cont.replace('/','')
         port_cont = port_cont.strip('\n')
-        ports_rule='\tnetwork ' + proto + ', #Allowing networking with ports forwarding\n' 
+        ports_rule='\tnetwork ' + proto + ', #Allowing networking with ports forwarding\n'
         static_profile.append(ports_rule)
-                
+
         #port refers to container's port
         #In order for an app to bind to ports < 1024 capability net bind service is needed
         if int(port_cont) < 1024:
@@ -109,7 +109,7 @@ for line in data:
 	line = line.split(' ')
 	#flags TODO s = line[1].split('-', 1)
 
-        #Chmod Rule - not supported 
+        #Chmod Rule - not supported
 	#Add the right permissions to owner of the file and others
 
 	#Path permission rule - File access rule
@@ -182,7 +182,7 @@ for line in data:
 	#else:
 	#	chown_rule = '\tchown ' + path + ' to owner=' + owner + ',\n'
 	#Add chown rule
-	#static_profile.append(chown_rule)        
+	#static_profile.append(chown_rule)
 
 #Count number of users used and added in Dockerfile to determine if there should be a switching at the image or not
 if user1_counter>1:
@@ -196,7 +196,7 @@ if user2_counter==1:
         static_profile.append(setuid_setgid_rule)
 if user2_counter>1:
     static_profile.append(setuid_setgid_rule)
-    
+
 
 
 #-------------------------------------DockerCompose-------------------------------------
@@ -215,7 +215,7 @@ mount = 'volumes:'
 capability = 'cap_add:'
 capability_deny = 'cap_drop:'
 ulimit = 'ulimits'
-	
+
 for i in xrange(len(data)): #because we will need the next line
     if network in data[i]:
         z = i
@@ -240,7 +240,7 @@ for i in xrange(len(data)): #because we will need the next line
 	        port_container = ports[1]
             else:
                 port_container = ports
-                                
+
             if int(port_container) < 1024: #In order for an app to bind to ports < 1024 capability net bind service is needed
                 static_profile.append('\tcapability net_bind_service,  #This capability is needed to bind a socket to well-known ports\n')
 
@@ -306,7 +306,7 @@ for i in xrange(len(data)): #because we will need the next line
 		mount_rule = '\tmount ' + src + ' -> ' + mntpnt + ', #Bind host volume to docker container volume\n'
                 file_mnt_rule = '\t' + mntpnt + '/* rw,\n'
 
-            if mntpnt == '': 
+            if mntpnt == '':
                 #Then it was root's dir and we stripped of the /
                 mntpnt = '/'
 
@@ -390,4 +390,3 @@ static_profile.append('}\n')
 #Output
 with open('static_profile', 'w') as outfile:
     outfile.writelines( static_profile )
-

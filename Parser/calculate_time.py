@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python2
 import io
 import sys
 from collections import OrderedDict
@@ -34,4 +34,3 @@ with open(time_of_runs,'r') as infile:
 #Output
 with open('time_total', 'w') as outfile:
 	outfile.writelines( run_time )
-

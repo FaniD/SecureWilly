@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python2
 import io
 import sys
 from collections import OrderedDict
@@ -47,7 +47,7 @@ for line in data:
         break
     else:
         line = line.strip('\n')
-        new_profile.append(line + '\n') 
+        new_profile.append(line + '\n')
 
 
 #Now create rules from awk logs

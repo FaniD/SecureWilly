@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python2
 import io
 import sys
 from collections import OrderedDict
@@ -29,4 +29,3 @@ for line in data:
 #Output
 with open(out, 'w') as outfile:
 	outfile.writelines( new_profile )
-

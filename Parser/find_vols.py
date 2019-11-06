@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python2
 import io
 import sys
 from collections import OrderedDict
@@ -28,7 +28,7 @@ with open(yml,'r') as infile:
 
                                 if (mntpnt.endswith('/')):
                                     mntpnt = mntpnt.rstrip('/')
-                              
+
                                 if (x>0):
                                     if_vol.append("or line.startswith('")
                                 if_vol.append(mntpnt + "') ")
@@ -39,4 +39,3 @@ with open(yml,'r') as infile:
 #Output
 with open('if_vol', 'w') as outfile:
 	outfile.writelines( if_vol )
-

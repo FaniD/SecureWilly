@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python2
 import io
 import sys
 from collections import OrderedDict
@@ -18,4 +18,3 @@ base.append('\tdeny ptrace (readby, tracedby),\n}\n')
 #Output
 with open(new_path, 'w') as outfile:
 	outfile.writelines( base )
-
