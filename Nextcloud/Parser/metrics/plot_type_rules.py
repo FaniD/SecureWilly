@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python2
 
 import sys
 import matplotlib
@@ -98,6 +98,9 @@ ax.plot(x_Axis, mount, label="mount", color="y", marker='o')
 ax.plot(x_Axis, rlimit, label="rlimit", color="k", marker='o')
 ax.plot(x_Axis, file_rules, label="file", color="b", marker='o')
 
+#ax.legend(loc=0)
+#ax.legend(loc='upper center', bbox_to_anchor=(0.5, 1.05),
+#                  ncol=3, fancybox=True, shadow=True)
 
 box = ax.get_position()
 ax.set_position([box.x0, box.y0, box.width * 0.8, box.height])
@@ -106,7 +109,7 @@ ax.set_position([box.x0, box.y0, box.width * 0.8, box.height])
 ax.legend(loc='center left', bbox_to_anchor=(1, 0.8),
                   fancybox=True, shadow=True)
 
-ax.grid()
+#ax.grid()
 
 ##1st plot
 ax.set_xlabel("Runs")
@@ -126,7 +129,7 @@ bar_width = 0.3
 
 objects = ('Capabilities', 'Network', 'Signal', 'Mount', 'File', 'Rlimit')
 y_pos = np.arange(len(objects))
- 
+
 barlist = []
 barlist.append(capabilities[-1])
 barlist.append(network[-1])
@@ -155,7 +158,7 @@ output = "../../parser_output/Barfinal_" + service + ".png"
 plt.savefig(output,bbox_inches="tight")
 
 
-#Complain and enforce different colour                                 
+#Complain and enforce different colour
 complain_enforce = []
 with open("changes",'r') as infile:
     data = infile.readlines()
@@ -210,24 +213,24 @@ for x1 in range(complain_enforce[0]+1):
 for x1 in range(complain_enforce[0], int(num_of_runs)): #complain_enforce[1]+1):
     part_2a.append(file_rules[x1])
     part_2b.append(capabilities[x1])
-    part_2c.append(network[x1])     
-    part_2d.append(mount[x1])  
+    part_2c.append(network[x1])
+    part_2d.append(mount[x1])
     part_2e.append(signal[x1])
     part_2f.append(rlimit[x1])
 
 #for x1 in range(complain_enforce[1], complain_enforce[2]+1):
 #    part_3a.append(file_rules[x1])
 #    part_3b.append(capabilities[x1])
-#    part_3c.append(network[x1])            
-#    part_3d.append(mount[x1])                    
+#    part_3c.append(network[x1])
+#    part_3d.append(mount[x1])
 #    part_3e.append(signal[x1])
 #    part_3f.append(rlimit[x1])
 
 #for x1 in range(complain_enforce[2], int(num_of_runs)):
 #    part_4a.append(file_rules[x1])
 #    part_4b.append(capabilities[x1])
-#    part_4c.append(network[x1])            
-#    part_4d.append(mount[x1])                    
+#    part_4c.append(network[x1])
+#    part_4d.append(mount[x1])
 #    part_4e.append(signal[x1])
 #    part_4f.append(rlimit[x1])
 
@@ -254,45 +257,45 @@ ax2.set_ylabel(r"Capability rules")
 ax2.set_ylim(0,max_value+2)
 
 #Network
-ax3 = fig.add_subplot(323)                                             
+ax3 = fig.add_subplot(323)
 ax3.plot(compl_rules, part_1c, label="network", color="b", marker='o')
 ax3.plot(enf_rules, part_2c, label="network", color="r", marker='o')
 #ax3.plot(compl_audit, part_3c, label="network", color="g", marker='x')
 #ax3.plot(enf_audit, part_4c, label="network", color="darkmagenta", marker='x')
-#ax3.grid()                                                             
+#ax3.grid()
 ax3.set_xlabel("Runs")
 ax3.set_ylabel(r"Network rules")
 ax3.set_ylim(0,max_value+2)
 
 #Mount
-ax4 = fig.add_subplot(324)                                             
+ax4 = fig.add_subplot(324)
 ax4.plot(compl_rules, part_1d, label="mount", color="b", marker='o')
 ax4.plot(enf_rules, part_2d, label="mount", color="r", marker='o')
 #ax4.plot(compl_audit, part_3d, label="mount", color="g", marker='x')
 #ax4.plot(enf_audit, part_4d, label="mount", color="darkmagenta", marker='x')
-#ax4.grid()                                                             
+#ax4.grid()
 ax4.set_xlabel("Runs")
 ax4.set_ylabel(r"Mount rules")
 ax4.set_ylim(0,max_value+2)
 
 #Signal
-ax5 = fig.add_subplot(325)                                             
+ax5 = fig.add_subplot(325)
 ax5.plot(compl_rules, part_1e, label="signal", color="b", marker='o')
 ax5.plot(enf_rules, part_2e, label="signal", color="r", marker='o')
 #ax5.plot(compl_audit, part_3e, label="signal", color="g", marker='x')
 #ax5.plot(enf_audit, part_4e, label="signal", color="darkmagenta", marker='x')
-#ax5.grid()                                                             
+#ax5.grid()
 ax5.set_xlabel("Runs")
 ax5.set_ylabel(r"Signal rules")
 ax5.set_ylim(0,max_value+2)
 
 #Rlimit
-ax6 = fig.add_subplot(326)                                             
+ax6 = fig.add_subplot(326)
 ax6.plot(compl_rules, part_1f, label="rlimit", color="b", marker='o')
 ax6.plot(enf_rules, part_2f, label="rlimit", color="r", marker='o')
 #ax6.plot(compl_audit, part_3f, label="rlimit", color="g", marker='x')
 #ax6.plot(enf_audit, part_4f, label="rlimit", color="darkmagenta", marker='x')
-#ax6.grid()                                                             
+#ax6.grid()
 ax6.set_xlabel("Runs")
 ax6.set_ylabel(r"Rlimit rules")
 ax6.set_ylim(0,max_value+2)

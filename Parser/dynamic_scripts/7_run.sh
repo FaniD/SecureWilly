@@ -1,8 +1,29 @@
 #!/bin/bash
  
-docker network create streaming_network
-docker create --name cloudsuite/media-streaming:dataset cloudsuite/media-streaming:dataset
-docker run -d --name cloudsuite/media-streaming:server --security-opt apparmor=cloudsuitemedia-streamingserver_profile --volumes-from streaming_dataset --net streaming_network cloudsuite/media-streaming:server
-docker run -t --name cloudsuite/media-streaming:client --security-opt apparmor=cloudsuitemedia-streamingclient_profile -v /output:/output --volumes-from streaming_dataset --net streaming_network cloudsuite/media-streaming:client streaming_server
+sudo rm -r /home/fanilicious/Projects/SecureWilly/Nextcloud/data
+mkdir /home/fanilicious/Projects/SecureWilly/Nextcloud/data
+sudo chown www-data:www-data /home/fanilicious/Projects/SecureWilly/Nextcloud/data
 
-docker stop cloudsuite/media-streaming:server
+docker-compose up -d
+sleep 60
+docker exec -u www-data nextcloud php occ status > answer
+answer=$(cat answer | grep 'Nextcloud is not installed')
+while [ -z "$answer" ] && [ ! -z "$error_exec" ]
+do
+rm answer
+docker exec -u www-data nextcloud php occ status > answer 2> error_exec
+answer=$(cat answer | grep 'Nextcloud is not installed')
+error_exec=$(cat answer | grep 'is not running')
+done
+rm answer
+#Configure nextcloud
+docker exec -u www-data nextcloud php occ maintenance:install --database "mysql" --database-name "nextcloud_" --database-host "db" --database-user "willy" --database-pass "secret" --admin-user "willy" --admin-pass "secret"
+
+#Create a file in local data directory
+sudo touch /home/fanilicious/Projects/SecureWilly/Nextcloud/data/willy/files/HelloFromTheOtherSide
+
+#Use occ files:scan to make it visible to the web interface
+docker exec -u www-data nextcloud php occ files:scan --all
+
+docker kill nextcloud
+docker kill db

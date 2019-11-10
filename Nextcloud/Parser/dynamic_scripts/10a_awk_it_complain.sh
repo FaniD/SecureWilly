@@ -51,21 +51,27 @@ for SERVICE in "${service_list[@]}"; do
 	#~~~Network~~~
 	
 	#All net permissions
-	for NET in create accept bind connect listen read write sendmsg recvmsg getsockname getpeername getsockopt setsockopt fcntl ioctl shutdown getpeersec; do
-		#kern logs
-		#Find lines that include keyword "create" for network - keep family and sock_type
-		#Omit protocol, apparmor network rule needs at least 2 parameters
-		awk -v net="$NET" '/net/ {for(i=1;i<=NF;i++) {{if($i ~ /family/) printf "%s", $i} {if($i ~ /sock_type/) print "", $i}}}' ${run_path}/kernlogs_${SERVICE} > tmp_file
-		#Strip lines with family and sock_type to keep just the tag of each
-		awk 'BEGIN {FS="=| ";} {gsub(/"/,"",$2); gsub(/"/,"",$4); print $2 ',' $4;}' tmp_file >> ${run_path}/awk_out/net_${SERVICE}
+	#for NET in create accept bind connect listen read write sendmsg recvmsg getsockname getpeername getsockopt setsockopt fcntl ioctl shutdown getpeersec; do
 
-		#dmesg logs
-		#Find lines that include keyword "create" for network - keep family and sock_type
-		#Omit protocol, apparmor network rule needs at least 2 parameters
-		awk -v net="$NET" '/net/ {for(i=1;i<=NF;i++) {{if($i ~ /family/) printf "%s", $i} {if($i ~ /sock_type/) print "", $i}}}' ${run_path}/dmesg_${SERVICE} > tmp_file
-		#Strip lines with family and sock_type to keep just the tag of each
-		awk 'BEGIN {FS="=| ";} {gsub(/"/,"",$2); gsub(/"/,"",$4); print $2 ',' $4;}' tmp_file >> ${run_path}/awk_out/net_${SERVICE}
-	done
+	#TODO: Needs fixing, because NET keywords are the same with operations in file access!!! For the moment, the search is only done by keyword family which is only encountered in network logs
+
+	#kern logs
+	#Find lines that include keyword "create" for network - keep family and sock_type
+	#Omit protocol, apparmor network rule needs at least 2 parameters
+	
+	awk '/family/ {for(i=1;i<=NF;i++) {{if($i ~ /family/) printf "%s", $i} {if($i ~ /sock_type/) print "", $i}}}' ${run_path}/kernlogs_${SERVICE} > tmp_file
+		#awk -v net="$NET" '/net/ {for(i=1;i<=NF;i++) {{if($i ~ /family/) printf "%s", $i} {if($i ~ /sock_type/) print "", $i}}}' ${run_path}/kernlogs_${SERVICE} > tmp_file
+	#Strip lines with family and sock_type to keep just the tag of each
+	awk 'BEGIN {FS="=| ";} {gsub(/"/,"",$2); gsub(/"/,"",$4); print $2 ',' $4;}' tmp_file >> ${run_path}/awk_out/net_${SERVICE}
+
+	#dmesg logs
+	#Find lines that include keyword "create" for network - keep family and sock_type
+	#Omit protocol, apparmor network rule needs at least 2 parameters
+	awk '/family/ {for(i=1;i<=NF;i++) {{if($i ~ /family/) printf "%s", $i} {if($i ~ /sock_type/) print "", $i}}}' ${run_path}/dmesg_${SERVICE} > tmp_file
+		#awk -v net="$NET" '/net/ {for(i=1;i<=NF;i++) {{if($i ~ /family/) printf "%s", $i} {if($i ~ /sock_type/) print "", $i}}}' ${run_path}/dmesg_${SERVICE} > tmp_file
+	#Strip lines with family and sock_type to keep just the tag of each
+	awk 'BEGIN {FS="=| ";} {gsub(/"/,"",$2); gsub(/"/,"",$4); print $2 ',' $4;}' tmp_file >> ${run_path}/awk_out/net_${SERVICE}
+	#done
 
         #Remove duplicates
 	awk '!seen[$0]++' ${run_path}/awk_out/net_${SERVICE} > ${run_path}/awk_out/${mode}_logs_net_${SERVICE}

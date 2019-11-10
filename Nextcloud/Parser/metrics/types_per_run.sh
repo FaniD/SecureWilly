@@ -1,6 +1,6 @@
 #!/bin/bash
 
-service_list=(db nextcloud) 
+service_list=(cloudsuitemedia-streamingdataset cloudsuitemedia-streamingserver cloudsuitemedia-streamingclient)
 app_path="../.."
 parser_output_path="${app_path}/parser_output"
 mkdir ${parser_output_path}/plots
@@ -22,20 +22,20 @@ for SERVICE in "${service_list[@]}"; do
 		#Decrease by 4 which are the intro and closure of the profile, that shouldn't be included in rules
 		echo "$((${total_r} - 4))" > fr
 		total_rules=$(head -n 1 fr)
-		
+
 		#We make sure that the keywords used are not names of files and are used in specific syntax either on their own or with allow or deny
 		#Awk counter gives null when no string matches so we change it to 0 when needed
-	
+
 		#Capability rules
 		awk '/\tcapability,|\tcapability | capability,| capability / {count++} END {print count}' ${run} > awk_counter
 		cap=$(head -n 1 awk_counter)
 		if [[ $cap == "" ]]; then
 			cap=0
 			echo "0" >> ${parser_output_path}/capability_${SERVICE}
-		else	
+		else
 			cat awk_counter >> ${parser_output_path}/capability_${SERVICE}
 		fi
-		
+
 		#Network rules
 		awk '/\tnetwork,|\tnetwork | network,| network / {count++} END {print count}' ${run} > awk_counter
 		net=$(head -n 1 awk_counter)
@@ -75,13 +75,13 @@ for SERVICE in "${service_list[@]}"; do
 		else
 			cat awk_counter >> ${parser_output_path}/rlimit_${SERVICE}
 		fi
-		
+
 		#Everything else belongs to file rules
 		echo "$((${total_rules} - ${cap} - ${net} - ${sgn} - ${mnt} - ${rlim}))" >> ${parser_output_path}/file_rules_${SERVICE}
 	done
 
 	#Plot per service
-	python plot_type_rules.py ${parser_output_path}/capability_${SERVICE} ${parser_output_path}/network_${SERVICE} ${parser_output_path}/signal_${SERVICE} ${parser_output_path}/mount_${SERVICE} ${parser_output_path}/rlimit_${SERVICE} ${parser_output_path}/file_rules_${SERVICE} $num_runs ${SERVICE}
+	python2 plot_type_rules.py ${parser_output_path}/capability_${SERVICE} ${parser_output_path}/network_${SERVICE} ${parser_output_path}/signal_${SERVICE} ${parser_output_path}/mount_${SERVICE} ${parser_output_path}/rlimit_${SERVICE} ${parser_output_path}/file_rules_${SERVICE} $num_runs ${SERVICE}
 
 	rm ${parser_output_path}/capability_${SERVICE}
 	rm ${parser_output_path}/network_${SERVICE}

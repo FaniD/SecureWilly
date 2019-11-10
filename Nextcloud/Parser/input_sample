@@ -3,11 +3,11 @@ db
 nextcloud
 N
 N
-/home/fani/SecureWilly/Nextcloud/AppArmorOverhead
+/home/fanilicious/Projects/SecureWilly/Nextcloud
 N
-sudo rm -r /home/fani/SecureWilly/Nextcloud/AppArmorOverhead/data
-mkdir /home/fani/SecureWilly/Nextcloud/AppArmorOverhead/data
-sudo chown www-data:www-data /home/fani/SecureWilly/Nextcloud/AppArmorOverhead/data
+sudo rm -r /home/fanilicious/Projects/SecureWilly/Nextcloud/data
+mkdir /home/fanilicious/Projects/SecureWilly/Nextcloud/data
+sudo chown www-data:www-data /home/fanilicious/Projects/SecureWilly/Nextcloud/data
 
 docker-compose up -d
 sleep 60
@@ -25,7 +25,7 @@ rm answer
 docker exec -u www-data nextcloud php occ maintenance:install --database "mysql" --database-name "nextcloud_" --database-host "db" --database-user "willy" --database-pass "secret" --admin-user "willy" --admin-pass "secret"
 
 #Create a file in local data directory
-sudo touch /home/fani/SecureWilly/Nextcloud/AppArmorOverhead/data/willy/files/HelloFromTheOtherSide
+sudo touch /home/fanilicious/Projects/SecureWilly/Nextcloud/data/willy/files/HelloFromTheOtherSide
 
 #Use occ files:scan to make it visible to the web interface
 docker exec -u www-data nextcloud php occ files:scan --all

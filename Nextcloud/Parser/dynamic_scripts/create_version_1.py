@@ -1,13 +1,14 @@
-#!/usr/bin/env python
+#!/usr/bin/env python2
+
 import io
 import sys
 from collections import OrderedDict
 
-#This will be the output profile
+# This will be the output profile
 service = str(sys.argv[1])
 new_path = '../parser_output/profiles/' + service + '/version_1'
 
-#In my parser I user profile name not paths. If paths are used here I have to search for paths noo. Not fixed yet.
+# The parser uses profile name not paths. If paths are used here I have to search for paths noo. Not fixed yet.
 base = []
 base.append('#include <tunables/global>\n\n')
 base.append('profile ' + service + '_profile flags=(attach_disconnected,mediate_deleted) {\n')
@@ -17,5 +18,4 @@ base.append('\tdeny ptrace (readby, tracedby),\n}\n')
 
 #Output
 with open(new_path, 'w') as outfile:
-	outfile.writelines( base )
-
+  outfile.writelines( base )

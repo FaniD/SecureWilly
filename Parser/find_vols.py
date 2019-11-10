@@ -27,14 +27,14 @@ with open(yml,'r') as infile:
         src = src.strip('"')
         mntpnt = src_mntpnt[1]
 
-       if (mntpnt.endswith('/')):
-         mntpnt = mntpnt.rstrip('/')
+        if (mntpnt.endswith('/')):
+          mntpnt = mntpnt.rstrip('/')
 
-       if (x>0):
-         if_vol.append("or line.startswith('")
-       if_vol.append(mntpnt + "') ")
-       z = z+1
-       x = x+1
+        if (x>0):
+          if_vol.append("or line.startswith('")
+        if_vol.append(mntpnt + "') ")
+        z = z+1
+        x = x+1
   if_vol.append("):")
   if_vol.append("%" + str(x))
 

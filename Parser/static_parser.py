@@ -193,8 +193,8 @@ if user2_counter==1:
     if user1_names[0]!=user2_names[0]:
       static_profile.append(setuid_setgid_rule)
   else:
-  # This is about 0 USER commands (>1 is already taken into account)
-  static_profile.append(setuid_setgid_rule)
+    # This is about 0 USER commands (>1 is already taken into account)
+    static_profile.append(setuid_setgid_rule)
 if user2_counter>1:
   static_profile.append(setuid_setgid_rule)
 
