@@ -1,5 +1,4 @@
 #!/usr/bin/env python2
-
 import io
 import sys
 from collections import OrderedDict

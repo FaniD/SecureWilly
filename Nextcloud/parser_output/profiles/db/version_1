@@ -1,0 +1,11 @@
+#include <tunables/global>
+
+profile db_profile flags=(attach_disconnected,mediate_deleted) {
+	/var/lib/mysql/* rw,
+	mount /var/lib/docker/volumes/dockerfileinfo_db_/_data -> /var/lib/mysql, #Bind host volume to docker container volume
+	file,  #Allows access to containers filesystem
+	/var/lib/docker/* r, #Access to layers of filesystem
+	deny remount /var/lib/mysql, #Disallow anybody that wants to remount this mountpoint
+	deny umount /var/lib/mysql, #Disallow anybody that wants to break this mountpoint
+	deny ptrace (readby, tracedby), #Confront container breakout attacks
+}
