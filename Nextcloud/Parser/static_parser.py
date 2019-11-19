@@ -3,11 +3,11 @@ import io
 import sys
 from collections import OrderedDict
 
-current_dir = "dockerfileinfo"
+current_dir = "Nextcloud"
 current_dir = current_dir.lower()
 
-pwd = ""
-pre_pwd = ""
+pwd = "/home/fanilicious/Projects/SecureWilly/Nextcloud/Parser"
+pre_pwd = "/home/fanilicious/Projects/SecureWilly/Nextcloud"
 
 # This will be our preliminery profile from Static Analysis. Append every rule extracted to it.
 static_profile = []

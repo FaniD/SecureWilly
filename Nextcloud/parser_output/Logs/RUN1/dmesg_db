@@ -1,1 +1,0 @@
-[39934.700502] audit: type=1400 audit(1573429429.346:1151): apparmor="ALLOWED" operation="signal" profile="db_profile" pid=41725 comm="runc" requested_mask="receive" denied_mask="receive" signal=kill peer="unconfined"

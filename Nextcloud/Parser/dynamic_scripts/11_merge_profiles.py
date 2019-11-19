@@ -80,7 +80,7 @@ for line in data:
 
 # Volumes here
 
- #if abc
+ #if ( line.startswith('/var/www/html') or line.startswith('/var/www/html/data') ):
    #continue
 
     # Temporary files should not be included in dynamic analysis, otherwise there is risk of infinite loop and they are useless anyway as they differ from run to run
