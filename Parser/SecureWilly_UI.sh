@@ -601,6 +601,9 @@ if [[ "$priv_file" == "2" ]]; then
         rm ${app_run_path}/parser_output/Alerts/Privileged
 fi
 
+rm ${parser_path}/next*
+rm ${parser_path}/if*
+
 #~~~~~~~~~~~~THE END~~~~~~~~~~~~~
 echo ""
 echo "----------------------------------------------------------------------------------------------"
