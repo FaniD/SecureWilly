@@ -1,0 +1,19 @@
+3
+db
+app
+web
+/home/fanilicious/Projects/MatterMost/db
+/home/fanilicious/Projects/MatterMost/app
+/home/fanilicious/Projects/MatterMost/web
+/home/fanilicious/Projects/SecureWilly/MatterMost
+N
+mkdir -p /home/fanilicious/Projects/MatterMost/volumes/app/mattermost/{data,logs,config,plugins}
+chown -R 2000:2000 /home/fanilicious/Projects/MatterMost/volumes/app/mattermost/
+docker-compose start
+
+docker kill db
+docker kill app
+docker kill web
+docker-compose down
+Done
+Y

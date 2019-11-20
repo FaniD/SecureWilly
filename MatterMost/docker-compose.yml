@@ -1,0 +1,43 @@
+version: "3"
+
+services:
+
+  db:
+    build: db
+    read_only: true
+    restart: unless-stopped
+    volumes:
+      - /home/fanilicious/Projects/SecureWilly/MatterMost/volumes/db/var/lib/postgresql/data:/var/lib/postgresql/data
+      - /etc/localtime:/etc/localtime:ro
+    environment:
+      - POSTGRES_USER=willy
+      - POSTGRES_PASSWORD=willy
+      - POSTGRES_DB=mattermost
+
+  app:
+    build:
+      context: app
+      args:
+         - edition=team
+    restart: unless-stopped
+    volumes:
+      - /home/fanilicious/Projects/SecureWilly/MatterMost/volumes/app/mattermost/config:/mattermost/config:rw
+      - /home/fanilicious/Projects/SecureWilly/MatterMost/volumes/app/mattermost/data:/mattermost/data:rw
+      - /home/fanilicious/Projects/SecureWilly/MatterMost/volumes/app/mattermost/logs:/mattermost/logs:rw
+      - /home/fanilicious/Projects/SecureWilly/MatterMost/volumes/app/mattermost/plugins:/mattermost/plugins:rw
+      - /home/fanilicious/Projects/SecureWilly/MatterMost/volumes/app/mattermost/client-plugins:/mattermost/client/plugins:rw
+      - /etc/localtime:/etc/localtime:ro
+    environment:
+      - MM_USERNAME=willy
+      - MM_PASSWORD=willy
+      - MM_DBNAME=mattermost
+
+  web:
+    build: web
+    ports:
+      - "80:80"
+      - "443:443"
+    read_only: true
+    restart: unless-stopped
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
