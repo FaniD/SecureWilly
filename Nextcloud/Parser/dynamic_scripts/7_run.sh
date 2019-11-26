@@ -3,10 +3,11 @@
 sudo rm -r /home/fanilicious/Projects/SecureWilly/Nextcloud/data
 mkdir /home/fanilicious/Projects/SecureWilly/Nextcloud/data
 #sudo chown www-data:www-data /home/fanilicious/Projects/SecureWilly/Nextcloud/data
-sudo chown http:http /home/fanilicious/Projects/SecureWilly/Nextcloud/data
+sudo chown http:http /home/fanilicious/Projects/SecureWilly/Nextcloud/data -R
 
 # Start containers
 docker-compose up -d
+sudo chown http:http /var/lib/docker/volumes/nextcloud_nextcloud_ -R
 sleep 20
 
 # Check server status
@@ -36,10 +37,11 @@ rm mysql_*
 docker exec db mysql -u nextcloud -p'secret' > mysql_answer 2> mysql_error_exec
 mysql_error_exec=$(cat mysql_error_exec | grep 'ERROR')
 done
-rm mysql_*
+#rm mysql_*
 
 # Configure nextcloud
 echo "=== Install nextcloud ==="
+# Expect to get Nextcloud was successfully installed
 docker exec -u www-data nextcloud php /var/www/html/occ maintenance:install --database "mysql" --database-name "nextcloud" --database-host "db" --database-user "nextcloud" --database-pass "secret" --admin-user "nextcloud" --admin-pass "secret"
 
 # Create a file in local data directory
