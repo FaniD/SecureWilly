@@ -1,3 +1,0 @@
-[20385.694977] audit: type=1400 audit(1574705579.600:5301): apparmor="DENIED" operation="capable" profile="db_profile" pid=462299 comm="gosu" capability=6  capname="setgid"
-[20397.161955] audit: type=1400 audit(1574705591.067:5401): apparmor="DENIED" operation="capable" profile="db_profile" pid=463139 comm="gosu" capability=6  capname="setgid"
-[20414.311238] audit: type=1400 audit(1574705608.217:5497): apparmor="DENIED" operation="capable" profile="db_profile" pid=464029 comm="gosu" capability=6  capname="setgid"

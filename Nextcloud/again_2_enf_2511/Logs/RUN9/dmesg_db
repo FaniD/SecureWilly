@@ -1,1 +1,0 @@
-[20922.342781] audit: type=1400 audit(1574706116.247:5773): apparmor="DENIED" operation="capable" profile="db_profile" pid=539836 comm="gosu" capability=7  capname="setuid"

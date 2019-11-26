@@ -1,9 +1,0 @@
-#Capability\n
-#Network\n
-#File
-requested_mask 
-#Signal
-send usr2 nextcloud_profile
-receive usr2 nextcloud_profile
-receive exists unconfined
-receive kill unconfined

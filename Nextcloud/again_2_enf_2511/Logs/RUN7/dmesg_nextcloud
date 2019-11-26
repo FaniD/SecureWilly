@@ -1,5 +1,0 @@
-[20385.454787] audit: type=1400 audit(1574705579.360:5297): apparmor="DENIED" operation="capable" profile="nextcloud_profile" pid=462459 comm="rsync" capability=3  capname="fowner"
-[20385.454993] audit: type=1400 audit(1574705579.360:5298): apparmor="DENIED" operation="capable" profile="nextcloud_profile" pid=462458 comm="rsync" capability=1  capname="dac_override"
-[20385.482296] audit: type=1400 audit(1574705579.387:5299): apparmor="DENIED" operation="capable" profile="nextcloud_profile" pid=462458 comm="rsync" capability=1  capname="dac_override"
-[20385.546511] audit: type=1400 audit(1574705579.450:5300): apparmor="DENIED" operation="capable" profile="nextcloud_profile" pid=462458 comm="rsync" capability=1  capname="dac_override"
-[20396.710129] audit: type=1400 audit(1574705590.614:5396): apparmor="DENIED" operation="capable" profile="nextcloud_profile" pid=463227 comm="rsync" capability=1  capname="dac_override"

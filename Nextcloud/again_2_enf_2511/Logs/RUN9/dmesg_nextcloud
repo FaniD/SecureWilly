@@ -1,2 +1,0 @@
-[20923.824212] audit: type=1400 audit(1574706117.730:5775): apparmor="DENIED" operation="capable" profile="nextcloud_profile" pid=540061 comm="apache2" capability=6  capname="setgid"
-[20923.824799] audit: type=1400 audit(1574706117.730:5776): apparmor="DENIED" operation="capable" profile="nextcloud_profile" pid=540062 comm="apache2" capability=6  capname="setgid"
