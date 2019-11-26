@@ -3,7 +3,7 @@ version: "3"
 services:
 
   db:
-    build: db
+    image: mattermostdocker_db
     read_only: true
     restart: unless-stopped
     volumes:
@@ -15,10 +15,7 @@ services:
       - POSTGRES_DB=mattermost
 
   app:
-    build:
-      context: app
-      args:
-         - edition=team
+    image: mattermostdocker_app
     restart: unless-stopped
     volumes:
       - /home/fanilicious/Projects/SecureWilly/MatterMost/volumes/app/mattermost/config:/mattermost/config:rw
@@ -33,7 +30,7 @@ services:
       - MM_DBNAME=mattermost
 
   web:
-    build: web
+    image: mattermostdocker_web
     ports:
       - "80:80"
       - "443:443"
