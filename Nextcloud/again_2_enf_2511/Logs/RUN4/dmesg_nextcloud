@@ -1,0 +1,5 @@
+[18954.769748] audit: type=1400 audit(1574704148.674:4762): apparmor="DENIED" operation="capable" profile="nextcloud_profile" pid=315525 comm="rsync" capability=0  capname="chown"
+[18954.770174] audit: type=1400 audit(1574704148.674:4763): apparmor="DENIED" operation="capable" profile="nextcloud_profile" pid=315526 comm="rsync" capability=0  capname="chown"
+[18954.799330] audit: type=1400 audit(1574704148.704:4764): apparmor="DENIED" operation="capable" profile="nextcloud_profile" pid=315525 comm="rsync" capability=0  capname="chown"
+[18955.030499] audit: type=1400 audit(1574704148.934:4766): apparmor="DENIED" operation="capable" profile="nextcloud_profile" pid=315525 comm="rsync" capability=0  capname="chown"
+[18955.182755] audit: type=1400 audit(1574704149.087:4768): apparmor="DENIED" operation="capable" profile="nextcloud_profile" pid=315526 comm="rsync" capability=0  capname="chown"

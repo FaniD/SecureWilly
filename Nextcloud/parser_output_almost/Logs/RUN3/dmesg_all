@@ -1,0 +1,55 @@
+[28290.275155] br-353e6f70be40: port 1(veth8f5afcd) entered blocking state
+[28290.275165] br-353e6f70be40: port 1(veth8f5afcd) entered disabled state
+[28290.275300] device veth8f5afcd entered promiscuous mode
+[28290.275323] kauditd_printk_skb: 69 callbacks suppressed
+[28290.275324] audit: type=1700 audit(1574713484.184:7174): dev=veth8f5afcd prom=256 old_prom=0 auid=4294967295 uid=0 gid=0 ses=4294967295
+[28290.883713] audit: type=1325 audit(1574713484.790:7175): table=nat family=2 entries=0
+[28290.887211] audit: type=1325 audit(1574713484.794:7176): table=filter family=2 entries=0
+[28290.890262] audit: type=1325 audit(1574713484.797:7177): table=nat family=2 entries=5
+[28290.891192] audit: type=1325 audit(1574713484.797:7178): table=nat family=2 entries=7
+[28290.892960] audit: type=1325 audit(1574713484.800:7179): table=nat family=2 entries=8
+[28290.893944] audit: type=1325 audit(1574713484.800:7180): table=nat family=2 entries=10
+[28290.895275] audit: type=1325 audit(1574713484.804:7181): table=nat family=2 entries=11
+[28290.896731] audit: type=1325 audit(1574713484.804:7182): table=nat family=2 entries=12
+[28290.898212] audit: type=1325 audit(1574713484.804:7183): table=nat family=2 entries=13
+[28290.926502] eth0: renamed from veth5168a0d
+[28290.935953] IPv6: ADDRCONF(NETDEV_CHANGE): veth8f5afcd: link becomes ready
+[28290.936042] br-353e6f70be40: port 1(veth8f5afcd) entered blocking state
+[28290.936044] br-353e6f70be40: port 1(veth8f5afcd) entered forwarding state
+[28293.021810] br-353e6f70be40: port 2(vethcad9f13) entered blocking state
+[28293.021826] br-353e6f70be40: port 2(vethcad9f13) entered disabled state
+[28293.021912] device vethcad9f13 entered promiscuous mode
+[28294.095747] eth0: renamed from veth694de46
+[28294.108876] IPv6: ADDRCONF(NETDEV_CHANGE): vethcad9f13: link becomes ready
+[28294.109002] br-353e6f70be40: port 2(vethcad9f13) entered blocking state
+[28294.109005] br-353e6f70be40: port 2(vethcad9f13) entered forwarding state
+[28681.293963] kauditd_printk_skb: 19 callbacks suppressed
+[28681.293965] audit: type=1100 audit(1574713875.200:7203): pid=1143934 uid=1000 auid=1000 ses=3 subj==unconfined msg='op=PAM:authentication grantors=pam_unix,pam_permit acct="fanilicious" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/1 res=success'
+[28681.294241] audit: type=1101 audit(1574713875.200:7204): pid=1143934 uid=1000 auid=1000 ses=3 subj==unconfined msg='op=PAM:accounting grantors=pam_unix,pam_permit,pam_time acct="fanilicious" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/1 res=success'
+[28681.294517] audit: type=1110 audit(1574713875.200:7205): pid=1143934 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:setcred grantors=pam_unix,pam_permit acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/1 res=success'
+[28681.299143] audit: type=1105 audit(1574713875.207:7206): pid=1143934 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:session_open grantors=pam_limits,pam_unix,pam_permit acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/1 res=success'
+[28681.300887] audit: type=1106 audit(1574713875.207:7207): pid=1143934 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:session_close grantors=pam_limits,pam_unix,pam_permit acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/1 res=success'
+[28681.301021] audit: type=1104 audit(1574713875.207:7208): pid=1143934 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:setcred grantors=pam_unix,pam_permit acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/1 res=success'
+[28683.880780] audit: type=1325 audit(1574713877.787:7209): table=nat family=2 entries=15
+[28683.884324] audit: type=1325 audit(1574713877.790:7210): table=filter family=2 entries=30
+[28683.888463] audit: type=1325 audit(1574713877.797:7211): table=nat family=2 entries=14
+[28683.946079] veth694de46: renamed from eth0
+[28683.968640] br-353e6f70be40: port 2(vethcad9f13) entered disabled state
+[28684.200516] br-353e6f70be40: port 2(vethcad9f13) entered disabled state
+[28684.210556] device vethcad9f13 left promiscuous mode
+[28684.210573] br-353e6f70be40: port 2(vethcad9f13) entered disabled state
+[28684.210694] audit: type=1700 audit(1574713878.107:7212): dev=vethcad9f13 prom=0 old_prom=256 auid=4294967295 uid=0 gid=0 ses=4294967295
+[28685.866195] br-353e6f70be40: port 1(veth8f5afcd) entered disabled state
+[28685.866410] veth5168a0d: renamed from eth0
+[28685.994438] br-353e6f70be40: port 1(veth8f5afcd) entered disabled state
+[28686.003598] device veth8f5afcd left promiscuous mode
+[28686.003679] br-353e6f70be40: port 1(veth8f5afcd) entered disabled state
+[28687.157287] kauditd_printk_skb: 1 callbacks suppressed
+[28687.157290] audit: type=1101 audit(1574713881.063:7214): pid=1144156 uid=1000 auid=1000 ses=3 subj==unconfined msg='op=PAM:accounting grantors=pam_unix,pam_permit,pam_time acct="fanilicious" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/1 res=success'
+[28687.157659] audit: type=1110 audit(1574713881.063:7215): pid=1144156 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:setcred grantors=pam_unix,pam_permit,pam_env acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/1 res=success'
+[28687.162324] audit: type=1105 audit(1574713881.070:7216): pid=1144156 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:session_open grantors=pam_limits,pam_unix,pam_permit acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/1 res=success'
+[28687.164196] audit: type=1106 audit(1574713881.070:7217): pid=1144156 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:session_close grantors=pam_limits,pam_unix,pam_permit acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/1 res=success'
+[28687.164329] audit: type=1104 audit(1574713881.070:7218): pid=1144156 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:setcred grantors=pam_unix,pam_permit,pam_env acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/1 res=success'
+[28687.173455] audit: type=1101 audit(1574713881.080:7219): pid=1144159 uid=1000 auid=1000 ses=3 subj==unconfined msg='op=PAM:accounting grantors=pam_unix,pam_permit,pam_time acct="fanilicious" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/1 res=success'
+[28687.173745] audit: type=1110 audit(1574713881.080:7220): pid=1144159 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:setcred grantors=pam_unix,pam_permit,pam_env acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/1 res=success'
+[28687.177771] audit: type=1105 audit(1574713881.083:7221): pid=1144159 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:session_open grantors=pam_limits,pam_unix,pam_permit acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/1 res=success'

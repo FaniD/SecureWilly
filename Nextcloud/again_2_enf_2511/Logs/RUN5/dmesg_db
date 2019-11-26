@@ -1,0 +1,1 @@
+[19248.126669] audit: type=1400 audit(1574704442.031:5052): apparmor="ALLOWED" operation="signal" profile="db_profile" pid=317558 comm="containerd-shim" requested_mask="receive" denied_mask="receive" signal=exists peer="unconfined"

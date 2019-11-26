@@ -12,40 +12,47 @@ sudo chown http:http /home/fanilicious/Projects/SecureWilly/Nextcloud/data
 
 # Start containers
 docker-compose up -d
-sleep 60
+sleep 20
 
 # Check server status
-docker exec -u www-data nextcloud php occ status > answer
-answer=$(cat answer | grep 'Nextcloud is not installed')
-while [ -z "$answer" ] && [ ! -z "$error_exec" ]
+echo "=== Check server status ==="
+docker exec -u www-data nextcloud php /var/www/html/occ status > status_answer 2> status_error_exec
+status_answer=$(cat status_answer | grep 'Nextcloud is not installed')
+status_error_exec=$(cat status_answer | grep 'is not running')
+while [ -z "$status_answer" ] && [ ! -z "$status_error_exec" ]
 do
-        rm answer
-        docker exec -u www-data nextcloud php occ status > answer 2> error_exec
-        answer=$(cat answer | grep 'Nextcloud is not installed')
-	error_exec=$(cat answer | grep 'is not running')
+        rm status_*
+        docker exec -u www-data nextcloud php /var/www/html/occ status > status_answer 2> status_error_exec
+        status_answer=$(cat status_answer | grep 'Nextcloud is not installed')
+	status_error_exec=$(cat status_answer | grep 'is not running')
 done
-rm answer
+rm status_*
+
+sleep 20
 
 # Check db status
 # Error while trying to create admin user
-docker exec db mysql -u nextcloud -p'secret' > answer 2> error_exec
-error_exec=$(cat error_exec | grep 'ERROR')
-while [ ! -z "$error_exec" ]
+echo "=== Check db status ==="
+docker exec db mysql -u nextcloud -p'secret' > mysql_answer 2> mysql_error_exec
+mysql_error_exec=$(cat mysql_error_exec | grep 'ERROR')
+while [ ! -z "$mysql_error_exec" ]
 do
-  rm error_exec
-  docker exec db mysql -u nextcloud -p'secret' > answer 2> error_exec
-  error_exec=$(cat error_exec | grep 'ERROR')
+  rm mysql_*
+  docker exec db mysql -u nextcloud -p'secret' > mysql_answer 2> mysql_error_exec
+  mysql_error_exec=$(cat mysql_error_exec | grep 'ERROR')
 done
-rm error_exec
+rm mysql_*
 
 # Configure nextcloud
-docker exec -u www-data nextcloud php occ maintenance:install --database "mysql" --database-name "nextcloud" --database-host "db" --database-user "nextcloud" --database-pass "secret" --admin-user "nextcloud" --admin-pass "secret"
+echo "=== Install nextcloud ==="
+docker exec -u www-data nextcloud php /var/www/html/occ maintenance:install --database "mysql" --database-name "nextcloud" --database-host "db" --database-user "nextcloud" --database-pass "secret" --admin-user "nextcloud" --admin-pass "secret"
 
 # Create a file in local data directory
 sudo touch /home/fanilicious/Projects/SecureWilly/Nextcloud/data/nextcloud/files/HelloFromTheOtherSide
 
 # Use occ files:scan to make it visible to the web interface
-docker exec -u www-data nextcloud php occ files:scan --all
+echo "=== File scanning ==="
+docker exec -u www-data nextcloud php /var/www/html/occ files:scan --all
 
 docker kill nextcloud
 docker kill db

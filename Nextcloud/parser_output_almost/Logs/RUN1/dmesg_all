@@ -1,0 +1,76 @@
+[27489.819616] br-353e6f70be40: port 1(vethc2adad4) entered blocking state
+[27489.819677] br-353e6f70be40: port 1(vethc2adad4) entered disabled state
+[27489.819791] device vethc2adad4 entered promiscuous mode
+[27490.535656] eth0: renamed from veth7e41e30
+[27490.549865] IPv6: ADDRCONF(NETDEV_CHANGE): vethc2adad4: link becomes ready
+[27490.549953] br-353e6f70be40: port 1(vethc2adad4) entered blocking state
+[27490.549955] br-353e6f70be40: port 1(vethc2adad4) entered forwarding state
+[27490.550020] IPv6: ADDRCONF(NETDEV_CHANGE): br-353e6f70be40: link becomes ready
+[27490.973725] kauditd_printk_skb: 99 callbacks suppressed
+[27490.973728] audit: type=1400 audit(1574712684.880:6927): apparmor="ALLOWED" operation="capable" profile="db_profile" pid=976087 comm="mysqld" capability=1  capname="dac_override"
+[27491.270836] audit: type=1400 audit(1574712685.177:6928): apparmor="ALLOWED" operation="capable" profile="db_profile" pid=976098 comm="mysqld" capability=1  capname="dac_override"
+[27491.326943] audit: type=1400 audit(1574712685.234:6929): apparmor="ALLOWED" operation="capable" profile="db_profile" pid=976024 comm="gosu" capability=6  capname="setgid"
+[27492.939151] br-353e6f70be40: port 2(vethe2cedf9) entered blocking state
+[27492.939164] br-353e6f70be40: port 2(vethe2cedf9) entered disabled state
+[27492.939277] device vethe2cedf9 entered promiscuous mode
+[27492.939301] audit: type=1700 audit(1574712686.847:6930): dev=vethe2cedf9 prom=256 old_prom=0 auid=4294967295 uid=0 gid=0 ses=4294967295
+[27493.402712] audit: type=1325 audit(1574712687.310:6931): table=nat family=2 entries=13
+[27493.406307] audit: type=1325 audit(1574712687.314:6932): table=filter family=2 entries=29
+[27493.410685] audit: type=1325 audit(1574712687.317:6933): table=nat family=2 entries=14
+[27494.034339] audit: type=1325 audit(1574712687.940:6934): table=nat family=2 entries=0
+[27494.037529] audit: type=1325 audit(1574712687.944:6935): table=filter family=2 entries=0
+[27494.040434] audit: type=1325 audit(1574712687.947:6936): table=nat family=2 entries=5
+[27494.072515] eth0: renamed from veth7d30f35
+[27494.082901] IPv6: ADDRCONF(NETDEV_CHANGE): vethe2cedf9: link becomes ready
+[27494.083038] br-353e6f70be40: port 2(vethe2cedf9) entered blocking state
+[27494.083042] br-353e6f70be40: port 2(vethe2cedf9) entered forwarding state
+[27496.215818] kauditd_printk_skb: 11 callbacks suppressed
+[27496.215820] audit: type=1400 audit(1574712690.124:6948): apparmor="ALLOWED" operation="signal" profile="nextcloud_profile" pid=976302 comm="rsync" requested_mask="send" denied_mask="send" signal=usr2 peer="nextcloud_profile"
+[27496.215824] audit: type=1400 audit(1574712690.124:6948): apparmor="ALLOWED" operation="signal" profile="nextcloud_profile" pid=976302 comm="rsync" requested_mask="receive" denied_mask="receive" signal=usr2 peer="nextcloud_profile"
+[27496.221659] audit: type=1400 audit(1574712690.127:6949): apparmor="ALLOWED" operation="signal" profile="nextcloud_profile" pid=976308 comm="rsync" requested_mask="send" denied_mask="send" signal=usr2 peer="nextcloud_profile"
+[27496.221665] audit: type=1400 audit(1574712690.127:6949): apparmor="ALLOWED" operation="signal" profile="nextcloud_profile" pid=976308 comm="rsync" requested_mask="receive" denied_mask="receive" signal=usr2 peer="nextcloud_profile"
+[27496.225899] audit: type=1400 audit(1574712690.134:6950): apparmor="ALLOWED" operation="signal" profile="nextcloud_profile" pid=976312 comm="rsync" requested_mask="send" denied_mask="send" signal=usr2 peer="nextcloud_profile"
+[27496.225907] audit: type=1400 audit(1574712690.134:6950): apparmor="ALLOWED" operation="signal" profile="nextcloud_profile" pid=976312 comm="rsync" requested_mask="receive" denied_mask="receive" signal=usr2 peer="nextcloud_profile"
+[27496.228718] audit: type=1400 audit(1574712690.137:6951): apparmor="ALLOWED" operation="signal" profile="nextcloud_profile" pid=976315 comm="rsync" requested_mask="send" denied_mask="send" signal=usr2 peer="nextcloud_profile"
+[27496.228724] audit: type=1400 audit(1574712690.137:6951): apparmor="ALLOWED" operation="signal" profile="nextcloud_profile" pid=976315 comm="rsync" requested_mask="receive" denied_mask="receive" signal=usr2 peer="nextcloud_profile"
+[27496.235014] audit: type=1400 audit(1574712690.140:6952): apparmor="ALLOWED" operation="signal" profile="nextcloud_profile" pid=976318 comm="rsync" requested_mask="send" denied_mask="send" signal=usr2 peer="nextcloud_profile"
+[27496.235021] audit: type=1400 audit(1574712690.140:6952): apparmor="ALLOWED" operation="signal" profile="nextcloud_profile" pid=976318 comm="rsync" requested_mask="receive" denied_mask="receive" signal=usr2 peer="nextcloud_profile"
+[27514.913822] kauditd_printk_skb: 5 callbacks suppressed
+[27514.913824] audit: type=1400 audit(1574712708.820:6956): apparmor="ALLOWED" operation="signal" profile="nextcloud_profile" pid=976215 comm="containerd-shim" requested_mask="receive" denied_mask="receive" signal=exists peer="unconfined"
+[27586.389231] audit: type=1400 audit(1574712780.297:6957): apparmor="ALLOWED" operation="signal" profile="db_profile" pid=976007 comm="containerd-shim" requested_mask="receive" denied_mask="receive" signal=exists peer="unconfined"
+[27790.923840] audit: type=1400 audit(1574712984.830:6958): apparmor="ALLOWED" operation="signal" profile="db_profile" pid=976341 comm="mysqld" requested_mask="send" denied_mask="send" signal=usr1 peer="db_profile"
+[27790.923845] audit: type=1400 audit(1574712984.830:6958): apparmor="ALLOWED" operation="signal" profile="db_profile" pid=976341 comm="mysqld" requested_mask="receive" denied_mask="receive" signal=usr1 peer="db_profile"
+[27792.876655] audit: type=1400 audit(1574712986.784:6959): apparmor="ALLOWED" operation="signal" profile="db_profile" pid=976341 comm="mysqld" requested_mask="send" denied_mask="send" signal=term peer="db_profile"
+[27792.876659] audit: type=1400 audit(1574712986.784:6959): apparmor="ALLOWED" operation="signal" profile="db_profile" pid=976341 comm="mysqld" requested_mask="receive" denied_mask="receive" signal=term peer="db_profile"
+[27793.963324] audit: type=1400 audit(1574712987.870:6960): apparmor="ALLOWED" operation="signal" profile="nextcloud_profile" pid=976215 comm="containerd-shim" requested_mask="receive" denied_mask="receive" signal=exists peer="unconfined"
+[27870.921143] audit: type=1100 audit(1574713064.827:6961): pid=1031043 uid=1000 auid=1000 ses=3 subj==unconfined msg='op=PAM:authentication grantors=pam_unix,pam_permit acct="fanilicious" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/1 res=success'
+[27870.921513] audit: type=1101 audit(1574713064.827:6962): pid=1031043 uid=1000 auid=1000 ses=3 subj==unconfined msg='op=PAM:accounting grantors=pam_unix,pam_permit,pam_time acct="fanilicious" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/1 res=success'
+[27870.921872] audit: type=1110 audit(1574713064.830:6963): pid=1031043 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:setcred grantors=pam_unix,pam_permit acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/1 res=success'
+[27870.926808] audit: type=1105 audit(1574713064.834:6964): pid=1031043 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:session_open grantors=pam_limits,pam_unix,pam_permit acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/1 res=success'
+[27870.928494] audit: type=1106 audit(1574713064.837:6965): pid=1031043 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:session_close grantors=pam_limits,pam_unix,pam_permit acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/1 res=success'
+[27870.928615] audit: type=1104 audit(1574713064.837:6966): pid=1031043 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:setcred grantors=pam_unix,pam_permit acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/1 res=success'
+[27871.294405] audit: type=1400 audit(1574713065.200:6967): apparmor="ALLOWED" operation="signal" profile="nextcloud_profile" pid=976215 comm="containerd-shim" requested_mask="receive" denied_mask="receive" signal=exists peer="unconfined"
+[27873.499987] audit: type=1400 audit(1574713067.407:6968): apparmor="ALLOWED" operation="signal" profile="nextcloud_profile" pid=1031178 comm="runc" requested_mask="receive" denied_mask="receive" signal=kill peer="unconfined"
+[27873.602294] audit: type=1325 audit(1574713067.510:6969): table=nat family=2 entries=15
+[27873.606269] audit: type=1325 audit(1574713067.514:6970): table=filter family=2 entries=30
+[27873.763298] br-353e6f70be40: port 2(vethe2cedf9) entered disabled state
+[27873.763393] veth7d30f35: renamed from eth0
+[27874.014491] br-353e6f70be40: port 2(vethe2cedf9) entered disabled state
+[27874.023457] device vethe2cedf9 left promiscuous mode
+[27874.023473] br-353e6f70be40: port 2(vethe2cedf9) entered disabled state
+[27875.961775] kauditd_printk_skb: 2 callbacks suppressed
+[27875.961777] audit: type=1400 audit(1574713069.870:6973): apparmor="ALLOWED" operation="signal" profile="db_profile" pid=1031238 comm="runc" requested_mask="receive" denied_mask="receive" signal=kill peer="unconfined"
+[27876.161271] br-353e6f70be40: port 1(vethc2adad4) entered disabled state
+[27876.161498] veth7e41e30: renamed from eth0
+[27876.265431] br-353e6f70be40: port 1(vethc2adad4) entered disabled state
+[27876.273654] device vethc2adad4 left promiscuous mode
+[27876.273668] br-353e6f70be40: port 1(vethc2adad4) entered disabled state
+[27876.273686] audit: type=1700 audit(1574713070.170:6974): dev=vethc2adad4 prom=0 old_prom=256 auid=4294967295 uid=0 gid=0 ses=4294967295
+[27877.449768] audit: type=1101 audit(1574713071.357:6975): pid=1031273 uid=1000 auid=1000 ses=3 subj==unconfined msg='op=PAM:accounting grantors=pam_unix,pam_permit,pam_time acct="fanilicious" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/1 res=success'
+[27877.450064] audit: type=1110 audit(1574713071.357:6976): pid=1031273 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:setcred grantors=pam_unix,pam_permit,pam_env acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/1 res=success'
+[27877.454229] audit: type=1105 audit(1574713071.360:6977): pid=1031273 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:session_open grantors=pam_limits,pam_unix,pam_permit acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/1 res=success'
+[27877.456406] audit: type=1106 audit(1574713071.364:6978): pid=1031273 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:session_close grantors=pam_limits,pam_unix,pam_permit acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/1 res=success'
+[27877.456516] audit: type=1104 audit(1574713071.364:6979): pid=1031273 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:setcred grantors=pam_unix,pam_permit,pam_env acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/1 res=success'
+[27877.468030] audit: type=1101 audit(1574713071.374:6980): pid=1031276 uid=1000 auid=1000 ses=3 subj==unconfined msg='op=PAM:accounting grantors=pam_unix,pam_permit,pam_time acct="fanilicious" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/1 res=success'
+[27877.468306] audit: type=1110 audit(1574713071.374:6981): pid=1031276 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:setcred grantors=pam_unix,pam_permit,pam_env acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/1 res=success'
+[27877.472929] audit: type=1105 audit(1574713071.380:6982): pid=1031276 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:session_open grantors=pam_limits,pam_unix,pam_permit acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/1 res=success'

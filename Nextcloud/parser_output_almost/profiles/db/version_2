@@ -1,0 +1,19 @@
+#include <tunables/global>
+
+profile db_profile flags=(attach_disconnected,mediate_deleted) {
+	capability dac_override,
+	/var/lib/mysql/* rw,
+	signal (receive) set=(term) peer=db_profile,
+	signal (receive) set=(usr1) peer=db_profile,
+	mount /var/lib/docker/volumes/nextcloud_db_/_data -> /var/lib/mysql, #Bind host volume to docker container volume
+	signal (send) set=(usr1) peer=db_profile,
+	file,  #Allows access to containers filesystem
+	/var/lib/docker/* r, #Access to layers of filesystem
+	signal (receive) set=(kill) peer=unconfined,
+	deny remount /var/lib/mysql, #Disallow anybody that wants to remount this mountpoint
+	capability setgid,
+	deny umount /var/lib/mysql, #Disallow anybody that wants to break this mountpoint
+	signal (receive) set=(exists) peer=unconfined,
+	signal (send) set=(term) peer=db_profile,
+	deny ptrace (readby, tracedby), #Confront container breakout attacks
+}

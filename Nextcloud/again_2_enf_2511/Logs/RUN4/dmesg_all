@@ -1,0 +1,270 @@
+[18949.291910] br-eca498d7f92a: port 1(veth46a45b0) entered blocking state
+[18949.291927] br-eca498d7f92a: port 1(veth46a45b0) entered disabled state
+[18949.292081] device veth46a45b0 entered promiscuous mode
+[18949.292389] kauditd_printk_skb: 70 callbacks suppressed
+[18949.292391] audit: type=1700 audit(1574704143.197:4722): dev=veth46a45b0 prom=256 old_prom=0 auid=4294967295 uid=0 gid=0 ses=4294967295
+[18949.910778] audit: type=1325 audit(1574704143.817:4723): table=nat family=2 entries=0
+[18949.913739] audit: type=1325 audit(1574704143.817:4724): table=filter family=2 entries=0
+[18949.916494] audit: type=1325 audit(1574704143.821:4725): table=nat family=2 entries=5
+[18949.917659] audit: type=1325 audit(1574704143.824:4726): table=nat family=2 entries=7
+[18949.919536] audit: type=1325 audit(1574704143.824:4727): table=nat family=2 entries=8
+[18949.920539] audit: type=1325 audit(1574704143.824:4728): table=nat family=2 entries=10
+[18949.921806] audit: type=1325 audit(1574704143.827:4729): table=nat family=2 entries=11
+[18949.923059] audit: type=1325 audit(1574704143.827:4730): table=nat family=2 entries=12
+[18949.924348] audit: type=1325 audit(1574704143.831:4731): table=nat family=2 entries=13
+[18949.944456] eth0: renamed from vethededf7a
+[18949.954445] IPv6: ADDRCONF(NETDEV_CHANGE): veth46a45b0: link becomes ready
+[18949.954552] br-eca498d7f92a: port 1(veth46a45b0) entered blocking state
+[18949.954555] br-eca498d7f92a: port 1(veth46a45b0) entered forwarding state
+[18951.002371] br-eca498d7f92a: port 1(veth46a45b0) entered disabled state
+[18951.004144] vethededf7a: renamed from eth0
+[18951.289748] br-eca498d7f92a: port 1(veth46a45b0) entered disabled state
+[18951.299139] device veth46a45b0 left promiscuous mode
+[18951.299163] br-eca498d7f92a: port 1(veth46a45b0) entered disabled state
+[18953.013289] br-eca498d7f92a: port 1(vethf62fd6b) entered blocking state
+[18953.019339] br-eca498d7f92a: port 1(vethf62fd6b) entered disabled state
+[18953.019509] device vethf62fd6b entered promiscuous mode
+[18953.019936] br-eca498d7f92a: port 1(vethf62fd6b) entered blocking state
+[18953.019939] br-eca498d7f92a: port 1(vethf62fd6b) entered forwarding state
+[18953.021003] br-eca498d7f92a: port 1(vethf62fd6b) entered disabled state
+[18953.280072] br-eca498d7f92a: port 2(veth0a6d4dc) entered blocking state
+[18953.280078] br-eca498d7f92a: port 2(veth0a6d4dc) entered disabled state
+[18953.280359] device veth0a6d4dc entered promiscuous mode
+[18953.280823] br-eca498d7f92a: port 2(veth0a6d4dc) entered blocking state
+[18953.280826] br-eca498d7f92a: port 2(veth0a6d4dc) entered forwarding state
+[18953.281144] br-eca498d7f92a: port 2(veth0a6d4dc) entered disabled state
+[18954.314839] kauditd_printk_skb: 27 callbacks suppressed
+[18954.314842] audit: type=1325 audit(1574704148.221:4759): table=nat family=2 entries=12
+[18954.318870] eth0: renamed from vethc33f167
+[18954.324329] audit: type=1325 audit(1574704148.231:4760): table=nat family=2 entries=13
+[18954.328704] audit: type=1325 audit(1574704148.234:4761): table=nat family=2 entries=14
+[18954.335080] IPv6: ADDRCONF(NETDEV_CHANGE): veth0a6d4dc: link becomes ready
+[18954.335181] br-eca498d7f92a: port 2(veth0a6d4dc) entered blocking state
+[18954.335184] br-eca498d7f92a: port 2(veth0a6d4dc) entered forwarding state
+[18954.357776] eth0: renamed from vethf1b3e30
+[18954.371770] IPv6: ADDRCONF(NETDEV_CHANGE): vethf62fd6b: link becomes ready
+[18954.371988] br-eca498d7f92a: port 1(vethf62fd6b) entered blocking state
+[18954.371996] br-eca498d7f92a: port 1(vethf62fd6b) entered forwarding state
+[18954.769748] audit: type=1400 audit(1574704148.674:4762): apparmor="DENIED" operation="capable" profile="nextcloud_profile" pid=315525 comm="rsync" capability=0  capname="chown"
+[18954.770174] audit: type=1400 audit(1574704148.674:4763): apparmor="DENIED" operation="capable" profile="nextcloud_profile" pid=315526 comm="rsync" capability=0  capname="chown"
+[18954.799330] audit: type=1400 audit(1574704148.704:4764): apparmor="DENIED" operation="capable" profile="nextcloud_profile" pid=315525 comm="rsync" capability=0  capname="chown"
+[18954.853657] audit: type=1400 audit(1574704148.757:4765): apparmor="DENIED" operation="capable" profile="db_profile" pid=315519 comm="mysqld" capability=1  capname="dac_override"
+[18955.030499] audit: type=1400 audit(1574704148.934:4766): apparmor="DENIED" operation="capable" profile="nextcloud_profile" pid=315525 comm="rsync" capability=0  capname="chown"
+[18955.152408] audit: type=1400 audit(1574704149.057:4767): apparmor="DENIED" operation="capable" profile="db_profile" pid=315536 comm="mysqld" capability=1  capname="dac_override"
+[18955.182755] audit: type=1400 audit(1574704149.087:4768): apparmor="DENIED" operation="capable" profile="nextcloud_profile" pid=315526 comm="rsync" capability=0  capname="chown"
+[18955.404622] vethf1b3e30: renamed from eth0
+[18955.434385] br-eca498d7f92a: port 1(vethf62fd6b) entered disabled state
+[18955.545973] br-eca498d7f92a: port 1(vethf62fd6b) entered disabled state
+[18955.551142] device vethf62fd6b left promiscuous mode
+[18955.551157] br-eca498d7f92a: port 1(vethf62fd6b) entered disabled state
+[18957.083862] br-eca498d7f92a: port 2(veth0a6d4dc) entered disabled state
+[18957.084466] vethc33f167: renamed from eth0
+[18957.691063] br-eca498d7f92a: port 2(veth0a6d4dc) entered disabled state
+[18957.697657] device veth0a6d4dc left promiscuous mode
+[18957.697676] br-eca498d7f92a: port 2(veth0a6d4dc) entered disabled state
+[18962.373909] br-eca498d7f92a: port 1(vethcb6a7a4) entered blocking state
+[18962.373911] br-eca498d7f92a: port 1(vethcb6a7a4) entered disabled state
+[18962.374022] device vethcb6a7a4 entered promiscuous mode
+[18962.374239] br-eca498d7f92a: port 1(vethcb6a7a4) entered blocking state
+[18962.374241] br-eca498d7f92a: port 1(vethcb6a7a4) entered forwarding state
+[18962.377381] kauditd_printk_skb: 7 callbacks suppressed
+[18962.377383] audit: type=1700 audit(1574704156.281:4776): dev=vethcb6a7a4 prom=256 old_prom=0 auid=4294967295 uid=0 gid=0 ses=4294967295
+[18962.377420] br-eca498d7f92a: port 1(vethcb6a7a4) entered disabled state
+[18962.650757] br-eca498d7f92a: port 2(veth8232d69) entered blocking state
+[18962.650764] br-eca498d7f92a: port 2(veth8232d69) entered disabled state
+[18962.651042] device veth8232d69 entered promiscuous mode
+[18962.651451] br-eca498d7f92a: port 2(veth8232d69) entered blocking state
+[18962.651457] br-eca498d7f92a: port 2(veth8232d69) entered forwarding state
+[18962.652016] audit: type=1700 audit(1574704156.557:4777): dev=veth8232d69 prom=256 old_prom=0 auid=4294967295 uid=0 gid=0 ses=4294967295
+[18962.652444] br-eca498d7f92a: port 2(veth8232d69) entered disabled state
+[18963.135486] audit: type=1325 audit(1574704157.041:4778): table=nat family=2 entries=13
+[18963.141248] audit: type=1325 audit(1574704157.047:4779): table=filter family=2 entries=29
+[18963.144499] audit: type=1325 audit(1574704157.051:4780): table=nat family=2 entries=14
+[18963.520885] audit: type=1325 audit(1574704157.427:4781): table=nat family=2 entries=0
+[18963.528832] audit: type=1325 audit(1574704157.434:4782): table=filter family=2 entries=0
+[18963.531805] audit: type=1325 audit(1574704157.437:4783): table=nat family=2 entries=5
+[18963.532893] audit: type=1325 audit(1574704157.437:4784): table=nat family=2 entries=7
+[18963.535150] audit: type=1325 audit(1574704157.441:4785): table=nat family=2 entries=8
+[18963.566513] eth0: renamed from veth711abb4
+[18963.576972] IPv6: ADDRCONF(NETDEV_CHANGE): vethcb6a7a4: link becomes ready
+[18963.577058] br-eca498d7f92a: port 1(vethcb6a7a4) entered blocking state
+[18963.577061] br-eca498d7f92a: port 1(vethcb6a7a4) entered forwarding state
+[18963.682108] eth0: renamed from veth9d66b1b
+[18963.694296] IPv6: ADDRCONF(NETDEV_CHANGE): veth8232d69: link becomes ready
+[18963.694374] br-eca498d7f92a: port 2(veth8232d69) entered blocking state
+[18963.694376] br-eca498d7f92a: port 2(veth8232d69) entered forwarding state
+[18964.816782] br-eca498d7f92a: port 1(vethcb6a7a4) entered disabled state
+[18964.817490] veth711abb4: renamed from eth0
+[18965.265724] br-eca498d7f92a: port 1(vethcb6a7a4) entered disabled state
+[18965.274790] device vethcb6a7a4 left promiscuous mode
+[18965.274807] br-eca498d7f92a: port 1(vethcb6a7a4) entered disabled state
+[18967.941262] br-eca498d7f92a: port 1(vethc47a712) entered blocking state
+[18967.941266] br-eca498d7f92a: port 1(vethc47a712) entered disabled state
+[18967.941423] device vethc47a712 entered promiscuous mode
+[18967.941651] kauditd_printk_skb: 24 callbacks suppressed
+[18967.941654] audit: type=1700 audit(1574704161.847:4810): dev=vethc47a712 prom=256 old_prom=0 auid=4294967295 uid=0 gid=0 ses=4294967295
+[18967.941707] br-eca498d7f92a: port 1(vethc47a712) entered blocking state
+[18967.941710] br-eca498d7f92a: port 1(vethc47a712) entered forwarding state
+[18967.942380] br-eca498d7f92a: port 1(vethc47a712) entered disabled state
+[18970.268723] audit: type=1325 audit(1574704164.174:4811): table=nat family=2 entries=0
+[18970.271537] audit: type=1325 audit(1574704164.177:4812): table=filter family=2 entries=0
+[18970.274056] audit: type=1325 audit(1574704164.181:4813): table=nat family=2 entries=5
+[18970.275072] audit: type=1325 audit(1574704164.181:4814): table=nat family=2 entries=7
+[18970.276794] audit: type=1325 audit(1574704164.181:4815): table=nat family=2 entries=8
+[18970.277710] audit: type=1325 audit(1574704164.184:4816): table=nat family=2 entries=10
+[18970.279022] audit: type=1325 audit(1574704164.184:4817): table=nat family=2 entries=11
+[18970.280331] audit: type=1325 audit(1574704164.184:4818): table=nat family=2 entries=12
+[18970.281567] audit: type=1325 audit(1574704164.187:4819): table=nat family=2 entries=13
+[18970.308687] eth0: renamed from veth2033d75
+[18970.324372] IPv6: ADDRCONF(NETDEV_CHANGE): vethc47a712: link becomes ready
+[18970.324457] br-eca498d7f92a: port 1(vethc47a712) entered blocking state
+[18970.324459] br-eca498d7f92a: port 1(vethc47a712) entered forwarding state
+[18971.670439] br-eca498d7f92a: port 1(vethc47a712) entered disabled state
+[18971.671112] veth2033d75: renamed from eth0
+[18972.032529] br-eca498d7f92a: port 1(vethc47a712) entered disabled state
+[18972.045084] device vethc47a712 left promiscuous mode
+[18972.045101] br-eca498d7f92a: port 1(vethc47a712) entered disabled state
+[18974.314201] br-eca498d7f92a: port 1(veth19aa5c5) entered blocking state
+[18974.314204] br-eca498d7f92a: port 1(veth19aa5c5) entered disabled state
+[18974.314308] device veth19aa5c5 entered promiscuous mode
+[18974.314328] kauditd_printk_skb: 10 callbacks suppressed
+[18974.314330] audit: type=1700 audit(1574704168.221:4830): dev=veth19aa5c5 prom=256 old_prom=0 auid=4294967295 uid=0 gid=0 ses=4294967295
+[18976.582022] audit: type=1325 audit(1574704170.487:4831): table=nat family=2 entries=0
+[18976.585026] audit: type=1325 audit(1574704170.491:4832): table=filter family=2 entries=0
+[18976.587660] audit: type=1325 audit(1574704170.494:4833): table=nat family=2 entries=5
+[18976.589177] audit: type=1325 audit(1574704170.494:4834): table=nat family=2 entries=7
+[18976.592379] audit: type=1325 audit(1574704170.497:4835): table=nat family=2 entries=8
+[18976.592628] audit: type=1325 audit(1574704170.497:4836): table=nat family=2 entries=15
+[18976.593614] audit: type=1325 audit(1574704170.497:4837): table=nat family=2 entries=10
+[18976.595242] audit: type=1325 audit(1574704170.501:4838): table=nat family=2 entries=11
+[18976.596587] audit: type=1325 audit(1574704170.501:4839): table=filter family=2 entries=30
+[18976.640287] br-eca498d7f92a: port 2(veth8232d69) entered disabled state
+[18976.640974] veth9d66b1b: renamed from eth0
+[18976.691479] eth0: renamed from vethd190f2a
+[18976.714847] IPv6: ADDRCONF(NETDEV_CHANGE): veth19aa5c5: link becomes ready
+[18976.715077] br-eca498d7f92a: port 1(veth19aa5c5) entered blocking state
+[18976.715083] br-eca498d7f92a: port 1(veth19aa5c5) entered forwarding state
+[18976.923710] br-eca498d7f92a: port 2(veth8232d69) entered disabled state
+[18976.926159] device veth8232d69 left promiscuous mode
+[18976.926173] br-eca498d7f92a: port 2(veth8232d69) entered disabled state
+[18978.264048] vethd190f2a: renamed from eth0
+[18978.301750] br-eca498d7f92a: port 1(veth19aa5c5) entered disabled state
+[18978.516372] br-eca498d7f92a: port 1(veth19aa5c5) entered disabled state
+[18978.524349] device veth19aa5c5 left promiscuous mode
+[18978.524374] br-eca498d7f92a: port 1(veth19aa5c5) entered disabled state
+[18978.642969] br-eca498d7f92a: port 1(veth5d05a1a) entered blocking state
+[18978.642973] br-eca498d7f92a: port 1(veth5d05a1a) entered disabled state
+[18978.643125] device veth5d05a1a entered promiscuous mode
+[18978.643668] br-eca498d7f92a: port 1(veth5d05a1a) entered blocking state
+[18978.643673] br-eca498d7f92a: port 1(veth5d05a1a) entered forwarding state
+[18978.660685] br-eca498d7f92a: port 1(veth5d05a1a) entered disabled state
+[18979.840427] kauditd_printk_skb: 9 callbacks suppressed
+[18979.840430] audit: type=1325 audit(1574704173.744:4849): table=nat family=2 entries=13
+[18979.844820] audit: type=1325 audit(1574704173.751:4850): table=filter family=2 entries=29
+[18979.849358] audit: type=1325 audit(1574704173.754:4851): table=nat family=2 entries=14
+[18979.916294] br-eca498d7f92a: port 2(veth7a755c6) entered blocking state
+[18979.916315] br-eca498d7f92a: port 2(veth7a755c6) entered disabled state
+[18979.916538] device veth7a755c6 entered promiscuous mode
+[18979.916571] audit: type=1700 audit(1574704173.821:4852): dev=veth7a755c6 prom=256 old_prom=0 auid=4294967295 uid=0 gid=0 ses=4294967295
+[18979.925567] br-eca498d7f92a: port 2(veth7a755c6) entered blocking state
+[18979.925571] br-eca498d7f92a: port 2(veth7a755c6) entered forwarding state
+[18979.925984] br-eca498d7f92a: port 2(veth7a755c6) entered disabled state
+[18980.488593] audit: type=1325 audit(1574704174.394:4853): table=nat family=2 entries=0
+[18980.491523] audit: type=1325 audit(1574704174.397:4854): table=filter family=2 entries=0
+[18980.494644] audit: type=1325 audit(1574704174.401:4855): table=nat family=2 entries=5
+[18980.495822] audit: type=1325 audit(1574704174.401:4856): table=nat family=2 entries=7
+[18980.497843] audit: type=1325 audit(1574704174.404:4857): table=nat family=2 entries=8
+[18980.498887] audit: type=1325 audit(1574704174.404:4858): table=nat family=2 entries=10
+[18980.517789] eth0: renamed from veth6f05675
+[18980.536709] IPv6: ADDRCONF(NETDEV_CHANGE): veth5d05a1a: link becomes ready
+[18980.536809] br-eca498d7f92a: port 1(veth5d05a1a) entered blocking state
+[18980.536812] br-eca498d7f92a: port 1(veth5d05a1a) entered forwarding state
+[18980.798593] eth0: renamed from veth51b3e60
+[18980.814537] IPv6: ADDRCONF(NETDEV_CHANGE): veth7a755c6: link becomes ready
+[18980.814622] br-eca498d7f92a: port 2(veth7a755c6) entered blocking state
+[18980.814625] br-eca498d7f92a: port 2(veth7a755c6) entered forwarding state
+[18981.937924] br-eca498d7f92a: port 2(veth7a755c6) entered disabled state
+[18981.938855] veth51b3e60: renamed from eth0
+[18982.394977] br-eca498d7f92a: port 2(veth7a755c6) entered disabled state
+[18982.403033] device veth7a755c6 left promiscuous mode
+[18982.403078] br-eca498d7f92a: port 2(veth7a755c6) entered disabled state
+[18984.977672] br-eca498d7f92a: port 2(veth4a9020f) entered blocking state
+[18984.977684] br-eca498d7f92a: port 2(veth4a9020f) entered disabled state
+[18984.977812] device veth4a9020f entered promiscuous mode
+[18984.977834] kauditd_printk_skb: 21 callbacks suppressed
+[18984.977835] audit: type=1700 audit(1574704178.884:4880): dev=veth4a9020f prom=256 old_prom=0 auid=4294967295 uid=0 gid=0 ses=4294967295
+[18987.133845] audit: type=1325 audit(1574704181.037:4881): table=nat family=2 entries=0
+[18987.136803] audit: type=1325 audit(1574704181.041:4882): table=filter family=2 entries=0
+[18987.141336] audit: type=1325 audit(1574704181.047:4883): table=nat family=2 entries=5
+[18987.142725] audit: type=1325 audit(1574704181.047:4884): table=nat family=2 entries=7
+[18987.145754] audit: type=1325 audit(1574704181.051:4885): table=nat family=2 entries=8
+[18987.147726] audit: type=1325 audit(1574704181.054:4886): table=nat family=2 entries=10
+[18987.151366] audit: type=1325 audit(1574704181.057:4887): table=nat family=2 entries=11
+[18987.152727] audit: type=1325 audit(1574704181.057:4888): table=nat family=2 entries=12
+[18987.154147] audit: type=1325 audit(1574704181.061:4889): table=nat family=2 entries=13
+[18987.174503] eth0: renamed from veth8daa50d
+[18987.204764] IPv6: ADDRCONF(NETDEV_CHANGE): veth4a9020f: link becomes ready
+[18987.204945] br-eca498d7f92a: port 2(veth4a9020f) entered blocking state
+[18987.204951] br-eca498d7f92a: port 2(veth4a9020f) entered forwarding state
+[18988.465436] veth8daa50d: renamed from eth0
+[18988.480841] br-eca498d7f92a: port 2(veth4a9020f) entered disabled state
+[18988.924579] br-eca498d7f92a: port 2(veth4a9020f) entered disabled state
+[18988.931026] device veth4a9020f left promiscuous mode
+[18988.931042] br-eca498d7f92a: port 2(veth4a9020f) entered disabled state
+[18992.890538] kauditd_printk_skb: 10 callbacks suppressed
+[18992.890560] audit: type=1325 audit(1574704186.794:4900): table=nat family=2 entries=15
+[18992.895421] audit: type=1325 audit(1574704186.801:4901): table=filter family=2 entries=30
+[18992.899356] audit: type=1325 audit(1574704186.804:4902): table=nat family=2 entries=14
+[18993.003268] br-eca498d7f92a: port 1(veth5d05a1a) entered disabled state
+[18993.003544] veth6f05675: renamed from eth0
+[18993.240629] br-eca498d7f92a: port 1(veth5d05a1a) entered disabled state
+[18993.246205] device veth5d05a1a left promiscuous mode
+[18993.246217] br-eca498d7f92a: port 1(veth5d05a1a) entered disabled state
+[18993.246232] audit: type=1700 audit(1574704187.141:4903): dev=veth5d05a1a prom=0 old_prom=256 auid=4294967295 uid=0 gid=0 ses=4294967295
+[18994.302778] br-eca498d7f92a: port 1(vethba929da) entered blocking state
+[18994.303082] br-eca498d7f92a: port 1(vethba929da) entered disabled state
+[18994.303316] device vethba929da entered promiscuous mode
+[18994.303337] audit: type=1700 audit(1574704188.207:4904): dev=vethba929da prom=256 old_prom=0 auid=4294967295 uid=0 gid=0 ses=4294967295
+[18994.304698] br-eca498d7f92a: port 1(vethba929da) entered blocking state
+[18994.304701] br-eca498d7f92a: port 1(vethba929da) entered forwarding state
+[18994.304942] br-eca498d7f92a: port 1(vethba929da) entered disabled state
+[18994.496326] audit: type=1325 audit(1574704188.401:4905): table=nat family=2 entries=13
+[18994.500721] audit: type=1325 audit(1574704188.407:4906): table=filter family=2 entries=29
+[18994.503991] audit: type=1325 audit(1574704188.411:4907): table=nat family=2 entries=14
+[18994.624079] br-eca498d7f92a: port 2(vetha882be5) entered blocking state
+[18994.624108] br-eca498d7f92a: port 2(vetha882be5) entered disabled state
+[18994.624324] device vetha882be5 entered promiscuous mode
+[18994.624359] audit: type=1700 audit(1574704188.531:4908): dev=vetha882be5 prom=256 old_prom=0 auid=4294967295 uid=0 gid=0 ses=4294967295
+[18994.624711] br-eca498d7f92a: port 2(vetha882be5) entered blocking state
+[18994.624715] br-eca498d7f92a: port 2(vetha882be5) entered forwarding state
+[18994.626813] br-eca498d7f92a: port 2(vetha882be5) entered disabled state
+[18994.966842] audit: type=1325 audit(1574704188.871:4909): table=nat family=2 entries=0
+[18995.008895] eth0: renamed from veth6745546
+[18995.017870] IPv6: ADDRCONF(NETDEV_CHANGE): vethba929da: link becomes ready
+[18995.017989] br-eca498d7f92a: port 1(vethba929da) entered blocking state
+[18995.017993] br-eca498d7f92a: port 1(vethba929da) entered forwarding state
+[18995.441166] eth0: renamed from veth7a9d67c
+[18995.454265] IPv6: ADDRCONF(NETDEV_CHANGE): vetha882be5: link becomes ready
+[18995.454342] br-eca498d7f92a: port 2(vetha882be5) entered blocking state
+[18995.454344] br-eca498d7f92a: port 2(vetha882be5) entered forwarding state
+[18996.949074] br-eca498d7f92a: port 2(vetha882be5) entered disabled state
+[18996.950099] veth7a9d67c: renamed from eth0
+[18997.358663] br-eca498d7f92a: port 2(vetha882be5) entered disabled state
+[18997.361443] device vetha882be5 left promiscuous mode
+[18997.361472] br-eca498d7f92a: port 2(vetha882be5) entered disabled state
+[18998.108584] kauditd_printk_skb: 29 callbacks suppressed
+[18998.108586] audit: type=1325 audit(1574704192.014:4939): table=nat family=2 entries=15
+[18998.111127] audit: type=1325 audit(1574704192.017:4940): table=filter family=2 entries=30
+[18998.113583] audit: type=1325 audit(1574704192.017:4941): table=nat family=2 entries=14
+[18998.236996] br-eca498d7f92a: port 1(vethba929da) entered disabled state
+[18998.237705] veth6745546: renamed from eth0
+[18998.751709] br-eca498d7f92a: port 1(vethba929da) entered disabled state
+[18998.763456] device vethba929da left promiscuous mode
+[18998.763468] br-eca498d7f92a: port 1(vethba929da) entered disabled state
+[18998.763482] audit: type=1700 audit(1574704192.657:4942): dev=vethba929da prom=0 old_prom=256 auid=4294967295 uid=0 gid=0 ses=4294967295
+[19000.592869] audit: type=1101 audit(1574704194.497:4943): pid=317166 uid=1000 auid=1000 ses=3 subj==unconfined msg='op=PAM:accounting grantors=pam_unix,pam_permit,pam_time acct="fanilicious" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/1 res=success'
+[19000.593107] audit: type=1110 audit(1574704194.497:4944): pid=317166 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:setcred grantors=pam_unix,pam_permit,pam_env acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/1 res=success'
+[19000.596120] audit: type=1105 audit(1574704194.501:4945): pid=317166 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:session_open grantors=pam_limits,pam_unix,pam_permit acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/1 res=success'
+[19000.597548] audit: type=1106 audit(1574704194.504:4946): pid=317166 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:session_close grantors=pam_limits,pam_unix,pam_permit acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/1 res=success'
+[19000.597658] audit: type=1104 audit(1574704194.504:4947): pid=317166 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:setcred grantors=pam_unix,pam_permit,pam_env acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/1 res=success'
+[19000.605811] audit: type=1101 audit(1574704194.511:4948): pid=317169 uid=1000 auid=1000 ses=3 subj==unconfined msg='op=PAM:accounting grantors=pam_unix,pam_permit,pam_time acct="fanilicious" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/1 res=success'
