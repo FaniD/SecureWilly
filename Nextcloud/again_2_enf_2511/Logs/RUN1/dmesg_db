@@ -1,7 +1,0 @@
-[16642.711460] audit: type=1400 audit(1574701836.617:4383): apparmor="ALLOWED" operation="signal" profile="db_profile" pid=114429 comm="mysqld" requested_mask="send" denied_mask="send" signal=term peer="db_profile"
-[16642.711467] audit: type=1400 audit(1574701836.617:4383): apparmor="ALLOWED" operation="signal" profile="db_profile" pid=114429 comm="mysqld" requested_mask="receive" denied_mask="receive" signal=term peer="db_profile"
-[16965.459482] audit: type=1400 audit(1574702159.364:4385): apparmor="ALLOWED" operation="signal" profile="db_profile" pid=114614 comm="mysqld" requested_mask="send" denied_mask="send" signal=usr1 peer="db_profile"
-[16965.459487] audit: type=1400 audit(1574702159.364:4385): apparmor="ALLOWED" operation="signal" profile="db_profile" pid=114614 comm="mysqld" requested_mask="receive" denied_mask="receive" signal=usr1 peer="db_profile"
-[16967.015240] audit: type=1400 audit(1574702160.921:4386): apparmor="ALLOWED" operation="signal" profile="db_profile" pid=114614 comm="mysqld" requested_mask="send" denied_mask="send" signal=term peer="db_profile"
-[16967.015247] audit: type=1400 audit(1574702160.921:4386): apparmor="ALLOWED" operation="signal" profile="db_profile" pid=114614 comm="mysqld" requested_mask="receive" denied_mask="receive" signal=term peer="db_profile"
-[17343.343948] audit: type=1400 audit(1574702537.247:4395): apparmor="ALLOWED" operation="signal" profile="db_profile" pid=177923 comm="runc" requested_mask="receive" denied_mask="receive" signal=kill peer="unconfined"

@@ -1,4 +1,0 @@
-[16656.643817] audit: type=1400 audit(1574701850.547:4384): apparmor="ALLOWED" operation="signal" profile="nextcloud_profile" pid=114463 comm="containerd-shim" requested_mask="receive" denied_mask="receive" signal=exists peer="unconfined"
-[16968.485045] audit: type=1400 audit(1574702162.391:4387): apparmor="ALLOWED" operation="signal" profile="nextcloud_profile" pid=114463 comm="containerd-shim" requested_mask="receive" denied_mask="receive" signal=exists peer="unconfined"
-[17339.925855] audit: type=1400 audit(1574702533.831:4389): apparmor="ALLOWED" operation="signal" profile="nextcloud_profile" pid=114463 comm="containerd-shim" requested_mask="receive" denied_mask="receive" signal=exists peer="unconfined"
-[17341.728119] audit: type=1400 audit(1574702535.634:4390): apparmor="ALLOWED" operation="signal" profile="nextcloud_profile" pid=177861 comm="runc" requested_mask="receive" denied_mask="receive" signal=kill peer="unconfined"

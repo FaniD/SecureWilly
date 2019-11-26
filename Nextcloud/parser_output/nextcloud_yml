@@ -1,0 +1,23 @@
+     nextcloud:
+        security_opt:
+          - "apparmor:nextcloud_profile"
+        security_opt:
+          - "apparmor:nextcloud_profile"
+        security_opt:
+          - "apparmor:nextcloud_profile"
+        container_name: nextcloud
+        image: nextcloud:latest
+        ports:
+                - 8080:80
+        links:
+                - db
+        volumes:
+                - nextcloud_:/var/www/html
+                - /home/fanilicious/Projects/SecureWilly/Nextcloud/data:/var/www/html/data
+        environment:
+                - NEXTCLOUD_ADMIN_USER=nextcloud
+                - NEXTCLOUD_ADMIN_PASSWORD=secret
+                - NEXTCLOUD_TABLE_PREFIX=nc_
+                - NEXTCLOUD_DATA_DIR=/var/www/html/data
+        restart: always
+

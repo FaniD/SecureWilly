@@ -1,0 +1,6 @@
+send term db_profile
+receive term db_profile
+receive exists unconfined
+send usr1 db_profile
+receive usr1 db_profile
+receive kill unconfined

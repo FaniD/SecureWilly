@@ -1,0 +1,1 @@
+type=AVC msg=audit(1574810078.844:2750): apparmor="ALLOWED" operation="capable" profile="db_profile" pid=231241 comm="gosu" capability=7  capname="setuid"

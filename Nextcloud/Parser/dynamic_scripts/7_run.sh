@@ -37,7 +37,7 @@ rm mysql_*
 docker exec db mysql -u nextcloud -p'secret' > mysql_answer 2> mysql_error_exec
 mysql_error_exec=$(cat mysql_error_exec | grep 'ERROR')
 done
-#rm mysql_*
+rm mysql_*
 
 # Configure nextcloud
 echo "=== Install nextcloud ==="

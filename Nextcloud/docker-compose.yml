@@ -10,6 +10,8 @@ services:
           - "apparmor:db_profile"
         security_opt:
           - "apparmor:db_profile"
+        security_opt:
+          - "apparmor:db_profile"
         container_name: db
         image: mariadb #:10
         command: --transaction-isolation=READ-COMMITTED --binlog-format=ROW
@@ -23,6 +25,8 @@ services:
                 - MYSQL_DATABASE=nextcloud
                 - MYSQL_USER=nextcloud
      nextcloud:
+        security_opt:
+          - "apparmor:nextcloud_profile"
         security_opt:
           - "apparmor:nextcloud_profile"
         security_opt:
