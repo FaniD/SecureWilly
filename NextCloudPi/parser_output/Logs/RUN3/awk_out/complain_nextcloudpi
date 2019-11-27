@@ -1,0 +1,6 @@
+#Capability\n
+audit_write
+#Network\n
+#File
+requested_mask 
+#Signal

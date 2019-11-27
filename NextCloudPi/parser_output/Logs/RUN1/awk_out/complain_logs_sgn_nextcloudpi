@@ -1,0 +1,10 @@
+send term nextcloudpi_profile
+receive term nextcloudpi_profile
+send usr1 nextcloudpi_profile
+receive usr1 nextcloudpi_profile
+send quit nextcloudpi_profile
+receive quit nextcloudpi_profile
+send exists nextcloudpi_profile
+receive exists nextcloudpi_profile
+receive exists unconfined
+receive kill unconfined

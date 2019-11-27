@@ -1,0 +1,13 @@
+#include <tunables/global>
+
+profile nextcloudpi_profile flags=(attach_disconnected,mediate_deleted) {
+	/data/* rw,
+	deny umount /data, #Disallow anybody that wants to break this mountpoint
+	deny remount /data, #Disallow anybody that wants to remount this mountpoint
+	capability net_bind_service,  #This capability is needed to bind a socket to well-known ports
+	file,  #Allows access to containers filesystem
+	/var/lib/docker/* r, #Access to layers of filesystem
+	mount /var/lib/docker/volumes/securewilly_ncdata/_data -> /data, #Bind host volume to docker container volume
+	deny ptrace (readby, tracedby), #Confront container breakout attacks
+	network tcp,  #Allowing networking with ports forwarding
+}

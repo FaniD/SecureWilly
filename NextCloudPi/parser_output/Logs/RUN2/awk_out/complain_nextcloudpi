@@ -1,0 +1,8 @@
+#Capability\n
+fowner
+fsetid
+setuid
+#Network\n
+#File
+requested_mask 
+#Signal

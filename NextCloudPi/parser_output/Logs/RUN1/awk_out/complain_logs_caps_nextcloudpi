@@ -1,0 +1,5 @@
+dac_override
+chown
+setgid
+sys_chroot
+kill
