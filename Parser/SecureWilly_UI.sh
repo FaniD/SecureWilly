@@ -7,6 +7,18 @@ app_run_path=".."
 parser_path="${app_run_path}/Parser"
 dynamic_script_path="${parser_path}/dynamic_scripts"
 
+# Logs: Fix according to your system tools and logs saving
+system_command="journalctl" # or dmesg
+logs="audit" # or kernlogs
+log_files=(5_clear_logs.sh*3s*4s 8_logging_files.sh*6s*7s 10a_awk_it_complain.sh*6s*7s 10b_awk_it_enforce.sh*6s*7s)
+for f_i in  "${log_files[@]}"; do
+	file_i=$(echo $f_i | cut -d'*' -f1)
+	sys_cmd=$(echo $f_i | cut -d'*' -f2) 
+        log_f=$(echo $f_i | cut -d'*' -f3)
+	sed -i "${sys_cmd},system_command=\".*,system_command=\"${system_command}\"," dynamic_scripts/${file_i}
+        sed -i "${log_f},logs=\".*,logs=\"${logs}\"," dynamic_scripts/${file_i}
+done
+
 touch empty_file
 
 echo "SecureWily"
@@ -105,9 +117,9 @@ if [[ "$yml_path" != "N" ]]; then
 fi
 echo ""
 
-#We have the service list ready
-#Sed every script that needs them
-#Dynamic parser seds alone because of its different path
+# We have the service list ready
+# Sed every script that needs them
+# Dynamic parser seds alone because of its different path
 sed -i "5s,service_list=(.*,service_list=${service_list_noslash}," dynamic_parser.sh
 file_list=(2_cp_to_apparmor.sh*6s 3_load_profiles.sh*4s 4a_complain_mode.sh*4s 4b_enforce_mode.sh*4s 8_logging_files.sh*23s 10a_awk_it_complain.sh*11s 10b_awk_it_enforce.sh*11s 12_complain_enforce_audit.sh*5s)
 for f_i in  "${file_list[@]}"; do
