@@ -3,19 +3,28 @@ version: "3"
 services:
 
   db:
-    image: mattermostdocker_db
+    container_name: mattermost_db
+    image: mattermost_db
+    build: db
     read_only: true
     restart: unless-stopped
     volumes:
       - /home/fanilicious/Projects/SecureWilly/MatterMost/volumes/db/var/lib/postgresql/data:/var/lib/postgresql/data
       - /etc/localtime:/etc/localtime:ro
     environment:
-      - POSTGRES_USER=willy
-      - POSTGRES_PASSWORD=willy
+      - POSTGRES_USER=mmuser
+      - POSTGRES_PASSWORD=mmuser_password
       - POSTGRES_DB=mattermost
 
   app:
-    image: mattermostdocker_app
+    container_name: mattermost_app
+    image: mattermost_app
+    build: 
+      context: app
+      args:
+        - edition=team
+        - PUID=1000
+        - PGID=1000
     restart: unless-stopped
     volumes:
       - /home/fanilicious/Projects/SecureWilly/MatterMost/volumes/app/mattermost/config:/mattermost/config:rw
@@ -25,12 +34,15 @@ services:
       - /home/fanilicious/Projects/SecureWilly/MatterMost/volumes/app/mattermost/client-plugins:/mattermost/client/plugins:rw
       - /etc/localtime:/etc/localtime:ro
     environment:
-      - MM_USERNAME=willy
-      - MM_PASSWORD=willy
+      - MM_USERNAME=mmuser
+      - MM_PASSWORD=mmuser_password
       - MM_DBNAME=mattermost
+      - MM_SQLSETTINGS_DATASOURCE=postgres://mmuser:mmuser_password@db:5432/mattermost?sslmode=disable&connect_timeout=10
 
   web:
-    image: mattermostdocker_web
+    container_name: mattermost_web
+    image: mattermost_web
+    build: web
     ports:
       - "80:80"
       - "443:443"

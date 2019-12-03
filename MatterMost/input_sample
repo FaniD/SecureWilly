@@ -7,13 +7,19 @@ web
 /home/fanilicious/Projects/MatterMost/web
 /home/fanilicious/Projects/SecureWilly/MatterMost
 N
-mkdir -p /home/fanilicious/Projects/MatterMost/volumes/app/mattermost/{data,logs,config,plugins}
-chown -R 2000:2000 /home/fanilicious/Projects/MatterMost/volumes/app/mattermost/
-docker-compose start
+mkdir -pv /home/fanilicious/Projects/SecureWilly/MatterMost/volumes/app/mattermost/{data,logs,config,plugins,client-plugins}
+mkdir -pv /home/fanilicious/Projects/SecureWilly/MatterMost/volumes/db/
+sudo chown -R 1000:1000 /home/fanilicious/Projects/SecureWilly/MatterMost/volumes/app/mattermost/
+docker-compose up
+
+mattermost user create --firstname Willy --system_admin --email faniliciousd@gmail.com --username willy --password secret
+mattermost team create --name SW --display_name "SecureWilly Team"
+mattermost team add SW faniliciousd@gmail.com willy
 
 docker kill db
 docker kill app
 docker kill web
 docker-compose down
+sudo rm -r volumes
 Done
 Y
