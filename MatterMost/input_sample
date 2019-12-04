@@ -2,23 +2,18 @@
 db
 app
 web
-/home/fanilicious/Projects/MatterMost/db
-/home/fanilicious/Projects/MatterMost/app
-/home/fanilicious/Projects/MatterMost/web
+/home/fanilicious/Projects/SecureWilly/MatterMost/db
+/home/fanilicious/Projects/SecureWilly/MatterMost/app
+/home/fanilicious/Projects/SecureWilly/MatterMost/web
 /home/fanilicious/Projects/SecureWilly/MatterMost
 N
-mkdir -pv /home/fanilicious/Projects/SecureWilly/MatterMost/volumes/app/mattermost/{data,logs,config,plugins,client-plugins}
-mkdir -pv /home/fanilicious/Projects/SecureWilly/MatterMost/volumes/db/
+mkdir -pv /home/fanilicious/Projects/SecureWilly/MatterMost/volumes/app/mattermost/{data,logs,config,plugins,client/plugins}
 sudo chown -R 1000:1000 /home/fanilicious/Projects/SecureWilly/MatterMost/volumes/app/mattermost/
-docker-compose up
-
-mattermost user create --firstname Willy --system_admin --email faniliciousd@gmail.com --username willy --password secret
-mattermost team create --name SW --display_name "SecureWilly Team"
-mattermost team add SW faniliciousd@gmail.com willy
-
-docker kill db
-docker kill app
-docker kill web
+docker-compose up -d
+sleep 20
+docker exec matterapp mattermost user create --firstname Willy --system_admin --email faniliciousd@gmail.com --username willy --password secret12345_SW
+docker exec matterapp mattermost team create --name securewilly --display_name "SecureWilly Team"
+docker exec matterapp mattermost team add securewilly faniliciousd@gmail.com willy
 docker-compose down
 sudo rm -r volumes
 Done

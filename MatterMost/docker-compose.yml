@@ -3,8 +3,8 @@ version: "3"
 services:
 
   db:
-    container_name: mattermost_db
-    image: mattermost_db
+    container_name: matterdb
+    image: matterdb
     build: db
     read_only: true
     restart: unless-stopped
@@ -17,8 +17,8 @@ services:
       - POSTGRES_DB=mattermost
 
   app:
-    container_name: mattermost_app
-    image: mattermost_app
+    container_name: matterapp
+    image: matterapp
     build: 
       context: app
       args:
@@ -40,8 +40,8 @@ services:
       - MM_SQLSETTINGS_DATASOURCE=postgres://mmuser:mmuser_password@db:5432/mattermost?sslmode=disable&connect_timeout=10
 
   web:
-    container_name: mattermost_web
-    image: mattermost_web
+    container_name: matterweb
+    image: matterweb
     build: web
     ports:
       - "80:80"
