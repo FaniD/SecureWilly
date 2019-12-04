@@ -376,7 +376,7 @@ else
 			sed -n "${start_old},${start_minus}p" ${yml_path} > ${array_noslash[${previous_z}]}_yml #${array[${previous_z}]}_yml
 		fi
 		lpp=$(expr $lp \* 2)
-		y=$(expr $y + $lpp)
+		y=$(expr $y + 2) #$lpp)
 		((z++))
 	done
 
