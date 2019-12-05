@@ -1,0 +1,30 @@
+{
+    "id": "jenkins",
+    "name": "Jenkins plugin",
+    "description": "Jenkins plugin for Mattermost",
+    "version": "1.0.0",
+    "server": {
+        "executables": {
+            "linux-amd64": "server/dist/plugin-linux-amd64",
+            "darwin-amd64": "server/dist/plugin-darwin-amd64",
+            "windows-amd64": "server/dist/plugin-windows-amd64.exe"
+        }
+    },
+    "settings_schema": {
+        "header": "To report an issue, make a suggestion or a contribution, or fork your own version of the plugin, [check the repository](https://github.com/waseem18/mattermost-plugin-jenkins).",
+        "settings": [
+            {
+                "key": "JenkinsURL",
+                "display_name": "Jenkins URL",
+                "type": "text",
+                "help_text": "The URL for your Jenkins instance. Must start with http:// or https://. For example: https://jenkins.example.com."
+            },
+            {
+                "key": "EncryptionKey",
+                "display_name": "At Rest Encryption Key",
+                "type": "generated",
+                "help_text": "The AES encryption key used to encrypt stored access tokens."
+            }
+        ]
+    }
+}

@@ -1,0 +1,3 @@
+Dec 05 02:07:22 Fani-ThinkPad audit[409363]: AVC apparmor="ALLOWED" operation="capable" profile="web_profile" pid=409363 comm="nginx" capability=0  capname="chown"
+Dec 05 02:07:22 Fani-ThinkPad audit[409547]: AVC apparmor="ALLOWED" operation="capable" profile="web_profile" pid=409547 comm="nginx" capability=6  capname="setgid"
+Dec 05 02:07:22 Fani-ThinkPad audit[409548]: AVC apparmor="ALLOWED" operation="capable" profile="web_profile" pid=409548 comm="nginx" capability=6  capname="setgid"

@@ -1,0 +1,527 @@
+-- Logs begin at Thu 2019-12-05 02:06:43 EET, end at Thu 2019-12-05 02:07:12 EET. --
+Dec 05 02:06:43 Fani-ThinkPad systemd-journald[274]: System Journal (/var/log/journal/c2cde6996eaf4384b722c3ff79432335) is 16.0M, max 4.0G, 3.9G free.
+Dec 05 02:06:43 Fani-ThinkPad audit[405767]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=405767 comm="postgres" requested_mask="send" denied_mask="send" signal=quit peer="db_profile"
+Dec 05 02:06:43 Fani-ThinkPad audit[405767]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=405767 comm="postgres" requested_mask="receive" denied_mask="receive" signal=quit peer="db_profile"
+Dec 05 02:06:43 Fani-ThinkPad audit[405767]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=405767 comm="postgres" requested_mask="send" denied_mask="send" signal=quit peer="db_profile"
+Dec 05 02:06:43 Fani-ThinkPad audit[405767]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=405767 comm="postgres" requested_mask="receive" denied_mask="receive" signal=quit peer="db_profile"
+Dec 05 02:06:43 Fani-ThinkPad audit[405767]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=405767 comm="postgres" requested_mask="send" denied_mask="send" signal=quit peer="db_profile"
+Dec 05 02:06:43 Fani-ThinkPad audit[405767]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=405767 comm="postgres" requested_mask="receive" denied_mask="receive" signal=quit peer="db_profile"
+Dec 05 02:06:43 Fani-ThinkPad audit[405767]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=405767 comm="postgres" requested_mask="send" denied_mask="send" signal=quit peer="db_profile"
+Dec 05 02:06:43 Fani-ThinkPad audit[405767]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=405767 comm="postgres" requested_mask="receive" denied_mask="receive" signal=quit peer="db_profile"
+Dec 05 02:06:43 Fani-ThinkPad audit[405767]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=405767 comm="postgres" requested_mask="send" denied_mask="send" signal=quit peer="db_profile"
+Dec 05 02:06:43 Fani-ThinkPad audit[405767]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=405767 comm="postgres" requested_mask="receive" denied_mask="receive" signal=quit peer="db_profile"
+Dec 05 02:06:43 Fani-ThinkPad audit[405767]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=405767 comm="postgres" requested_mask="send" denied_mask="send" signal=quit peer="db_profile"
+Dec 05 02:06:43 Fani-ThinkPad audit[405767]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=405767 comm="postgres" requested_mask="receive" denied_mask="receive" signal=quit peer="db_profile"
+Dec 05 02:06:43 Fani-ThinkPad audit[405767]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=405767 comm="postgres" requested_mask="send" denied_mask="send" signal=quit peer="db_profile"
+Dec 05 02:06:43 Fani-ThinkPad audit[405767]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=405767 comm="postgres" requested_mask="receive" denied_mask="receive" signal=quit peer="db_profile"
+Dec 05 02:06:43 Fani-ThinkPad audit[405767]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=405767 comm="postgres" requested_mask="send" denied_mask="send" signal=quit peer="db_profile"
+Dec 05 02:06:43 Fani-ThinkPad audit[405767]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=405767 comm="postgres" requested_mask="receive" denied_mask="receive" signal=quit peer="db_profile"
+Dec 05 02:06:43 Fani-ThinkPad audit[405767]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=405767 comm="postgres" requested_mask="send" denied_mask="send" signal=quit peer="db_profile"
+Dec 05 02:06:43 Fani-ThinkPad audit[405767]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=405767 comm="postgres" requested_mask="receive" denied_mask="receive" signal=quit peer="db_profile"
+Dec 05 02:06:43 Fani-ThinkPad audit[405767]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=405767 comm="postgres" requested_mask="send" denied_mask="send" signal=quit peer="db_profile"
+Dec 05 02:06:43 Fani-ThinkPad audit[405767]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=405767 comm="postgres" requested_mask="receive" denied_mask="receive" signal=quit peer="db_profile"
+Dec 05 02:06:43 Fani-ThinkPad audit[405767]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=405767 comm="postgres" requested_mask="send" denied_mask="send" signal=quit peer="db_profile"
+Dec 05 02:06:43 Fani-ThinkPad audit[405767]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=405767 comm="postgres" requested_mask="receive" denied_mask="receive" signal=quit peer="db_profile"
+Dec 05 02:06:43 Fani-ThinkPad audit[405767]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=405767 comm="postgres" requested_mask="send" denied_mask="send" signal=quit peer="db_profile"
+Dec 05 02:06:43 Fani-ThinkPad audit[405767]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=405767 comm="postgres" requested_mask="receive" denied_mask="receive" signal=quit peer="db_profile"
+Dec 05 02:06:43 Fani-ThinkPad audit[405767]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=405767 comm="postgres" requested_mask="send" denied_mask="send" signal=quit peer="db_profile"
+Dec 05 02:06:43 Fani-ThinkPad audit[405767]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=405767 comm="postgres" requested_mask="receive" denied_mask="receive" signal=quit peer="db_profile"
+Dec 05 02:06:43 Fani-ThinkPad audit[405767]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=405767 comm="postgres" requested_mask="send" denied_mask="send" signal=quit peer="db_profile"
+Dec 05 02:06:43 Fani-ThinkPad audit[405767]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=405767 comm="postgres" requested_mask="receive" denied_mask="receive" signal=quit peer="db_profile"
+Dec 05 02:06:43 Fani-ThinkPad audit[405767]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=405767 comm="postgres" requested_mask="send" denied_mask="send" signal=quit peer="db_profile"
+Dec 05 02:06:43 Fani-ThinkPad audit[405767]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=405767 comm="postgres" requested_mask="receive" denied_mask="receive" signal=quit peer="db_profile"
+Dec 05 02:06:43 Fani-ThinkPad audit[405767]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=405767 comm="postgres" requested_mask="send" denied_mask="send" signal=quit peer="db_profile"
+Dec 05 02:06:43 Fani-ThinkPad audit[405767]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=405767 comm="postgres" requested_mask="receive" denied_mask="receive" signal=quit peer="db_profile"
+Dec 05 02:06:43 Fani-ThinkPad audit[405767]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=405767 comm="postgres" requested_mask="send" denied_mask="send" signal=quit peer="db_profile"
+Dec 05 02:06:43 Fani-ThinkPad audit[405767]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=405767 comm="postgres" requested_mask="receive" denied_mask="receive" signal=quit peer="db_profile"
+Dec 05 02:06:43 Fani-ThinkPad audit[405767]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=405767 comm="postgres" requested_mask="send" denied_mask="send" signal=quit peer="db_profile"
+Dec 05 02:06:43 Fani-ThinkPad audit[405767]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=405767 comm="postgres" requested_mask="receive" denied_mask="receive" signal=quit peer="db_profile"
+Dec 05 02:06:43 Fani-ThinkPad audit[405767]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=405767 comm="postgres" requested_mask="send" denied_mask="send" signal=quit peer="db_profile"
+Dec 05 02:06:43 Fani-ThinkPad audit[405767]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=405767 comm="postgres" requested_mask="receive" denied_mask="receive" signal=quit peer="db_profile"
+Dec 05 02:06:43 Fani-ThinkPad audit[405767]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=405767 comm="postgres" requested_mask="send" denied_mask="send" signal=quit peer="db_profile"
+Dec 05 02:06:43 Fani-ThinkPad audit[405767]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=405767 comm="postgres" requested_mask="receive" denied_mask="receive" signal=quit peer="db_profile"
+Dec 05 02:06:43 Fani-ThinkPad audit[405767]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=405767 comm="postgres" requested_mask="send" denied_mask="send" signal=quit peer="db_profile"
+Dec 05 02:06:43 Fani-ThinkPad audit[405767]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=405767 comm="postgres" requested_mask="receive" denied_mask="receive" signal=quit peer="db_profile"
+Dec 05 02:06:43 Fani-ThinkPad audit[405767]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=405767 comm="postgres" requested_mask="send" denied_mask="send" signal=quit peer="db_profile"
+Dec 05 02:06:43 Fani-ThinkPad audit[405767]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=405767 comm="postgres" requested_mask="receive" denied_mask="receive" signal=quit peer="db_profile"
+Dec 05 02:06:43 Fani-ThinkPad audit[405767]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=405767 comm="postgres" requested_mask="send" denied_mask="send" signal=quit peer="db_profile"
+Dec 05 02:06:43 Fani-ThinkPad audit[405767]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=405767 comm="postgres" requested_mask="receive" denied_mask="receive" signal=quit peer="db_profile"
+Dec 05 02:06:43 Fani-ThinkPad audit[405767]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=405767 comm="postgres" requested_mask="send" denied_mask="send" signal=quit peer="db_profile"
+Dec 05 02:06:43 Fani-ThinkPad audit[405767]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=405767 comm="postgres" requested_mask="receive" denied_mask="receive" signal=quit peer="db_profile"
+Dec 05 02:06:43 Fani-ThinkPad audit[405767]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=405767 comm="postgres" requested_mask="send" denied_mask="send" signal=quit peer="db_profile"
+Dec 05 02:06:43 Fani-ThinkPad audit[405767]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=405767 comm="postgres" requested_mask="receive" denied_mask="receive" signal=quit peer="db_profile"
+Dec 05 02:06:43 Fani-ThinkPad audit[405767]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=405767 comm="postgres" requested_mask="send" denied_mask="send" signal=quit peer="db_profile"
+Dec 05 02:06:43 Fani-ThinkPad audit[405767]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=405767 comm="postgres" requested_mask="receive" denied_mask="receive" signal=quit peer="db_profile"
+Dec 05 02:06:43 Fani-ThinkPad audit[405767]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=405767 comm="postgres" requested_mask="send" denied_mask="send" signal=quit peer="db_profile"
+Dec 05 02:06:43 Fani-ThinkPad audit[405767]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=405767 comm="postgres" requested_mask="receive" denied_mask="receive" signal=quit peer="db_profile"
+Dec 05 02:06:43 Fani-ThinkPad audit[405767]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=405767 comm="postgres" requested_mask="send" denied_mask="send" signal=quit peer="db_profile"
+Dec 05 02:06:43 Fani-ThinkPad audit[405767]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=405767 comm="postgres" requested_mask="receive" denied_mask="receive" signal=quit peer="db_profile"
+Dec 05 02:06:43 Fani-ThinkPad audit[407873]: USER_END pid=407873 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:session_close grantors=pam_limits,pam_unix,pam_permit acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/2 res=success'
+Dec 05 02:06:43 Fani-ThinkPad audit[407873]: CRED_DISP pid=407873 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:setcred grantors=pam_unix,pam_permit,pam_env acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/2 res=success'
+Dec 05 02:06:43 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/rx_packets": No such file or directory
+Dec 05 02:06:43 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/tx_packets": No such file or directory
+Dec 05 02:06:43 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/rx_bytes": No such file or directory
+Dec 05 02:06:43 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/tx_bytes": No such file or directory
+Dec 05 02:06:43 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/rx_errors": No such file or directory
+Dec 05 02:06:43 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/tx_errors": No such file or directory
+Dec 05 02:06:43 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/collisions": No such file or directory
+Dec 05 02:06:43 Fani-ThinkPad sudo[407873]: pam_unix(sudo:session): session closed for user root
+Dec 05 02:06:43 Fani-ThinkPad audit[408021]: USER_ACCT pid=408021 uid=1000 auid=1000 ses=3 subj==unconfined msg='op=PAM:accounting grantors=pam_unix,pam_permit,pam_time acct="fanilicious" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/2 res=success'
+Dec 05 02:06:43 Fani-ThinkPad sudo[408021]: fanilicious : TTY=pts/2 ; PWD=/home/fanilicious/Projects/SecureWilly/MatterMost/Parser ; USER=root ; COMMAND=/usr/bin/journalctl --vacuum-time=1s
+Dec 05 02:06:43 Fani-ThinkPad audit[408021]: CRED_REFR pid=408021 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:setcred grantors=pam_unix,pam_permit,pam_env acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/2 res=success'
+Dec 05 02:06:43 Fani-ThinkPad sudo[408021]: pam_unix(sudo:session): session opened for user root by (uid=0)
+Dec 05 02:06:43 Fani-ThinkPad audit[408021]: USER_START pid=408021 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:session_open grantors=pam_limits,pam_unix,pam_permit acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/2 res=success'
+Dec 05 02:06:43 Fani-ThinkPad sudo[408021]: pam_unix(sudo:session): session closed for user root
+Dec 05 02:06:43 Fani-ThinkPad audit[408021]: USER_END pid=408021 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:session_close grantors=pam_limits,pam_unix,pam_permit acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/2 res=success'
+Dec 05 02:06:43 Fani-ThinkPad audit[408021]: CRED_DISP pid=408021 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:setcred grantors=pam_unix,pam_permit,pam_env acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/2 res=success'
+Dec 05 02:06:43 Fani-ThinkPad dockerd[401683]: time="2019-12-05T02:06:43.761831570+02:00" level=info msg="shim reaped" id=9eee00314311f6a3ae94237a205aa170d125533bb378a1871907238ab8dd4423
+Dec 05 02:06:43 Fani-ThinkPad audit[408034]: USER_ACCT pid=408034 uid=1000 auid=1000 ses=3 subj==unconfined msg='op=PAM:accounting grantors=pam_unix,pam_permit,pam_time acct="fanilicious" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/2 res=success'
+Dec 05 02:06:43 Fani-ThinkPad audit[408034]: CRED_REFR pid=408034 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:setcred grantors=pam_unix,pam_permit,pam_env acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/2 res=success'
+Dec 05 02:06:43 Fani-ThinkPad sudo[408034]: fanilicious : TTY=pts/2 ; PWD=/home/fanilicious/Projects/SecureWilly/MatterMost/Parser ; USER=root ; COMMAND=/usr/bin/tee /var/log/audit/audit.log
+Dec 05 02:06:43 Fani-ThinkPad sudo[408034]: pam_unix(sudo:session): session opened for user root by (uid=0)
+Dec 05 02:06:43 Fani-ThinkPad audit[408034]: USER_START pid=408034 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:session_open grantors=pam_limits,pam_unix,pam_permit acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/2 res=success'
+Dec 05 02:06:43 Fani-ThinkPad sudo[408034]: pam_unix(sudo:session): session closed for user root
+Dec 05 02:06:43 Fani-ThinkPad audit[408034]: USER_END pid=408034 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:session_close grantors=pam_limits,pam_unix,pam_permit acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/2 res=success'
+Dec 05 02:06:43 Fani-ThinkPad audit[408034]: CRED_DISP pid=408034 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:setcred grantors=pam_unix,pam_permit,pam_env acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/2 res=success'
+Dec 05 02:06:43 Fani-ThinkPad dockerd[401683]: time="2019-12-05T02:06:43.771720549+02:00" level=info msg="ignoring event" module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+Dec 05 02:06:43 Fani-ThinkPad audit[408039]: USER_ACCT pid=408039 uid=1000 auid=1000 ses=3 subj==unconfined msg='op=PAM:accounting grantors=pam_unix,pam_permit,pam_time acct="fanilicious" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/2 res=success'
+Dec 05 02:06:43 Fani-ThinkPad sudo[408039]: fanilicious : TTY=pts/2 ; PWD=/home/fanilicious/Projects/SecureWilly/MatterMost/Parser ; USER=root ; COMMAND=/usr/bin/chown -R 1000:1000 /home/fanilicious/Projects/SecureWilly/MatterMost/volumes/app/mattermost/
+Dec 05 02:06:43 Fani-ThinkPad audit[408039]: CRED_REFR pid=408039 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:setcred grantors=pam_unix,pam_permit,pam_env acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/2 res=success'
+Dec 05 02:06:43 Fani-ThinkPad sudo[408039]: pam_unix(sudo:session): session opened for user root by (uid=0)
+Dec 05 02:06:43 Fani-ThinkPad audit[408039]: USER_START pid=408039 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:session_open grantors=pam_limits,pam_unix,pam_permit acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/2 res=success'
+Dec 05 02:06:43 Fani-ThinkPad sudo[408039]: pam_unix(sudo:session): session closed for user root
+Dec 05 02:06:43 Fani-ThinkPad audit[408039]: USER_END pid=408039 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:session_close grantors=pam_limits,pam_unix,pam_permit acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/2 res=success'
+Dec 05 02:06:43 Fani-ThinkPad audit[408039]: CRED_DISP pid=408039 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:setcred grantors=pam_unix,pam_permit,pam_env acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/2 res=success'
+Dec 05 02:06:43 Fani-ThinkPad kernel: br-0fa7f225a5d1: port 3(veth6d27109) entered disabled state
+Dec 05 02:06:43 Fani-ThinkPad kernel: vethe02c6f2: renamed from eth0
+Dec 05 02:06:43 Fani-ThinkPad NetworkManager[875]: <info>  [1575504403.9517] manager: (vethe02c6f2): new Veth device (/org/freedesktop/NetworkManager/Devices/1701)
+Dec 05 02:06:43 Fani-ThinkPad systemd-udevd[408044]: ethtool: autonegotiation is unset or enabled, the speed and duplex are not writable.
+Dec 05 02:06:43 Fani-ThinkPad systemd-udevd[408044]: Using default interface naming scheme 'v243'.
+Dec 05 02:06:44 Fani-ThinkPad kernel: br-0fa7f225a5d1: port 3(veth6d27109) entered disabled state
+Dec 05 02:06:44 Fani-ThinkPad audit: ANOM_PROMISCUOUS dev=veth6d27109 prom=0 old_prom=256 auid=4294967295 uid=0 gid=0 ses=4294967295
+Dec 05 02:06:44 Fani-ThinkPad kernel: device veth6d27109 left promiscuous mode
+Dec 05 02:06:44 Fani-ThinkPad kernel: br-0fa7f225a5d1: port 3(veth6d27109) entered disabled state
+Dec 05 02:06:44 Fani-ThinkPad NetworkManager[875]: <info>  [1575504404.0743] device (veth6d27109): released from master device br-0fa7f225a5d1
+Dec 05 02:06:44 Fani-ThinkPad gnome-shell[2676]: Removing a network device that was not added
+Dec 05 02:06:44 Fani-ThinkPad gnome-shell[2676]: Removing a network device that was not added
+Dec 05 02:06:44 Fani-ThinkPad systemd[1]: run-docker-netns-986fe62fdd5b.mount: Succeeded.
+Dec 05 02:06:44 Fani-ThinkPad systemd[2505]: run-docker-netns-986fe62fdd5b.mount: Succeeded.
+Dec 05 02:06:44 Fani-ThinkPad systemd[2505]: var-lib-docker-containers-9eee00314311f6a3ae94237a205aa170d125533bb378a1871907238ab8dd4423-mounts-shm.mount: Succeeded.
+Dec 05 02:06:44 Fani-ThinkPad systemd[1]: var-lib-docker-containers-9eee00314311f6a3ae94237a205aa170d125533bb378a1871907238ab8dd4423-mounts-shm.mount: Succeeded.
+Dec 05 02:06:44 Fani-ThinkPad systemd[1]: var-lib-docker-overlay2-3f8f8309847263507762c390669214469bc1540aeac9c4c7967a08c756cbec28-merged.mount: Succeeded.
+Dec 05 02:06:44 Fani-ThinkPad systemd[2505]: var-lib-docker-overlay2-3f8f8309847263507762c390669214469bc1540aeac9c4c7967a08c756cbec28-merged.mount: Succeeded.
+Dec 05 02:06:44 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/rx_packets": No such file or directory
+Dec 05 02:06:44 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/tx_packets": No such file or directory
+Dec 05 02:06:44 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/rx_bytes": No such file or directory
+Dec 05 02:06:44 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/tx_bytes": No such file or directory
+Dec 05 02:06:44 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/rx_errors": No such file or directory
+Dec 05 02:06:44 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/tx_errors": No such file or directory
+Dec 05 02:06:44 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/collisions": No such file or directory
+Dec 05 02:06:44 Fani-ThinkPad audit: ANOM_PROMISCUOUS dev=vethb07ab46 prom=256 old_prom=0 auid=4294967295 uid=0 gid=0 ses=4294967295
+Dec 05 02:06:44 Fani-ThinkPad systemd-udevd[408044]: ethtool: autonegotiation is unset or enabled, the speed and duplex are not writable.
+Dec 05 02:06:44 Fani-ThinkPad kernel: br-0fa7f225a5d1: port 3(vethb07ab46) entered blocking state
+Dec 05 02:06:44 Fani-ThinkPad kernel: br-0fa7f225a5d1: port 3(vethb07ab46) entered disabled state
+Dec 05 02:06:44 Fani-ThinkPad kernel: device vethb07ab46 entered promiscuous mode
+Dec 05 02:06:44 Fani-ThinkPad kernel: br-0fa7f225a5d1: port 3(vethb07ab46) entered blocking state
+Dec 05 02:06:44 Fani-ThinkPad kernel: br-0fa7f225a5d1: port 3(vethb07ab46) entered forwarding state
+Dec 05 02:06:44 Fani-ThinkPad NetworkManager[875]: <info>  [1575504404.8367] manager: (vethb9b2d14): new Veth device (/org/freedesktop/NetworkManager/Devices/1702)
+Dec 05 02:06:44 Fani-ThinkPad NetworkManager[875]: <info>  [1575504404.8458] manager: (vethb07ab46): new Veth device (/org/freedesktop/NetworkManager/Devices/1703)
+Dec 05 02:06:44 Fani-ThinkPad kernel: br-0fa7f225a5d1: port 3(vethb07ab46) entered disabled state
+Dec 05 02:06:44 Fani-ThinkPad systemd-udevd[408047]: ethtool: autonegotiation is unset or enabled, the speed and duplex are not writable.
+Dec 05 02:06:44 Fani-ThinkPad systemd-udevd[408047]: Using default interface naming scheme 'v243'.
+Dec 05 02:06:45 Fani-ThinkPad dockerd[401683]: time="2019-12-05T02:06:45.327210217+02:00" level=warning msg="Security options with `:` as a separator are deprecated and will be completely unsupported in 17.04, use `=` instead."
+Dec 05 02:06:45 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/rx_packets": No such file or directory
+Dec 05 02:06:45 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/tx_packets": No such file or directory
+Dec 05 02:06:45 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/rx_bytes": No such file or directory
+Dec 05 02:06:45 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/tx_bytes": No such file or directory
+Dec 05 02:06:45 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/rx_errors": No such file or directory
+Dec 05 02:06:45 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/tx_errors": No such file or directory
+Dec 05 02:06:45 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/collisions": No such file or directory
+Dec 05 02:06:45 Fani-ThinkPad dockerd[401683]: time="2019-12-05T02:06:45.473459770+02:00" level=info msg="shim containerd-shim started" address=/containerd-shim/4156fbc9454a888966234003c939230eeaefebd0d2b2ca7c3a62ea7158295adf.sock debug=false pid=408065
+Dec 05 02:06:45 Fani-ThinkPad audit: NETFILTER_CFG table=nat family=2 entries=0
+Dec 05 02:06:45 Fani-ThinkPad audit: NETFILTER_CFG table=filter family=2 entries=0
+Dec 05 02:06:45 Fani-ThinkPad audit: NETFILTER_CFG table=nat family=2 entries=5
+Dec 05 02:06:45 Fani-ThinkPad audit: NETFILTER_CFG table=nat family=2 entries=7
+Dec 05 02:06:45 Fani-ThinkPad audit: NETFILTER_CFG table=nat family=2 entries=8
+Dec 05 02:06:45 Fani-ThinkPad audit: NETFILTER_CFG table=nat family=2 entries=10
+Dec 05 02:06:45 Fani-ThinkPad audit: NETFILTER_CFG table=nat family=2 entries=11
+Dec 05 02:06:45 Fani-ThinkPad audit: NETFILTER_CFG table=nat family=2 entries=12
+Dec 05 02:06:45 Fani-ThinkPad audit: NETFILTER_CFG table=nat family=2 entries=13
+Dec 05 02:06:45 Fani-ThinkPad audit: NETFILTER_CFG table=nat family=2 entries=14
+Dec 05 02:06:45 Fani-ThinkPad kernel: eth0: renamed from vethb9b2d14
+Dec 05 02:06:45 Fani-ThinkPad kernel: IPv6: ADDRCONF(NETDEV_CHANGE): vethb07ab46: link becomes ready
+Dec 05 02:06:45 Fani-ThinkPad kernel: br-0fa7f225a5d1: port 3(vethb07ab46) entered blocking state
+Dec 05 02:06:45 Fani-ThinkPad kernel: br-0fa7f225a5d1: port 3(vethb07ab46) entered forwarding state
+Dec 05 02:06:45 Fani-ThinkPad NetworkManager[875]: <info>  [1575504405.7366] device (vethb07ab46): carrier: link connected
+Dec 05 02:06:45 Fani-ThinkPad gnome-shell[2676]: Removing a network device that was not added
+Dec 05 02:06:46 Fani-ThinkPad audit[408137]: AVC apparmor="ALLOWED" operation="capable" profile="db_profile" pid=408137 comm="chown" capability=0  capname="chown"
+Dec 05 02:06:46 Fani-ThinkPad audit[408138]: AVC apparmor="ALLOWED" operation="capable" profile="db_profile" pid=408138 comm="chmod" capability=3  capname="fowner"
+Dec 05 02:06:46 Fani-ThinkPad audit[408144]: AVC apparmor="ALLOWED" operation="capable" profile="db_profile" pid=408144 comm="chown" capability=0  capname="chown"
+Dec 05 02:06:46 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/rx_packets": No such file or directory
+Dec 05 02:06:46 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/tx_packets": No such file or directory
+Dec 05 02:06:46 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/rx_bytes": No such file or directory
+Dec 05 02:06:46 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/tx_bytes": No such file or directory
+Dec 05 02:06:46 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/rx_errors": No such file or directory
+Dec 05 02:06:46 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/tx_errors": No such file or directory
+Dec 05 02:06:46 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/collisions": No such file or directory
+Dec 05 02:06:47 Fani-ThinkPad audit[408173]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=408173 comm="postgres" requested_mask="send" denied_mask="send" signal=usr1 peer="db_profile"
+Dec 05 02:06:47 Fani-ThinkPad audit[408173]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=408173 comm="postgres" requested_mask="receive" denied_mask="receive" signal=usr1 peer="db_profile"
+Dec 05 02:06:47 Fani-ThinkPad kernel: kauditd_printk_skb: 167 callbacks suppressed
+Dec 05 02:06:47 Fani-ThinkPad kernel: audit: type=1400 audit(1575504407.313:13782): apparmor="ALLOWED" operation="signal" profile="db_profile" pid=408173 comm="postgres" requested_mask="send" denied_mask="send" signal=usr1 peer="db_profile"
+Dec 05 02:06:47 Fani-ThinkPad kernel: audit: type=1400 audit(1575504407.313:13782): apparmor="ALLOWED" operation="signal" profile="db_profile" pid=408173 comm="postgres" requested_mask="receive" denied_mask="receive" signal=usr1 peer="db_profile"
+Dec 05 02:06:47 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/rx_packets": No such file or directory
+Dec 05 02:06:47 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/tx_packets": No such file or directory
+Dec 05 02:06:47 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/rx_bytes": No such file or directory
+Dec 05 02:06:47 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/tx_bytes": No such file or directory
+Dec 05 02:06:47 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/rx_errors": No such file or directory
+Dec 05 02:06:47 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/tx_errors": No such file or directory
+Dec 05 02:06:47 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/collisions": No such file or directory
+Dec 05 02:06:48 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/rx_packets": No such file or directory
+Dec 05 02:06:48 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/tx_packets": No such file or directory
+Dec 05 02:06:48 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/rx_bytes": No such file or directory
+Dec 05 02:06:48 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/tx_bytes": No such file or directory
+Dec 05 02:06:48 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/rx_errors": No such file or directory
+Dec 05 02:06:48 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/tx_errors": No such file or directory
+Dec 05 02:06:48 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/collisions": No such file or directory
+Dec 05 02:06:49 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/rx_packets": No such file or directory
+Dec 05 02:06:49 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/tx_packets": No such file or directory
+Dec 05 02:06:49 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/rx_bytes": No such file or directory
+Dec 05 02:06:49 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/tx_bytes": No such file or directory
+Dec 05 02:06:49 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/rx_errors": No such file or directory
+Dec 05 02:06:49 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/tx_errors": No such file or directory
+Dec 05 02:06:49 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/collisions": No such file or directory
+Dec 05 02:06:49 Fani-ThinkPad audit[408190]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=408190 comm="postgres" requested_mask="send" denied_mask="send" signal=int peer="db_profile"
+Dec 05 02:06:49 Fani-ThinkPad audit[408190]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=408190 comm="postgres" requested_mask="receive" denied_mask="receive" signal=int peer="db_profile"
+Dec 05 02:06:49 Fani-ThinkPad kernel: audit: type=1400 audit(1575504409.653:13783): apparmor="ALLOWED" operation="signal" profile="db_profile" pid=408190 comm="postgres" requested_mask="send" denied_mask="send" signal=int peer="db_profile"
+Dec 05 02:06:49 Fani-ThinkPad kernel: audit: type=1400 audit(1575504409.653:13783): apparmor="ALLOWED" operation="signal" profile="db_profile" pid=408190 comm="postgres" requested_mask="receive" denied_mask="receive" signal=int peer="db_profile"
+Dec 05 02:06:50 Fani-ThinkPad audit[408190]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=408190 comm="postgres" requested_mask="send" denied_mask="send" signal=int peer="db_profile"
+Dec 05 02:06:50 Fani-ThinkPad audit[408190]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=408190 comm="postgres" requested_mask="receive" denied_mask="receive" signal=int peer="db_profile"
+Dec 05 02:06:50 Fani-ThinkPad kernel: audit: type=1400 audit(1575504410.337:13784): apparmor="ALLOWED" operation="signal" profile="db_profile" pid=408190 comm="postgres" requested_mask="send" denied_mask="send" signal=int peer="db_profile"
+Dec 05 02:06:50 Fani-ThinkPad kernel: audit: type=1400 audit(1575504410.337:13784): apparmor="ALLOWED" operation="signal" profile="db_profile" pid=408190 comm="postgres" requested_mask="receive" denied_mask="receive" signal=int peer="db_profile"
+Dec 05 02:06:50 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/rx_packets": No such file or directory
+Dec 05 02:06:50 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/tx_packets": No such file or directory
+Dec 05 02:06:50 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/rx_bytes": No such file or directory
+Dec 05 02:06:50 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/tx_bytes": No such file or directory
+Dec 05 02:06:50 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/rx_errors": No such file or directory
+Dec 05 02:06:50 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/tx_errors": No such file or directory
+Dec 05 02:06:50 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/collisions": No such file or directory
+Dec 05 02:06:50 Fani-ThinkPad audit[408192]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=408192 comm="pg_ctl" requested_mask="send" denied_mask="send" signal=int peer="db_profile"
+Dec 05 02:06:50 Fani-ThinkPad audit[408192]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=408192 comm="pg_ctl" requested_mask="receive" denied_mask="receive" signal=int peer="db_profile"
+Dec 05 02:06:50 Fani-ThinkPad audit[408181]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=408181 comm="postgres" requested_mask="send" denied_mask="send" signal=term peer="db_profile"
+Dec 05 02:06:50 Fani-ThinkPad audit[408181]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=408181 comm="postgres" requested_mask="receive" denied_mask="receive" signal=term peer="db_profile"
+Dec 05 02:06:50 Fani-ThinkPad audit[408181]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=408181 comm="postgres" requested_mask="send" denied_mask="send" signal=term peer="db_profile"
+Dec 05 02:06:50 Fani-ThinkPad audit[408181]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=408181 comm="postgres" requested_mask="receive" denied_mask="receive" signal=term peer="db_profile"
+Dec 05 02:06:50 Fani-ThinkPad audit[408181]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=408181 comm="postgres" requested_mask="send" denied_mask="send" signal=term peer="db_profile"
+Dec 05 02:06:50 Fani-ThinkPad audit[408181]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=408181 comm="postgres" requested_mask="receive" denied_mask="receive" signal=term peer="db_profile"
+Dec 05 02:06:50 Fani-ThinkPad audit[408181]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=408181 comm="postgres" requested_mask="send" denied_mask="send" signal=term peer="db_profile"
+Dec 05 02:06:50 Fani-ThinkPad audit[408181]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=408181 comm="postgres" requested_mask="receive" denied_mask="receive" signal=term peer="db_profile"
+Dec 05 02:06:50 Fani-ThinkPad audit[408181]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=408181 comm="postgres" requested_mask="send" denied_mask="send" signal=term peer="db_profile"
+Dec 05 02:06:50 Fani-ThinkPad kernel: audit: type=1400 audit(1575504410.463:13785): apparmor="ALLOWED" operation="signal" profile="db_profile" pid=408192 comm="pg_ctl" requested_mask="send" denied_mask="send" signal=int peer="db_profile"
+Dec 05 02:06:50 Fani-ThinkPad kernel: audit: type=1400 audit(1575504410.463:13785): apparmor="ALLOWED" operation="signal" profile="db_profile" pid=408192 comm="pg_ctl" requested_mask="receive" denied_mask="receive" signal=int peer="db_profile"
+Dec 05 02:06:50 Fani-ThinkPad kernel: audit: type=1400 audit(1575504410.463:13786): apparmor="ALLOWED" operation="signal" profile="db_profile" pid=408181 comm="postgres" requested_mask="send" denied_mask="send" signal=term peer="db_profile"
+Dec 05 02:06:50 Fani-ThinkPad kernel: audit: type=1400 audit(1575504410.463:13786): apparmor="ALLOWED" operation="signal" profile="db_profile" pid=408181 comm="postgres" requested_mask="receive" denied_mask="receive" signal=term peer="db_profile"
+Dec 05 02:06:50 Fani-ThinkPad audit[408181]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=408181 comm="postgres" requested_mask="receive" denied_mask="receive" signal=term peer="db_profile"
+Dec 05 02:06:50 Fani-ThinkPad audit[408181]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=408181 comm="postgres" requested_mask="send" denied_mask="send" signal=term peer="db_profile"
+Dec 05 02:06:50 Fani-ThinkPad audit[408181]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=408181 comm="postgres" requested_mask="receive" denied_mask="receive" signal=term peer="db_profile"
+Dec 05 02:06:50 Fani-ThinkPad audit[408181]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=408181 comm="postgres" requested_mask="send" denied_mask="send" signal=usr2 peer="db_profile"
+Dec 05 02:06:50 Fani-ThinkPad audit[408181]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=408181 comm="postgres" requested_mask="receive" denied_mask="receive" signal=usr2 peer="db_profile"
+Dec 05 02:06:50 Fani-ThinkPad audit[408181]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=408181 comm="postgres" requested_mask="send" denied_mask="send" signal=quit peer="db_profile"
+Dec 05 02:06:50 Fani-ThinkPad audit[408181]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=408181 comm="postgres" requested_mask="receive" denied_mask="receive" signal=quit peer="db_profile"
+Dec 05 02:06:50 Fani-ThinkPad audit[408181]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=408181 comm="postgres" requested_mask="send" denied_mask="send" signal=quit peer="db_profile"
+Dec 05 02:06:50 Fani-ThinkPad audit[408181]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=408181 comm="postgres" requested_mask="receive" denied_mask="receive" signal=quit peer="db_profile"
+Dec 05 02:06:51 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/rx_packets": No such file or directory
+Dec 05 02:06:51 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/tx_packets": No such file or directory
+Dec 05 02:06:51 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/rx_bytes": No such file or directory
+Dec 05 02:06:51 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/tx_bytes": No such file or directory
+Dec 05 02:06:51 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/rx_errors": No such file or directory
+Dec 05 02:06:51 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/tx_errors": No such file or directory
+Dec 05 02:06:51 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/collisions": No such file or directory
+Dec 05 02:06:52 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/rx_packets": No such file or directory
+Dec 05 02:06:52 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/tx_packets": No such file or directory
+Dec 05 02:06:52 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/rx_bytes": No such file or directory
+Dec 05 02:06:52 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/tx_bytes": No such file or directory
+Dec 05 02:06:52 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/rx_errors": No such file or directory
+Dec 05 02:06:52 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/tx_errors": No such file or directory
+Dec 05 02:06:52 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/collisions": No such file or directory
+Dec 05 02:06:53 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/rx_packets": No such file or directory
+Dec 05 02:06:53 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/tx_packets": No such file or directory
+Dec 05 02:06:53 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/rx_bytes": No such file or directory
+Dec 05 02:06:53 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/tx_bytes": No such file or directory
+Dec 05 02:06:53 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/rx_errors": No such file or directory
+Dec 05 02:06:53 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/tx_errors": No such file or directory
+Dec 05 02:06:53 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/collisions": No such file or directory
+Dec 05 02:06:54 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/rx_packets": No such file or directory
+Dec 05 02:06:54 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/tx_packets": No such file or directory
+Dec 05 02:06:54 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/rx_bytes": No such file or directory
+Dec 05 02:06:54 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/tx_bytes": No such file or directory
+Dec 05 02:06:54 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/rx_errors": No such file or directory
+Dec 05 02:06:54 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/tx_errors": No such file or directory
+Dec 05 02:06:54 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/collisions": No such file or directory
+Dec 05 02:06:55 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/rx_packets": No such file or directory
+Dec 05 02:06:55 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/tx_packets": No such file or directory
+Dec 05 02:06:55 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/rx_bytes": No such file or directory
+Dec 05 02:06:55 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/tx_bytes": No such file or directory
+Dec 05 02:06:55 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/rx_errors": No such file or directory
+Dec 05 02:06:55 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/tx_errors": No such file or directory
+Dec 05 02:06:55 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/collisions": No such file or directory
+Dec 05 02:06:56 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/rx_packets": No such file or directory
+Dec 05 02:06:56 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/tx_packets": No such file or directory
+Dec 05 02:06:56 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/rx_bytes": No such file or directory
+Dec 05 02:06:56 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/tx_bytes": No such file or directory
+Dec 05 02:06:56 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/rx_errors": No such file or directory
+Dec 05 02:06:56 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/tx_errors": No such file or directory
+Dec 05 02:06:56 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/collisions": No such file or directory
+Dec 05 02:06:57 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/rx_packets": No such file or directory
+Dec 05 02:06:57 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/tx_packets": No such file or directory
+Dec 05 02:06:57 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/rx_bytes": No such file or directory
+Dec 05 02:06:57 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/tx_bytes": No such file or directory
+Dec 05 02:06:57 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/rx_errors": No such file or directory
+Dec 05 02:06:57 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/tx_errors": No such file or directory
+Dec 05 02:06:57 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/collisions": No such file or directory
+Dec 05 02:06:58 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/rx_packets": No such file or directory
+Dec 05 02:06:58 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/tx_packets": No such file or directory
+Dec 05 02:06:58 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/rx_bytes": No such file or directory
+Dec 05 02:06:58 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/tx_bytes": No such file or directory
+Dec 05 02:06:58 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/rx_errors": No such file or directory
+Dec 05 02:06:58 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/tx_errors": No such file or directory
+Dec 05 02:06:58 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/collisions": No such file or directory
+Dec 05 02:06:59 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/rx_packets": No such file or directory
+Dec 05 02:06:59 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/tx_packets": No such file or directory
+Dec 05 02:06:59 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/rx_bytes": No such file or directory
+Dec 05 02:06:59 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/tx_bytes": No such file or directory
+Dec 05 02:06:59 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/rx_errors": No such file or directory
+Dec 05 02:06:59 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/tx_errors": No such file or directory
+Dec 05 02:06:59 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/collisions": No such file or directory
+Dec 05 02:07:00 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/rx_packets": No such file or directory
+Dec 05 02:07:00 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/tx_packets": No such file or directory
+Dec 05 02:07:00 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/rx_bytes": No such file or directory
+Dec 05 02:07:00 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/tx_bytes": No such file or directory
+Dec 05 02:07:00 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/rx_errors": No such file or directory
+Dec 05 02:07:00 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/tx_errors": No such file or directory
+Dec 05 02:07:00 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/collisions": No such file or directory
+Dec 05 02:07:01 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/rx_packets": No such file or directory
+Dec 05 02:07:01 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/tx_packets": No such file or directory
+Dec 05 02:07:01 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/rx_bytes": No such file or directory
+Dec 05 02:07:01 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/tx_bytes": No such file or directory
+Dec 05 02:07:01 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/rx_errors": No such file or directory
+Dec 05 02:07:01 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/tx_errors": No such file or directory
+Dec 05 02:07:01 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/collisions": No such file or directory
+Dec 05 02:07:02 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/rx_packets": No such file or directory
+Dec 05 02:07:02 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/tx_packets": No such file or directory
+Dec 05 02:07:02 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/rx_bytes": No such file or directory
+Dec 05 02:07:02 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/tx_bytes": No such file or directory
+Dec 05 02:07:02 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/rx_errors": No such file or directory
+Dec 05 02:07:02 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/tx_errors": No such file or directory
+Dec 05 02:07:02 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/collisions": No such file or directory
+Dec 05 02:07:03 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/rx_packets": No such file or directory
+Dec 05 02:07:03 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/tx_packets": No such file or directory
+Dec 05 02:07:03 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/rx_bytes": No such file or directory
+Dec 05 02:07:03 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/tx_bytes": No such file or directory
+Dec 05 02:07:03 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/rx_errors": No such file or directory
+Dec 05 02:07:03 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/tx_errors": No such file or directory
+Dec 05 02:07:03 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/collisions": No such file or directory
+Dec 05 02:07:04 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/rx_packets": No such file or directory
+Dec 05 02:07:04 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/tx_packets": No such file or directory
+Dec 05 02:07:04 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/rx_bytes": No such file or directory
+Dec 05 02:07:04 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/tx_bytes": No such file or directory
+Dec 05 02:07:04 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/rx_errors": No such file or directory
+Dec 05 02:07:04 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/tx_errors": No such file or directory
+Dec 05 02:07:04 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/collisions": No such file or directory
+Dec 05 02:07:05 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/rx_packets": No such file or directory
+Dec 05 02:07:05 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/tx_packets": No such file or directory
+Dec 05 02:07:05 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/rx_bytes": No such file or directory
+Dec 05 02:07:05 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/tx_bytes": No such file or directory
+Dec 05 02:07:05 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/rx_errors": No such file or directory
+Dec 05 02:07:05 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/tx_errors": No such file or directory
+Dec 05 02:07:05 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/collisions": No such file or directory
+Dec 05 02:07:06 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/rx_packets": No such file or directory
+Dec 05 02:07:06 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/tx_packets": No such file or directory
+Dec 05 02:07:06 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/rx_bytes": No such file or directory
+Dec 05 02:07:06 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/tx_bytes": No such file or directory
+Dec 05 02:07:06 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/rx_errors": No such file or directory
+Dec 05 02:07:06 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/tx_errors": No such file or directory
+Dec 05 02:07:06 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/collisions": No such file or directory
+Dec 05 02:07:06 Fani-ThinkPad audit[405646]: AVC apparmor="ALLOWED" operation="signal" profile="app_profile" pid=405646 comm="containerd-shim" requested_mask="receive" denied_mask="receive" signal=exists peer="unconfined"
+Dec 05 02:07:06 Fani-ThinkPad kernel: kauditd_printk_skb: 16 callbacks suppressed
+Dec 05 02:07:06 Fani-ThinkPad kernel: audit: type=1400 audit(1575504426.547:13795): apparmor="ALLOWED" operation="signal" profile="app_profile" pid=405646 comm="containerd-shim" requested_mask="receive" denied_mask="receive" signal=exists peer="unconfined"
+Dec 05 02:07:07 Fani-ThinkPad audit[405646]: AVC apparmor="ALLOWED" operation="signal" profile="app_profile" pid=405646 comm="containerd-shim" requested_mask="receive" denied_mask="receive" signal=exists peer="unconfined"
+Dec 05 02:07:07 Fani-ThinkPad kernel: audit: type=1400 audit(1575504427.123:13796): apparmor="ALLOWED" operation="signal" profile="app_profile" pid=405646 comm="containerd-shim" requested_mask="receive" denied_mask="receive" signal=exists peer="unconfined"
+Dec 05 02:07:07 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/rx_packets": No such file or directory
+Dec 05 02:07:07 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/tx_packets": No such file or directory
+Dec 05 02:07:07 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/rx_bytes": No such file or directory
+Dec 05 02:07:07 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/tx_bytes": No such file or directory
+Dec 05 02:07:07 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/rx_errors": No such file or directory
+Dec 05 02:07:07 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/tx_errors": No such file or directory
+Dec 05 02:07:07 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/collisions": No such file or directory
+Dec 05 02:07:07 Fani-ThinkPad audit[405646]: AVC apparmor="ALLOWED" operation="signal" profile="app_profile" pid=405646 comm="containerd-shim" requested_mask="receive" denied_mask="receive" signal=exists peer="unconfined"
+Dec 05 02:07:07 Fani-ThinkPad kernel: audit: type=1400 audit(1575504427.727:13797): apparmor="ALLOWED" operation="signal" profile="app_profile" pid=405646 comm="containerd-shim" requested_mask="receive" denied_mask="receive" signal=exists peer="unconfined"
+Dec 05 02:07:08 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/rx_packets": No such file or directory
+Dec 05 02:07:08 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/tx_packets": No such file or directory
+Dec 05 02:07:08 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/rx_bytes": No such file or directory
+Dec 05 02:07:08 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/tx_bytes": No such file or directory
+Dec 05 02:07:08 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/rx_errors": No such file or directory
+Dec 05 02:07:08 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/tx_errors": No such file or directory
+Dec 05 02:07:08 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/collisions": No such file or directory
+Dec 05 02:07:08 Fani-ThinkPad tracker-store[407423]: OK
+Dec 05 02:07:08 Fani-ThinkPad systemd[2505]: tracker-store.service: Succeeded.
+Dec 05 02:07:09 Fani-ThinkPad audit[408487]: AVC apparmor="ALLOWED" operation="signal" profile="web_profile" pid=408487 comm="runc" requested_mask="receive" denied_mask="receive" signal=term peer="unconfined"
+Dec 05 02:07:09 Fani-ThinkPad kernel: audit: type=1400 audit(1575504429.030:13798): apparmor="ALLOWED" operation="signal" profile="web_profile" pid=408487 comm="runc" requested_mask="receive" denied_mask="receive" signal=term peer="unconfined"
+Dec 05 02:07:09 Fani-ThinkPad audit[408489]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=408489 comm="runc" requested_mask="receive" denied_mask="receive" signal=term peer="unconfined"
+Dec 05 02:07:09 Fani-ThinkPad audit[408082]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=408082 comm="postgres" requested_mask="send" denied_mask="send" signal=term peer="db_profile"
+Dec 05 02:07:09 Fani-ThinkPad audit[408082]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=408082 comm="postgres" requested_mask="receive" denied_mask="receive" signal=term peer="db_profile"
+Dec 05 02:07:09 Fani-ThinkPad audit[408082]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=408082 comm="postgres" requested_mask="send" denied_mask="send" signal=term peer="db_profile"
+Dec 05 02:07:09 Fani-ThinkPad audit[408082]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=408082 comm="postgres" requested_mask="receive" denied_mask="receive" signal=term peer="db_profile"
+Dec 05 02:07:09 Fani-ThinkPad audit[408082]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=408082 comm="postgres" requested_mask="send" denied_mask="send" signal=term peer="db_profile"
+Dec 05 02:07:09 Fani-ThinkPad audit[408082]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=408082 comm="postgres" requested_mask="receive" denied_mask="receive" signal=term peer="db_profile"
+Dec 05 02:07:09 Fani-ThinkPad audit[408488]: AVC apparmor="ALLOWED" operation="signal" profile="app_profile" pid=408488 comm="runc" requested_mask="receive" denied_mask="receive" signal=term peer="unconfined"
+Dec 05 02:07:09 Fani-ThinkPad audit[408082]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=408082 comm="postgres" requested_mask="send" denied_mask="send" signal=term peer="db_profile"
+Dec 05 02:07:09 Fani-ThinkPad audit[408082]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=408082 comm="postgres" requested_mask="receive" denied_mask="receive" signal=term peer="db_profile"
+Dec 05 02:07:09 Fani-ThinkPad audit[408082]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=408082 comm="postgres" requested_mask="send" denied_mask="send" signal=term peer="db_profile"
+Dec 05 02:07:09 Fani-ThinkPad audit[408082]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=408082 comm="postgres" requested_mask="receive" denied_mask="receive" signal=term peer="db_profile"
+Dec 05 02:07:09 Fani-ThinkPad audit[408082]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=408082 comm="postgres" requested_mask="send" denied_mask="send" signal=term peer="db_profile"
+Dec 05 02:07:09 Fani-ThinkPad audit[408082]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=408082 comm="postgres" requested_mask="receive" denied_mask="receive" signal=term peer="db_profile"
+Dec 05 02:07:09 Fani-ThinkPad audit[408082]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=408082 comm="postgres" requested_mask="send" denied_mask="send" signal=usr2 peer="db_profile"
+Dec 05 02:07:09 Fani-ThinkPad audit[408082]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=408082 comm="postgres" requested_mask="receive" denied_mask="receive" signal=usr2 peer="db_profile"
+Dec 05 02:07:09 Fani-ThinkPad kernel: audit: type=1400 audit(1575504429.033:13799): apparmor="ALLOWED" operation="signal" profile="db_profile" pid=408489 comm="runc" requested_mask="receive" denied_mask="receive" signal=term peer="unconfined"
+Dec 05 02:07:09 Fani-ThinkPad kernel: audit: type=1400 audit(1575504429.033:13800): apparmor="ALLOWED" operation="signal" profile="db_profile" pid=408082 comm="postgres" requested_mask="send" denied_mask="send" signal=term peer="db_profile"
+Dec 05 02:07:09 Fani-ThinkPad kernel: audit: type=1400 audit(1575504429.033:13800): apparmor="ALLOWED" operation="signal" profile="db_profile" pid=408082 comm="postgres" requested_mask="receive" denied_mask="receive" signal=term peer="db_profile"
+Dec 05 02:07:09 Fani-ThinkPad kernel: audit: type=1400 audit(1575504429.033:13801): apparmor="ALLOWED" operation="signal" profile="db_profile" pid=408082 comm="postgres" requested_mask="send" denied_mask="send" signal=term peer="db_profile"
+Dec 05 02:07:09 Fani-ThinkPad kernel: audit: type=1400 audit(1575504429.033:13801): apparmor="ALLOWED" operation="signal" profile="db_profile" pid=408082 comm="postgres" requested_mask="receive" denied_mask="receive" signal=term peer="db_profile"
+Dec 05 02:07:09 Fani-ThinkPad kernel: audit: type=1400 audit(1575504429.033:13802): apparmor="ALLOWED" operation="signal" profile="db_profile" pid=408082 comm="postgres" requested_mask="send" denied_mask="send" signal=term peer="db_profile"
+Dec 05 02:07:09 Fani-ThinkPad dockerd[401683]: time="2019-12-05T02:07:09.146559420+02:00" level=info msg="shim reaped" id=60b56768d0bce37b046809bdfd74e3d71a282d73cddad06597d371735eca5d4d
+Dec 05 02:07:09 Fani-ThinkPad dockerd[401683]: time="2019-12-05T02:07:09.146574662+02:00" level=info msg="shim reaped" id=b9a3fe5366665e7a0ce3c73a2c90737a2088522b58dfb871370141cd23386c7d
+Dec 05 02:07:09 Fani-ThinkPad dockerd[401683]: time="2019-12-05T02:07:09.157427111+02:00" level=info msg="ignoring event" module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+Dec 05 02:07:09 Fani-ThinkPad dockerd[401683]: time="2019-12-05T02:07:09.157653366+02:00" level=info msg="ignoring event" module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+Dec 05 02:07:09 Fani-ThinkPad audit: NETFILTER_CFG table=nat family=2 entries=21
+Dec 05 02:07:09 Fani-ThinkPad audit: NETFILTER_CFG table=filter family=2 entries=43
+Dec 05 02:07:09 Fani-ThinkPad audit: NETFILTER_CFG table=nat family=2 entries=20
+Dec 05 02:07:09 Fani-ThinkPad audit: NETFILTER_CFG table=nat family=2 entries=19
+Dec 05 02:07:09 Fani-ThinkPad audit: NETFILTER_CFG table=filter family=2 entries=42
+Dec 05 02:07:09 Fani-ThinkPad audit: NETFILTER_CFG table=nat family=2 entries=18
+Dec 05 02:07:09 Fani-ThinkPad kernel: br-0fa7f225a5d1: port 1(vethe4c7a1e) entered disabled state
+Dec 05 02:07:09 Fani-ThinkPad kernel: vethbd1f116: renamed from eth0
+Dec 05 02:07:09 Fani-ThinkPad systemd-udevd[408569]: ethtool: autonegotiation is unset or enabled, the speed and duplex are not writable.
+Dec 05 02:07:09 Fani-ThinkPad systemd-udevd[408569]: Using default interface naming scheme 'v243'.
+Dec 05 02:07:09 Fani-ThinkPad NetworkManager[875]: <info>  [1575504429.2859] manager: (vethbd1f116): new Veth device (/org/freedesktop/NetworkManager/Devices/1704)
+Dec 05 02:07:09 Fani-ThinkPad audit[408082]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=408082 comm="postgres" requested_mask="send" denied_mask="send" signal=quit peer="db_profile"
+Dec 05 02:07:09 Fani-ThinkPad audit[408082]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=408082 comm="postgres" requested_mask="receive" denied_mask="receive" signal=quit peer="db_profile"
+Dec 05 02:07:09 Fani-ThinkPad audit[408082]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=408082 comm="postgres" requested_mask="send" denied_mask="send" signal=quit peer="db_profile"
+Dec 05 02:07:09 Fani-ThinkPad audit[408082]: AVC apparmor="ALLOWED" operation="signal" profile="db_profile" pid=408082 comm="postgres" requested_mask="receive" denied_mask="receive" signal=quit peer="db_profile"
+Dec 05 02:07:09 Fani-ThinkPad kernel: vethd40ce4b: renamed from eth0
+Dec 05 02:07:09 Fani-ThinkPad kernel: br-0fa7f225a5d1: port 2(veth74ff458) entered disabled state
+Dec 05 02:07:09 Fani-ThinkPad systemd-udevd[408569]: ethtool: autonegotiation is unset or enabled, the speed and duplex are not writable.
+Dec 05 02:07:09 Fani-ThinkPad NetworkManager[875]: <info>  [1575504429.3827] manager: (vethd40ce4b): new Veth device (/org/freedesktop/NetworkManager/Devices/1705)
+Dec 05 02:07:09 Fani-ThinkPad dockerd[401683]: time="2019-12-05T02:07:09.429868823+02:00" level=info msg="shim reaped" id=9eee00314311f6a3ae94237a205aa170d125533bb378a1871907238ab8dd4423
+Dec 05 02:07:09 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/rx_packets": No such file or directory
+Dec 05 02:07:09 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/tx_packets": No such file or directory
+Dec 05 02:07:09 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/rx_bytes": No such file or directory
+Dec 05 02:07:09 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/tx_bytes": No such file or directory
+Dec 05 02:07:09 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/rx_errors": No such file or directory
+Dec 05 02:07:09 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/tx_errors": No such file or directory
+Dec 05 02:07:09 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/collisions": No such file or directory
+Dec 05 02:07:09 Fani-ThinkPad dockerd[401683]: time="2019-12-05T02:07:09.440128717+02:00" level=info msg="ignoring event" module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+Dec 05 02:07:09 Fani-ThinkPad kernel: br-0fa7f225a5d1: port 2(veth74ff458) entered disabled state
+Dec 05 02:07:09 Fani-ThinkPad audit: ANOM_PROMISCUOUS dev=veth74ff458 prom=0 old_prom=256 auid=4294967295 uid=0 gid=0 ses=4294967295
+Dec 05 02:07:09 Fani-ThinkPad kernel: device veth74ff458 left promiscuous mode
+Dec 05 02:07:09 Fani-ThinkPad kernel: br-0fa7f225a5d1: port 2(veth74ff458) entered disabled state
+Dec 05 02:07:09 Fani-ThinkPad NetworkManager[875]: <info>  [1575504429.7407] device (veth74ff458): released from master device br-0fa7f225a5d1
+Dec 05 02:07:09 Fani-ThinkPad gnome-shell[2676]: Removing a network device that was not added
+Dec 05 02:07:09 Fani-ThinkPad gnome-shell[2676]: Removing a network device that was not added
+Dec 05 02:07:09 Fani-ThinkPad kernel: br-0fa7f225a5d1: port 1(vethe4c7a1e) entered disabled state
+Dec 05 02:07:09 Fani-ThinkPad audit: ANOM_PROMISCUOUS dev=vethe4c7a1e prom=0 old_prom=256 auid=4294967295 uid=0 gid=0 ses=4294967295
+Dec 05 02:07:09 Fani-ThinkPad kernel: device vethe4c7a1e left promiscuous mode
+Dec 05 02:07:09 Fani-ThinkPad kernel: br-0fa7f225a5d1: port 1(vethe4c7a1e) entered disabled state
+Dec 05 02:07:09 Fani-ThinkPad NetworkManager[875]: <info>  [1575504429.7790] device (vethe4c7a1e): released from master device br-0fa7f225a5d1
+Dec 05 02:07:09 Fani-ThinkPad gnome-shell[2676]: Removing a network device that was not added
+Dec 05 02:07:09 Fani-ThinkPad kernel: vethb9b2d14: renamed from eth0
+Dec 05 02:07:09 Fani-ThinkPad gnome-shell[2676]: Removing a network device that was not added
+Dec 05 02:07:09 Fani-ThinkPad kernel: br-0fa7f225a5d1: port 3(vethb07ab46) entered disabled state
+Dec 05 02:07:09 Fani-ThinkPad systemd-udevd[408598]: ethtool: autonegotiation is unset or enabled, the speed and duplex are not writable.
+Dec 05 02:07:09 Fani-ThinkPad systemd-udevd[408598]: Using default interface naming scheme 'v243'.
+Dec 05 02:07:09 Fani-ThinkPad NetworkManager[875]: <info>  [1575504429.8358] manager: (vethb9b2d14): new Veth device (/org/freedesktop/NetworkManager/Devices/1706)
+Dec 05 02:07:10 Fani-ThinkPad systemd[1]: run-docker-netns-97368a874167.mount: Succeeded.
+Dec 05 02:07:10 Fani-ThinkPad systemd[2505]: run-docker-netns-97368a874167.mount: Succeeded.
+Dec 05 02:07:10 Fani-ThinkPad systemd[2505]: run-docker-netns-c6b2245342a5.mount: Succeeded.
+Dec 05 02:07:10 Fani-ThinkPad systemd[1]: run-docker-netns-c6b2245342a5.mount: Succeeded.
+Dec 05 02:07:10 Fani-ThinkPad systemd[1]: var-lib-docker-containers-60b56768d0bce37b046809bdfd74e3d71a282d73cddad06597d371735eca5d4d-mounts-shm.mount: Succeeded.
+Dec 05 02:07:10 Fani-ThinkPad systemd[2505]: var-lib-docker-containers-60b56768d0bce37b046809bdfd74e3d71a282d73cddad06597d371735eca5d4d-mounts-shm.mount: Succeeded.
+Dec 05 02:07:10 Fani-ThinkPad systemd[2505]: var-lib-docker-overlay2-b70724705d7c9778a30c9e33986404755302d611e8d101d2fe72d95228fdc8cb-merged.mount: Succeeded.
+Dec 05 02:07:10 Fani-ThinkPad systemd[1]: var-lib-docker-overlay2-b70724705d7c9778a30c9e33986404755302d611e8d101d2fe72d95228fdc8cb-merged.mount: Succeeded.
+Dec 05 02:07:10 Fani-ThinkPad systemd[1]: var-lib-docker-containers-b9a3fe5366665e7a0ce3c73a2c90737a2088522b58dfb871370141cd23386c7d-mounts-shm.mount: Succeeded.
+Dec 05 02:07:10 Fani-ThinkPad systemd[1]: var-lib-docker-overlay2-c61f07036470c9f226f83fd76017c3857a8a5dc8f352c5b8e829d8619014c7f3-merged.mount: Succeeded.
+Dec 05 02:07:10 Fani-ThinkPad systemd[2505]: var-lib-docker-containers-b9a3fe5366665e7a0ce3c73a2c90737a2088522b58dfb871370141cd23386c7d-mounts-shm.mount: Succeeded.
+Dec 05 02:07:10 Fani-ThinkPad systemd[2505]: var-lib-docker-overlay2-c61f07036470c9f226f83fd76017c3857a8a5dc8f352c5b8e829d8619014c7f3-merged.mount: Succeeded.
+Dec 05 02:07:10 Fani-ThinkPad kernel: br-0fa7f225a5d1: port 3(vethb07ab46) entered disabled state
+Dec 05 02:07:10 Fani-ThinkPad audit: ANOM_PROMISCUOUS dev=vethb07ab46 prom=0 old_prom=256 auid=4294967295 uid=0 gid=0 ses=4294967295
+Dec 05 02:07:10 Fani-ThinkPad kernel: device vethb07ab46 left promiscuous mode
+Dec 05 02:07:10 Fani-ThinkPad kernel: br-0fa7f225a5d1: port 3(vethb07ab46) entered disabled state
+Dec 05 02:07:10 Fani-ThinkPad NetworkManager[875]: <info>  [1575504430.3301] device (vethb07ab46): released from master device br-0fa7f225a5d1
+Dec 05 02:07:10 Fani-ThinkPad gnome-shell[2676]: Removing a network device that was not added
+Dec 05 02:07:10 Fani-ThinkPad gnome-shell[2676]: Removing a network device that was not added
+Dec 05 02:07:10 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/rx_packets": No such file or directory
+Dec 05 02:07:10 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/tx_packets": No such file or directory
+Dec 05 02:07:10 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/rx_bytes": No such file or directory
+Dec 05 02:07:10 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/tx_bytes": No such file or directory
+Dec 05 02:07:10 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/rx_errors": No such file or directory
+Dec 05 02:07:10 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/tx_errors": No such file or directory
+Dec 05 02:07:10 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/collisions": No such file or directory
+Dec 05 02:07:10 Fani-ThinkPad systemd[1]: run-docker-netns-d05066110caa.mount: Succeeded.
+Dec 05 02:07:10 Fani-ThinkPad systemd[2505]: run-docker-netns-d05066110caa.mount: Succeeded.
+Dec 05 02:07:10 Fani-ThinkPad systemd[1]: var-lib-docker-containers-9eee00314311f6a3ae94237a205aa170d125533bb378a1871907238ab8dd4423-mounts-shm.mount: Succeeded.
+Dec 05 02:07:10 Fani-ThinkPad systemd[1]: var-lib-docker-overlay2-3f8f8309847263507762c390669214469bc1540aeac9c4c7967a08c756cbec28-merged.mount: Succeeded.
+Dec 05 02:07:10 Fani-ThinkPad systemd[2505]: var-lib-docker-containers-9eee00314311f6a3ae94237a205aa170d125533bb378a1871907238ab8dd4423-mounts-shm.mount: Succeeded.
+Dec 05 02:07:10 Fani-ThinkPad systemd[2505]: var-lib-docker-overlay2-3f8f8309847263507762c390669214469bc1540aeac9c4c7967a08c756cbec28-merged.mount: Succeeded.
+Dec 05 02:07:11 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/rx_packets": No such file or directory
+Dec 05 02:07:11 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/tx_packets": No such file or directory
+Dec 05 02:07:11 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/rx_bytes": No such file or directory
+Dec 05 02:07:11 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/tx_bytes": No such file or directory
+Dec 05 02:07:11 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/rx_errors": No such file or directory
+Dec 05 02:07:11 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/tx_errors": No such file or directory
+Dec 05 02:07:11 Fani-ThinkPad gnome-shell[2676]: glibtop(c=2676): [WARNING] Failed to open "/sys/class/net/br-725ab0d499a8/statistics/collisions": No such file or directory
+Dec 05 02:07:11 Fani-ThinkPad NetworkManager[875]: <info>  [1575504431.7654] device (br-0fa7f225a5d1): state change: activated -> unmanaged (reason 'unmanaged', sys-iface-state: 'removed')
+Dec 05 02:07:11 Fani-ThinkPad gnome-shell[2676]: Removing a network device that was not added
+Dec 05 02:07:11 Fani-ThinkPad audit: NETFILTER_CFG table=nat family=2 entries=17
+Dec 05 02:07:11 Fani-ThinkPad kernel: kauditd_printk_skb: 23 callbacks suppressed
+Dec 05 02:07:11 Fani-ThinkPad kernel: audit: type=1325 audit(1575504431.777:13819): table=nat family=2 entries=17
+Dec 05 02:07:11 Fani-ThinkPad audit: NETFILTER_CFG table=nat family=2 entries=16
+Dec 05 02:07:11 Fani-ThinkPad dbus-daemon[874]: [system] Activating via systemd: service name='org.freedesktop.nm_dispatcher' unit='dbus-org.freedesktop.nm-dispatcher.service' requested by ':1.1' (uid=0 pid=875 comm="/usr/bin/NetworkManager --no-daemon ")
+Dec 05 02:07:11 Fani-ThinkPad kernel: audit: type=1325 audit(1575504431.780:13820): table=nat family=2 entries=16
+Dec 05 02:07:11 Fani-ThinkPad systemd[1]: Starting Network Manager Script Dispatcher Service...
+Dec 05 02:07:11 Fani-ThinkPad audit: NETFILTER_CFG table=filter family=2 entries=41
+Dec 05 02:07:11 Fani-ThinkPad kernel: audit: type=1325 audit(1575504431.787:13821): table=filter family=2 entries=41
+Dec 05 02:07:11 Fani-ThinkPad audit: NETFILTER_CFG table=filter family=2 entries=40
+Dec 05 02:07:11 Fani-ThinkPad kernel: audit: type=1325 audit(1575504431.793:13822): table=filter family=2 entries=40
+Dec 05 02:07:11 Fani-ThinkPad audit: NETFILTER_CFG table=filter family=2 entries=39
+Dec 05 02:07:11 Fani-ThinkPad kernel: audit: type=1325 audit(1575504431.797:13823): table=filter family=2 entries=39
+Dec 05 02:07:11 Fani-ThinkPad audit: NETFILTER_CFG table=filter family=2 entries=38
+Dec 05 02:07:11 Fani-ThinkPad dbus-daemon[874]: [system] Successfully activated service 'org.freedesktop.nm_dispatcher'
+Dec 05 02:07:11 Fani-ThinkPad audit[1]: SERVICE_START pid=1 uid=0 auid=4294967295 ses=4294967295 subj==unconfined msg='unit=NetworkManager-dispatcher comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'
+Dec 05 02:07:11 Fani-ThinkPad systemd[1]: Started Network Manager Script Dispatcher Service.
+Dec 05 02:07:11 Fani-ThinkPad kernel: audit: type=1325 audit(1575504431.807:13824): table=filter family=2 entries=38
+Dec 05 02:07:11 Fani-ThinkPad kernel: audit: type=1130 audit(1575504431.807:13825): pid=1 uid=0 auid=4294967295 ses=4294967295 subj==unconfined msg='unit=NetworkManager-dispatcher comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'
+Dec 05 02:07:11 Fani-ThinkPad audit: NETFILTER_CFG table=filter family=2 entries=37
+Dec 05 02:07:11 Fani-ThinkPad kernel: audit: type=1325 audit(1575504431.810:13826): table=filter family=2 entries=37
+Dec 05 02:07:11 Fani-ThinkPad audit: NETFILTER_CFG table=filter family=2 entries=36
+Dec 05 02:07:11 Fani-ThinkPad kernel: audit: type=1325 audit(1575504431.813:13827): table=filter family=2 entries=36
+Dec 05 02:07:12 Fani-ThinkPad audit[408637]: USER_ACCT pid=408637 uid=1000 auid=1000 ses=3 subj==unconfined msg='op=PAM:accounting grantors=pam_unix,pam_permit,pam_time acct="fanilicious" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/2 res=success'
+Dec 05 02:07:12 Fani-ThinkPad sudo[408637]: fanilicious : TTY=pts/2 ; PWD=/home/fanilicious/Projects/SecureWilly/MatterMost/Parser ; USER=root ; COMMAND=/usr/bin/rm -r volumes
+Dec 05 02:07:12 Fani-ThinkPad kernel: audit: type=1101 audit(1575504432.203:13828): pid=408637 uid=1000 auid=1000 ses=3 subj==unconfined msg='op=PAM:accounting grantors=pam_unix,pam_permit,pam_time acct="fanilicious" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/2 res=success'
+Dec 05 02:07:12 Fani-ThinkPad audit[408637]: CRED_REFR pid=408637 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:setcred grantors=pam_unix,pam_permit,pam_env acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/2 res=success'
+Dec 05 02:07:12 Fani-ThinkPad sudo[408637]: pam_unix(sudo:session): session opened for user root by (uid=0)
+Dec 05 02:07:12 Fani-ThinkPad audit[408637]: USER_START pid=408637 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:session_open grantors=pam_limits,pam_unix,pam_permit acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/2 res=success'
+Dec 05 02:07:12 Fani-ThinkPad sudo[408637]: pam_unix(sudo:session): session closed for user root
+Dec 05 02:07:12 Fani-ThinkPad audit[408637]: USER_END pid=408637 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:session_close grantors=pam_limits,pam_unix,pam_permit acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/2 res=success'
+Dec 05 02:07:12 Fani-ThinkPad audit[408637]: CRED_DISP pid=408637 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:setcred grantors=pam_unix,pam_permit,pam_env acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/2 res=success'
+Dec 05 02:07:12 Fani-ThinkPad audit[408642]: USER_ACCT pid=408642 uid=1000 auid=1000 ses=3 subj==unconfined msg='op=PAM:accounting grantors=pam_unix,pam_permit,pam_time acct="fanilicious" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/2 res=success'
+Dec 05 02:07:12 Fani-ThinkPad sudo[408642]: fanilicious : TTY=pts/2 ; PWD=/home/fanilicious/Projects/SecureWilly/MatterMost/Parser ; USER=root ; COMMAND=/usr/bin/cat /var/log/audit/audit.log
+Dec 05 02:07:12 Fani-ThinkPad audit[408642]: CRED_REFR pid=408642 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:setcred grantors=pam_unix,pam_permit,pam_env acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/2 res=success'
+Dec 05 02:07:12 Fani-ThinkPad sudo[408642]: pam_unix(sudo:session): session opened for user root by (uid=0)
+Dec 05 02:07:12 Fani-ThinkPad audit[408642]: USER_START pid=408642 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:session_open grantors=pam_limits,pam_unix,pam_permit acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/2 res=success'
+Dec 05 02:07:12 Fani-ThinkPad sudo[408642]: pam_unix(sudo:session): session closed for user root
+Dec 05 02:07:12 Fani-ThinkPad audit[408642]: USER_END pid=408642 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:session_close grantors=pam_limits,pam_unix,pam_permit acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/2 res=success'
+Dec 05 02:07:12 Fani-ThinkPad audit[408642]: CRED_DISP pid=408642 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:setcred grantors=pam_unix,pam_permit,pam_env acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/2 res=success'
+Dec 05 02:07:12 Fani-ThinkPad audit[408645]: USER_ACCT pid=408645 uid=1000 auid=1000 ses=3 subj==unconfined msg='op=PAM:accounting grantors=pam_unix,pam_permit,pam_time acct="fanilicious" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/2 res=success'
+Dec 05 02:07:12 Fani-ThinkPad sudo[408645]: fanilicious : TTY=pts/2 ; PWD=/home/fanilicious/Projects/SecureWilly/MatterMost/Parser ; USER=root ; COMMAND=/usr/bin/journalctl
+Dec 05 02:07:12 Fani-ThinkPad audit[408645]: CRED_REFR pid=408645 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:setcred grantors=pam_unix,pam_permit,pam_env acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/2 res=success'
+Dec 05 02:07:12 Fani-ThinkPad sudo[408645]: pam_unix(sudo:session): session opened for user root by (uid=0)
+Dec 05 02:07:12 Fani-ThinkPad audit[408645]: USER_START pid=408645 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:session_open grantors=pam_limits,pam_unix,pam_permit acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/2 res=success'

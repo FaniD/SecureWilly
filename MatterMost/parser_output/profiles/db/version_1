@@ -1,0 +1,16 @@
+#include <tunables/global>
+
+profile db_profile flags=(attach_disconnected,mediate_deleted) {
+	mount options=ro /etc/localtime -> /etc/localtime, #Bind host volume to docker container volume
+	/etc/localtime/* r,
+	deny remount /etc/localtime, #Disallow anybody that wants to remount this mountpoint
+	deny umount /var/lib/postgresql/data, #Disallow anybody that wants to break this mountpoint
+	deny umount /etc/localtime, #Disallow anybody that wants to break this mountpoint
+	/var/lib/postgresql/data/* rw,
+	file,  #Allows access to containers filesystem
+	deny remount /var/lib/postgresql/data, #Disallow anybody that wants to remount this mountpoint
+	deny /etc/localtime w,
+	deny ptrace (readby, tracedby), #Confront container breakout attacks
+	mount /home/fanilicious/Projects/SecureWilly/MatterMost/volumes/db/var/lib/postgresql/data -> /var/lib/postgresql/data, #Bind host volume to docker container volume
+	/var/lib/docker/* r, #Access to layers of filesystem
+}

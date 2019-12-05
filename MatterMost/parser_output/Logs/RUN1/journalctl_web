@@ -1,0 +1,2 @@
+Dec 05 02:07:09 Fani-ThinkPad audit[408487]: AVC apparmor="ALLOWED" operation="signal" profile="web_profile" pid=408487 comm="runc" requested_mask="receive" denied_mask="receive" signal=term peer="unconfined"
+Dec 05 02:07:09 Fani-ThinkPad kernel: audit: type=1400 audit(1575504429.030:13798): apparmor="ALLOWED" operation="signal" profile="web_profile" pid=408487 comm="runc" requested_mask="receive" denied_mask="receive" signal=term peer="unconfined"

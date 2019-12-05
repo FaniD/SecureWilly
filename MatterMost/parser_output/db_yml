@@ -1,0 +1,14 @@
+  db:
+    security_opt:
+      - "apparmor:db_profile"
+    image: matterdb
+    read_only: true
+    restart: unless-stopped
+    volumes:
+      - /home/fanilicious/Projects/SecureWilly/MatterMost/volumes/db/var/lib/postgresql/data:/var/lib/postgresql/data
+      - /etc/localtime:/etc/localtime:ro
+    environment:
+      - POSTGRES_USER=mmuser
+      - POSTGRES_PASSWORD=mmuser_password
+      - POSTGRES_DB=mattermost
+

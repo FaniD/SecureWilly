@@ -1,0 +1,4 @@
+Dec 05 02:08:26 Fani-ThinkPad audit[411165]: AVC apparmor="ALLOWED" operation="capable" profile="web_profile" pid=411165 comm="nginx" capability=7  capname="setuid"
+Dec 05 02:08:26 Fani-ThinkPad audit[411168]: AVC apparmor="ALLOWED" operation="capable" profile="web_profile" pid=411168 comm="nginx" capability=7  capname="setuid"
+Dec 05 02:08:57 Fani-ThinkPad audit[411016]: AVC apparmor="ALLOWED" operation="signal" profile="web_profile" pid=411016 comm="containerd-shim" requested_mask="receive" denied_mask="receive" signal=exists peer="unconfined"
+Dec 05 02:08:57 Fani-ThinkPad kernel: audit: type=1400 audit(1575504537.203:14162): apparmor="ALLOWED" operation="signal" profile="web_profile" pid=411016 comm="containerd-shim" requested_mask="receive" denied_mask="receive" signal=exists peer="unconfined"

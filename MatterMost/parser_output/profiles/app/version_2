@@ -1,0 +1,35 @@
+#include <tunables/global>
+
+profile app_profile flags=(attach_disconnected,mediate_deleted) {
+	deny remount /etc/localtime, #Disallow anybody that wants to remount this mountpoint
+	network tcp, #Allowing networking with ports forwarding
+	/mattermost/data/* rw,
+	file,  #Allows access to containers filesystem
+	/mattermost/config/* rw,
+	deny remount /mattermost/data, #Disallow anybody that wants to remount this mountpoint
+	deny umount /mattermost/plugins, #Disallow anybody that wants to break this mountpoint
+	signal (receive) set=(exists) peer=unconfined,
+	mount options=ro /etc/localtime -> /etc/localtime, #Bind host volume to docker container volume
+	deny remount /mattermost/plugins, #Disallow anybody that wants to remount this mountpoint
+	/mattermost/plugins/* rw,
+	deny remount /mattermost/logs, #Disallow anybody that wants to remount this mountpoint
+	deny umount /etc/localtime, #Disallow anybody that wants to break this mountpoint
+	mount /home/fanilicious/Projects/SecureWilly/MatterMost/volumes/app/mattermost/data -> /mattermost/data, #Bind host volume to docker container volume
+	deny /etc/localtime w,
+	/var/lib/docker/* r, #Access to layers of filesystem
+	deny remount /mattermost/config, #Disallow anybody that wants to remount this mountpoint
+	mount /home/fanilicious/Projects/SecureWilly/MatterMost/volumes/app/mattermost/client-plugins -> /mattermost/client/plugins, #Bind host volume to docker container volume
+	signal (receive) set=(term) peer=unconfined,
+	deny umount /mattermost/config, #Disallow anybody that wants to break this mountpoint
+	mount /home/fanilicious/Projects/SecureWilly/MatterMost/volumes/app/mattermost/config -> /mattermost/config, #Bind host volume to docker container volume
+	deny umount /mattermost/data, #Disallow anybody that wants to break this mountpoint
+	deny umount /mattermost/client/plugins, #Disallow anybody that wants to break this mountpoint
+	deny ptrace (readby, tracedby), #Confront container breakout attacks
+	/etc/localtime/* r,
+	deny umount /mattermost/logs, #Disallow anybody that wants to break this mountpoint
+	mount /home/fanilicious/Projects/SecureWilly/MatterMost/volumes/app/mattermost/plugins -> /mattermost/plugins, #Bind host volume to docker container volume
+	/mattermost/client/plugins/* rw,
+	mount /home/fanilicious/Projects/SecureWilly/MatterMost/volumes/app/mattermost/logs -> /mattermost/logs, #Bind host volume to docker container volume
+	deny remount /mattermost/client/plugins, #Disallow anybody that wants to remount this mountpoint
+	/mattermost/logs/* rw,
+}

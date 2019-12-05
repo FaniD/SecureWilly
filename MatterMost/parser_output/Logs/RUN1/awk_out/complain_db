@@ -1,0 +1,18 @@
+#Capability\n
+chown
+fowner
+#Network\n
+#File
+requested_mask 
+#Signal
+send quit db_profile
+receive quit db_profile
+send usr1 db_profile
+receive usr1 db_profile
+send int db_profile
+receive int db_profile
+send term db_profile
+receive term db_profile
+send usr2 db_profile
+receive usr2 db_profile
+receive term unconfined

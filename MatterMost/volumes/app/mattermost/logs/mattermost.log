@@ -1,0 +1,452 @@
+{"level":"info","ts":1575504444.4426591,"caller":"utils/i18n.go:83","msg":"Loaded system translations","for locale":"en","from locale":"/mattermost/i18n/en.json"}
+{"level":"info","ts":1575504444.442827,"caller":"app/server_app_adapters.go:59","msg":"Server is initializing..."}
+{"level":"info","ts":1575504444.445259,"caller":"sqlstore/supplier.go:222","msg":"Pinging SQL","database":"master"}
+{"level":"info","ts":1575504448.6604478,"caller":"sqlstore/upgrade.go:109","msg":"The database schema has been set to version 5.16.0"}
+{"level":"error","ts":1575504454.0873823,"caller":"app/server_app_adapters.go:126","msg":"SiteURL must be set. Some features will operate incorrectly if the SiteURL is not set. See documentation for details: http://about.mattermost.com/default-site-url"}
+{"level":"info","ts":1575504454.088868,"caller":"app/migrations.go:26","msg":"Migrating roles to database."}
+{"level":"info","ts":1575504454.2424116,"caller":"sqlstore/post_store.go:1356","msg":"Post.Message has size restrictions","max_characters":16383,"max_bytes":65535}
+{"level":"info","ts":1575504454.2781682,"caller":"app/migrations.go:102","msg":"Migrating emojis config to database."}
+{"level":"info","ts":1575504455.4409287,"caller":"mlog/log.go:166","msg":"Starting up plugins"}
+{"level":"info","ts":1575504455.44107,"caller":"app/plugin.go:199","msg":"Syncing plugins from the file store"}
+{"level":"info","ts":1575504455.4412596,"caller":"app/plugin.go:234","msg":"Found no files in plugins file store"}
+{"level":"info","ts":1575504461.2541366,"caller":"mlog/sugar.go:19","msg":"Ensuring Surveybot exists","plugin_id":"com.mattermost.nps"}
+{"level":"info","ts":1575504461.3592877,"caller":"mlog/sugar.go:19","msg":"Surveybot created","plugin_id":"com.mattermost.nps"}
+{"level":"info","ts":1575504461.3730576,"caller":"mlog/sugar.go:19","msg":"Upgrade detected. Checking if a survey should be scheduled.","plugin_id":"com.mattermost.nps"}
+{"level":"info","ts":1575504461.3830647,"caller":"mlog/sugar.go:19","msg":"Scheduling next survey for Dec 26, 2019","plugin_id":"com.mattermost.nps"}
+{"level":"info","ts":1575504462.5018404,"caller":"app/server.go:216","msg":"Current version is 5.16.0 (5.16.3/Wed Nov  6 14:03:24 UTC 2019/533c7bb3e5847db423387abfcf983e3f947818eb/none)"}
+{"level":"info","ts":1575504462.501882,"caller":"app/server.go:217","msg":"Enterprise Enabled: false"}
+{"level":"info","ts":1575504462.5019057,"caller":"app/server.go:219","msg":"Current working directory is /mattermost"}
+{"level":"info","ts":1575504462.5019174,"caller":"app/server.go:220","msg":"Loaded config","source":"file:///mattermost/config/config.json"}
+{"level":"error","ts":1575504462.5288243,"caller":"mlog/log.go:174","msg":"RPC call OnConfigurationChange to plugin failed.","plugin_id":"com.mattermost.nps","error":"connection is shut down"}
+{"level":"error","ts":1575504462.5756412,"caller":"mlog/log.go:174","msg":"RPC call OnConfigurationChange to plugin failed.","plugin_id":"com.mattermost.nps","error":"connection is shut down"}
+{"level":"info","ts":1575504462.5777469,"caller":"jobs/workers.go:68","msg":"Starting workers"}
+{"level":"info","ts":1575504462.5778277,"caller":"app/server.go:423","msg":"Starting Server..."}
+{"level":"info","ts":1575504462.5778441,"caller":"app/server.go:449","msg":"RateLimiter is enabled"}
+{"level":"info","ts":1575504462.5781164,"caller":"app/server.go:489","msg":"Server is listening on [::]:8000"}
+{"level":"info","ts":1575504462.5786927,"caller":"jobs/schedulers.go:72","msg":"Starting schedulers."}
+{"level":"info","ts":1575504462.598416,"caller":"app/web_hub.go:75","msg":"Starting 8 websocket hubs"}
+{"level":"info","ts":1575504472.029664,"caller":"config/watcher.go:62","msg":"Config file watcher detected a change","path":"/mattermost/config/config.json"}
+{"level":"info","ts":1575504472.0297165,"caller":"config/watcher.go:62","msg":"Config file watcher detected a change","path":"/mattermost/config/config.json"}
+{"level":"error","ts":1575504472.0588608,"caller":"mlog/log.go:174","msg":"RPC call OnConfigurationChange to plugin failed.","plugin_id":"com.mattermost.nps","error":"connection is shut down"}
+{"level":"error","ts":1575504472.0588763,"caller":"mlog/log.go:174","msg":"RPC call OnConfigurationChange to plugin failed.","plugin_id":"com.mattermost.nps","error":"connection is shut down"}
+{"level":"info","ts":1575504480.2484212,"caller":"config/watcher.go:62","msg":"Config file watcher detected a change","path":"/mattermost/config/config.json"}
+{"level":"info","ts":1575504480.2484663,"caller":"config/watcher.go:62","msg":"Config file watcher detected a change","path":"/mattermost/config/config.json"}
+{"level":"error","ts":1575504480.2729137,"caller":"mlog/log.go:174","msg":"RPC call OnConfigurationChange to plugin failed.","plugin_id":"com.mattermost.nps","error":"connection is shut down"}
+{"level":"error","ts":1575504480.275001,"caller":"mlog/log.go:174","msg":"RPC call OnConfigurationChange to plugin failed.","plugin_id":"com.mattermost.nps","error":"connection is shut down"}
+{"level":"info","ts":1575504488.1970806,"caller":"config/watcher.go:62","msg":"Config file watcher detected a change","path":"/mattermost/config/config.json"}
+{"level":"info","ts":1575504488.1971257,"caller":"config/watcher.go:62","msg":"Config file watcher detected a change","path":"/mattermost/config/config.json"}
+{"level":"error","ts":1575504488.2522018,"caller":"mlog/log.go:174","msg":"RPC call OnConfigurationChange to plugin failed.","plugin_id":"com.mattermost.nps","error":"connection is shut down"}
+{"level":"error","ts":1575504488.2699797,"caller":"mlog/log.go:174","msg":"RPC call OnConfigurationChange to plugin failed.","plugin_id":"com.mattermost.nps","error":"connection is shut down"}
+{"level":"info","ts":1575504489.5787468,"caller":"app/server.go:329","msg":"Stopping Server..."}
+{"level":"info","ts":1575504489.578802,"caller":"app/web_hub.go:120","msg":"stopping websocket hub connections"}
+{"level":"info","ts":1575504489.579158,"caller":"app/plugin.go:267","msg":"Shutting down plugins"}
+{"level":"warn","ts":1575504489.579353,"caller":"plugin/hclog_adapter.go:51","msg":"error closing client during Kill","plugin_id":"com.mattermost.nps","wrapped_extras":"errconnection is shut down"}
+{"level":"warn","ts":1575504489.5793767,"caller":"plugin/hclog_adapter.go:53","msg":"plugin failed to exit gracefully","plugin_id":"com.mattermost.nps"}
+{"level":"info","ts":1575504489.590736,"caller":"jobs/workers.go:184","msg":"Stopped workers"}
+{"level":"info","ts":1575504489.590786,"caller":"jobs/schedulers.go:139","msg":"Stopping schedulers."}
+{"level":"info","ts":1575504489.5908098,"caller":"jobs/schedulers.go:75","msg":"Schedulers stopped."}
+{"level":"info","ts":1575504489.5908306,"caller":"sqlstore/supplier.go:917","msg":"Closing SqlStore"}
+{"level":"info","ts":1575504489.592376,"caller":"app/server.go:367","msg":"Server stopped"}
+41,"caller":"app/plugin.go:199","msg":"Syncing plugins from the file store"}
+{"level":"info","ts":1575504473.2617974,"caller":"app/plugin.go:234","msg":"Found no files in plugins file store"}
+{"level":"info","ts":1575504479.1179018,"caller":"mlog/sugar.go:19","msg":"Ensuring Surveybot exists","plugin_id":"com.mattermost.nps"}
+{"level":"info","ts":1575504480.2398286,"caller":"app/server.go:216","msg":"Current version is 5.16.0 (5.16.3/Wed Nov  6 14:03:24 UTC 2019/533c7bb3e5847db423387abfcf983e3f947818eb/none)"}
+{"level":"info","ts":1575504480.2398667,"caller":"app/server.go:217","msg":"Enterprise Enabled: false"}
+{"level":"info","ts":1575504480.2398868,"caller":"app/server.go:219","msg":"Current working directory is /mattermost"}
+{"level":"info","ts":1575504480.2399087,"caller":"app/server.go:220","msg":"Loaded config","source":"file:///mattermost/config/config.json"}
+{"level":"info","ts":1575504480.2567546,"caller":"sqlstore/post_store.go:1356","msg":"Post.Message has size restrictions","max_characters":16383,"max_bytes":65535}
+{"level":"info","ts":1575504480.3626394,"caller":"app/server.go:329","msg":"Stopping Server..."}
+{"level":"info","ts":1575504480.3627326,"caller":"app/web_hub.go:120","msg":"stopping websocket hub connections"}
+{"level":"warn","ts":1575504480.3627741,"caller":"app/web_hub.go:125","msg":"We appear to have already sent the stop checking for deadlocks command"}
+{"level":"info","ts":1575504480.363574,"caller":"app/plugin.go:267","msg":"Shutting down plugins"}
+{"level":"info","ts":1575504480.3662598,"caller":"sqlstore/supplier.go:917","msg":"Closing SqlStore"}
+{"level":"info","ts":1575504480.3664224,"caller":"app/server.go:367","msg":"Server stopped"}
+{"level":"info","ts":1575504481.0108736,"caller":"utils/i18n.go:83","msg":"Loaded system translations","for locale":"en","from locale":"/mattermost/i18n/en.json"}
+{"level":"info","ts":1575504481.0110412,"caller":"app/server_app_adapters.go:59","msg":"Server is initializing..."}
+{"level":"info","ts":1575504481.01379,"caller":"sqlstore/supplier.go:222","msg":"Pinging SQL","database":"master"}
+{"level":"error","ts":1575504481.060729,"caller":"app/server_app_adapters.go:126","msg":"SiteURL must be set. Some features will operate incorrectly if the SiteURL is not set. See documentation for details: http://about.mattermost.com/default-site-url"}
+{"level":"info","ts":1575504481.0650127,"caller":"mlog/log.go:166","msg":"Starting up plugins"}
+{"level":"info","ts":1575504481.065078,"caller":"app/plugin.go:199","msg":"Syncing plugins from the file store"}
+{"level":"info","ts":1575504481.1226642,"caller":"app/plugin.go:234","msg":"Found no files in plugins file store"}
+{"level":"info","ts":1575504487.0465746,"caller":"mlog/sugar.go:19","msg":"Ensuring Surveybot exists","plugin_id":"com.mattermost.nps"}
+{"level":"info","ts":1575504488.1886256,"caller":"app/server.go:216","msg":"Current version is 5.16.0 (5.16.3/Wed Nov  6 14:03:24 UTC 2019/533c7bb3e5847db423387abfcf983e3f947818eb/none)"}
+{"level":"info","ts":1575504488.1886706,"caller":"app/server.go:217","msg":"Enterprise Enabled: false"}
+{"level":"info","ts":1575504488.1886935,"caller":"app/server.go:219","msg":"Current working directory is /mattermost"}
+{"level":"info","ts":1575504488.1887066,"caller":"app/server.go:220","msg":"Loaded config","source":"file:///mattermost/config/config.json"}
+{"level":"info","ts":1575504488.2040756,"caller":"sqlstore/post_store.go:1356","msg":"Post.Message has size restrictions","max_characters":16383,"max_bytes":65535}
+{"level":"info","ts":1575504488.5282207,"caller":"app/server.go:329","msg":"Stopping Server..."}
+{"level":"info","ts":1575504488.5283246,"caller":"app/web_hub.go:120","msg":"stopping websocket hub connections"}
+{"level":"warn","ts":1575504488.5283551,"caller":"app/web_hub.go:125","msg":"We appear to have already sent the stop checking for deadlocks command"}
+{"level":"info","ts":1575504488.5289187,"caller":"app/plugin.go:267","msg":"Shutting down plugins"}
+{"level":"info","ts":1575504488.5314827,"caller":"sqlstore/supplier.go:917","msg":"Closing SqlStore"}
+{"level":"info","ts":1575504488.5317905,"caller":"app/server.go:367","msg":"Server stopped"}
+{"level":"info","ts":1575504507.130863,"caller":"utils/i18n.go:83","msg":"Loaded system translations","for locale":"en","from locale":"/mattermost/i18n/en.json"}
+{"level":"info","ts":1575504507.131008,"caller":"app/server_app_adapters.go:59","msg":"Server is initializing..."}
+{"level":"info","ts":1575504507.1330097,"caller":"sqlstore/supplier.go:222","msg":"Pinging SQL","database":"master"}
+{"level":"error","ts":1575504507.3090024,"caller":"sqlstore/supplier.go:234","msg":"Failed to ping DB","error":"pq: the database system is starting up","retrying in seconds":10}
+{"level":"info","ts":1575504517.3092637,"caller":"sqlstore/supplier.go:222","msg":"Pinging SQL","database":"master"}
+{"level":"error","ts":1575504517.370149,"caller":"app/server_app_adapters.go:126","msg":"SiteURL must be set. Some features will operate incorrectly if the SiteURL is not set. See documentation for details: http://about.mattermost.com/default-site-url"}
+{"level":"info","ts":1575504517.3793364,"caller":"mlog/log.go:166","msg":"Starting up plugins"}
+{"level":"info","ts":1575504517.3794074,"caller":"app/plugin.go:199","msg":"Syncing plugins from the file store"}
+{"level":"info","ts":1575504517.4220088,"caller":"app/plugin.go:234","msg":"Found no files in plugins file store"}
+{"level":"info","ts":1575504523.4663634,"caller":"mlog/sugar.go:19","msg":"Ensuring Surveybot exists","plugin_id":"com.mattermost.nps"}
+{"level":"info","ts":1575504524.9120705,"caller":"app/server.go:216","msg":"Current version is 5.16.0 (5.16.3/Wed Nov  6 14:03:24 UTC 2019/533c7bb3e5847db423387abfcf983e3f947818eb/none)"}
+{"level":"info","ts":1575504524.9121256,"caller":"app/server.go:217","msg":"Enterprise Enabled: false"}
+{"level":"info","ts":1575504524.9121659,"caller":"app/server.go:219","msg":"Current working directory is /mattermost"}
+{"level":"info","ts":1575504524.9121842,"caller":"app/server.go:220","msg":"Loaded config","source":"file:///mattermost/config/config.json"}
+{"level":"info","ts":1575504524.9493697,"caller":"sqlstore/post_store.go:1356","msg":"Post.Message has size restrictions","max_characters":16383,"max_bytes":65535}
+{"level":"info","ts":1575504525.0226228,"caller":"jobs/workers.go:68","msg":"Starting workers"}
+{"level":"info","ts":1575504525.0227394,"caller":"app/server.go:423","msg":"Starting Server..."}
+{"level":"info","ts":1575504525.0227642,"caller":"app/server.go:449","msg":"RateLimiter is enabled"}
+{"level":"info","ts":1575504525.0245678,"caller":"jobs/schedulers.go:72","msg":"Starting schedulers."}
+{"level":"info","ts":1575504525.0248668,"caller":"app/server.go:489","msg":"Server is listening on [::]:8000"}
+{"level":"info","ts":1575504525.046896,"caller":"app/web_hub.go:75","msg":"Starting 8 websocket hubs"}
+{"level":"info","ts":1575504527.8517203,"caller":"utils/i18n.go:83","msg":"Loaded system translations","for locale":"en","from locale":"/mattermost/i18n/en.json"}
+{"level":"info","ts":1575504527.8518667,"caller":"app/server_app_adapters.go:59","msg":"Server is initializing..."}
+{"level":"info","ts":1575504527.8543174,"caller":"sqlstore/supplier.go:222","msg":"Pinging SQL","database":"master"}
+{"level":"error","ts":1575504527.8993459,"caller":"app/server_app_adapters.go:126","msg":"SiteURL must be set. Some features will operate incorrectly if the SiteURL is not set. See documentation for details: http://about.mattermost.com/default-site-url"}
+{"level":"info","ts":1575504527.9094958,"caller":"mlog/log.go:166","msg":"Starting up plugins"}
+{"level":"info","ts":1575504527.909559,"caller":"app/plugin.go:199","msg":"Syncing plugins from the file store"}
+{"level":"info","ts":1575504527.966189,"caller":"app/plugin.go:234","msg":"Found no files in plugins file store"}
+{"level":"info","ts":1575504538.1346722,"caller":"mlog/sugar.go:19","msg":"Ensuring Surveybot exists","plugin_id":"com.mattermost.nps"}
+{"level":"info","ts":1575504539.8311193,"caller":"app/server.go:216","msg":"Current version is 5.16.0 (5.16.3/Wed Nov  6 14:03:24 UTC 2019/533c7bb3e5847db423387abfcf983e3f947818eb/none)"}
+{"level":"info","ts":1575504539.8311675,"caller":"app/server.go:217","msg":"Enterprise Enabled: false"}
+{"level":"info","ts":1575504539.8311923,"caller":"app/server.go:219","msg":"Current working directory is /mattermost"}
+{"level":"info","ts":1575504539.8312128,"caller":"app/server.go:220","msg":"Loaded config","source":"file:///mattermost/config/config.json"}
+{"level":"info","ts":1575504539.8441608,"caller":"config/watcher.go:62","msg":"Config file watcher detected a change","path":"/mattermost/config/config.json"}
+{"level":"info","ts":1575504539.844204,"caller":"config/watcher.go:62","msg":"Config file watcher detected a change","path":"/mattermost/config/config.json"}
+{"level":"info","ts":1575504539.8534365,"caller":"sqlstore/post_store.go:1356","msg":"Post.Message has size restrictions","max_characters":16383,"max_bytes":65535}
+{"level":"error","ts":1575504540.0553563,"caller":"app/user.go:317","msg":"Couldn't save the user","error":"SqlUserStore.Save: An account with that username already exists., user_id=9bme169gabrbjrb9osij73ebpo, pq: duplicate key value violates unique constraint \"users_username_key\""}
+{"level":"info","ts":1575504540.055489,"caller":"app/server.go:329","msg":"Stopping Server..."}
+{"level":"info","ts":1575504540.0555077,"caller":"app/web_hub.go:120","msg":"stopping websocket hub connections"}
+{"level":"warn","ts":1575504540.055544,"caller":"app/web_hub.go:125","msg":"We appear to have already sent the stop checking for deadlocks command"}
+{"level":"info","ts":1575504540.0558228,"caller":"app/plugin.go:267","msg":"Shutting down plugins"}
+{"level":"info","ts":1575504540.0577161,"caller":"sqlstore/supplier.go:917","msg":"Closing SqlStore"}
+{"level":"info","ts":1575504540.0578666,"caller":"app/server.go:367","msg":"Server stopped"}
+{"level":"info","ts":1575504541.0528488,"caller":"utils/i18n.go:83","msg":"Loaded system translations","for locale":"en","from locale":"/mattermost/i18n/en.json"}
+{"level":"info","ts":1575504541.0530078,"caller":"app/server_app_adapters.go:59","msg":"Server is initializing..."}
+{"level":"info","ts":1575504541.0559604,"caller":"sqlstore/supplier.go:222","msg":"Pinging SQL","database":"master"}
+{"level":"error","ts":1575504541.1500702,"caller":"app/server_app_adapters.go:126","msg":"SiteURL must be set. Some features will operate incorrectly if the SiteURL is not set. See documentation for details: http://about.mattermost.com/default-site-url"}
+{"level":"info","ts":1575504541.1625152,"caller":"mlog/log.go:166","msg":"Starting up plugins"}
+{"level":"info","ts":1575504541.1625886,"caller":"app/plugin.go:199","msg":"Syncing plugins from the file store"}
+{"level":"info","ts":1575504541.2330043,"caller":"app/plugin.go:234","msg":"Found no files in plugins file store"}
+{"level":"info","ts":1575504549.2386603,"caller":"mlog/sugar.go:19","msg":"Ensuring Surveybot exists","plugin_id":"com.mattermost.nps"}
+{"level":"info","ts":1575504550.5364876,"caller":"app/server.go:216","msg":"Current version is 5.16.0 (5.16.3/Wed Nov  6 14:03:24 UTC 2019/533c7bb3e5847db423387abfcf983e3f947818eb/none)"}
+{"level":"info","ts":1575504550.5365222,"caller":"app/server.go:217","msg":"Enterprise Enabled: false"}
+{"level":"info","ts":1575504550.5365422,"caller":"app/server.go:219","msg":"Current working directory is /mattermost"}
+{"level":"info","ts":1575504550.536552,"caller":"app/server.go:220","msg":"Loaded config","source":"file:///mattermost/config/config.json"}
+{"level":"info","ts":1575504550.5450401,"caller":"config/watcher.go:62","msg":"Config file watcher detected a change","path":"/mattermost/config/config.json"}
+{"level":"info","ts":1575504550.545123,"caller":"config/watcher.go:62","msg":"Config file watcher detected a change","path":"/mattermost/config/config.json"}
+{"level":"info","ts":1575504550.5534859,"caller":"sqlstore/post_store.go:1356","msg":"Post.Message has size restrictions","max_characters":16383,"max_bytes":65535}
+{"level":"info","ts":1575504550.6697583,"caller":"app/server.go:329","msg":"Stopping Server..."}
+{"level":"info","ts":1575504550.6698685,"caller":"app/web_hub.go:120","msg":"stopping websocket hub connections"}
+{"level":"warn","ts":1575504550.6699207,"caller":"app/web_hub.go:125","msg":"We appear to have already sent the stop checking for deadlocks command"}
+{"level":"info","ts":1575504550.6704624,"caller":"app/plugin.go:267","msg":"Shutting down plugins"}
+{"level":"info","ts":1575504550.6737428,"caller":"sqlstore/supplier.go:917","msg":"Closing SqlStore"}
+{"level":"info","ts":1575504550.6741054,"caller":"app/server.go:367","msg":"Server stopped"}
+{"level":"info","ts":1575504551.300017,"caller":"utils/i18n.go:83","msg":"Loaded system translations","for locale":"en","from locale":"/mattermost/i18n/en.json"}
+{"level":"info","ts":1575504551.3001947,"caller":"app/server_app_adapters.go:59","msg":"Server is initializing..."}
+{"level":"info","ts":1575504551.303016,"caller":"sqlstore/supplier.go:222","msg":"Pinging SQL","database":"master"}
+{"level":"error","ts":1575504551.3507993,"caller":"app/server_app_adapters.go:126","msg":"SiteURL must be set. Some features will operate incorrectly if the SiteURL is not set. See documentation for details: http://about.mattermost.com/default-site-url"}
+{"level":"info","ts":1575504551.3560934,"caller":"mlog/log.go:166","msg":"Starting up plugins"}
+{"level":"info","ts":1575504551.3561592,"caller":"app/plugin.go:199","msg":"Syncing plugins from the file store"}
+{"level":"info","ts":1575504551.4111114,"caller":"app/plugin.go:234","msg":"Found no files in plugins file store"}
+{"level":"info","ts":1575504557.3262892,"caller":"mlog/sugar.go:19","msg":"Ensuring Surveybot exists","plugin_id":"com.mattermost.nps"}
+{"level":"info","ts":1575504558.491771,"caller":"app/server.go:216","msg":"Current version is 5.16.0 (5.16.3/Wed Nov  6 14:03:24 UTC 2019/533c7bb3e5847db423387abfcf983e3f947818eb/none)"}
+{"level":"info","ts":1575504558.4918106,"caller":"app/server.go:217","msg":"Enterprise Enabled: false"}
+{"level":"info","ts":1575504558.4918334,"caller":"app/server.go:219","msg":"Current working directory is /mattermost"}
+{"level":"info","ts":1575504558.4918528,"caller":"app/server.go:220","msg":"Loaded config","source":"file:///mattermost/config/config.json"}
+{"level":"info","ts":1575504558.5007784,"caller":"config/watcher.go:62","msg":"Config file watcher detected a change","path":"/mattermost/config/config.json"}
+{"level":"info","ts":1575504558.5008278,"caller":"config/watcher.go:62","msg":"Config file watcher detected a change","path":"/mattermost/config/config.json"}
+{"level":"info","ts":1575504558.5089066,"caller":"sqlstore/post_store.go:1356","msg":"Post.Message has size restrictions","max_characters":16383,"max_bytes":65535}
+{"level":"info","ts":1575504558.6240888,"caller":"app/server.go:329","msg":"Stopping Server..."}
+{"level":"info","ts":1575504558.624172,"caller":"app/web_hub.go:120","msg":"stopping websocket hub connections"}
+{"level":"warn","ts":1575504558.6242082,"caller":"app/web_hub.go:125","msg":"We appear to have already sent the stop checking for deadlocks command"}
+{"level":"info","ts":1575504558.6248236,"caller":"app/plugin.go:267","msg":"Shutting down plugins"}
+{"level":"info","ts":1575504558.6471324,"caller":"sqlstore/supplier.go:917","msg":"Closing SqlStore"}
+{"level":"info","ts":1575504558.6475427,"caller":"app/server.go:367","msg":"Server stopped"}
+{"level":"info","ts":1575504559.6886861,"caller":"app/server.go:329","msg":"Stopping Server..."}
+{"level":"info","ts":1575504559.6887631,"caller":"app/web_hub.go:120","msg":"stopping websocket hub connections"}
+{"level":"info","ts":1575504559.6897259,"caller":"app/plugin.go:267","msg":"Shutting down plugins"}
+{"level":"info","ts":1575504559.7074134,"caller":"jobs/workers.go:184","msg":"Stopped workers"}
+{"level":"info","ts":1575504559.707459,"caller":"jobs/schedulers.go:139","msg":"Stopping schedulers."}
+{"level":"info","ts":1575504559.7074807,"caller":"jobs/schedulers.go:75","msg":"Schedulers stopped."}
+{"level":"info","ts":1575504559.7074964,"caller":"sqlstore/supplier.go:917","msg":"Closing SqlStore"}
+{"level":"info","ts":1575504559.7086897,"caller":"app/server.go:367","msg":"Server stopped"}
+{"level":"info","ts":1575504574.7045097,"caller":"utils/i18n.go:83","msg":"Loaded system translations","for locale":"en","from locale":"/mattermost/i18n/en.json"}
+{"level":"info","ts":1575504574.7046638,"caller":"app/server_app_adapters.go:59","msg":"Server is initializing..."}
+{"level":"info","ts":1575504574.7071803,"caller":"sqlstore/supplier.go:222","msg":"Pinging SQL","database":"master"}
+{"level":"error","ts":1575504574.819299,"caller":"app/server_app_adapters.go:126","msg":"SiteURL must be set. Some features will operate incorrectly if the SiteURL is not set. See documentation for details: http://about.mattermost.com/default-site-url"}
+{"level":"info","ts":1575504574.8232906,"caller":"mlog/log.go:166","msg":"Starting up plugins"}
+{"level":"info","ts":1575504574.8233528,"caller":"app/plugin.go:199","msg":"Syncing plugins from the file store"}
+{"level":"info","ts":1575504574.8750143,"caller":"app/plugin.go:234","msg":"Found no files in plugins file store"}
+{"level":"info","ts":1575504580.7565248,"caller":"mlog/sugar.go:19","msg":"Ensuring Surveybot exists","plugin_id":"com.mattermost.nps"}
+{"level":"info","ts":1575504581.9381046,"caller":"app/server.go:216","msg":"Current version is 5.16.0 (5.16.3/Wed Nov  6 14:03:24 UTC 2019/533c7bb3e5847db423387abfcf983e3f947818eb/none)"}
+{"level":"info","ts":1575504581.9382064,"caller":"app/server.go:217","msg":"Enterprise Enabled: false"}
+{"level":"info","ts":1575504581.93826,"caller":"app/server.go:219","msg":"Current working directory is /mattermost"}
+{"level":"info","ts":1575504581.9382782,"caller":"app/server.go:220","msg":"Loaded config","source":"file:///mattermost/config/config.json"}
+{"level":"info","ts":1575504581.9600608,"caller":"sqlstore/post_store.go:1356","msg":"Post.Message has size restrictions","max_characters":16383,"max_bytes":65535}
+{"level":"info","ts":1575504582.012192,"caller":"jobs/workers.go:68","msg":"Starting workers"}
+{"level":"info","ts":1575504582.0122855,"caller":"app/server.go:423","msg":"Starting Server..."}
+{"level":"info","ts":1575504582.0123124,"caller":"app/server.go:449","msg":"RateLimiter is enabled"}
+{"level":"info","ts":1575504582.0125952,"caller":"app/server.go:489","msg":"Server is listening on [::]:8000"}
+{"level":"info","ts":1575504582.0132506,"caller":"jobs/schedulers.go:72","msg":"Starting schedulers."}
+{"level":"info","ts":1575504582.0492597,"caller":"app/web_hub.go:75","msg":"Starting 8 websocket hubs"}
+{"level":"info","ts":1575504594.8494413,"caller":"utils/i18n.go:83","msg":"Loaded system translations","for locale":"en","from locale":"/mattermost/i18n/en.json"}
+{"level":"info","ts":1575504594.849607,"caller":"app/server_app_adapters.go:59","msg":"Server is initializing..."}
+{"level":"info","ts":1575504594.8518474,"caller":"sqlstore/supplier.go:222","msg":"Pinging SQL","database":"master"}
+{"level":"error","ts":1575504594.894582,"caller":"app/server_app_adapters.go:126","msg":"SiteURL must be set. Some features will operate incorrectly if the SiteURL is not set. See documentation for details: http://about.mattermost.com/default-site-url"}
+{"level":"info","ts":1575504594.8999448,"caller":"mlog/log.go:166","msg":"Starting up plugins"}
+{"level":"info","ts":1575504594.9000216,"caller":"app/plugin.go:199","msg":"Syncing plugins from the file store"}
+{"level":"info","ts":1575504594.9570577,"caller":"app/plugin.go:234","msg":"Found no files in plugins file store"}
+{"level":"info","ts":1575504601.0226247,"caller":"mlog/sugar.go:19","msg":"Ensuring Surveybot exists","plugin_id":"com.mattermost.nps"}
+{"level":"info","ts":1575504604.4920561,"caller":"app/server.go:216","msg":"Current version is 5.16.0 (5.16.3/Wed Nov  6 14:03:24 UTC 2019/533c7bb3e5847db423387abfcf983e3f947818eb/none)"}
+{"level":"info","ts":1575504604.492117,"caller":"app/server.go:217","msg":"Enterprise Enabled: false"}
+{"level":"info","ts":1575504604.49215,"caller":"app/server.go:219","msg":"Current working directory is /mattermost"}
+{"level":"info","ts":1575504604.4921632,"caller":"app/server.go:220","msg":"Loaded config","source":"file:///mattermost/config/config.json"}
+{"level":"info","ts":1575504604.5010912,"caller":"config/watcher.go:62","msg":"Config file watcher detected a change","path":"/mattermost/config/config.json"}
+{"level":"info","ts":1575504604.5011485,"caller":"config/watcher.go:62","msg":"Config file watcher detected a change","path":"/mattermost/config/config.json"}
+{"level":"info","ts":1575504604.533385,"caller":"sqlstore/post_store.go:1356","msg":"Post.Message has size restrictions","max_characters":16383,"max_bytes":65535}
+{"level":"error","ts":1575504604.6797931,"caller":"app/user.go:317","msg":"Couldn't save the user","error":"SqlUserStore.Save: An account with that username already exists., user_id=hwjkke76ypn1pfism3xfuafhde, pq: duplicate key value violates unique constraint \"users_username_key\""}
+{"level":"info","ts":1575504604.6798735,"caller":"app/server.go:329","msg":"Stopping Server..."}
+{"level":"info","ts":1575504604.6798909,"caller":"app/web_hub.go:120","msg":"stopping websocket hub connections"}
+{"level":"warn","ts":1575504604.6799114,"caller":"app/web_hub.go:125","msg":"We appear to have already sent the stop checking for deadlocks command"}
+{"level":"info","ts":1575504604.6802115,"caller":"app/plugin.go:267","msg":"Shutting down plugins"}
+{"level":"info","ts":1575504604.6818337,"caller":"sqlstore/supplier.go:917","msg":"Closing SqlStore"}
+{"level":"info","ts":1575504604.6819835,"caller":"app/server.go:367","msg":"Server stopped"}
+{"level":"info","ts":1575504605.2759762,"caller":"utils/i18n.go:83","msg":"Loaded system translations","for locale":"en","from locale":"/mattermost/i18n/en.json"}
+{"level":"info","ts":1575504605.2761307,"caller":"app/server_app_adapters.go:59","msg":"Server is initializing..."}
+{"level":"info","ts":1575504605.278264,"caller":"sqlstore/supplier.go:222","msg":"Pinging SQL","database":"master"}
+{"level":"error","ts":1575504605.325011,"caller":"app/server_app_adapters.go:126","msg":"SiteURL must be set. Some features will operate incorrectly if the SiteURL is not set. See documentation for details: http://about.mattermost.com/default-site-url"}
+{"level":"info","ts":1575504605.3296425,"caller":"mlog/log.go:166","msg":"Starting up plugins"}
+{"level":"info","ts":1575504605.3297138,"caller":"app/plugin.go:199","msg":"Syncing plugins from the file store"}
+{"level":"info","ts":1575504605.3801289,"caller":"app/plugin.go:234","msg":"Found no files in plugins file store"}
+{"level":"info","ts":1575504611.437659,"caller":"mlog/sugar.go:19","msg":"Ensuring Surveybot exists","plugin_id":"com.mattermost.nps"}
+{"level":"info","ts":1575504612.6011553,"caller":"app/server.go:216","msg":"Current version is 5.16.0 (5.16.3/Wed Nov  6 14:03:24 UTC 2019/533c7bb3e5847db423387abfcf983e3f947818eb/none)"}
+{"level":"info","ts":1575504612.6011899,"caller":"app/server.go:217","msg":"Enterprise Enabled: false"}
+{"level":"info","ts":1575504612.6012082,"caller":"app/server.go:219","msg":"Current working directory is /mattermost"}
+{"level":"info","ts":1575504612.601218,"caller":"app/server.go:220","msg":"Loaded config","source":"file:///mattermost/config/config.json"}
+{"level":"info","ts":1575504612.6096938,"caller":"config/watcher.go:62","msg":"Config file watcher detected a change","path":"/mattermost/config/config.json"}
+{"level":"info","ts":1575504612.6097496,"caller":"config/watcher.go:62","msg":"Config file watcher detected a change","path":"/mattermost/config/config.json"}
+{"level":"info","ts":1575504612.616894,"caller":"sqlstore/post_store.go:1356","msg":"Post.Message has size restrictions","max_characters":16383,"max_bytes":65535}
+{"level":"info","ts":1575504612.6985784,"caller":"app/server.go:329","msg":"Stopping Server..."}
+{"level":"info","ts":1575504612.6986234,"caller":"app/web_hub.go:120","msg":"stopping websocket hub connections"}
+{"level":"warn","ts":1575504612.6986399,"caller":"app/web_hub.go:125","msg":"We appear to have already sent the stop checking for deadlocks command"}
+{"level":"info","ts":1575504612.6990206,"caller":"app/plugin.go:267","msg":"Shutting down plugins"}
+{"level":"info","ts":1575504612.7005384,"caller":"sqlstore/supplier.go:917","msg":"Closing SqlStore"}
+{"level":"info","ts":1575504612.700665,"caller":"app/server.go:367","msg":"Server stopped"}
+{"level":"info","ts":1575504613.3126438,"caller":"utils/i18n.go:83","msg":"Loaded system translations","for locale":"en","from locale":"/mattermost/i18n/en.json"}
+{"level":"info","ts":1575504613.3127806,"caller":"app/server_app_adapters.go:59","msg":"Server is initializing..."}
+{"level":"info","ts":1575504613.3155909,"caller":"sqlstore/supplier.go:222","msg":"Pinging SQL","database":"master"}
+{"level":"error","ts":1575504613.3641934,"caller":"app/server_app_adapters.go:126","msg":"SiteURL must be set. Some features will operate incorrectly if the SiteURL is not set. See documentation for details: http://about.mattermost.com/default-site-url"}
+{"level":"info","ts":1575504613.369732,"caller":"mlog/log.go:166","msg":"Starting up plugins"}
+{"level":"info","ts":1575504613.3698046,"caller":"app/plugin.go:199","msg":"Syncing plugins from the file store"}
+{"level":"info","ts":1575504613.4152827,"caller":"app/plugin.go:234","msg":"Found no files in plugins file store"}
+{"level":"info","ts":1575504619.1260507,"caller":"mlog/sugar.go:19","msg":"Ensuring Surveybot exists","plugin_id":"com.mattermost.nps"}
+{"level":"info","ts":1575504620.280901,"caller":"app/server.go:216","msg":"Current version is 5.16.0 (5.16.3/Wed Nov  6 14:03:24 UTC 2019/533c7bb3e5847db423387abfcf983e3f947818eb/none)"}
+{"level":"info","ts":1575504620.2809484,"caller":"app/server.go:217","msg":"Enterprise Enabled: false"}
+{"level":"info","ts":1575504620.2809675,"caller":"app/server.go:219","msg":"Current working directory is /mattermost"}
+{"level":"info","ts":1575504620.2809775,"caller":"app/server.go:220","msg":"Loaded config","source":"file:///mattermost/config/config.json"}
+{"level":"info","ts":1575504620.2894309,"caller":"config/watcher.go:62","msg":"Config file watcher detected a change","path":"/mattermost/config/config.json"}
+{"level":"info","ts":1575504620.2894773,"caller":"config/watcher.go:62","msg":"Config file watcher detected a change","path":"/mattermost/config/config.json"}
+{"level":"info","ts":1575504620.2991393,"caller":"sqlstore/post_store.go:1356","msg":"Post.Message has size restrictions","max_characters":16383,"max_bytes":65535}
+{"level":"info","ts":1575504620.3656938,"caller":"app/server.go:329","msg":"Stopping Server..."}
+{"level":"info","ts":1575504620.3657503,"caller":"app/web_hub.go:120","msg":"stopping websocket hub connections"}
+{"level":"warn","ts":1575504620.3657837,"caller":"app/web_hub.go:125","msg":"We appear to have already sent the stop checking for deadlocks command"}
+{"level":"info","ts":1575504620.3661618,"caller":"app/plugin.go:267","msg":"Shutting down plugins"}
+{"level":"info","ts":1575504620.368038,"caller":"sqlstore/supplier.go:917","msg":"Closing SqlStore"}
+{"level":"info","ts":1575504620.3681996,"caller":"app/server.go:367","msg":"Server stopped"}
+{"level":"info","ts":1575504621.424456,"caller":"app/server.go:329","msg":"Stopping Server..."}
+{"level":"info","ts":1575504621.424515,"caller":"app/web_hub.go:120","msg":"stopping websocket hub connections"}
+{"level":"info","ts":1575504621.4248424,"caller":"app/plugin.go:267","msg":"Shutting down plugins"}
+{"level":"info","ts":1575504621.4506986,"caller":"jobs/workers.go:184","msg":"Stopped workers"}
+{"level":"info","ts":1575504621.4507432,"caller":"jobs/schedulers.go:139","msg":"Stopping schedulers."}
+{"level":"info","ts":1575504621.4507627,"caller":"jobs/schedulers.go:75","msg":"Schedulers stopped."}
+{"level":"info","ts":1575504621.4507768,"caller":"sqlstore/supplier.go:917","msg":"Closing SqlStore"}
+{"level":"info","ts":1575504621.4529188,"caller":"app/server.go:367","msg":"Server stopped"}
+{"level":"info","ts":1575504635.3982706,"caller":"utils/i18n.go:83","msg":"Loaded system translations","for locale":"en","from locale":"/mattermost/i18n/en.json"}
+{"level":"info","ts":1575504635.3983836,"caller":"app/server_app_adapters.go:59","msg":"Server is initializing..."}
+{"level":"info","ts":1575504635.4002087,"caller":"sqlstore/supplier.go:222","msg":"Pinging SQL","database":"master"}
+{"level":"error","ts":1575504635.4014869,"caller":"sqlstore/supplier.go:234","msg":"Failed to ping DB","error":"dial tcp 172.24.0.4:5432: connect: connection refused","retrying in seconds":10}
+{"level":"info","ts":1575504645.4017162,"caller":"sqlstore/supplier.go:222","msg":"Pinging SQL","database":"master"}
+{"level":"error","ts":1575504645.4605503,"caller":"app/server_app_adapters.go:126","msg":"SiteURL must be set. Some features will operate incorrectly if the SiteURL is not set. See documentation for details: http://about.mattermost.com/default-site-url"}
+{"level":"info","ts":1575504645.4707403,"caller":"mlog/log.go:166","msg":"Starting up plugins"}
+{"level":"info","ts":1575504645.4708068,"caller":"app/plugin.go:199","msg":"Syncing plugins from the file store"}
+{"level":"info","ts":1575504645.5153708,"caller":"app/plugin.go:234","msg":"Found no files in plugins file store"}
+{"level":"info","ts":1575504651.335033,"caller":"mlog/sugar.go:19","msg":"Ensuring Surveybot exists","plugin_id":"com.mattermost.nps"}
+{"level":"info","ts":1575504652.4890656,"caller":"app/server.go:216","msg":"Current version is 5.16.0 (5.16.3/Wed Nov  6 14:03:24 UTC 2019/533c7bb3e5847db423387abfcf983e3f947818eb/none)"}
+{"level":"info","ts":1575504652.4891112,"caller":"app/server.go:217","msg":"Enterprise Enabled: false"}
+{"level":"info","ts":1575504652.4891515,"caller":"app/server.go:219","msg":"Current working directory is /mattermost"}
+{"level":"info","ts":1575504652.4891639,"caller":"app/server.go:220","msg":"Loaded config","source":"file:///mattermost/config/config.json"}
+{"level":"info","ts":1575504652.5311308,"caller":"sqlstore/post_store.go:1356","msg":"Post.Message has size restrictions","max_characters":16383,"max_bytes":65535}
+{"level":"info","ts":1575504652.5777054,"caller":"jobs/workers.go:68","msg":"Starting workers"}
+{"level":"info","ts":1575504652.5777826,"caller":"app/server.go:423","msg":"Starting Server..."}
+{"level":"info","ts":1575504652.5778,"caller":"app/server.go:449","msg":"RateLimiter is enabled"}
+{"level":"info","ts":1575504652.5780668,"caller":"app/server.go:489","msg":"Server is listening on [::]:8000"}
+{"level":"info","ts":1575504652.5781848,"caller":"jobs/schedulers.go:72","msg":"Starting schedulers."}
+{"level":"info","ts":1575504652.5906732,"caller":"app/web_hub.go:75","msg":"Starting 8 websocket hubs"}
+{"level":"info","ts":1575504656.0968225,"caller":"utils/i18n.go:83","msg":"Loaded system translations","for locale":"en","from locale":"/mattermost/i18n/en.json"}
+{"level":"info","ts":1575504656.0969853,"caller":"app/server_app_adapters.go:59","msg":"Server is initializing..."}
+{"level":"info","ts":1575504656.1017,"caller":"sqlstore/supplier.go:222","msg":"Pinging SQL","database":"master"}
+{"level":"error","ts":1575504656.1476867,"caller":"app/server_app_adapters.go:126","msg":"SiteURL must be set. Some features will operate incorrectly if the SiteURL is not set. See documentation for details: http://about.mattermost.com/default-site-url"}
+{"level":"info","ts":1575504656.1512592,"caller":"mlog/log.go:166","msg":"Starting up plugins"}
+{"level":"info","ts":1575504656.1513147,"caller":"app/plugin.go:199","msg":"Syncing plugins from the file store"}
+{"level":"info","ts":1575504656.1932187,"caller":"app/plugin.go:234","msg":"Found no files in plugins file store"}
+{"level":"info","ts":1575504661.955733,"caller":"mlog/sugar.go:19","msg":"Ensuring Surveybot exists","plugin_id":"com.mattermost.nps"}
+{"level":"info","ts":1575504663.8793402,"caller":"app/server.go:216","msg":"Current version is 5.16.0 (5.16.3/Wed Nov  6 14:03:24 UTC 2019/533c7bb3e5847db423387abfcf983e3f947818eb/none)"}
+{"level":"info","ts":1575504663.8793845,"caller":"app/server.go:217","msg":"Enterprise Enabled: false"}
+{"level":"info","ts":1575504663.8794076,"caller":"app/server.go:219","msg":"Current working directory is /mattermost"}
+{"level":"info","ts":1575504663.8794255,"caller":"app/server.go:220","msg":"Loaded config","source":"file:///mattermost/config/config.json"}
+{"level":"info","ts":1575504663.8885517,"caller":"config/watcher.go:62","msg":"Config file watcher detected a change","path":"/mattermost/config/config.json"}
+{"level":"info","ts":1575504663.8885877,"caller":"config/watcher.go:62","msg":"Config file watcher detected a change","path":"/mattermost/config/config.json"}
+{"level":"info","ts":1575504663.896994,"caller":"sqlstore/post_store.go:1356","msg":"Post.Message has size restrictions","max_characters":16383,"max_bytes":65535}
+{"level":"error","ts":1575504664.0503798,"caller":"app/user.go:317","msg":"Couldn't save the user","error":"SqlUserStore.Save: An account with that username already exists., user_id=35s3acmw5fdrif7pzfmt33imma, pq: duplicate key value violates unique constraint \"users_username_key\""}
+{"level":"info","ts":1575504664.0504425,"caller":"app/server.go:329","msg":"Stopping Server..."}
+{"level":"info","ts":1575504664.05046,"caller":"app/web_hub.go:120","msg":"stopping websocket hub connections"}
+{"level":"warn","ts":1575504664.0504816,"caller":"app/web_hub.go:125","msg":"We appear to have already sent the stop checking for deadlocks command"}
+{"level":"info","ts":1575504664.0508575,"caller":"app/plugin.go:267","msg":"Shutting down plugins"}
+{"level":"info","ts":1575504664.0522144,"caller":"sqlstore/supplier.go:917","msg":"Closing SqlStore"}
+{"level":"info","ts":1575504664.0523229,"caller":"app/server.go:367","msg":"Server stopped"}
+{"level":"info","ts":1575504664.735286,"caller":"utils/i18n.go:83","msg":"Loaded system translations","for locale":"en","from locale":"/mattermost/i18n/en.json"}
+{"level":"info","ts":1575504664.7354329,"caller":"app/server_app_adapters.go:59","msg":"Server is initializing..."}
+{"level":"info","ts":1575504664.7381067,"caller":"sqlstore/supplier.go:222","msg":"Pinging SQL","database":"master"}
+{"level":"error","ts":1575504664.794336,"caller":"app/server_app_adapters.go:126","msg":"SiteURL must be set. Some features will operate incorrectly if the SiteURL is not set. See documentation for details: http://about.mattermost.com/default-site-url"}
+{"level":"info","ts":1575504664.8004332,"caller":"mlog/log.go:166","msg":"Starting up plugins"}
+{"level":"info","ts":1575504664.8005054,"caller":"app/plugin.go:199","msg":"Syncing plugins from the file store"}
+{"level":"info","ts":1575504664.868213,"caller":"app/plugin.go:234","msg":"Found no files in plugins file store"}
+{"level":"info","ts":1575504670.9152417,"caller":"mlog/sugar.go:19","msg":"Ensuring Surveybot exists","plugin_id":"com.mattermost.nps"}
+{"level":"info","ts":1575504672.045835,"caller":"app/server.go:216","msg":"Current version is 5.16.0 (5.16.3/Wed Nov  6 14:03:24 UTC 2019/533c7bb3e5847db423387abfcf983e3f947818eb/none)"}
+{"level":"info","ts":1575504672.0458884,"caller":"app/server.go:217","msg":"Enterprise Enabled: false"}
+{"level":"info","ts":1575504672.0459146,"caller":"app/server.go:219","msg":"Current working directory is /mattermost"}
+{"level":"info","ts":1575504672.0459392,"caller":"app/server.go:220","msg":"Loaded config","source":"file:///mattermost/config/config.json"}
+{"level":"info","ts":1575504672.0568957,"caller":"config/watcher.go:62","msg":"Config file watcher detected a change","path":"/mattermost/config/config.json"}
+{"level":"info","ts":1575504672.056942,"caller":"config/watcher.go:62","msg":"Config file watcher detected a change","path":"/mattermost/config/config.json"}
+{"level":"info","ts":1575504672.0650876,"caller":"sqlstore/post_store.go:1356","msg":"Post.Message has size restrictions","max_characters":16383,"max_bytes":65535}
+{"level":"info","ts":1575504672.143827,"caller":"app/server.go:329","msg":"Stopping Server..."}
+{"level":"info","ts":1575504672.1438758,"caller":"app/web_hub.go:120","msg":"stopping websocket hub connections"}
+{"level":"warn","ts":1575504672.1439128,"caller":"app/web_hub.go:125","msg":"We appear to have already sent the stop checking for deadlocks command"}
+{"level":"info","ts":1575504672.1443233,"caller":"app/plugin.go:267","msg":"Shutting down plugins"}
+{"level":"info","ts":1575504672.146084,"caller":"sqlstore/supplier.go:917","msg":"Closing SqlStore"}
+{"level":"info","ts":1575504672.1462638,"caller":"app/server.go:367","msg":"Server stopped"}
+{"level":"info","ts":1575504672.7706494,"caller":"utils/i18n.go:83","msg":"Loaded system translations","for locale":"en","from locale":"/mattermost/i18n/en.json"}
+{"level":"info","ts":1575504672.7708068,"caller":"app/server_app_adapters.go:59","msg":"Server is initializing..."}
+{"level":"info","ts":1575504672.77335,"caller":"sqlstore/supplier.go:222","msg":"Pinging SQL","database":"master"}
+{"level":"error","ts":1575504672.8171008,"caller":"app/server_app_adapters.go:126","msg":"SiteURL must be set. Some features will operate incorrectly if the SiteURL is not set. See documentation for details: http://about.mattermost.com/default-site-url"}
+{"level":"info","ts":1575504672.821925,"caller":"mlog/log.go:166","msg":"Starting up plugins"}
+{"level":"info","ts":1575504672.8219924,"caller":"app/plugin.go:199","msg":"Syncing plugins from the file store"}
+{"level":"info","ts":1575504672.8659427,"caller":"app/plugin.go:234","msg":"Found no files in plugins file store"}
+{"level":"info","ts":1575504678.611425,"caller":"mlog/sugar.go:19","msg":"Ensuring Surveybot exists","plugin_id":"com.mattermost.nps"}
+{"level":"info","ts":1575504679.7242262,"caller":"app/server.go:216","msg":"Current version is 5.16.0 (5.16.3/Wed Nov  6 14:03:24 UTC 2019/533c7bb3e5847db423387abfcf983e3f947818eb/none)"}
+{"level":"info","ts":1575504679.72427,"caller":"app/server.go:217","msg":"Enterprise Enabled: false"}
+{"level":"info","ts":1575504679.7242885,"caller":"app/server.go:219","msg":"Current working directory is /mattermost"}
+{"level":"info","ts":1575504679.724298,"caller":"app/server.go:220","msg":"Loaded config","source":"file:///mattermost/config/config.json"}
+{"level":"info","ts":1575504679.7327065,"caller":"config/watcher.go:62","msg":"Config file watcher detected a change","path":"/mattermost/config/config.json"}
+{"level":"info","ts":1575504679.7327623,"caller":"config/watcher.go:62","msg":"Config file watcher detected a change","path":"/mattermost/config/config.json"}
+{"level":"info","ts":1575504679.742142,"caller":"sqlstore/post_store.go:1356","msg":"Post.Message has size restrictions","max_characters":16383,"max_bytes":65535}
+{"level":"info","ts":1575504679.8080213,"caller":"app/server.go:329","msg":"Stopping Server..."}
+{"level":"info","ts":1575504679.8080778,"caller":"app/web_hub.go:120","msg":"stopping websocket hub connections"}
+{"level":"warn","ts":1575504679.808103,"caller":"app/web_hub.go:125","msg":"We appear to have already sent the stop checking for deadlocks command"}
+{"level":"info","ts":1575504679.8084834,"caller":"app/plugin.go:267","msg":"Shutting down plugins"}
+{"level":"info","ts":1575504679.810363,"caller":"sqlstore/supplier.go:917","msg":"Closing SqlStore"}
+{"level":"info","ts":1575504679.8105218,"caller":"app/server.go:367","msg":"Server stopped"}
+{"level":"info","ts":1575504680.84586,"caller":"app/server.go:329","msg":"Stopping Server..."}
+{"level":"info","ts":1575504680.84593,"caller":"app/web_hub.go:120","msg":"stopping websocket hub connections"}
+{"level":"info","ts":1575504680.8464777,"caller":"app/plugin.go:267","msg":"Shutting down plugins"}
+{"level":"info","ts":1575504680.8640382,"caller":"jobs/workers.go:184","msg":"Stopped workers"}
+{"level":"info","ts":1575504680.8640864,"caller":"jobs/schedulers.go:139","msg":"Stopping schedulers."}
+{"level":"info","ts":1575504680.8641093,"caller":"jobs/schedulers.go:75","msg":"Schedulers stopped."}
+{"level":"info","ts":1575504680.8641295,"caller":"sqlstore/supplier.go:917","msg":"Closing SqlStore"}
+{"level":"info","ts":1575504680.8661456,"caller":"app/server.go:367","msg":"Server stopped"}
+{"level":"info","ts":1575504695.302987,"caller":"utils/i18n.go:83","msg":"Loaded system translations","for locale":"en","from locale":"/mattermost/i18n/en.json"}
+{"level":"info","ts":1575504695.3031034,"caller":"app/server_app_adapters.go:59","msg":"Server is initializing..."}
+{"level":"info","ts":1575504695.3049965,"caller":"sqlstore/supplier.go:222","msg":"Pinging SQL","database":"master"}
+{"level":"error","ts":1575504695.323209,"caller":"sqlstore/supplier.go:234","msg":"Failed to ping DB","error":"pq: the database system is starting up","retrying in seconds":10}
+{"level":"info","ts":1575504705.323449,"caller":"sqlstore/supplier.go:222","msg":"Pinging SQL","database":"master"}
+{"level":"error","ts":1575504705.3782656,"caller":"app/server_app_adapters.go:126","msg":"SiteURL must be set. Some features will operate incorrectly if the SiteURL is not set. See documentation for details: http://about.mattermost.com/default-site-url"}
+{"level":"info","ts":1575504705.3818507,"caller":"mlog/log.go:166","msg":"Starting up plugins"}
+{"level":"info","ts":1575504705.3819113,"caller":"app/plugin.go:199","msg":"Syncing plugins from the file store"}
+{"level":"info","ts":1575504705.4227395,"caller":"app/plugin.go:234","msg":"Found no files in plugins file store"}
+{"level":"info","ts":1575504711.2134147,"caller":"mlog/sugar.go:19","msg":"Ensuring Surveybot exists","plugin_id":"com.mattermost.nps"}
+{"level":"info","ts":1575504712.360189,"caller":"app/server.go:216","msg":"Current version is 5.16.0 (5.16.3/Wed Nov  6 14:03:24 UTC 2019/533c7bb3e5847db423387abfcf983e3f947818eb/none)"}
+{"level":"info","ts":1575504712.3602264,"caller":"app/server.go:217","msg":"Enterprise Enabled: false"}
+{"level":"info","ts":1575504712.360246,"caller":"app/server.go:219","msg":"Current working directory is /mattermost"}
+{"level":"info","ts":1575504712.3602862,"caller":"app/server.go:220","msg":"Loaded config","source":"file:///mattermost/config/config.json"}
+{"level":"info","ts":1575504712.3965337,"caller":"sqlstore/post_store.go:1356","msg":"Post.Message has size restrictions","max_characters":16383,"max_bytes":65535}
+{"level":"info","ts":1575504712.447207,"caller":"jobs/workers.go:68","msg":"Starting workers"}
+{"level":"info","ts":1575504712.4473054,"caller":"app/server.go:423","msg":"Starting Server..."}
+{"level":"info","ts":1575504712.447333,"caller":"app/server.go:449","msg":"RateLimiter is enabled"}
+{"level":"info","ts":1575504712.447632,"caller":"app/server.go:489","msg":"Server is listening on [::]:8000"}
+{"level":"info","ts":1575504712.4501529,"caller":"jobs/schedulers.go:72","msg":"Starting schedulers."}
+{"level":"info","ts":1575504712.4610844,"caller":"app/web_hub.go:75","msg":"Starting 8 websocket hubs"}
+{"level":"info","ts":1575504715.7292945,"caller":"utils/i18n.go:83","msg":"Loaded system translations","for locale":"en","from locale":"/mattermost/i18n/en.json"}
+{"level":"info","ts":1575504715.7294374,"caller":"app/server_app_adapters.go:59","msg":"Server is initializing..."}
+{"level":"info","ts":1575504715.731682,"caller":"sqlstore/supplier.go:222","msg":"Pinging SQL","database":"master"}
+{"level":"error","ts":1575504715.7745912,"caller":"app/server_app_adapters.go:126","msg":"SiteURL must be set. Some features will operate incorrectly if the SiteURL is not set. See documentation for details: http://about.mattermost.com/default-site-url"}
+{"level":"info","ts":1575504715.7809153,"caller":"mlog/log.go:166","msg":"Starting up plugins"}
+{"level":"info","ts":1575504715.7809994,"caller":"app/plugin.go:199","msg":"Syncing plugins from the file store"}
+{"level":"info","ts":1575504715.8314857,"caller":"app/plugin.go:234","msg":"Found no files in plugins file store"}
+{"level":"info","ts":1575504721.5670993,"caller":"mlog/sugar.go:19","msg":"Ensuring Surveybot exists","plugin_id":"com.mattermost.nps"}
+{"level":"info","ts":1575504722.7019298,"caller":"app/server.go:216","msg":"Current version is 5.16.0 (5.16.3/Wed Nov  6 14:03:24 UTC 2019/533c7bb3e5847db423387abfcf983e3f947818eb/none)"}
+{"level":"info","ts":1575504722.7019687,"caller":"app/server.go:217","msg":"Enterprise Enabled: false"}
+{"level":"info","ts":1575504722.7019892,"caller":"app/server.go:219","msg":"Current working directory is /mattermost"}
+{"level":"info","ts":1575504722.7020001,"caller":"app/server.go:220","msg":"Loaded config","source":"file:///mattermost/config/config.json"}
+{"level":"info","ts":1575504722.7104576,"caller":"config/watcher.go:62","msg":"Config file watcher detected a change","path":"/mattermost/config/config.json"}
+{"level":"info","ts":1575504722.7104976,"caller":"config/watcher.go:62","msg":"Config file watcher detected a change","path":"/mattermost/config/config.json"}
+{"level":"info","ts":1575504722.7185564,"caller":"sqlstore/post_store.go:1356","msg":"Post.Message has size restrictions","max_characters":16383,"max_bytes":65535}
+{"level":"error","ts":1575504722.8825777,"caller":"app/user.go:317","msg":"Couldn't save the user","error":"SqlUserStore.Save: An account with that username already exists., user_id=8whrcp5sajyy38zdafh41ku84y, pq: duplicate key value violates unique constraint \"users_username_key\""}
+{"level":"info","ts":1575504722.882643,"caller":"app/server.go:329","msg":"Stopping Server..."}
+{"level":"info","ts":1575504722.8826573,"caller":"app/web_hub.go:120","msg":"stopping websocket hub connections"}
+{"level":"warn","ts":1575504722.882684,"caller":"app/web_hub.go:125","msg":"We appear to have already sent the stop checking for deadlocks command"}
+{"level":"info","ts":1575504722.8829987,"caller":"app/plugin.go:267","msg":"Shutting down plugins"}
+{"level":"info","ts":1575504722.884651,"caller":"sqlstore/supplier.go:917","msg":"Closing SqlStore"}
+{"level":"info","ts":1575504722.8847795,"caller":"app/server.go:367","msg":"Server stopped"}
+{"level":"info","ts":1575504724.0375793,"caller":"utils/i18n.go:83","msg":"Loaded system translations","for locale":"en","from locale":"/mattermost/i18n/en.json"}
+{"level":"info","ts":1575504724.0377362,"caller":"app/server_app_adapters.go:59","msg":"Server is initializing..."}
+{"level":"info","ts":1575504724.0400238,"caller":"sqlstore/supplier.go:222","msg":"Pinging SQL","database":"master"}
+{"level":"error","ts":1575504724.0937228,"caller":"app/server_app_adapters.go:126","msg":"SiteURL must be set. Some features will operate incorrectly if the SiteURL is not set. See documentation for details: http://about.mattermost.com/default-site-url"}
+{"level":"info","ts":1575504724.1066337,"caller":"mlog/log.go:166","msg":"Starting up plugins"}
+{"level":"info","ts":1575504724.10672,"caller":"app/plugin.go:199","msg":"Syncing plugins from the file store"}
+{"level":"info","ts":1575504724.1682975,"caller":"app/plugin.go:234","msg":"Found no files in plugins file store"}
+{"level":"info","ts":1575504730.2337105,"caller":"mlog/sugar.go:19","msg":"Ensuring Surveybot exists","plugin_id":"com.mattermost.nps"}
+{"level":"info","ts":1575504731.3587778,"caller":"app/server.go:216","msg":"Current version is 5.16.0 (5.16.3/Wed Nov  6 14:03:24 UTC 2019/533c7bb3e5847db423387abfcf983e3f947818eb/none)"}
+{"level":"info","ts":1575504731.3588152,"caller":"app/server.go:217","msg":"Enterprise Enabled: false"}
+{"level":"info","ts":1575504731.3588355,"caller":"app/server.go:219","msg":"Current working directory is /mattermost"}
+{"level":"info","ts":1575504731.3588521,"caller":"app/server.go:220","msg":"Loaded config","source":"file:///mattermost/config/config.json"}
+{"level":"info","ts":1575504731.3676717,"caller":"config/watcher.go:62","msg":"Config file watcher detected a change","path":"/mattermost/config/config.json"}
+{"level":"info","ts":1575504731.3677158,"caller":"config/watcher.go:62","msg":"Config file watcher detected a change","path":"/mattermost/config/config.json"}
+{"level":"info","ts":1575504731.3759458,"caller":"sqlstore/post_store.go:1356","msg":"Post.Message has size restrictions","max_characters":16383,"max_bytes":65535}
+{"level":"info","ts":1575504731.4529617,"caller":"app/server.go:329","msg":"Stopping Server..."}
+{"level":"info","ts":1575504731.4530056,"caller":"app/web_hub.go:120","msg":"stopping websocket hub connections"}
+{"level":"warn","ts":1575504731.453022,"caller":"app/web_hub.go:125","msg":"We appear to have already sent the stop checking for deadlocks command"}
+{"level":"info","ts":1575504731.4533498,"caller":"app/plugin.go:267","msg":"Shutting down plugins"}
+{"level":"info","ts":1575504731.4548595,"caller":"sqlstore/supplier.go:917","msg":"Closing SqlStore"}
+{"level":"info","ts":1575504731.454988,"caller":"app/server.go:367","msg":"Server stopped"}
+{"level":"info","ts":1575504732.1468291,"caller":"utils/i18n.go:83","msg":"Loaded system translations","for locale":"en","from locale":"/mattermost/i18n/en.json"}
+{"level":"info","ts":1575504732.1469746,"caller":"app/server_app_adapters.go:59","msg":"Server is initializing..."}
+{"level":"info","ts":1575504732.1491065,"caller":"sqlstore/supplier.go:222","msg":"Pinging SQL","database":"master"}
+{"level":"error","ts":1575504732.206157,"caller":"app/server_app_adapters.go:126","msg":"SiteURL must be set. Some features will operate incorrectly if the SiteURL is not set. See documentation for details: http://about.mattermost.com/default-site-url"}
+{"level":"info","ts":1575504732.2122731,"caller":"mlog/log.go:166","msg":"Starting up plugins"}
+{"level":"info","ts":1575504732.2123444,"caller":"app/plugin.go:199","msg":"Syncing plugins from the file store"}
+{"level":"info","ts":1575504732.2666938,"caller":"app/plugin.go:234","msg":"Found no files in plugins file store"}
+{"level":"info","ts":1575504738.1899867,"caller":"mlog/sugar.go:19","msg":"Ensuring Surveybot exists","plugin_id":"com.mattermost.nps"}
+{"level":"info","ts":1575504739.33049,"caller":"app/server.go:216","msg":"Current version is 5.16.0 (5.16.3/Wed Nov  6 14:03:24 UTC 2019/533c7bb3e5847db423387abfcf983e3f947818eb/none)"}
+{"level":"info","ts":1575504739.3305244,"caller":"app/server.go:217","msg":"Enterprise Enabled: false"}
+{"level":"info","ts":1575504739.3305533,"caller":"app/server.go:219","msg":"Current working directory is /mattermost"}
+{"level":"info","ts":1575504739.3305829,"caller":"app/server.go:220","msg":"Loaded config","source":"file:///mattermost/config/config.json"}
+{"level":"info","ts":1575504739.3390906,"caller":"config/watcher.go:62","msg":"Config file watcher detected a change","path":"/mattermost/config/config.json"}
+{"level":"info","ts":1575504739.3391418,"caller":"config/watcher.go:62","msg":"Config file watcher detected a change","path":"/mattermost/config/config.json"}
+{"level":"info","ts":1575504739.3472614,"caller":"sqlstore/post_store.go:1356","msg":"Post.Message has size restrictions","max_characters":16383,"max_bytes":65535}
+{"level":"info","ts":1575504739.4158282,"caller":"app/server.go:329","msg":"Stopping Server..."}
+{"level":"info","ts":1575504739.4158762,"caller":"app/web_hub.go:120","msg":"stopping websocket hub connections"}
+{"level":"warn","ts":1575504739.415898,"caller":"app/web_hub.go:125","msg":"We appear to have already sent the stop checking for deadlocks command"}
+{"level":"info","ts":1575504739.4162416,"caller":"app/plugin.go:267","msg":"Shutting down plugins"}
+{"level":"info","ts":1575504739.4179049,"caller":"sqlstore/supplier.go:917","msg":"Closing SqlStore"}
+{"level":"info","ts":1575504739.418034,"caller":"app/server.go:367","msg":"Server stopped"}
+{"level":"info","ts":1575504740.4987588,"caller":"app/server.go:329","msg":"Stopping Server..."}
+{"level":"info","ts":1575504740.4988065,"caller":"app/web_hub.go:120","msg":"stopping websocket hub connections"}
+{"level":"info","ts":1575504740.5014513,"caller":"app/plugin.go:267","msg":"Shutting down plugins"}
+{"level":"info","ts":1575504740.5173345,"caller":"jobs/workers.go:184","msg":"Stopped workers"}
+{"level":"info","ts":1575504740.517374,"caller":"jobs/schedulers.go:139","msg":"Stopping schedulers."}
+{"level":"info","ts":1575504740.5173886,"caller":"jobs/schedulers.go:75","msg":"Schedulers stopped."}
+{"level":"info","ts":1575504740.5174026,"caller":"sqlstore/supplier.go:917","msg":"Closing SqlStore"}
+{"level":"info","ts":1575504740.5195236,"caller":"app/server.go:367","msg":"Server stopped"}

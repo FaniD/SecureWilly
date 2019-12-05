@@ -1,11 +1,11 @@
 version: "3"
 
 services:
-
   db:
-    container_name: matterdb
+    container_name: db
+    security_opt:
+      - "apparmor:db_profile"
     image: matterdb
-    build: db
     read_only: true
     restart: unless-stopped
     volumes:
@@ -15,16 +15,11 @@ services:
       - POSTGRES_USER=mmuser
       - POSTGRES_PASSWORD=mmuser_password
       - POSTGRES_DB=mattermost
-
   app:
-    container_name: matterapp
+    container_name: app
+    security_opt:
+      - "apparmor:app_profile"
     image: matterapp
-    build: 
-      context: app
-      args:
-        - edition=team
-        - PUID=1000
-        - PGID=1000
     restart: unless-stopped
     volumes:
       - /home/fanilicious/Projects/SecureWilly/MatterMost/volumes/app/mattermost/config:/mattermost/config:rw
@@ -38,11 +33,11 @@ services:
       - MM_PASSWORD=mmuser_password
       - MM_DBNAME=mattermost
       - MM_SQLSETTINGS_DATASOURCE=postgres://mmuser:mmuser_password@db:5432/mattermost?sslmode=disable&connect_timeout=10
-
   web:
-    container_name: matterweb
+    container_name: web
+    security_opt:
+      - "apparmor:web_profile"
     image: matterweb
-    build: web
     ports:
       - "80:80"
       - "443:443"

@@ -1,0 +1,28 @@
+{
+    "id": "com.mattermost.nps",
+    "name": "User Satisfaction Surveys",
+    "description": "This plugin sends quarterly user satisfaction surveys to gather feedback and help improve Mattermost.",
+    "version": "1.0.3",
+    "min_server_version": "5.14.0",
+    "server": {
+        "executables": {
+            "linux-amd64": "server/dist/plugin-linux-amd64",
+            "darwin-amd64": "server/dist/plugin-darwin-amd64",
+            "windows-amd64": "server/dist/plugin-windows-amd64.exe"
+        }
+    },
+    "webapp": {
+        "bundle_path": "webapp/dist/main.js"
+    },
+    "settings_schema": {
+        "header": "Mattermost sends user satisfaction surveys to gather feedback and improve product quality. [Learn more](!https://mattermost.com/pl/default-nps) about user satisfaction surveys.",
+        "footer": "",
+        "settings": [{
+            "key": "EnableSurvey",
+            "display_name": "Enable User Satisfaction Survey",
+            "type": "bool",
+            "help_text": "When true, a [user satisfaction survey](!https://mattermost.com/pl/default-nps) will be sent to all users quarterly. The survey results will be used by Mattermost, Inc. to improve the quality and user experience of the product. Please refer to our [privacy policy](!https://about.mattermost.com/default-privacy-policy) for more information on the collection and use of information received through our services.",
+            "default": true
+        }]
+    }
+}

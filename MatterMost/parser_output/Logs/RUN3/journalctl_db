@@ -1,0 +1,1 @@
+Dec 05 02:08:26 Fani-ThinkPad audit[411055]: AVC apparmor="ALLOWED" operation="capable" profile="db_profile" pid=411055 comm="su-exec" capability=6  capname="setgid"
