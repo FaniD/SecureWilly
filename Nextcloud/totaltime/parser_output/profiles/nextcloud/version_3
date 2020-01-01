@@ -1,0 +1,23 @@
+#include <tunables/global>
+
+profile nextcloud_profile flags=(attach_disconnected,mediate_deleted) {
+	signal (receive) set=(usr2) peer=nextcloud_profile,
+	capability dac_override,
+	signal (send) set=(usr2) peer=nextcloud_profile,
+	/var/www/html/data/* rw,
+	deny ptrace (readby, tracedby), #Confront container breakout attacks
+	mount /var/lib/docker/volumes/totaltime_nextcloud_/_data -> /var/www/html, #Bind host volume to docker container volume
+	deny umount /var/www/html, #Disallow anybody that wants to break this mountpoint
+	capability net_bind_service,  #This capability is needed to bind a socket to well-known ports
+	capability chown,
+	capability fowner,
+	file,  #Allows access to containers filesystem
+	/var/lib/docker/* r, #Access to layers of filesystem
+	signal (receive) set=(kill) peer=unconfined,
+	deny remount /var/www/html/data, #Disallow anybody that wants to remount this mountpoint
+	mount /home/fanilicious/Projects/SecureWilly/Nextcloud/totaltime/data -> /var/www/html/data, #Bind host volume to docker container volume
+	/var/www/html/* rw,
+	deny umount /var/www/html/data, #Disallow anybody that wants to break this mountpoint
+	deny remount /var/www/html, #Disallow anybody that wants to remount this mountpoint
+	network tcp,  #Allowing networking with ports forwarding
+}

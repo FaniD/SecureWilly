@@ -1,0 +1,2 @@
+Jan 01 22:56:09 Fani-ThinkPad audit[1068062]: AVC apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=1068062 comm="apache2" capability=6  capname="setgid"
+Jan 01 22:56:09 Fani-ThinkPad audit[1068063]: AVC apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=1068063 comm="apache2" capability=6  capname="setgid"

@@ -1,0 +1,541 @@
+-- Logs begin at Wed 2020-01-01 22:48:50 EET, end at Wed 2020-01-01 22:55:57 EET. --
+Jan 01 22:48:50 Fani-ThinkPad systemd-journald[271]: System Journal (/var/log/journal/c2cde6996eaf4384b722c3ff79432335) is 16.0M, max 4.0G, 3.9G free.
+Jan 01 22:48:51 Fani-ThinkPad sudo[1035639]: pam_unix(sudo:session): session closed for user root
+Jan 01 22:48:51 Fani-ThinkPad audit[1035639]: USER_END pid=1035639 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:session_close grantors=pam_limits,pam_unix,pam_permit acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/0 res=success'
+Jan 01 22:48:51 Fani-ThinkPad audit[1035639]: CRED_DISP pid=1035639 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:setcred grantors=pam_unix,pam_permit,pam_env acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/0 res=success'
+Jan 01 22:48:51 Fani-ThinkPad audit[1035643]: USER_ACCT pid=1035643 uid=1000 auid=1000 ses=3 subj==unconfined msg='op=PAM:accounting grantors=pam_unix,pam_permit,pam_time acct="fanilicious" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/0 res=success'
+Jan 01 22:48:51 Fani-ThinkPad sudo[1035643]: fanilicious : TTY=pts/0 ; PWD=/home/fanilicious/Projects/SecureWilly/Nextcloud/totaltime/Parser ; USER=root ; COMMAND=/usr/bin/journalctl --vacuum-time=1s
+Jan 01 22:48:51 Fani-ThinkPad audit[1035643]: CRED_REFR pid=1035643 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:setcred grantors=pam_unix,pam_permit,pam_env acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/0 res=success'
+Jan 01 22:48:51 Fani-ThinkPad sudo[1035643]: pam_unix(sudo:session): session opened for user root by (uid=0)
+Jan 01 22:48:51 Fani-ThinkPad audit[1035643]: USER_START pid=1035643 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:session_open grantors=pam_limits,pam_unix,pam_permit acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/0 res=success'
+Jan 01 22:48:51 Fani-ThinkPad sudo[1035643]: pam_unix(sudo:session): session closed for user root
+Jan 01 22:48:51 Fani-ThinkPad audit[1035643]: USER_END pid=1035643 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:session_close grantors=pam_limits,pam_unix,pam_permit acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/0 res=success'
+Jan 01 22:48:51 Fani-ThinkPad audit[1035643]: CRED_DISP pid=1035643 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:setcred grantors=pam_unix,pam_permit,pam_env acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/0 res=success'
+Jan 01 22:48:51 Fani-ThinkPad audit[1035646]: USER_ACCT pid=1035646 uid=1000 auid=1000 ses=3 subj==unconfined msg='op=PAM:accounting grantors=pam_unix,pam_permit,pam_time acct="fanilicious" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/0 res=success'
+Jan 01 22:48:51 Fani-ThinkPad sudo[1035646]: fanilicious : TTY=pts/0 ; PWD=/home/fanilicious/Projects/SecureWilly/Nextcloud/totaltime/Parser ; USER=root ; COMMAND=/usr/bin/tee /var/log/audit/audit.log
+Jan 01 22:48:51 Fani-ThinkPad audit[1035646]: CRED_REFR pid=1035646 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:setcred grantors=pam_unix,pam_permit,pam_env acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/0 res=success'
+Jan 01 22:48:51 Fani-ThinkPad sudo[1035646]: pam_unix(sudo:session): session opened for user root by (uid=0)
+Jan 01 22:48:51 Fani-ThinkPad audit[1035646]: USER_START pid=1035646 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:session_open grantors=pam_limits,pam_unix,pam_permit acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/0 res=success'
+Jan 01 22:48:51 Fani-ThinkPad sudo[1035646]: pam_unix(sudo:session): session closed for user root
+Jan 01 22:48:51 Fani-ThinkPad audit[1035646]: USER_END pid=1035646 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:session_close grantors=pam_limits,pam_unix,pam_permit acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/0 res=success'
+Jan 01 22:48:51 Fani-ThinkPad audit[1035646]: CRED_DISP pid=1035646 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:setcred grantors=pam_unix,pam_permit,pam_env acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/0 res=success'
+Jan 01 22:48:51 Fani-ThinkPad audit[1035650]: USER_ACCT pid=1035650 uid=1000 auid=1000 ses=3 subj==unconfined msg='op=PAM:accounting grantors=pam_unix,pam_permit,pam_time acct="fanilicious" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/0 res=success'
+Jan 01 22:48:51 Fani-ThinkPad sudo[1035650]: fanilicious : TTY=pts/0 ; PWD=/home/fanilicious/Projects/SecureWilly/Nextcloud/totaltime/Parser ; USER=root ; COMMAND=/usr/bin/rm -r /home/fanilicious/Projects/SecureWilly/Nextcloud/totaltime/data
+Jan 01 22:48:51 Fani-ThinkPad audit[1035650]: CRED_REFR pid=1035650 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:setcred grantors=pam_unix,pam_permit,pam_env acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/0 res=success'
+Jan 01 22:48:51 Fani-ThinkPad sudo[1035650]: pam_unix(sudo:session): session opened for user root by (uid=0)
+Jan 01 22:48:51 Fani-ThinkPad audit[1035650]: USER_START pid=1035650 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:session_open grantors=pam_limits,pam_unix,pam_permit acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/0 res=success'
+Jan 01 22:48:51 Fani-ThinkPad sudo[1035650]: pam_unix(sudo:session): session closed for user root
+Jan 01 22:48:51 Fani-ThinkPad audit[1035650]: USER_END pid=1035650 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:session_close grantors=pam_limits,pam_unix,pam_permit acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/0 res=success'
+Jan 01 22:48:51 Fani-ThinkPad audit[1035650]: CRED_DISP pid=1035650 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:setcred grantors=pam_unix,pam_permit,pam_env acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/0 res=success'
+Jan 01 22:48:51 Fani-ThinkPad audit[1035653]: USER_ACCT pid=1035653 uid=1000 auid=1000 ses=3 subj==unconfined msg='op=PAM:accounting grantors=pam_unix,pam_permit,pam_time acct="fanilicious" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/0 res=success'
+Jan 01 22:48:51 Fani-ThinkPad sudo[1035653]: fanilicious : TTY=pts/0 ; PWD=/home/fanilicious/Projects/SecureWilly/Nextcloud/totaltime/Parser ; USER=root ; COMMAND=/usr/bin/chown http:http /home/fanilicious/Projects/SecureWilly/Nextcloud/totaltime/data -R
+Jan 01 22:48:51 Fani-ThinkPad audit[1035653]: CRED_REFR pid=1035653 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:setcred grantors=pam_unix,pam_permit,pam_env acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/0 res=success'
+Jan 01 22:48:51 Fani-ThinkPad sudo[1035653]: pam_unix(sudo:session): session opened for user root by (uid=0)
+Jan 01 22:48:51 Fani-ThinkPad audit[1035653]: USER_START pid=1035653 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:session_open grantors=pam_limits,pam_unix,pam_permit acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/0 res=success'
+Jan 01 22:48:51 Fani-ThinkPad sudo[1035653]: pam_unix(sudo:session): session closed for user root
+Jan 01 22:48:51 Fani-ThinkPad audit[1035653]: USER_END pid=1035653 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:session_close grantors=pam_limits,pam_unix,pam_permit acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/0 res=success'
+Jan 01 22:48:51 Fani-ThinkPad audit[1035653]: CRED_DISP pid=1035653 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:setcred grantors=pam_unix,pam_permit,pam_env acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/0 res=success'
+Jan 01 22:48:52 Fani-ThinkPad dockerd[1005]: time="2020-01-01T22:48:52.078886300+02:00" level=warning msg="Security options with `:` as a separator are deprecated and will be completely unsupported in 17.04, use `=` instead."
+Jan 01 22:48:52 Fani-ThinkPad systemd[1]: var-lib-docker-overlay2-8fe565d4ad8ad629473a558f2e7ea9cedc118b1102f841307f0ad41dc9566d55\x2dinit-merged.mount: Succeeded.
+Jan 01 22:48:52 Fani-ThinkPad systemd[1]: var-lib-docker-overlay2-8fe565d4ad8ad629473a558f2e7ea9cedc118b1102f841307f0ad41dc9566d55-merged.mount: Succeeded.
+Jan 01 22:48:53 Fani-ThinkPad systemd-udevd[1035672]: ethtool: autonegotiation is unset or enabled, the speed and duplex are not writable.
+Jan 01 22:48:53 Fani-ThinkPad audit: ANOM_PROMISCUOUS dev=veth1a6e5c3 prom=256 old_prom=0 auid=4294967295 uid=0 gid=0 ses=4294967295
+Jan 01 22:48:53 Fani-ThinkPad kernel: br-1f0a6519bb03: port 1(veth1a6e5c3) entered blocking state
+Jan 01 22:48:53 Fani-ThinkPad kernel: br-1f0a6519bb03: port 1(veth1a6e5c3) entered disabled state
+Jan 01 22:48:53 Fani-ThinkPad kernel: device veth1a6e5c3 entered promiscuous mode
+Jan 01 22:48:53 Fani-ThinkPad NetworkManager[888]: <info>  [1577911733.1246] manager: (veth2c6669b): new Veth device (/org/freedesktop/NetworkManager/Devices/73)
+Jan 01 22:48:53 Fani-ThinkPad systemd-udevd[1035672]: Using default interface naming scheme 'v243'.
+Jan 01 22:48:53 Fani-ThinkPad NetworkManager[888]: <info>  [1577911733.1261] manager: (veth1a6e5c3): new Veth device (/org/freedesktop/NetworkManager/Devices/74)
+Jan 01 22:48:53 Fani-ThinkPad systemd-udevd[1035670]: ethtool: autonegotiation is unset or enabled, the speed and duplex are not writable.
+Jan 01 22:48:53 Fani-ThinkPad systemd-udevd[1035670]: Using default interface naming scheme 'v243'.
+Jan 01 22:48:53 Fani-ThinkPad dockerd[1005]: time="2020-01-01T22:48:53.357312781+02:00" level=warning msg="Security options with `:` as a separator are deprecated and will be completely unsupported in 17.04, use `=` instead."
+Jan 01 22:48:53 Fani-ThinkPad dockerd[1038]: time="2020-01-01T22:48:53.470141798+02:00" level=info msg="shim containerd-shim started" address=/containerd-shim/3692623bf55018bf57ea75c800092edb20a1280b7755d457a4b1589f9a5bf68a.sock debug=false pid=1035677
+Jan 01 22:48:53 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.ymecol.mount: Succeeded.
+Jan 01 22:48:53 Fani-ThinkPad audit: NETFILTER_CFG table=nat family=2 entries=0
+Jan 01 22:48:53 Fani-ThinkPad audit: NETFILTER_CFG table=filter family=2 entries=0
+Jan 01 22:48:53 Fani-ThinkPad audit: NETFILTER_CFG table=nat family=2 entries=5
+Jan 01 22:48:53 Fani-ThinkPad audit: NETFILTER_CFG table=nat family=2 entries=7
+Jan 01 22:48:53 Fani-ThinkPad audit: NETFILTER_CFG table=nat family=2 entries=8
+Jan 01 22:48:53 Fani-ThinkPad audit: NETFILTER_CFG table=nat family=2 entries=10
+Jan 01 22:48:53 Fani-ThinkPad audit: NETFILTER_CFG table=nat family=2 entries=11
+Jan 01 22:48:53 Fani-ThinkPad audit: NETFILTER_CFG table=nat family=2 entries=12
+Jan 01 22:48:53 Fani-ThinkPad audit: NETFILTER_CFG table=nat family=2 entries=13
+Jan 01 22:48:53 Fani-ThinkPad audit: NETFILTER_CFG table=nat family=2 entries=14
+Jan 01 22:48:53 Fani-ThinkPad kernel: eth0: renamed from veth2c6669b
+Jan 01 22:48:53 Fani-ThinkPad kernel: IPv6: ADDRCONF(NETDEV_CHANGE): veth1a6e5c3: link becomes ready
+Jan 01 22:48:53 Fani-ThinkPad kernel: br-1f0a6519bb03: port 1(veth1a6e5c3) entered blocking state
+Jan 01 22:48:53 Fani-ThinkPad kernel: br-1f0a6519bb03: port 1(veth1a6e5c3) entered forwarding state
+Jan 01 22:48:53 Fani-ThinkPad NetworkManager[888]: <info>  [1577911733.7697] device (veth1a6e5c3): carrier: link connected
+Jan 01 22:48:53 Fani-ThinkPad NetworkManager[888]: <info>  [1577911733.7720] device (br-1f0a6519bb03): carrier: link connected
+Jan 01 22:48:53 Fani-ThinkPad gnome-shell[1908]: Removing a network device that was not added
+Jan 01 22:48:54 Fani-ThinkPad dockerd[1005]: time="2020-01-01T22:48:54.213867962+02:00" level=warning msg="Security options with `:` as a separator are deprecated and will be completely unsupported in 17.04, use `=` instead."
+Jan 01 22:48:54 Fani-ThinkPad systemd[1824]: var-lib-docker-overlay2-4c6b577b1e2f6ccaf534ae997265241ef298d9737937ece2278d8e1f1b0905a9\x2dinit-merged.mount: Succeeded.
+Jan 01 22:48:54 Fani-ThinkPad audit[1035695]: AVC apparmor="ALLOWED" operation="capable" profile="db_profile" pid=1035695 comm="gosu" capability=6  capname="setgid"
+Jan 01 22:48:55 Fani-ThinkPad audit: ANOM_PROMISCUOUS dev=veth00368f4 prom=256 old_prom=0 auid=4294967295 uid=0 gid=0 ses=4294967295
+Jan 01 22:48:55 Fani-ThinkPad systemd-udevd[1035676]: ethtool: autonegotiation is unset or enabled, the speed and duplex are not writable.
+Jan 01 22:48:55 Fani-ThinkPad NetworkManager[888]: <info>  [1577911735.0325] manager: (veth34ea459): new Veth device (/org/freedesktop/NetworkManager/Devices/75)
+Jan 01 22:48:55 Fani-ThinkPad kernel: br-1f0a6519bb03: port 2(veth00368f4) entered blocking state
+Jan 01 22:48:55 Fani-ThinkPad kernel: br-1f0a6519bb03: port 2(veth00368f4) entered disabled state
+Jan 01 22:48:55 Fani-ThinkPad kernel: device veth00368f4 entered promiscuous mode
+Jan 01 22:48:55 Fani-ThinkPad kernel: kauditd_printk_skb: 71 callbacks suppressed
+Jan 01 22:48:55 Fani-ThinkPad kernel: audit: type=1700 audit(1577911735.028:1941): dev=veth00368f4 prom=256 old_prom=0 auid=4294967295 uid=0 gid=0 ses=4294967295
+Jan 01 22:48:55 Fani-ThinkPad kernel: br-1f0a6519bb03: port 2(veth00368f4) entered blocking state
+Jan 01 22:48:55 Fani-ThinkPad kernel: br-1f0a6519bb03: port 2(veth00368f4) entered forwarding state
+Jan 01 22:48:55 Fani-ThinkPad kernel: br-1f0a6519bb03: port 2(veth00368f4) entered disabled state
+Jan 01 22:48:55 Fani-ThinkPad systemd-udevd[1035670]: ethtool: autonegotiation is unset or enabled, the speed and duplex are not writable.
+Jan 01 22:48:55 Fani-ThinkPad systemd-udevd[1035676]: Using default interface naming scheme 'v243'.
+Jan 01 22:48:55 Fani-ThinkPad NetworkManager[888]: <info>  [1577911735.0340] manager: (veth00368f4): new Veth device (/org/freedesktop/NetworkManager/Devices/76)
+Jan 01 22:48:55 Fani-ThinkPad audit: NETFILTER_CFG table=nat family=2 entries=13
+Jan 01 22:48:55 Fani-ThinkPad kernel: audit: type=1325 audit(1577911735.195:1942): table=nat family=2 entries=13
+Jan 01 22:48:55 Fani-ThinkPad audit: NETFILTER_CFG table=filter family=2 entries=29
+Jan 01 22:48:55 Fani-ThinkPad kernel: audit: type=1325 audit(1577911735.198:1943): table=filter family=2 entries=29
+Jan 01 22:48:55 Fani-ThinkPad audit: NETFILTER_CFG table=nat family=2 entries=14
+Jan 01 22:48:55 Fani-ThinkPad kernel: audit: type=1325 audit(1577911735.202:1944): table=nat family=2 entries=14
+Jan 01 22:48:55 Fani-ThinkPad dockerd[1005]: time="2020-01-01T22:48:55.324735987+02:00" level=warning msg="Security options with `:` as a separator are deprecated and will be completely unsupported in 17.04, use `=` instead."
+Jan 01 22:48:55 Fani-ThinkPad dockerd[1038]: time="2020-01-01T22:48:55.516498200+02:00" level=info msg="shim containerd-shim started" address=/containerd-shim/63ef848af5a26b3602721df1f911b9e76ce15e55da988fc164286fae1bc3ed09.sock debug=false pid=1035868
+Jan 01 22:48:55 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-00d5fad5ba33b5bf6adc876c28d15fe3e8db5ace36f712c5a136ad676a48462c-runc.CEw69M.mount: Succeeded.
+Jan 01 22:48:55 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-00d5fad5ba33b5bf6adc876c28d15fe3e8db5ace36f712c5a136ad676a48462c-runc.CEw69M.mount: Succeeded.
+Jan 01 22:48:55 Fani-ThinkPad audit: NETFILTER_CFG table=nat family=2 entries=0
+Jan 01 22:48:55 Fani-ThinkPad kernel: audit: type=1325 audit(1577911735.728:1945): table=nat family=2 entries=0
+Jan 01 22:48:55 Fani-ThinkPad audit: NETFILTER_CFG table=filter family=2 entries=0
+Jan 01 22:48:55 Fani-ThinkPad kernel: audit: type=1325 audit(1577911735.732:1946): table=filter family=2 entries=0
+Jan 01 22:48:55 Fani-ThinkPad audit: NETFILTER_CFG table=nat family=2 entries=5
+Jan 01 22:48:55 Fani-ThinkPad audit: NETFILTER_CFG table=nat family=2 entries=7
+Jan 01 22:48:55 Fani-ThinkPad kernel: audit: type=1325 audit(1577911735.735:1947): table=nat family=2 entries=5
+Jan 01 22:48:55 Fani-ThinkPad kernel: audit: type=1325 audit(1577911735.735:1948): table=nat family=2 entries=7
+Jan 01 22:48:55 Fani-ThinkPad audit: NETFILTER_CFG table=nat family=2 entries=8
+Jan 01 22:48:55 Fani-ThinkPad audit: NETFILTER_CFG table=nat family=2 entries=10
+Jan 01 22:48:55 Fani-ThinkPad kernel: audit: type=1325 audit(1577911735.738:1949): table=nat family=2 entries=8
+Jan 01 22:48:55 Fani-ThinkPad kernel: audit: type=1325 audit(1577911735.738:1950): table=nat family=2 entries=10
+Jan 01 22:48:55 Fani-ThinkPad audit: NETFILTER_CFG table=nat family=2 entries=11
+Jan 01 22:48:55 Fani-ThinkPad audit: NETFILTER_CFG table=nat family=2 entries=12
+Jan 01 22:48:55 Fani-ThinkPad audit: NETFILTER_CFG table=nat family=2 entries=13
+Jan 01 22:48:55 Fani-ThinkPad audit: NETFILTER_CFG table=nat family=2 entries=14
+Jan 01 22:48:55 Fani-ThinkPad kernel: eth0: renamed from veth34ea459
+Jan 01 22:48:55 Fani-ThinkPad NetworkManager[888]: <info>  [1577911735.7841] device (veth00368f4): carrier: link connected
+Jan 01 22:48:55 Fani-ThinkPad kernel: IPv6: ADDRCONF(NETDEV_CHANGE): veth00368f4: link becomes ready
+Jan 01 22:48:55 Fani-ThinkPad kernel: br-1f0a6519bb03: port 2(veth00368f4) entered blocking state
+Jan 01 22:48:55 Fani-ThinkPad kernel: br-1f0a6519bb03: port 2(veth00368f4) entered forwarding state
+Jan 01 22:48:55 Fani-ThinkPad gnome-shell[1908]: Removing a network device that was not added
+Jan 01 22:48:56 Fani-ThinkPad audit[1035967]: AVC apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=1035967 comm="rsync" capability=3  capname="fowner"
+Jan 01 22:48:56 Fani-ThinkPad audit[1035967]: AVC apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=1035967 comm="rsync" capability=3  capname="fowner"
+Jan 01 22:48:56 Fani-ThinkPad audit[1035967]: AVC apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=1035967 comm="rsync" capability=3  capname="fowner"
+Jan 01 22:48:56 Fani-ThinkPad audit[1035967]: AVC apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=1035967 comm="rsync" capability=3  capname="fowner"
+Jan 01 22:48:56 Fani-ThinkPad audit[1035968]: USER_ACCT pid=1035968 uid=1000 auid=1000 ses=3 subj==unconfined msg='op=PAM:accounting grantors=pam_unix,pam_permit,pam_time acct="fanilicious" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/0 res=success'
+Jan 01 22:48:56 Fani-ThinkPad audit[1035968]: CRED_REFR pid=1035968 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:setcred grantors=pam_unix,pam_permit,pam_env acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/0 res=success'
+Jan 01 22:48:56 Fani-ThinkPad sudo[1035968]: fanilicious : TTY=pts/0 ; PWD=/home/fanilicious/Projects/SecureWilly/Nextcloud/totaltime/Parser ; USER=root ; COMMAND=/usr/bin/chown http:http /var/lib/docker/volumes/totaltime_nextcloud_ -R
+Jan 01 22:48:56 Fani-ThinkPad audit[1035968]: USER_START pid=1035968 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:session_open grantors=pam_limits,pam_unix,pam_permit acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/0 res=success'
+Jan 01 22:48:56 Fani-ThinkPad sudo[1035968]: pam_unix(sudo:session): session opened for user root by (uid=0)
+Jan 01 22:48:56 Fani-ThinkPad sudo[1035968]: pam_unix(sudo:session): session closed for user root
+Jan 01 22:48:56 Fani-ThinkPad audit[1035968]: USER_END pid=1035968 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:session_close grantors=pam_limits,pam_unix,pam_permit acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/0 res=success'
+Jan 01 22:48:56 Fani-ThinkPad audit[1035968]: CRED_DISP pid=1035968 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:setcred grantors=pam_unix,pam_permit,pam_env acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/0 res=success'
+Jan 01 22:49:16 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-00d5fad5ba33b5bf6adc876c28d15fe3e8db5ace36f712c5a136ad676a48462c-runc.3fjBqz.mount: Succeeded.
+Jan 01 22:49:37 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.kfnXWh.mount: Succeeded.
+Jan 01 22:49:37 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.kfnXWh.mount: Succeeded.
+Jan 01 22:49:39 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.H2dsEm.mount: Succeeded.
+Jan 01 22:49:40 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.osMuAZ.mount: Succeeded.
+Jan 01 22:49:40 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.osMuAZ.mount: Succeeded.
+Jan 01 22:49:42 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.u4vImf.mount: Succeeded.
+Jan 01 22:49:47 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.1ORVso.mount: Succeeded.
+Jan 01 22:49:47 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.1ORVso.mount: Succeeded.
+Jan 01 22:49:47 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.HXoP4d.mount: Succeeded.
+Jan 01 22:49:47 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.HXoP4d.mount: Succeeded.
+Jan 01 22:49:48 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.OOhWfi.mount: Succeeded.
+Jan 01 22:49:48 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.OOhWfi.mount: Succeeded.
+Jan 01 22:49:49 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.08NQf7.mount: Succeeded.
+Jan 01 22:49:49 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.08NQf7.mount: Succeeded.
+Jan 01 22:49:49 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.dSv8HK.mount: Succeeded.
+Jan 01 22:49:50 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.5TrOSf.mount: Succeeded.
+Jan 01 22:49:52 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.xWP1b6.mount: Succeeded.
+Jan 01 22:49:53 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.5yWJzm.mount: Succeeded.
+Jan 01 22:49:53 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.5yWJzm.mount: Succeeded.
+Jan 01 22:49:55 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.h6JFuH.mount: Succeeded.
+Jan 01 22:49:55 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.h6JFuH.mount: Succeeded.
+Jan 01 22:49:57 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.Gzc9gj.mount: Succeeded.
+Jan 01 22:49:59 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.NnQahd.mount: Succeeded.
+Jan 01 22:49:59 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.NnQahd.mount: Succeeded.
+Jan 01 22:49:59 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.CpRNu2.mount: Succeeded.
+Jan 01 22:49:59 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.CpRNu2.mount: Succeeded.
+Jan 01 22:50:00 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.LKOYH4.mount: Succeeded.
+Jan 01 22:50:01 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.LKOYH4.mount: Succeeded.
+Jan 01 22:50:03 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.fvOnTc.mount: Succeeded.
+Jan 01 22:50:03 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.VwxFf8.mount: Succeeded.
+Jan 01 22:50:03 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.VwxFf8.mount: Succeeded.
+Jan 01 22:50:04 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.pCCuBA.mount: Succeeded.
+Jan 01 22:50:04 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.pCCuBA.mount: Succeeded.
+Jan 01 22:50:05 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.PzA8iK.mount: Succeeded.
+Jan 01 22:50:06 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.XFqY3l.mount: Succeeded.
+Jan 01 22:50:08 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.HgcOSU.mount: Succeeded.
+Jan 01 22:50:08 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.HgcOSU.mount: Succeeded.
+Jan 01 22:50:09 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.WA5fmN.mount: Succeeded.
+Jan 01 22:50:09 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.WA5fmN.mount: Succeeded.
+Jan 01 22:50:12 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.TZQnBU.mount: Succeeded.
+Jan 01 22:50:12 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.TZQnBU.mount: Succeeded.
+Jan 01 22:50:15 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.QJDtk3.mount: Succeeded.
+Jan 01 22:50:15 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.QJDtk3.mount: Succeeded.
+Jan 01 22:50:16 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.Ex92LB.mount: Succeeded.
+Jan 01 22:50:18 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.rtfCfI.mount: Succeeded.
+Jan 01 22:50:19 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.BO7jMS.mount: Succeeded.
+Jan 01 22:50:19 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.BO7jMS.mount: Succeeded.
+Jan 01 22:50:20 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.fdr92K.mount: Succeeded.
+Jan 01 22:50:20 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.fdr92K.mount: Succeeded.
+Jan 01 22:50:24 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.haIAA0.mount: Succeeded.
+Jan 01 22:50:26 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.P9qnPV.mount: Succeeded.
+Jan 01 22:50:26 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.P9qnPV.mount: Succeeded.
+Jan 01 22:50:29 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.ABirXm.mount: Succeeded.
+Jan 01 22:50:29 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.ABirXm.mount: Succeeded.
+Jan 01 22:50:30 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.1F80Mf.mount: Succeeded.
+Jan 01 22:50:30 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.1F80Mf.mount: Succeeded.
+Jan 01 22:50:31 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.GYcGLr.mount: Succeeded.
+Jan 01 22:50:31 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.GYcGLr.mount: Succeeded.
+Jan 01 22:50:34 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.rgdw1N.mount: Succeeded.
+Jan 01 22:50:35 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.Me4HPS.mount: Succeeded.
+Jan 01 22:50:35 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.Me4HPS.mount: Succeeded.
+Jan 01 22:50:36 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.LTGUnM.mount: Succeeded.
+Jan 01 22:50:36 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.LTGUnM.mount: Succeeded.
+Jan 01 22:50:39 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.kEivtI.mount: Succeeded.
+Jan 01 22:50:39 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.kEivtI.mount: Succeeded.
+Jan 01 22:50:43 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.ek4jPT.mount: Succeeded.
+Jan 01 22:50:43 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.ek4jPT.mount: Succeeded.
+Jan 01 22:50:44 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.o9pmjp.mount: Succeeded.
+Jan 01 22:50:44 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.o9pmjp.mount: Succeeded.
+Jan 01 22:50:45 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.pJ8jun.mount: Succeeded.
+Jan 01 22:50:47 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.tNZ9i2.mount: Succeeded.
+Jan 01 22:50:47 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.tNZ9i2.mount: Succeeded.
+Jan 01 22:50:47 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.G8SayA.mount: Succeeded.
+Jan 01 22:50:49 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.LIPc6d.mount: Succeeded.
+Jan 01 22:50:49 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.LIPc6d.mount: Succeeded.
+Jan 01 22:50:49 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.ICq8N4.mount: Succeeded.
+Jan 01 22:50:49 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.ICq8N4.mount: Succeeded.
+Jan 01 22:50:50 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.zqscUi.mount: Succeeded.
+Jan 01 22:50:53 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.kplP7t.mount: Succeeded.
+Jan 01 22:50:53 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.kplP7t.mount: Succeeded.
+Jan 01 22:50:53 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.KnmNrq.mount: Succeeded.
+Jan 01 22:50:53 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.KnmNrq.mount: Succeeded.
+Jan 01 22:50:54 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.FJu8vA.mount: Succeeded.
+Jan 01 22:50:54 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.FJu8vA.mount: Succeeded.
+Jan 01 22:50:56 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.nfra4w.mount: Succeeded.
+Jan 01 22:50:56 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.nfra4w.mount: Succeeded.
+Jan 01 22:51:00 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.WyIpcz.mount: Succeeded.
+Jan 01 22:51:02 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.nLBfaa.mount: Succeeded.
+Jan 01 22:51:03 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.PiLUYK.mount: Succeeded.
+Jan 01 22:51:03 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.PiLUYK.mount: Succeeded.
+Jan 01 22:51:05 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.EBP9rw.mount: Succeeded.
+Jan 01 22:51:05 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.zFQkBg.mount: Succeeded.
+Jan 01 22:51:07 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.K21yVu.mount: Succeeded.
+Jan 01 22:51:07 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.K21yVu.mount: Succeeded.
+Jan 01 22:51:10 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.zzQH1F.mount: Succeeded.
+Jan 01 22:51:10 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.zzQH1F.mount: Succeeded.
+Jan 01 22:51:10 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.L3tdnh.mount: Succeeded.
+Jan 01 22:51:10 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.L3tdnh.mount: Succeeded.
+Jan 01 22:51:11 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.Q5jr9y.mount: Succeeded.
+Jan 01 22:51:12 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.b2aqit.mount: Succeeded.
+Jan 01 22:51:14 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.RmxiOO.mount: Succeeded.
+Jan 01 22:51:14 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.RmxiOO.mount: Succeeded.
+Jan 01 22:51:15 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.qR4wY0.mount: Succeeded.
+Jan 01 22:51:15 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.qR4wY0.mount: Succeeded.
+Jan 01 22:51:15 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.qZRf3y.mount: Succeeded.
+Jan 01 22:51:17 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.P3N8Ld.mount: Succeeded.
+Jan 01 22:51:17 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.P3N8Ld.mount: Succeeded.
+Jan 01 22:51:18 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.ZsHfST.mount: Succeeded.
+Jan 01 22:51:18 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.ZsHfST.mount: Succeeded.
+Jan 01 22:51:22 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.uwSyVn.mount: Succeeded.
+Jan 01 22:51:22 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.uwSyVn.mount: Succeeded.
+Jan 01 22:51:24 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.uaRaIt.mount: Succeeded.
+Jan 01 22:51:24 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.uaRaIt.mount: Succeeded.
+Jan 01 22:51:25 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.lAvRrf.mount: Succeeded.
+Jan 01 22:51:25 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.lAvRrf.mount: Succeeded.
+Jan 01 22:51:25 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.34oOm4.mount: Succeeded.
+Jan 01 22:51:25 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.34oOm4.mount: Succeeded.
+Jan 01 22:51:27 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.QYutYs.mount: Succeeded.
+Jan 01 22:51:27 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.QYutYs.mount: Succeeded.
+Jan 01 22:51:27 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.fTwRtn.mount: Succeeded.
+Jan 01 22:51:27 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.fTwRtn.mount: Succeeded.
+Jan 01 22:51:28 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.JFmhiY.mount: Succeeded.
+Jan 01 22:51:28 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.JFmhiY.mount: Succeeded.
+Jan 01 22:51:29 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.sGP5Pe.mount: Succeeded.
+Jan 01 22:51:29 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.NLMI06.mount: Succeeded.
+Jan 01 22:51:29 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.NLMI06.mount: Succeeded.
+Jan 01 22:51:31 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.Jgre4F.mount: Succeeded.
+Jan 01 22:51:31 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.Jgre4F.mount: Succeeded.
+Jan 01 22:51:33 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.KuTtbA.mount: Succeeded.
+Jan 01 22:51:33 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.tsc6wZ.mount: Succeeded.
+Jan 01 22:51:36 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.rMKPG4.mount: Succeeded.
+Jan 01 22:51:37 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.bdnH1y.mount: Succeeded.
+Jan 01 22:51:37 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.bdnH1y.mount: Succeeded.
+Jan 01 22:51:39 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.ue2138.mount: Succeeded.
+Jan 01 22:51:40 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.Jnt73I.mount: Succeeded.
+Jan 01 22:51:41 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.7Fdj2R.mount: Succeeded.
+Jan 01 22:51:41 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.7Fdj2R.mount: Succeeded.
+Jan 01 22:51:42 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.CBRaI1.mount: Succeeded.
+Jan 01 22:51:42 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.CBRaI1.mount: Succeeded.
+Jan 01 22:51:42 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.FbdbIw.mount: Succeeded.
+Jan 01 22:51:42 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.FbdbIw.mount: Succeeded.
+Jan 01 22:51:44 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.gJOTFv.mount: Succeeded.
+Jan 01 22:51:45 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.kVUkpV.mount: Succeeded.
+Jan 01 22:51:45 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.Wpkbpy.mount: Succeeded.
+Jan 01 22:51:45 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.Wpkbpy.mount: Succeeded.
+Jan 01 22:51:46 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.xWRVMq.mount: Succeeded.
+Jan 01 22:51:46 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.xWRVMq.mount: Succeeded.
+Jan 01 22:51:49 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.UgzqNM.mount: Succeeded.
+Jan 01 22:51:49 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.UgzqNM.mount: Succeeded.
+Jan 01 22:51:50 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.Mw8Eku.mount: Succeeded.
+Jan 01 22:51:51 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.knxoEK.mount: Succeeded.
+Jan 01 22:51:51 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.Oary8D.mount: Succeeded.
+Jan 01 22:51:51 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.Oary8D.mount: Succeeded.
+Jan 01 22:51:53 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.l3TGXB.mount: Succeeded.
+Jan 01 22:51:53 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.l3TGXB.mount: Succeeded.
+Jan 01 22:51:53 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.fTpzrB.mount: Succeeded.
+Jan 01 22:51:53 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.fTpzrB.mount: Succeeded.
+Jan 01 22:51:54 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.nBPKMQ.mount: Succeeded.
+Jan 01 22:51:55 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.T2nAJ5.mount: Succeeded.
+Jan 01 22:51:55 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.T2nAJ5.mount: Succeeded.
+Jan 01 22:51:56 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.dL0nb7.mount: Succeeded.
+Jan 01 22:51:56 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.dL0nb7.mount: Succeeded.
+Jan 01 22:51:58 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.QovyJB.mount: Succeeded.
+Jan 01 22:51:58 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.QovyJB.mount: Succeeded.
+Jan 01 22:52:04 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.vJ8LxC.mount: Succeeded.
+Jan 01 22:52:04 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.vJ8LxC.mount: Succeeded.
+Jan 01 22:52:04 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.cAnkub.mount: Succeeded.
+Jan 01 22:52:04 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.cAnkub.mount: Succeeded.
+Jan 01 22:52:06 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.bPji56.mount: Succeeded.
+Jan 01 22:52:06 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.bPji56.mount: Succeeded.
+Jan 01 22:52:06 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.mXPyOH.mount: Succeeded.
+Jan 01 22:52:10 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.wIW96G.mount: Succeeded.
+Jan 01 22:52:10 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.wIW96G.mount: Succeeded.
+Jan 01 22:52:11 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.lbBsJf.mount: Succeeded.
+Jan 01 22:52:11 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.lbBsJf.mount: Succeeded.
+Jan 01 22:52:11 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.idWKyX.mount: Succeeded.
+Jan 01 22:52:11 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.idWKyX.mount: Succeeded.
+Jan 01 22:52:12 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.mPe5o6.mount: Succeeded.
+Jan 01 22:52:12 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.mPe5o6.mount: Succeeded.
+Jan 01 22:52:14 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.TaoKX9.mount: Succeeded.
+Jan 01 22:52:14 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.TaoKX9.mount: Succeeded.
+Jan 01 22:52:14 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.Wur2i9.mount: Succeeded.
+Jan 01 22:52:14 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.Wur2i9.mount: Succeeded.
+Jan 01 22:52:17 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.Xvqvn6.mount: Succeeded.
+Jan 01 22:52:17 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.Xvqvn6.mount: Succeeded.
+Jan 01 22:52:17 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.ptOcaT.mount: Succeeded.
+Jan 01 22:52:17 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.ptOcaT.mount: Succeeded.
+Jan 01 22:52:18 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.MSoFiX.mount: Succeeded.
+Jan 01 22:52:18 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.MSoFiX.mount: Succeeded.
+Jan 01 22:52:22 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.1UoCap.mount: Succeeded.
+Jan 01 22:52:23 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.0yRLbi.mount: Succeeded.
+Jan 01 22:52:26 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.h7hP1R.mount: Succeeded.
+Jan 01 22:52:26 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.h7hP1R.mount: Succeeded.
+Jan 01 22:52:28 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.uzko9z.mount: Succeeded.
+Jan 01 22:52:28 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.uzko9z.mount: Succeeded.
+Jan 01 22:52:29 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.Pwsa5X.mount: Succeeded.
+Jan 01 22:52:31 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.yiAif0.mount: Succeeded.
+Jan 01 22:52:31 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.yiAif0.mount: Succeeded.
+Jan 01 22:52:33 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.Fw8Vhi.mount: Succeeded.
+Jan 01 22:52:36 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.wubxsf.mount: Succeeded.
+Jan 01 22:52:36 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.wubxsf.mount: Succeeded.
+Jan 01 22:52:36 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.CqcFi6.mount: Succeeded.
+Jan 01 22:52:37 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.dzDc7n.mount: Succeeded.
+Jan 01 22:52:37 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.dzDc7n.mount: Succeeded.
+Jan 01 22:52:38 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.FDBEtg.mount: Succeeded.
+Jan 01 22:52:38 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.aaAbHe.mount: Succeeded.
+Jan 01 22:52:38 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.aaAbHe.mount: Succeeded.
+Jan 01 22:52:39 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.zPa16E.mount: Succeeded.
+Jan 01 22:52:39 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.zPa16E.mount: Succeeded.
+Jan 01 22:52:40 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.HDhoQY.mount: Succeeded.
+Jan 01 22:52:40 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.HDhoQY.mount: Succeeded.
+Jan 01 22:52:42 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.z6UZ3j.mount: Succeeded.
+Jan 01 22:52:42 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.z6UZ3j.mount: Succeeded.
+Jan 01 22:52:43 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.mCi3iJ.mount: Succeeded.
+Jan 01 22:52:45 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.t9WFk9.mount: Succeeded.
+Jan 01 22:52:45 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.t9WFk9.mount: Succeeded.
+Jan 01 22:52:45 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.DnarsX.mount: Succeeded.
+Jan 01 22:52:45 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.DnarsX.mount: Succeeded.
+Jan 01 22:52:46 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.8ZXowz.mount: Succeeded.
+Jan 01 22:52:47 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.taWoJc.mount: Succeeded.
+Jan 01 22:52:47 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.taWoJc.mount: Succeeded.
+Jan 01 22:52:49 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.nkTETQ.mount: Succeeded.
+Jan 01 22:52:51 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.qCeQFl.mount: Succeeded.
+Jan 01 22:52:53 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.Q1rtqr.mount: Succeeded.
+Jan 01 22:52:53 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.Q1rtqr.mount: Succeeded.
+Jan 01 22:52:53 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.NITMoi.mount: Succeeded.
+Jan 01 22:52:53 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.NITMoi.mount: Succeeded.
+Jan 01 22:52:55 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.Vm7NDi.mount: Succeeded.
+Jan 01 22:52:56 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.e0LhvP.mount: Succeeded.
+Jan 01 22:52:58 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.qsdazJ.mount: Succeeded.
+Jan 01 22:52:58 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.qsdazJ.mount: Succeeded.
+Jan 01 22:52:58 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.hOBjVk.mount: Succeeded.
+Jan 01 22:52:58 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.hOBjVk.mount: Succeeded.
+Jan 01 22:52:59 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.HYOc7K.mount: Succeeded.
+Jan 01 22:53:00 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.J4gGL2.mount: Succeeded.
+Jan 01 22:53:01 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.4CnTHv.mount: Succeeded.
+Jan 01 22:53:01 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.4CnTHv.mount: Succeeded.
+Jan 01 22:53:02 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.ehpSBR.mount: Succeeded.
+Jan 01 22:53:02 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.ehpSBR.mount: Succeeded.
+Jan 01 22:53:05 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.HT8KI6.mount: Succeeded.
+Jan 01 22:53:05 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.HT8KI6.mount: Succeeded.
+Jan 01 22:53:05 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.5v6hIS.mount: Succeeded.
+Jan 01 22:53:05 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.5v6hIS.mount: Succeeded.
+Jan 01 22:53:09 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.d1Zp7j.mount: Succeeded.
+Jan 01 22:53:09 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.d1Zp7j.mount: Succeeded.
+Jan 01 22:53:09 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.GdCfOi.mount: Succeeded.
+Jan 01 22:53:09 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.GdCfOi.mount: Succeeded.
+Jan 01 22:53:09 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.iBk1T5.mount: Succeeded.
+Jan 01 22:53:09 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.iBk1T5.mount: Succeeded.
+Jan 01 22:53:10 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.8KfonJ.mount: Succeeded.
+Jan 01 22:53:12 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.l6kPnA.mount: Succeeded.
+Jan 01 22:53:13 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.MB2Jgs.mount: Succeeded.
+Jan 01 22:53:13 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.MB2Jgs.mount: Succeeded.
+Jan 01 22:53:15 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.IAwdyc.mount: Succeeded.
+Jan 01 22:53:15 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.L41G06.mount: Succeeded.
+Jan 01 22:53:15 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.L41G06.mount: Succeeded.
+Jan 01 22:53:16 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.SxNGdT.mount: Succeeded.
+Jan 01 22:53:16 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.SxNGdT.mount: Succeeded.
+Jan 01 22:53:18 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.JiXVsZ.mount: Succeeded.
+Jan 01 22:53:18 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.JiXVsZ.mount: Succeeded.
+Jan 01 22:53:20 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.2oLUPJ.mount: Succeeded.
+Jan 01 22:53:22 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.KMcHbi.mount: Succeeded.
+Jan 01 22:53:22 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.KMcHbi.mount: Succeeded.
+Jan 01 22:53:26 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.x4NN8M.mount: Succeeded.
+Jan 01 22:53:26 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.x4NN8M.mount: Succeeded.
+Jan 01 22:53:28 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.QvU7ly.mount: Succeeded.
+Jan 01 22:53:29 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.ymKsp8.mount: Succeeded.
+Jan 01 22:53:29 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.ymKsp8.mount: Succeeded.
+Jan 01 22:53:30 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.tQJRwD.mount: Succeeded.
+Jan 01 22:53:30 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.tQJRwD.mount: Succeeded.
+Jan 01 22:53:33 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.tPqG1B.mount: Succeeded.
+Jan 01 22:53:38 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.7aKIsE.mount: Succeeded.
+Jan 01 22:53:38 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.7aKIsE.mount: Succeeded.
+Jan 01 22:53:39 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.2FTW87.mount: Succeeded.
+Jan 01 22:53:39 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.2FTW87.mount: Succeeded.
+Jan 01 22:53:40 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.D4QbMo.mount: Succeeded.
+Jan 01 22:53:41 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.mTIsdw.mount: Succeeded.
+Jan 01 22:53:41 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.mTIsdw.mount: Succeeded.
+Jan 01 22:53:44 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.5nYkba.mount: Succeeded.
+Jan 01 22:53:44 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.5nYkba.mount: Succeeded.
+Jan 01 22:53:46 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.B3f5a3.mount: Succeeded.
+Jan 01 22:53:48 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.HEpUZe.mount: Succeeded.
+Jan 01 22:53:48 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.HEpUZe.mount: Succeeded.
+Jan 01 22:53:51 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.su2WUI.mount: Succeeded.
+Jan 01 22:53:51 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.su2WUI.mount: Succeeded.
+Jan 01 22:53:51 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.ES5mgx.mount: Succeeded.
+Jan 01 22:53:51 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.ES5mgx.mount: Succeeded.
+Jan 01 22:53:52 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.G2E3fM.mount: Succeeded.
+Jan 01 22:53:52 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.G2E3fM.mount: Succeeded.
+Jan 01 22:53:54 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.DQqrRT.mount: Succeeded.
+Jan 01 22:53:56 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.QF4jQE.mount: Succeeded.
+Jan 01 22:53:57 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.xhl7tb.mount: Succeeded.
+Jan 01 22:53:58 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.4RUQrQ.mount: Succeeded.
+Jan 01 22:53:58 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.4RUQrQ.mount: Succeeded.
+Jan 01 22:53:59 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.wmiWb2.mount: Succeeded.
+Jan 01 22:53:59 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.q17BQP.mount: Succeeded.
+Jan 01 22:54:00 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.Lly3O0.mount: Succeeded.
+Jan 01 22:54:01 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.v7JW97.mount: Succeeded.
+Jan 01 22:54:01 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.v7JW97.mount: Succeeded.
+Jan 01 22:54:04 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.48tnKL.mount: Succeeded.
+Jan 01 22:54:04 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.48tnKL.mount: Succeeded.
+Jan 01 22:54:06 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.UBybpM.mount: Succeeded.
+Jan 01 22:54:10 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.8fWdME.mount: Succeeded.
+Jan 01 22:54:10 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.8fWdME.mount: Succeeded.
+Jan 01 22:54:11 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.PzKW9y.mount: Succeeded.
+Jan 01 22:54:12 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.VvKez1.mount: Succeeded.
+Jan 01 22:54:13 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.QhiCIB.mount: Succeeded.
+Jan 01 22:54:13 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.QhiCIB.mount: Succeeded.
+Jan 01 22:54:13 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.OEtRmp.mount: Succeeded.
+Jan 01 22:54:13 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.OEtRmp.mount: Succeeded.
+Jan 01 22:54:15 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.5ixEgE.mount: Succeeded.
+Jan 01 22:54:15 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.5ixEgE.mount: Succeeded.
+Jan 01 22:54:16 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.Hg2m6s.mount: Succeeded.
+Jan 01 22:54:18 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.lRlRpX.mount: Succeeded.
+Jan 01 22:54:18 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.lRlRpX.mount: Succeeded.
+Jan 01 22:54:19 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.zC1ypV.mount: Succeeded.
+Jan 01 22:54:19 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.zC1ypV.mount: Succeeded.
+Jan 01 22:54:20 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.iSjU53.mount: Succeeded.
+Jan 01 22:54:20 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.iSjU53.mount: Succeeded.
+Jan 01 22:54:22 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.SBLKiF.mount: Succeeded.
+Jan 01 22:54:25 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.8auN5Q.mount: Succeeded.
+Jan 01 22:54:25 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.8auN5Q.mount: Succeeded.
+Jan 01 22:54:26 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.RguZGP.mount: Succeeded.
+Jan 01 22:54:26 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.RguZGP.mount: Succeeded.
+Jan 01 22:54:27 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.xc5OBw.mount: Succeeded.
+Jan 01 22:54:27 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.GVErWY.mount: Succeeded.
+Jan 01 22:54:27 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.GVErWY.mount: Succeeded.
+Jan 01 22:54:28 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.1ANoht.mount: Succeeded.
+Jan 01 22:54:28 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.1ANoht.mount: Succeeded.
+Jan 01 22:54:28 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.To7aAl.mount: Succeeded.
+Jan 01 22:54:28 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.To7aAl.mount: Succeeded.
+Jan 01 22:54:30 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.P82t90.mount: Succeeded.
+Jan 01 22:54:30 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-runc.P82t90.mount: Succeeded.
+Jan 01 22:55:52 Fani-ThinkPad audit[1067238]: USER_AUTH pid=1067238 uid=1000 auid=1000 ses=3 subj==unconfined msg='op=PAM:authentication grantors=pam_unix,pam_permit acct="fanilicious" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/0 res=success'
+Jan 01 22:55:52 Fani-ThinkPad audit[1067238]: USER_ACCT pid=1067238 uid=1000 auid=1000 ses=3 subj==unconfined msg='op=PAM:accounting grantors=pam_unix,pam_permit,pam_time acct="fanilicious" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/0 res=success'
+Jan 01 22:55:52 Fani-ThinkPad sudo[1067238]: fanilicious : TTY=pts/0 ; PWD=/home/fanilicious/Projects/SecureWilly/Nextcloud/totaltime/Parser ; USER=root ; COMMAND=/usr/bin/touch /home/fanilicious/Projects/SecureWilly/Nextcloud/totaltime/data/nextcloud/files/HelloFromTheOtherSide
+Jan 01 22:55:52 Fani-ThinkPad audit[1067238]: CRED_REFR pid=1067238 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:setcred grantors=pam_unix,pam_permit acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/0 res=success'
+Jan 01 22:55:52 Fani-ThinkPad kernel: kauditd_printk_skb: 13 callbacks suppressed
+Jan 01 22:55:52 Fani-ThinkPad kernel: audit: type=1100 audit(1577912152.172:1964): pid=1067238 uid=1000 auid=1000 ses=3 subj==unconfined msg='op=PAM:authentication grantors=pam_unix,pam_permit acct="fanilicious" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/0 res=success'
+Jan 01 22:55:52 Fani-ThinkPad kernel: audit: type=1101 audit(1577912152.172:1965): pid=1067238 uid=1000 auid=1000 ses=3 subj==unconfined msg='op=PAM:accounting grantors=pam_unix,pam_permit,pam_time acct="fanilicious" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/0 res=success'
+Jan 01 22:55:52 Fani-ThinkPad kernel: audit: type=1110 audit(1577912152.172:1966): pid=1067238 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:setcred grantors=pam_unix,pam_permit acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/0 res=success'
+Jan 01 22:55:52 Fani-ThinkPad sudo[1067238]: pam_unix(sudo:session): session opened for user root by (uid=0)
+Jan 01 22:55:52 Fani-ThinkPad kernel: audit: type=1105 audit(1577912152.175:1967): pid=1067238 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:session_open grantors=pam_limits,pam_unix,pam_permit acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/0 res=success'
+Jan 01 22:55:52 Fani-ThinkPad audit[1067238]: USER_START pid=1067238 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:session_open grantors=pam_limits,pam_unix,pam_permit acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/0 res=success'
+Jan 01 22:55:52 Fani-ThinkPad sudo[1067238]: pam_unix(sudo:session): session closed for user root
+Jan 01 22:55:52 Fani-ThinkPad audit[1067238]: USER_END pid=1067238 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:session_close grantors=pam_limits,pam_unix,pam_permit acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/0 res=success'
+Jan 01 22:55:52 Fani-ThinkPad audit[1067238]: CRED_DISP pid=1067238 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:setcred grantors=pam_unix,pam_permit acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/0 res=success'
+Jan 01 22:55:52 Fani-ThinkPad kernel: audit: type=1106 audit(1577912152.178:1968): pid=1067238 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:session_close grantors=pam_limits,pam_unix,pam_permit acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/0 res=success'
+Jan 01 22:55:52 Fani-ThinkPad kernel: audit: type=1104 audit(1577912152.178:1969): pid=1067238 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:setcred grantors=pam_unix,pam_permit acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/0 res=success'
+Jan 01 22:55:54 Fani-ThinkPad dockerd[1038]: time="2020-01-01T22:55:54.817796654+02:00" level=info msg="shim reaped" id=00d5fad5ba33b5bf6adc876c28d15fe3e8db5ace36f712c5a136ad676a48462c
+Jan 01 22:55:54 Fani-ThinkPad dockerd[1005]: time="2020-01-01T22:55:54.828018907+02:00" level=info msg="ignoring event" module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+Jan 01 22:55:54 Fani-ThinkPad audit: NETFILTER_CFG table=nat family=2 entries=15
+Jan 01 22:55:54 Fani-ThinkPad kernel: audit: type=1325 audit(1577912154.828:1970): table=nat family=2 entries=15
+Jan 01 22:55:54 Fani-ThinkPad audit: NETFILTER_CFG table=filter family=2 entries=30
+Jan 01 22:55:54 Fani-ThinkPad kernel: audit: type=1325 audit(1577912154.835:1971): table=filter family=2 entries=30
+Jan 01 22:55:54 Fani-ThinkPad kernel: audit: type=1325 audit(1577912154.838:1972): table=nat family=2 entries=14
+Jan 01 22:55:54 Fani-ThinkPad audit: NETFILTER_CFG table=nat family=2 entries=14
+Jan 01 22:55:54 Fani-ThinkPad kernel: veth34ea459: renamed from eth0
+Jan 01 22:55:55 Fani-ThinkPad kernel: br-1f0a6519bb03: port 2(veth00368f4) entered disabled state
+Jan 01 22:55:55 Fani-ThinkPad NetworkManager[888]: <info>  [1577912155.0342] manager: (veth34ea459): new Veth device (/org/freedesktop/NetworkManager/Devices/77)
+Jan 01 22:55:55 Fani-ThinkPad systemd-udevd[1067322]: ethtool: autonegotiation is unset or enabled, the speed and duplex are not writable.
+Jan 01 22:55:55 Fani-ThinkPad systemd-udevd[1067322]: Using default interface naming scheme 'v243'.
+Jan 01 22:55:55 Fani-ThinkPad kernel: br-1f0a6519bb03: port 2(veth00368f4) entered disabled state
+Jan 01 22:55:55 Fani-ThinkPad audit: ANOM_PROMISCUOUS dev=veth00368f4 prom=0 old_prom=256 auid=4294967295 uid=0 gid=0 ses=4294967295
+Jan 01 22:55:55 Fani-ThinkPad kernel: device veth00368f4 left promiscuous mode
+Jan 01 22:55:55 Fani-ThinkPad kernel: br-1f0a6519bb03: port 2(veth00368f4) entered disabled state
+Jan 01 22:55:55 Fani-ThinkPad kernel: audit: type=1700 audit(1577912155.115:1973): dev=veth00368f4 prom=0 old_prom=256 auid=4294967295 uid=0 gid=0 ses=4294967295
+Jan 01 22:55:55 Fani-ThinkPad NetworkManager[888]: <info>  [1577912155.1508] device (veth00368f4): released from master device br-1f0a6519bb03
+Jan 01 22:55:55 Fani-ThinkPad gnome-shell[1908]: Removing a network device that was not added
+Jan 01 22:55:55 Fani-ThinkPad gnome-shell[1908]: Removing a network device that was not added
+Jan 01 22:55:55 Fani-ThinkPad systemd[1]: run-docker-netns-e47979cf2bc4.mount: Succeeded.
+Jan 01 22:55:55 Fani-ThinkPad systemd[1824]: run-docker-netns-e47979cf2bc4.mount: Succeeded.
+Jan 01 22:55:55 Fani-ThinkPad systemd[1]: var-lib-docker-containers-00d5fad5ba33b5bf6adc876c28d15fe3e8db5ace36f712c5a136ad676a48462c-mounts-shm.mount: Succeeded.
+Jan 01 22:55:55 Fani-ThinkPad systemd[1]: var-lib-docker-overlay2-4c6b577b1e2f6ccaf534ae997265241ef298d9737937ece2278d8e1f1b0905a9-merged.mount: Succeeded.
+Jan 01 22:55:55 Fani-ThinkPad systemd[1824]: var-lib-docker-containers-00d5fad5ba33b5bf6adc876c28d15fe3e8db5ace36f712c5a136ad676a48462c-mounts-shm.mount: Succeeded.
+Jan 01 22:55:55 Fani-ThinkPad systemd[1824]: var-lib-docker-overlay2-4c6b577b1e2f6ccaf534ae997265241ef298d9737937ece2278d8e1f1b0905a9-merged.mount: Succeeded.
+Jan 01 22:55:56 Fani-ThinkPad dockerd[1038]: time="2020-01-01T22:55:56.315730520+02:00" level=info msg="shim reaped" id=016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d
+Jan 01 22:55:56 Fani-ThinkPad dockerd[1005]: time="2020-01-01T22:55:56.326024223+02:00" level=info msg="ignoring event" module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+Jan 01 22:55:56 Fani-ThinkPad kernel: br-1f0a6519bb03: port 1(veth1a6e5c3) entered disabled state
+Jan 01 22:55:56 Fani-ThinkPad kernel: veth2c6669b: renamed from eth0
+Jan 01 22:55:56 Fani-ThinkPad systemd-udevd[1067326]: ethtool: autonegotiation is unset or enabled, the speed and duplex are not writable.
+Jan 01 22:55:56 Fani-ThinkPad systemd-udevd[1067326]: Using default interface naming scheme 'v243'.
+Jan 01 22:55:56 Fani-ThinkPad NetworkManager[888]: <info>  [1577912156.4104] manager: (veth2c6669b): new Veth device (/org/freedesktop/NetworkManager/Devices/78)
+Jan 01 22:55:56 Fani-ThinkPad kernel: br-1f0a6519bb03: port 1(veth1a6e5c3) entered disabled state
+Jan 01 22:55:56 Fani-ThinkPad audit: ANOM_PROMISCUOUS dev=veth1a6e5c3 prom=0 old_prom=256 auid=4294967295 uid=0 gid=0 ses=4294967295
+Jan 01 22:55:56 Fani-ThinkPad kernel: device veth1a6e5c3 left promiscuous mode
+Jan 01 22:55:56 Fani-ThinkPad kernel: br-1f0a6519bb03: port 1(veth1a6e5c3) entered disabled state
+Jan 01 22:55:56 Fani-ThinkPad NetworkManager[888]: <info>  [1577912156.5210] device (veth1a6e5c3): released from master device br-1f0a6519bb03
+Jan 01 22:55:56 Fani-ThinkPad gnome-shell[1908]: Removing a network device that was not added
+Jan 01 22:55:56 Fani-ThinkPad gnome-shell[1908]: Removing a network device that was not added
+Jan 01 22:55:56 Fani-ThinkPad systemd[1]: run-docker-netns-8d3fd5b65ac7.mount: Succeeded.
+Jan 01 22:55:56 Fani-ThinkPad systemd[1824]: run-docker-netns-8d3fd5b65ac7.mount: Succeeded.
+Jan 01 22:55:56 Fani-ThinkPad systemd[1]: var-lib-docker-containers-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-mounts-shm.mount: Succeeded.
+Jan 01 22:55:56 Fani-ThinkPad systemd[1]: var-lib-docker-overlay2-8fe565d4ad8ad629473a558f2e7ea9cedc118b1102f841307f0ad41dc9566d55-merged.mount: Succeeded.
+Jan 01 22:55:56 Fani-ThinkPad systemd[1824]: var-lib-docker-containers-016576c3f9cc2f2febe18c2ec80b647e1684b5f9e588fa5a53b2a658edf9a95d-mounts-shm.mount: Succeeded.
+Jan 01 22:55:56 Fani-ThinkPad systemd[1824]: var-lib-docker-overlay2-8fe565d4ad8ad629473a558f2e7ea9cedc118b1102f841307f0ad41dc9566d55-merged.mount: Succeeded.
+Jan 01 22:55:57 Fani-ThinkPad audit[1067361]: USER_ACCT pid=1067361 uid=1000 auid=1000 ses=3 subj==unconfined msg='op=PAM:accounting grantors=pam_unix,pam_permit,pam_time acct="fanilicious" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/0 res=success'
+Jan 01 22:55:57 Fani-ThinkPad sudo[1067361]: fanilicious : TTY=pts/0 ; PWD=/home/fanilicious/Projects/SecureWilly/Nextcloud/totaltime/Parser ; USER=root ; COMMAND=/usr/bin/cat /var/log/audit/audit.log
+Jan 01 22:55:57 Fani-ThinkPad audit[1067361]: CRED_REFR pid=1067361 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:setcred grantors=pam_unix,pam_permit,pam_env acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/0 res=success'
+Jan 01 22:55:57 Fani-ThinkPad sudo[1067361]: pam_unix(sudo:session): session opened for user root by (uid=0)
+Jan 01 22:55:57 Fani-ThinkPad audit[1067361]: USER_START pid=1067361 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:session_open grantors=pam_limits,pam_unix,pam_permit acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/0 res=success'
+Jan 01 22:55:57 Fani-ThinkPad sudo[1067361]: pam_unix(sudo:session): session closed for user root
+Jan 01 22:55:57 Fani-ThinkPad audit[1067361]: USER_END pid=1067361 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:session_close grantors=pam_limits,pam_unix,pam_permit acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/0 res=success'
+Jan 01 22:55:57 Fani-ThinkPad audit[1067361]: CRED_DISP pid=1067361 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:setcred grantors=pam_unix,pam_permit,pam_env acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/0 res=success'
+Jan 01 22:55:57 Fani-ThinkPad audit[1067364]: USER_ACCT pid=1067364 uid=1000 auid=1000 ses=3 subj==unconfined msg='op=PAM:accounting grantors=pam_unix,pam_permit,pam_time acct="fanilicious" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/0 res=success'
+Jan 01 22:55:57 Fani-ThinkPad sudo[1067364]: fanilicious : TTY=pts/0 ; PWD=/home/fanilicious/Projects/SecureWilly/Nextcloud/totaltime/Parser ; USER=root ; COMMAND=/usr/bin/journalctl
+Jan 01 22:55:57 Fani-ThinkPad audit[1067364]: CRED_REFR pid=1067364 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:setcred grantors=pam_unix,pam_permit,pam_env acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/0 res=success'
+Jan 01 22:55:57 Fani-ThinkPad sudo[1067364]: pam_unix(sudo:session): session opened for user root by (uid=0)
+Jan 01 22:55:57 Fani-ThinkPad audit[1067364]: USER_START pid=1067364 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:session_open grantors=pam_limits,pam_unix,pam_permit acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/0 res=success'

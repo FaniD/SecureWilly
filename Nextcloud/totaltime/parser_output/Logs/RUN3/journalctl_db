@@ -1,0 +1,1 @@
+Jan 01 22:56:04 Fani-ThinkPad audit[1067769]: AVC apparmor="ALLOWED" operation="capable" profile="db_profile" pid=1067769 comm="gosu" capability=7  capname="setuid"
