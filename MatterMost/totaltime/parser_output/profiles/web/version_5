@@ -1,0 +1,18 @@
+#include <tunables/global>
+
+profile web_profile flags=(attach_disconnected,mediate_deleted) {
+	mount options=ro /etc/localtime -> /etc/localtime, #Bind host volume to docker container volume
+	/etc/localtime/* r,
+	deny remount /etc/localtime, #Disallow anybody that wants to remount this mountpoint
+	deny ptrace (readby, tracedby), #Confront container breakout attacks
+	deny umount /etc/localtime, #Disallow anybody that wants to break this mountpoint
+	capability setuid,
+	capability net_bind_service,  #This capability is needed to bind a socket to well-known ports
+	capability chown,
+	deny /etc/localtime w,
+	/var/lib/docker/* r, #Access to layers of filesystem
+	file,  #Allows access to containers filesystem
+	capability setgid,
+	signal (receive) set=(term) peer=unconfined,
+	network tcp,  #Allowing networking with ports forwarding
+}

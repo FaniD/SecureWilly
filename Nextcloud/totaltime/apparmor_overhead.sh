@@ -58,4 +58,4 @@ docker kill nextcloud
 docker kill db
 
 total=$(timer $t)
-echo "${total}" > appArmor_overhead
+echo "${total}" > apparmor_overhead

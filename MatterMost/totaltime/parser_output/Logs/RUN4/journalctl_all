@@ -1,0 +1,674 @@
+-- Logs begin at Fri 2020-01-03 00:26:30 EET, end at Fri 2020-01-03 00:27:25 EET. --
+Jan 03 00:26:30 Fani-ThinkPad systemd-journald[271]: System Journal (/var/log/journal/c2cde6996eaf4384b722c3ff79432335) is 16.0M, max 4.0G, 3.9G free.
+Jan 03 00:26:31 Fani-ThinkPad audit[1263810]: USER_END pid=1263810 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:session_close grantors=pam_limits,pam_unix,pam_permit acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/0 res=success'
+Jan 03 00:26:31 Fani-ThinkPad audit[1263810]: CRED_DISP pid=1263810 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:setcred grantors=pam_unix,pam_permit,pam_env acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/0 res=success'
+Jan 03 00:26:31 Fani-ThinkPad sudo[1263810]: pam_unix(sudo:session): session closed for user root
+Jan 03 00:26:31 Fani-ThinkPad audit[1263814]: USER_ACCT pid=1263814 uid=1000 auid=1000 ses=3 subj==unconfined msg='op=PAM:accounting grantors=pam_unix,pam_permit,pam_time acct="fanilicious" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/0 res=success'
+Jan 03 00:26:31 Fani-ThinkPad sudo[1263814]: fanilicious : TTY=pts/0 ; PWD=/home/fanilicious/Projects/SecureWilly/MatterMost/totaltime/Parser ; USER=root ; COMMAND=/usr/bin/journalctl --vacuum-time=1s
+Jan 03 00:26:31 Fani-ThinkPad audit[1263814]: CRED_REFR pid=1263814 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:setcred grantors=pam_unix,pam_permit,pam_env acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/0 res=success'
+Jan 03 00:26:31 Fani-ThinkPad sudo[1263814]: pam_unix(sudo:session): session opened for user root by (uid=0)
+Jan 03 00:26:31 Fani-ThinkPad audit[1263814]: USER_START pid=1263814 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:session_open grantors=pam_limits,pam_unix,pam_permit acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/0 res=success'
+Jan 03 00:26:31 Fani-ThinkPad sudo[1263814]: pam_unix(sudo:session): session closed for user root
+Jan 03 00:26:31 Fani-ThinkPad audit[1263814]: USER_END pid=1263814 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:session_close grantors=pam_limits,pam_unix,pam_permit acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/0 res=success'
+Jan 03 00:26:31 Fani-ThinkPad audit[1263814]: CRED_DISP pid=1263814 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:setcred grantors=pam_unix,pam_permit,pam_env acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/0 res=success'
+Jan 03 00:26:31 Fani-ThinkPad audit[1263817]: USER_ACCT pid=1263817 uid=1000 auid=1000 ses=3 subj==unconfined msg='op=PAM:accounting grantors=pam_unix,pam_permit,pam_time acct="fanilicious" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/0 res=success'
+Jan 03 00:26:31 Fani-ThinkPad sudo[1263817]: fanilicious : TTY=pts/0 ; PWD=/home/fanilicious/Projects/SecureWilly/MatterMost/totaltime/Parser ; USER=root ; COMMAND=/usr/bin/tee /var/log/audit/audit.log
+Jan 03 00:26:31 Fani-ThinkPad audit[1263817]: CRED_REFR pid=1263817 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:setcred grantors=pam_unix,pam_permit,pam_env acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/0 res=success'
+Jan 03 00:26:31 Fani-ThinkPad sudo[1263817]: pam_unix(sudo:session): session opened for user root by (uid=0)
+Jan 03 00:26:31 Fani-ThinkPad audit[1263817]: USER_START pid=1263817 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:session_open grantors=pam_limits,pam_unix,pam_permit acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/0 res=success'
+Jan 03 00:26:31 Fani-ThinkPad sudo[1263817]: pam_unix(sudo:session): session closed for user root
+Jan 03 00:26:31 Fani-ThinkPad audit[1263817]: USER_END pid=1263817 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:session_close grantors=pam_limits,pam_unix,pam_permit acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/0 res=success'
+Jan 03 00:26:31 Fani-ThinkPad audit[1263817]: CRED_DISP pid=1263817 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:setcred grantors=pam_unix,pam_permit,pam_env acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/0 res=success'
+Jan 03 00:26:31 Fani-ThinkPad audit[1263822]: USER_ACCT pid=1263822 uid=1000 auid=1000 ses=3 subj==unconfined msg='op=PAM:accounting grantors=pam_unix,pam_permit,pam_time acct="fanilicious" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/0 res=success'
+Jan 03 00:26:31 Fani-ThinkPad sudo[1263822]: fanilicious : TTY=pts/0 ; PWD=/home/fanilicious/Projects/SecureWilly/MatterMost/totaltime/Parser ; USER=root ; COMMAND=/usr/bin/chown -R 1000:1000 /home/fanilicious/Projects/SecureWilly/MatterMost/totaltime/volumes/app/mattermost/
+Jan 03 00:26:31 Fani-ThinkPad audit[1263822]: CRED_REFR pid=1263822 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:setcred grantors=pam_unix,pam_permit,pam_env acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/0 res=success'
+Jan 03 00:26:31 Fani-ThinkPad sudo[1263822]: pam_unix(sudo:session): session opened for user root by (uid=0)
+Jan 03 00:26:31 Fani-ThinkPad audit[1263822]: USER_START pid=1263822 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:session_open grantors=pam_limits,pam_unix,pam_permit acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/0 res=success'
+Jan 03 00:26:31 Fani-ThinkPad sudo[1263822]: pam_unix(sudo:session): session closed for user root
+Jan 03 00:26:31 Fani-ThinkPad audit[1263822]: USER_END pid=1263822 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:session_close grantors=pam_limits,pam_unix,pam_permit acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/0 res=success'
+Jan 03 00:26:31 Fani-ThinkPad audit[1263822]: CRED_DISP pid=1263822 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:setcred grantors=pam_unix,pam_permit,pam_env acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/0 res=success'
+Jan 03 00:26:31 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_packets": No such file or directory
+Jan 03 00:26:31 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_packets": No such file or directory
+Jan 03 00:26:31 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_bytes": No such file or directory
+Jan 03 00:26:31 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_bytes": No such file or directory
+Jan 03 00:26:31 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_errors": No such file or directory
+Jan 03 00:26:31 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_errors": No such file or directory
+Jan 03 00:26:31 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/collisions": No such file or directory
+Jan 03 00:26:32 Fani-ThinkPad systemd-udevd[1263837]: Using default interface naming scheme 'v243'.
+Jan 03 00:26:32 Fani-ThinkPad systemd-udevd[1263837]: ethtool: autonegotiation is unset or enabled, the speed and duplex are not writable.
+Jan 03 00:26:32 Fani-ThinkPad NetworkManager[888]: <info>  [1578003992.1361] manager: (br-be6391643136): new Bridge device (/org/freedesktop/NetworkManager/Devices/147)
+Jan 03 00:26:32 Fani-ThinkPad audit: NETFILTER_CFG table=nat family=2 entries=11
+Jan 03 00:26:32 Fani-ThinkPad audit: NETFILTER_CFG table=nat family=2 entries=12
+Jan 03 00:26:32 Fani-ThinkPad audit: NETFILTER_CFG table=filter family=2 entries=23
+Jan 03 00:26:32 Fani-ThinkPad audit: NETFILTER_CFG table=filter family=2 entries=24
+Jan 03 00:26:32 Fani-ThinkPad audit: NETFILTER_CFG table=filter family=2 entries=25
+Jan 03 00:26:32 Fani-ThinkPad audit: NETFILTER_CFG table=filter family=2 entries=26
+Jan 03 00:26:32 Fani-ThinkPad audit: NETFILTER_CFG table=filter family=2 entries=27
+Jan 03 00:26:32 Fani-ThinkPad audit: NETFILTER_CFG table=filter family=2 entries=26
+Jan 03 00:26:32 Fani-ThinkPad audit: NETFILTER_CFG table=filter family=2 entries=27
+Jan 03 00:26:32 Fani-ThinkPad audit: NETFILTER_CFG table=filter family=2 entries=28
+Jan 03 00:26:32 Fani-ThinkPad NetworkManager[888]: <info>  [1578003992.1788] device (br-be6391643136): state change: unmanaged -> unavailable (reason 'connection-assumed', sys-iface-state: 'external')
+Jan 03 00:26:32 Fani-ThinkPad NetworkManager[888]: <info>  [1578003992.1837] device (br-be6391643136): state change: unavailable -> disconnected (reason 'connection-assumed', sys-iface-state: 'external')
+Jan 03 00:26:32 Fani-ThinkPad NetworkManager[888]: <info>  [1578003992.1852] device (br-be6391643136): Activation: starting connection 'br-be6391643136' (0073d6c8-1fb1-4468-86cd-cbcdf57a7e6a)
+Jan 03 00:26:32 Fani-ThinkPad NetworkManager[888]: <info>  [1578003992.1877] device (br-be6391643136): state change: disconnected -> prepare (reason 'none', sys-iface-state: 'external')
+Jan 03 00:26:32 Fani-ThinkPad NetworkManager[888]: <info>  [1578003992.1884] device (br-be6391643136): state change: prepare -> config (reason 'none', sys-iface-state: 'external')
+Jan 03 00:26:32 Fani-ThinkPad NetworkManager[888]: <info>  [1578003992.1888] device (br-be6391643136): state change: config -> ip-config (reason 'none', sys-iface-state: 'external')
+Jan 03 00:26:32 Fani-ThinkPad NetworkManager[888]: <info>  [1578003992.1892] device (br-be6391643136): state change: ip-config -> ip-check (reason 'none', sys-iface-state: 'external')
+Jan 03 00:26:32 Fani-ThinkPad NetworkManager[888]: <info>  [1578003992.2081] device (br-be6391643136): state change: ip-check -> secondaries (reason 'none', sys-iface-state: 'external')
+Jan 03 00:26:32 Fani-ThinkPad NetworkManager[888]: <info>  [1578003992.2083] device (br-be6391643136): state change: secondaries -> activated (reason 'none', sys-iface-state: 'external')
+Jan 03 00:26:32 Fani-ThinkPad NetworkManager[888]: <info>  [1578003992.2096] device (br-be6391643136): Activation: successful, device activated.
+Jan 03 00:26:32 Fani-ThinkPad audit: NETFILTER_CFG table=filter family=2 entries=29
+Jan 03 00:26:32 Fani-ThinkPad audit: NETFILTER_CFG table=filter family=2 entries=28
+Jan 03 00:26:32 Fani-ThinkPad dockerd[1005]: time="2020-01-03T00:26:32.412391593+02:00" level=warning msg="Security options with `:` as a separator are deprecated and will be completely unsupported in 17.04, use `=` instead."
+Jan 03 00:26:32 Fani-ThinkPad dockerd[1005]: time="2020-01-03T00:26:32.413090175+02:00" level=warning msg="Security options with `:` as a separator are deprecated and will be completely unsupported in 17.04, use `=` instead."
+Jan 03 00:26:32 Fani-ThinkPad dockerd[1005]: time="2020-01-03T00:26:32.418494249+02:00" level=warning msg="Security options with `:` as a separator are deprecated and will be completely unsupported in 17.04, use `=` instead."
+Jan 03 00:26:32 Fani-ThinkPad systemd[1]: var-lib-docker-overlay2-750da046741b868eee78ea01670e29d3e5f3acdeedbdd1ae6af93a019db9ac8e\x2dinit-merged.mount: Succeeded.
+Jan 03 00:26:32 Fani-ThinkPad systemd[1]: var-lib-docker-overlay2-49cdc873c0fc969ea5cb5328e9650748dcabfc966a249ea525360adc5944ed0b\x2dinit-merged.mount: Succeeded.
+Jan 03 00:26:32 Fani-ThinkPad systemd[1824]: var-lib-docker-overlay2-cbdbee9d3bcee585202b17dc6a31012ffbd86d13257ec947617d01ca6a5333e6\x2dinit-merged.mount: Succeeded.
+Jan 03 00:26:32 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_packets": No such file or directory
+Jan 03 00:26:32 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_packets": No such file or directory
+Jan 03 00:26:32 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_bytes": No such file or directory
+Jan 03 00:26:32 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_bytes": No such file or directory
+Jan 03 00:26:32 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_errors": No such file or directory
+Jan 03 00:26:32 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_errors": No such file or directory
+Jan 03 00:26:32 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/collisions": No such file or directory
+Jan 03 00:26:33 Fani-ThinkPad systemd[1824]: var-lib-docker-overlay2-49cdc873c0fc969ea5cb5328e9650748dcabfc966a249ea525360adc5944ed0b-merged.mount: Succeeded.
+Jan 03 00:26:33 Fani-ThinkPad systemd[1]: var-lib-docker-overlay2-49cdc873c0fc969ea5cb5328e9650748dcabfc966a249ea525360adc5944ed0b-merged.mount: Succeeded.
+Jan 03 00:26:33 Fani-ThinkPad systemd[1]: var-lib-docker-overlay2-cbdbee9d3bcee585202b17dc6a31012ffbd86d13257ec947617d01ca6a5333e6-merged.mount: Succeeded.
+Jan 03 00:26:33 Fani-ThinkPad systemd[1824]: var-lib-docker-overlay2-cbdbee9d3bcee585202b17dc6a31012ffbd86d13257ec947617d01ca6a5333e6-merged.mount: Succeeded.
+Jan 03 00:26:33 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_packets": No such file or directory
+Jan 03 00:26:33 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_packets": No such file or directory
+Jan 03 00:26:33 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_bytes": No such file or directory
+Jan 03 00:26:33 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_bytes": No such file or directory
+Jan 03 00:26:33 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_errors": No such file or directory
+Jan 03 00:26:33 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_errors": No such file or directory
+Jan 03 00:26:33 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/collisions": No such file or directory
+Jan 03 00:26:34 Fani-ThinkPad systemd[1]: var-lib-docker-overlay2-750da046741b868eee78ea01670e29d3e5f3acdeedbdd1ae6af93a019db9ac8e-merged.mount: Succeeded.
+Jan 03 00:26:34 Fani-ThinkPad systemd[1824]: var-lib-docker-overlay2-750da046741b868eee78ea01670e29d3e5f3acdeedbdd1ae6af93a019db9ac8e-merged.mount: Succeeded.
+Jan 03 00:26:34 Fani-ThinkPad NetworkManager[888]: <info>  [1578003994.1871] manager: (vethcd22899): new Veth device (/org/freedesktop/NetworkManager/Devices/148)
+Jan 03 00:26:34 Fani-ThinkPad NetworkManager[888]: <info>  [1578003994.1885] manager: (veth00d9aa0): new Veth device (/org/freedesktop/NetworkManager/Devices/149)
+Jan 03 00:26:34 Fani-ThinkPad audit: ANOM_PROMISCUOUS dev=veth00d9aa0 prom=256 old_prom=0 auid=4294967295 uid=0 gid=0 ses=4294967295
+Jan 03 00:26:34 Fani-ThinkPad kernel: br-be6391643136: port 1(veth00d9aa0) entered blocking state
+Jan 03 00:26:34 Fani-ThinkPad kernel: br-be6391643136: port 1(veth00d9aa0) entered disabled state
+Jan 03 00:26:34 Fani-ThinkPad kernel: device veth00d9aa0 entered promiscuous mode
+Jan 03 00:26:34 Fani-ThinkPad systemd-udevd[1263837]: ethtool: autonegotiation is unset or enabled, the speed and duplex are not writable.
+Jan 03 00:26:34 Fani-ThinkPad systemd-udevd[1263841]: ethtool: autonegotiation is unset or enabled, the speed and duplex are not writable.
+Jan 03 00:26:34 Fani-ThinkPad systemd-udevd[1263841]: Using default interface naming scheme 'v243'.
+Jan 03 00:26:34 Fani-ThinkPad systemd-udevd[1263837]: ethtool: autonegotiation is unset or enabled, the speed and duplex are not writable.
+Jan 03 00:26:34 Fani-ThinkPad systemd-udevd[1263841]: ethtool: autonegotiation is unset or enabled, the speed and duplex are not writable.
+Jan 03 00:26:34 Fani-ThinkPad NetworkManager[888]: <info>  [1578003994.7380] manager: (veth5acc1d9): new Veth device (/org/freedesktop/NetworkManager/Devices/150)
+Jan 03 00:26:34 Fani-ThinkPad NetworkManager[888]: <info>  [1578003994.7398] manager: (veth9449458): new Veth device (/org/freedesktop/NetworkManager/Devices/151)
+Jan 03 00:26:34 Fani-ThinkPad audit: ANOM_PROMISCUOUS dev=veth9449458 prom=256 old_prom=0 auid=4294967295 uid=0 gid=0 ses=4294967295
+Jan 03 00:26:34 Fani-ThinkPad kernel: br-be6391643136: port 2(veth9449458) entered blocking state
+Jan 03 00:26:34 Fani-ThinkPad kernel: br-be6391643136: port 2(veth9449458) entered disabled state
+Jan 03 00:26:34 Fani-ThinkPad kernel: device veth9449458 entered promiscuous mode
+Jan 03 00:26:34 Fani-ThinkPad kernel: kauditd_printk_skb: 89 callbacks suppressed
+Jan 03 00:26:34 Fani-ThinkPad kernel: audit: type=1700 audit(1578003994.746:3411): dev=veth9449458 prom=256 old_prom=0 auid=4294967295 uid=0 gid=0 ses=4294967295
+Jan 03 00:26:34 Fani-ThinkPad kernel: br-be6391643136: port 2(veth9449458) entered blocking state
+Jan 03 00:26:34 Fani-ThinkPad kernel: br-be6391643136: port 2(veth9449458) entered forwarding state
+Jan 03 00:26:34 Fani-ThinkPad kernel: br-be6391643136: port 2(veth9449458) entered disabled state
+Jan 03 00:26:34 Fani-ThinkPad dockerd[1005]: time="2020-01-03T00:26:34.825442998+02:00" level=warning msg="Security options with `:` as a separator are deprecated and will be completely unsupported in 17.04, use `=` instead."
+Jan 03 00:26:34 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_packets": No such file or directory
+Jan 03 00:26:34 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_packets": No such file or directory
+Jan 03 00:26:34 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_bytes": No such file or directory
+Jan 03 00:26:34 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_bytes": No such file or directory
+Jan 03 00:26:34 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_errors": No such file or directory
+Jan 03 00:26:34 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_errors": No such file or directory
+Jan 03 00:26:34 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/collisions": No such file or directory
+Jan 03 00:26:34 Fani-ThinkPad audit: ANOM_PROMISCUOUS dev=vethfd5e408 prom=256 old_prom=0 auid=4294967295 uid=0 gid=0 ses=4294967295
+Jan 03 00:26:34 Fani-ThinkPad kernel: br-be6391643136: port 3(vethfd5e408) entered blocking state
+Jan 03 00:26:34 Fani-ThinkPad kernel: br-be6391643136: port 3(vethfd5e408) entered disabled state
+Jan 03 00:26:34 Fani-ThinkPad kernel: device vethfd5e408 entered promiscuous mode
+Jan 03 00:26:34 Fani-ThinkPad kernel: audit: type=1700 audit(1578003994.982:3412): dev=vethfd5e408 prom=256 old_prom=0 auid=4294967295 uid=0 gid=0 ses=4294967295
+Jan 03 00:26:34 Fani-ThinkPad kernel: br-be6391643136: port 3(vethfd5e408) entered blocking state
+Jan 03 00:26:34 Fani-ThinkPad kernel: br-be6391643136: port 3(vethfd5e408) entered forwarding state
+Jan 03 00:26:34 Fani-ThinkPad kernel: IPv6: ADDRCONF(NETDEV_CHANGE): br-be6391643136: link becomes ready
+Jan 03 00:26:34 Fani-ThinkPad systemd-udevd[1263841]: ethtool: autonegotiation is unset or enabled, the speed and duplex are not writable.
+Jan 03 00:26:34 Fani-ThinkPad systemd-udevd[1263837]: ethtool: autonegotiation is unset or enabled, the speed and duplex are not writable.
+Jan 03 00:26:34 Fani-ThinkPad NetworkManager[888]: <info>  [1578003994.9895] manager: (veth7101fb2): new Veth device (/org/freedesktop/NetworkManager/Devices/152)
+Jan 03 00:26:34 Fani-ThinkPad NetworkManager[888]: <info>  [1578003994.9916] manager: (vethfd5e408): new Veth device (/org/freedesktop/NetworkManager/Devices/153)
+Jan 03 00:26:34 Fani-ThinkPad kernel: br-be6391643136: port 3(vethfd5e408) entered disabled state
+Jan 03 00:26:35 Fani-ThinkPad dockerd[1038]: time="2020-01-03T00:26:35.055499835+02:00" level=info msg="shim containerd-shim started" address=/containerd-shim/943228a0dfe3a8580a8bcf080982b106de866dfbe40c807f81a6f381044a6764.sock debug=false pid=1263887
+Jan 03 00:26:35 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-b141f59e2ae5c03f28ade07262f86f30198bf62cd9aec93b88a60d5788f29623-runc.5RLxnv.mount: Succeeded.
+Jan 03 00:26:35 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-b141f59e2ae5c03f28ade07262f86f30198bf62cd9aec93b88a60d5788f29623-runc.5RLxnv.mount: Succeeded.
+Jan 03 00:26:35 Fani-ThinkPad audit: NETFILTER_CFG table=nat family=2 entries=13
+Jan 03 00:26:35 Fani-ThinkPad kernel: audit: type=1325 audit(1578003995.122:3413): table=nat family=2 entries=13
+Jan 03 00:26:35 Fani-ThinkPad audit: NETFILTER_CFG table=filter family=2 entries=29
+Jan 03 00:26:35 Fani-ThinkPad kernel: audit: type=1325 audit(1578003995.126:3414): table=filter family=2 entries=29
+Jan 03 00:26:35 Fani-ThinkPad audit: NETFILTER_CFG table=nat family=2 entries=14
+Jan 03 00:26:35 Fani-ThinkPad kernel: audit: type=1325 audit(1578003995.132:3415): table=nat family=2 entries=14
+Jan 03 00:26:35 Fani-ThinkPad audit: NETFILTER_CFG table=nat family=2 entries=15
+Jan 03 00:26:35 Fani-ThinkPad kernel: audit: type=1325 audit(1578003995.146:3416): table=nat family=2 entries=15
+Jan 03 00:26:35 Fani-ThinkPad audit: NETFILTER_CFG table=filter family=2 entries=30
+Jan 03 00:26:35 Fani-ThinkPad kernel: audit: type=1325 audit(1578003995.149:3417): table=filter family=2 entries=30
+Jan 03 00:26:35 Fani-ThinkPad audit: NETFILTER_CFG table=nat family=2 entries=16
+Jan 03 00:26:35 Fani-ThinkPad kernel: audit: type=1325 audit(1578003995.152:3418): table=nat family=2 entries=16
+Jan 03 00:26:35 Fani-ThinkPad audit: NETFILTER_CFG table=nat family=2 entries=0
+Jan 03 00:26:35 Fani-ThinkPad kernel: audit: type=1325 audit(1578003995.272:3419): table=nat family=2 entries=0
+Jan 03 00:26:35 Fani-ThinkPad audit: NETFILTER_CFG table=filter family=2 entries=0
+Jan 03 00:26:35 Fani-ThinkPad kernel: audit: type=1325 audit(1578003995.276:3420): table=filter family=2 entries=0
+Jan 03 00:26:35 Fani-ThinkPad audit: NETFILTER_CFG table=nat family=2 entries=5
+Jan 03 00:26:35 Fani-ThinkPad audit: NETFILTER_CFG table=nat family=2 entries=7
+Jan 03 00:26:35 Fani-ThinkPad audit: NETFILTER_CFG table=nat family=2 entries=8
+Jan 03 00:26:35 Fani-ThinkPad audit: NETFILTER_CFG table=nat family=2 entries=10
+Jan 03 00:26:35 Fani-ThinkPad audit: NETFILTER_CFG table=nat family=2 entries=11
+Jan 03 00:26:35 Fani-ThinkPad audit: NETFILTER_CFG table=nat family=2 entries=12
+Jan 03 00:26:35 Fani-ThinkPad audit: NETFILTER_CFG table=nat family=2 entries=13
+Jan 03 00:26:35 Fani-ThinkPad audit: NETFILTER_CFG table=nat family=2 entries=14
+Jan 03 00:26:35 Fani-ThinkPad kernel: eth0: renamed from vethcd22899
+Jan 03 00:26:35 Fani-ThinkPad kernel: IPv6: ADDRCONF(NETDEV_CHANGE): veth00d9aa0: link becomes ready
+Jan 03 00:26:35 Fani-ThinkPad kernel: br-be6391643136: port 1(veth00d9aa0) entered blocking state
+Jan 03 00:26:35 Fani-ThinkPad kernel: br-be6391643136: port 1(veth00d9aa0) entered forwarding state
+Jan 03 00:26:35 Fani-ThinkPad NetworkManager[888]: <info>  [1578003995.3462] device (veth00d9aa0): carrier: link connected
+Jan 03 00:26:35 Fani-ThinkPad NetworkManager[888]: <info>  [1578003995.3468] device (br-be6391643136): carrier: link connected
+Jan 03 00:26:35 Fani-ThinkPad gnome-shell[1908]: Removing a network device that was not added
+Jan 03 00:26:35 Fani-ThinkPad dockerd[1005]: time="2020-01-03T00:26:35.589293223+02:00" level=warning msg="Security options with `:` as a separator are deprecated and will be completely unsupported in 17.04, use `=` instead."
+Jan 03 00:26:35 Fani-ThinkPad systemd[1]: NetworkManager-dispatcher.service: Succeeded.
+Jan 03 00:26:35 Fani-ThinkPad audit[1]: SERVICE_STOP pid=1 uid=0 auid=4294967295 ses=4294967295 subj==unconfined msg='unit=NetworkManager-dispatcher comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'
+Jan 03 00:26:35 Fani-ThinkPad dockerd[1005]: time="2020-01-03T00:26:35.656264450+02:00" level=warning msg="Security options with `:` as a separator are deprecated and will be completely unsupported in 17.04, use `=` instead."
+Jan 03 00:26:35 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_packets": No such file or directory
+Jan 03 00:26:35 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_packets": No such file or directory
+Jan 03 00:26:35 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_bytes": No such file or directory
+Jan 03 00:26:35 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_bytes": No such file or directory
+Jan 03 00:26:35 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_errors": No such file or directory
+Jan 03 00:26:35 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_errors": No such file or directory
+Jan 03 00:26:35 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/collisions": No such file or directory
+Jan 03 00:26:35 Fani-ThinkPad dockerd[1038]: time="2020-01-03T00:26:35.983342365+02:00" level=info msg="shim containerd-shim started" address=/containerd-shim/7b2077283dd3149578d3d4744f1cf43f7e2673973c25ae980e24214ea966fa03.sock debug=false pid=1263984
+Jan 03 00:26:36 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-06e45208cb0920c59184cbd73383e7970fe40e70229d7a49e1bcb67f6758779c-runc.mD9osR.mount: Succeeded.
+Jan 03 00:26:36 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-06e45208cb0920c59184cbd73383e7970fe40e70229d7a49e1bcb67f6758779c-runc.mD9osR.mount: Succeeded.
+Jan 03 00:26:36 Fani-ThinkPad dockerd[1038]: time="2020-01-03T00:26:36.015089436+02:00" level=info msg="shim containerd-shim started" address=/containerd-shim/c3a210d68b61bb3d3a7fa26315759732487f6121288f835c86f9602efad7f019.sock debug=false pid=1264002
+Jan 03 00:26:36 Fani-ThinkPad audit: NETFILTER_CFG table=nat family=2 entries=0
+Jan 03 00:26:36 Fani-ThinkPad audit: NETFILTER_CFG table=filter family=2 entries=0
+Jan 03 00:26:36 Fani-ThinkPad audit: NETFILTER_CFG table=nat family=2 entries=5
+Jan 03 00:26:36 Fani-ThinkPad audit: NETFILTER_CFG table=nat family=2 entries=7
+Jan 03 00:26:36 Fani-ThinkPad audit: NETFILTER_CFG table=nat family=2 entries=8
+Jan 03 00:26:36 Fani-ThinkPad audit: NETFILTER_CFG table=nat family=2 entries=10
+Jan 03 00:26:36 Fani-ThinkPad audit: NETFILTER_CFG table=nat family=2 entries=11
+Jan 03 00:26:36 Fani-ThinkPad audit: NETFILTER_CFG table=nat family=2 entries=12
+Jan 03 00:26:36 Fani-ThinkPad audit: NETFILTER_CFG table=nat family=2 entries=13
+Jan 03 00:26:36 Fani-ThinkPad audit: NETFILTER_CFG table=nat family=2 entries=14
+Jan 03 00:26:36 Fani-ThinkPad audit: NETFILTER_CFG table=nat family=2 entries=0
+Jan 03 00:26:36 Fani-ThinkPad audit: NETFILTER_CFG table=filter family=2 entries=0
+Jan 03 00:26:36 Fani-ThinkPad audit: NETFILTER_CFG table=nat family=2 entries=5
+Jan 03 00:26:36 Fani-ThinkPad audit: NETFILTER_CFG table=nat family=2 entries=7
+Jan 03 00:26:36 Fani-ThinkPad audit: NETFILTER_CFG table=nat family=2 entries=8
+Jan 03 00:26:36 Fani-ThinkPad audit: NETFILTER_CFG table=nat family=2 entries=10
+Jan 03 00:26:36 Fani-ThinkPad audit: NETFILTER_CFG table=nat family=2 entries=11
+Jan 03 00:26:36 Fani-ThinkPad gnome-shell[1908]: Removing a network device that was not added
+Jan 03 00:26:36 Fani-ThinkPad kernel: eth0: renamed from veth5acc1d9
+Jan 03 00:26:36 Fani-ThinkPad audit: NETFILTER_CFG table=nat family=2 entries=12
+Jan 03 00:26:36 Fani-ThinkPad NetworkManager[888]: <info>  [1578003996.2802] device (veth9449458): carrier: link connected
+Jan 03 00:26:36 Fani-ThinkPad audit: NETFILTER_CFG table=nat family=2 entries=13
+Jan 03 00:26:36 Fani-ThinkPad kernel: IPv6: ADDRCONF(NETDEV_CHANGE): veth9449458: link becomes ready
+Jan 03 00:26:36 Fani-ThinkPad kernel: br-be6391643136: port 2(veth9449458) entered blocking state
+Jan 03 00:26:36 Fani-ThinkPad kernel: br-be6391643136: port 2(veth9449458) entered forwarding state
+Jan 03 00:26:36 Fani-ThinkPad audit: NETFILTER_CFG table=nat family=2 entries=14
+Jan 03 00:26:36 Fani-ThinkPad kernel: eth0: renamed from veth7101fb2
+Jan 03 00:26:36 Fani-ThinkPad kernel: IPv6: ADDRCONF(NETDEV_CHANGE): vethfd5e408: link becomes ready
+Jan 03 00:26:36 Fani-ThinkPad kernel: br-be6391643136: port 3(vethfd5e408) entered blocking state
+Jan 03 00:26:36 Fani-ThinkPad kernel: br-be6391643136: port 3(vethfd5e408) entered forwarding state
+Jan 03 00:26:36 Fani-ThinkPad NetworkManager[888]: <info>  [1578003996.3247] device (vethfd5e408): carrier: link connected
+Jan 03 00:26:36 Fani-ThinkPad gnome-shell[1908]: Removing a network device that was not added
+Jan 03 00:26:36 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_packets": No such file or directory
+Jan 03 00:26:36 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_packets": No such file or directory
+Jan 03 00:26:36 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_bytes": No such file or directory
+Jan 03 00:26:36 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_bytes": No such file or directory
+Jan 03 00:26:36 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_errors": No such file or directory
+Jan 03 00:26:36 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_errors": No such file or directory
+Jan 03 00:26:36 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/collisions": No such file or directory
+Jan 03 00:26:37 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_packets": No such file or directory
+Jan 03 00:26:37 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_packets": No such file or directory
+Jan 03 00:26:37 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_bytes": No such file or directory
+Jan 03 00:26:37 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_bytes": No such file or directory
+Jan 03 00:26:37 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_errors": No such file or directory
+Jan 03 00:26:37 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_errors": No such file or directory
+Jan 03 00:26:37 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/collisions": No such file or directory
+Jan 03 00:26:38 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_packets": No such file or directory
+Jan 03 00:26:38 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_packets": No such file or directory
+Jan 03 00:26:38 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_bytes": No such file or directory
+Jan 03 00:26:38 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_bytes": No such file or directory
+Jan 03 00:26:38 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_errors": No such file or directory
+Jan 03 00:26:38 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_errors": No such file or directory
+Jan 03 00:26:38 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/collisions": No such file or directory
+Jan 03 00:26:39 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_packets": No such file or directory
+Jan 03 00:26:39 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_packets": No such file or directory
+Jan 03 00:26:39 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_bytes": No such file or directory
+Jan 03 00:26:39 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_bytes": No such file or directory
+Jan 03 00:26:39 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_errors": No such file or directory
+Jan 03 00:26:39 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_errors": No such file or directory
+Jan 03 00:26:39 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/collisions": No such file or directory
+Jan 03 00:26:40 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_packets": No such file or directory
+Jan 03 00:26:40 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_packets": No such file or directory
+Jan 03 00:26:40 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_bytes": No such file or directory
+Jan 03 00:26:40 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_bytes": No such file or directory
+Jan 03 00:26:40 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_errors": No such file or directory
+Jan 03 00:26:40 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_errors": No such file or directory
+Jan 03 00:26:40 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/collisions": No such file or directory
+Jan 03 00:26:41 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_packets": No such file or directory
+Jan 03 00:26:41 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_packets": No such file or directory
+Jan 03 00:26:41 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_bytes": No such file or directory
+Jan 03 00:26:41 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_bytes": No such file or directory
+Jan 03 00:26:41 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_errors": No such file or directory
+Jan 03 00:26:41 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_errors": No such file or directory
+Jan 03 00:26:41 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/collisions": No such file or directory
+Jan 03 00:26:42 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_packets": No such file or directory
+Jan 03 00:26:42 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_packets": No such file or directory
+Jan 03 00:26:42 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_bytes": No such file or directory
+Jan 03 00:26:42 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_bytes": No such file or directory
+Jan 03 00:26:42 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_errors": No such file or directory
+Jan 03 00:26:42 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_errors": No such file or directory
+Jan 03 00:26:42 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/collisions": No such file or directory
+Jan 03 00:26:43 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_packets": No such file or directory
+Jan 03 00:26:43 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_packets": No such file or directory
+Jan 03 00:26:43 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_bytes": No such file or directory
+Jan 03 00:26:43 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_bytes": No such file or directory
+Jan 03 00:26:43 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_errors": No such file or directory
+Jan 03 00:26:43 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_errors": No such file or directory
+Jan 03 00:26:43 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/collisions": No such file or directory
+Jan 03 00:26:44 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_packets": No such file or directory
+Jan 03 00:26:44 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_packets": No such file or directory
+Jan 03 00:26:44 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_bytes": No such file or directory
+Jan 03 00:26:44 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_bytes": No such file or directory
+Jan 03 00:26:44 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_errors": No such file or directory
+Jan 03 00:26:44 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_errors": No such file or directory
+Jan 03 00:26:44 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/collisions": No such file or directory
+Jan 03 00:26:45 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_packets": No such file or directory
+Jan 03 00:26:45 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_packets": No such file or directory
+Jan 03 00:26:45 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_bytes": No such file or directory
+Jan 03 00:26:45 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_bytes": No such file or directory
+Jan 03 00:26:45 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_errors": No such file or directory
+Jan 03 00:26:45 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_errors": No such file or directory
+Jan 03 00:26:45 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/collisions": No such file or directory
+Jan 03 00:26:46 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_packets": No such file or directory
+Jan 03 00:26:46 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_packets": No such file or directory
+Jan 03 00:26:46 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_bytes": No such file or directory
+Jan 03 00:26:46 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_bytes": No such file or directory
+Jan 03 00:26:46 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_errors": No such file or directory
+Jan 03 00:26:46 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_errors": No such file or directory
+Jan 03 00:26:46 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/collisions": No such file or directory
+Jan 03 00:26:47 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_packets": No such file or directory
+Jan 03 00:26:47 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_packets": No such file or directory
+Jan 03 00:26:47 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_bytes": No such file or directory
+Jan 03 00:26:48 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_bytes": No such file or directory
+Jan 03 00:26:48 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_errors": No such file or directory
+Jan 03 00:26:48 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_errors": No such file or directory
+Jan 03 00:26:48 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/collisions": No such file or directory
+Jan 03 00:26:48 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_packets": No such file or directory
+Jan 03 00:26:48 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_packets": No such file or directory
+Jan 03 00:26:48 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_bytes": No such file or directory
+Jan 03 00:26:48 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_bytes": No such file or directory
+Jan 03 00:26:48 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_errors": No such file or directory
+Jan 03 00:26:48 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_errors": No such file or directory
+Jan 03 00:26:48 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/collisions": No such file or directory
+Jan 03 00:26:49 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_packets": No such file or directory
+Jan 03 00:26:49 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_packets": No such file or directory
+Jan 03 00:26:49 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_bytes": No such file or directory
+Jan 03 00:26:49 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_bytes": No such file or directory
+Jan 03 00:26:49 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_errors": No such file or directory
+Jan 03 00:26:49 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_errors": No such file or directory
+Jan 03 00:26:49 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/collisions": No such file or directory
+Jan 03 00:26:50 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_packets": No such file or directory
+Jan 03 00:26:50 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_packets": No such file or directory
+Jan 03 00:26:50 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_bytes": No such file or directory
+Jan 03 00:26:50 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_bytes": No such file or directory
+Jan 03 00:26:50 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_errors": No such file or directory
+Jan 03 00:26:50 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_errors": No such file or directory
+Jan 03 00:26:50 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/collisions": No such file or directory
+Jan 03 00:26:51 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_packets": No such file or directory
+Jan 03 00:26:51 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_packets": No such file or directory
+Jan 03 00:26:51 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_bytes": No such file or directory
+Jan 03 00:26:51 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_bytes": No such file or directory
+Jan 03 00:26:51 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_errors": No such file or directory
+Jan 03 00:26:51 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_errors": No such file or directory
+Jan 03 00:26:51 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/collisions": No such file or directory
+Jan 03 00:26:52 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_packets": No such file or directory
+Jan 03 00:26:52 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_packets": No such file or directory
+Jan 03 00:26:52 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_bytes": No such file or directory
+Jan 03 00:26:52 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_bytes": No such file or directory
+Jan 03 00:26:52 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_errors": No such file or directory
+Jan 03 00:26:52 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_errors": No such file or directory
+Jan 03 00:26:52 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/collisions": No such file or directory
+Jan 03 00:26:53 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_packets": No such file or directory
+Jan 03 00:26:53 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_packets": No such file or directory
+Jan 03 00:26:53 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_bytes": No such file or directory
+Jan 03 00:26:53 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_bytes": No such file or directory
+Jan 03 00:26:53 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_errors": No such file or directory
+Jan 03 00:26:53 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_errors": No such file or directory
+Jan 03 00:26:53 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/collisions": No such file or directory
+Jan 03 00:26:54 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_packets": No such file or directory
+Jan 03 00:26:54 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_packets": No such file or directory
+Jan 03 00:26:54 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_bytes": No such file or directory
+Jan 03 00:26:54 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_bytes": No such file or directory
+Jan 03 00:26:54 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_errors": No such file or directory
+Jan 03 00:26:54 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_errors": No such file or directory
+Jan 03 00:26:54 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/collisions": No such file or directory
+Jan 03 00:26:55 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_packets": No such file or directory
+Jan 03 00:26:55 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_packets": No such file or directory
+Jan 03 00:26:55 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_bytes": No such file or directory
+Jan 03 00:26:55 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_bytes": No such file or directory
+Jan 03 00:26:55 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_errors": No such file or directory
+Jan 03 00:26:55 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_errors": No such file or directory
+Jan 03 00:26:55 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/collisions": No such file or directory
+Jan 03 00:26:56 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_packets": No such file or directory
+Jan 03 00:26:56 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_packets": No such file or directory
+Jan 03 00:26:56 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_bytes": No such file or directory
+Jan 03 00:26:56 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_bytes": No such file or directory
+Jan 03 00:26:56 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_errors": No such file or directory
+Jan 03 00:26:56 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_errors": No such file or directory
+Jan 03 00:26:56 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/collisions": No such file or directory
+Jan 03 00:26:57 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-b141f59e2ae5c03f28ade07262f86f30198bf62cd9aec93b88a60d5788f29623-runc.axscdn.mount: Succeeded.
+Jan 03 00:26:57 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_packets": No such file or directory
+Jan 03 00:26:57 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_packets": No such file or directory
+Jan 03 00:26:57 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_bytes": No such file or directory
+Jan 03 00:26:57 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_bytes": No such file or directory
+Jan 03 00:26:57 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_errors": No such file or directory
+Jan 03 00:26:57 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_errors": No such file or directory
+Jan 03 00:26:57 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/collisions": No such file or directory
+Jan 03 00:26:58 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_packets": No such file or directory
+Jan 03 00:26:58 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_packets": No such file or directory
+Jan 03 00:26:58 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_bytes": No such file or directory
+Jan 03 00:26:58 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_bytes": No such file or directory
+Jan 03 00:26:58 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_errors": No such file or directory
+Jan 03 00:26:58 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_errors": No such file or directory
+Jan 03 00:26:58 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/collisions": No such file or directory
+Jan 03 00:26:59 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_packets": No such file or directory
+Jan 03 00:26:59 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_packets": No such file or directory
+Jan 03 00:26:59 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_bytes": No such file or directory
+Jan 03 00:26:59 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_bytes": No such file or directory
+Jan 03 00:26:59 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_errors": No such file or directory
+Jan 03 00:26:59 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_errors": No such file or directory
+Jan 03 00:26:59 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/collisions": No such file or directory
+Jan 03 00:27:00 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_packets": No such file or directory
+Jan 03 00:27:00 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_packets": No such file or directory
+Jan 03 00:27:00 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_bytes": No such file or directory
+Jan 03 00:27:00 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_bytes": No such file or directory
+Jan 03 00:27:00 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_errors": No such file or directory
+Jan 03 00:27:00 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_errors": No such file or directory
+Jan 03 00:27:00 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/collisions": No such file or directory
+Jan 03 00:27:01 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_packets": No such file or directory
+Jan 03 00:27:01 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_packets": No such file or directory
+Jan 03 00:27:01 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_bytes": No such file or directory
+Jan 03 00:27:01 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_bytes": No such file or directory
+Jan 03 00:27:01 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_errors": No such file or directory
+Jan 03 00:27:01 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_errors": No such file or directory
+Jan 03 00:27:01 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/collisions": No such file or directory
+Jan 03 00:27:02 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_packets": No such file or directory
+Jan 03 00:27:02 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_packets": No such file or directory
+Jan 03 00:27:02 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_bytes": No such file or directory
+Jan 03 00:27:02 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_bytes": No such file or directory
+Jan 03 00:27:02 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_errors": No such file or directory
+Jan 03 00:27:02 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_errors": No such file or directory
+Jan 03 00:27:02 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/collisions": No such file or directory
+Jan 03 00:27:03 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_packets": No such file or directory
+Jan 03 00:27:03 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_packets": No such file or directory
+Jan 03 00:27:03 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_bytes": No such file or directory
+Jan 03 00:27:03 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_bytes": No such file or directory
+Jan 03 00:27:03 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_errors": No such file or directory
+Jan 03 00:27:03 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_errors": No such file or directory
+Jan 03 00:27:03 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/collisions": No such file or directory
+Jan 03 00:27:04 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_packets": No such file or directory
+Jan 03 00:27:04 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_packets": No such file or directory
+Jan 03 00:27:04 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_bytes": No such file or directory
+Jan 03 00:27:04 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_bytes": No such file or directory
+Jan 03 00:27:04 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_errors": No such file or directory
+Jan 03 00:27:04 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_errors": No such file or directory
+Jan 03 00:27:04 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/collisions": No such file or directory
+Jan 03 00:27:05 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-b141f59e2ae5c03f28ade07262f86f30198bf62cd9aec93b88a60d5788f29623-runc.XHYB3a.mount: Succeeded.
+Jan 03 00:27:05 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-b141f59e2ae5c03f28ade07262f86f30198bf62cd9aec93b88a60d5788f29623-runc.XHYB3a.mount: Succeeded.
+Jan 03 00:27:05 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-b141f59e2ae5c03f28ade07262f86f30198bf62cd9aec93b88a60d5788f29623-runc.9gM7um.mount: Succeeded.
+Jan 03 00:27:05 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-b141f59e2ae5c03f28ade07262f86f30198bf62cd9aec93b88a60d5788f29623-runc.9gM7um.mount: Succeeded.
+Jan 03 00:27:05 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_packets": No such file or directory
+Jan 03 00:27:05 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_packets": No such file or directory
+Jan 03 00:27:05 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_bytes": No such file or directory
+Jan 03 00:27:05 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_bytes": No such file or directory
+Jan 03 00:27:05 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_errors": No such file or directory
+Jan 03 00:27:05 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_errors": No such file or directory
+Jan 03 00:27:05 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/collisions": No such file or directory
+Jan 03 00:27:06 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-06e45208cb0920c59184cbd73383e7970fe40e70229d7a49e1bcb67f6758779c-runc.hXJCED.mount: Succeeded.
+Jan 03 00:27:06 Fani-ThinkPad systemd[1824]: run-docker-runtime\x2drunc-moby-432b9800006d78c83fc727218d65c7ed9c45ccb08854b3263bfe7acc007710ba-runc.bCdxbN.mount: Succeeded.
+Jan 03 00:27:06 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-432b9800006d78c83fc727218d65c7ed9c45ccb08854b3263bfe7acc007710ba-runc.bCdxbN.mount: Succeeded.
+Jan 03 00:27:06 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_packets": No such file or directory
+Jan 03 00:27:06 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_packets": No such file or directory
+Jan 03 00:27:06 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_bytes": No such file or directory
+Jan 03 00:27:06 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_bytes": No such file or directory
+Jan 03 00:27:06 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_errors": No such file or directory
+Jan 03 00:27:06 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_errors": No such file or directory
+Jan 03 00:27:06 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/collisions": No such file or directory
+Jan 03 00:27:07 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_packets": No such file or directory
+Jan 03 00:27:07 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_packets": No such file or directory
+Jan 03 00:27:07 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_bytes": No such file or directory
+Jan 03 00:27:07 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_bytes": No such file or directory
+Jan 03 00:27:07 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_errors": No such file or directory
+Jan 03 00:27:07 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_errors": No such file or directory
+Jan 03 00:27:07 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/collisions": No such file or directory
+Jan 03 00:27:08 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_packets": No such file or directory
+Jan 03 00:27:08 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_packets": No such file or directory
+Jan 03 00:27:08 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_bytes": No such file or directory
+Jan 03 00:27:08 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_bytes": No such file or directory
+Jan 03 00:27:08 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_errors": No such file or directory
+Jan 03 00:27:08 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_errors": No such file or directory
+Jan 03 00:27:08 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/collisions": No such file or directory
+Jan 03 00:27:09 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_packets": No such file or directory
+Jan 03 00:27:09 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_packets": No such file or directory
+Jan 03 00:27:09 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_bytes": No such file or directory
+Jan 03 00:27:09 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_bytes": No such file or directory
+Jan 03 00:27:09 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_errors": No such file or directory
+Jan 03 00:27:09 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_errors": No such file or directory
+Jan 03 00:27:09 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/collisions": No such file or directory
+Jan 03 00:27:10 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_packets": No such file or directory
+Jan 03 00:27:10 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_packets": No such file or directory
+Jan 03 00:27:10 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_bytes": No such file or directory
+Jan 03 00:27:10 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_bytes": No such file or directory
+Jan 03 00:27:10 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_errors": No such file or directory
+Jan 03 00:27:10 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_errors": No such file or directory
+Jan 03 00:27:10 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/collisions": No such file or directory
+Jan 03 00:27:11 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_packets": No such file or directory
+Jan 03 00:27:11 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_packets": No such file or directory
+Jan 03 00:27:11 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_bytes": No such file or directory
+Jan 03 00:27:11 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_bytes": No such file or directory
+Jan 03 00:27:11 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_errors": No such file or directory
+Jan 03 00:27:11 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_errors": No such file or directory
+Jan 03 00:27:11 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/collisions": No such file or directory
+Jan 03 00:27:12 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_packets": No such file or directory
+Jan 03 00:27:12 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_packets": No such file or directory
+Jan 03 00:27:12 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_bytes": No such file or directory
+Jan 03 00:27:12 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_bytes": No such file or directory
+Jan 03 00:27:12 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_errors": No such file or directory
+Jan 03 00:27:12 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_errors": No such file or directory
+Jan 03 00:27:12 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/collisions": No such file or directory
+Jan 03 00:27:13 Fani-ThinkPad systemd[1]: run-docker-runtime\x2drunc-moby-b141f59e2ae5c03f28ade07262f86f30198bf62cd9aec93b88a60d5788f29623-runc.IEAhpG.mount: Succeeded.
+Jan 03 00:27:13 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_packets": No such file or directory
+Jan 03 00:27:13 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_packets": No such file or directory
+Jan 03 00:27:13 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_bytes": No such file or directory
+Jan 03 00:27:13 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_bytes": No such file or directory
+Jan 03 00:27:13 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_errors": No such file or directory
+Jan 03 00:27:13 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_errors": No such file or directory
+Jan 03 00:27:13 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/collisions": No such file or directory
+Jan 03 00:27:14 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_packets": No such file or directory
+Jan 03 00:27:14 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_packets": No such file or directory
+Jan 03 00:27:14 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_bytes": No such file or directory
+Jan 03 00:27:14 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_bytes": No such file or directory
+Jan 03 00:27:14 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_errors": No such file or directory
+Jan 03 00:27:14 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_errors": No such file or directory
+Jan 03 00:27:14 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/collisions": No such file or directory
+Jan 03 00:27:15 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_packets": No such file or directory
+Jan 03 00:27:15 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_packets": No such file or directory
+Jan 03 00:27:15 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_bytes": No such file or directory
+Jan 03 00:27:15 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_bytes": No such file or directory
+Jan 03 00:27:15 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_errors": No such file or directory
+Jan 03 00:27:15 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_errors": No such file or directory
+Jan 03 00:27:15 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/collisions": No such file or directory
+Jan 03 00:27:16 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_packets": No such file or directory
+Jan 03 00:27:16 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_packets": No such file or directory
+Jan 03 00:27:16 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_bytes": No such file or directory
+Jan 03 00:27:16 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_bytes": No such file or directory
+Jan 03 00:27:16 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_errors": No such file or directory
+Jan 03 00:27:16 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_errors": No such file or directory
+Jan 03 00:27:16 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/collisions": No such file or directory
+Jan 03 00:27:17 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_packets": No such file or directory
+Jan 03 00:27:17 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_packets": No such file or directory
+Jan 03 00:27:17 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_bytes": No such file or directory
+Jan 03 00:27:17 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_bytes": No such file or directory
+Jan 03 00:27:17 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_errors": No such file or directory
+Jan 03 00:27:17 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_errors": No such file or directory
+Jan 03 00:27:17 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/collisions": No such file or directory
+Jan 03 00:27:18 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_packets": No such file or directory
+Jan 03 00:27:18 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_packets": No such file or directory
+Jan 03 00:27:18 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_bytes": No such file or directory
+Jan 03 00:27:18 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_bytes": No such file or directory
+Jan 03 00:27:18 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_errors": No such file or directory
+Jan 03 00:27:18 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_errors": No such file or directory
+Jan 03 00:27:18 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/collisions": No such file or directory
+Jan 03 00:27:19 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_packets": No such file or directory
+Jan 03 00:27:19 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_packets": No such file or directory
+Jan 03 00:27:19 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_bytes": No such file or directory
+Jan 03 00:27:19 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_bytes": No such file or directory
+Jan 03 00:27:19 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_errors": No such file or directory
+Jan 03 00:27:19 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_errors": No such file or directory
+Jan 03 00:27:19 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/collisions": No such file or directory
+Jan 03 00:27:20 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_packets": No such file or directory
+Jan 03 00:27:20 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_packets": No such file or directory
+Jan 03 00:27:20 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_bytes": No such file or directory
+Jan 03 00:27:20 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_bytes": No such file or directory
+Jan 03 00:27:20 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_errors": No such file or directory
+Jan 03 00:27:20 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_errors": No such file or directory
+Jan 03 00:27:20 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/collisions": No such file or directory
+Jan 03 00:27:21 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_packets": No such file or directory
+Jan 03 00:27:21 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_packets": No such file or directory
+Jan 03 00:27:21 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_bytes": No such file or directory
+Jan 03 00:27:21 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_bytes": No such file or directory
+Jan 03 00:27:21 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_errors": No such file or directory
+Jan 03 00:27:21 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_errors": No such file or directory
+Jan 03 00:27:21 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/collisions": No such file or directory
+Jan 03 00:27:22 Fani-ThinkPad dockerd[1038]: time="2020-01-03T00:27:22.423626989+02:00" level=info msg="shim reaped" id=06e45208cb0920c59184cbd73383e7970fe40e70229d7a49e1bcb67f6758779c
+Jan 03 00:27:22 Fani-ThinkPad dockerd[1005]: time="2020-01-03T00:27:22.433658025+02:00" level=info msg="ignoring event" module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+Jan 03 00:27:22 Fani-ThinkPad audit: NETFILTER_CFG table=nat family=2 entries=17
+Jan 03 00:27:22 Fani-ThinkPad kernel: kauditd_printk_skb: 29 callbacks suppressed
+Jan 03 00:27:22 Fani-ThinkPad kernel: audit: type=1325 audit(1578004042.436:3450): table=nat family=2 entries=17
+Jan 03 00:27:22 Fani-ThinkPad dockerd[1038]: time="2020-01-03T00:27:22.442439683+02:00" level=info msg="shim reaped" id=b141f59e2ae5c03f28ade07262f86f30198bf62cd9aec93b88a60d5788f29623
+Jan 03 00:27:22 Fani-ThinkPad audit: NETFILTER_CFG table=filter family=2 entries=31
+Jan 03 00:27:22 Fani-ThinkPad kernel: audit: type=1325 audit(1578004042.439:3451): table=filter family=2 entries=31
+Jan 03 00:27:22 Fani-ThinkPad audit: NETFILTER_CFG table=nat family=2 entries=16
+Jan 03 00:27:22 Fani-ThinkPad kernel: audit: type=1325 audit(1578004042.442:3452): table=nat family=2 entries=16
+Jan 03 00:27:22 Fani-ThinkPad dockerd[1005]: time="2020-01-03T00:27:22.452687982+02:00" level=info msg="ignoring event" module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+Jan 03 00:27:22 Fani-ThinkPad audit: NETFILTER_CFG table=nat family=2 entries=15
+Jan 03 00:27:22 Fani-ThinkPad kernel: audit: type=1325 audit(1578004042.452:3453): table=nat family=2 entries=15
+Jan 03 00:27:22 Fani-ThinkPad audit: NETFILTER_CFG table=filter family=2 entries=30
+Jan 03 00:27:22 Fani-ThinkPad kernel: audit: type=1325 audit(1578004042.462:3454): table=filter family=2 entries=30
+Jan 03 00:27:22 Fani-ThinkPad audit: NETFILTER_CFG table=nat family=2 entries=14
+Jan 03 00:27:22 Fani-ThinkPad kernel: audit: type=1325 audit(1578004042.466:3455): table=nat family=2 entries=14
+Jan 03 00:27:22 Fani-ThinkPad kernel: vethcd22899: renamed from eth0
+Jan 03 00:27:22 Fani-ThinkPad kernel: br-be6391643136: port 1(veth00d9aa0) entered disabled state
+Jan 03 00:27:22 Fani-ThinkPad NetworkManager[888]: <info>  [1578004042.5716] manager: (vethcd22899): new Veth device (/org/freedesktop/NetworkManager/Devices/154)
+Jan 03 00:27:22 Fani-ThinkPad systemd-udevd[1264528]: ethtool: autonegotiation is unset or enabled, the speed and duplex are not writable.
+Jan 03 00:27:22 Fani-ThinkPad systemd-udevd[1264528]: Using default interface naming scheme 'v243'.
+Jan 03 00:27:22 Fani-ThinkPad kernel: br-be6391643136: port 2(veth9449458) entered disabled state
+Jan 03 00:27:22 Fani-ThinkPad kernel: veth5acc1d9: renamed from eth0
+Jan 03 00:27:22 Fani-ThinkPad systemd-udevd[1264528]: ethtool: autonegotiation is unset or enabled, the speed and duplex are not writable.
+Jan 03 00:27:22 Fani-ThinkPad NetworkManager[888]: <info>  [1578004042.6517] manager: (veth5acc1d9): new Veth device (/org/freedesktop/NetworkManager/Devices/155)
+Jan 03 00:27:22 Fani-ThinkPad dockerd[1038]: time="2020-01-03T00:27:22.727108510+02:00" level=info msg="shim reaped" id=432b9800006d78c83fc727218d65c7ed9c45ccb08854b3263bfe7acc007710ba
+Jan 03 00:27:22 Fani-ThinkPad dockerd[1005]: time="2020-01-03T00:27:22.737238882+02:00" level=info msg="ignoring event" module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+Jan 03 00:27:22 Fani-ThinkPad kernel: br-be6391643136: port 1(veth00d9aa0) entered disabled state
+Jan 03 00:27:22 Fani-ThinkPad audit: ANOM_PROMISCUOUS dev=veth00d9aa0 prom=0 old_prom=256 auid=4294967295 uid=0 gid=0 ses=4294967295
+Jan 03 00:27:22 Fani-ThinkPad kernel: device veth00d9aa0 left promiscuous mode
+Jan 03 00:27:22 Fani-ThinkPad kernel: br-be6391643136: port 1(veth00d9aa0) entered disabled state
+Jan 03 00:27:22 Fani-ThinkPad kernel: audit: type=1700 audit(1578004042.792:3456): dev=veth00d9aa0 prom=0 old_prom=256 auid=4294967295 uid=0 gid=0 ses=4294967295
+Jan 03 00:27:22 Fani-ThinkPad NetworkManager[888]: <info>  [1578004042.8271] device (veth00d9aa0): released from master device br-be6391643136
+Jan 03 00:27:22 Fani-ThinkPad gnome-shell[1908]: Removing a network device that was not added
+Jan 03 00:27:22 Fani-ThinkPad gnome-shell[1908]: Removing a network device that was not added
+Jan 03 00:27:22 Fani-ThinkPad kernel: br-be6391643136: port 2(veth9449458) entered disabled state
+Jan 03 00:27:22 Fani-ThinkPad audit: ANOM_PROMISCUOUS dev=veth9449458 prom=0 old_prom=256 auid=4294967295 uid=0 gid=0 ses=4294967295
+Jan 03 00:27:22 Fani-ThinkPad kernel: device veth9449458 left promiscuous mode
+Jan 03 00:27:22 Fani-ThinkPad kernel: br-be6391643136: port 2(veth9449458) entered disabled state
+Jan 03 00:27:22 Fani-ThinkPad kernel: audit: type=1700 audit(1578004042.836:3457): dev=veth9449458 prom=0 old_prom=256 auid=4294967295 uid=0 gid=0 ses=4294967295
+Jan 03 00:27:22 Fani-ThinkPad NetworkManager[888]: <info>  [1578004042.8717] device (veth9449458): released from master device br-be6391643136
+Jan 03 00:27:22 Fani-ThinkPad gnome-shell[1908]: Removing a network device that was not added
+Jan 03 00:27:22 Fani-ThinkPad gnome-shell[1908]: Removing a network device that was not added
+Jan 03 00:27:22 Fani-ThinkPad kernel: br-be6391643136: port 3(vethfd5e408) entered disabled state
+Jan 03 00:27:22 Fani-ThinkPad kernel: veth7101fb2: renamed from eth0
+Jan 03 00:27:22 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_packets": No such file or directory
+Jan 03 00:27:22 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_packets": No such file or directory
+Jan 03 00:27:22 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_bytes": No such file or directory
+Jan 03 00:27:22 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_bytes": No such file or directory
+Jan 03 00:27:22 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_errors": No such file or directory
+Jan 03 00:27:22 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_errors": No such file or directory
+Jan 03 00:27:22 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/collisions": No such file or directory
+Jan 03 00:27:22 Fani-ThinkPad systemd-udevd[1264528]: ethtool: autonegotiation is unset or enabled, the speed and duplex are not writable.
+Jan 03 00:27:22 Fani-ThinkPad NetworkManager[888]: <info>  [1578004042.9332] manager: (veth7101fb2): new Veth device (/org/freedesktop/NetworkManager/Devices/156)
+Jan 03 00:27:23 Fani-ThinkPad systemd[1]: run-docker-netns-bbb936fea491.mount: Succeeded.
+Jan 03 00:27:23 Fani-ThinkPad systemd[1824]: run-docker-netns-bbb936fea491.mount: Succeeded.
+Jan 03 00:27:23 Fani-ThinkPad systemd[1]: run-docker-netns-2d37e48d5649.mount: Succeeded.
+Jan 03 00:27:23 Fani-ThinkPad systemd[1824]: run-docker-netns-2d37e48d5649.mount: Succeeded.
+Jan 03 00:27:23 Fani-ThinkPad systemd[1]: var-lib-docker-containers-b141f59e2ae5c03f28ade07262f86f30198bf62cd9aec93b88a60d5788f29623-mounts-shm.mount: Succeeded.
+Jan 03 00:27:23 Fani-ThinkPad systemd[1]: var-lib-docker-overlay2-49cdc873c0fc969ea5cb5328e9650748dcabfc966a249ea525360adc5944ed0b-merged.mount: Succeeded.
+Jan 03 00:27:23 Fani-ThinkPad systemd[1824]: var-lib-docker-containers-b141f59e2ae5c03f28ade07262f86f30198bf62cd9aec93b88a60d5788f29623-mounts-shm.mount: Succeeded.
+Jan 03 00:27:23 Fani-ThinkPad systemd[1824]: var-lib-docker-overlay2-49cdc873c0fc969ea5cb5328e9650748dcabfc966a249ea525360adc5944ed0b-merged.mount: Succeeded.
+Jan 03 00:27:23 Fani-ThinkPad kernel: br-be6391643136: port 3(vethfd5e408) entered disabled state
+Jan 03 00:27:23 Fani-ThinkPad audit: ANOM_PROMISCUOUS dev=vethfd5e408 prom=0 old_prom=256 auid=4294967295 uid=0 gid=0 ses=4294967295
+Jan 03 00:27:23 Fani-ThinkPad kernel: device vethfd5e408 left promiscuous mode
+Jan 03 00:27:23 Fani-ThinkPad kernel: br-be6391643136: port 3(vethfd5e408) entered disabled state
+Jan 03 00:27:23 Fani-ThinkPad kernel: audit: type=1700 audit(1578004043.392:3458): dev=vethfd5e408 prom=0 old_prom=256 auid=4294967295 uid=0 gid=0 ses=4294967295
+Jan 03 00:27:23 Fani-ThinkPad NetworkManager[888]: <info>  [1578004043.4343] device (vethfd5e408): released from master device br-be6391643136
+Jan 03 00:27:23 Fani-ThinkPad gnome-shell[1908]: Removing a network device that was not added
+Jan 03 00:27:23 Fani-ThinkPad gnome-shell[1908]: Removing a network device that was not added
+Jan 03 00:27:23 Fani-ThinkPad systemd[1]: var-lib-docker-containers-06e45208cb0920c59184cbd73383e7970fe40e70229d7a49e1bcb67f6758779c-mounts-shm.mount: Succeeded.
+Jan 03 00:27:23 Fani-ThinkPad systemd[1]: var-lib-docker-overlay2-cbdbee9d3bcee585202b17dc6a31012ffbd86d13257ec947617d01ca6a5333e6-merged.mount: Succeeded.
+Jan 03 00:27:23 Fani-ThinkPad systemd[1824]: var-lib-docker-containers-06e45208cb0920c59184cbd73383e7970fe40e70229d7a49e1bcb67f6758779c-mounts-shm.mount: Succeeded.
+Jan 03 00:27:23 Fani-ThinkPad systemd[1824]: var-lib-docker-overlay2-cbdbee9d3bcee585202b17dc6a31012ffbd86d13257ec947617d01ca6a5333e6-merged.mount: Succeeded.
+Jan 03 00:27:23 Fani-ThinkPad systemd[1]: run-docker-netns-1e07938c0e4c.mount: Succeeded.
+Jan 03 00:27:23 Fani-ThinkPad systemd[1824]: run-docker-netns-1e07938c0e4c.mount: Succeeded.
+Jan 03 00:27:23 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_packets": No such file or directory
+Jan 03 00:27:23 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_packets": No such file or directory
+Jan 03 00:27:23 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_bytes": No such file or directory
+Jan 03 00:27:23 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_bytes": No such file or directory
+Jan 03 00:27:23 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_errors": No such file or directory
+Jan 03 00:27:23 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_errors": No such file or directory
+Jan 03 00:27:23 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/collisions": No such file or directory
+Jan 03 00:27:23 Fani-ThinkPad systemd[1]: var-lib-docker-containers-432b9800006d78c83fc727218d65c7ed9c45ccb08854b3263bfe7acc007710ba-mounts-shm.mount: Succeeded.
+Jan 03 00:27:23 Fani-ThinkPad systemd[1]: var-lib-docker-overlay2-750da046741b868eee78ea01670e29d3e5f3acdeedbdd1ae6af93a019db9ac8e-merged.mount: Succeeded.
+Jan 03 00:27:23 Fani-ThinkPad systemd[1824]: var-lib-docker-containers-432b9800006d78c83fc727218d65c7ed9c45ccb08854b3263bfe7acc007710ba-mounts-shm.mount: Succeeded.
+Jan 03 00:27:23 Fani-ThinkPad systemd[1824]: var-lib-docker-overlay2-750da046741b868eee78ea01670e29d3e5f3acdeedbdd1ae6af93a019db9ac8e-merged.mount: Succeeded.
+Jan 03 00:27:24 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_packets": No such file or directory
+Jan 03 00:27:24 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_packets": No such file or directory
+Jan 03 00:27:24 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_bytes": No such file or directory
+Jan 03 00:27:24 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_bytes": No such file or directory
+Jan 03 00:27:24 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/rx_errors": No such file or directory
+Jan 03 00:27:24 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/tx_errors": No such file or directory
+Jan 03 00:27:24 Fani-ThinkPad gnome-shell[1908]: glibtop(c=1908): [WARNING] Failed to open "/sys/class/net/br-1f0a6519bb03/statistics/collisions": No such file or directory
+Jan 03 00:27:24 Fani-ThinkPad NetworkManager[888]: <info>  [1578004044.9234] device (br-be6391643136): state change: activated -> unmanaged (reason 'unmanaged', sys-iface-state: 'removed')
+Jan 03 00:27:24 Fani-ThinkPad gnome-shell[1908]: Removing a network device that was not added
+Jan 03 00:27:24 Fani-ThinkPad dbus-daemon[887]: [system] Activating via systemd: service name='org.freedesktop.nm_dispatcher' unit='dbus-org.freedesktop.nm-dispatcher.service' requested by ':1.1' (uid=0 pid=888 comm="/usr/bin/NetworkManager --no-daemon ")
+Jan 03 00:27:24 Fani-ThinkPad kernel: audit: type=1325 audit(1578004044.932:3459): table=nat family=2 entries=13
+Jan 03 00:27:24 Fani-ThinkPad audit: NETFILTER_CFG table=nat family=2 entries=13
+Jan 03 00:27:24 Fani-ThinkPad systemd[1]: Starting Network Manager Script Dispatcher Service...
+Jan 03 00:27:24 Fani-ThinkPad audit: NETFILTER_CFG table=nat family=2 entries=12
+Jan 03 00:27:24 Fani-ThinkPad audit: NETFILTER_CFG table=filter family=2 entries=29
+Jan 03 00:27:24 Fani-ThinkPad dbus-daemon[887]: [system] Successfully activated service 'org.freedesktop.nm_dispatcher'
+Jan 03 00:27:24 Fani-ThinkPad audit[1]: SERVICE_START pid=1 uid=0 auid=4294967295 ses=4294967295 subj==unconfined msg='unit=NetworkManager-dispatcher comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'
+Jan 03 00:27:24 Fani-ThinkPad systemd[1]: Started Network Manager Script Dispatcher Service.
+Jan 03 00:27:24 Fani-ThinkPad audit: NETFILTER_CFG table=filter family=2 entries=28
+Jan 03 00:27:24 Fani-ThinkPad audit: NETFILTER_CFG table=filter family=2 entries=27
+Jan 03 00:27:24 Fani-ThinkPad audit: NETFILTER_CFG table=filter family=2 entries=26
+Jan 03 00:27:24 Fani-ThinkPad audit: NETFILTER_CFG table=filter family=2 entries=25
+Jan 03 00:27:24 Fani-ThinkPad audit: NETFILTER_CFG table=filter family=2 entries=24
+Jan 03 00:27:25 Fani-ThinkPad audit[1264580]: USER_ACCT pid=1264580 uid=1000 auid=1000 ses=3 subj==unconfined msg='op=PAM:accounting grantors=pam_unix,pam_permit,pam_time acct="fanilicious" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/0 res=success'
+Jan 03 00:27:25 Fani-ThinkPad sudo[1264580]: fanilicious : TTY=pts/0 ; PWD=/home/fanilicious/Projects/SecureWilly/MatterMost/totaltime/Parser ; USER=root ; COMMAND=/usr/bin/rm -r volumes
+Jan 03 00:27:25 Fani-ThinkPad audit[1264580]: CRED_REFR pid=1264580 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:setcred grantors=pam_unix,pam_permit,pam_env acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/0 res=success'
+Jan 03 00:27:25 Fani-ThinkPad sudo[1264580]: pam_unix(sudo:session): session opened for user root by (uid=0)
+Jan 03 00:27:25 Fani-ThinkPad audit[1264580]: USER_START pid=1264580 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:session_open grantors=pam_limits,pam_unix,pam_permit acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/0 res=success'
+Jan 03 00:27:25 Fani-ThinkPad sudo[1264580]: pam_unix(sudo:session): session closed for user root
+Jan 03 00:27:25 Fani-ThinkPad audit[1264580]: USER_END pid=1264580 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:session_close grantors=pam_limits,pam_unix,pam_permit acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/0 res=success'
+Jan 03 00:27:25 Fani-ThinkPad audit[1264580]: CRED_DISP pid=1264580 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:setcred grantors=pam_unix,pam_permit,pam_env acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/0 res=success'
+Jan 03 00:27:25 Fani-ThinkPad audit[1264585]: USER_ACCT pid=1264585 uid=1000 auid=1000 ses=3 subj==unconfined msg='op=PAM:accounting grantors=pam_unix,pam_permit,pam_time acct="fanilicious" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/0 res=success'
+Jan 03 00:27:25 Fani-ThinkPad sudo[1264585]: fanilicious : TTY=pts/0 ; PWD=/home/fanilicious/Projects/SecureWilly/MatterMost/totaltime/Parser ; USER=root ; COMMAND=/usr/bin/cat /var/log/audit/audit.log
+Jan 03 00:27:25 Fani-ThinkPad audit[1264585]: CRED_REFR pid=1264585 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:setcred grantors=pam_unix,pam_permit,pam_env acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/0 res=success'
+Jan 03 00:27:25 Fani-ThinkPad sudo[1264585]: pam_unix(sudo:session): session opened for user root by (uid=0)
+Jan 03 00:27:25 Fani-ThinkPad audit[1264585]: USER_START pid=1264585 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:session_open grantors=pam_limits,pam_unix,pam_permit acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/0 res=success'
+Jan 03 00:27:25 Fani-ThinkPad sudo[1264585]: pam_unix(sudo:session): session closed for user root
+Jan 03 00:27:25 Fani-ThinkPad audit[1264585]: USER_END pid=1264585 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:session_close grantors=pam_limits,pam_unix,pam_permit acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/0 res=success'
+Jan 03 00:27:25 Fani-ThinkPad audit[1264585]: CRED_DISP pid=1264585 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:setcred grantors=pam_unix,pam_permit,pam_env acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/0 res=success'
+Jan 03 00:27:25 Fani-ThinkPad audit[1264588]: USER_ACCT pid=1264588 uid=1000 auid=1000 ses=3 subj==unconfined msg='op=PAM:accounting grantors=pam_unix,pam_permit,pam_time acct="fanilicious" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/0 res=success'
+Jan 03 00:27:25 Fani-ThinkPad sudo[1264588]: fanilicious : TTY=pts/0 ; PWD=/home/fanilicious/Projects/SecureWilly/MatterMost/totaltime/Parser ; USER=root ; COMMAND=/usr/bin/journalctl
+Jan 03 00:27:25 Fani-ThinkPad audit[1264588]: CRED_REFR pid=1264588 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:setcred grantors=pam_unix,pam_permit,pam_env acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/0 res=success'
+Jan 03 00:27:25 Fani-ThinkPad sudo[1264588]: pam_unix(sudo:session): session opened for user root by (uid=0)
+Jan 03 00:27:25 Fani-ThinkPad audit[1264588]: USER_START pid=1264588 uid=0 auid=1000 ses=3 subj==unconfined msg='op=PAM:session_open grantors=pam_limits,pam_unix,pam_permit acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/0 res=success'

@@ -1,0 +1,2 @@
+Jan 03 00:24:37 Fani-ThinkPad audit[1261569]: AVC apparmor="ALLOWED" operation="capable" profile="web_profile" pid=1261569 comm="nginx" capability=7  capname="setuid"
+Jan 03 00:24:37 Fani-ThinkPad audit[1261570]: AVC apparmor="ALLOWED" operation="capable" profile="web_profile" pid=1261570 comm="nginx" capability=7  capname="setuid"

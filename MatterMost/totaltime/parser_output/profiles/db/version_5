@@ -1,0 +1,33 @@
+#include <tunables/global>
+
+profile db_profile flags=(attach_disconnected,mediate_deleted) {
+	signal (receive) set=(int) peer=db_profile,
+	deny remount /etc/localtime, #Disallow anybody that wants to remount this mountpoint
+	signal (send) set=(quit) peer=db_profile,
+	capability fsetid,
+	capability chown,
+	file,  #Allows access to containers filesystem
+	signal (receive) set=(usr1) peer=db_profile,
+	mount /home/fanilicious/Projects/SecureWilly/MatterMost/totaltime/volumes/db/var/lib/postgresql/data -> /var/lib/postgresql/data, #Bind host volume to docker container volume
+	mount options=ro /etc/localtime -> /etc/localtime, #Bind host volume to docker container volume
+	deny umount /etc/localtime, #Disallow anybody that wants to break this mountpoint
+	/var/lib/postgresql/data/* rw,
+	signal (send) set=(usr1) peer=db_profile,
+	deny /etc/localtime w,
+	/var/lib/docker/* r, #Access to layers of filesystem
+	signal (receive) set=(usr2) peer=db_profile,
+	capability fowner,
+	capability setgid,
+	signal (receive) set=(term) peer=unconfined,
+	capability dac_override,
+	deny umount /var/lib/postgresql/data, #Disallow anybody that wants to break this mountpoint
+	deny remount /var/lib/postgresql/data, #Disallow anybody that wants to remount this mountpoint
+	signal (send) set=(int) peer=db_profile,
+	capability setuid,
+	deny ptrace (readby, tracedby), #Confront container breakout attacks
+	/etc/localtime/* r,
+	signal (receive) set=(term) peer=db_profile,
+	signal (receive) set=(quit) peer=db_profile,
+	signal (send) set=(usr2) peer=db_profile,
+	signal (send) set=(term) peer=db_profile,
+}

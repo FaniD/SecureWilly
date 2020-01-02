@@ -1,0 +1,3 @@
+Jan 03 00:24:37 Fani-ThinkPad audit[1261494]: AVC apparmor="ALLOWED" operation="capable" profile="db_profile" pid=1261494 comm="entrypoint.sh" capability=1  capname="dac_override"
+Jan 03 00:24:37 Fani-ThinkPad audit[1261580]: AVC apparmor="ALLOWED" operation="capable" profile="db_profile" pid=1261580 comm="sed" capability=1  capname="dac_override"
+Jan 03 00:24:37 Fani-ThinkPad audit[1261581]: AVC apparmor="ALLOWED" operation="capable" profile="db_profile" pid=1261581 comm="sed" capability=1  capname="dac_override"

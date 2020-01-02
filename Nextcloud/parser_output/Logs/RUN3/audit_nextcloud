@@ -1,3 +1,0 @@
-type=AVC msg=audit(1574810083.094:2770): apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=231542 comm="apache2" capability=6  capname="setgid"
-type=AVC msg=audit(1574810083.094:2771): apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=231543 comm="apache2" capability=6  capname="setgid"
-type=AVC msg=audit(1574810083.097:2772): apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=231545 comm="apache2" capability=6  capname="setgid"

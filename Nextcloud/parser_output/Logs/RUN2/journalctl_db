@@ -1,1 +1,0 @@
-Nov 27 01:08:15 Fani-ThinkPad audit[169362]: AVC apparmor="ALLOWED" operation="capable" profile="db_profile" pid=169362 comm="gosu" capability=6  capname="setgid"

@@ -1,0 +1,1 @@
+Jan 03 00:24:17 Fani-ThinkPad audit[1260625]: AVC apparmor="ALLOWED" operation="signal" profile="app_profile" pid=1260625 comm="runc" requested_mask="receive" denied_mask="receive" signal=term peer="unconfined"

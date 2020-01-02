@@ -1,0 +1,2 @@
+Jan 03 00:25:38 Fani-ThinkPad audit[1262756]: AVC apparmor="ALLOWED" operation="capable" profile="db_profile" pid=1262756 comm="su-exec" capability=7  capname="setuid"
+Jan 03 00:25:38 Fani-ThinkPad kernel: audit: type=1400 audit(1578003938.142:3278): apparmor="ALLOWED" operation="capable" profile="db_profile" pid=1262756 comm="su-exec" capability=7  capname="setuid"

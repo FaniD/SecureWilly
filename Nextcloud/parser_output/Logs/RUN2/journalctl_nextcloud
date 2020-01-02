@@ -1,5 +1,0 @@
-Nov 27 01:08:18 Fani-ThinkPad audit[169636]: AVC apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=169636 comm="rsync" capability=3  capname="fowner"
-Nov 27 01:08:18 Fani-ThinkPad audit[169636]: AVC apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=169636 comm="rsync" capability=3  capname="fowner"
-Nov 27 01:08:18 Fani-ThinkPad audit[169636]: AVC apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=169636 comm="rsync" capability=3  capname="fowner"
-Nov 27 01:08:18 Fani-ThinkPad audit[169636]: AVC apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=169636 comm="rsync" capability=3  capname="fowner"
-Nov 27 01:08:19 Fani-ThinkPad audit[169666]: AVC apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=169666 comm="apache2" capability=7  capname="setuid"

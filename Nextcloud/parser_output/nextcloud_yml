@@ -1,11 +1,6 @@
      nextcloud:
         security_opt:
           - "apparmor:nextcloud_profile"
-        security_opt:
-          - "apparmor:nextcloud_profile"
-        security_opt:
-          - "apparmor:nextcloud_profile"
-        container_name: nextcloud
         image: nextcloud:latest
         ports:
                 - 8080:80

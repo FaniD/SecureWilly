@@ -1,5 +1,0 @@
-type=AVC msg=audit(1574809698.104:2639): apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=169636 comm="rsync" capability=3  capname="fowner"
-type=AVC msg=audit(1574809698.147:2640): apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=169636 comm="rsync" capability=3  capname="fowner"
-type=AVC msg=audit(1574809698.207:2641): apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=169636 comm="rsync" capability=3  capname="fowner"
-type=AVC msg=audit(1574809698.274:2642): apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=169636 comm="rsync" capability=3  capname="fowner"
-type=AVC msg=audit(1574809699.864:2648): apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=169666 comm="apache2" capability=7  capname="setuid"

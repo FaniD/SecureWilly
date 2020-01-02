@@ -1,0 +1,41 @@
+version: "3"
+
+services:
+  db:
+    container_name: db
+    image: matterdb
+    read_only: true
+    restart: unless-stopped
+    volumes:
+      - /home/fanilicious/Projects/SecureWilly/MatterMost/totaltime/volumes/db/var/lib/postgresql/data:/var/lib/postgresql/data
+      - /etc/localtime:/etc/localtime:ro
+    environment:
+      - POSTGRES_USER=mmuser
+      - POSTGRES_PASSWORD=mmuser_password
+      - POSTGRES_DB=mattermost
+  app:
+    container_name: app
+    image: matterapp
+    restart: unless-stopped
+    volumes:
+      - /home/fanilicious/Projects/SecureWilly/MatterMost/totaltime/volumes/app/mattermost/config:/mattermost/config:rw
+      - /home/fanilicious/Projects/SecureWilly/MatterMost/totaltime/volumes/app/mattermost/data:/mattermost/data:rw
+      - /home/fanilicious/Projects/SecureWilly/MatterMost/totaltime/volumes/app/mattermost/logs:/mattermost/logs:rw
+      - /home/fanilicious/Projects/SecureWilly/MatterMost/totaltime/volumes/app/mattermost/plugins:/mattermost/plugins:rw
+      - /home/fanilicious/Projects/SecureWilly/MatterMost/totaltime/volumes/app/mattermost/client-plugins:/mattermost/client/plugins:rw
+      - /etc/localtime:/etc/localtime:ro
+    environment:
+      - MM_USERNAME=mmuser
+      - MM_PASSWORD=mmuser_password
+      - MM_DBNAME=mattermost
+      - MM_SQLSETTINGS_DATASOURCE=postgres://mmuser:mmuser_password@db:5432/mattermost?sslmode=disable&connect_timeout=10
+  web:
+    container_name: web
+    image: matterweb
+    ports:
+      - "80:80"
+      - "443:443"
+    read_only: true
+    restart: unless-stopped
+    volumes:
+      - /etc/localtime:/etc/localtime:ro

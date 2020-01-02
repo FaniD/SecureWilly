@@ -1,3 +1,0 @@
-Nov 27 01:14:43 Fani-ThinkPad audit[231542]: AVC apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=231542 comm="apache2" capability=6  capname="setgid"
-Nov 27 01:14:43 Fani-ThinkPad audit[231543]: AVC apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=231543 comm="apache2" capability=6  capname="setgid"
-Nov 27 01:14:43 Fani-ThinkPad audit[231545]: AVC apparmor="ALLOWED" operation="capable" profile="nextcloud_profile" pid=231545 comm="apache2" capability=6  capname="setgid"
