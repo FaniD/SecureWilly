@@ -1,0 +1,3 @@
+receive kill unconfined
+send hup nextcloudpi_profile
+receive hup nextcloudpi_profile

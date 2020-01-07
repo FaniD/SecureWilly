@@ -1,0 +1,9 @@
+dac_override
+chown
+fowner
+fsetid
+setgid
+setuid
+audit_write
+sys_chroot
+kill

@@ -1,0 +1,33 @@
+#include <tunables/global>
+
+profile nextcloudpi_profile flags=(attach_disconnected,mediate_deleted) {
+	capability kill,
+	capability fsetid,
+	capability chown,
+	file,  #Allows access to containers filesystem
+	signal (send) set=(usr1) peer=nextcloudpi_profile,
+	signal (receive) set=(quit) peer=nextcloudpi_profile,
+	signal (send) set=(term) peer=nextcloudpi_profile,
+	network tcp,  #Allowing networking with ports forwarding
+	signal (receive) set=(term) peer=nextcloudpi_profile,
+	signal (send) set=(hup) peer=nextcloudpi_profile,
+	deny umount /data, #Disallow anybody that wants to break this mountpoint
+	/var/lib/docker/* r, #Access to layers of filesystem
+	mount /var/lib/docker/volumes/totaltime_ncdata/_data -> /data, #Bind host volume to docker container volume
+	capability fowner,
+	capability setgid,
+	signal (receive) set=(usr1) peer=nextcloudpi_profile,
+	signal (send) set=(quit) peer=nextcloudpi_profile,
+	capability dac_override,
+	capability audit_write,
+	signal (receive) set=(kill) peer=unconfined,
+	signal (receive) set=(hup) peer=nextcloudpi_profile,
+	signal (send) set=(exists) peer=nextcloudpi_profile,
+	capability sys_chroot,
+	capability setuid,
+	deny ptrace (readby, tracedby), #Confront container breakout attacks
+	/data/* rw,
+	capability net_bind_service,  #This capability is needed to bind a socket to well-known ports
+	deny remount /data, #Disallow anybody that wants to remount this mountpoint
+	signal (receive) set=(exists) peer=nextcloudpi_profile,
+}

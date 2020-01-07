@@ -1,0 +1,8 @@
+nextcloudpi:
+ ports:
+  - "4443:4443"
+  - "443:443"
+  - "80:80"
+ volumes:
+  - "ncdata:/data"
+
